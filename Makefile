@@ -44,7 +44,7 @@ test_bairstow: test_bairstow.cpp
 test_jenkins_traub: test_jenkins_traub.cpp
 	$(CXX17) -I. -I.. -o test_jenkins_traub test_jenkins_traub.cpp -lquadmath
 
-test_polynomial: test_polynomial.cpp
+test_polynomial: polynomial.h polynomial.tcc test_polynomial.cpp
 	$(CXX17) -I. -I.. -o test_polynomial test_polynomial.cpp -lquadmath
 
 test_polynomial_root: test_polynomial_root.cpp
@@ -53,7 +53,7 @@ test_polynomial_root: test_polynomial_root.cpp
 test_solvers: test_solvers.cpp
 	$(CXX17) -I. -I.. -o test_solvers test_solvers.cpp -lquadmath
 
-test_static_polynomial: test_static_polynomial.cpp
+test_static_polynomial: static_polynomial.h test_static_polynomial.cpp
 	$(CXX17) -I. -I.. -o test_static_polynomial test_static_polynomial.cpp -lquadmath
 
 docs: *.h *.tcc *.cpp

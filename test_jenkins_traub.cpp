@@ -37,17 +37,18 @@ template<typename _Real>
 			  std::vector<_Real>& poly, std::vector<_Real>& quot,
 			  _Real& a, _Real& b);
 
-    static constexpr auto eta = std::numeric_limits<_Real>::epsilon();
-    static constexpr auto base = _Real{std::numeric_limits<_Real>::radix};
-    static constexpr auto infty = 1.0e+50;//std::numeric_limits<_Real>::max();
-    static constexpr auto small = 1.0e-50;//std::numeric_limits<_Real>::min();
+    static constexpr auto _S_eps = std::numeric_limits<_Real>::epsilon();
+    static constexpr auto _S_base = _Real{std::numeric_limits<_Real>::radix};
+    static constexpr auto _S_huge = 1.0e+50;//std::numeric_limits<_Real>::max();
+    static constexpr auto _S_tiny = 1.0e-50;//std::numeric_limits<_Real>::min();
+    static constexpr auto _S_low = _S_tiny / _S_eps;
 
     _Real min_log_deriv = _Real{0.005L};
     int max_iter_real = 10;
     // Epsilon parameter.
-    _Real are = this->eta;
+    _Real are = _S_eps;
     // Epsilon parameter.
-    _Real mre = this->eta;
+    _Real mre = _S_eps;
 
     std::vector<_Real> P;
     std::vector<_Real> P_quot;
@@ -104,7 +105,6 @@ template<typename _Real>
   std::vector<solution_t<_Real>>
   _JenkinsTraubSolver<_Real>::solve()
   {
-    auto lo = this->small / this->eta;
     // Initialization of constants for shift rotation.
     auto xx = std::sqrt(_Real{0.5});
     auto yy = -xx;
@@ -154,37 +154,38 @@ template<typename _Real>
 	      }
 	    return zero;
 	  }
+
 	// Find largest and smallest moduli of coefficients.
-	auto max = _Real{0};
-	auto min = this->infty;
+	auto a_max = _Real{0};
+	auto a_min = _S_huge;
 	for (int i = 0; i <= this->order; ++i)
 	  {
 	    auto x = std::abs(this->P[i]);
-	    if (x > max)
-	      max = x;
-	    if (x != _Real{0} && x < min)
-	      min = x;
+	    if (x > a_max)
+	      a_max = x;
+	    if (x != _Real{0} && x < a_min)
+	      a_min = x;
 	  }
-	// Scale if there are large or very small coefficients.
+	// Scale if there are large or very tiny coefficients.
 	// Computes a scale factor to multiply the coefficients
 	// of the polynomial. The scaling is done to avoid overflow
 	// and to avoid undetected underflow interfering
 	// with the convergence criterion.
 	// The factor is a power of the base.
-	auto scale = lo / min;
+	auto scale = _S_low / a_min;
 	bool rescale = true;
-	if (scale > _Real{1} && this->infty / scale < max)
+	if (scale > _Real{1} && _S_huge / scale < a_max)
 	  rescale = false;
-	if (scale <= _Real{1} && max < _Real{10})
+	if (scale <= _Real{1} && a_max < _Real{10})
 	  rescale = false;
 
 	if (rescale)
 	  {
 	    // Scale polynomial.
 	    if (scale == _Real{0})
-	      scale = this->small;
-	    auto l = int(std::log(scale) / std::log(base) + _Real{0.5});
-	    auto factor = std::pow(base, l);
+	      scale = _S_tiny;
+	    auto l = int(std::log(scale) / std::log(_S_base) + _Real{0.5});
+	    auto factor = std::pow(_S_base, l);
 	    if (factor != _Real{1})
 	      for (int i = 0; i <= this->order; ++i)
 		this->P[i] *= factor;
@@ -256,7 +257,7 @@ template<typename _Real>
 		  }
 		this->H[0] = this->P[0];
 		this->zerok = (std::abs(this->H[this->order - 1])
-			    <= _Real{10} * this->eta * std::abs(bb));
+			    <= _Real{10} * _S_eps * std::abs(bb));
 	    }
 	    else
 	      {
@@ -521,8 +522,8 @@ template<typename _Real>
 	  }
 	// A cluster appears to be stalling the convergence.
 	// Five fixed shift steps are taken with a u, v close to the cluster.
-	if (relstp < this->eta)
-	  relstp = this->eta;
+	if (relstp < _S_eps)
+	  relstp = _S_eps;
 	relstp = std::sqrt(relstp);
 	this->u -= this->u * relstp;
 	this->v += this->v * relstp;
@@ -603,7 +604,7 @@ template<typename _Real>
 	      }
 
 	    if (std::abs(kval)
-		 <= std::abs(this->H[this->order - 1]) * _Real{10} * this->eta)
+		 <= std::abs(this->H[this->order - 1]) * _Real{10} * _S_eps)
 	      { // HVE n -> n-1
 		// Use unscaled form.
 		this->H[0] = _Real{0};
@@ -625,7 +626,7 @@ template<typename _Real>
 	      kval = kval * s + this->H[i];
 	    auto t = _Real{0};
 	    if (std::abs(kval)
-		 > std::abs(this->H[this->order - 1] * _Real{10} * this->eta))
+		 > std::abs(this->H[this->order - 1] * _Real{10} * _S_eps))
 	      t = -pval / kval;
 	    s += t;
 	  }
@@ -651,7 +652,7 @@ template<typename _Real>
   int
   _JenkinsTraubSolver<_Real>::calcsc()
   {
-    const auto eps = _Real{100} * this->eta;
+    const auto eps = _Real{100} * _S_eps;
     // Synthetic division of H by the quadratic 1, u, v
     int type = 0;
     this->remquo_quadratic(this->order - 1, this->u, this->v,
@@ -716,7 +717,7 @@ template<typename _Real>
     auto ab_temp = this->a;
     if (type == 1)
       ab_temp = this->b;
-    if (std::abs(this->a1) <= std::abs(ab_temp) * this->eta * _Real{10})
+    if (std::abs(this->a1) <= std::abs(ab_temp) * _S_eps * _Real{10})
       {
 	// If a1 is nearly zero then use a special form of the recurrence.
 	this->H[0] = _Real{0};
