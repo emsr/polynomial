@@ -25,14 +25,22 @@ template<typename _Real>
 
   private:
 
+    enum NormalizationType
+    {
+      none,
+      divide_by_c,
+      divide_by_d,
+      near_k_root
+    };
+
     void quadratic(_Real a, _Real b, _Real c,
 		   solution_t<_Real> &z_small, solution_t<_Real> &z_large);
     int fxshfr(int l2);
     int iter_quadratic(_Real uu, _Real vv);
     int iter_real(_Real sss, int& iflag);
-    int calcsc();
-    void next_k_poly(int type);
-    std::pair<_Real, _Real> quadratic_coefficients(int type);
+    NormalizationType init_next_k_poly();
+    void next_k_poly(NormalizationType type);
+    std::pair<_Real, _Real> quadratic_coefficients(NormalizationType type);
     void remquo_quadratic(int n, _Real u, _Real v,
 			  std::vector<_Real>& poly, std::vector<_Real>& quot,
 			  _Real& a, _Real& b);
@@ -43,6 +51,7 @@ template<typename _Real>
     static constexpr auto _S_tiny = 1.0e-50;//std::numeric_limits<_Real>::min();
     static constexpr auto _S_low = _S_tiny / _S_eps;
 
+    int max_iter_quadratic = 20;
     _Real min_log_deriv = _Real{0.005L};
     int max_iter_real = 10;
     // Epsilon parameter.
@@ -340,12 +349,12 @@ template<typename _Real>
     this->remquo_quadratic(this->order, this->u, this->v,
 			   this->P, this->P_quot,
 			   this->a, this->b);
-    auto type = this->calcsc();
+    auto type = this->init_next_k_poly();
     for (int j = 0; j < l2; ++j)
       {
 	// Calculate next H polynomial and estimate v.
 	this->next_k_poly(type);
-	type = this->calcsc();
+	type = this->init_next_k_poly();
 	auto [ui, vi] = this->quadratic_coefficients(type);
 	auto vv = vi;
 	// Estimate s.
@@ -354,7 +363,7 @@ template<typename _Real>
 	  ss = -this->P[this->order] / this->H[this->order - 1];
 	auto tv = _Real{1};
 	auto ts = _Real{1};
-	if (j == 0 || type == 3)
+	if (j == 0 || type == near_k_root)
 	  {
 	    ovv = vv;
 	    oss = ss;
@@ -440,7 +449,7 @@ template<typename _Real>
 	this->remquo_quadratic(this->order, this->u, this->v,
 			       this->P, this->P_quot,
 			       this->a, this->b);
-	type = this->calcsc();
+	type = this->init_next_k_poly();
       }
     return num_zeros;
   }
@@ -458,7 +467,7 @@ template<typename _Real>
   _JenkinsTraubSolver<_Real>::iter_quadratic(_Real uu, _Real vv)
   {
     _Real mp, omp, ee, relstp, t, zm;
-    int type;
+    NormalizationType type;
 
     int num_zeros = 0;
     int tried = 0;
@@ -502,15 +511,15 @@ template<typename _Real>
 	  }
 	j++;
 	// Stop iteration after 20 steps.
-	if (j > 20)
+	if (j > this->max_iter_quadratic)
 	  return num_zeros;
 	if (j < 2 || relstp > _Real{0.01L} || mp < omp || tried)
 	  {
 	    omp = mp;
 	    // Calculate next H polynomial and new u and v.
-	    type = this->calcsc();
+	    type = this->init_next_k_poly();
 	    this->next_k_poly(type);
-	    type = this->calcsc();
+	    type = this->init_next_k_poly();
 	    auto [ui, vi] = this->quadratic_coefficients(type);
 	    // If vi is zero the iteration is not converging.
 	    if (vi == _Real{0})
@@ -532,7 +541,7 @@ template<typename _Real>
 			       this->a, this->b);
 	for (int i = 0; i < 5; ++i)
 	  {
-	    type = this->calcsc();
+	    type = this->init_next_k_poly();
 	    this->next_k_poly(type);
 	  }
 	tried = 1;
@@ -649,12 +658,12 @@ template<typename _Real>
  *         to avoid overflow.
  */
 template<typename _Real>
-  int
-  _JenkinsTraubSolver<_Real>::calcsc()
+  typename _JenkinsTraubSolver<_Real>::NormalizationType
+  _JenkinsTraubSolver<_Real>::init_next_k_poly()
   {
     const auto eps = _Real{100} * _S_eps;
     // Synthetic division of H by the quadratic 1, u, v
-    int type = 0;
+    NormalizationType type = none;
     this->remquo_quadratic(this->order - 1, this->u, this->v,
 			   this->H, this->H_quot, this->c, this->d);
     if (std::abs(this->c) > eps * std::abs(this->H[this->order - 1])
@@ -663,7 +672,7 @@ template<typename _Real>
 	if (std::abs(this->d) < std::abs(this->c))
 	  {
 	    // Type = 1 indicates that all formulas are divided by c.
-	    type = 1;
+	    type = divide_by_c;
 	    this->e = this->a / this->c;
 	    this->f = this->d / this->c;
 	    this->g = this->u * this->e;
@@ -677,7 +686,7 @@ template<typename _Real>
 	else
 	  {
 	    // Type = 2 indicates that all formulas are divided by d.
-	    type = 2;
+	    type = divide_by_d;
 	    this->e = this->a / this->d;
 	    this->f = this->c / this->d;
 	    this->g = this->u * this->b;
@@ -692,20 +701,20 @@ template<typename _Real>
     else
       {
 	// Type == 3 indicates the quadratic is almost a factor of H.
-	type = 3;
+	type = near_k_root;
 	return type;
       }
   }
 
 
 /**
- * Computes the next H polynomials using scalars computed in calcsc.
+ * Computes the next H polynomials using scalars computed in init_next_k_poly.
  */
 template<typename _Real>
   void
-  _JenkinsTraubSolver<_Real>::next_k_poly(int type)
+  _JenkinsTraubSolver<_Real>::next_k_poly(NormalizationType type)
   {
-    if (type == 3)
+    if (type == near_k_root)
       {
 	// Use unscaled form of the recurrence if type is 3.
 	this->H[0] = _Real{0};
@@ -715,7 +724,7 @@ template<typename _Real>
 	return;
       }
     auto ab_temp = this->a;
-    if (type == 1)
+    if (type == divide_by_c)
       ab_temp = this->b;
     if (std::abs(this->a1) <= std::abs(ab_temp) * _S_eps * _Real{10})
       {
@@ -742,18 +751,18 @@ template<typename _Real>
 
 /**
  * Compute new estimates of the quadratic coefficients
- * using the scalars computed in calcsc.
+ * using the scalars computed in init_next_k_poly.
  */
 template<typename _Real>
   std::pair<_Real, _Real>
-  _JenkinsTraubSolver<_Real>::quadratic_coefficients(int type)
+  _JenkinsTraubSolver<_Real>::quadratic_coefficients(NormalizationType type)
   {
-    if (type == 3)
+    if (type == near_k_root)
       // If type=3 the quadratic is zeroed.
       return std::make_pair(_Real{0}, _Real{0});
 
     _Real a4, a5;
-    if (type == 2)
+    if (type == divide_by_d)
       {
 	a4 = (this->a + this->g) * this->f + this->h;
 	a5 = (this->f + this->u) * this->c + this->v * this->d;
