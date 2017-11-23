@@ -18,6 +18,7 @@ a.out
 obj
 
 test_bairstow
+test_horner
 test_jenkins_traub
 test_polynomial
 test_polynomial_root
