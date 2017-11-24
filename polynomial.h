@@ -280,13 +280,13 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
        *  Evaluate the even part of the polynomial at the input point.
        */
       value_type
-      even(value_type __x) const;
+      eval_even(value_type __x) const;
 
       /**
        *  Evaluate the odd part of the polynomial at the input point.
        */
       value_type
-      odd(value_type __x) const;
+      eval_odd(value_type __x) const;
 
       /**
        *  Evaluate the even part of the polynomial using a modification
@@ -302,7 +302,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
        */
       template<typename _Up>
 	auto
-	even(const std::complex<_Up>& __z) const
+	eval_even(const std::complex<_Up>& __z) const
 	-> decltype(value_type{} * std::complex<_Up>{});
 
       /**
@@ -319,7 +319,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
        */
       template<typename _Up>
 	auto
-	odd(const std::complex<_Up>& __z) const
+	eval_odd(const std::complex<_Up>& __z) const
 	-> decltype(value_type{} * std::complex<_Up>{});
 
       /**

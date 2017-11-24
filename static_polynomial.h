@@ -256,7 +256,7 @@ namespace __gnu_cxx
        *  Evaluate the even part of the polynomial at the input point.
        */
       constexpr value_type
-      even(value_type __x) const
+      eval_even(value_type __x) const
       {
 	if (this->degree() > 0)
 	  {
@@ -274,7 +274,7 @@ namespace __gnu_cxx
        *  Evaluate the odd part of the polynomial at the input point.
        */
       constexpr value_type
-      odd(value_type __x) const
+      eval_odd(value_type __x) const
       {
 	if (this->degree() > 0)
 	  {
@@ -302,7 +302,7 @@ namespace __gnu_cxx
        */
       template<typename _Tp2>
 	auto
-	even(std::complex<_Tp2> __z) const
+	eval_even(std::complex<_Tp2> __z) const
 	-> decltype(value_type{} * std::complex<_Tp2>{})
 	{
 	  if (this->degree() > 0)
@@ -337,7 +337,7 @@ namespace __gnu_cxx
        */
       template<typename _Tp2>
 	auto
-	odd(std::complex<_Tp2> __z) const
+	eval_odd(std::complex<_Tp2> __z) const
 	-> decltype(value_type{} * std::complex<_Tp2>{})
 	{
 	  if (this->degree() > 0)

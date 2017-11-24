@@ -144,7 +144,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
    */
   template<typename _Tp>
     typename _Polynomial<_Tp>::value_type
-    _Polynomial<_Tp>::even(typename _Polynomial<_Tp>::value_type __x) const
+    _Polynomial<_Tp>::eval_even(typename _Polynomial<_Tp>::value_type __x) const
     {
       if (this->degree() > 0)
 	{
@@ -163,7 +163,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
    */
   template<typename _Tp>
     typename _Polynomial<_Tp>::value_type
-    _Polynomial<_Tp>::odd(typename _Polynomial<_Tp>::value_type __x) const
+    _Polynomial<_Tp>::eval_odd(typename _Polynomial<_Tp>::value_type __x) const
     {
       if (this->degree() > 0)
 	{
@@ -192,7 +192,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
   template<typename _Tp>
     template<typename _Up>
       auto
-      _Polynomial<_Tp>::even(const std::complex<_Up>& __z) const
+      _Polynomial<_Tp>::eval_even(const std::complex<_Up>& __z) const
       -> decltype(typename _Polynomial<_Tp>::value_type{} * std::complex<_Up>{})
       {
 	if (this->degree() > 0)
@@ -228,7 +228,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
   template<typename _Tp>
     template<typename _Up>
       auto
-      _Polynomial<_Tp>::odd(const std::complex<_Up>& __z) const
+      _Polynomial<_Tp>::eval_odd(const std::complex<_Up>& __z) const
       -> decltype(_Polynomial<_Tp>::value_type{} * std::complex<_Up>{})
       {
 	if (this->degree() > 0)
