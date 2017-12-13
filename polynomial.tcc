@@ -148,10 +148,11 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
     {
       if (this->degree() > 0)
 	{
-	  auto __odd = this->degree() % 2;
-	  value_type __poly(this->coefficient(this->degree() - __odd));
+	  const auto __odd = this->degree() % 2;
+	  const auto __xx = __x * __x;
+	  auto __poly(this->coefficient(this->degree() - __odd));
 	  for (int __i = this->degree() - __odd - 2; __i >= 0; __i -= 2)
-	    __poly = __poly * __x * __x + this->coefficient(__i);
+	    __poly = this->coefficient(__i) + __xx * __poly;
 	  return __poly;
 	}
       else
@@ -167,11 +168,12 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
     {
       if (this->degree() > 0)
 	{
-	  auto __even = (this->degree() % 2 == 0 ? 1 : 0);
-	  value_type __poly(this->coefficient(this->degree() - __even));
+	  const auto __even = (this->degree() % 2 == 0 ? 1 : 0);
+	  const auto __xx = __x * __x;
+	  auto __poly(this->coefficient(this->degree() - __even));
 	  for (int __i = this->degree() - __even - 2; __i >= 0; __i -= 2)
-	    __poly = __poly * __x * __x + this->coefficient(__i);
-	  return __poly * __x;
+	    __poly = this->coefficient(__i) + __xx * __poly;
+	  return __x * __poly;
 	}
       else
 	return value_type{};
