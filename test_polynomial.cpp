@@ -19,6 +19,7 @@ main()
   using namespace std::literals::complex_literals;
 
   std::cout.setf(std::ios_base::boolalpha);
+  std::cout.precision(std::numeric_limits<double>::digits10);
 
   __gnu_cxx::_Polynomial<double> P({0.0, 1.0, 2.0, 3.0});
   std::cout << "P = " << P << '\n';
