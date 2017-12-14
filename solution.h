@@ -281,10 +281,10 @@ namespace __gnu_cxx
 	{
 	  const auto __rex = real(__x);
 	  const auto __rey = real(__y);
-	  if (std::get<1>(__rex) < std::get<1>(__rey))
+	  if (__rex < __rey)
 	    return true;
 	  else if (__rex == __rey)
-	    return std::get<1>(imag(__x)) < std::get<1>(imag(__y));
+	    return imag(__x) < imag(__y);
 	  else
 	    return false;
 	}

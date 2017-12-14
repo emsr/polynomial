@@ -199,8 +199,6 @@ namespace __gnu_cxx
     {
       using std::experimental::make_array;
 
-      const auto _S_pi = __gnu_cxx::__const_pi(_CC[0]);
-
       std::array<solution_t<_Real>, 4> _ZZ;
 
       if (_CC[4] == _Real{0})

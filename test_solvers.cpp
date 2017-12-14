@@ -1,11 +1,12 @@
 /*
-$HOME/bin/bin/g++ -std=gnu++17 -g -I. -o test_solvers test_solvers.cpp -lquadmath
+$HOME/bin/bin/g++ -std=gnu++17 -g -I. -I.. -o test_solvers test_solvers.cpp -lquadmath
 ./test_solvers > test_solvers.txt
 */
 
+#include <experimental/array>
 #include <iostream>
 #include <iomanip>
-#include <bits/numeric_limits.h>
+#include <limits>
 
 #include "solver_low_degree.h"
 
@@ -14,7 +15,7 @@ template<typename _Real, unsigned long int _Dim>
   try_solution(std::array<_Real, _Dim> coef,
 	       const __gnu_cxx::solution_t<_Real>& z)
   {
-    const auto _S_eps = 100 * __gnu_cxx::__epsilon<_Real>();
+    const auto _S_eps = _Real{100} * std::numeric_limits<_Real>::epsilon();
     if (z.index() == 0)
       return true;
     else if (z.index() == 1)
@@ -33,6 +34,7 @@ template<typename _Real, unsigned long int _Dim>
 	  y = coef[i - 1] + x * y;
 	return std::abs(y) < _S_eps * std::abs(x);
       }
+    return false;
   }
 
 int
@@ -41,7 +43,7 @@ main()
   using std::experimental::make_array;
 
   std::cout << std::boolalpha;
-  std::cout.precision(__gnu_cxx::__digits10<double>());
+  std::cout.precision(std::numeric_limits<double>::digits10);
   std::cout << std::showpoint << std::scientific;
   auto w = 8 + std::cout.precision();
 
