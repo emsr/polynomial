@@ -3,8 +3,8 @@
 
 #include "polynomial.h"
 
-#ifndef _EXT_RATPOLY_HPP
-#define _EXT_RATPOLY_HPP 1
+#ifndef _EXT_RATIONAL_POLYNOMIAL_H
+#define _EXT_RATIONAL_POLYNOMIAL_H 1
 
 namespace __gnu_cxx
 {
@@ -189,4 +189,4 @@ namespace __gnu_cxx
 
 } // namespace __gnu_cxx
 
-#endif // _EXT_RATPOLY_HPP
+#endif // _EXT_RATIONAL_POLYNOMIAL_H

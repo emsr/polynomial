@@ -29,7 +29,7 @@ BINS = \
        test_jenkins_traub \
        test_polynomial \
        test_polynomial_root \
-       test_ratpoly \
+       test_rational_polynomial \
        test_solvers \
        test_static_polynomial
 
@@ -51,8 +51,8 @@ test_polynomial: polynomial.h polynomial.tcc test_polynomial.cpp
 test_polynomial_root: test_polynomial_root.cpp
 	$(CXX17) -I. -I.. -o test_polynomial_root test_polynomial_root.cpp -lquadmath
 
-test_ratpoly: ratpoly.h test_ratpoly.cpp
-	$(CXX17) -I. -I.. -o test_ratpoly test_ratpoly.cpp -lquadmath
+test_rational_polynomial: rational_polynomial.h test_rational_polynomial.cpp
+	$(CXX17) -I. -I.. -o test_rational_polynomial test_rational_polynomial.cpp -lquadmath
 
 test_solvers: test_solvers.cpp
 	$(CXX17) -I. -I.. -o test_solvers test_solvers.cpp -lquadmath
@@ -67,7 +67,7 @@ docs: *.h *.tcc *.cpp
 	cd latex && make
 
 test:
-	LD_LIBRARY_PATH=$(CXX_LIB_DIR):$$LD_LIBRARY_PATH ./test_ratpoly > test_ratpoly.txt
+	LD_LIBRARY_PATH=$(CXX_LIB_DIR):$$LD_LIBRARY_PATH ./test_rational_polynomial > test_rational_polynomial.txt
 	LD_LIBRARY_PATH=$(CXX_LIB_DIR):$$LD_LIBRARY_PATH ./test_bairstow < test_bairstow.in > test_bairstow.txt
 	LD_LIBRARY_PATH=$(CXX_LIB_DIR):$$LD_LIBRARY_PATH ./test_bairstow < test_solver1.in >> test_bairstow.txt
 	LD_LIBRARY_PATH=$(CXX_LIB_DIR):$$LD_LIBRARY_PATH ./test_bairstow < test_solver2.in >> test_bairstow.txt
