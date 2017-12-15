@@ -10,6 +10,9 @@ namespace __gnu_cxx _GLIBCXX_VISIBILITY(default)
 {
 _GLIBCXX_BEGIN_NAMESPACE_VERSION
 
+/**
+ * Perform compile-time evaluation of a constant zero-order polynomial. 
+ */
 template<typename _ArgT, typename _Coef0>
   constexpr std::conditional_t<std::is_integral_v<_ArgT>, double, _ArgT>
   horner(_ArgT __x, _Coef0 __c0)
@@ -18,6 +21,10 @@ template<typename _ArgT, typename _Coef0>
     return __arg_t{__c0};
   }
 
+/**
+ * Perform compile-time evaluation of a constant polynomial.
+ * The polynomial coefficients are lowest-order first.
+ */
 template<typename _ArgT, typename _Coef0, typename... _Coef>
   constexpr std::conditional_t<std::is_integral_v<_ArgT>, double, _ArgT>
   horner(_ArgT __x, _Coef0 __c0, _Coef... __c)
@@ -27,6 +34,10 @@ template<typename _ArgT, typename _Coef0, typename... _Coef>
   }
 
 
+/**
+ * Perform compile-time evaluation of a constant zero-order polynomial. 
+ * The polynomial coefficients are highest-order first.
+ */
 template<typename _ArgT, typename _Coef0>
   constexpr std::conditional_t<std::is_integral_v<_ArgT>, double, _ArgT>
   horner_big_end(_ArgT, _Coef0 __c0)
@@ -35,6 +46,10 @@ template<typename _ArgT, typename _Coef0>
     return __arg_t{__c0};
   }
 
+/**
+ * Perform compile-time evaluation of a constant first-order polynomial. 
+ * The polynomial coefficients are highest-order first.
+ */
 template<typename _ArgT, typename _Coef1, typename _Coef0>
   constexpr std::conditional_t<std::is_integral_v<_ArgT>, double, _ArgT>
   horner_big_end(_ArgT __x, _Coef1 __c1, _Coef0 __c0)
@@ -43,6 +58,10 @@ template<typename _ArgT, typename _Coef1, typename _Coef0>
     return horner_big_end(__x, __x * __arg_t{__c1} + __arg_t{__c0});
   }
 
+/**
+ * Perform compile-time evaluation of a constant polynomial. 
+ * The polynomial coefficients are highest-order first.
+ */
 template<typename _ArgT, typename _CoefN, typename _CoefNm1, typename... _Coef>
   constexpr std::conditional_t<std::is_integral_v<_ArgT>, double, _ArgT>
   horner_big_end(_ArgT __x, _CoefN __cn, _CoefNm1 __cnm1, _Coef... __c)
