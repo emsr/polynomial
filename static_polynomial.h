@@ -4,6 +4,10 @@
 #include <array>
 #include <complex>
 
+/**
+ * @file static_polynomial.h Class definition for a polynomial.
+ */
+
 namespace __gnu_cxx
 {
 
