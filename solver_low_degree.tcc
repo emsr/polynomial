@@ -247,7 +247,8 @@ namespace __gnu_cxx
 	  auto _ZZ3 = __cubic<_Real>(_AA3);
 	  if (_ZZ3[1].index() == 1 && _ZZ3[2].index() == 1)
             {
-	      // There is some horrible big with swap and this variant.
+	      // There is some horrible bug with swap and this variant.
+	      // They may need to hold the same type.
 	      if (_ZZ3[0] < _ZZ3[1])
 		//std::swap(_ZZ3[0], _ZZ3[1]);
 		{
