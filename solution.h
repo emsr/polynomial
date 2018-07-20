@@ -16,7 +16,31 @@ namespace __gnu_cxx
     constexpr bool
     is_valid(const solution_t<_Real>& __x)
     { return __x.index() != 0; }
+/*
+  template<typename _Real>
+    constexpr solution_t<_Real>
+    real(const solution_t<_Real>& __x)
+    {
+      if (__x.index() == 0)
+	return solution_t<_Real>();
+      else if (__x.index() == 1)
+	return solution_t<_Real>(std::get<1>(__x));
+      else
+	return solution_t<_Real>(std::real(std::get<2>(__x)));
+    }
 
+  template<typename _Real>
+    constexpr solution_t<_Real>
+    imag(const solution_t<_Real>& __x)
+    {
+      if (__x.index() == 0)
+	return solution_t<_Real>();
+      else if (__x.index() == 1)
+	return solution_t<_Real>(_Real{0});
+      else
+	return solution_t<_Real>(std::imag(std::get<2>(__x)));
+    }
+*/
   template<typename _Real>
     constexpr _Real
     real(const solution_t<_Real>& __x)
@@ -41,53 +65,97 @@ namespace __gnu_cxx
 	return std::imag(std::get<2>(__x));
     }
 
+  template<typename _Real>
+    constexpr _Real
+    abs(const solution_t<_Real>& __x)
+    {
+      if (__x.index() == 0)
+	return std::numeric_limits<_Real>::quiet_NaN();
+      else if (__x.index() == 1)
+	return std::abs(std::get<1>(__x));
+      else
+	return std::abs(std::get<2>(__x));
+    }
+
   /**
    * Return the solution as a complex number or NaN.
    */
   template<typename _Real>
-    constexpr std::complex<_Real>
+    constexpr solution_t<_Real>
     to_complex(const solution_t<_Real>& __x)
     {
-      constexpr auto _S_NaN = std::numeric_limits<_Real>::quiet_NaN();
       if (__x.index() == 0)
-	return std::complex<_Real>{_S_NaN, _S_NaN};
+	return solution_t<_Real>();
       else if (__x.index() == 1)
-	return std::complex<_Real>(std::get<1>(__x), _Real{0});
+	return solution_t<_Real>(std::complex<_Real>(std::get<1>(__x)));
       else
-	return std::get<2>(__x);
+	return __x;
+    }
+
+  /**
+   * Unary +-
+   */
+  template<typename _Real>
+    constexpr solution_t<_Real>
+    operator+(const solution_t<_Real>& __x)
+    { return __x; }
+
+  template<typename _Real>
+    constexpr solution_t<_Real>
+    operator-(const solution_t<_Real>& __x)
+    {
+      if (__x.index() == 0)
+	return std::numeric_limits<_Real>::quiet_NaN();
+      else if (__x.index() == 1)
+	return solution_t<_Real>(-std::get<1>(__x));
+      else
+	return solution_t<_Real>(-std::get<2>(__x));
     }
 
   /**
    * Addition operators...
    */
   template<typename _Real>
-    constexpr std::complex<_Real>
+    constexpr solution_t<_Real>
     operator+(const solution_t<_Real>& __x, const solution_t<_Real>& __y)
     {
-      constexpr auto _S_NaN = std::numeric_limits<_Real>::quiet_NaN();
-      if (__x.index() == 0 || __y.index() == 0)
-	return std::complex<_Real>{_S_NaN, _S_NaN};
+      if (__x.index() == 0)
+	return __x;
+      if (__y.index() == 0)
+	return __y;
+      else if (__x.index() == 1)
+	{
+	  if (__y.index() == 1)
+	    return solution_t<_Real>(std::get<1>(__x) + std::get<1>(__y));
+	  else
+	    return solution_t<_Real>(std::get<1>(__x) + std::get<2>(__y));
+	}
       else
-	return to_complex(__x) + to_complex(__y);
+	{
+	  if (__y.index() == 1)
+	    return solution_t<_Real>(std::get<2>(__x) + std::get<1>(__y));
+	  else
+	    return solution_t<_Real>(std::get<2>(__x) + std::get<2>(__y));
+	}
     }
 
   template<typename _Real>
-    constexpr std::complex<_Real>
+    constexpr solution_t<_Real>
     operator+(const solution_t<_Real>& __x, _Real __y)
     { return operator+(__x, solution_t<_Real>(__y)); }
 
   template<typename _Real>
-    constexpr std::complex<_Real>
+    constexpr solution_t<_Real>
     operator+(_Real __x, const solution_t<_Real>& __y)
     { return operator+(solution_t<_Real>(__x), __y); }
 
   template<typename _Real>
-    constexpr std::complex<_Real>
+    constexpr solution_t<_Real>
     operator+(const solution_t<_Real>& __x, std::complex<_Real>& __y)
     { return operator+(__x, solution_t<_Real>(__y)); }
 
   template<typename _Real>
-    constexpr std::complex<_Real>
+    constexpr solution_t<_Real>
     operator+(std::complex<_Real>& __x, const solution_t<_Real>& __y)
     { return operator+(solution_t<_Real>(__x), __y); }
 
@@ -95,33 +163,46 @@ namespace __gnu_cxx
    * Subtraction operators...
    */
   template<typename _Real>
-    constexpr std::complex<_Real>
+    constexpr solution_t<_Real>
     operator-(const solution_t<_Real>& __x, const solution_t<_Real>& __y)
     {
-      constexpr auto _S_NaN = std::numeric_limits<_Real>::quiet_NaN();
-      if (__x.index() == 0 || __y.index() == 0)
-	return std::complex<_Real>{_S_NaN, _S_NaN};
+      if (__x.index() == 0)
+	return __x;
+      if (__y.index() == 0)
+	return __y;
+      else if (__x.index() == 1)
+	{
+	  if (__y.index() == 1)
+	    return solution_t<_Real>(std::get<1>(__x) - std::get<1>(__y));
+	  else
+	    return solution_t<_Real>(std::get<1>(__x) - std::get<2>(__y));
+	}
       else
-	return to_complex(__x) - to_complex(__y);
+	{
+	  if (__y.index() == 1)
+	    return solution_t<_Real>(std::get<2>(__x) - std::get<1>(__y));
+	  else
+	    return solution_t<_Real>(std::get<2>(__x) - std::get<2>(__y));
+	}
     }
 
   template<typename _Real>
-    constexpr std::complex<_Real>
+    constexpr solution_t<_Real>
     operator-(const solution_t<_Real>& __x, _Real __y)
     { return operator-(__x, solution_t<_Real>(__y)); }
 
   template<typename _Real>
-    constexpr std::complex<_Real>
+    constexpr solution_t<_Real>
     operator-(_Real __x, const solution_t<_Real>& __y)
     { return operator-(solution_t<_Real>(__x), __y); }
 
   template<typename _Real>
-    constexpr std::complex<_Real>
+    constexpr solution_t<_Real>
     operator-(const solution_t<_Real>& __x, std::complex<_Real>& __y)
     { return operator-(__x, solution_t<_Real>(__y)); }
 
   template<typename _Real>
-    constexpr std::complex<_Real>
+    constexpr solution_t<_Real>
     operator-(std::complex<_Real>& __x, const solution_t<_Real>& __y)
     { return operator-(solution_t<_Real>(__x), __y); }
 
@@ -129,33 +210,46 @@ namespace __gnu_cxx
    * Multiplication operators...
    */
   template<typename _Real>
-    constexpr std::complex<_Real>
+    constexpr solution_t<_Real>
     operator*(const solution_t<_Real>& __x, const solution_t<_Real>& __y)
     {
-      constexpr auto _S_NaN = std::numeric_limits<_Real>::quiet_NaN();
-      if (__x.index() == 0 || __y.index() == 0)
-	return std::complex<_Real>{_S_NaN, _S_NaN};
+      if (__x.index() == 0)
+	return __x;
+      if (__y.index() == 0)
+	return __y;
+      else if (__x.index() == 1)
+	{
+	  if (__y.index() == 1)
+	    return solution_t<_Real>(std::get<1>(__x) * std::get<1>(__y));
+	  else
+	    return solution_t<_Real>(std::get<1>(__x) * std::get<2>(__y));
+	}
       else
-	return to_complex(__x) * to_complex(__y);
+	{
+	  if (__y.index() == 1)
+	    return solution_t<_Real>(std::get<2>(__x) * std::get<1>(__y));
+	  else
+	    return solution_t<_Real>(std::get<2>(__x) * std::get<2>(__y));
+	}
     }
 
   template<typename _Real>
-    constexpr std::complex<_Real>
+    constexpr solution_t<_Real>
     operator*(const solution_t<_Real>& __x, _Real __y)
     { return operator*(__x, solution_t<_Real>(__y)); }
 
   template<typename _Real>
-    constexpr std::complex<_Real>
+    constexpr solution_t<_Real>
     operator*(_Real __x, const solution_t<_Real>& __y)
     { return operator*(solution_t<_Real>(__x), __y); }
 
   template<typename _Real>
-    constexpr std::complex<_Real>
+    constexpr solution_t<_Real>
     operator*(const solution_t<_Real>& __x, std::complex<_Real>& __y)
     { return operator*(__x, solution_t<_Real>(__y)); }
 
   template<typename _Real>
-    constexpr std::complex<_Real>
+    constexpr solution_t<_Real>
     operator*(std::complex<_Real>& __x, const solution_t<_Real>& __y)
     { return operator*(solution_t<_Real>(__x), __y); }
 
@@ -163,33 +257,46 @@ namespace __gnu_cxx
    * division operators...
    */
   template<typename _Real>
-    constexpr std::complex<_Real>
+    constexpr solution_t<_Real>
     operator/(const solution_t<_Real>& __x, const solution_t<_Real>& __y)
     {
-      constexpr auto _S_NaN = std::numeric_limits<_Real>::quiet_NaN();
-      if (__x.index() == 0 || __y.index() == 0)
-	return std::complex<_Real>{_S_NaN, _S_NaN};
+      if (__x.index() == 0)
+	return __x;
+      if (__y.index() == 0)
+	return __y;
+      else if (__x.index() == 1)
+	{
+	  if (__y.index() == 1)
+	    return solution_t<_Real>(std::get<1>(__x) / std::get<1>(__y));
+	  else
+	    return solution_t<_Real>(std::get<1>(__x) / std::get<2>(__y));
+	}
       else
-	return to_complex(__x) / to_complex(__y);
+	{
+	  if (__y.index() == 1)
+	    return solution_t<_Real>(std::get<2>(__x) / std::get<1>(__y));
+	  else
+	    return solution_t<_Real>(std::get<2>(__x) / std::get<2>(__y));
+	}
     }
 
   template<typename _Real>
-    constexpr std::complex<_Real>
+    constexpr solution_t<_Real>
     operator/(const solution_t<_Real>& __x, _Real __y)
     { return operator/(__x, solution_t<_Real>(__y)); }
 
   template<typename _Real>
-    constexpr std::complex<_Real>
+    constexpr solution_t<_Real>
     operator/(_Real __x, const solution_t<_Real>& __y)
     { return operator/(solution_t<_Real>(__x), __y); }
 
   template<typename _Real>
-    constexpr std::complex<_Real>
+    constexpr solution_t<_Real>
     operator/(const solution_t<_Real>& __x, std::complex<_Real>& __y)
     { return operator/(__x, solution_t<_Real>(__y)); }
 
   template<typename _Real>
-    constexpr std::complex<_Real>
+    constexpr solution_t<_Real>
     operator/(std::complex<_Real>& __x, const solution_t<_Real>& __y)
     { return operator/(solution_t<_Real>(__x), __y); }
 
