@@ -182,6 +182,18 @@ main()
       std::cout << std::setw(w) << biquad[i] << "  good: " << ok << '\n';
     }
 
+  // 0 = (z - 1)(z + 1)(z - 4)(z + 4)
+  //   = (z^2 - 1)(z^2 - 16)
+  //   = z^4 - 17z^2 + 16
+  std::cout << '\n';
+  const auto biquad2_coef = make_array(16.0, 0.0, -17.0, 0.0, 1.0);
+  auto biquad2 = __gnu_cxx::__quartic<double>(biquad2_coef);
+  for (int i = 0; i < 4; ++i)
+    {
+      bool ok = try_solution(biquad2_coef, biquad2[i]);
+      std::cout << std::setw(w) << biquad2[i] << "  good: " << ok << '\n';
+    }
+
   // New API.
   __gnu_cxx::__quadratic<double>(-2.0, 1.0, 1.0);
   __gnu_cxx::__cubic<double>(24.0, -22.0, -4.0, 2.0);
