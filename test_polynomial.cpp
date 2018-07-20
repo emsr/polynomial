@@ -64,15 +64,15 @@ main()
   std::cout << "P2 == P = " << (P2 == P) << '\n';
 
   for (int i = 0; i <= 100; ++i)
-  {
-    double x = i * 0.1;
-    std::cout << "P(" << x << ") = " << P(x) << '\n';
-  }
+    {
+      double x = i * 0.1;
+      std::cout << "P(" << x << ") = " << P(x) << '\n';
+    }
 
   __gnu_cxx::_Polynomial<std::complex<double>>
   CP({std::complex<double>(0.0, -1.0),
-      std::complex<double>(1.0, -2.0), 
-      std::complex<double>(2.0, -3.0), 
+      std::complex<double>(1.0, -2.0),
+      std::complex<double>(2.0, -3.0),
       std::complex<double>(3.0, -4.0)});
   std::cout << "CP = " << CP << '\n';
   std::cout << "CP * CP = " << CP * CP << '\n';
@@ -148,7 +148,7 @@ main()
   std::cout << "P = " << P << '\n';
   std::cout << "P' = " << P.derivative() << '\n';
   std::cout << "I = " << P.integral(42.0) << '\n';
-  
+
   __gnu_cxx::_Polynomial<__gnu_cxx::_Polynomial<double>>
   Pp({{9.0, 8.0, 7.0}, {6.0, 5.0, 4.0}, {3.0, 2.0, 1.0}});
   std::cout << "Pp = " << Pp << '\n';

@@ -11,7 +11,7 @@ namespace __gnu_cxx _GLIBCXX_VISIBILITY(default)
 _GLIBCXX_BEGIN_NAMESPACE_VERSION
 
 /**
- * Perform compile-time evaluation of a constant zero-order polynomial. 
+ * Perform compile-time evaluation of a constant zero-order polynomial.
  */
 template<typename _ArgT, typename _Coef0>
   constexpr std::conditional_t<std::is_integral<_ArgT>::value,
@@ -39,7 +39,7 @@ template<typename _ArgT, typename _Coef0, typename... _Coef>
 
 
 /**
- * Perform compile-time evaluation of a constant zero-order polynomial. 
+ * Perform compile-time evaluation of a constant zero-order polynomial.
  * The polynomial coefficients are highest-order first.
  */
 template<typename _ArgT, typename _Coef0>
@@ -53,7 +53,7 @@ template<typename _ArgT, typename _Coef0>
   }
 
 /**
- * Perform compile-time evaluation of a constant first-order polynomial. 
+ * Perform compile-time evaluation of a constant first-order polynomial.
  * The polynomial coefficients are highest-order first.
  */
 template<typename _ArgT, typename _Coef1, typename _Coef0>
@@ -67,7 +67,7 @@ template<typename _ArgT, typename _Coef1, typename _Coef0>
   }
 
 /**
- * Perform compile-time evaluation of a constant polynomial. 
+ * Perform compile-time evaluation of a constant polynomial.
  * The polynomial coefficients are highest-order first.
  */
 template<typename _ArgT, typename _CoefN, typename _CoefNm1, typename... _Coef>

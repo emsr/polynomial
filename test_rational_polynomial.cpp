@@ -6,10 +6,11 @@ $HOME/bin/bin/g++ -g -std=gnu++17 -g -Wall -Wextra -I. -o test_rational_polynomi
 ./test_rational_polynomial > test_rational_polynomial.txt
 */
 
-#include "rational_polynomial.h"
 #include <iostream>
 #include <complex>
 #include <sstream>
+
+#include "rational_polynomial.h"
 
 int
 main()

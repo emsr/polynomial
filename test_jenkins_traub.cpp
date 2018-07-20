@@ -108,7 +108,7 @@ template<typename _Real>
   }
 
 /**
- * 
+ *
  */
 template<typename _Real>
   std::vector<solution_t<_Real>>
@@ -509,7 +509,7 @@ template<typename _Real>
 	    num_zeros = 2;
 	    return num_zeros;
 	  }
-	j++;
+	++j;
 	// Stop iteration after 20 steps.
 	if (j > this->max_iter_quadratic)
 	  return num_zeros;

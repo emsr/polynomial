@@ -73,7 +73,7 @@ template<typename _Tp>
 	  u.imag(_Tp{0});
 	  auto ud = std::complex<_Tp>{};
 	  auto t = std::complex<_Tp>{1, 0};
-	  for (std::size_t i = 0; i < n; ++i) 
+	  for (std::size_t i = 0; i < n; ++i)
 	    {
 	      auto t1 = x * t;
 	      cofj = cof.coefficient(n - 1 - i); // Evaluate polynomial
@@ -84,7 +84,7 @@ template<typename _Tp>
 	    }
 
 	  auto mag = std::norm(ud);
-	  if (mag == _Tp{0}) 
+	  if (mag == _Tp{0})
 	    {
 	      if (!final)
 		goto TRY_AGAIN;
@@ -93,7 +93,7 @@ template<typename _Tp>
 	    }
 	  auto dx = u * ud / mag;
 	  x += dx;
-	  if (std::abs(dx.imag()) + std::abs(dx.real()) < 1.0e-6) 
+	  if (std::abs(dx.imag()) + std::abs(dx.real()) < 1.0e-6)
 	    goto LOOP_DONE;
 	  ++iter;
 	} // while iter < 500
@@ -119,7 +119,7 @@ template<typename _Tp>
 	if (!final)
 	  {
 	    final = true;
-	    if (std::abs(x.imag() / x.real()) < 1.0e-4) 
+	    if (std::abs(x.imag() / x.real()) < 1.0e-4)
 	      x.imag(_Tp{0});
 	    xsav = x;
 	    goto FINAL_ITER; // do final iteration on original polynomial
@@ -146,11 +146,11 @@ template<typename _Tp>
 
 	// Divide working polynomial cof(z) by z - x
 	cof.coefficient(1, cof.coefficient(1) + cofj * cof.coefficient(0));
-	for (std::size_t j = 1; j < n; ++j) 
+	for (std::size_t j = 1; j < n; ++j)
 	  cof.coefficient(j + 1, cof.coefficient(j + 1) + cofj * cof.coefficient(j) - mag * cof.coefficient(j - 1));
 
 	root.push_back(x);
-	if (!real_root) 
+	if (!real_root)
 	  root.push_back(std::conj(x));
       }
 

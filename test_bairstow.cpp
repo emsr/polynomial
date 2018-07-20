@@ -136,7 +136,7 @@ template<typename _Real>
 	__s += __ds;
 	++__iter;
       }
-    for (int i = 0; i < this->_M_order - 1; ++i) 
+    for (int i = 0; i < this->_M_order - 1; ++i)
       this->_M_coeff[i] = this->_M_b[i];
 
     std::array<solution_t<_Real>, 2> __z2 = __quadratic(__s, __r, _Real{1});

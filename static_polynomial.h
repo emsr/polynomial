@@ -50,7 +50,7 @@ namespace __gnu_cxx
 
       template<typename _Up>
 	constexpr
-	_StaticPolynomial(const _StaticPolynomial<_Up, _Num>& __poly)    
+	_StaticPolynomial(const _StaticPolynomial<_Up, _Num>& __poly)
 	: _M_coeff{}
 	{
           for (auto __i = 0ULL; __i < _Num; ++__i)
@@ -157,7 +157,7 @@ namespace __gnu_cxx
        *  The algorithm is discussed in detail in:
        *  Knuth, D. E., The Art of Computer Programming: Seminumerical
        *  Algorithms (Vol. 2) Third Ed., Addison-Wesley, pp 486-488, 1998.
-       * 
+       *
        *  If n is the degree of the polynomial, n - 3 multiplies are
        *  saved and 4 * n - 6 additions are saved.
        */
@@ -300,7 +300,7 @@ namespace __gnu_cxx
        *  The algorithm is discussed in detail in:
        *  Knuth, D. E., The Art of Computer Programming: Seminumerical
        *  Algorithms (Vol. 2) Third Ed., Addison-Wesley, pp 486-488, 1998.
-       * 
+       *
        *  If n is the degree of the polynomial,
        *  n - 3 multiplies and 4 * n - 6 additions are saved.
        */
@@ -335,7 +335,7 @@ namespace __gnu_cxx
        *  The algorithm is discussed in detail in:
        *  Knuth, D. E., The Art of Computer Programming: Seminumerical
        *  Algorithms (Vol. 2) Third Ed., Addison-Wesley, pp 486-488, 1998.
-       * 
+       *
        *  If n is the degree of the polynomial,
        *  n - 3 multiplies and 4 * n - 6 additions are saved.
        */
