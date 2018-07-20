@@ -218,6 +218,32 @@ namespace __gnu_cxx
 	  _ZZ[2] = _ZZ3[1];
 	  return _ZZ;
 	}
+      else if (_CC[3] == _Real{0} && _CC[1] == _Real{0})
+	{
+	  // Solve the biquadratic equation.
+	  std::array<_Real, 3> _AA2{{_CC[0], _CC[2], _CC[4]}};
+	  const auto _ZZ2 = __quadratic<_Real>(_AA2);
+	  auto __sqrt = [](solution_t<_Real> __z) -> auto
+			{
+			  const auto __idx = __z.index();
+			  if (__idx == 0)
+			    return __z;
+			  else if (__idx == 1)
+			    {
+			      auto __zz = std::get<1>(__z);
+			      return __zz < _Real{0}
+				   ? solution_t<_Real>(std::sqrt(std::complex<_Real>(__zz)))
+				   : solution_t<_Real>(std::sqrt(__zz));
+			    }
+			  else
+			    return solution_t<_Real>(std::sqrt(std::get<2>(__z)));
+			};
+	  _ZZ[0] = __sqrt(_ZZ2[0]);
+	  _ZZ[1] = __sqrt(_ZZ2[1]);
+	  _ZZ[2] = -_ZZ[0];
+	  _ZZ[3] = -_ZZ[1];
+	  return _ZZ;
+	}
       else
 	{
 	  //  Normalize quartic equation coefficients.
