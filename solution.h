@@ -105,7 +105,7 @@ namespace __gnu_cxx
     operator-(const solution_t<_Real>& __x)
     {
       if (__x.index() == 0)
-	return std::numeric_limits<_Real>::quiet_NaN();
+	return __x;
       else if (__x.index() == 1)
 	return solution_t<_Real>(-std::get<1>(__x));
       else

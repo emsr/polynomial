@@ -223,7 +223,7 @@ namespace __gnu_cxx
 	  // Solve the biquadratic equation.
 	  std::array<_Real, 3> _AA2{{_CC[0], _CC[2], _CC[4]}};
 	  const auto _ZZ2 = __quadratic<_Real>(_AA2);
-	  auto __sqrt = [](solution_t<_Real> __z) -> auto
+	  auto __sqrt = [](solution_t<_Real> __z) -> solution_t<_Real>
 			{
 			  const auto __idx = __z.index();
 			  if (__idx == 0)

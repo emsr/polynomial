@@ -35,6 +35,11 @@ BINS = \
 
 all: $(BINS)
 
+polynomial.h: polynomial.tcc
+
+solver_low_degree.h: solution.h solver_low_degree.tcc
+
+rational_polynomial.h: polynomial.h
 
 test_bairstow: test_bairstow.cpp
 	$(CXX17) -I. -I.. -o test_bairstow test_bairstow.cpp -lquadmath
@@ -42,19 +47,19 @@ test_bairstow: test_bairstow.cpp
 test_horner: test_horner.cpp
 	$(CXX17) -I. -I.. -o test_horner test_horner.cpp -lquadmath
 
-test_jenkins_traub: test_jenkins_traub.cpp
+test_jenkins_traub: solution.h solver_low_degree.h polynomial.h test_jenkins_traub.cpp
 	$(CXX17) -I. -I.. -o test_jenkins_traub test_jenkins_traub.cpp -lquadmath
 
 test_polynomial: polynomial.h polynomial.tcc test_polynomial.cpp
 	$(CXX17) -I. -I.. -o test_polynomial test_polynomial.cpp -lquadmath
 
-test_polynomial_root: test_polynomial_root.cpp
+test_polynomial_root: polynomial.h test_polynomial_root.cpp
 	$(CXX17) -I. -I.. -o test_polynomial_root test_polynomial_root.cpp -lquadmath
 
 test_rational_polynomial: rational_polynomial.h test_rational_polynomial.cpp
 	$(CXX17) -I. -I.. -o test_rational_polynomial test_rational_polynomial.cpp -lquadmath
 
-test_solvers: test_solvers.cpp
+test_solvers: solution.h solver_low_degree.h test_solvers.cpp
 	$(CXX17) -I. -I.. -o test_solvers test_solvers.cpp -lquadmath
 
 test_static_polynomial: static_polynomial.h test_static_polynomial.cpp
