@@ -1,15 +1,16 @@
 /*
-$HOME/bin_tr29124/bin/g++ -g -std=gnu++17 -g -Wall -Wextra -Wno-psabi -I. -o test_ratpoly test_ratpoly.cpp -lquadmath
-./test_ratpoly > test_ratpoly.txt
+$HOME/bin_tr29124/bin/g++ -g -std=gnu++17 -g -Wall -Wextra -Wno-psabi -I. -o test_rational_polynomial test_rational_polynomial.cpp -lquadmath
+./test_rational_polynomial > test_rational_polynomial.txt
 
-$HOME/bin/bin/g++ -g -std=gnu++17 -g -Wall -Wextra -I. -o test_ratpoly test_ratpoly.cpp -lquadmath
-./test_ratpoly > test_ratpoly.txt
+$HOME/bin/bin/g++ -g -std=gnu++17 -g -Wall -Wextra -I. -o test_rational_polynomial test_rational_polynomial.cpp -lquadmath
+./test_rational_polynomial > test_rational_polynomial.txt
 */
 
-#include "ratpoly.h"
 #include <iostream>
 #include <complex>
 #include <sstream>
+
+#include "rational_polynomial.h"
 
 int
 main()
