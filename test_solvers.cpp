@@ -10,21 +10,29 @@ $HOME/bin/bin/g++ -std=gnu++17 -g -I. -I.. -o test_solvers test_solvers.cpp -lqu
 
 #include "solver_low_degree.h"
 
+template<typename Real>
+  struct status
+  {
+    bool ok;
+    Real err;
+  };
+
 template<typename _Real, unsigned long int _Dim>
-  bool
+  status<_Real>
   try_solution(std::array<_Real, _Dim> coef,
 	       const __gnu_cxx::solution_t<_Real>& z)
   {
     const auto _S_eps = _Real{100} * std::numeric_limits<_Real>::epsilon();
     if (z.index() == 0)
-      return true;
+      return {true, _Real{0}};
     else if (z.index() == 1)
       {
 	const _Real x = std::get<1>(z);
 	_Real y = coef[_Dim - 1];
 	for (unsigned int i = _Dim - 1; i > 0; --i)
 	  y = coef[i - 1] + x * y;
-	return std::abs(y) < _S_eps * std::abs(x);
+	const _Real eps = std::abs(y);
+	return {std::abs(y) < _S_eps * std::abs(x), eps};
       }
     else if (z.index() == 2)
       {
@@ -32,9 +40,10 @@ template<typename _Real, unsigned long int _Dim>
 	std::complex<_Real> y = coef[_Dim - 1];
 	for (unsigned int i = _Dim - 1; i > 0; --i)
 	  y = coef[i - 1] + x * y;
-	return std::abs(y) < _S_eps * std::abs(x);
+	const _Real eps = std::abs(y);
+	return {std::abs(y) < _S_eps * std::abs(x), eps};
       }
-    return false;
+    return {false, _Real{0}};
   }
 
 int
@@ -53,8 +62,8 @@ main()
   auto quad = __gnu_cxx::__quadratic<double>(quad_coef);
   for (int i = 0; i < 2; ++i)
     {
-      bool ok = try_solution(quad_coef, quad[i]);
-      std::cout << std::setw(w) << quad[i] << "  good: " << ok << '\n';
+      auto stat = try_solution(quad_coef, quad[i]);
+      std::cout << std::setw(w) << quad[i] << "  good: " << std::setw(5) << stat.ok << "  error: " << stat.err << '\n';
     }
 
   // 0 = [z - (2+i)][z - (2-i)] = z^2 -4z + 5
@@ -63,8 +72,8 @@ main()
   auto cquad = __gnu_cxx::__quadratic<double>(cquad_coef);
   for (int i = 0; i < 2; ++i)
     {
-      bool ok = try_solution(cquad_coef, cquad[i]);
-      std::cout << std::setw(w) << cquad[i] << "  good: " << ok << '\n';
+      auto stat = try_solution(cquad_coef, cquad[i]);
+      std::cout << std::setw(w) << cquad[i] << "  good: " << std::setw(5) << stat.ok << "  error: " << stat.err << '\n';
     }
 
   // 0 = z - 2 = 0z^2 + z - 2
@@ -73,8 +82,8 @@ main()
   auto linquad = __gnu_cxx::__quadratic<double>(linquad_coef);
   for (int i = 0; i < 2; ++i)
     {
-      bool ok = try_solution(linquad_coef, linquad[i]);
-      std::cout << std::setw(w) << linquad[i] << "  good: " << ok << '\n';
+      auto stat = try_solution(linquad_coef, linquad[i]);
+      std::cout << std::setw(w) << linquad[i] << "  good: " << std::setw(5) << stat.ok << "  error: " << stat.err << '\n';
     }
 
   // 0 = (2z + 6)(z - 4)(z - 1) = 2z^3 - 4z^2 - 22z + 24
@@ -83,8 +92,8 @@ main()
   auto cub = __gnu_cxx::__cubic<double>(cub_coef);
   for (int i = 0; i < 3; ++i)
     {
-      bool ok = try_solution(cub_coef, cub[i]);
-      std::cout << std::setw(w) << cub[i] << "  good: " << ok << '\n';
+      auto stat = try_solution(cub_coef, cub[i]);
+      std::cout << std::setw(w) << cub[i] << "  good: " << std::setw(5) << stat.ok << "  error: " << stat.err << '\n';
     }
 
   std::cout << '\n';
@@ -92,8 +101,8 @@ main()
   auto quadcub = __gnu_cxx::__cubic<double>(quadcub_coef);
   for (int i = 0; i < 3; ++i)
     {
-      bool ok = try_solution(quadcub_coef, quadcub[i]);
-      std::cout << std::setw(w) << quadcub[i] << "  good: " << ok << '\n';
+      auto stat = try_solution(quadcub_coef, quadcub[i]);
+      std::cout << std::setw(w) << quadcub[i] << "  good: " << std::setw(5) << stat.ok << "  error: " << stat.err << '\n';
     }
 
   std::cout << '\n';
@@ -101,8 +110,8 @@ main()
   auto lincub = __gnu_cxx::__cubic<double>(lincub_coef);
   for (int i = 0; i < 3; ++i)
     {
-      bool ok = try_solution(lincub_coef, lincub[i]);
-      std::cout << std::setw(w) << lincub[i] << "  good: " << ok << '\n';
+      auto stat = try_solution(lincub_coef, lincub[i]);
+      std::cout << std::setw(w) << lincub[i] << "  good: " << std::setw(5) << stat.ok << "  error: " << stat.err << '\n';
     }
 
   std::cout << '\n';
@@ -110,8 +119,8 @@ main()
   auto cub2 = __gnu_cxx::__cubic<double>(cub2_coef);
   for (int i = 0; i < 3; ++i)
     {
-      bool ok = try_solution(cub2_coef, cub2[i]);
-      std::cout << std::setw(w) << cub2[i] << "  good: " << ok << '\n';
+      auto stat = try_solution(cub2_coef, cub2[i]);
+      std::cout << std::setw(w) << cub2[i] << "  good: " << std::setw(5) << stat.ok << "  error: " << stat.err << '\n';
     }
 
   // 0 = (z - 5)[z - (2+i)][z - (2-i)] = z^3 - 9z^2 + 25z - 25
@@ -120,8 +129,8 @@ main()
   auto ccube = __gnu_cxx::__cubic<double>(ccube_coef);
   for (int i = 0; i < 3; ++i)
     {
-      bool ok = try_solution(ccube_coef, ccube[i]);
-      std::cout << std::setw(w) << ccube[i] << "  good: " << ok << '\n';
+      auto stat = try_solution(ccube_coef, ccube[i]);
+      std::cout << std::setw(w) << ccube[i] << "  good: " << std::setw(5) << stat.ok << "  error: " << stat.err << '\n';
     }
 
   std::cout << '\n';
@@ -129,8 +138,8 @@ main()
   auto quart = __gnu_cxx::__quartic<double>(quart_coef);
   for (int i = 0; i < 4; ++i)
     {
-      bool ok = try_solution(quart_coef, quart[i]);
-      std::cout << std::setw(w) << quart[i] << "  good: " << ok << '\n';
+      auto stat = try_solution(quart_coef, quart[i]);
+      std::cout << std::setw(w) << quart[i] << "  good: " << std::setw(5) << stat.ok << "  error: " << stat.err << '\n';
     }
 
   std::cout << '\n';
@@ -138,8 +147,8 @@ main()
   auto cubquart = __gnu_cxx::__quartic<double>(cubquart_coef);
   for (int i = 0; i < 4; ++i)
     {
-      bool ok = try_solution(cubquart_coef, cubquart[i]);
-      std::cout << std::setw(w) << cubquart[i] << "  good: " << ok << '\n';
+      auto stat = try_solution(cubquart_coef, cubquart[i]);
+      std::cout << std::setw(w) << cubquart[i] << "  good: " << std::setw(5) << stat.ok << "  error: " << stat.err << '\n';
     }
 
   std::cout << '\n';
@@ -147,8 +156,8 @@ main()
   auto quadquart = __gnu_cxx::__quartic<double>(quadquart_coef);
   for (int i = 0; i < 4; ++i)
     {
-      bool ok = try_solution(quadquart_coef, quadquart[i]);
-      std::cout << std::setw(w) << quadquart[i] << "  good: " << ok << '\n';
+      auto stat = try_solution(quadquart_coef, quadquart[i]);
+      std::cout << std::setw(w) << quadquart[i] << "  good: " << std::setw(5) << stat.ok << "  error: " << stat.err << '\n';
     }
 
   std::cout << '\n';
@@ -156,8 +165,8 @@ main()
   auto linquart = __gnu_cxx::__quartic<double>(linquart_coef);
   for (int i = 0; i < 4; ++i)
     {
-      bool ok = try_solution(linquart_coef, linquart[i]);
-      std::cout << std::setw(w) << linquart[i] << "  good: " << ok << '\n';
+      auto stat = try_solution(linquart_coef, linquart[i]);
+      std::cout << std::setw(w) << linquart[i] << "  good: " << std::setw(5) << stat.ok << "  error: " << stat.err << '\n';
     }
 
   // 0 = (z - 3)(z - 5)[z - (2+i)][z - (2-i)]
@@ -167,8 +176,8 @@ main()
   auto cquart = __gnu_cxx::__quartic<double>(cquart_coef);
   for (int i = 0; i < 4; ++i)
     {
-      bool ok = try_solution(cquart_coef, cquart[i]);
-      std::cout << std::setw(w) << cquart[i] << "  good: " << ok << '\n';
+      auto stat = try_solution(cquart_coef, cquart[i]);
+      std::cout << std::setw(w) << cquart[i] << "  good: " << std::setw(5) << stat.ok << "  error: " << stat.err << '\n';
     }
 
   // 0 = [z - (-1+i)][z - (-1-i)][z - (4+2i)][z - (4-2i)]
@@ -178,8 +187,8 @@ main()
   auto biquad = __gnu_cxx::__quartic<double>(biquad_coef);
   for (int i = 0; i < 4; ++i)
     {
-      bool ok = try_solution(biquad_coef, biquad[i]);
-      std::cout << std::setw(w) << biquad[i] << "  good: " << ok << '\n';
+      auto stat = try_solution(biquad_coef, biquad[i]);
+      std::cout << std::setw(w) << biquad[i] << "  good: " << std::setw(5) << stat.ok << "  error: " << stat.err << '\n';
     }
 
   // 0 = (z - 1)(z + 1)(z - 4)(z + 4)
@@ -190,8 +199,8 @@ main()
   auto biquad2 = __gnu_cxx::__quartic<double>(biquad2_coef);
   for (int i = 0; i < 4; ++i)
     {
-      bool ok = try_solution(biquad2_coef, biquad2[i]);
-      std::cout << std::setw(w) << biquad2[i] << "  good: " << ok << '\n';
+      auto stat = try_solution(biquad2_coef, biquad2[i]);
+      std::cout << std::setw(w) << biquad2[i] << "  good: " << std::setw(5) << stat.ok << "  error: " << stat.err << '\n';
     }
 
   // New API.

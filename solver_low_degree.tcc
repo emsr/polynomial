@@ -1,3 +1,27 @@
+// Math extensions -*- C++ -*-
+
+// Copyright (C) 2016-2018 Free Software Foundation, Inc.
+//
+// This file is part of the GNU ISO C++ Library.  This library is free
+// software; you can redistribute it and/or modify it under the
+// terms of the GNU General Public License as published by the
+// Free Software Foundation; either version 3, or (at your option)
+// any later version.
+
+// This library is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+
+// Under Section 7 of GPL version 3, you are granted additional
+// permissions described in the GCC Runtime Library Exception, version
+// 3.1, as published by the Free Software Foundation.
+
+// You should have received a copy of the GNU General Public License and
+// a copy of the GCC Runtime Library Exception along with this program;
+// see the files COPYING3 and COPYING.RUNTIME respectively.  If not, see
+// <http://www.gnu.org/licenses/>.
+
 #ifndef SOLVER_LOW_DEGREE_TCC
 #define SOLVER_LOW_DEGREE_TCC 1
 
@@ -5,6 +29,67 @@
 
 namespace __gnu_cxx
 {
+
+  template<std::size_t _Dim, typename _Iter, typename _NumTp>
+    _NumTp
+    __refine_solution_newton(_NumTp __z, const _Iter& _CC)
+    {
+      for (int __i = 0; __i < 3; ++__i)
+	{
+	  auto __f = _NumTp(_CC[_Dim - 1]);
+	  for (std::size_t __j = _Dim - 1; __j > 0; --__j)
+	    __f = _NumTp(_CC[__j - 1]) + __z * __f;
+
+	  auto __df = _NumTp((_Dim - 1) * _CC[_Dim - 1]);
+	  for (std::size_t __j = _Dim - 1; __j > 1; --__j)
+	    __df = _NumTp((__j - 1) * _CC[__j - 1]) + __z * __df;
+
+	  const auto __del = __f / __df;
+	  __z -= __del;
+	}
+      return __z;
+    }
+
+  template<std::size_t _Dim, typename _Iter, typename _NumTp>
+    _NumTp
+    __refine_solution_halley(_NumTp __z, const _Iter& _CC)
+    {
+      for (int __i = 0; __i < 3; ++__i)
+	{
+	  auto __f = _NumTp(_CC[_Dim - 1]);
+	  for (std::size_t __j = _Dim - 1; __j > 0; --__j)
+	    __f = _NumTp(_CC[__j - 1]) + __z * __f;
+
+	  auto __df = _NumTp((_Dim - 1) * _CC[_Dim - 1]);
+	  for (std::size_t __j = _Dim - 1; __j > 1; --__j)
+	    __df = _NumTp((__j - 1) * _CC[__j - 1]) + __z * __df;
+
+	  auto __d2f = _NumTp((_Dim - 2) * (_Dim - 1) * _CC[_Dim - 1]);
+	  for (std::size_t __j = _Dim - 1; __j > 2; --__j)
+	    __d2f = _NumTp((__j - 2) * (__j - 1) * _CC[__j - 1]) + __z * __d2f;
+
+	  const auto __del = _NumTp{2} * __f * __df
+			   / (_NumTp{2} * __df * __df - __f * __d2f);
+
+	  __z -= __del;
+	}
+      return __z;
+    }
+
+  template<std::size_t _Dim, typename _Iter, typename _Real>
+    void
+    __refine_solutions(std::array<solution_t<_Real>, _Dim - 1>& _ZZ, const _Iter& _CC)
+    {
+      for (std::size_t __i = 0; __i < _Dim - 1; ++__i)
+	{
+	  if (_ZZ[__i].index() == 0)
+	    continue;
+	  else if (_ZZ[__i].index() == 1)
+	    _ZZ[__i] = __refine_solution_newton<_Dim>(std::get<1>(_ZZ[__i]), _CC);
+	  else if (_ZZ[__i].index() == 2)
+	    _ZZ[__i] = __refine_solution_newton<_Dim>(std::get<2>(_ZZ[__i]), _CC);
+	}
+    }
 
   /**
    * @brief Finds the roots of a quadratic equation of the form:
@@ -107,32 +192,30 @@ namespace __gnu_cxx
 
       if (_CC[3] == _Real{0})
 	{
+	  // Last root is null, remaining equation is quadratic.
 	  const auto _ZZ2 = __quadratic<_Real>(_CC);
 	  _ZZ[0] = _ZZ2[0];
 	  _ZZ[1] = _ZZ2[1];
-	  return _ZZ;
 	}
       else if (_CC[0] == _Real{0})
 	{
+	  // First root is zero, remaining equation is quadratic.
 	  _ZZ[0] = _Real{0};
 	  const auto _ZZ2 = __quadratic<_Real>(make_array(_CC[1], _CC[2],
 							  _CC[3]));
 	  _ZZ[1] = _ZZ2[0];
 	  _ZZ[2] = _ZZ2[1];
-	  return _ZZ;
 	}
       else
 	{
-	  //  Normalize cubic equation coefficients.
+	  // Normalize cubic equation coefficients.
 	  std::array<_Real, 4> _AA3;
 	  _AA3[3] = _Real{1};
 	  _AA3[2] = _CC[2] / _CC[3];
 	  _AA3[1] = _CC[1] / _CC[3];
 	  _AA3[0] = _CC[0] / _CC[3];
 
-	  const auto _S_pi = __gnu_cxx::__const_pi(_CC[0]);
-	  const auto _S_2pi = _Real{2} * _S_pi;
-	  const auto _S_4pi = _Real{4} * _S_pi;
+	  const auto _S_2pi = _Real{2} * __gnu_cxx::__const_pi(_CC[0]);
 	  const auto _PP = _AA3[2] / _Real{3};
 	  const auto _QQ = (_AA3[2] * _AA3[2] - _Real{3} * _AA3[1])
 			 / _Real{9};
@@ -144,22 +227,21 @@ namespace __gnu_cxx
 
 	  if (_QQp3 - _RRp2 > _Real{0})
 	    {
-	      //  Calculate the three real roots.
+	      // Calculate the three real roots.
 	      const auto __phi = std::acos(_RR / std::sqrt(_QQp3));
 	      const auto __fact = -_Real{2} * std::sqrt(_QQ);
-	      _ZZ[0] = __fact * std::cos(__phi / _Real{3}) - _PP;
-	      _ZZ[1] = __fact * std::cos((__phi + _S_2pi) / _Real{3}) - _PP;
-	      _ZZ[2] = __fact * std::cos((__phi + _S_4pi) / _Real{3}) - _PP;
+	      for (int __i = 0; __i < 3; ++__i)
+		_ZZ[__i] = __fact * std::cos((__phi + __i * _S_2pi) / _Real{3}) - _PP;
 	    }
 	  else
 	    {
-	      //  Calculate the single real root.
-	      const auto __fact = std::cbrt(std::sqrt(_RRp2 - _QQp3)
-					     + std::abs(_RR));
+	      // Calculate the single real root.
+	      const auto __fact = std::cbrt(std::abs(_RR)
+					  + std::sqrt(_RRp2 - _QQp3));
 	      const auto _BB = -std::copysign(__fact + _QQ / __fact, _RR);
 	      _ZZ[0] = _BB - _PP;
 
-	      //  Find the other two roots which are complex conjugates.
+	      // Find the other two roots which are complex conjugates.
 	      std::array<_Real, 3> _AA2;
 	      _AA2[2] = _Real{1};
 	      _AA2[1] = _BB;
@@ -168,9 +250,9 @@ namespace __gnu_cxx
 	      _ZZ[1] = std::get<2>(_ZZ2[0]) - _PP;
 	      _ZZ[2] = std::get<2>(_ZZ2[1]) - _PP;
 	    }
-
-	  return _ZZ;
 	}
+
+      return _ZZ;
     }
 
 
@@ -207,7 +289,6 @@ namespace __gnu_cxx
 	  _ZZ[0] = _ZZ3[0];
 	  _ZZ[1] = _ZZ3[1];
 	  _ZZ[2] = _ZZ3[2];
-	  return _ZZ;
 	}
       else if (_CC[0] == _Real{0})
 	{
@@ -216,7 +297,6 @@ namespace __gnu_cxx
 						      _CC[3], _CC[4]));
 	  _ZZ[1] = _ZZ3[0];
 	  _ZZ[2] = _ZZ3[1];
-	  return _ZZ;
 	}
       else if (_CC[3] == _Real{0} && _CC[1] == _Real{0})
 	{
@@ -242,11 +322,10 @@ namespace __gnu_cxx
 	  _ZZ[1] = __sqrt(_ZZ2[1]);
 	  _ZZ[2] = -_ZZ[0];
 	  _ZZ[3] = -_ZZ[1];
-	  return _ZZ;
 	}
       else
 	{
-	  //  Normalize quartic equation coefficients.
+	  // Normalize quartic equation coefficients.
 	  std::array<_Real, 5> _AA4;
 	  _AA4[4] = _Real{1};
 	  _AA4[3] = _CC[3] / _CC[4];
@@ -254,7 +333,7 @@ namespace __gnu_cxx
 	  _AA4[1] = _CC[1] / _CC[4];
 	  _AA4[0] = _CC[0] / _CC[4];
 
-	  //  Calculate the coefficients of the resolvent cubic equation.
+	  // Calculate the coefficients of the resolvent cubic equation.
 	  std::array<_Real, 4> _AA3;
 	  _AA3[3] = _Real{1};
 	  _AA3[2] = -_AA4[2];
@@ -294,7 +373,7 @@ namespace __gnu_cxx
 	  else
 	    _Z3max = std::get<1>(_ZZ3[0]);
 
-	  //  Calculate the coefficients for the two quadratic equations
+	  // Calculate the coefficients for the two quadratic equations
 	  const auto __capa = _Real{0.5L} * _AA4[3];
 	  const auto __capb = _Real{0.5L} * _Z3max;
 	  const auto __capc = std::sqrt(__capa * __capa - _AA4[2] + _Z3max);
@@ -308,7 +387,7 @@ namespace __gnu_cxx
 	  if (std::abs(__t2 - _AA4[1]) < std::abs(__t1 - _AA4[1]))
 	    std::swap(__dp, __dm);
 
-	  //  Coefficients for the first quadratic equation and find the roots.
+	  // Coefficients for the first quadratic equation and find the roots.
 	  std::array<_Real, 3> _AA2;
 	  _AA2[2] = _Real{1};
 	  _AA2[1] = __cp;
@@ -317,16 +396,16 @@ namespace __gnu_cxx
 	  _ZZ[0] = _ZZ2p[0];
 	  _ZZ[1] = _ZZ2p[1];
 
-	  //  Coefficients for the second quadratic equation and find the roots.
+	  // Coefficients for the second quadratic equation and find the roots.
 	  _AA2[2] = _Real{1};
 	  _AA2[1] = __cm;
 	  _AA2[0] = __dm;
 	  const auto _ZZ2m = __quadratic<_Real>(_AA2);
 	  _ZZ[2] = _ZZ2m[0];
 	  _ZZ[3] = _ZZ2m[1];
-
-	  return _ZZ;
 	}
+
+      return _ZZ;
     }
 
 } // namespace __gnu_cxx

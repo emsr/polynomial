@@ -59,7 +59,7 @@ test_polynomial_root: polynomial.h test_polynomial_root.cpp
 test_rational_polynomial: rational_polynomial.h test_rational_polynomial.cpp
 	$(CXX17) -I. -I.. -o test_rational_polynomial test_rational_polynomial.cpp -lquadmath
 
-test_solvers: solution.h solver_low_degree.h test_solvers.cpp
+test_solvers: solution.h solver_low_degree.h solver_low_degree.tcc test_solvers.cpp
 	$(CXX17) -I. -I.. -o test_solvers test_solvers.cpp -lquadmath
 
 test_static_polynomial: static_polynomial.h test_static_polynomial.cpp
