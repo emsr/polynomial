@@ -19,6 +19,7 @@ namespace __gnu_cxx
 
 ///
 /// @todo: If you *don't* reverse the input array you solve for 1/z.
+/// @todo Take a max_error.  If this->_M_eps grows larger than max_error throw.
 ///
 template<typename _Real>
   class _BairstowSolver
@@ -39,8 +40,8 @@ template<typename _Real>
 				  "Leading-order coefficient must be nonzero.");
 
       const auto __scale = this->_M_coeff[0];
-      for (int i = 0; i <= this->_M_order; ++i)
-	this->_M_coeff[i] /= __scale;
+      for (int __i = 0; __i <= this->_M_order; ++__i)
+	this->_M_coeff[__i] /= __scale;
 
       this->_M_zero.reserve(this->_M_coeff.size());
     }
@@ -59,8 +60,11 @@ template<typename _Real>
       --this->_M_order;
     }
 
-    static constexpr int _S_max_rand_iter = 200;
-    static constexpr int _S_max_error_iter = 500;
+    static constexpr _Real _S_ratio
+	= _Real{std::numeric_limits<_Real>::digits}
+	/ std::numeric_limits<double>::digits;
+    static constexpr int _S_max_rand_iter = 200 * _S_ratio;
+    static constexpr int _S_max_error_iter = 500 * _S_ratio;
     static constexpr auto _S_eps
       = _Real{10} * std::numeric_limits<_Real>::epsilon();
 
@@ -73,6 +77,9 @@ template<typename _Real>
     bool _M_precision_error = false;
   };
 
+/**
+ * Attempt to find a quadratic factor of the polynomial by Bairstow's method.
+ */
 template<typename _Real>
   void
   _BairstowSolver<_Real>::_M_iterate()
@@ -85,30 +92,30 @@ template<typename _Real>
     int __iter = 1;
     this->_M_precision_error = false;
 
-    while ((std::abs(__dr) + std::abs(__ds)) > this->_M_eps)
+    while (std::abs(__dr) + std::abs(__ds) > this->_M_eps)
       {
 	if (__iter % _S_max_rand_iter == 0)
 	  {
-	    std::random_device rd;
-	    std::mt19937 urng(rd());
-	    std::uniform_real_distribution<_Real> pdf(0, 2);
-	    __r = pdf(urng);
+	    std::random_device __rd;
+	    std::mt19937 __urng(__rd());
+	    std::uniform_real_distribution<_Real> __pdf(_Real{0}, _Real{2});
+	    __r = __pdf(__urng);
 	  }
 	if (__iter % _S_max_error_iter == 0)
 	  {
 	    this->_M_eps *= _Real{10};
 	    this->_M_precision_error = true;
-	    std::cout << "Loss of precision\n";
+	    std::cout << "Loss of precision: " << this->_M_eps << '\n';
 	  }
+
 	this->_M_b[1] = this->_M_coeff[1] - __r;
 	this->_M_c[1] = this->_M_b[1] - __r;
-
-	for (int i = 2; i <= this->_M_order; ++i)
+	for (int __i = 2; __i <= this->_M_order; ++__i)
 	  {
-	    this->_M_b[i] = this->_M_coeff[i]
-			  - __r * this->_M_b[i-1] - __s * this->_M_b[i-2];
-	    this->_M_c[i] = this->_M_b[i]
-			  - __r * this->_M_c[i-1] - __s * this->_M_c[i-2];
+	    this->_M_b[__i] = this->_M_coeff[__i]
+			  - __r * this->_M_b[__i-1] - __s * this->_M_b[__i-2];
+	    this->_M_c[__i] = this->_M_b[__i]
+			  - __r * this->_M_c[__i-1] - __s * this->_M_c[__i-2];
 	  }
 
 	auto __dn = this->_M_c[this->_M_order-1] * this->_M_c[this->_M_order-3]
@@ -136,8 +143,8 @@ template<typename _Real>
 	__s += __ds;
 	++__iter;
       }
-    for (int i = 0; i < this->_M_order - 1; ++i)
-      this->_M_coeff[i] = this->_M_b[i];
+    for (int __i = 0; __i < this->_M_order - 1; ++__i)
+      this->_M_coeff[__i] = this->_M_b[__i];
 
     std::array<solution_t<_Real>, 2> __z2 = __quadratic(__s, __r, _Real{1});
 
@@ -233,5 +240,12 @@ template<typename _Real>
 int
 main()
 {
+  std::cout << "\ndouble\n======\n";
   test_bairstow<double>();
+
+  std::cout << "\nlong double\n===========\n";
+  test_bairstow<long double>();
+
+  std::cout << "\nfloat\n=====\n";
+  test_bairstow<float>();
 }
