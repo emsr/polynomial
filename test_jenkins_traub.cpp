@@ -395,16 +395,17 @@ template<typename _Real>
 	  }
 	// At least one sequence has passed the convergence test.
 	// Store variables before iterating.
-	auto u_save = this->__u;
-	auto v_save = this->__v;
+	auto __u_save = this->__u;
+	auto __v_save = this->__v;
 	this->_H_save = this->_H;
 	auto __s = __ss;
 	// Choose iteration according to the fastest converging sequence.
 	auto __vtry = false;
 	auto __stry = false;
 	if ((__spass && !__vpass) || __tss < __tvv)
-	  goto _40;
-  _20:	
+	  goto _TRY_LINEAR_;
+
+  _TRY_QUADRATIC_:
 	__num_zeros = this->iter_quadratic(__ui, __vi);
 	if (__num_zeros > 0)
 	  return __num_zeros;
@@ -415,10 +416,10 @@ template<typename _Real>
 	// Try linear iteration if it has not been tried and
 	// the S sequence is converging.
 	if (__stry || !__spass)
-	  goto _50;
+	  goto _RESTORE_VARS_;
 	this->_H = this->_H_save;
 
-  _40:
+  _TRY_LINEAR_:
 	__num_zeros = this->iter_real(__s, __iflag);
 	if (__num_zeros > 0)
 	  return __num_zeros;
@@ -427,22 +428,23 @@ template<typename _Real>
 	__stry = true;
 	__betas *= _Real{0.25};
 	if (__iflag == 0)
-	  goto _50;
-	// If linear iteration signals an almost _Real real
+	  goto _RESTORE_VARS_;
+	// If linear iteration signals an almost real
 	// zero attempt quadratic iteration.
 	__ui = -_Real{2} * __s;
 	__vi = __s * __s;
-	goto _20;
-  _50:
+	goto _TRY_QUADRATIC_;
+
+  _RESTORE_VARS_:
 	// Restore variables.
-	this->__u = u_save;
-	this->__v = v_save;
+	this->__u = __u_save;
+	this->__v = __v_save;
 	this->_H = this->_H_save;
 
 	// Try quadratic iteration if it has not been tried
 	// and the V sequence is converging.
-	if (__vpass && !__vtry)
-	  goto _20;
+	if (!__vtry && __vpass)
+	  goto _TRY_QUADRATIC_;
 
 	// Recompute polynomial quotient and remainder
         // to continue the second stage.
