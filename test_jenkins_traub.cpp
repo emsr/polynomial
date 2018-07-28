@@ -55,56 +55,55 @@ template<typename _Real>
     _Real min_log_deriv = _Real{0.005L};
     int max_iter_real = 10;
     // Epsilon parameter.
-    _Real are = _S_eps;
+    _Real __are = _S_eps;
     // Epsilon parameter.
-    _Real mre = _S_eps;
+    _Real __mre = _S_eps;
 
-    std::vector<_Real> P;
-    std::vector<_Real> P_quot;
-    std::vector<_Real> H, H_quot, H_save;
-    _Real sr, si;
-    _Real u, v;
-    _Real a;
-    _Real b;
-    _Real c;
-    _Real d;
-    _Real e;
-    _Real f;
-    _Real g;
-    _Real h;
-    _Real a1;
-    _Real a2;
-    _Real a3;
-    _Real a6;
-    _Real a7;
-    solution_t<_Real> z_small;
-    solution_t<_Real> z_large;
-    int order;
-    bool zerok;
-    int num_iters = 0;
+    std::vector<_Real> _P;
+    std::vector<_Real> _P_quot;
+    std::vector<_Real> _H, _H_quot, _H_save;
+    _Real __sr, __si;
+    _Real __u, __v;
+    _Real __a;
+    _Real __b;
+    _Real __c;
+    _Real __d;
+    _Real __e;
+    _Real __f;
+    _Real __g;
+    _Real __h;
+    _Real __a1;
+    _Real __a2;
+    _Real __a3;
+    _Real __a7;
+    solution_t<_Real> __z_small;
+    solution_t<_Real> __z_large;
+    int __order;
+    bool __zerok;
+    int __num_iters = 0;
   };
 
 /**
  * Constructor from input polygon.
  */
 template<typename _Real>
-  _JenkinsTraubSolver<_Real>::_JenkinsTraubSolver(const std::vector<_Real>& op)
-  : P(op)
+  _JenkinsTraubSolver<_Real>::_JenkinsTraubSolver(const std::vector<_Real>& __op)
+  : _P(__op)
   {
-    if (this->P.size() == 0)
+    if (this->_P.size() == 0)
       std::__throw_domain_error("Polynomial degree must be at least 1.");
 
     // Algorithm fails of the leading coefficient is zero.
     // We could erase leading-order zero coefficients.
-    if (this->P[0] == _Real{0})
+    if (this->_P[0] == _Real{0})
       std::__throw_domain_error("Leading coefficient must be nonzero.");
 
-    const auto degree = this->P.size() - 1;
-    this->order = degree;
-    this->P_quot.resize(degree + 1);
-    this->H.resize(degree + 1);
-    this->H_quot.resize(degree + 1);
-    this->H_save.resize(degree + 1);
+    const auto __degree = this->_P.size() - 1;
+    this->__order = __degree;
+    this->_P_quot.resize(__degree + 1);
+    this->_H.resize(__degree + 1);
+    this->_H_quot.resize(__degree + 1);
+    this->_H_save.resize(__degree + 1);
   }
 
 /**
@@ -115,65 +114,65 @@ template<typename _Real>
   _JenkinsTraubSolver<_Real>::solve()
   {
     // Initialization of constants for shift rotation.
-    auto xx = std::sqrt(_Real{0.5});
-    auto yy = -xx;
-    const auto rot = _Real{94} * _Real{0.017453293};
-    const auto cosr = std::cos(rot);
-    const auto sinr = std::sin(rot);
+    auto __xx = std::sqrt(_Real{0.5});
+    auto __yy = -__xx;
+    const auto __rot = _Real{94} * _Real{0.017453293};
+    const auto __cosr = std::cos(__rot);
+    const auto __sinr = std::sin(__rot);
 
-    std::vector<solution_t<_Real>> zero;
-    zero.reserve(this->P.size());
+    std::vector<solution_t<_Real>> __zero;
+    __zero.reserve(this->_P.size());
 
     // Remove the zeros at the origin, if any.
-    while (this->P[this->order] == _Real{0})
+    while (this->_P[this->__order] == _Real{0})
       {
-	zero.push_back(_Real{0});
-	--this->order;
+	__zero.push_back(_Real{0});
+	--this->__order;
       }
-    if (this->order < 1)
-      return zero;
+    if (this->__order < 1)
+      return __zero;
 
-    std::vector<_Real> pt(this->order + 1);
-    std::vector<_Real> H_temp(this->order + 1);
+    std::vector<_Real> __pt(this->__order + 1);
+    std::vector<_Real> _H_temp(this->__order + 1);
 
     while (true)
       {
 	// Start the algorithm for one zero.
-	this->num_iters = 0;
-	if (this->order == 1)
+	this->__num_iters = 0;
+	if (this->__order == 1)
 	  {
-	    zero.push_back(-this->P[1] / this->P[0]);
-	    --this->order;
-	    return zero;
+	    __zero.push_back(-this->_P[1] / this->_P[0]);
+	    --this->__order;
+	    return __zero;
 	  }
 	// Calculate the final zero or pair of zeros.
-	if (this->order == 2)
+	if (this->__order == 2)
 	  {
-	    solution_t<_Real> z_small, z_large;
-	    this->quadratic(this->P[0], this->P[1], this->P[2], z_small, z_large);
-	    if (z_small.index() != 0)
+	    solution_t<_Real> __z_small, __z_large;
+	    this->quadratic(this->_P[0], this->_P[1], this->_P[2], __z_small, __z_large);
+	    if (__z_small.index() != 0)
 	      {
-		zero.push_back(z_small);
-		--this->order;
+		__zero.push_back(__z_small);
+		--this->__order;
 	      }
-	    if (z_large.index() != 0)
+	    if (__z_large.index() != 0)
 	      {
-		zero.push_back(z_large);
-		--this->order;
+		__zero.push_back(__z_large);
+		--this->__order;
 	      }
-	    return zero;
+	    return __zero;
 	  }
 
 	// Find largest and smallest moduli of coefficients.
-	auto a_max = _Real{0};
-	auto a_min = _S_huge;
-	for (int i = 0; i <= this->order; ++i)
+	auto __a_max = _Real{0};
+	auto __a_min = _S_huge;
+	for (int __i = 0; __i <= this->__order; ++__i)
 	  {
-	    auto x = std::abs(this->P[i]);
-	    if (x > a_max)
-	      a_max = x;
-	    if (x != _Real{0} && x < a_min)
-	      a_min = x;
+	    auto __x = std::abs(this->_P[__i]);
+	    if (__x > __a_max)
+	      __a_max = __x;
+	    if (__x != _Real{0} && __x < __a_min)
+	      __a_min = __x;
 	  }
 	// Scale if there are large or very tiny coefficients.
 	// Computes a scale factor to multiply the coefficients
@@ -181,146 +180,146 @@ template<typename _Real>
 	// and to avoid undetected underflow interfering
 	// with the convergence criterion.
 	// The factor is a power of the base.
-	auto scale = _S_low / a_min;
-	bool rescale = true;
-	if (scale > _Real{1} && _S_huge / scale < a_max)
-	  rescale = false;
-	if (scale <= _Real{1} && a_max < _Real{10})
-	  rescale = false;
+	auto __scale = _S_low / __a_min;
+	bool __rescale = true;
+	if (__scale > _Real{1} && _S_huge / __scale < __a_max)
+	  __rescale = false;
+	if (__scale <= _Real{1} && __a_max < _Real{10})
+	  __rescale = false;
 
-	if (rescale)
+	if (__rescale)
 	  {
 	    // Scale polynomial.
-	    if (scale == _Real{0})
-	      scale = _S_tiny;
-	    auto l = int(std::log(scale) / std::log(_S_base) + _Real{0.5});
-	    auto factor = std::pow(_S_base, l);
-	    if (factor != _Real{1})
-	      for (int i = 0; i <= this->order; ++i)
-		this->P[i] *= factor;
+	    if (__scale == _Real{0})
+	      __scale = _S_tiny;
+	    auto __l = int(std::log(__scale) / std::log(_S_base) + _Real{0.5});
+	    auto __factor = std::pow(_S_base, __l);
+	    if (__factor != _Real{1})
+	      for (int __i = 0; __i <= this->__order; ++__i)
+		this->_P[__i] *= __factor;
 	  }
 
 	// Compute lower bound on moduli of roots.
-	for (int i = 0; i <= this->order; ++i)
-	  pt[i] = std::abs(this->P[i]);
-	pt[this->order] = -pt[this->order];
+	for (int __i = 0; __i <= this->__order; ++__i)
+	  __pt[__i] = std::abs(this->_P[__i]);
+	__pt[this->__order] = -__pt[this->__order];
 	// Compute upper estimate of bound.
-	auto x = std::exp((std::log(-pt[this->order])
-			 - std::log(pt[0])) / _Real(this->order));
+	auto __x = std::exp((std::log(-__pt[this->__order])
+			 - std::log(__pt[0])) / _Real(this->__order));
 	// If Newton step at the origin is better, use it.	
-	if (pt[this->order - 1] != _Real{0})
+	if (__pt[this->__order - 1] != _Real{0})
 	  {
-	    auto xm = -pt[this->order] / pt[this->order - 1];
-	    if (xm < x)
-	      x = xm;
+	    auto __xm = -__pt[this->__order] / __pt[this->__order - 1];
+	    if (__xm < __x)
+	      __x = __xm;
 	  }
 	// Chop the interval (0,x) until ff <= 0.
 	while (true)
 	  {
-	    auto xm = x * _Real{0.1L};
-	    auto ff = pt[0];
-	    for (int i = 1; i <= this->order; ++i)
-	      ff = ff * xm + pt[i];
-	    if (ff <= _Real{0})
+	    auto __xm = __x * _Real{0.1L};
+	    auto __ff = __pt[0];
+	    for (int __i = 1; __i <= this->__order; ++__i)
+	      __ff = __ff * __xm + __pt[__i];
+	    if (__ff <= _Real{0})
 	      break;
-	    x = xm;
+	    __x = __xm;
 	  }
 	// Do Newton interation until x converges to two decimal places.
-	auto dx = x;
-	while (std::abs(dx / x) > this->min_log_deriv)
+	auto __dx = __x;
+	while (std::abs(__dx / __x) > this->min_log_deriv)
 	  {
-	    auto ff = pt[0];
-	    auto df = ff;
-	    for (int i = 1; i < this->order; ++i)
+	    auto __ff = __pt[0];
+	    auto __df = __ff;
+	    for (int __i = 1; __i < this->__order; ++__i)
 	      {
-		ff = ff * x + pt[i];
-		df = df * x + ff;
+		__ff = __ff * __x + __pt[__i];
+		__df = __df * __x + __ff;
 	      }
-	    ff = ff * x + pt[this->order];
-	    dx = ff / df;
-	    x -= dx;
-	    ++this->num_iters;
+	    __ff = __ff * __x + __pt[this->__order];
+	    __dx = __ff / __df;
+	    __x -= __dx;
+	    ++this->__num_iters;
 	  }
-	auto bound = x;
-	// Compute the derivative as the initial H polynomial
+	auto bound = __x;
+	// Compute the derivative as the initial _H polynomial
 	// and do 5 steps with no shift.
-	auto nm1 = this->order - 1;
-	for (int i = 1; i < this->order; ++i)
-	  this->H[i] = _Real(this->order - i) * this->P[i] / _Real(this->order);
-	this->H[0] = this->P[0];
-	auto aa = this->P[this->order];
-	auto bb = this->P[this->order - 1];
-	this->zerok = (this->H[this->order - 1] == _Real{0});
-	for(int jj = 0; jj < 5; ++jj)
+	auto __nm1 = this->__order - 1;
+	for (int __i = 1; __i < this->__order; ++__i)
+	  this->_H[__i] = _Real(this->__order - __i) * this->_P[__i] / _Real(this->__order);
+	this->_H[0] = this->_P[0];
+	auto __aa = this->_P[this->__order];
+	auto __bb = this->_P[this->__order - 1];
+	this->__zerok = (this->_H[this->__order - 1] == _Real{0});
+	for(int __jj = 0; __jj < 5; ++__jj)
 	  {
-	    ++this->num_iters;
-	    auto cc = this->H[this->order - 1];
-	    if (!this->zerok)
+	    ++this->__num_iters;
+	    auto __cc = this->_H[this->__order - 1];
+	    if (!this->__zerok)
 	      {
 		// Use a scaled form of recurrence if value of H at 0 is nonzero.	
-		auto t = -aa / cc;
-		for (int i = 0; i < nm1; ++i)
+		auto __t = -__aa / __cc;
+		for (int __i = 0; __i < __nm1; ++__i)
 		  {
-		    const auto j = this->order - i - 1;
-		    this->H[j] = t * this->H[j - 1] + this->P[j];
+		    const auto __j = this->__order - __i - 1;
+		    this->_H[__j] = __t * this->_H[__j - 1] + this->_P[__j];
 		  }
-		this->H[0] = this->P[0];
-		this->zerok = (std::abs(this->H[this->order - 1])
-			    <= _Real{10} * _S_eps * std::abs(bb));
+		this->_H[0] = this->_P[0];
+		this->__zerok = (std::abs(this->_H[this->__order - 1])
+			    <= _Real{10} * _S_eps * std::abs(__bb));
 	    }
 	    else
 	      {
 		// Use unscaled form of recurrence.
-		for (int i = 0; i < nm1; ++i)
+		for (int __i = 0; __i < __nm1; ++__i)
 		  {
-		    const auto j = this->order - i - 1;
-		    this->H[j] = this->H[j - 1];
+		    const auto __j = this->__order - __i - 1;
+		    this->_H[__j] = this->_H[__j - 1];
 		  }
-		this->H[0] = _Real{0};
-		this->zerok = (this->H[this->order - 1] == _Real{0});
+		this->_H[0] = _Real{0};
+		this->__zerok = (this->_H[this->__order - 1] == _Real{0});
 	      }
-	}
+	  }
 	// Save H for restarts with new shifts.
-	H_temp = this->H;
+	_H_temp = this->_H;
 
 	// Loop to select the quadratic corresponding to each new shift.
-	for (int count = 0; count < 20; ++count)
+	for (int __count = 0; __count < 20; ++__count)
 	  {
 	    /*  Quadratic corresponds to a _Real shift to a	
 	     *  non-real point and its complex conjugate. The point
 	     *  has modulus bound and amplitude rotated by 94 degrees
 	     *  from the previous shift.
 	     */
-	    auto xxx = cosr * xx - sinr * yy;
-	    yy = sinr * xx + cosr * yy;
-	    auto xx = xxx;
-	    this->sr = bound * xx;
-	    this->si = bound * yy;
-	    this->u = -_Real{2} * this->sr;
-	    this->v = bound;
-	    auto num_zeros = this->fxshfr(20 * (count + 1));
-	    bool cycle = false;
-	    if (num_zeros != 0)
+	    auto __xxx = __cosr * __xx - __sinr * __yy;
+	    __yy = __sinr * __xx + __cosr * __yy;
+	    auto __xx = __xxx;
+	    this->__sr = bound * __xx;
+	    this->__si = bound * __yy;
+	    this->__u = -_Real{2} * this->__sr;
+	    this->__v = bound;
+	    auto __num_zeros = this->fxshfr(20 * (__count + 1));
+	    bool __cycle = false;
+	    if (__num_zeros != 0)
 	      {
 	      /*  The second stage jumps directly to one of the third
 	       *  stage iterations and returns here if successful.
 	       *  Deflate the polynomial, store the zero or zeros
 	       *  and return to the main algorithm.
 	       */
-		zero.push_back(this->z_small);
-		this->order -= num_zeros;
-		this->P = this->P_quot;
-		if (num_zeros != 1)
-		  zero.push_back(this->z_large);
-		cycle = true;
+		__zero.push_back(this->__z_small);
+		this->__order -= __num_zeros;
+		this->_P = this->_P_quot;
+		if (__num_zeros != 1)
+		  __zero.push_back(this->__z_large);
+		__cycle = true;
 		break;
 	      }
-	    if (cycle)
+	    if (__cycle)
 	      continue;
 
 	    // If the iteration is unsuccessful another quadratic
 	    // is chosen after restoring H.
-	    this->H = H_temp;
+	    this->_H = _H_temp;
 	 }
       }
   }
@@ -334,124 +333,125 @@ template<typename _Real>
  */
 template<typename _Real>
   int
-  _JenkinsTraubSolver<_Real>::fxshfr(int l2)
+  _JenkinsTraubSolver<_Real>::fxshfr(int __l2)
   {
-    _Real ots, otv;
-    int iflag;
+    _Real __ots, __otv;
+    int __iflag;
 
-    int num_zeros = 0;
+    int __num_zeros = 0;
 
-    auto betav = _Real{0.25};
-    auto betas = _Real{0.25};
-    auto oss = this->sr;
-    auto ovv = this->v;
+    auto __betav = _Real{0.25};
+    auto __betas = _Real{0.25};
+    auto __oss = this->__sr;
+    auto __ovv = this->__v;
     // Evaluate polynomial by synthetic division.
-    this->remquo_quadratic(this->order, this->u, this->v,
-			   this->P, this->P_quot,
-			   this->a, this->b);
-    auto type = this->init_next_k_poly();
-    for (int j = 0; j < l2; ++j)
+    this->remquo_quadratic(this->__order, this->__u, this->__v,
+			   this->_P, this->_P_quot,
+			   this->__a, this->__b);
+    auto __type = this->init_next_k_poly();
+    for (int __j = 0; __j < __l2; ++__j)
       {
 	// Calculate next H polynomial and estimate v.
-	this->next_k_poly(type);
-	type = this->init_next_k_poly();
-	auto [ui, vi] = this->quadratic_coefficients(type);
-	auto vv = vi;
+	this->next_k_poly(__type);
+	__type = this->init_next_k_poly();
+	auto [__ui, __vi] = this->quadratic_coefficients(__type);
+	auto __vv = __vi;
 	// Estimate s.
-	auto ss = _Real{0};
-	if (this->H[this->order - 1] != _Real{0})
-	  ss = -this->P[this->order] / this->H[this->order - 1];
-	auto tv = _Real{1};
-	auto ts = _Real{1};
-	if (j == 0 || type == near_k_root)
+	auto __ss = _Real{0};
+	if (this->_H[this->__order - 1] != _Real{0})
+	  __ss = -this->_P[this->__order] / this->_H[this->__order - 1];
+	auto __tv = _Real{1};
+	auto __ts = _Real{1};
+	if (__j == 0 || __type == near_k_root)
 	  {
-	    ovv = vv;
-	    oss = ss;
-	    otv = tv;
-	    ots = ts;
+	    __ovv = __vv;
+	    __oss = __ss;
+	    __otv = __tv;
+	    __ots = __ts;
 	    continue;
 	  }
 	// Compute relative measures of convergence of s and v sequences.
-	if (vv != _Real{0})
-	  tv = std::abs((vv - ovv) / vv);
-	if (ss != _Real{0})
-	  ts = std::abs((ss - oss) / ss);
+	if (__vv != _Real{0})
+	  __tv = std::abs((__vv - __ovv) / __vv);
+	if (__ss != _Real{0})
+	  __ts = std::abs((__ss - __oss) / __ss);
 	// If decreasing, multiply two most recent convergence measures.
-	auto tvv = _Real{1};
-	if (tv < otv)
-	  tvv = tv * otv;
-	auto tss = _Real{1};
-	if (ts < ots)
-	  tss = ts * ots;
+	auto __tvv = _Real{1};
+	if (__tv < __otv)
+	  __tvv = __tv * __otv;
+	auto __tss = _Real{1};
+	if (__ts < __ots)
+	  __tss = __ts * __ots;
 	// Compare with convergence criteria.
-	auto vpass = tvv < betav;
-	auto spass = tss < betas;
-	if (!(spass || vpass))
+	auto __vpass = __tvv < __betav;
+	auto __spass = __tss < __betas;
+	if (!(__spass || __vpass))
 	  {
-	    ovv = vv;
-	    oss = ss;
-	    otv = tv;
-	    ots = ts;
+	    __ovv = __vv;
+	    __oss = __ss;
+	    __otv = __tv;
+	    __ots = __ts;
 	    continue;
 	  }
 	// At least one sequence has passed the convergence test.
 	// Store variables before iterating.
-	auto u_save = this->u;
-	auto v_save = this->v;
-	this->H_save = this->H;
-	auto s = ss;
+	auto u_save = this->__u;
+	auto v_save = this->__v;
+	this->_H_save = this->_H;
+	auto __s = __ss;
 	// Choose iteration according to the fastest converging sequence.
-	auto vtry = false;
-	auto stry = false;
-	if ((spass && !vpass) || tss < tvv)
+	auto __vtry = false;
+	auto __stry = false;
+	if ((__spass && !__vpass) || __tss < __tvv)
 	  goto _40;
   _20:	
-	num_zeros = this->iter_quadratic(ui, vi);
-	if (num_zeros > 0)
-	  return num_zeros;
+	__num_zeros = this->iter_quadratic(__ui, __vi);
+	if (__num_zeros > 0)
+	  return __num_zeros;
 	// Quadratic iteration has failed. Flag that it has
 	// been tried and decrease the convergence criterion.
-	vtry = true;
-	betav *= _Real{0.25};
+	__vtry = true;
+	__betav *= _Real{0.25};
 	// Try linear iteration if it has not been tried and
 	// the S sequence is converging.
-	if (stry || !spass)
+	if (__stry || !__spass)
 	  goto _50;
-	this->H = this->H_save;
+	this->_H = this->_H_save;
 
   _40:
-	num_zeros = this->iter_real(s, iflag);
-	if (num_zeros > 0)
-	  return num_zeros;
+	__num_zeros = this->iter_real(__s, __iflag);
+	if (__num_zeros > 0)
+	  return __num_zeros;
 	// Linear iteration has failed. Flag that it has been
 	// tried and decrease the convergence criterion.
-	stry = true;
-	betas *= _Real{0.25};
-	if (iflag == 0)
+	__stry = true;
+	__betas *= _Real{0.25};
+	if (__iflag == 0)
 	  goto _50;
 	// If linear iteration signals an almost _Real real
 	// zero attempt quadratic iteration.
-	ui = -_Real{2} * s;
-	vi = s * s;
+	__ui = -_Real{2} * __s;
+	__vi = __s * __s;
 	goto _20;
   _50:
 	// Restore variables.
-	this->u = u_save;
-	this->v = v_save;
-	this->H = this->H_save;
+	this->__u = u_save;
+	this->__v = v_save;
+	this->_H = this->_H_save;
 
 	// Try quadratic iteration if it has not been tried
-	// and the V sequence is convergin.
-	if (vpass && !vtry)
+	// and the V sequence is converging.
+	if (__vpass && !__vtry)
 	  goto _20;
+
 	// Recompute polynomial quotient and remainder
         // to continue the second stage.
-	this->remquo_quadratic(this->order, this->u, this->v,
-			       this->P, this->P_quot,
-			       this->a, this->b);
-	type = this->init_next_k_poly();
+	this->remquo_quadratic(this->__order, this->__u, this->__v,
+			       this->_P, this->_P_quot,
+			       this->__a, this->__b);
+	__type = this->init_next_k_poly();
       }
-    return num_zeros;
+    return __num_zeros;
   }
 
 
@@ -464,88 +464,88 @@ template<typename _Real>
  */
 template<typename _Real>
   int
-  _JenkinsTraubSolver<_Real>::iter_quadratic(_Real uu, _Real vv)
+  _JenkinsTraubSolver<_Real>::iter_quadratic(_Real __uu, _Real __vv)
   {
-    _Real mp, omp, ee, relstp, t, zm;
-    NormalizationType type;
+    _Real __mp, __omp, __ee, __relstp, __t, __zm;
+    NormalizationType __type;
 
-    int num_zeros = 0;
-    int tried = 0;
-    this->u = uu;
-    this->v = vv;
-    int j = 0;
+    int __num_zeros = 0;
+    bool __tried = false;
+    this->__u = __uu;
+    this->__v = __vv;
+    int __j = 0;
 
     while (true)
       {
-	++this->num_iters;
-	this->quadratic(_Real{1}, this->u, this->v,
-			this->z_small, this->z_large);
+	++this->__num_iters;
+	this->quadratic(_Real{1}, this->__u, this->__v,
+			this->__z_small, this->__z_large);
 	// Return if roots of the quadratic are real and not
 	// close to multiple or nearly equal and of opposite sign.
-	if (std::abs(std::abs(real(this->z_small))
-		   - std::abs(real(this->z_large)))
-	       > _Real{0.01L} * std::abs(real(this->z_large)))
-	  return num_zeros;
+	if (std::abs(std::abs(real(this->__z_small))
+		   - std::abs(real(this->__z_large)))
+	       > _Real{0.01L} * std::abs(real(this->__z_large)))
+	  return __num_zeros;
 	// Evaluate polynomial by quadratic synthetic division.
-	this->remquo_quadratic(this->order, this->u, this->v,
-			       this->P, this->P_quot, this->a, this->b);
-	mp = std::abs(this->a - real(this->z_small) * this->b)
-	   + std::abs(imag(this->z_small) * this->b);
-	// Compute a rigorous bound on the rounding error in evaluating P.
-	zm = std::sqrt(std::abs(this->v));
-	ee = _Real{2} * std::abs(this->P_quot[0]);
-	t = -real(this->z_small) * this->b;
-	for (int i = 1; i < this->order; ++i)
-	  ee = ee * zm + std::abs(this->P_quot[i]);
-	ee = ee * zm + std::abs(this->a + t);
-	ee *= (_Real{5} * this->mre + _Real{4} * this->are);
-	ee -= (_Real{5} * this->mre + _Real{2} * this->are)
-	    * (std::abs(this->a + t) + std::abs(this->b) * zm);
-	ee += _Real{2} * this->are * std::abs(t);
+	this->remquo_quadratic(this->__order, this->__u, this->__v,
+			       this->_P, this->_P_quot, this->__a, this->__b);
+	__mp = std::abs(this->__a - real(this->__z_small) * this->__b)
+	   + std::abs(imag(this->__z_small) * this->__b);
+	// Compute a rigorous bound on the rounding error in evaluating _P.
+	__zm = std::sqrt(std::abs(this->__v));
+	__ee = _Real{2} * std::abs(this->_P_quot[0]);
+	__t = -real(this->__z_small) * this->__b;
+	for (int __i = 1; __i < this->__order; ++__i)
+	  __ee = __ee * __zm + std::abs(this->_P_quot[__i]);
+	__ee = __ee * __zm + std::abs(this->__a + __t);
+	__ee *= (_Real{5} * this->__mre + _Real{4} * this->__are);
+	__ee -= (_Real{5} * this->__mre + _Real{2} * this->__are)
+	    * (std::abs(this->__a + __t) + std::abs(this->__b) * __zm);
+	__ee += _Real{2} * this->__are * std::abs(__t);
 	// Iteration has converged sufficiently if the
 	// polynomial value is less than 20 times this bound.
-	if (mp <= _Real{20} * ee)
+	if (__mp <= _Real{20} * __ee)
 	  {
-	    num_zeros = 2;
-	    return num_zeros;
+	    __num_zeros = 2;
+	    return __num_zeros;
 	  }
-	++j;
+	++__j;
 	// Stop iteration after 20 steps.
-	if (j > this->max_iter_quadratic)
-	  return num_zeros;
-	if (j < 2 || relstp > _Real{0.01L} || mp < omp || tried)
+	if (__j > this->max_iter_quadratic)
+	  return __num_zeros;
+	if (__j < 2 || __relstp > _Real{0.01L} || __mp < __omp || __tried)
 	  {
-	    omp = mp;
+	    __omp = __mp;
 	    // Calculate next H polynomial and new u and v.
-	    type = this->init_next_k_poly();
-	    this->next_k_poly(type);
-	    type = this->init_next_k_poly();
-	    auto [ui, vi] = this->quadratic_coefficients(type);
+	    __type = this->init_next_k_poly();
+	    this->next_k_poly(__type);
+	    __type = this->init_next_k_poly();
+	    auto [__ui, __vi] = this->quadratic_coefficients(__type);
 	    // If vi is zero the iteration is not converging.
-	    if (vi == _Real{0})
-	      return num_zeros;
-	    relstp = std::abs((vi - this->v) / vi);
-	    this->u = ui;
-	    this->v = vi;
+	    if (__vi == _Real{0})
+	      return __num_zeros;
+	    __relstp = std::abs((__vi - this->__v) / __vi);
+	    this->__u = __ui;
+	    this->__v = __vi;
 	    continue;
 	  }
 	// A cluster appears to be stalling the convergence.
 	// Five fixed shift steps are taken with a u, v close to the cluster.
-	if (relstp < _S_eps)
-	  relstp = _S_eps;
-	relstp = std::sqrt(relstp);
-	this->u -= this->u * relstp;
-	this->v += this->v * relstp;
-	this->remquo_quadratic(this->order, this->u, this->v,
-			       this->P, this->P_quot,
-			       this->a, this->b);
-	for (int i = 0; i < 5; ++i)
+	if (__relstp < _S_eps)
+	  __relstp = _S_eps;
+	__relstp = std::sqrt(__relstp);
+	this->__u -= this->__u * __relstp;
+	this->__v += this->__v * __relstp;
+	this->remquo_quadratic(this->__order, this->__u, this->__v,
+			       this->_P, this->_P_quot,
+			       this->__a, this->__b);
+	for (int __i = 0; __i < 5; ++__i)
 	  {
-	    type = this->init_next_k_poly();
-	    this->next_k_poly(type);
+	    __type = this->init_next_k_poly();
+	    this->next_k_poly(__type);
 	  }
-	tried = 1;
-	j = 0;
+	__tried = true;
+	__j = 0;
       }
   }
 
@@ -558,94 +558,95 @@ template<typename _Real>
  */
 template<typename _Real>
   int
-  _JenkinsTraubSolver<_Real>::iter_real(_Real sss, int& iflag)
+  _JenkinsTraubSolver<_Real>::iter_real(_Real __sss, int& __iflag)
   {
-    _Real t = _Real{0};
-    _Real omp;
+    _Real __t = _Real{0};
+    _Real __omp;
 
-    int num_zeros = 0;
-    _Real s = sss;
-    iflag = 0;
+    int __num_zeros = 0;
+    _Real __s = __sss;
+    __iflag = 0;
     int i_real = 0;
 
     while (true)
       {
-	++this->num_iters;
-	auto pval = this->P[0];
+	++this->__num_iters;
+	auto __pval = this->_P[0];
 	// Evaluate P at s.
-	this->P_quot[0] = pval;
-	for (int i = 1; i <= this->order; ++i)
+	this->_P_quot[0] = __pval;
+	for (int __i = 1; __i <= this->__order; ++__i)
 	  {
-	    pval = pval * s + this->P[i];
-	    this->P_quot[i] = pval;
+	    __pval = __pval * __s + this->_P[__i];
+	    this->_P_quot[__i] = __pval;
 	  }
-	auto mp = std::abs(pval);
+	auto __mp = std::abs(__pval);
 	// Compute a rigorous bound on the error in evaluating P.
-	auto ms = std::abs(s);
-	auto ee = (this->mre / (this->are + this->mre)) * std::abs(this->P_quot[0]);
-	for (int i = 1; i <= this->order; ++i)
-	  ee = ee * ms + std::abs(this->P_quot[i]);
+	auto ms = std::abs(__s);
+	auto __ee = (this->__mre / (this->__are + this->__mre)) * std::abs(this->_P_quot[0]);
+	for (int __i = 1; __i <= this->__order; ++__i)
+	  __ee = __ee * ms + std::abs(this->_P_quot[__i]);
 	// Iteration has converged sufficiently if the polynomial
 	// value is less than 20 times this bound.
-	if (mp <= _Real{20} * ((this->are + this->mre) * ee - this->mre * mp))
+	if (__mp <= _Real{20} * ((this->__are + this->__mre) * __ee - this->__mre * __mp))
 	  {
-	    num_zeros = 1;
-	    this->z_small = s;
-	    return num_zeros;
+	    __num_zeros = 1;
+	    this->__z_small = __s;
+	    return __num_zeros;
 	  }
 	++i_real;
 	// Stop iteration after max_iter_real steps.
 	if (i_real > this->max_iter_real)
-	  return num_zeros;
+	  return __num_zeros;
 	else if (i_real < 2
-		 || std::abs(t) > _Real{0.001L} * std::abs(s - t) || mp < omp)
+	  || std::abs(__t) > _Real{0.001L} * std::abs(__s - __t) || __mp < __omp)
 	  {
 	    // Return if the polynomial value has increased significantly.
-	    omp = mp;
+	    __omp = __mp;
 
 	    // Compute t, the next polynomial, and the new iterate.
-	    auto kval = this->H[0];
-	    this->H_quot[0] = kval;
-	    for (int i = 1; i < this->order; ++i)
+	    auto __kval = this->_H[0];
+	    this->_H_quot[0] = __kval;
+	    for (int __i = 1; __i < this->__order; ++__i)
 	      {
-		kval = kval * s + this->H[i];
-		this->H_quot[i] = kval;
+		__kval = __kval * __s + this->_H[__i];
+		this->_H_quot[__i] = __kval;
 	      }
 
-	    if (std::abs(kval)
-		 <= std::abs(this->H[this->order - 1]) * _Real{10} * _S_eps)
+	    if (std::abs(__kval)
+		 <= std::abs(this->_H[this->__order - 1]) * _Real{10} * _S_eps)
 	      { // HVE n -> n-1
 		// Use unscaled form.
-		this->H[0] = _Real{0};
-		for (int i = 1; i < this->order; ++i)
-		  this->H[i] = this->H_quot[i-1];
+		this->_H[0] = _Real{0};
+		for (int __i = 1; __i < this->__order; ++__i)
+		  this->_H[__i] = this->_H_quot[__i-1];
 	      }
 	    else
 	      {
 		// Use the scaled form of the recurrence if the value
 		// of H at s is nonzero.
-		t = -pval / kval;
-		this->H[0] = this->P_quot[0];
-		for (int i = 1; i < this->order; ++i)
-		  this->H[i] = t * this->H_quot[i - 1] + this->P_quot[i];
+		__t = -__pval / __kval;
+		this->_H[0] = this->_P_quot[0];
+		for (int __i = 1; __i < this->__order; ++__i)
+		  this->_H[__i] = __t * this->_H_quot[__i - 1]
+				+ this->_P_quot[__i];
 	      }
 
-	    kval = this->H[0];
-	    for (int i = 1; i < this->order; ++i)
-	      kval = kval * s + this->H[i];
-	    auto t = _Real{0};
-	    if (std::abs(kval)
-		 > std::abs(this->H[this->order - 1] * _Real{10} * _S_eps))
-	      t = -pval / kval;
-	    s += t;
+	    __kval = this->_H[0];
+	    for (int __i = 1; __i < this->__order; ++__i)
+	      __kval = __kval * __s + this->_H[__i];
+	    auto __t = _Real{0};
+	    if (std::abs(__kval)
+		 > std::abs(this->_H[this->__order - 1] * _Real{10} * _S_eps))
+	      __t = -__pval / __kval;
+	    __s += __t;
 	  }
 	else
 	  {
 	    // A cluster of zeros near the real axis has been encountered.
 	    // Return with iflag set to initiate a quadratic iteration.
-	    iflag = 1;
-	    sss = s; // HVE sss = s added
-	    return num_zeros;
+	    __iflag = 1;
+	    __sss = __s; // HVE sss = s added
+	    return __num_zeros;
 	  }
       }
   }
@@ -663,46 +664,48 @@ template<typename _Real>
   {
     const auto eps = _Real{100} * _S_eps;
     // Synthetic division of H by the quadratic 1, u, v
-    NormalizationType type = none;
-    this->remquo_quadratic(this->order - 1, this->u, this->v,
-			   this->H, this->H_quot, this->c, this->d);
-    if (std::abs(this->c) > eps * std::abs(this->H[this->order - 1])
-     || std::abs(this->d) > eps * std::abs(this->H[this->order - 2]))
+    NormalizationType __type = none;
+    this->remquo_quadratic(this->__order - 1, this->__u, this->__v,
+			   this->_H, this->_H_quot, this->__c, this->__d);
+    if (std::abs(this->__c) > eps * std::abs(this->_H[this->__order - 1])
+     || std::abs(this->__d) > eps * std::abs(this->_H[this->__order - 2]))
       {
-	if (std::abs(this->d) < std::abs(this->c))
+	if (std::abs(this->__d) < std::abs(this->__c))
 	  {
 	    // Type = 1 indicates that all formulas are divided by c.
-	    type = divide_by_c;
-	    this->e = this->a / this->c;
-	    this->f = this->d / this->c;
-	    this->g = this->u * this->e;
-	    this->h = this->v * this->b;
-	    this->a3 = this->a * this->e
-		     + (this->h / this->c + this->g) * this->b;
-	    this->a1 = this->b - this->a * (this->d / this->c);
-	    this->a7 = this->a + this->g * this->d + this->h * this->f;
-	    return type;
+	    __type = divide_by_c;
+	    this->__e = this->__a / this->__c;
+	    this->__f = this->__d / this->__c;
+	    this->__g = this->__u * this->__e;
+	    this->__h = this->__v * this->__b;
+	    this->__a3 = this->__a * this->__e
+			+ (this->__h / this->__c + this->__g) * this->__b;
+	    this->__a1 = this->__b - this->__a * (this->__d / this->__c);
+	    this->__a7 = this->__a
+			+ this->__g * this->__d
+			+ this->__h * this->__f;
+	    return __type;
 	  }
 	else
 	  {
 	    // Type = 2 indicates that all formulas are divided by d.
-	    type = divide_by_d;
-	    this->e = this->a / this->d;
-	    this->f = this->c / this->d;
-	    this->g = this->u * this->b;
-	    this->h = this->v * this->b;
-	    this->a3 = (this->a + this->g) * this->e
-		     + this->h * (this->b / this->d);
-	    this->a1 = this->b * this->f - this->a;
-	    this->a7 = (this->f + this->u) * this->a + this->h;
-	    return type;
+	    __type = divide_by_d;
+	    this->__e = this->__a / this->__d;
+	    this->__f = this->__c / this->__d;
+	    this->__g = this->__u * this->__b;
+	    this->__h = this->__v * this->__b;
+	    this->__a3 = (this->__a + this->__g) * this->__e
+			+ this->__h * (this->__b / this->__d);
+	    this->__a1 = this->__b * this->__f - this->__a;
+	    this->__a7 = (this->__f + this->__u) * this->__a + this->__h;
+	    return __type;
 	  }
       }
     else
       {
 	// Type == 3 indicates the quadratic is almost a factor of H.
-	type = near_k_root;
-	return type;
+	__type = near_k_root;
+	return __type;
       }
   }
 
@@ -712,39 +715,41 @@ template<typename _Real>
  */
 template<typename _Real>
   void
-  _JenkinsTraubSolver<_Real>::next_k_poly(NormalizationType type)
+  _JenkinsTraubSolver<_Real>::next_k_poly(NormalizationType __type)
   {
-    if (type == near_k_root)
+    if (__type == near_k_root)
       {
 	// Use unscaled form of the recurrence if type is 3.
-	this->H[0] = _Real{0};
-	this->H[1] = _Real{0};
-	for (int i = 2; i < this->order; ++i)
-	  this->H[i] = this->H_quot[i-2];
+	this->_H[0] = _Real{0};
+	this->_H[1] = _Real{0};
+	for (int __i = 2; __i < this->__order; ++__i)
+	  this->_H[__i] = this->_H_quot[__i-2];
 	return;
       }
-    auto ab_temp = this->a;
-    if (type == divide_by_c)
-      ab_temp = this->b;
-    if (std::abs(this->a1) <= std::abs(ab_temp) * _S_eps * _Real{10})
+    auto __ab_temp = this->__a;
+    if (__type == divide_by_c)
+      __ab_temp = this->__b;
+    if (std::abs(this->__a1) <= std::abs(__ab_temp) * _S_eps * _Real{10})
       {
 	// If a1 is nearly zero then use a special form of the recurrence.
-	this->H[0] = _Real{0};
-	this->H[1] = -this->a7 * this->P_quot[0];
-	for(int i = 2; i < this->order; ++i)
-	  this->H[i] = this->a3 * this->H_quot[i-2] - this->a7 * this->P_quot[i-1];
+	this->_H[0] = _Real{0};
+	this->_H[1] = -this->__a7 * this->_P_quot[0];
+	for(int __i = 2; __i < this->__order; ++__i)
+	  this->_H[__i] = this->__a3 * this->_H_quot[__i-2]
+			- this->__a7 * this->_P_quot[__i-1];
 	return; // HVE return added
       }
     else
       {
 	// Use scaled form of the recurrence.
-	this->a7 /= this->a1;
-	this->a3 /= this->a1;
-	this->H[0] = this->P_quot[0];
-	this->H[1] = this->P_quot[1] - this->a7 * this->P_quot[0];
-	for (int i = 2; i < this->order; ++i)
-	  this->H[i] = this->a3 * this->H_quot[i-2]
-		     - this->a7 * this->P_quot[i-1] + this->P_quot[i];
+	this->__a7 /= this->__a1;
+	this->__a3 /= this->__a1;
+	this->_H[0] = this->_P_quot[0];
+	this->_H[1] = this->_P_quot[1] - this->__a7 * this->_P_quot[0];
+	for (int __i = 2; __i < this->__order; ++__i)
+	  this->_H[__i] = this->__a3 * this->_H_quot[__i-2]
+			- this->__a7 * this->_P_quot[__i-1]
+			+ this->_P_quot[__i];
       }
   }
 
@@ -755,41 +760,41 @@ template<typename _Real>
  */
 template<typename _Real>
   std::pair<_Real, _Real>
-  _JenkinsTraubSolver<_Real>::quadratic_coefficients(NormalizationType type)
+  _JenkinsTraubSolver<_Real>::quadratic_coefficients(NormalizationType __type)
   {
-    if (type == near_k_root)
+    if (__type == near_k_root)
       // If type=3 the quadratic is zeroed.
       return std::make_pair(_Real{0}, _Real{0});
 
-    _Real a4, a5;
-    if (type == divide_by_d)
+    _Real __a4, __a5;
+    if (__type == divide_by_d)
       {
-	a4 = (this->a + this->g) * this->f + this->h;
-	a5 = (this->f + this->u) * this->c + this->v * this->d;
+	__a4 = (this->__a + this->__g) * this->__f + this->__h;
+	__a5 = (this->__f + this->__u) * this->__c + this->__v * this->__d;
       }
     else
       {
-	a4 = this->a + this->u * this->b + this->h * this->f;
-	a5 = this->c + (this->u + this->v * this->f) * this->d;
+	__a4 = this->__a + this->__u * this->__b + this->__h * this->__f;
+	__a5 = this->__c + (this->__u + this->__v * this->__f) * this->__d;
       }
 
     // Evaluate new quadratic coefficients.
-    const auto n = this->order;
-    auto b1 = -this->H[n - 1] / this->P[n];
-    auto b2 = -(this->H[n - 2] + b1 * this->P[n - 1])
-	    / this->P[n];
-    auto c1 = this->v * b2 * this->a1;
-    auto c2 = b1 * this->a7;
-    auto c3 = b1 * b1 * this->a3;
-    auto c4 = c1 - c2 - c3;
-    if (auto temp = a5 + b1 * a4 - c4; temp == _Real{0})
+    const auto n = this->__order;
+    auto __b1 = -this->_H[n - 1] / this->_P[n];
+    auto __b2 = -(this->_H[n - 2] + __b1 * this->_P[n - 1])
+	    / this->_P[n];
+    auto __c1 = this->__v * __b2 * this->__a1;
+    auto __c2 = __b1 * this->__a7;
+    auto __c3 = __b1 * __b1 * this->__a3;
+    auto __c4 = __c1 - __c2 - __c3;
+    if (auto __temp = __a5 + __b1 * __a4 - __c4; __temp == _Real{0})
       return std::make_pair(_Real{0}, _Real{0});
     else
       {
-	auto uu = this->u - (this->u * (c3 + c2)
-		+ this->v * (b1 * this->a1 + b2 * this->a7)) / temp;
-	auto vv = this->v * (_Real{1} + c4 / temp);
-	return std::make_pair(uu, vv);
+	auto __uu = this->__u - (this->__u * (__c3 + __c2)
+		+ this->__v * (__b1 * this->__a1 + __b2 * this->__a7)) / __temp;
+	auto __vv = this->__v * (_Real{1} + __c4 / __temp);
+	return std::make_pair(__uu, __vv);
       }
   }
 
@@ -799,21 +804,21 @@ template<typename _Real>
  */
 template<typename _Real>
   void
-  _JenkinsTraubSolver<_Real>::remquo_quadratic(int nn, _Real u, _Real v,
-					       std::vector<_Real>& poly,
-					       std::vector<_Real>& quot,
-					       _Real& a, _Real& b)
+  _JenkinsTraubSolver<_Real>::remquo_quadratic(int __nn, _Real __u, _Real __v,
+					       std::vector<_Real>& __poly,
+					       std::vector<_Real>& __quot,
+					       _Real& __a, _Real& __b)
   {
-    b = poly[0];
-    quot[0] = b;
-    a = poly[1] - b * u;
-    quot[1] = a;
-    for (int i = 2; i <= nn; ++i)
+    __b = __poly[0];
+    __quot[0] = __b;
+    __a = __poly[1] - __b * __u;
+    __quot[1] = __a;
+    for (int __i = 2; __i <= __nn; ++__i)
       {
-	auto c = poly[i] - a * u - b * v;
-	quot[i] = c;
-	b = a;
-	a = c;
+	auto __c = __poly[__i] - __a * __u - __b * __v;
+	__quot[__i] = __c;
+	__b = __a;
+	__a = __c;
       }	
   }
 
@@ -828,54 +833,54 @@ template<typename _Real>
 template<typename _Real>
   void
   _JenkinsTraubSolver<_Real>::quadratic(_Real a, _Real b, _Real c,
-					solution_t<_Real>& z_small,
-					solution_t<_Real>& z_large)
+					solution_t<_Real>& __z_small,
+					solution_t<_Real>& __z_large)
   {
-    z_small = {};
-    z_large = {};
+    __z_small = {};
+    __z_large = {};
     if (a == _Real{0})
       { // Less than two roots.
 	if (b != _Real{0})
-	  z_small = -c / b;
+	  __z_small = -c / b;
 	return;
       }
 
     if (c == _Real{0})
       { // one real root, one zero root.
-	z_small = _Real{0};
-	z_large = -b / a;
+	__z_small = _Real{0};
+	__z_large = -b / a;
 	return;
       }
 
     // Compute discriminant avoiding overflow.
-    auto b2 = b / _Real{2};
+    auto __b2 = b / _Real{2};
 
     _Real d, e;
-    if (std::abs(b2) < std::abs(c))
+    if (std::abs(__b2) < std::abs(c))
       {
 	e = std::copysign(a, c);
-	e = b2 * (b2 / std::abs(c)) - e;
+	e = __b2 * (__b2 / std::abs(c)) - e;
 	d = std::sqrt(std::abs(e)) * std::sqrt(std::abs(c));
       }
     else
       {
-	e = _Real{1} - (a / b2) * (c / b2);
-	d = std::sqrt(std::abs(e)) * std::abs(b2);
+	e = _Real{1} - (a / __b2) * (c / __b2);
+	d = std::sqrt(std::abs(e)) * std::abs(__b2);
       }
 
     if (e < _Real{0})
       { // complex conjugate zeros.
-	z_small = std::complex<_Real>(-b2 / a, +std::abs(d / a));
-	z_large = std::complex<_Real>(-b2 / a, -std::abs(d / a));
+	__z_small = std::complex<_Real>(-__b2 / a, +std::abs(d / a));
+	__z_large = std::complex<_Real>(-__b2 / a, -std::abs(d / a));
       }
     else
       {
-	if (b2 >= _Real{0})
+	if (__b2 >= _Real{0})
 	  d = -d; // Real zeros.
-	z_large = (-b2 + d) / a;
-	z_small = _Real{0};
-	if (z_large != _Real{0})
-	  z_small = (c / z_large) / a;
+	__z_large = (-__b2 + d) / a;
+	__z_small = _Real{0};
+	if (__z_large != _Real{0})
+	  __z_small = (c / __z_large) / a;
       }
   }
 
