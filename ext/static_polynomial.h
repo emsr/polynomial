@@ -23,7 +23,6 @@
 // <http://www.gnu.org/licenses/>.
 
 #include <limits>
-//#include <experimental/array> // For make_array/to_array.
 #include <array>
 #include <complex>
 
