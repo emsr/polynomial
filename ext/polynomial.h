@@ -22,16 +22,20 @@
 // see the files COPYING3 and COPYING.RUNTIME respectively.  If not, see
 // <http://www.gnu.org/licenses/>.
 
-/** @file ext/polynomial.h
- *  This file is a GNU extension to the Standard C++ Library.
- */
-
 #ifndef _EXT_POLYNOMIAL_H
 #define _EXT_POLYNOMIAL_H 1
 
+/**
+ * @file polynomial.h
+ *
+ * This file is a GNU extension to the Standard C++ Library.
+ *
+ * This file contains the declaration of a dense-polynomial class.
+ */
+
 #pragma GCC system_header
 
-#if __cplusplus < 201103L
+#if __cplusplus < 201703L
 # include <bits/c++0x_warning.h>
 #else
 
@@ -48,34 +52,34 @@ namespace std {
 }
 
 /**
- *  detail: Do we want this to always have a size of at least one? a_0 = _Tp{}?  YES.
- *  detail: Should I punt on the initial power?  YES.
+ * detail: Do we want this to always have a size of at least one? a_0 = _Tp{}?  YES.
+ * detail: Should I punt on the initial power?  YES.
  *
- *  If high degree coefficients are zero, should I resize down? YES (or provide another word for order).
- *  How to access coefficients (bikeshed)?
- *    poly[i];
- *    coefficient(i);
- *    operator[](int i);
- *    begin(), end()?
- *    const _Tp* coefficients(); // Access for C, Fortran.
- *  How to set individual coefficients?
- *    poly[i] = c;
- *    coefficient(i, c);
- *    coefficient(i) = c;
- *  How to handle division?
- *    operator/ and throw out remainder?
- *    operator% to return the remainder?
- *    std::pair<> div(const _Polynomial& __a, const _Polynomial& __b) or remquo.
- *    void divmod(const _Polynomial& __a, const _Polynomial& __b,
- *                _Polynomial& __q, _Polynomial& __r);
- *  Should factory methods like derivative and integral be globals?
- *  I could have members:
- *    _Polynomial& integrate(_Tp c);
- *    _Polynomial& differentiate();
- *  Largest coefficient:
- *    Enforce coefficient of largest power be nonzero?
- *    Return an 'effective' order? Larest nonzero coefficient?
- *    Monic polynomial has largest coefficient as 1.  Subclass?
+ * If high degree coefficients are zero, should I resize down? YES (or provide another word for order).
+ * How to access coefficients (bikeshed)?
+ *   poly[i];
+ *   coefficient(i);
+ *   operator[](int i);
+ *   begin(), end()?
+ *   const _Tp* coefficients(); // Access for C, Fortran.
+ * How to set individual coefficients?
+ *   poly[i] = c;
+ *   coefficient(i, c);
+ *   coefficient(i) = c;
+ * How to handle division?
+ *   operator/ and throw out remainder?
+ *   operator% to return the remainder?
+ *   std::pair<> div(const _Polynomial& __a, const _Polynomial& __b) or remquo.
+ *   void divmod(const _Polynomial& __a, const _Polynomial& __b,
+ *               _Polynomial& __q, _Polynomial& __r);
+ * Should factory methods like derivative and integral be globals?
+ * I could have members:
+ *   _Polynomial& integrate(_Tp c);
+ *   _Polynomial& differentiate();
+ * Largest coefficient:
+ *   Enforce coefficient of largest power be nonzero?
+ *   Return an 'effective' order? Larest nonzero coefficient?
+ *   Monic polynomial has largest coefficient as 1.  Subclass?
  */
 namespace __gnu_cxx _GLIBCXX_VISIBILITY(default)
 {
@@ -89,8 +93,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
     {
     public:
       /**
-       *  Typedefs.
-       *  @todo Should we grab these from _M_coeff (i.e. std::vector<_Tp>)?
+       * Typedefs.
        */
       using value_type = typename std::vector<_Tp>::value_type;
       using reference = typename std::vector<value_type>::reference;
@@ -105,19 +108,19 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
       using difference_type = typename std::vector<_Tp>::difference_type;
 
       /**
-       *  Create a zero degree polynomial with value zero.
+       * Create a zero degree polynomial with value zero.
        */
       _Polynomial()
       : _M_coeff(1)
       { }
 
       /**
-       *  Copy ctor.
+       * Copy ctor.
        */
       _Polynomial(const _Polynomial&) = default;
 
       /**
-       *  Move ctor.
+       * Move ctor.
        */
       _Polynomial(_Polynomial&&) noexcept = default;
 
@@ -130,7 +133,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 	}
 
       /**
-       *  Create a polynomial of just one constant term.
+       * Create a polynomial of just one constant term.
        */
       explicit
       _Polynomial(value_type __a, size_type __degree = 0)
@@ -138,14 +141,14 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
       { this->_M_coeff[__degree] = __a; }
 
       /**
-       *  Create a polynomial from an initializer list of coefficients.
+       * Create a polynomial from an initializer list of coefficients.
        */
       _Polynomial(std::initializer_list<value_type> __ila)
       : _M_coeff(__ila)
       { }
 
       /**
-       *  Create a polynomial from an input iterator range of coefficients.
+       * Create a polynomial from an input iterator range of coefficients.
        */
       template<typename InIter,
 	       typename = std::_RequireInputIter<InIter>>
@@ -154,8 +157,8 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 	{ }
 
       /**
-       *  Use Lagrange interpolation to construct a polynomial passing through
-       *  the data points.  The degree will be one less than the number of points.
+       * Use Lagrange interpolation to construct a polynomial passing through
+       * the data points.  The degree will be one less than the number of points.
        */
       template<typename InIter,
 	       typename = std::_RequireInputIter<InIter>>
@@ -187,14 +190,14 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 
 
       /**
-       *  Swap the polynomial with another polynomial.
+       * Swap the polynomial with another polynomial.
        */
       void
       swap(_Polynomial& __poly) noexcept
       { this->_M_coeff.swap(__poly._M_coeff); }
 
       /**
-       *  Evaluate the polynomial at the input point.
+       * Evaluate the polynomial at the input point.
        */
       value_type
       operator()(value_type __x) const
@@ -211,7 +214,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
       }
 
       /**
-       *  Evaluate the polynomial at the input point.
+       * Evaluate the polynomial at the input point.
        */
       template<typename _Up>
 	auto
@@ -230,15 +233,15 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 	}
 
       /**
-       *  Evaluate the polynomial using a modification of Horner's rule which
-       *  exploits the fact that the polynomial coefficients are all real.
+       * Evaluate the polynomial using a modification of Horner's rule which
+       * exploits the fact that the polynomial coefficients are all real.
        *
-       *  The algorithm is discussed in detail in:
-       *  Knuth, D. E., The Art of Computer Programming: Seminumerical
-       *  Algorithms (Vol. 2) Third Ed., Addison-Wesley, pp 486-488, 1998.
+       * The algorithm is discussed in detail in:
+       * Knuth, D. E., The Art of Computer Programming: Seminumerical
+       * Algorithms (Vol. 2) Third Ed., Addison-Wesley, pp 486-488, 1998.
        *
-       *  If n is the degree of the polynomial,
-       *  n - 3 multiplies and 4 * n - 6 additions are saved.
+       * If n is the degree of the polynomial,
+       * n - 3 multiplies and 4 * n - 6 additions are saved.
        */
       template<typename _Up>
 	auto
@@ -246,10 +249,10 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 	-> decltype(value_type{} * std::complex<_Up>{});
 
       /**
-       *  Evaluate the polynomial at a range of input points.
-       *  The output is written to the output iterator which
-       *  must be large enough to contain the results.
-       *  The next available output iterator is returned.
+       * Evaluate the polynomial at a range of input points.
+       * The output is written to the output iterator which
+       * must be large enough to contain the results.
+       * The next available output iterator is returned.
        */
       template<typename InIter, typename OutIter,
 	       typename = std::_RequireInputIter<InIter>>
@@ -268,37 +271,37 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 	eval(value_type __x, std::array<value_type, N>& __arr);
 
       /**
-       *  Evaluate the polynomial and its derivatives at the point x.
-       *  The values are placed in the output range starting with the
-       *  polynomial value and continuing through higher derivatives.
+       * Evaluate the polynomial and its derivatives at the point x.
+       * The values are placed in the output range starting with the
+       * polynomial value and continuing through higher derivatives.
        */
       template<typename OutIter>
 	void
 	eval(value_type __x, OutIter __b, OutIter __e);
 
       /**
-       *  Evaluate the even part of the polynomial at the input point.
+       * Evaluate the even part of the polynomial at the input point.
        */
       value_type
       eval_even(value_type __x) const;
 
       /**
-       *  Evaluate the odd part of the polynomial at the input point.
+       * Evaluate the odd part of the polynomial at the input point.
        */
       value_type
       eval_odd(value_type __x) const;
 
       /**
-       *  Evaluate the even part of the polynomial using a modification
-       *  of Horner's rule which exploits the fact that the polynomial
-       *  coefficients are all real.
+       * Evaluate the even part of the polynomial using a modification
+       * of Horner's rule which exploits the fact that the polynomial
+       * coefficients are all real.
        *
-       *  The algorithm is discussed in detail in:
-       *  Knuth, D. E., The Art of Computer Programming: Seminumerical
-       *  Algorithms (Vol. 2) Third Ed., Addison-Wesley, pp 486-488, 1998.
+       * The algorithm is discussed in detail in:
+       * Knuth, D. E., The Art of Computer Programming: Seminumerical
+       * Algorithms (Vol. 2) Third Ed., Addison-Wesley, pp 486-488, 1998.
        *
-       *  If n is the degree of the polynomial,
-       *  n - 3 multiplies and 4 * n - 6 additions are saved.
+       * If n is the degree of the polynomial,
+       * n - 3 multiplies and 4 * n - 6 additions are saved.
        */
       template<typename _Up>
 	auto
@@ -306,16 +309,16 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 	-> decltype(value_type{} * std::complex<_Up>{});
 
       /**
-       *  Evaluate the odd part of the polynomial using a modification
-       *  of Horner's rule which exploits the fact that the polynomial
-       *  coefficients are all real.
+       * Evaluate the odd part of the polynomial using a modification
+       * of Horner's rule which exploits the fact that the polynomial
+       * coefficients are all real.
        *
-       *  The algorithm is discussed in detail in:
-       *  Knuth, D. E., The Art of Computer Programming: Seminumerical
-       *  Algorithms (Vol. 2) Third Ed., Addison-Wesley, pp 486-488, 1998.
+       * The algorithm is discussed in detail in:
+       * Knuth, D. E., The Art of Computer Programming: Seminumerical
+       * Algorithms (Vol. 2) Third Ed., Addison-Wesley, pp 486-488, 1998.
        *
-       *  If n is the degree of the polynomial,
-       *  n - 3 multiplies and 4 * n - 6 additions are saved.
+       * If n is the degree of the polynomial,
+       * n - 3 multiplies and 4 * n - 6 additions are saved.
        */
       template<typename _Up>
 	auto
@@ -323,7 +326,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 	-> decltype(value_type{} * std::complex<_Up>{});
 
       /**
-       *  Return the derivative of the polynomial.
+       * Return the derivative of the polynomial.
        */
       _Polynomial
       derivative() const
@@ -336,7 +339,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
       }
 
       /**
-       *  Return the integral of the polynomial with given integration constant.
+       * Return the integral of the polynomial with given integration constant.
        */
       _Polynomial
       integral(value_type __c = value_type{}) const
@@ -349,22 +352,22 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
       }
 
       /**
-       *  Unary plus.
+       * Unary plus.
        */
       _Polynomial
       operator+() const noexcept
       { return *this; }
 
       /**
-       *  Unary minus.
+       * Unary minus.
        */
       _Polynomial
       operator-() const
       { return _Polynomial(*this) *= value_type(-1); }
 
       /**
-       *  Assign from a scalar.
-       *  The result is a zero degree polynomial equal to the scalar.
+       * Assign from a scalar.
+       * The result is a zero degree polynomial equal to the scalar.
        */
       _Polynomial&
       operator=(const value_type& __x)
@@ -374,7 +377,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
       }
 
       /**
-       *  Copy assignment.
+       * Copy assignment.
        */
       _Polynomial&
       operator=(const _Polynomial&) = default;
@@ -393,7 +396,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 	}
 
       /**
-       *  Assign from an initialiser list.
+       * Assign from an initialiser list.
        */
       _Polynomial&
       operator=(std::initializer_list<value_type> __ila)
@@ -403,7 +406,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
       }
 
       /**
-       *  Add a scalar to the polynomial.
+       * Add a scalar to the polynomial.
        */
       template<typename _Up>
 	_Polynomial&
@@ -415,7 +418,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 	}
 
       /**
-       *  Subtract a scalar from the polynomial.
+       * Subtract a scalar from the polynomial.
        */
       template<typename _Up>
 	_Polynomial&
@@ -427,7 +430,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 	}
 
       /**
-       *  Multiply the polynomial by a scalar.
+       * Multiply the polynomial by a scalar.
        */
       template<typename _Up>
 	_Polynomial&
@@ -440,7 +443,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 	}
 
       /**
-       *  Divide the polynomial by a scalar.
+       * Divide the polynomial by a scalar.
        */
       template<typename _Up>
 	_Polynomial&
@@ -452,8 +455,8 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 	}
 
       /**
-       *  Take the modulus of the polynomial relative to a scalar.
-       *  The result is always null.
+       * Take the modulus of the polynomial relative to a scalar.
+       * The result is always null.
        */
       template<typename _Up>
 	_Polynomial&
@@ -465,7 +468,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 	}
 
       /**
-       *  Add another polynomial to the polynomial.
+       * Add another polynomial to the polynomial.
        */
       template<typename _Up>
 	_Polynomial&
@@ -478,7 +481,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 	}
 
       /**
-       *  Subtract another polynomial from the polynomial.
+       * Subtract another polynomial from the polynomial.
        */
       template<typename _Up>
 	_Polynomial&
@@ -492,14 +495,14 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 	}
 
       /**
-       *  Multiply the polynomial by another polynomial.
+       * Multiply the polynomial by another polynomial.
        */
       template<typename _Up>
 	_Polynomial&
 	operator*=(const _Polynomial<_Up>& __poly);
 
       /**
-       *  Divide the polynomial by another polynomial.
+       * Divide the polynomial by another polynomial.
        */
       template<typename _Up>
 	_Polynomial&
@@ -512,7 +515,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 	}
 
       /**
-       *  Take the modulus of (modulate?) the polynomial relative to another polynomial.
+       * Take the modulus of (modulate?) the polynomial relative to another polynomial.
        */
       template<typename _Up>
 	_Polynomial&
@@ -525,109 +528,109 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 	}
 
       /**
-       *  Return the degree or the power of the largest coefficient.
+       * Return the degree or the power of the largest coefficient.
        */
       size_type
       degree() const noexcept
       { return (this->_M_coeff.size() > 0 ? this->_M_coeff.size() - 1 : 0); }
 
       /**
-       *  Set the degree or the power of the largest coefficient.
+       * Set the degree or the power of the largest coefficient.
        */
       void
       degree(size_type __degree)
       { this->_M_coeff.resize(__degree + 1UL); }
 
       /**
-       *  Return the size of the coefficient sequence.
+       * Return the size of the coefficient sequence.
        */
       size_type
       size() const noexcept
       { return this->_M_coeff.size(); }
 
       /**
-       *  Return the @c ith coefficient with range checking.
+       * Return the @c ith coefficient with range checking.
        */
       value_type
       coefficient(size_type __i) const
       { return this->_M_coeff.at(__i); }
 
       /**
-       *  Set coefficient @c i to @c val with range checking.
+       * Set coefficient @c i to @c val with range checking.
        */
       void
       coefficient(size_type __i, value_type __val)
       { this->_M_coeff.at(__i) = __val; }
 
       /**
-       *  Return a @c const pointer to the coefficient sequence.
+       * Return a @c const pointer to the coefficient sequence.
        */
       const value_type*
       coefficients() const noexcept
       { this->_M_coeff.data(); }
 
       /**
-       *  Return a @c pointer to the coefficient sequence.
+       * Return a @c pointer to the coefficient sequence.
        */
       value_type*
       coefficients() noexcept
       { this->_M_coeff.data(); }
 
       /**
-       *  Return coefficient @c i.
+       * Return coefficient @c i.
        */
       value_type
       operator[](size_type __i) const noexcept
       { return this->_M_coeff[__i]; }
 
       /**
-       *  Return coefficient @c i as an lvalue.
+       * Return coefficient @c i as an lvalue.
        */
       reference
       operator[](size_type __i) noexcept
       { return this->_M_coeff[__i]; }
 
       /**
-       *  Return an iterator to the beginning of the coefficient sequence.
+       * Return an iterator to the beginning of the coefficient sequence.
        */
       iterator
       begin() noexcept
       { return this->_M_coeff.begin(); }
 
       /**
-       *  Return an iterator to one past the end of the coefficient sequence.
+       * Return an iterator to one past the end of the coefficient sequence.
        */
       iterator
       end() noexcept
       { return this->_M_coeff.end(); }
 
       /**
-       *  Return a @c const iterator the beginning
-       *  of the coefficient sequence.
+       * Return a @c const iterator the beginning
+       * of the coefficient sequence.
        */
       const_iterator
       begin() const noexcept
       { return this->_M_coeff.begin(); }
 
       /**
-       *  Return a @c const iterator to one past the end
-       *  of the coefficient sequence.
+       * Return a @c const iterator to one past the end
+       * of the coefficient sequence.
        */
       const_iterator
       end() const noexcept
       { return this->_M_coeff.end(); }
 
       /**
-       *  Return a @c const iterator the beginning
-       *  of the coefficient sequence.
+       * Return a @c const iterator the beginning
+       * of the coefficient sequence.
        */
       const_iterator
       cbegin() const noexcept
       { return this->_M_coeff.cbegin(); }
 
       /**
-       *  Return a @c const iterator to one past the end
-       *  of the coefficient sequence.
+       * Return a @c const iterator to one past the end
+       * of the coefficient sequence.
        */
       const_iterator
       cend() const noexcept
@@ -672,7 +675,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
     };
 
   /**
-   *  Return the sum of a polynomial with a scalar.
+   * Return the sum of a polynomial with a scalar.
    */
   template<typename _Tp, typename _Up>
     inline _Polynomial<decltype(_Tp() + _Up())>
@@ -680,7 +683,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
     { return _Polynomial<decltype(_Tp() + _Up())>(__poly) += __x; }
 
   /**
-   *  Return the difference of a polynomial with a scalar.
+   * Return the difference of a polynomial with a scalar.
    */
   template<typename _Tp, typename _Up>
     inline _Polynomial<decltype(_Tp() - _Up())>
@@ -688,7 +691,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
     { return _Polynomial<decltype(_Tp() - _Up())>(__poly) -= __x; }
 
   /**
-   *  Return the product of a polynomial with a scalar.
+   * Return the product of a polynomial with a scalar.
    */
   template<typename _Tp, typename _Up>
     inline _Polynomial<decltype(_Tp() * _Up())>
@@ -696,7 +699,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
     { return _Polynomial<decltype(_Tp() * _Up())>(__poly) *= __x; }
 
   /**
-   *  Return the quotient of a polynomial with a scalar.
+   * Return the quotient of a polynomial with a scalar.
    */
   template<typename _Tp, typename _Up>
     inline _Polynomial<decltype(_Tp() / _Up())>
@@ -712,7 +715,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
     { return _Polynomial<decltype(_Tp() / _Up())>(__poly) %= __x; }
 
   /**
-   *  Return the sum of two polynomials.
+   * Return the sum of two polynomials.
    */
   template<typename _Tp, typename _Up>
     inline _Polynomial<decltype(_Tp() + _Up())>
@@ -720,7 +723,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
     { return _Polynomial<decltype(_Tp() + _Up())>(__pa) += __pb; }
 
   /**
-   *  Return the difference of two polynomials.
+   * Return the difference of two polynomials.
    */
   template<typename _Tp, typename _Up>
     inline _Polynomial<decltype(_Tp() - _Up())>
@@ -728,7 +731,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
     { return _Polynomial<decltype(_Tp() - _Up())>(__pa) -= __pb; }
 
   /**
-   *  Return the product of two polynomials.
+   * Return the product of two polynomials.
    */
   template<typename _Tp, typename _Up>
     inline _Polynomial<decltype(_Tp() * _Up())>
@@ -736,7 +739,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
     { return _Polynomial<decltype(_Tp() * _Up())>(__pa) *= __pb; }
 
   /**
-   *  Return the quotient of two polynomials.
+   * Return the quotient of two polynomials.
    */
   template<typename _Tp, typename _Up>
     inline _Polynomial<decltype(_Tp() / _Up())>
@@ -744,7 +747,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
     { return _Polynomial<decltype(_Tp() / _Up())>(__pa) /= __pb; }
 
   /**
-   *  Return the modulus or remainder of one polynomial relative to another one.
+   * Return the modulus or remainder of one polynomial relative to another one.
    */
   template<typename _Tp, typename _Up>
     inline _Polynomial<decltype(_Tp() / _Up())>
@@ -776,7 +779,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
     { return _Polynomial<decltype(_Tp() * _Up())>(__x) *= __poly; }
 
   /**
-   *  Return the quotient of two polynomials.
+   * Return the quotient of two polynomials.
    */
   template<typename _Tp, typename _Up>
     inline _Polynomial<decltype(_Tp() / _Up())>
@@ -784,7 +787,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
     { return _Polynomial<decltype(_Tp() / _Up())>(__x) /= __poly; }
 
   /**
-   *  Return the modulus or remainder of one polynomial relative to another one.
+   * Return the modulus or remainder of one polynomial relative to another one.
    */
   template<typename _Tp, typename _Up>
     inline _Polynomial<decltype(_Tp() / _Up())>
@@ -792,7 +795,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
     { return _Polynomial<decltype(_Tp() / _Up())>(__x) %= __poly; }
 
   /**
-   *  Divide two polynomials returning the quotient and remainder.
+   * Divide two polynomials returning the quotient and remainder.
    */
   template<typename _Tp>
     void
@@ -800,8 +803,8 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
            _Polynomial<_Tp>& __quo, _Polynomial<_Tp>& __rem);
 
   /**
-   *  Write a polynomial to a stream.
-   *  The format is a parenthesized comma-delimited list of coefficients.
+   * Write a polynomial to a stream.
+   * The format is a parenthesized comma-delimited list of coefficients.
    */
   template<typename CharT, typename Traits, typename _Tp>
     std::basic_ostream<CharT, Traits>&
@@ -809,9 +812,9 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 	       const _Polynomial<_Tp>& __poly);
 
   /**
-   *  Read a polynomial from a stream.
-   *  The input format can be a plain scalar (zero degree polynomial)
-   *  or a parenthesized comma-delimited list of coefficients.
+   * Read a polynomial from a stream.
+   * The input format can be a plain scalar (zero degree polynomial)
+   * or a parenthesized comma-delimited list of coefficients.
    */
   template<typename CharT, typename Traits, typename _Tp>
     std::basic_istream<CharT, Traits>&
@@ -819,7 +822,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 	       _Polynomial<_Tp>& __poly);
 
   /**
-   *  Return true if two polynomials are equal.
+   * Return true if two polynomials are equal.
    */
   template<typename _Tp>
     inline bool
@@ -827,7 +830,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
     { return __pa._M_coeff == __pb._M_coeff; }
 
   /**
-   *  Return false if two polynomials are equal.
+   * Return false if two polynomials are equal.
    */
   template<typename _Tp>
     inline bool
@@ -835,7 +838,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
     { return !(__pa == __pb); }
 
   /**
-   *  See _Polynomial::swap().
+   * See _Polynomial::swap().
    */
   template<typename _Tp>
     inline void
@@ -848,7 +851,7 @@ _GLIBCXX_END_NAMESPACE_VERSION
 
 #include "polynomial.tcc"
 
-#endif // C++11
+#endif // C++17
 
 #endif // _EXT_POLYNOMIAL_H
 

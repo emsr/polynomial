@@ -25,11 +25,33 @@
 #ifndef SOLVER_LOW_DEGREE_TCC
 #define SOLVER_LOW_DEGREE_TCC 1
 
+/**
+ * @file solver_low_degree.h
+ *
+ * This file is a GNU extension to the Standard C++ Library.
+ *
+ * This file contains the definitions of free functions for solving
+ * quadratic, cubic, and quartic equations with real coefficients.
+ */
+
+#pragma GCC system_header
+
+#if __cplusplus < 201703L
+# include <bits/c++0x_warning.h>
+#else
+
 #include <ext/math_const.h>
 
 namespace __gnu_cxx
 {
+_GLIBCXX_BEGIN_NAMESPACE_VERSION
 
+  /**
+   * Refine a solution using the Newton method:
+   * @f[
+   *    x_{n+1} - x_n = -\frac{P(x_n)}{P'(x_n)}
+   * @f]
+   */
   template<std::size_t _Dim, typename _Iter, typename _NumTp>
     _NumTp
     __refine_solution_newton(_NumTp __z, const _Iter& _CC)
@@ -50,6 +72,18 @@ namespace __gnu_cxx
       return __z;
     }
 
+  /**
+   * Refine a solution using the Halley method:
+   * @f[
+   *    x_{n+1} - x_n = -\frac{2 P(x_n) P'(x_n)}
+   *                    {2 [P'(x_n)]^2 - P(x_n) P''(x_n)}
+   * @f]
+   * This form indicates the close relationship to the Newton method:
+   * @f[
+   *    x_{n+1} - x_n = -\frac{P'(x_n)}
+   *                    {P'(x_n) - [P(x_n) P''(x_n)]/[2P'(x_n)]}
+   * @f]
+   */
   template<std::size_t _Dim, typename _Iter, typename _NumTp>
     _NumTp
     __refine_solution_halley(_NumTp __z, const _Iter& _CC)
@@ -408,6 +442,9 @@ namespace __gnu_cxx
       return _ZZ;
     }
 
+_GLIBCXX_END_NAMESPACE_VERSION
 } // namespace __gnu_cxx
+
+#endif // C++17
 
 #endif // SOLVER_LOW_DEGREE_TCC

@@ -22,8 +22,13 @@
 // see the files COPYING3 and COPYING.RUNTIME respectively.  If not, see
 // <http://www.gnu.org/licenses/>.
 
-/** @file ext/polynomial.tcc
- *  This file is a GNU extension to the Standard C++ Library.
+/**
+ * @file polynomial.tcc
+ *
+ * This file is a GNU extension to the Standard C++ Library.
+ * This file contains the out-of-line implementations of the polynomial class.
+ *
+ * @see polynomial.h
  */
 
 #ifndef _EXT_POLYNOMIAL_TCC
@@ -31,7 +36,7 @@
 
 #pragma GCC system_header
 
-#if __cplusplus < 201103L
+#if __cplusplus < 201703L
 # include <bits/c++0x_warning.h>
 #else
 
@@ -43,15 +48,15 @@ namespace __gnu_cxx _GLIBCXX_VISIBILITY(default)
 _GLIBCXX_BEGIN_NAMESPACE_VERSION
 
   /**
-   *  Evaluate the polynomial using a modification of Horner's rule which
-   *  exploits the fact that the polynomial coefficients are all real.
+   * Evaluate the polynomial using a modification of Horner's rule which
+   * exploits the fact that the polynomial coefficients are all real.
    *
-   *  The algorithm is discussed in detail in:
-   *  Knuth, D. E., The Art of Computer Programming: Seminumerical
-   *  Algorithms (Vol. 2) Third Ed., Addison-Wesley, pp 486-488, 1998.
+   * The algorithm is discussed in detail in:
+   * Knuth, D. E., The Art of Computer Programming: Seminumerical
+   * Algorithms (Vol. 2) Third Ed., Addison-Wesley, pp 486-488, 1998.
    *
-   *  If n is the degree of the polynomial,
-   *  n - 3 multiplies and 4 * n - 6 additions are saved.
+   * If n is the degree of the polynomial,
+   * n - 3 multiplies and 4 * n - 6 additions are saved.
    */
   template<typename _Tp>
     template<typename _Up>
@@ -105,9 +110,9 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
       }
 
   /**
-   *  Evaluate the polynomial and its derivatives at the point x.
-   *  The values are placed in the output range starting with the
-   *  polynomial value and continuing through higher derivatives.
+   * Evaluate the polynomial and its derivatives at the point x.
+   * The values are placed in the output range starting with the
+   * polynomial value and continuing through higher derivatives.
    */
   template<typename _Tp>
     template<typename OutIter>
@@ -140,7 +145,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
       }
 
   /**
-   *  Evaluate the even part of the polynomial at the input point.
+   * Evaluate the even part of the polynomial at the input point.
    */
   template<typename _Tp>
     typename _Polynomial<_Tp>::value_type
@@ -160,7 +165,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
     }
 
   /**
-   *  Evaluate the odd part of the polynomial at the input point.
+   * Evaluate the odd part of the polynomial at the input point.
    */
   template<typename _Tp>
     typename _Polynomial<_Tp>::value_type
@@ -180,16 +185,16 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
     }
 
   /**
-   *  Evaluate the even part of the polynomial using a modification
-   *  of Horner's rule which exploits the fact that the polynomial
-   *  coefficients are all real.
+   * Evaluate the even part of the polynomial using a modification
+   * of Horner's rule which exploits the fact that the polynomial
+   * coefficients are all real.
    *
-   *  The algorithm is discussed in detail in:
-   *  Knuth, D. E., The Art of Computer Programming: Seminumerical
-   *  Algorithms (Vol. 2) Third Ed., Addison-Wesley, pp 486-488, 1998.
+   * The algorithm is discussed in detail in:
+   * Knuth, D. E., The Art of Computer Programming: Seminumerical
+   * Algorithms (Vol. 2) Third Ed., Addison-Wesley, pp 486-488, 1998.
    *
-   *  If n is the degree of the polynomial,
-   *  n - 3 multiplies and 4 * n - 6 additions are saved.
+   * If n is the degree of the polynomial,
+   * n - 3 multiplies and 4 * n - 6 additions are saved.
    */
   template<typename _Tp>
     template<typename _Up>
@@ -216,16 +221,16 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
       };
 
   /**
-   *  Evaluate the odd part of the polynomial using a modification
-   *  of Horner's rule which exploits the fact that the polynomial
-   *  coefficients are all real.
+   * Evaluate the odd part of the polynomial using a modification
+   * of Horner's rule which exploits the fact that the polynomial
+   * coefficients are all real.
    *
-   *  The algorithm is discussed in detail in:
-   *  Knuth, D. E., The Art of Computer Programming: Seminumerical
-   *  Algorithms (Vol. 2) Third Ed., Addison-Wesley, pp 486-488, 1998.
+   * The algorithm is discussed in detail in:
+   * Knuth, D. E., The Art of Computer Programming: Seminumerical
+   * Algorithms (Vol. 2) Third Ed., Addison-Wesley, pp 486-488, 1998.
    *
-   *  If n is the degree of the polynomial,
-   *  n - 3 multiplies and 4 * n - 6 additions are saved.
+   * If n is the degree of the polynomial,
+   * n - 3 multiplies and 4 * n - 6 additions are saved.
    */
   template<typename _Tp>
     template<typename _Up>
@@ -252,7 +257,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
       };
 
     /**
-     *  Multiply the polynomial by another polynomial.
+     * Multiply the polynomial by another polynomial.
      */
   template<typename _Tp>
     template<typename _Up>
@@ -272,7 +277,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
       }
 
   /**
-   *  Divide two polynomials returning the quotient and remainder.
+   * Divide two polynomials returning the quotient and remainder.
    */
   template<typename _Tp>
     void
@@ -300,8 +305,8 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
     }
 
   /**
-   *  Write a polynomial to a stream.
-   *  The format is a parenthesized comma-delimited list of coefficients.
+   * Write a polynomial to a stream.
+   * The format is a parenthesized comma-delimited list of coefficients.
    */
   template<typename CharT, typename Traits, typename _Tp>
     std::basic_ostream<CharT, Traits>&
@@ -319,9 +324,9 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
     }
 
   /**
-   *  Read a polynomial from a stream.
-   *  The input format can be a plain scalar (zero degree polynomial)
-   *  or a parenthesized comma-delimited list of coefficients.
+   * Read a polynomial from a stream.
+   * The input format can be a plain scalar (zero degree polynomial)
+   * or a parenthesized comma-delimited list of coefficients.
    */
   template<typename CharT, typename Traits, typename _Tp>
     std::basic_istream<CharT, Traits>&
@@ -354,7 +359,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 _GLIBCXX_END_NAMESPACE_VERSION
 } // namespace __gnu_cxx
 
-#endif // C++11
+#endif // C++17
 
 #endif // _EXT_POLYNOMIAL_TCC
 

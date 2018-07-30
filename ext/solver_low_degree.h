@@ -25,13 +25,28 @@
 #ifndef SOLVER_LOW_DEGREE_H
 #define SOLVER_LOW_DEGREE_H 1
 
+/**
+ * @file solver_low_degree.h
+ *
+ * This file is a GNU extension to the Standard C++ Library.
+ *
+ * This file contains the declarations of free functions for solving
+ * quadratic, cubic, and quartic equations with real coefficients.
+ */
+
+#pragma GCC system_header
+
+#if __cplusplus < 201703L
+# include <bits/c++0x_warning.h>
+#else
+
 #include <experimental/array>
 
 #include "solution.h"
 
 namespace __gnu_cxx
 {
-
+_GLIBCXX_BEGIN_NAMESPACE_VERSION
 
   template<typename _Real, typename _Iter>
     std::array<solution_t<_Real>, 2>
@@ -45,7 +60,6 @@ namespace __gnu_cxx
       return __quadratic<_Real>(make_array(__c0, __c1, __c2));
     }
 
-
   template<typename _Real, typename _Iter>
     std::array<solution_t<_Real>, 3>
     __cubic(const _Iter& __coef);
@@ -57,7 +71,6 @@ namespace __gnu_cxx
       using std::experimental::make_array;
       return __cubic<_Real>(make_array(__c0, __c1, __c2, __c3));
     }
-
 
   template<typename _Real, typename _Iter>
     std::array<solution_t<_Real>, 4>
@@ -71,11 +84,11 @@ namespace __gnu_cxx
       return __quartic<_Real>(make_array(__c0, __c1, __c2, __c3, __c4));
     }
 
-
+_GLIBCXX_END_NAMESPACE_VERSION
 } // namespace __gnu_cxx
-
 
 #include "solver_low_degree.tcc"
 
+#endif // C++17
 
 #endif // SOLVER_LOW_DEGREE_H

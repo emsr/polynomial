@@ -11,7 +11,7 @@ $HOME/bin/bin/g++ -std=gnu++17 -g -Wall -Wextra -Wno-psabi -I. -o test_polynomia
 #include <complex>
 #include <sstream>
 
-#include "polynomial.h"
+#include "ext/polynomial.h"
 
 int
 main()

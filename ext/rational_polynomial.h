@@ -22,15 +22,31 @@
 // see the files COPYING3 and COPYING.RUNTIME respectively.  If not, see
 // <http://www.gnu.org/licenses/>.
 
+#ifndef _EXT_RATIONAL_POLYNOMIAL_H
+#define _EXT_RATIONAL_POLYNOMIAL_H 1
+
+/**
+ * @file rational_polynomial.h
+ *
+ * This file is a GNU extension to the Standard C++ Library.
+ *
+ * This file contains the declaration of a ratio of two polynomials.
+ * @see polynomial.h
+ */
+
+#pragma GCC system_header
+
+#if __cplusplus < 201703L
+# include <bits/c++0x_warning.h>
+#else
+
 #include <iostream>
 
 #include "polynomial.h"
 
-#ifndef _EXT_RATIONAL_POLYNOMIAL_H
-#define _EXT_RATIONAL_POLYNOMIAL_H 1
-
 namespace __gnu_cxx
 {
+_GLIBCXX_BEGIN_NAMESPACE_VERSION
 
   /**
    *
@@ -40,7 +56,7 @@ namespace __gnu_cxx
     {
     public:
       /**
-       *  Typedefs.
+       * Typedefs.
        */
       using polynomial_type = _Polynomial<_Tp>;
       using value_type = typename polynomial_type::value_type;
@@ -59,14 +75,14 @@ namespace __gnu_cxx
       using difference_type = typename polynomial_type::difference_type;
 
       /**
-       *  Create a zero degree polynomial with value zero.
+       * Create a zero degree polynomial with value zero.
        */
       _RationalPolynomial()
       : _M_num(), _M_den()
       { }
 
       /**
-       *  Copy ctor.
+       * Copy ctor.
        */
       _RationalPolynomial(const _RationalPolynomial&) = default;
 
@@ -76,34 +92,34 @@ namespace __gnu_cxx
       { }
 
       /**
-       *  Evaluate the polynomial at the input point.
+       * Evaluate the polynomial at the input point.
        */
       value_type
       operator()(value_type __x) const
       { return this->_M_num(__x) / this->_M_den(__x); }
 
       /**
-       *  Unary plus.
+       * Unary plus.
        */
       _RationalPolynomial
       operator+() const
       { return *this; }
 
       /**
-       *  Unary minus.
+       * Unary minus.
        */
       _RationalPolynomial
       operator-() const
       { return _RationalPolynomial(*this) *= value_type(-1); }
 
       /**
-       *  Copy assignment.
+       * Copy assignment.
        */
       _RationalPolynomial&
       operator=(const _RationalPolynomial&) = default;
 
       /**
-       *  Add a rational polynomial to this rational polynomial.
+       * Add a rational polynomial to this rational polynomial.
        */
       _RationalPolynomial&
       operator+=(const _RationalPolynomial& __x)
@@ -114,7 +130,7 @@ namespace __gnu_cxx
       }
 
       /**
-       *  Subtract a rational polynomial from this rational polynomial.
+       * Subtract a rational polynomial from this rational polynomial.
        */
       _RationalPolynomial&
       operator-=(const _RationalPolynomial& __x)
@@ -125,7 +141,7 @@ namespace __gnu_cxx
       }
 
       /**
-       *  Multiply this rational polynomial by a rational polynomial.
+       * Multiply this rational polynomial by a rational polynomial.
        */
       _RationalPolynomial&
       operator*=(const _RationalPolynomial& __x)
@@ -136,7 +152,7 @@ namespace __gnu_cxx
       }
 
       /**
-       *  Divide this rational polynomial by a rational polynomial.
+       * Divide this rational polynomial by a rational polynomial.
        */
       _RationalPolynomial&
       operator/=(const _RationalPolynomial& __x)
@@ -169,8 +185,8 @@ namespace __gnu_cxx
     };
 
   /**
-   *  Write a polynomial to a stream.
-   *  The format is a parenthesized comma-delimited list of coefficients.
+   * Write a polynomial to a stream.
+   * The format is a parenthesized comma-delimited list of coefficients.
    */
   template<typename CharT, typename Traits, typename _Tp>
     std::basic_ostream<CharT, Traits>&
@@ -181,9 +197,9 @@ namespace __gnu_cxx
     }
 
   /**
-   *  Read a polynomial from a stream.
-   *  The input format can be a plain scalar (zero degree polynomial)
-   *  or a parenthesized comma-delimited list of coefficients.
+   * Read a polynomial from a stream.
+   * The input format can be a plain scalar (zero degree polynomial)
+   * or a parenthesized comma-delimited list of coefficients.
    */
   template<typename CharT, typename Traits, typename _Tp>
     std::basic_istream<CharT, Traits>&
@@ -210,6 +226,9 @@ namespace __gnu_cxx
       return __is;
     }
 
+_GLIBCXX_END_NAMESPACE_VERSION
 } // namespace __gnu_cxx
+
+#endif // C++17
 
 #endif // _EXT_RATIONAL_POLYNOMIAL_H

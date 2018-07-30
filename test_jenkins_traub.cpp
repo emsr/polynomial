@@ -7,8 +7,8 @@ $HOME/bin/bin/g++ -std=gnu++17 -g -Wall -Wextra -I. -o test_jenkins_traub test_j
 #include <cmath>
 
 #include "bits/specfun_state.h"
-#include "polynomial/polynomial.h"
-#include "solver_low_degree.h"
+#include "ext/polynomial.h"
+#include "ext/solver_low_degree.h"
 
 namespace __gnu_cxx
 {

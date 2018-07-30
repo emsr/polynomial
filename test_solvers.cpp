@@ -8,7 +8,7 @@ $HOME/bin/bin/g++ -std=gnu++17 -g -I. -I.. -o test_solvers test_solvers.cpp -lqu
 #include <iomanip>
 #include <limits>
 
-#include "solver_low_degree.h"
+#include "ext/solver_low_degree.h"
 
 template<typename Real>
   struct status

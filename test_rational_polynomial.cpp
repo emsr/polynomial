@@ -10,7 +10,7 @@ $HOME/bin/bin/g++ -g -std=gnu++17 -g -Wall -Wextra -I. -o test_rational_polynomi
 #include <complex>
 #include <sstream>
 
-#include "rational_polynomial.h"
+#include "ext/rational_polynomial.h"
 
 int
 main()

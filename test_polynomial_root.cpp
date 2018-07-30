@@ -7,7 +7,7 @@ $HOME/bin/bin/g++ -std=gnu++17 -g -Wall -Wextra -Wno-psabi -I. -o test_polynomia
 #include <vector>
 #include <iostream>
 
-#include "polynomial.h"
+#include "ext/polynomial.h"
 
 template<typename _Tp>
   int

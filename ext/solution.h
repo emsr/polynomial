@@ -25,12 +25,29 @@
 #ifndef SOLUTION_H
 #define SOLUTION_H 1
 
+/**
+ * @file solution.h
+ *
+ * This file is a GNU extension to the Standard C++ Library.
+ *
+ * This file contains a type representing a solution of a polynomial.
+ * The soution could be null, i.e. on-existent.
+ * If it exists it could be real of complex.
+ */
+
+#pragma GCC system_header
+
+#if __cplusplus < 201703L
+# include <bits/c++0x_warning.h>
+#else
+
 #include <complex>
 #include <variant>
 #include <iosfwd>
 
 namespace __gnu_cxx
 {
+_GLIBCXX_BEGIN_NAMESPACE_VERSION
 
   template<typename _Real>
     using solution_t
@@ -441,6 +458,7 @@ namespace __gnu_cxx
     operator<(const std::complex<_Real>& __x, const solution_t<_Real>& __y)
     { return operator<(solution_t<_Real>(__x), __y); }
 
+_GLIBCXX_END_NAMESPACE_VERSION
 } // namespace __gnu_cxx
 
   /**
@@ -460,5 +478,7 @@ namespace __gnu_cxx
 	__out << std::get<2>(__sln);
       return __out;
     }
+
+#endif // C++17
 
 #endif // SOLUTION_H

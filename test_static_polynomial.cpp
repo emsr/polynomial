@@ -8,11 +8,12 @@ g++ -std=gnu++17 -g -Wall -Wextra -Wno-psabi -o test_static_polynomial test_stat
 //  Get past a bug....
 // $HOME/bin/bin/g++ -D__STDCPP_WANT_MATH_SPEC_FUNCS__=0 -o test_static_polynomial test_static_polynomial.cpp
 
-#include "static_polynomial.h"
 #include <initializer_list>
 #include <iostream>
 #include <complex>
 #include <sstream>
+
+#include "ext/static_polynomial.h"
 
 /* Nope.
 template<typename _CoefTp, typename _ArgTp>

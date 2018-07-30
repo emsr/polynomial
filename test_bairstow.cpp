@@ -11,8 +11,8 @@ $HOME/bin/bin/g++ -std=c++17 -g -Wall -Wextra -Wno-psabi -I. -o test_bairstow te
 #include <random>
 
 //#include "bits/specfun_state.h"
-#include "polynomial.h"
-#include "solver_low_degree.h"
+#include "ext/polynomial.h"
+#include "ext/solver_low_degree.h"
 
 namespace __gnu_cxx
 {
