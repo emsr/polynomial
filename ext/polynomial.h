@@ -22,9 +22,6 @@
 // see the files COPYING3 and COPYING.RUNTIME respectively.  If not, see
 // <http://www.gnu.org/licenses/>.
 
-#ifndef _EXT_POLYNOMIAL_H
-#define _EXT_POLYNOMIAL_H 1
-
 /**
  * @file polynomial.h Class declaration for a dense monovariate polynomial.
  *
@@ -32,6 +29,14 @@
  *
  * This file contains the declaration of a dense-polynomial class.
  */
+
+/**
+ * @def  _EXT_POLYNOMIAL_H
+ *
+ * @brief  A guard for the polynomial class header.
+ */
+#ifndef _EXT_POLYNOMIAL_H
+#define _EXT_POLYNOMIAL_H 1
 
 #pragma GCC system_header
 
@@ -81,7 +86,7 @@ namespace std {
  *   Return an 'effective' order? Larest nonzero coefficient?
  *   Monic polynomial has largest coefficient as 1.  Subclass?
  */
-namespace __gnu_cxx _GLIBCXX_VISIBILITY(default)
+namespace __gnu_cxx //_GLIBCXX_VISIBILITY(default)
 {
 _GLIBCXX_BEGIN_NAMESPACE_VERSION
 

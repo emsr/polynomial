@@ -197,7 +197,7 @@ QT_AUTOBRIEF           = NO
 # not recognized any more.
 # The default value is: NO.
 
-MULTILINE_CPP_IS_BRIEF = NO
+MULTILINE_CPP_IS_BRIEF = YES
 
 # If the INHERIT_DOCS tag is set to YES then an undocumented member inherits the
 # documentation from any documented member that it re-implements.
@@ -228,7 +228,9 @@ TAB_SIZE               = 8
 # "Side Effects:". You can put \n's in the value part of an alias to insert
 # newlines.
 
-ALIASES                =
+ALIASES                = "doctodo=@todo\nNeeds documentation! See http://gcc.gnu.org/onlinedocs/libstdc++/manual/documentation_style.html" \
+                         "headername{1}=Instead, include \<\1\>." \
+                         "headername{2}=Instead, include \<\1\> or \<\2\>."
 
 # This tag can be used to specify a number of word-keyword mappings (TCL only).
 # A mapping has the form "name=value". For example adding "class=itcl::class"
@@ -281,7 +283,7 @@ OPTIMIZE_OUTPUT_VHDL   = NO
 # Note that for custom extensions you also need to set FILE_PATTERNS otherwise
 # the files are not read by doxygen.
 
-EXTENSION_MAPPING      = h=C++ tcc=C++ cpp=C++
+EXTENSION_MAPPING      = no_extension=C++ h=C++ tcc=C++ cpp=C++
 
 # If the MARKDOWN_SUPPORT tag is enabled then doxygen pre-processes all comments
 # according to the Markdown format, which allows for more readable
@@ -416,7 +418,7 @@ LOOKUP_CACHE_SIZE      = 2
 # normally produced when WARNINGS is set to YES.
 # The default value is: NO.
 
-EXTRACT_ALL            = NO
+EXTRACT_ALL            = YES
 
 # If the EXTRACT_PRIVATE tag is set to YES, all private members of a class will
 # be included in the documentation.
@@ -559,7 +561,7 @@ SORT_MEMBER_DOCS       = YES
 # this will also influence the order of the classes in the class list.
 # The default value is: NO.
 
-SORT_BRIEF_DOCS        = NO
+SORT_BRIEF_DOCS        = YES
 
 # If the SORT_MEMBERS_CTORS_1ST tag is set to YES then doxygen will sort the
 # (brief and detailed) documentation of class members so that constructors and
@@ -571,14 +573,14 @@ SORT_BRIEF_DOCS        = NO
 # detailed member documentation.
 # The default value is: NO.
 
-SORT_MEMBERS_CTORS_1ST = NO
+SORT_MEMBERS_CTORS_1ST = YES
 
 # If the SORT_GROUP_NAMES tag is set to YES then doxygen will sort the hierarchy
 # of group names into alphabetical order. If set to NO the group names will
 # appear in their defined order.
 # The default value is: NO.
 
-SORT_GROUP_NAMES       = NO
+SORT_GROUP_NAMES       = YES
 
 # If the SORT_BY_SCOPE_NAME tag is set to YES, the class list will be sorted by
 # fully-qualified names, including namespaces. If set to NO, the class list will
@@ -588,7 +590,7 @@ SORT_GROUP_NAMES       = NO
 # list.
 # The default value is: NO.
 
-SORT_BY_SCOPE_NAME     = NO
+SORT_BY_SCOPE_NAME     = YES
 
 # If the STRICT_PROTO_MATCHING option is enabled and doxygen fails to do proper
 # type resolution of all parameters of a function it will reject a match between
@@ -940,32 +942,32 @@ USE_MDFILE_AS_MAINPAGE =
 # also VERBATIM_HEADERS is set to NO.
 # The default value is: NO.
 
-SOURCE_BROWSER         = NO
+SOURCE_BROWSER         = YES
 
 # Setting the INLINE_SOURCES tag to YES will include the body of functions,
 # classes and enums directly into the documentation.
 # The default value is: NO.
 
-INLINE_SOURCES         = NO
+INLINE_SOURCES         = YES
 
 # Setting the STRIP_CODE_COMMENTS tag to YES will instruct doxygen to hide any
 # special comment blocks from generated source code fragments. Normal C, C++ and
 # Fortran comments will always remain visible.
 # The default value is: YES.
 
-STRIP_CODE_COMMENTS    = YES
+STRIP_CODE_COMMENTS    = NO
 
 # If the REFERENCED_BY_RELATION tag is set to YES then for each documented
 # function all documented functions referencing it will be listed.
 # The default value is: NO.
 
-REFERENCED_BY_RELATION = NO
+REFERENCED_BY_RELATION = YES
 
 # If the REFERENCES_RELATION tag is set to YES then for each documented function
 # all documented entities called/used by that function will be listed.
 # The default value is: NO.
 
-REFERENCES_RELATION    = NO
+REFERENCES_RELATION    = YES
 
 # If the REFERENCES_LINK_SOURCE tag is set to YES and SOURCE_BROWSER tag is set
 # to YES then the hyperlinks from functions in REFERENCES_RELATION and
@@ -1423,7 +1425,7 @@ DISABLE_INDEX          = NO
 # The default value is: NO.
 # This tag requires that the tag GENERATE_HTML is set to YES.
 
-GENERATE_TREEVIEW      = NO
+GENERATE_TREEVIEW      = YES
 
 # The ENUM_VALUES_PER_LINE tag can be used to set the number of enum values that
 # doxygen will group on one line in the generated HTML documentation.
@@ -2004,7 +2006,7 @@ ENABLE_PREPROCESSING   = YES
 # The default value is: NO.
 # This tag requires that the tag ENABLE_PREPROCESSING is set to YES.
 
-MACRO_EXPANSION        = NO
+MACRO_EXPANSION        = YES
 
 # If the EXPAND_ONLY_PREDEF and MACRO_EXPANSION tags are both set to YES then
 # the macro expansion is limited to the macros specified with the PREDEFINED and
@@ -2044,7 +2046,51 @@ INCLUDE_FILE_PATTERNS  =
 # recursively expanded use the := operator instead of the = operator.
 # This tag requires that the tag ENABLE_PREPROCESSING is set to YES.
 
-PREDEFINED             =
+PREDEFINED             = __cplusplus=201703L \
+                         __GTHREADS \
+                         _GLIBCXX_HAS_GTHREADS \
+                         _GLIBCXX_HAVE_TLS \
+                         _GLIBCXX_INCLUDE_AS_CXX11 \
+                         "_GLIBCXX_PURE= " \
+                         "_GLIBCXX_CONST= " \
+                         "_GLIBCXX_NORETURN= " \
+                         "_GLIBCXX_STD_C= " \
+                         "_GLIBCXX_STD_A= " \
+                         "_GLIBCXX_VISIBILITY(V)= " \
+                         "_GLIBCXX_BEGIN_NAMESPACE_VERSION= " \
+                         "_GLIBCXX_BEGIN_NAMESPACE_ALGO= " \
+                         "_GLIBCXX_BEGIN_NAMESPACE_CONTAINER= " \
+                         "_GLIBCXX_BEGIN_NAMESPACE_LDBL= " \
+                         "_GLIBCXX_END_NAMESPACE_VERSION= " \
+                         "_GLIBCXX_END_NAMESPACE_ALGO= " \
+                         "_GLIBCXX_END_NAMESPACE_CONTAINER= " \
+                         "_GLIBCXX_END_NAMESPACE_LDBL= " \
+                         "_GLIBCXX_TEMPLATE_ARGS=...  " \
+                         _GLIBCXX_DEPRECATED \
+                         _GLIBCXX_CONSTEXPR=constexpr \
+                         _GLIBCXX_USE_CONSTEXPR=constexpr \
+                         "_GLIBCXX_THROW(E)= " \
+                         _GLIBCXX_NOEXCEPT=noexcept \
+                         "_GLIBCXX_NOEXCEPT_IF(C)=noexcept(/*conditional*/)" \
+                         _GLIBCXX_NOTHROW=noexcept \
+                         _GLIBCXX_USE_NOEXCEPT=noexcept \
+                         _GLIBCXX_USE_WCHAR_T \
+                         _GLIBCXX_USE_LONG_LONG \
+                         _GLIBCXX_USE_C99_STDINT_TR1 \
+                         _GLIBCXX_USE_SCHED_YIELD \
+                         _GLIBCXX_USE_NANOSLEEP \
+                         __cpp_exceptions \
+                         __cpp_rtti \
+                         ATOMIC_INT_LOCK_FREE=2 \
+                         PB_DS_DATA_TRUE_INDICATOR \
+                         PB_DS_STATIC_ASSERT=// \
+                         "_GLIBCXX_BEGIN_NAMESPACE_ALGO= " \
+                         __glibcxx_function_requires=// \
+                         __glibcxx_class_requires=// \
+                         __glibcxx_class_requires2=// \
+                         __glibcxx_class_requires3=// \
+                         __glibcxx_class_requires4=//
+
 
 # If the MACRO_EXPANSION and EXPAND_ONLY_PREDEF tags are set to YES then this
 # tag can be used to specify a list of macro names that should be expanded. The

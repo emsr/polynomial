@@ -22,9 +22,6 @@
 // see the files COPYING3 and COPYING.RUNTIME respectively.  If not, see
 // <http://www.gnu.org/licenses/>.
 
-#ifndef SOLVER_LOW_DEGREE_H
-#define SOLVER_LOW_DEGREE_H 1
-
 /**
  * @file solver_low_degree.h
  *
@@ -33,6 +30,14 @@
  * This file contains the declarations of free functions for solving
  * quadratic, cubic, and quartic equations with real coefficients.
  */
+
+/**
+ * @def  _EXT_SOLVER_LOW_DEGREE_H
+ *
+ * @brief  A guard for the low-degree polynomial solver functions header.
+ */
+#ifndef _EXT_SOLVER_LOW_DEGREE_H
+#define _EXT_SOLVER_LOW_DEGREE_H 1
 
 #pragma GCC system_header
 
@@ -44,7 +49,7 @@
 
 #include "solution.h"
 
-namespace __gnu_cxx
+namespace __gnu_cxx //_GLIBCXX_VISIBILITY(default)
 {
 _GLIBCXX_BEGIN_NAMESPACE_VERSION
 
@@ -91,4 +96,4 @@ _GLIBCXX_END_NAMESPACE_VERSION
 
 #endif // C++17
 
-#endif // SOLVER_LOW_DEGREE_H
+#endif // _EXT_SOLVER_LOW_DEGREE_H

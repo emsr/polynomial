@@ -22,9 +22,6 @@
 // see the files COPYING3 and COPYING.RUNTIME respectively.  If not, see
 // <http://www.gnu.org/licenses/>.
 
-#ifndef _EXT_RATIONAL_POLYNOMIAL_H
-#define _EXT_RATIONAL_POLYNOMIAL_H 1
-
 /**
  * @file rational_polynomial.h
  *
@@ -33,6 +30,14 @@
  * This file contains the declaration of a ratio of two polynomials.
  * @see polynomial.h
  */
+
+/**
+ * @def  _EXT_RATIONAL_POLYNOMIAL_H
+ *
+ * @brief  A guard for the rational_polynomial class header.
+ */
+#ifndef _EXT_RATIONAL_POLYNOMIAL_H
+#define _EXT_RATIONAL_POLYNOMIAL_H 1
 
 #pragma GCC system_header
 
@@ -44,7 +49,7 @@
 
 #include "polynomial.h"
 
-namespace __gnu_cxx
+namespace __gnu_cxx //_GLIBCXX_VISIBILITY(default)
 {
 _GLIBCXX_BEGIN_NAMESPACE_VERSION
 

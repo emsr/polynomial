@@ -21,10 +21,6 @@
 // a copy of the GCC Runtime Library Exception along with this program;
 // see the files COPYING3 and COPYING.RUNTIME respectively.  If not, see
 // <http://www.gnu.org/licenses/>.
-
-#ifndef SOLVER_LOW_DEGREE_TCC
-#define SOLVER_LOW_DEGREE_TCC 1
-
 /**
  * @file solver_low_degree.h
  *
@@ -34,6 +30,15 @@
  * quadratic, cubic, and quartic equations with real coefficients.
  */
 
+
+/**
+ * @def  _EXT_SOLVER_LOW_DEGREE_TCC
+ *
+ * @brief  A guard for the low-degree polynomial solver functions header.
+ */
+#ifndef _EXT_SOLVER_LOW_DEGREE_TCC
+#define _EXT_SOLVER_LOW_DEGREE_TCC 1
+
 #pragma GCC system_header
 
 #if __cplusplus < 201703L
@@ -42,7 +47,7 @@
 
 #include <ext/math_const.h>
 
-namespace __gnu_cxx
+namespace __gnu_cxx //_GLIBCXX_VISIBILITY(default)
 {
 _GLIBCXX_BEGIN_NAMESPACE_VERSION
 
@@ -447,4 +452,4 @@ _GLIBCXX_END_NAMESPACE_VERSION
 
 #endif // C++17
 
-#endif // SOLVER_LOW_DEGREE_TCC
+#endif // _EXT_SOLVER_LOW_DEGREE_TCC

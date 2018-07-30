@@ -22,9 +22,6 @@
 // see the files COPYING3 and COPYING.RUNTIME respectively.  If not, see
 // <http://www.gnu.org/licenses/>.
 
-#ifndef SOLUTION_H
-#define SOLUTION_H 1
-
 /**
  * @file solution.h
  *
@@ -34,6 +31,14 @@
  * The soution could be null, i.e. on-existent.
  * If it exists it could be real of complex.
  */
+
+/**
+ * @def  _EXT_SOLUTION_H
+ *
+ * @brief  A guard for the polynomial solution class header.
+ */
+#ifndef _EXT_SOLUTION_H
+#define _EXT_SOLUTION_H 1
 
 #pragma GCC system_header
 
@@ -45,7 +50,7 @@
 #include <variant>
 #include <iosfwd>
 
-namespace __gnu_cxx
+namespace __gnu_cxx //_GLIBCXX_VISIBILITY(default)
 {
 _GLIBCXX_BEGIN_NAMESPACE_VERSION
 
@@ -481,4 +486,4 @@ _GLIBCXX_END_NAMESPACE_VERSION
 
 #endif // C++17
 
-#endif // SOLUTION_H
+#endif // _EXT_SOLUTION_H

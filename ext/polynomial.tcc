@@ -24,7 +24,7 @@
 
 /**
  * @file polynomial.tcc Out-of-line definitions of members for
- *  a dense monovariate polynomial.
+ * a dense monovariate polynomial.
  *
  * This file is a GNU extension to the Standard C++ Library.
  * This file contains the out-of-line implementations of the polynomial class.
@@ -32,6 +32,11 @@
  * @see polynomial.h
  */
 
+/**
+ * @def  _EXT_POLYNOMIAL_TCC
+ *
+ * @brief  A guard for the polynomial class implementation header.
+ */
 #ifndef _EXT_POLYNOMIAL_TCC
 #define _EXT_POLYNOMIAL_TCC 1
 
@@ -44,7 +49,7 @@
 #include <ios>
 #include <complex>
 
-namespace __gnu_cxx _GLIBCXX_VISIBILITY(default)
+namespace __gnu_cxx //_GLIBCXX_VISIBILITY(default)
 {
 _GLIBCXX_BEGIN_NAMESPACE_VERSION
 

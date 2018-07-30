@@ -22,15 +22,29 @@
 // see the files COPYING3 and COPYING.RUNTIME respectively.  If not, see
 // <http://www.gnu.org/licenses/>.
 
-#include <limits>
-#include <array>
-#include <complex>
-
 /**
  * @file static_polynomial.h Class definition for a static polynomial.
  */
 
-namespace __gnu_cxx
+/**
+ * @def  _EXT_STATIC_POLYNOMIAL_H
+ *
+ * @brief  A guard for the static_polynomial class header.
+ */
+#ifndef _EXT_STATIC_POLYNOMIAL_H
+#define _EXT_STATIC_POLYNOMIAL_H 1
+
+#pragma GCC system_header
+
+#if __cplusplus < 201703L
+# include <bits/c++0x_warning.h>
+#else
+
+#include <limits>
+#include <array>
+#include <complex>
+
+namespace __gnu_cxx //_GLIBCXX_VISIBILITY(default)
 {
 
   /**
@@ -555,3 +569,5 @@ namespace __gnu_cxx
     { return !(__pa == __pb); }
 
 } // namespace __gnu_cxx
+
+#endif // _EXT_STATIC_POLYNOMIAL_H

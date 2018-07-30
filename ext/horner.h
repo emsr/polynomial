@@ -22,6 +22,17 @@
 // see the files COPYING3 and COPYING.RUNTIME respectively.  If not, see
 // <http://www.gnu.org/licenses/>.
 
+/**
+ * @file horner.h Class declaration for Horner polynomial evaluation.
+ *
+ * This file is a GNU extension to the Standard C++ Library.
+ */
+
+/**
+ * @def  _EXT_HORNER_H
+ *
+ * @brief  A guard for the horner functions header.
+ */
 #ifndef _EXT_HORNER_H
 #define _EXT_HORNER_H 1
 
@@ -29,7 +40,7 @@
 
 #include <type_traits>
 
-namespace __gnu_cxx _GLIBCXX_VISIBILITY(default)
+namespace __gnu_cxx //_GLIBCXX_VISIBILITY(default)
 {
 _GLIBCXX_BEGIN_NAMESPACE_VERSION
 
