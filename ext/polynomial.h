@@ -26,7 +26,7 @@
 #define _EXT_POLYNOMIAL_H 1
 
 /**
- * @file polynomial.h
+ * @file polynomial.h Class declaration for a dense monovariate polynomial.
  *
  * This file is a GNU extension to the Standard C++ Library.
  *
@@ -86,7 +86,11 @@ namespace __gnu_cxx _GLIBCXX_VISIBILITY(default)
 _GLIBCXX_BEGIN_NAMESPACE_VERSION
 
   /**
-   * A dense polynomial class with a contiguous array of coefficients.
+   * @brief A dense polynomial class with a contiguous array of coefficients.
+   * The coefficients are lowest-order first:
+   * @f[
+   *    P(x) = a_0 + a_1 x + ... + a_n x^n
+   * @f]
    */
   template<typename _Tp>
     class _Polynomial
@@ -133,7 +137,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 	}
 
       /**
-       * Create a polynomial of just one constant term.
+       * Create a monomial.
        */
       explicit
       _Polynomial(value_type __a, size_type __degree = 0)

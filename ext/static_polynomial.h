@@ -28,7 +28,7 @@
 #include <complex>
 
 /**
- * @file static_polynomial.h Class definition for a polynomial.
+ * @file static_polynomial.h Class definition for a static polynomial.
  */
 
 namespace __gnu_cxx

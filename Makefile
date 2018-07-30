@@ -65,7 +65,7 @@ test_solvers: ext/solution.h ext/solver_low_degree.h ext/solver_low_degree.tcc t
 test_static_polynomial: ext/static_polynomial.h test_static_polynomial.cpp
 	$(CXX17) -I. -I.. -o test_static_polynomial test_static_polynomial.cpp -lquadmath
 
-docs: ext/*.h ext/*.tcc *.cpp
+docs:
 	rm -rf html/*
 	rm -rf latex/*
 	doxygen

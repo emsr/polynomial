@@ -23,7 +23,8 @@
 // <http://www.gnu.org/licenses/>.
 
 /**
- * @file polynomial.tcc
+ * @file polynomial.tcc Out-of-line definitions of members for
+ *  a dense monovariate polynomial.
  *
  * This file is a GNU extension to the Standard C++ Library.
  * This file contains the out-of-line implementations of the polynomial class.
