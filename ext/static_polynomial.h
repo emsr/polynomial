@@ -570,4 +570,6 @@ namespace __gnu_cxx //_GLIBCXX_VISIBILITY(default)
 
 } // namespace __gnu_cxx
 
+#endif // C++17
+
 #endif // _EXT_STATIC_POLYNOMIAL_H
