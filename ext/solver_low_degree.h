@@ -41,7 +41,7 @@
 
 #pragma GCC system_header
 
-#if __cplusplus < 201703L
+#if __cplusplus < 201402L
 # include <bits/c++0x_warning.h>
 #else
 
@@ -94,6 +94,6 @@ _GLIBCXX_END_NAMESPACE_VERSION
 
 #include "solver_low_degree.tcc"
 
-#endif // C++17
+#endif // C++14
 
 #endif // _EXT_SOLVER_LOW_DEGREE_H

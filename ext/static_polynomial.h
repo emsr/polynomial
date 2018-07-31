@@ -36,7 +36,7 @@
 
 #pragma GCC system_header
 
-#if __cplusplus < 201703L
+#if __cplusplus < 201402L
 # include <bits/c++0x_warning.h>
 #else
 
@@ -569,5 +569,7 @@ namespace __gnu_cxx //_GLIBCXX_VISIBILITY(default)
     { return !(__pa == __pb); }
 
 } // namespace __gnu_cxx
+
+#endif // C++14
 
 #endif // _EXT_STATIC_POLYNOMIAL_H

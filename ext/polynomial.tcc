@@ -42,7 +42,7 @@
 
 #pragma GCC system_header
 
-#if __cplusplus < 201703L
+#if __cplusplus < 201402L
 # include <bits/c++0x_warning.h>
 #else
 
@@ -365,7 +365,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 _GLIBCXX_END_NAMESPACE_VERSION
 } // namespace __gnu_cxx
 
-#endif // C++17
+#endif // C++14
 
 #endif // _EXT_POLYNOMIAL_TCC
 
