@@ -53,6 +53,14 @@ namespace __gnu_cxx //_GLIBCXX_VISIBILITY(default)
 {
 _GLIBCXX_BEGIN_NAMESPACE_VERSION
 
+  template<std::size_t _Dim, typename _Iter, typename _NumTp>
+    _NumTp
+    __refine_solution_newton(_NumTp __z, const _Iter& _CC);
+
+  template<std::size_t _Dim, typename _Iter, typename _NumTp>
+    _NumTp
+    __refine_solution_halley(_NumTp __z, const _Iter& _CC);
+
   template<typename _Real, typename _Iter>
     std::array<solution_t<_Real>, 2>
     __quadratic(const _Iter& __coef);

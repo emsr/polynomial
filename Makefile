@@ -73,6 +73,8 @@ docs:
 
 test:
 	LD_LIBRARY_PATH=$(CXX_LIB_DIR):$$LD_LIBRARY_PATH ./test_rational_polynomial > test_rational_polynomial.txt
+	touch test_bairstow.prev && cp -f test_bairstow.prev test_bairstow.prev2
+	touch test_bairstow.txt && cp -f test_bairstow.txt test_bairstow.prev
 	LD_LIBRARY_PATH=$(CXX_LIB_DIR):$$LD_LIBRARY_PATH ./test_bairstow < test_bairstow.in > test_bairstow.txt
 	LD_LIBRARY_PATH=$(CXX_LIB_DIR):$$LD_LIBRARY_PATH ./test_bairstow < test_solver1.in >> test_bairstow.txt
 	LD_LIBRARY_PATH=$(CXX_LIB_DIR):$$LD_LIBRARY_PATH ./test_bairstow < test_solver2.in >> test_bairstow.txt
