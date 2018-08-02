@@ -858,7 +858,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 _GLIBCXX_END_NAMESPACE_VERSION
 } // namespace __gnu_cxx
 
-#include <ext/polynomial.tcc>
+#include "polynomial.tcc"
 
 #endif // C++14
 
