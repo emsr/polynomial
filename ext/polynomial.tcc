@@ -102,8 +102,8 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 	      {
 		int __nn = std::min(__arr.size() - 1, __sz - 1 - __i);
 		for (int __j = __nn; __j >= 1; --__j)
-		  __arr[__j] = __arr[__j] * __x + __arr[__j - 1];
-		__arr[0] = __arr[0] * __x + this->coefficient(__i);
+		  __arr[__j] = std::fma(__arr[__j], __x, __arr[__j - 1]);
+		__arr[0] = std::fma(__arr[0], __x, this->coefficient(__i));
 	      }
 	    //  Now put in the factorials.
 	    value_type __fact = value_type(1);
@@ -135,8 +135,8 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 	      {
 		for (auto __it = std::reverse_iterator<OutIter>(__e);
 		     __it != std::reverse_iterator<OutIter>(__b) - 1; ++__it)
-		  *__it = *__it * __x + *(__it + 1);
-		*__b = *__b * __x + _M_coeff[__i];
+		  *__it = std::fma(*__it, __x, *(__it + 1));
+		*__b = std::fma(*__b, __x, _M_coeff[__i]);
 	      }
 	    //  Now put in the factorials.
 	    int __i = 0;
@@ -163,7 +163,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 	  const auto __xx = __x * __x;
 	  auto __poly(this->coefficient(this->degree() - __odd));
 	  for (int __i = this->degree() - __odd - 2; __i >= 0; __i -= 2)
-	    __poly = this->coefficient(__i) + __xx * __poly;
+	    __poly = std::fma(__xx, __poly, this->coefficient(__i));
 	  return __poly;
 	}
       else
@@ -183,7 +183,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 	  const auto __xx = __x * __x;
 	  auto __poly(this->coefficient(this->degree() - __even));
 	  for (int __i = this->degree() - __even - 2; __i >= 0; __i -= 2)
-	    __poly = this->coefficient(__i) + __xx * __poly;
+	    __poly = std::fma(__xx, __poly, this->coefficient(__i));
 	  return __x * __poly;
 	}
       else
@@ -218,9 +218,9 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 	    auto __aa = this->coefficient(__n);
 	    auto __bb = this->coefficient(__n - 2);
 	    for (size_type __j = 4; __j <= __n; __j += 2)
-	      __bb = this->coefficient(__n - __j)
-		   - __s * __exchange(__aa, __bb + __r * __aa);
-	    return __aa * __zz + __bb;
+	      __bb = std::fma(-__s, __exchange(__aa, __bb + __r * __aa),
+			      this->coefficient(__n - __j));
+	    return std::fma(__aa, __zz, __bb);
 	  }
 	else
 	  return decltype(value_type{} * std::complex<_Up>{}){};
@@ -254,9 +254,9 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 	    auto __aa = this->coefficient(__n);
 	    auto __bb = this->coefficient(__n - 2);
 	    for (size_type __j = 4; __j <= __n; __j += 2)
-	      __bb = this->coefficient(__n - __j)
-		   - __s * __exchange(__aa, __bb + __r * __aa);
-	    return __z * (__aa * __zz + __bb);
+	      __bb = std::fma(-__s, __exchange(__aa, __bb + __r * __aa),
+			      this->coefficient(__n - __j));
+	    return __z * std::fma(__aa, __zz, __bb);
 	  }
 	else
 	  return decltype(value_type{} * std::complex<_Up>{}){};
