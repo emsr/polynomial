@@ -90,6 +90,19 @@ namespace __gnu_cxx //_GLIBCXX_VISIBILITY(default)
 {
 _GLIBCXX_BEGIN_NAMESPACE_VERSION
 
+template<typename, typename = std::void_t<>>
+  struct __has_imag_t
+  : std::false_type
+  { };
+
+template<typename T>
+  struct __has_imag_t<T, std::void_t<decltype(std::declval<T&>().imag())>>
+  : std::true_type
+  { };
+
+template<typename T>
+  constexpr auto __has_imag_v = __has_imag_t<T>::value;
+
   /**
    * @brief A dense polynomial class with a contiguous array of coefficients.
    * The coefficients are lowest-order first:
@@ -315,7 +328,9 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
       template<typename _Up>
 	auto
 	eval_even(const std::complex<_Up>& __z) const
-	-> decltype(value_type{} * std::complex<_Up>{});
+	-> std::enable_if<!__has_imag_v<_Tp>,
+			std::complex<std::decay_t<
+		decltype(typename _Polynomial<_Tp>::value_type{} * _Up{})>>>;
 
       /**
        * Evaluate the odd part of the polynomial using a modification
@@ -332,7 +347,9 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
       template<typename _Up>
 	auto
 	eval_odd(const std::complex<_Up>& __z) const
-	-> decltype(value_type{} * std::complex<_Up>{});
+	-> std::enable_if<!__has_imag_v<_Tp>,
+			std::complex<std::decay_t<
+		decltype(typename _Polynomial<_Tp>::value_type{} * _Up{})>>>;
 
       /**
        * Return the derivative of the polynomial.

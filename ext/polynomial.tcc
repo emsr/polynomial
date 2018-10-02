@@ -49,6 +49,8 @@
 #include <ios>
 #include <complex>
 
+#include "../../bits/notsospecfun.h" // Complex fma.
+
 namespace __gnu_cxx //_GLIBCXX_VISIBILITY(default)
 {
 _GLIBCXX_BEGIN_NAMESPACE_VERSION
@@ -206,8 +208,12 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
     template<typename _Up>
       auto
       _Polynomial<_Tp>::eval_even(const std::complex<_Up>& __z) const
-      -> decltype(typename _Polynomial<_Tp>::value_type{} * std::complex<_Up>{})
+      -> std::enable_if<!__has_imag_v<_Tp>,
+			std::complex<std::decay_t<
+		decltype(typename _Polynomial<_Tp>::value_type{} * _Up{})>>>
       {
+	using __real_t = std::decay_t<decltype(value_type{} * _Up{})>;
+	using __cmplx_t = std::complex<__real_t>;
 	if (this->degree() > 0)
 	  {
 	    const auto __zz = __z * __z;
@@ -220,10 +226,10 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 	    for (size_type __j = 4; __j <= __n; __j += 2)
 	      __bb = std::fma(-__s, __exchange(__aa, __bb + __r * __aa),
 			      this->coefficient(__n - __j));
-	    return std::fma(__aa, __zz, __bb);
+	    return std::fma(__cmplx_t(__aa), __cmplx_t(__zz), __cmplx_t(__bb));
 	  }
 	else
-	  return decltype(value_type{} * std::complex<_Up>{}){};
+	  return __cmplx_t{};
       };
 
   /**
@@ -242,8 +248,12 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
     template<typename _Up>
       auto
       _Polynomial<_Tp>::eval_odd(const std::complex<_Up>& __z) const
-      -> decltype(_Polynomial<_Tp>::value_type{} * std::complex<_Up>{})
+      -> std::enable_if<!__has_imag_v<_Tp>,
+			std::complex<std::decay_t<
+		decltype(typename _Polynomial<_Tp>::value_type{} * _Up{})>>>
       {
+	using __real_t = std::decay_t<decltype(value_type{} * _Up{})>;
+	using __cmplx_t = std::complex<__real_t>;
 	if (this->degree() > 0)
 	  {
 	    const auto __zz = __z * __z;
@@ -256,10 +266,11 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 	    for (size_type __j = 4; __j <= __n; __j += 2)
 	      __bb = std::fma(-__s, __exchange(__aa, __bb + __r * __aa),
 			      this->coefficient(__n - __j));
-	    return __z * std::fma(__aa, __zz, __bb);
+	    return __z
+		 * std::fma(__cmplx_t(__aa), __cmplx_t(__zz), __cmplx_t(__bb));
 	  }
 	else
-	  return decltype(value_type{} * std::complex<_Up>{}){};
+	  return __cmplx_t{};
       };
 
     /**
