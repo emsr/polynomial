@@ -44,7 +44,7 @@ ext/rational_polynomial.h: ext/polynomial.h
 test_bairstow: test_bairstow.cpp
 	$(CXX17) -I. -I.. -o test_bairstow test_bairstow.cpp -lquadmath
 
-test_horner: test_horner.cpp
+test_horner: ext/horner.h test_horner.cpp
 	$(CXX17) -I. -I.. -o test_horner test_horner.cpp -lquadmath
 
 test_jenkins_traub: ext/solution.h ext/solver_low_degree.h ext/polynomial.h test_jenkins_traub.cpp
