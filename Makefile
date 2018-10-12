@@ -31,6 +31,7 @@ BINS = \
        test_polynomial \
        test_polynomial_root \
        test_rational_polynomial \
+       test_solution \
        test_solvers \
        test_static_polynomial
 
@@ -65,6 +66,9 @@ test_rational_polynomial: ext/rational_polynomial.h test_rational_polynomial.cpp
 
 test_solvers: ext/solution.h ext/solver_low_degree.h ext/solver_low_degree.tcc test_solvers.cpp
 	$(CXX17) -I. -I.. -o test_solvers test_solvers.cpp -lquadmath
+
+test_solution: ext/solution.h test_solution.cpp
+	$(CXX17) -I. -I.. -o test_solution test_solution.cpp -lquadmath
 
 test_static_polynomial: ext/static_polynomial.h test_static_polynomial.cpp
 	$(CXX17) -I. -I.. -o test_static_polynomial test_static_polynomial.cpp -lquadmath
