@@ -1,6 +1,7 @@
 #ifndef SOLVER_JENKINS_TRAUB_H
 #define SOLVER_JENKINS_TRAUB_H 1
 
+#include <ext/math_const.h> // For __const_pi, etc.
 #include "solution.h" // For solution_t
 
 namespace __gnu_cxx
