@@ -15,8 +15,7 @@ template<typename _Tp>
   void
   test(unsigned n, _Tp alpha1, _Tp beta1, std::ofstream& gp)
   {
-    auto scale = _Tp{0.5L};
-    auto poly = std::__detail::__jacobi_poly(n, alpha1, beta1, scale);
+    auto poly = std::__detail::__jacobi_poly(n, alpha1, beta1);
     std::cout << "\nThe polynomial coefficients are:\n";
     for (const auto& c : poly)
       std::cout << c << '\n';
@@ -27,7 +26,7 @@ template<typename _Tp>
     auto roots = jt.solve();
     std::cout << "\nThe roots are:\n";
     for (const auto& z : roots)
-      std::cout << scale * z << '\n';
+      std::cout << z << '\n';
 
     gp << "\n\n";
     for (const auto& z : roots)
@@ -35,11 +34,11 @@ template<typename _Tp>
 	if (z.index() == 0)
 	  continue;
 	else if (z.index() == 1)
-	  gp << "  " << scale * std::get<1>(z)
+	  gp << "  " << std::get<1>(z)
 	     << "  " << 0.0 << '\n';
 	else
-	  gp << "  " << scale * std::real(std::get<2>(z))
-	     << "  " << scale * std::imag(std::get<2>(z)) << '\n';
+	  gp << "  " << std::real(std::get<2>(z))
+	     << "  " << std::imag(std::get<2>(z)) << '\n';
       }
     gp << std::flush;
   }
