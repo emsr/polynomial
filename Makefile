@@ -80,6 +80,7 @@ docs:
 	cd latex && make
 
 test:
+	LD_LIBRARY_PATH=$(CXX_LIB_DIR):$$LD_LIBRARY_PATH ./test_jacobi_roots > test_jacobi_roots.txt
 	LD_LIBRARY_PATH=$(CXX_LIB_DIR):$$LD_LIBRARY_PATH ./test_rational_polynomial > test_rational_polynomial.txt
 	touch test_bairstow.prev && cp -f test_bairstow.prev test_bairstow.prev2
 	touch test_bairstow.txt && cp -f test_bairstow.txt test_bairstow.prev
