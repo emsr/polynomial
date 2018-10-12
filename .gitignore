@@ -19,9 +19,11 @@ obj
 
 test_bairstow
 test_horner
+test_jacobi_roots
 test_jenkins_traub
 test_polynomial
 test_polynomial_root
 test_rational_polynomial
+test_solution
 test_solvers
 test_static_polynomial
