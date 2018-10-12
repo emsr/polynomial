@@ -26,6 +26,7 @@ CXX_TEST_INC_DIR = .
 BINS = \
        test_bairstow \
        test_horner \
+       test_jacobi_roots \
        test_jenkins_traub \
        test_polynomial \
        test_polynomial_root \
@@ -46,6 +47,9 @@ test_bairstow: test_bairstow.cpp
 
 test_horner: ext/horner.h test_horner.cpp
 	$(CXX17) -I. -I.. -o test_horner test_horner.cpp -lquadmath
+
+test_jacobi_roots: ext/solution.h ext/solver_low_degree.h ext/polynomial.h test_jacobi_roots.cpp
+	$(CXX17) -I. -I.. -o test_jacobi_roots test_jacobi_roots.cpp -lquadmath
 
 test_jenkins_traub: ext/solution.h ext/solver_low_degree.h ext/polynomial.h test_jenkins_traub.cpp
 	$(CXX17) -I. -I.. -o test_jenkins_traub test_jenkins_traub.cpp -lquadmath
