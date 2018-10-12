@@ -66,6 +66,18 @@ template<typename _Tp>
     alpha1 = 2.0L;
     beta1 = -63.5L;
     test(n, alpha1, beta1, gp);
+
+    alpha1 = 2.0L;
+    beta1 = -42.5L;
+    test(n, beta1, alpha1, gp);
+
+    alpha1 = 2.0L;
+    beta1 = -52.1L;
+    test(n, beta1, alpha1, gp);
+
+    alpha1 = 2.0L;
+    beta1 = -63.5L;
+    test(n, beta1, alpha1, gp);
   }
 
 int
