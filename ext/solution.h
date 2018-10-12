@@ -141,6 +141,9 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 _GLIBCXX_END_NAMESPACE_VERSION
 } // namespace __gnu_cxx
 
+namespace std
+{
+
   /**
    * Unary +-
    */
@@ -435,12 +438,12 @@ _GLIBCXX_END_NAMESPACE_VERSION
 	return false;
       else
 	{
-	  const auto __rex = real(__x);
-	  const auto __rey = real(__y);
+	  const auto __rex = __gnu_cxx::real(__x);
+	  const auto __rey = __gnu_cxx::real(__y);
 	  if (__rex < __rey)
 	    return true;
 	  else if (__rex == __rey)
-	    return imag(__x) < imag(__y);
+	    return __gnu_cxx::imag(__x) < __gnu_cxx::imag(__y);
 	  else
 	    return false;
 	}
@@ -465,6 +468,8 @@ _GLIBCXX_END_NAMESPACE_VERSION
     constexpr bool
     operator<(const std::complex<_Real>& __x, const __gnu_cxx::solution_t<_Real>& __y)
     { return operator<(__gnu_cxx::solution_t<_Real>(__x), __y); }
+
+} // namespace std
 
   /**
    * Output a solution to a stream.
