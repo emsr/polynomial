@@ -193,9 +193,9 @@ template<typename _Real>
 	    // Scale polynomial.
 	    if (__scale == _Real{0})
 	      __scale = _S_tiny;
-	    const auto __l = int(std::log(__scale)
+	    const auto __lg = int(std::log(__scale)
 				 / std::log(_S_base) + _Real{0.5});
-	    const auto __factor = std::pow(_S_base, __l);
+	    const auto __factor = std::pow(_S_base, __lg);
 	    if (__factor != _Real{1})
 	      for (int __i = 0; __i <= this->__order; ++__i)
 		this->_P[__i] *= __factor;
