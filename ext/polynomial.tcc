@@ -208,7 +208,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
     template<typename _Up>
       auto
       _Polynomial<_Tp>::eval_even(const std::complex<_Up>& __z) const
-      -> std::enable_if<!__has_imag_v<_Tp>,
+      -> std::enable_if_t<!__has_imag_v<_Tp>,
 			std::complex<std::decay_t<
 		decltype(typename _Polynomial<_Tp>::value_type{} * _Up{})>>>
       {
@@ -248,7 +248,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
     template<typename _Up>
       auto
       _Polynomial<_Tp>::eval_odd(const std::complex<_Up>& __z) const
-      -> std::enable_if<!__has_imag_v<_Tp>,
+      -> std::enable_if_t<!__has_imag_v<_Tp>,
 			std::complex<std::decay_t<
 		decltype(typename _Polynomial<_Tp>::value_type{} * _Up{})>>>
       {
