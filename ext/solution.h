@@ -138,32 +138,38 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 	return __x;
     }
 
+_GLIBCXX_END_NAMESPACE_VERSION
+} // namespace __gnu_cxx
+
+namespace std
+{
+
   /**
    * Unary +-
    */
   template<typename _Real>
-    constexpr solution_t<_Real>
-    operator+(const solution_t<_Real>& __x)
+    constexpr __gnu_cxx::solution_t<_Real>
+    operator+(const __gnu_cxx::solution_t<_Real>& __x)
     { return __x; }
 
   template<typename _Real>
-    constexpr solution_t<_Real>
-    operator-(const solution_t<_Real>& __x)
+    constexpr __gnu_cxx::solution_t<_Real>
+    operator-(const __gnu_cxx::solution_t<_Real>& __x)
     {
       if (__x.index() == 0)
 	return __x;
       else if (__x.index() == 1)
-	return solution_t<_Real>(-std::get<1>(__x));
+	return __gnu_cxx::solution_t<_Real>(-std::get<1>(__x));
       else
-	return solution_t<_Real>(-std::get<2>(__x));
+	return __gnu_cxx::solution_t<_Real>(-std::get<2>(__x));
     }
 
   /**
    * Addition operators...
    */
   template<typename _Real>
-    constexpr solution_t<_Real>
-    operator+(const solution_t<_Real>& __x, const solution_t<_Real>& __y)
+    constexpr __gnu_cxx::solution_t<_Real>
+    operator+(const __gnu_cxx::solution_t<_Real>& __x, const __gnu_cxx::solution_t<_Real>& __y)
     {
       if (__x.index() == 0)
 	return __x;
@@ -172,45 +178,45 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
       else if (__x.index() == 1)
 	{
 	  if (__y.index() == 1)
-	    return solution_t<_Real>(std::get<1>(__x) + std::get<1>(__y));
+	    return __gnu_cxx::solution_t<_Real>(std::get<1>(__x) + std::get<1>(__y));
 	  else
-	    return solution_t<_Real>(std::get<1>(__x) + std::get<2>(__y));
+	    return __gnu_cxx::solution_t<_Real>(std::get<1>(__x) + std::get<2>(__y));
 	}
       else
 	{
 	  if (__y.index() == 1)
-	    return solution_t<_Real>(std::get<2>(__x) + std::get<1>(__y));
+	    return __gnu_cxx::solution_t<_Real>(std::get<2>(__x) + std::get<1>(__y));
 	  else
-	    return solution_t<_Real>(std::get<2>(__x) + std::get<2>(__y));
+	    return __gnu_cxx::solution_t<_Real>(std::get<2>(__x) + std::get<2>(__y));
 	}
     }
 
   template<typename _Real>
-    constexpr solution_t<_Real>
-    operator+(const solution_t<_Real>& __x, _Real __y)
-    { return operator+(__x, solution_t<_Real>(__y)); }
+    constexpr __gnu_cxx::solution_t<_Real>
+    operator+(const __gnu_cxx::solution_t<_Real>& __x, _Real __y)
+    { return operator+(__x, __gnu_cxx::solution_t<_Real>(__y)); }
 
   template<typename _Real>
-    constexpr solution_t<_Real>
-    operator+(_Real __x, const solution_t<_Real>& __y)
-    { return operator+(solution_t<_Real>(__x), __y); }
+    constexpr __gnu_cxx::solution_t<_Real>
+    operator+(_Real __x, const __gnu_cxx::solution_t<_Real>& __y)
+    { return operator+(__gnu_cxx::solution_t<_Real>(__x), __y); }
 
   template<typename _Real>
-    constexpr solution_t<_Real>
-    operator+(const solution_t<_Real>& __x, std::complex<_Real>& __y)
-    { return operator+(__x, solution_t<_Real>(__y)); }
+    constexpr __gnu_cxx::solution_t<_Real>
+    operator+(const __gnu_cxx::solution_t<_Real>& __x, std::complex<_Real>& __y)
+    { return operator+(__x, __gnu_cxx::solution_t<_Real>(__y)); }
 
   template<typename _Real>
-    constexpr solution_t<_Real>
-    operator+(std::complex<_Real>& __x, const solution_t<_Real>& __y)
-    { return operator+(solution_t<_Real>(__x), __y); }
+    constexpr __gnu_cxx::solution_t<_Real>
+    operator+(std::complex<_Real>& __x, const __gnu_cxx::solution_t<_Real>& __y)
+    { return operator+(__gnu_cxx::solution_t<_Real>(__x), __y); }
 
   /**
    * Subtraction operators...
    */
   template<typename _Real>
-    constexpr solution_t<_Real>
-    operator-(const solution_t<_Real>& __x, const solution_t<_Real>& __y)
+    constexpr __gnu_cxx::solution_t<_Real>
+    operator-(const __gnu_cxx::solution_t<_Real>& __x, const __gnu_cxx::solution_t<_Real>& __y)
     {
       if (__x.index() == 0)
 	return __x;
@@ -219,45 +225,45 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
       else if (__x.index() == 1)
 	{
 	  if (__y.index() == 1)
-	    return solution_t<_Real>(std::get<1>(__x) - std::get<1>(__y));
+	    return __gnu_cxx::solution_t<_Real>(std::get<1>(__x) - std::get<1>(__y));
 	  else
-	    return solution_t<_Real>(std::get<1>(__x) - std::get<2>(__y));
+	    return __gnu_cxx::solution_t<_Real>(std::get<1>(__x) - std::get<2>(__y));
 	}
       else
 	{
 	  if (__y.index() == 1)
-	    return solution_t<_Real>(std::get<2>(__x) - std::get<1>(__y));
+	    return __gnu_cxx::solution_t<_Real>(std::get<2>(__x) - std::get<1>(__y));
 	  else
-	    return solution_t<_Real>(std::get<2>(__x) - std::get<2>(__y));
+	    return __gnu_cxx::solution_t<_Real>(std::get<2>(__x) - std::get<2>(__y));
 	}
     }
 
   template<typename _Real>
-    constexpr solution_t<_Real>
-    operator-(const solution_t<_Real>& __x, _Real __y)
-    { return operator-(__x, solution_t<_Real>(__y)); }
+    constexpr __gnu_cxx::solution_t<_Real>
+    operator-(const __gnu_cxx::solution_t<_Real>& __x, _Real __y)
+    { return operator-(__x, __gnu_cxx::solution_t<_Real>(__y)); }
 
   template<typename _Real>
-    constexpr solution_t<_Real>
-    operator-(_Real __x, const solution_t<_Real>& __y)
-    { return operator-(solution_t<_Real>(__x), __y); }
+    constexpr __gnu_cxx::solution_t<_Real>
+    operator-(_Real __x, const __gnu_cxx::solution_t<_Real>& __y)
+    { return operator-(__gnu_cxx::solution_t<_Real>(__x), __y); }
 
   template<typename _Real>
-    constexpr solution_t<_Real>
-    operator-(const solution_t<_Real>& __x, std::complex<_Real>& __y)
-    { return operator-(__x, solution_t<_Real>(__y)); }
+    constexpr __gnu_cxx::solution_t<_Real>
+    operator-(const __gnu_cxx::solution_t<_Real>& __x, std::complex<_Real>& __y)
+    { return operator-(__x, __gnu_cxx::solution_t<_Real>(__y)); }
 
   template<typename _Real>
-    constexpr solution_t<_Real>
-    operator-(std::complex<_Real>& __x, const solution_t<_Real>& __y)
-    { return operator-(solution_t<_Real>(__x), __y); }
+    constexpr __gnu_cxx::solution_t<_Real>
+    operator-(std::complex<_Real>& __x, const __gnu_cxx::solution_t<_Real>& __y)
+    { return operator-(__gnu_cxx::solution_t<_Real>(__x), __y); }
 
   /**
    * Multiplication operators...
    */
   template<typename _Real>
-    constexpr solution_t<_Real>
-    operator*(const solution_t<_Real>& __x, const solution_t<_Real>& __y)
+    constexpr __gnu_cxx::solution_t<_Real>
+    operator*(const __gnu_cxx::solution_t<_Real>& __x, const __gnu_cxx::solution_t<_Real>& __y)
     {
       if (__x.index() == 0)
 	return __x;
@@ -266,45 +272,45 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
       else if (__x.index() == 1)
 	{
 	  if (__y.index() == 1)
-	    return solution_t<_Real>(std::get<1>(__x) * std::get<1>(__y));
+	    return __gnu_cxx::solution_t<_Real>(std::get<1>(__x) * std::get<1>(__y));
 	  else
-	    return solution_t<_Real>(std::get<1>(__x) * std::get<2>(__y));
+	    return __gnu_cxx::solution_t<_Real>(std::get<1>(__x) * std::get<2>(__y));
 	}
       else
 	{
 	  if (__y.index() == 1)
-	    return solution_t<_Real>(std::get<2>(__x) * std::get<1>(__y));
+	    return __gnu_cxx::solution_t<_Real>(std::get<2>(__x) * std::get<1>(__y));
 	  else
-	    return solution_t<_Real>(std::get<2>(__x) * std::get<2>(__y));
+	    return __gnu_cxx::solution_t<_Real>(std::get<2>(__x) * std::get<2>(__y));
 	}
     }
 
   template<typename _Real>
-    constexpr solution_t<_Real>
-    operator*(const solution_t<_Real>& __x, _Real __y)
-    { return operator*(__x, solution_t<_Real>(__y)); }
+    constexpr __gnu_cxx::solution_t<_Real>
+    operator*(const __gnu_cxx::solution_t<_Real>& __x, _Real __y)
+    { return operator*(__x, __gnu_cxx::solution_t<_Real>(__y)); }
 
   template<typename _Real>
-    constexpr solution_t<_Real>
-    operator*(_Real __x, const solution_t<_Real>& __y)
-    { return operator*(solution_t<_Real>(__x), __y); }
+    constexpr __gnu_cxx::solution_t<_Real>
+    operator*(_Real __x, const __gnu_cxx::solution_t<_Real>& __y)
+    { return operator*(__gnu_cxx::solution_t<_Real>(__x), __y); }
 
   template<typename _Real>
-    constexpr solution_t<_Real>
-    operator*(const solution_t<_Real>& __x, std::complex<_Real>& __y)
-    { return operator*(__x, solution_t<_Real>(__y)); }
+    constexpr __gnu_cxx::solution_t<_Real>
+    operator*(const __gnu_cxx::solution_t<_Real>& __x, std::complex<_Real>& __y)
+    { return operator*(__x, __gnu_cxx::solution_t<_Real>(__y)); }
 
   template<typename _Real>
-    constexpr solution_t<_Real>
-    operator*(std::complex<_Real>& __x, const solution_t<_Real>& __y)
-    { return operator*(solution_t<_Real>(__x), __y); }
+    constexpr __gnu_cxx::solution_t<_Real>
+    operator*(std::complex<_Real>& __x, const __gnu_cxx::solution_t<_Real>& __y)
+    { return operator*(__gnu_cxx::solution_t<_Real>(__x), __y); }
 
   /**
    * division operators...
    */
   template<typename _Real>
-    constexpr solution_t<_Real>
-    operator/(const solution_t<_Real>& __x, const solution_t<_Real>& __y)
+    constexpr __gnu_cxx::solution_t<_Real>
+    operator/(const __gnu_cxx::solution_t<_Real>& __x, const __gnu_cxx::solution_t<_Real>& __y)
     {
       if (__x.index() == 0)
 	return __x;
@@ -313,46 +319,46 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
       else if (__x.index() == 1)
 	{
 	  if (__y.index() == 1)
-	    return solution_t<_Real>(std::get<1>(__x) / std::get<1>(__y));
+	    return __gnu_cxx::solution_t<_Real>(std::get<1>(__x) / std::get<1>(__y));
 	  else
-	    return solution_t<_Real>(std::get<1>(__x) / std::get<2>(__y));
+	    return __gnu_cxx::solution_t<_Real>(std::get<1>(__x) / std::get<2>(__y));
 	}
       else
 	{
 	  if (__y.index() == 1)
-	    return solution_t<_Real>(std::get<2>(__x) / std::get<1>(__y));
+	    return __gnu_cxx::solution_t<_Real>(std::get<2>(__x) / std::get<1>(__y));
 	  else
-	    return solution_t<_Real>(std::get<2>(__x) / std::get<2>(__y));
+	    return __gnu_cxx::solution_t<_Real>(std::get<2>(__x) / std::get<2>(__y));
 	}
     }
 
   template<typename _Real>
-    constexpr solution_t<_Real>
-    operator/(const solution_t<_Real>& __x, _Real __y)
-    { return operator/(__x, solution_t<_Real>(__y)); }
+    constexpr __gnu_cxx::solution_t<_Real>
+    operator/(const __gnu_cxx::solution_t<_Real>& __x, _Real __y)
+    { return operator/(__x, __gnu_cxx::solution_t<_Real>(__y)); }
 
   template<typename _Real>
-    constexpr solution_t<_Real>
-    operator/(_Real __x, const solution_t<_Real>& __y)
-    { return operator/(solution_t<_Real>(__x), __y); }
+    constexpr __gnu_cxx::solution_t<_Real>
+    operator/(_Real __x, const __gnu_cxx::solution_t<_Real>& __y)
+    { return operator/(__gnu_cxx::solution_t<_Real>(__x), __y); }
 
   template<typename _Real>
-    constexpr solution_t<_Real>
-    operator/(const solution_t<_Real>& __x, std::complex<_Real>& __y)
-    { return operator/(__x, solution_t<_Real>(__y)); }
+    constexpr __gnu_cxx::solution_t<_Real>
+    operator/(const __gnu_cxx::solution_t<_Real>& __x, std::complex<_Real>& __y)
+    { return operator/(__x, __gnu_cxx::solution_t<_Real>(__y)); }
 
   template<typename _Real>
-    constexpr solution_t<_Real>
-    operator/(std::complex<_Real>& __x, const solution_t<_Real>& __y)
-    { return operator/(solution_t<_Real>(__x), __y); }
+    constexpr __gnu_cxx::solution_t<_Real>
+    operator/(std::complex<_Real>& __x, const __gnu_cxx::solution_t<_Real>& __y)
+    { return operator/(__gnu_cxx::solution_t<_Real>(__x), __y); }
 
   /**
    * Test for equality and inequality.
    */
   template<typename _Real>
     constexpr bool
-    operator==(const solution_t<_Real>& __x,
-	       const solution_t<_Real>& __y)
+    operator==(const __gnu_cxx::solution_t<_Real>& __x,
+	       const __gnu_cxx::solution_t<_Real>& __y)
     {
       if (__x.index() == 0 || __y.index() == 0)
 	return false;
@@ -369,48 +375,48 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 
   template<typename _Real>
     bool
-    operator==(const solution_t<_Real>& __x, _Real __y)
-    { return __x == solution_t<_Real>(__y); }
+    operator==(const __gnu_cxx::solution_t<_Real>& __x, _Real __y)
+    { return __x == __gnu_cxx::solution_t<_Real>(__y); }
 
   template<typename _Real>
     constexpr bool
-    operator==(_Real __x, const solution_t<_Real>& __y)
-    { return solution_t<_Real>(__x) == __y; }
+    operator==(_Real __x, const __gnu_cxx::solution_t<_Real>& __y)
+    { return __gnu_cxx::solution_t<_Real>(__x) == __y; }
 
   template<typename _Real>
     constexpr bool
-    operator==(const solution_t<_Real>& __x, const std::complex<_Real>& __y)
-    { return __x == solution_t<_Real>(__y); }
+    operator==(const __gnu_cxx::solution_t<_Real>& __x, const std::complex<_Real>& __y)
+    { return __x == __gnu_cxx::solution_t<_Real>(__y); }
 
   template<typename _Real>
     constexpr bool
-    operator==(const std::complex<_Real>& __x, const solution_t<_Real>& __y)
-    { return solution_t<_Real>(__x) == __y; }
+    operator==(const std::complex<_Real>& __x, const __gnu_cxx::solution_t<_Real>& __y)
+    { return __gnu_cxx::solution_t<_Real>(__x) == __y; }
 
   template<typename _Real>
     constexpr bool
-    operator!=(const solution_t<_Real>& __x,
-	       const solution_t<_Real>& __y)
+    operator!=(const __gnu_cxx::solution_t<_Real>& __x,
+	       const __gnu_cxx::solution_t<_Real>& __y)
     { return !(__x == __y); }
 
   template<typename _Real>
     bool
-    operator!=(const solution_t<_Real>& __x, _Real __y)
+    operator!=(const __gnu_cxx::solution_t<_Real>& __x, _Real __y)
     { return !(__x == __y); }
 
   template<typename _Real>
     constexpr bool
-    operator!=(_Real __x, const solution_t<_Real>& __y)
+    operator!=(_Real __x, const __gnu_cxx::solution_t<_Real>& __y)
     { return !(__x == __y); }
 
   template<typename _Real>
     constexpr bool
-    operator!=(const solution_t<_Real>& __x, const std::complex<_Real>& __y)
+    operator!=(const __gnu_cxx::solution_t<_Real>& __x, const std::complex<_Real>& __y)
     { return !(__x == __y); }
 
   template<typename _Real>
     constexpr bool
-    operator!=(const std::complex<_Real>& __x, const solution_t<_Real>& __y)
+    operator!=(const std::complex<_Real>& __x, const __gnu_cxx::solution_t<_Real>& __y)
     { return !(__x == __y); }
 
   /**
@@ -422,7 +428,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
    */
   template<typename _Real>
     constexpr bool
-    operator<(const solution_t<_Real>& __x, const solution_t<_Real>& __y)
+    operator<(const __gnu_cxx::solution_t<_Real>& __x, const __gnu_cxx::solution_t<_Real>& __y)
     {
       if (__x.index() == 0 && __y.index() == 0)
 	return false;
@@ -432,12 +438,12 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 	return false;
       else
 	{
-	  const auto __rex = real(__x);
-	  const auto __rey = real(__y);
+	  const auto __rex = __gnu_cxx::real(__x);
+	  const auto __rey = __gnu_cxx::real(__y);
 	  if (__rex < __rey)
 	    return true;
 	  else if (__rex == __rey)
-	    return imag(__x) < imag(__y);
+	    return __gnu_cxx::imag(__x) < __gnu_cxx::imag(__y);
 	  else
 	    return false;
 	}
@@ -445,26 +451,25 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 
   template<typename _Real>
     constexpr bool
-    operator<(const solution_t<_Real>& __x, _Real __y)
-    { return operator<(__x, solution_t<_Real>(__y)); }
+    operator<(const __gnu_cxx::solution_t<_Real>& __x, _Real __y)
+    { return operator<(__x, __gnu_cxx::solution_t<_Real>(__y)); }
 
   template<typename _Real>
     constexpr bool
-    operator<(_Real __x, const solution_t<_Real>& __y)
-    { return operator<(solution_t<_Real>(__x), __y); }
+    operator<(_Real __x, const __gnu_cxx::solution_t<_Real>& __y)
+    { return operator<(__gnu_cxx::solution_t<_Real>(__x), __y); }
 
   template<typename _Real>
     constexpr bool
-    operator<(const solution_t<_Real>& __x, const std::complex<_Real>& __y)
-    { return operator<(__x, solution_t<_Real>(__y)); }
+    operator<(const __gnu_cxx::solution_t<_Real>& __x, const std::complex<_Real>& __y)
+    { return operator<(__x, __gnu_cxx::solution_t<_Real>(__y)); }
 
   template<typename _Real>
     constexpr bool
-    operator<(const std::complex<_Real>& __x, const solution_t<_Real>& __y)
-    { return operator<(solution_t<_Real>(__x), __y); }
+    operator<(const std::complex<_Real>& __x, const __gnu_cxx::solution_t<_Real>& __y)
+    { return operator<(__gnu_cxx::solution_t<_Real>(__x), __y); }
 
-_GLIBCXX_END_NAMESPACE_VERSION
-} // namespace __gnu_cxx
+} // namespace std
 
   /**
    * Output a solution to a stream.
