@@ -44,34 +44,34 @@ ext/solver_low_degree.h: ext/solution.h ext/solver_low_degree.tcc
 ext/rational_polynomial.h: ext/polynomial.h
 
 test_bairstow: test_bairstow.cpp
-	$(CXX17) -I. -I.. -o test_bairstow test_bairstow.cpp -lquadmath
+	$(CXX17) -I. -I../include -o test_bairstow test_bairstow.cpp -lquadmath
 
 test_horner: ext/horner.h test_horner.cpp
-	$(CXX17) -I. -I.. -o test_horner test_horner.cpp -lquadmath
+	$(CXX17) -I. -I../include -o test_horner test_horner.cpp -lquadmath
 
 test_jacobi_roots: ext/solution.h ext/solver_low_degree.h ext/polynomial.h test_jacobi_roots.cpp
-	$(CXX17) -I. -I.. -o test_jacobi_roots test_jacobi_roots.cpp -lquadmath
+	$(CXX17) -I. -I../include -o test_jacobi_roots test_jacobi_roots.cpp -lquadmath
 
 test_jenkins_traub: ext/solution.h ext/solver_low_degree.h ext/polynomial.h test_jenkins_traub.cpp
-	$(CXX17) -I. -I.. -o test_jenkins_traub test_jenkins_traub.cpp -lquadmath
+	$(CXX17) -I. -I../include -o test_jenkins_traub test_jenkins_traub.cpp -lquadmath
 
 test_polynomial: ext/polynomial.h ext/polynomial.tcc test_polynomial.cpp
-	$(CXX17) -I. -I.. -o test_polynomial test_polynomial.cpp -lquadmath
+	$(CXX17) -I. -I../include -o test_polynomial test_polynomial.cpp -lquadmath
 
 test_polynomial_root: ext/polynomial.h test_polynomial_root.cpp
-	$(CXX17) -I. -I.. -o test_polynomial_root test_polynomial_root.cpp -lquadmath
+	$(CXX17) -I. -I../include -o test_polynomial_root test_polynomial_root.cpp -lquadmath
 
 test_rational_polynomial: ext/rational_polynomial.h test_rational_polynomial.cpp
-	$(CXX17) -I. -I.. -o test_rational_polynomial test_rational_polynomial.cpp -lquadmath
+	$(CXX17) -I. -I../include -o test_rational_polynomial test_rational_polynomial.cpp -lquadmath
 
 test_solvers: ext/solution.h ext/solver_low_degree.h ext/solver_low_degree.tcc test_solvers.cpp
-	$(CXX17) -I. -I.. -o test_solvers test_solvers.cpp -lquadmath
+	$(CXX17) -I. -I../include -o test_solvers test_solvers.cpp -lquadmath
 
 test_solution: ext/solution.h test_solution.cpp
-	$(CXX17) -I. -I.. -o test_solution test_solution.cpp -lquadmath
+	$(CXX17) -I. -I../include -o test_solution test_solution.cpp -lquadmath
 
 test_static_polynomial: ext/static_polynomial.h test_static_polynomial.cpp
-	$(CXX17) -I. -I.. -o test_static_polynomial test_static_polynomial.cpp -lquadmath
+	$(CXX17) -I. -I../include -o test_static_polynomial test_static_polynomial.cpp -lquadmath
 
 docs:
 	rm -rf html/*

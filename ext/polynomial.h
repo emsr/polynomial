@@ -152,6 +152,7 @@ template<typename T>
 	{
           for (const auto __c : __poly)
 	    this->_M_coeff.push_back(static_cast<value_type>(__c));
+          this->_M_set_scale();
 	}
 
       /**
@@ -167,7 +168,7 @@ template<typename T>
        */
       _Polynomial(std::initializer_list<value_type> __ila)
       : _M_coeff(__ila)
-      { }
+      { this->_M_set_scale(); }
 
       /**
        * Create a polynomial from an input iterator range of coefficients.
@@ -176,7 +177,7 @@ template<typename T>
 	       typename = std::_RequireInputIter<InIter>>
 	_Polynomial(const InIter& __abegin, const InIter& __aend)
 	: _M_coeff(__abegin, __aend)
-	{ }
+	{ this->_M_set_scale(); }
 
       /**
        * Use Lagrange interpolation to construct a polynomial passing through
@@ -196,6 +197,7 @@ template<typename T>
 		__denom.push_back(value_type(*__xj) - value_type(*__xi));
 	      __numer.push_back({-value_type(*__xi), value_type{1}});
 	    }
+          this->_M_set_scale();
 	}
 
       /**
@@ -208,8 +210,8 @@ template<typename T>
 	  this->_M_coeff.reserve(__degree);
 	  for (size_type __k = 0; __k <= __degree; ++__k)
 	    this->_M_coeff.push_back(__gen(__k));
+          this->_M_set_scale();
 	}
-
 
       /**
        * Swap the polynomial with another polynomial.
@@ -696,9 +698,42 @@ template<typename T>
 		   const _Polynomial<_Tp1>& __pb);
 
     private:
+/* This still falls of the type now.
+I need a recursive decay type for polynomials.
+      using real_type = decltype(std::abs(value_type()));
+      inline static const real_type _S_eps = std::numeric_limits<real_type>::epsilon();
+      inline static const real_type
+	_S_base = real_type{std::numeric_limits<real_type>::radix};
+      inline static const real_type _S_tiny = _S_eps * _S_eps * _S_eps; // ~ 1.0e-50;
+      inline static const real_type _S_huge = real_type{1} / _S_tiny; // ~ 1.0e+50;
+      inline static const real_type _S_low = _S_tiny / _S_eps;
+
+
+      /// Return the scale.
+      real_type
+      _M_get_scale() const
+      { return this->_M_scale; }
+
+      real_type _M_scale = real_type{1};
+*/
+      void _M_set_scale();
 
       std::vector<value_type> _M_coeff;
     };
+
+  /**
+   * Return the scale for a polynomial.
+   */
+  template<typename _Tp>
+    get_scale(const _Polynomial<_Tp>& __poly)
+    { return __poly._M_get_scale(); }
+
+  /**
+   * Return the scale for a number.
+   */
+  template<typename _Tp>
+    get_scale(const _Tp& __x)
+    { return std::abs(__x); }
 
   /**
    * Return the sum of a polynomial with a scalar.
