@@ -49,7 +49,7 @@
 #include <ios>
 #include <complex>
 
-#include "../../bits/notsospecfun.h" // Complex fma.
+#include "../../include/bits/notsospecfun.h" // Complex fma.
 
 namespace __gnu_cxx //_GLIBCXX_VISIBILITY(default)
 {
