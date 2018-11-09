@@ -1,7 +1,4 @@
 /*
-$HOME/bin_tr29124/bin/g++ -g -std=gnu++17 -g -Wall -Wextra -Wno-psabi -I. -o test_rational_polynomial test_rational_polynomial.cpp -lquadmath
-./test_rational_polynomial > test_rational_polynomial.txt
-
 $HOME/bin/bin/g++ -g -std=gnu++17 -g -Wall -Wextra -Wno-psabi -I. -o test_rational_polynomial test_rational_polynomial.cpp -lquadmath
 ./test_rational_polynomial > test_rational_polynomial.txt
 */

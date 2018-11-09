@@ -55,6 +55,56 @@ namespace __gnu_cxx //_GLIBCXX_VISIBILITY(default)
 {
 _GLIBCXX_BEGIN_NAMESPACE_VERSION
 
+/* This still falls of the type now.
+I need a recursive decay type for polynomials.
+  template<typename _Tp>
+    void
+    _Polynomial<_Tp>::_M_set_scale()
+    {
+      // Find largest and smallest moduli of coefficients.
+      auto __a_max = real_type{0};
+      auto __a_min = _S_huge;
+      for (int __i = 0; __i <= this->degree(); ++__i)
+	{
+	  const auto __x = get_scale(this->_M_coeff[__i]);
+	  if (__x > __a_max)
+	    __a_max = __x;
+	  if (__x != real_type{0} && __x < __a_min)
+	    __a_min = __x;
+	}
+      // Scale if there are large or very tiny coefficients.
+      // Computes a scale factor to multiply the coefficients
+      // of the polynomial. The scaling is done to avoid overflow
+      // and to avoid undetected underflow interfering
+      // with the convergence criterion.
+      // The factor is a power of the base.
+      auto __scale = _S_low / __a_min;
+      bool __rescale = true;
+      if (__scale > real_type{1} && _S_huge / __scale < __a_max)
+	__rescale = false;
+      if (__scale <= real_type{1} && __a_max < real_type{10})
+	__rescale = false;
+
+      this->_M_scale = real_type{1};
+      if (__rescale)
+	{
+	  // Scale polynomial.
+	  if (__scale == real_type{0})
+	    __scale = _S_tiny;
+	  const auto __lg = int(std::ceil(std::log(__scale) / std::log(_S_base)));
+	  this->_M_scale = std::pow(_S_base, __lg);
+	  //if (this->_M_scale != real_type{1})
+	  //  for (int __i = 0; __i <= this->degree(); ++__i)
+	  //    this->_M_coeff[__i] *= this->_M_scale;
+	}
+    }
+*/
+  template<typename _Tp>
+    void
+    _Polynomial<_Tp>::_M_set_scale()
+    {
+    }
+
   /**
    * Evaluate the polynomial using a modification of Horner's rule which
    * exploits the fact that the polynomial coefficients are all real.
