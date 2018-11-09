@@ -37,47 +37,47 @@ BINS = \
 
 all: $(BINS)
 
-ext/polynomial.h: ext/polynomial.tcc
+ext/polynomial.h: include/ext/polynomial.tcc
 
-ext/solver_low_degree.h: ext/solution.h ext/solver_low_degree.tcc
+ext/solver_low_degree.h: include/ext/solution.h include/ext/solver_low_degree.tcc
 
-ext/rational_polynomial.h: ext/polynomial.h
+ext/rational_polynomial.h: include/ext/polynomial.h
 
 test_bairstow: test_bairstow.cpp
-	$(CXX17) -I. -I../include -o test_bairstow test_bairstow.cpp -lquadmath
+	$(CXX17) -Iinclude -I../include -o test_bairstow test_bairstow.cpp -lquadmath
 
-test_horner: ext/horner.h test_horner.cpp
-	$(CXX17) -I. -I../include -o test_horner test_horner.cpp -lquadmath
+test_horner: include/ext/horner.h test_horner.cpp
+	$(CXX17) -Iinclude -I../include -o test_horner test_horner.cpp -lquadmath
 
-test_jacobi_roots: ext/solution.h ext/solver_low_degree.h ext/polynomial.h test_jacobi_roots.cpp
-	$(CXX17) -I. -I../include -o test_jacobi_roots test_jacobi_roots.cpp -lquadmath
+test_jacobi_roots: include/ext/solution.h include/ext/solver_low_degree.h include/ext/polynomial.h test_jacobi_roots.cpp
+	$(CXX17) -Iinclude -I../include -o test_jacobi_roots test_jacobi_roots.cpp -lquadmath
 
-test_jenkins_traub: ext/solution.h ext/solver_low_degree.h ext/polynomial.h test_jenkins_traub.cpp
-	$(CXX17) -I. -I../include -o test_jenkins_traub test_jenkins_traub.cpp -lquadmath
+test_jenkins_traub: include/ext/solution.h include/ext/solver_low_degree.h include/ext/polynomial.h test_jenkins_traub.cpp
+	$(CXX17) -Iinclude -I../include -o test_jenkins_traub test_jenkins_traub.cpp -lquadmath
 
-test_polynomial: ext/polynomial.h ext/polynomial.tcc test_polynomial.cpp
-	$(CXX17) -I. -I../include -o test_polynomial test_polynomial.cpp -lquadmath
+test_polynomial: include/ext/polynomial.h include/ext/polynomial.tcc test_polynomial.cpp
+	$(CXX17) -Iinclude -I../include -o test_polynomial test_polynomial.cpp -lquadmath
 
-test_polynomial_root: ext/polynomial.h test_polynomial_root.cpp
-	$(CXX17) -I. -I../include -o test_polynomial_root test_polynomial_root.cpp -lquadmath
+test_polynomial_root: include/ext/polynomial.h test_polynomial_root.cpp
+	$(CXX17) -Iinclude -I../include -o test_polynomial_root test_polynomial_root.cpp -lquadmath
 
-test_rational_polynomial: ext/rational_polynomial.h test_rational_polynomial.cpp
-	$(CXX17) -I. -I../include -o test_rational_polynomial test_rational_polynomial.cpp -lquadmath
+test_rational_polynomial: include/ext/rational_polynomial.h test_rational_polynomial.cpp
+	$(CXX17) -Iinclude -I../include -o test_rational_polynomial test_rational_polynomial.cpp -lquadmath
 
-test_solvers: ext/solution.h ext/solver_low_degree.h ext/solver_low_degree.tcc test_solvers.cpp
-	$(CXX17) -I. -I../include -o test_solvers test_solvers.cpp -lquadmath
+test_solvers: include/ext/solution.h include/ext/solver_low_degree.h include/ext/solver_low_degree.tcc test_solvers.cpp
+	$(CXX17) -Iinclude -I../include -o test_solvers test_solvers.cpp -lquadmath
 
-test_solution: ext/solution.h test_solution.cpp
-	$(CXX17) -I. -I../include -o test_solution test_solution.cpp -lquadmath
+test_solution: include/ext/solution.h test_solution.cpp
+	$(CXX17) -Iinclude -I../include -o test_solution test_solution.cpp -lquadmath
 
-test_static_polynomial: ext/static_polynomial.h test_static_polynomial.cpp
-	$(CXX17) -I. -I../include -o test_static_polynomial test_static_polynomial.cpp -lquadmath
+test_static_polynomial: include/ext/static_polynomial.h test_static_polynomial.cpp
+	$(CXX17) -Iinclude -I../include -o test_static_polynomial test_static_polynomial.cpp -lquadmath
 
 docs:
-	rm -rf html/*
-	rm -rf latex/*
+	rm -rf docs/html/*
+	rm -rf docs/latex/*
 	doxygen
-	cd latex && make
+	cd docs/latex && make
 
 test:
 	LD_LIBRARY_PATH=$(CXX_LIB_DIR):$$LD_LIBRARY_PATH ./test_jacobi_roots > test_jacobi_roots.txt

@@ -1,0 +1,105 @@
+\hypertarget{polynomial_8h}{}\section{include/ext/polynomial.h File Reference}
+\label{polynomial_8h}\index{include/ext/polynomial.\+h@{include/ext/polynomial.\+h}}
+{\ttfamily \#include $<$initializer\+\_\+list$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$iosfwd$>$}\newline
+{\ttfamily \#include $<$limits$>$}\newline
+{\ttfamily \#include $<$array$>$}\newline
+{\ttfamily \#include $<$utility$>$}\newline
+{\ttfamily \#include \char`\"{}polynomial.\+tcc\char`\"{}}\newline
+Include dependency graph for polynomial.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{polynomial_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=202pt]{polynomial_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct____gnu__cxx_1_1____has__imag__t}{\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+\_\+has\+\_\+imag\+\_\+t$<$ typename, typename $>$}
+\item 
+struct \hyperlink{struct____gnu__cxx_1_1____has__imag__t_3_01T_00_01std_1_1void__t_3_01decltype_07std_1_1declval_389ee8aaba7dec2e199e7ad81d6cda763}{\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+\_\+has\+\_\+imag\+\_\+t$<$ T, std\+::void\+\_\+t$<$ decltype(std\+::declval$<$ T \& $>$().\+imag())$>$ $>$}
+\item 
+class \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Polynomial$<$ \+\_\+\+Tp $>$}
+\begin{DoxyCompactList}\small\item\em A dense polynomial class with a contiguous array of coefficients. The coefficients are lowest-\/order first\+: \[ P(x) = a_0 + a_1 x + ... + a_n x^n \]. \end{DoxyCompactList}\item 
+class \hyperlink{classstd_1_1complex}{std\+::complex$<$ \+\_\+\+Tp $>$}
+\end{DoxyCompactItemize}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \hyperlink{namespace____gnu__cxx}{\+\_\+\+\_\+gnu\+\_\+cxx}
+\item 
+ \hyperlink{namespacestd}{std}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename \+\_\+\+Tp $>$ }\\void \hyperlink{namespace____gnu__cxx_abe506cf34c921c378a681f0de31d49a5}{\+\_\+\+\_\+gnu\+\_\+cxx\+::divmod} (const \+\_\+\+Polynomial$<$ \+\_\+\+Tp $>$ \&\+\_\+\+\_\+pa, const \+\_\+\+Polynomial$<$ \+\_\+\+Tp $>$ \&\+\_\+\+\_\+pb, \+\_\+\+Polynomial$<$ \+\_\+\+Tp $>$ \&\+\_\+\+\_\+quo, \+\_\+\+Polynomial$<$ \+\_\+\+Tp $>$ \&\+\_\+\+\_\+rem)
+\item 
+{\footnotesize template$<$typename \+\_\+\+Tp $>$ }\\\hyperlink{namespace____gnu__cxx_a2af747c0e255f3fae4d9f118c2817e1a}{\+\_\+\+\_\+gnu\+\_\+cxx\+::get\+\_\+scale} (const \+\_\+\+Polynomial$<$ \+\_\+\+Tp $>$ \&\+\_\+\+\_\+poly)
+\item 
+{\footnotesize template$<$typename \+\_\+\+Tp $>$ }\\\hyperlink{namespace____gnu__cxx_a1a8bae104a6509f4e458d155acaf0476}{\+\_\+\+\_\+gnu\+\_\+cxx\+::get\+\_\+scale} (const \+\_\+\+Tp \&\+\_\+\+\_\+x)
+\item 
+{\footnotesize template$<$typename \+\_\+\+Tp $>$ }\\bool \hyperlink{namespace____gnu__cxx_a1279934a2d6df66704c6eab9113b0f97}{\+\_\+\+\_\+gnu\+\_\+cxx\+::operator!=} (const \+\_\+\+Polynomial$<$ \+\_\+\+Tp $>$ \&\+\_\+\+\_\+pa, const \+\_\+\+Polynomial$<$ \+\_\+\+Tp $>$ \&\+\_\+\+\_\+pb)
+\item 
+{\footnotesize template$<$typename \+\_\+\+Tp , typename \+\_\+\+Up $>$ }\\\+\_\+\+Polynomial$<$ decltype(\+\_\+\+Tp()/\+\_\+\+Up())$>$ \hyperlink{namespace____gnu__cxx_a3132828069a740986e97f1db8e07325c}{\+\_\+\+\_\+gnu\+\_\+cxx\+::operator\%} (const \+\_\+\+Polynomial$<$ \+\_\+\+Tp $>$ \&\+\_\+\+\_\+poly, const \+\_\+\+Up \&\+\_\+\+\_\+x)
+\item 
+{\footnotesize template$<$typename \+\_\+\+Tp , typename \+\_\+\+Up $>$ }\\\+\_\+\+Polynomial$<$ decltype(\+\_\+\+Tp()/\+\_\+\+Up())$>$ \hyperlink{namespace____gnu__cxx_a13dae497264694313717a5aa70407de5}{\+\_\+\+\_\+gnu\+\_\+cxx\+::operator\%} (const \+\_\+\+Polynomial$<$ \+\_\+\+Tp $>$ \&\+\_\+\+\_\+pa, const \+\_\+\+Polynomial$<$ \+\_\+\+Up $>$ \&\+\_\+\+\_\+pb)
+\item 
+{\footnotesize template$<$typename \+\_\+\+Tp , typename \+\_\+\+Up $>$ }\\\+\_\+\+Polynomial$<$ decltype(\+\_\+\+Tp()/\+\_\+\+Up())$>$ \hyperlink{namespace____gnu__cxx_a2d1e6cb96943b2c99f71cf77a7247e77}{\+\_\+\+\_\+gnu\+\_\+cxx\+::operator\%} (const \+\_\+\+Tp \&\+\_\+\+\_\+x, const \+\_\+\+Polynomial$<$ \+\_\+\+Up $>$ \&\+\_\+\+\_\+poly)
+\item 
+{\footnotesize template$<$typename \+\_\+\+Tp , typename \+\_\+\+Up $>$ }\\\+\_\+\+Polynomial$<$ decltype(\+\_\+\+Tp() $\ast$\+\_\+\+Up())$>$ \hyperlink{namespace____gnu__cxx_a1d0b1e9322fd407848b43cecab1ab9ae}{\+\_\+\+\_\+gnu\+\_\+cxx\+::operator$\ast$} (const \+\_\+\+Polynomial$<$ \+\_\+\+Tp $>$ \&\+\_\+\+\_\+poly, const \+\_\+\+Up \&\+\_\+\+\_\+x)
+\item 
+{\footnotesize template$<$typename \+\_\+\+Tp , typename \+\_\+\+Up $>$ }\\\+\_\+\+Polynomial$<$ decltype(\+\_\+\+Tp() $\ast$\+\_\+\+Up())$>$ \hyperlink{namespace____gnu__cxx_a2f76fd6f7c2c9e64fba1d5892844f26b}{\+\_\+\+\_\+gnu\+\_\+cxx\+::operator$\ast$} (const \+\_\+\+Polynomial$<$ \+\_\+\+Tp $>$ \&\+\_\+\+\_\+pa, const \+\_\+\+Polynomial$<$ \+\_\+\+Up $>$ \&\+\_\+\+\_\+pb)
+\item 
+{\footnotesize template$<$typename \+\_\+\+Tp , typename \+\_\+\+Up $>$ }\\\+\_\+\+Polynomial$<$ decltype(\+\_\+\+Tp() $\ast$\+\_\+\+Up())$>$ \hyperlink{namespace____gnu__cxx_ac79cfe2d37e5d8116fcf51911c21c253}{\+\_\+\+\_\+gnu\+\_\+cxx\+::operator$\ast$} (const \+\_\+\+Tp \&\+\_\+\+\_\+x, const \+\_\+\+Polynomial$<$ \+\_\+\+Up $>$ \&\+\_\+\+\_\+poly)
+\item 
+{\footnotesize template$<$typename \+\_\+\+Tp , typename \+\_\+\+Up $>$ }\\\+\_\+\+Polynomial$<$ decltype(\+\_\+\+Tp()+\+\_\+\+Up())$>$ \hyperlink{namespace____gnu__cxx_a2b408e7a7e5d2ec6879b8e40f7f5de3e}{\+\_\+\+\_\+gnu\+\_\+cxx\+::operator+} (const \+\_\+\+Polynomial$<$ \+\_\+\+Tp $>$ \&\+\_\+\+\_\+poly, const \+\_\+\+Up \&\+\_\+\+\_\+x)
+\item 
+{\footnotesize template$<$typename \+\_\+\+Tp , typename \+\_\+\+Up $>$ }\\\+\_\+\+Polynomial$<$ decltype(\+\_\+\+Tp()+\+\_\+\+Up())$>$ \hyperlink{namespace____gnu__cxx_ada8a28005b5f71563bec55c71e03029b}{\+\_\+\+\_\+gnu\+\_\+cxx\+::operator+} (const \+\_\+\+Polynomial$<$ \+\_\+\+Tp $>$ \&\+\_\+\+\_\+pa, const \+\_\+\+Polynomial$<$ \+\_\+\+Up $>$ \&\+\_\+\+\_\+pb)
+\item 
+{\footnotesize template$<$typename \+\_\+\+Tp , typename \+\_\+\+Up $>$ }\\\+\_\+\+Polynomial$<$ decltype(\+\_\+\+Tp()+\+\_\+\+Up())$>$ \hyperlink{namespace____gnu__cxx_ac9f58ced995b65628b5715c885569cb7}{\+\_\+\+\_\+gnu\+\_\+cxx\+::operator+} (const \+\_\+\+Tp \&\+\_\+\+\_\+x, const \+\_\+\+Polynomial$<$ \+\_\+\+Up $>$ \&\+\_\+\+\_\+poly)
+\item 
+{\footnotesize template$<$typename \+\_\+\+Tp , typename \+\_\+\+Up $>$ }\\\+\_\+\+Polynomial$<$ decltype(\+\_\+\+Tp() -\/ \+\_\+\+Up())$>$ \hyperlink{namespace____gnu__cxx_abc583ac0684f0aff079c6014f3d84c1d}{\+\_\+\+\_\+gnu\+\_\+cxx\+::operator-\/} (const \+\_\+\+Polynomial$<$ \+\_\+\+Tp $>$ \&\+\_\+\+\_\+poly, const \+\_\+\+Up \&\+\_\+\+\_\+x)
+\item 
+{\footnotesize template$<$typename \+\_\+\+Tp , typename \+\_\+\+Up $>$ }\\\+\_\+\+Polynomial$<$ decltype(\+\_\+\+Tp() -\/ \+\_\+\+Up())$>$ \hyperlink{namespace____gnu__cxx_a4609eee7a71e3be3a103df9556fab9b4}{\+\_\+\+\_\+gnu\+\_\+cxx\+::operator-\/} (const \+\_\+\+Polynomial$<$ \+\_\+\+Tp $>$ \&\+\_\+\+\_\+pa, const \+\_\+\+Polynomial$<$ \+\_\+\+Up $>$ \&\+\_\+\+\_\+pb)
+\item 
+{\footnotesize template$<$typename \+\_\+\+Tp , typename \+\_\+\+Up $>$ }\\\+\_\+\+Polynomial$<$ decltype(\+\_\+\+Tp() -\/ \+\_\+\+Up())$>$ \hyperlink{namespace____gnu__cxx_acc72fd3c1efcf09698d30d42c4a1eb1b}{\+\_\+\+\_\+gnu\+\_\+cxx\+::operator-\/} (const \+\_\+\+Tp \&\+\_\+\+\_\+x, const \+\_\+\+Polynomial$<$ \+\_\+\+Up $>$ \&\+\_\+\+\_\+poly)
+\item 
+{\footnotesize template$<$typename \+\_\+\+Tp , typename \+\_\+\+Up $>$ }\\\+\_\+\+Polynomial$<$ decltype(\+\_\+\+Tp()/\+\_\+\+Up())$>$ \hyperlink{namespace____gnu__cxx_a5fd356349013bd60a41010cbf502444b}{\+\_\+\+\_\+gnu\+\_\+cxx\+::operator/} (const \+\_\+\+Polynomial$<$ \+\_\+\+Tp $>$ \&\+\_\+\+\_\+poly, const \+\_\+\+Up \&\+\_\+\+\_\+x)
+\item 
+{\footnotesize template$<$typename \+\_\+\+Tp , typename \+\_\+\+Up $>$ }\\\+\_\+\+Polynomial$<$ decltype(\+\_\+\+Tp()/\+\_\+\+Up())$>$ \hyperlink{namespace____gnu__cxx_a6ba146c479b383e9ba26760c847e3dc6}{\+\_\+\+\_\+gnu\+\_\+cxx\+::operator/} (const \+\_\+\+Polynomial$<$ \+\_\+\+Tp $>$ \&\+\_\+\+\_\+pa, const \+\_\+\+Polynomial$<$ \+\_\+\+Up $>$ \&\+\_\+\+\_\+pb)
+\item 
+{\footnotesize template$<$typename \+\_\+\+Tp , typename \+\_\+\+Up $>$ }\\\+\_\+\+Polynomial$<$ decltype(\+\_\+\+Tp()/\+\_\+\+Up())$>$ \hyperlink{namespace____gnu__cxx_a4c1b4c46ffc6c41fb5b5d1a4293ca563}{\+\_\+\+\_\+gnu\+\_\+cxx\+::operator/} (const \+\_\+\+Tp \&\+\_\+\+\_\+x, const \+\_\+\+Polynomial$<$ \+\_\+\+Up $>$ \&\+\_\+\+\_\+poly)
+\item 
+{\footnotesize template$<$typename CharT , typename Traits , typename \+\_\+\+Tp $>$ }\\std\+::basic\+\_\+ostream$<$ CharT, Traits $>$ \& \hyperlink{namespace____gnu__cxx_ad713743dbfc30fba653621d1f7e99d3c}{\+\_\+\+\_\+gnu\+\_\+cxx\+::operator$<$$<$} (std\+::basic\+\_\+ostream$<$ CharT, Traits $>$ \&\+\_\+\+\_\+os, const \+\_\+\+Polynomial$<$ \+\_\+\+Tp $>$ \&\+\_\+\+\_\+poly)
+\item 
+{\footnotesize template$<$typename \+\_\+\+Tp $>$ }\\bool \hyperlink{namespace____gnu__cxx_a7427db234bb8c8aab722a3196e898215}{\+\_\+\+\_\+gnu\+\_\+cxx\+::operator==} (const \+\_\+\+Polynomial$<$ \+\_\+\+Tp $>$ \&\+\_\+\+\_\+pa, const \+\_\+\+Polynomial$<$ \+\_\+\+Tp $>$ \&\+\_\+\+\_\+pb)
+\item 
+{\footnotesize template$<$typename CharT , typename Traits , typename \+\_\+\+Tp $>$ }\\std\+::basic\+\_\+istream$<$ CharT, Traits $>$ \& \hyperlink{namespace____gnu__cxx_acf7d03318756578d08f672212cd91234}{\+\_\+\+\_\+gnu\+\_\+cxx\+::operator$>$$>$} (std\+::basic\+\_\+istream$<$ CharT, Traits $>$ \&\+\_\+\+\_\+is, \+\_\+\+Polynomial$<$ \+\_\+\+Tp $>$ \&\+\_\+\+\_\+poly)
+\item 
+{\footnotesize template$<$typename \+\_\+\+Tp $>$ }\\void \hyperlink{namespace____gnu__cxx_a10d002d78eb10d846416335ca9599c7a}{\+\_\+\+\_\+gnu\+\_\+cxx\+::swap} (\+\_\+\+Polynomial$<$ \+\_\+\+Tp $>$ \&\+\_\+\+\_\+pa, \+\_\+\+Polynomial$<$ \+\_\+\+Tp $>$ \&\+\_\+\+\_\+pb) noexcept(noexcept(\+\_\+\+\_\+pa.\+swap(\+\_\+\+\_\+pb)))
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\constexpr auto \hyperlink{namespace____gnu__cxx_afa2404a914b06f950f3a46e75aca51a9}{\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+\_\+has\+\_\+imag\+\_\+v} = \+\_\+\+\_\+has\+\_\+imag\+\_\+t$<$T$>$\+::value
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class declaration for a dense monovariate polynomial.
+
+This file is a G\+NU extension to the Standard C++ Library.
+
+This file contains the declaration of a dense-\/polynomial class. 

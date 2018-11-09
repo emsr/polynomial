@@ -1,0 +1,47 @@
+\hypertarget{solver__low__degree_8h}{}\section{include/ext/solver\+\_\+low\+\_\+degree.h File Reference}
+\label{solver__low__degree_8h}\index{include/ext/solver\+\_\+low\+\_\+degree.\+h@{include/ext/solver\+\_\+low\+\_\+degree.\+h}}
+{\ttfamily \#include $<$experimental/array$>$}\newline
+{\ttfamily \#include \char`\"{}solution.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}solver\+\_\+low\+\_\+degree.\+tcc\char`\"{}}\newline
+Include dependency graph for solver\+\_\+low\+\_\+degree.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{solver__low__degree_8h__incl}
+\end{center}
+\end{figure}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \hyperlink{namespace____gnu__cxx}{\+\_\+\+\_\+gnu\+\_\+cxx}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename \+\_\+\+Real , typename \+\_\+\+Iter $>$ }\\std\+::array$<$ solution\+\_\+t$<$ \+\_\+\+Real $>$, 3 $>$ \hyperlink{namespace____gnu__cxx_a422f638b186be2071012321de5f9bb48}{\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+\_\+cubic} (const \+\_\+\+Iter \&\+\_\+\+CC)
+\begin{DoxyCompactList}\small\item\em Finds the roots of a cubic equation of the form\+: \[ a_3 x^3 + a_2 x^2 + a_1 x + a_0 = 0 \] for real coefficients $ a_k $. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename \+\_\+\+Real $>$ }\\std\+::array$<$ solution\+\_\+t$<$ \+\_\+\+Real $>$, 3 $>$ \hyperlink{namespace____gnu__cxx_ad1ce809c9dd84dd6cd0229fb73f7dbec}{\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+\_\+cubic} (\+\_\+\+Real \+\_\+\+\_\+c0, \+\_\+\+Real \+\_\+\+\_\+c1, \+\_\+\+Real \+\_\+\+\_\+c2, \+\_\+\+Real \+\_\+\+\_\+c3)
+\item 
+{\footnotesize template$<$typename \+\_\+\+Real , typename \+\_\+\+Iter $>$ }\\std\+::array$<$ solution\+\_\+t$<$ \+\_\+\+Real $>$, 2 $>$ \hyperlink{namespace____gnu__cxx_aa8c3d98e6508a1e20a17c5980ccbbd99}{\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+\_\+quadratic} (const \+\_\+\+Iter \&\+\_\+\+CC)
+\begin{DoxyCompactList}\small\item\em Finds the roots of a quadratic equation of the form\+: \[ a_2 x^2 + a_1 x + a_0 = 0 \] for real coefficients $ a_k $. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename \+\_\+\+Real $>$ }\\std\+::array$<$ solution\+\_\+t$<$ \+\_\+\+Real $>$, 2 $>$ \hyperlink{namespace____gnu__cxx_af7f59d18caa0bf264f591103478ebcb2}{\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+\_\+quadratic} (\+\_\+\+Real \+\_\+\+\_\+c0, \+\_\+\+Real \+\_\+\+\_\+c1, \+\_\+\+Real \+\_\+\+\_\+c2)
+\item 
+{\footnotesize template$<$typename \+\_\+\+Real , typename \+\_\+\+Iter $>$ }\\std\+::array$<$ solution\+\_\+t$<$ \+\_\+\+Real $>$, 4 $>$ \hyperlink{namespace____gnu__cxx_ac813fbad739bf1d431845d5175f24701}{\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+\_\+quartic} (const \+\_\+\+Iter \&\+\_\+\+CC)
+\begin{DoxyCompactList}\small\item\em Finds the roots a quartic equation of the form\+: \[ a_4 x^4 + a_3 x^3 + a_2 x^2 + a_1 x + a_0 = 0 \] for real coefficients $ a_k $. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename \+\_\+\+Real $>$ }\\std\+::array$<$ solution\+\_\+t$<$ \+\_\+\+Real $>$, 4 $>$ \hyperlink{namespace____gnu__cxx_a6dbbccdfca9b8a8dffdf99432986f0c9}{\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+\_\+quartic} (\+\_\+\+Real \+\_\+\+\_\+c0, \+\_\+\+Real \+\_\+\+\_\+c1, \+\_\+\+Real \+\_\+\+\_\+c2, \+\_\+\+Real \+\_\+\+\_\+c3, \+\_\+\+Real \+\_\+\+\_\+c4)
+\item 
+{\footnotesize template$<$std\+::size\+\_\+t \+\_\+\+Dim, typename \+\_\+\+Iter , typename \+\_\+\+Num\+Tp $>$ }\\\+\_\+\+Num\+Tp \hyperlink{namespace____gnu__cxx_a957b92036746a66f3dff0c46cb18120b}{\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+\_\+refine\+\_\+solution\+\_\+halley} (\+\_\+\+Num\+Tp \+\_\+\+\_\+z, const \+\_\+\+Iter \&\+\_\+\+CC)
+\item 
+{\footnotesize template$<$std\+::size\+\_\+t \+\_\+\+Dim, typename \+\_\+\+Iter , typename \+\_\+\+Num\+Tp $>$ }\\\+\_\+\+Num\+Tp \hyperlink{namespace____gnu__cxx_a2b802e73df33cafb7f95800cbca6ff30}{\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+\_\+refine\+\_\+solution\+\_\+newton} (\+\_\+\+Num\+Tp \+\_\+\+\_\+z, const \+\_\+\+Iter \&\+\_\+\+CC)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This file is a G\+NU extension to the Standard C++ Library.
+
+This file contains the declarations of free functions for solving quadratic, cubic, and quartic equations with real coefficients.
+
+This file is a G\+NU extension to the Standard C++ Library.
+
+This file contains the definitions of free functions for solving quadratic, cubic, and quartic equations with real coefficients. 

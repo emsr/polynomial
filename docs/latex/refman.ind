@@ -1,0 +1,513 @@
+\begin{theindex}
+
+  \item {\+\_\+\+E\+X\+T\+\_\+\+P\+O\+L\+Y\+N\+O\+M\+I\+A\+L\+\_\+\+T\+CC}
+    \subitem {polynomial.\+tcc}, \hyperpage{110}
+  \item {\+\_\+\+E\+X\+T\+\_\+\+S\+O\+L\+V\+E\+R\+\_\+\+L\+O\+W\+\_\+\+D\+E\+G\+R\+E\+E\+\_\+\+T\+CC}
+    \subitem {solver\+\_\+low\+\_\+degree.\+tcc}, \hyperpage{118}
+  \item {\+\_\+\+Polynomial}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Polynomial}, 
+		\hyperpage{60--62}
+  \item {\+\_\+\+Rational\+Polynomial}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Rational\+Polynomial}, 
+		\hyperpage{82}
+  \item {\+\_\+\+Static\+Polynomial}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Static\+Polynomial}, 
+		\hyperpage{91, 92}
+  \item {\+\_\+\+Tp2}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Static\+Polynomial}, 
+		\hyperpage{93}
+  \item {\+\_\+\+Up}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx}, \hyperpage{36}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Polynomial}, 
+		\hyperpage{80}
+  \item {\+\_\+\+\_\+cubic}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx}, \hyperpage{14, 15}
+  \item {\+\_\+\+\_\+gnu\+\_\+cxx}, \hyperpage{11}
+    \subitem {\+\_\+\+Up}, \hyperpage{36}
+    \subitem {\+\_\+\+\_\+cubic}, \hyperpage{14, 15}
+    \subitem {\+\_\+\+\_\+has\+\_\+imag\+\_\+v}, \hyperpage{36}
+    \subitem {\+\_\+\+\_\+quadratic}, \hyperpage{16, 17}
+    \subitem {\+\_\+\+\_\+quartic}, \hyperpage{17}, \hyperpage{20}
+    \subitem {\+\_\+\+\_\+refine\+\_\+solution\+\_\+halley}, 
+		\hyperpage{20}
+    \subitem {\+\_\+\+\_\+refine\+\_\+solution\+\_\+newton}, 
+		\hyperpage{21}
+    \subitem {\+\_\+\+\_\+refine\+\_\+solutions}, \hyperpage{21}
+    \subitem {abs}, \hyperpage{22}
+    \subitem {divmod}, \hyperpage{22}
+    \subitem {get\+\_\+scale}, \hyperpage{23}
+    \subitem {horner}, \hyperpage{23, 24}
+    \subitem {horner\+\_\+big\+\_\+end}, \hyperpage{24, 25}
+    \subitem {imag}, \hyperpage{25}
+    \subitem {is\+\_\+valid}, \hyperpage{26}
+    \subitem {operator!=}, \hyperpage{26, 27}
+    \subitem {operator$<$$<$}, \hyperpage{32}
+    \subitem {operator$>$$>$}, \hyperpage{34}
+    \subitem {operator$\ast$}, \hyperpage{28, 29}
+    \subitem {operator+}, \hyperpage{29, 30}
+    \subitem {operator-\/}, \hyperpage{30, 31}
+    \subitem {operator/}, \hyperpage{31, 32}
+    \subitem {operator==}, \hyperpage{33}
+    \subitem {operator\%}, \hyperpage{27, 28}
+    \subitem {real}, \hyperpage{35}
+    \subitem {solution\+\_\+t}, \hyperpage{14}
+    \subitem {swap}, \hyperpage{35}
+    \subitem {to\+\_\+complex}, \hyperpage{36}
+  \item {\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Polynomial}
+    \subitem {\+\_\+\+Polynomial}, \hyperpage{60--62}
+    \subitem {\+\_\+\+Up}, \hyperpage{80}
+    \subitem {begin}, \hyperpage{63}
+    \subitem {cbegin}, \hyperpage{63}
+    \subitem {cend}, \hyperpage{63}
+    \subitem {coefficient}, \hyperpage{64}
+    \subitem {coefficients}, \hyperpage{64, 65}
+    \subitem {const\+\_\+iterator}, \hyperpage{58}
+    \subitem {const\+\_\+pointer}, \hyperpage{58}
+    \subitem {const\+\_\+reference}, \hyperpage{58}
+    \subitem {const\+\_\+reverse\+\_\+iterator}, \hyperpage{58}
+    \subitem {crbegin}, \hyperpage{65}
+    \subitem {crend}, \hyperpage{65}
+    \subitem {degree}, \hyperpage{65, 66}
+    \subitem {derivative}, \hyperpage{66}
+    \subitem {difference\+\_\+type}, \hyperpage{58}
+    \subitem {end}, \hyperpage{66, 67}
+    \subitem {eval}, \hyperpage{67, 68}
+    \subitem {eval\+\_\+even}, \hyperpage{68, 69}
+    \subitem {eval\+\_\+odd}, \hyperpage{69, 70}
+    \subitem {integral}, \hyperpage{70}
+    \subitem {iterator}, \hyperpage{58}
+    \subitem {operator$>$$>$}, \hyperpage{79}
+    \subitem {operator$\ast$=}, \hyperpage{73}
+    \subitem {operator()}, \hyperpage{71, 72}
+    \subitem {operator+}, \hyperpage{74}
+    \subitem {operator+=}, \hyperpage{74}
+    \subitem {operator-\/}, \hyperpage{74}
+    \subitem {operator-\/=}, \hyperpage{75}
+    \subitem {operator/=}, \hyperpage{75, 76}
+    \subitem {operator=}, \hyperpage{76, 77}
+    \subitem {operator==}, \hyperpage{79}
+    \subitem {operator\%=}, \hyperpage{71}
+    \subitem {operator[]}, \hyperpage{77}
+    \subitem {pointer}, \hyperpage{59}
+    \subitem {rbegin}, \hyperpage{78}
+    \subitem {reference}, \hyperpage{59}
+    \subitem {rend}, \hyperpage{78}
+    \subitem {reverse\+\_\+iterator}, \hyperpage{59}
+    \subitem {size}, \hyperpage{79}
+    \subitem {size\+\_\+type}, \hyperpage{59}
+    \subitem {swap}, \hyperpage{79}
+    \subitem {value\+\_\+type}, \hyperpage{59}
+  \item {\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Polynomial$<$ \+\_\+\+Tp $>$}, 
+		\hyperpage{55}
+  \item {\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Rational\+Polynomial}
+    \subitem {\+\_\+\+Rational\+Polynomial}, \hyperpage{82}
+    \subitem {denom}, \hyperpage{83}
+    \subitem {difference\+\_\+type}, \hyperpage{81}
+    \subitem {numer}, \hyperpage{83, 84}
+    \subitem {operator$\ast$=}, \hyperpage{84}
+    \subitem {operator()}, \hyperpage{84}
+    \subitem {operator+}, \hyperpage{84}
+    \subitem {operator+=}, \hyperpage{85}
+    \subitem {operator-\/}, \hyperpage{85}
+    \subitem {operator-\/=}, \hyperpage{85}
+    \subitem {operator/=}, \hyperpage{86}
+    \subitem {operator=}, \hyperpage{86}
+    \subitem {polynomial\+\_\+type}, \hyperpage{81}
+    \subitem {size\+\_\+type}, \hyperpage{81}
+    \subitem {value\+\_\+type}, \hyperpage{82}
+  \item {\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Rational\+Polynomial$<$ \+\_\+\+Tp $>$}, 
+		\hyperpage{80}
+  \item {\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Static\+Polynomial}
+    \subitem {\+\_\+\+Static\+Polynomial}, \hyperpage{91, 92}
+    \subitem {\+\_\+\+Tp2}, \hyperpage{93}
+    \subitem {begin}, \hyperpage{93}
+    \subitem {cbegin}, \hyperpage{94}
+    \subitem {cend}, \hyperpage{94}
+    \subitem {clear}, \hyperpage{94}
+    \subitem {coefficient}, \hyperpage{94, 95}
+    \subitem {const\+\_\+iterator}, \hyperpage{88}
+    \subitem {const\+\_\+pointer}, \hyperpage{89}
+    \subitem {const\+\_\+reference}, \hyperpage{89}
+    \subitem {const\+\_\+reverse\+\_\+iterator}, \hyperpage{89}
+    \subitem {crbegin}, \hyperpage{95}
+    \subitem {crend}, \hyperpage{95}
+    \subitem {degree}, \hyperpage{95}
+    \subitem {difference\+\_\+type}, \hyperpage{89}
+    \subitem {end}, \hyperpage{96}
+    \subitem {eval}, \hyperpage{96, 97}
+    \subitem {eval\+\_\+even}, \hyperpage{97, 98}
+    \subitem {eval\+\_\+odd}, \hyperpage{98, 99}
+    \subitem {for}, \hyperpage{99}
+    \subitem {iterator}, \hyperpage{89}
+    \subitem {operator()}, \hyperpage{100, 101}
+    \subitem {operator=}, \hyperpage{101}
+    \subitem {operator==}, \hyperpage{103}
+    \subitem {operator[]}, \hyperpage{101, 102}
+    \subitem {pointer}, \hyperpage{90}
+    \subitem {rbegin}, \hyperpage{102}
+    \subitem {reference}, \hyperpage{90}
+    \subitem {rend}, \hyperpage{102, 103}
+    \subitem {reverse\+\_\+iterator}, \hyperpage{90}
+    \subitem {size\+\_\+type}, \hyperpage{90}
+    \subitem {swap}, \hyperpage{103}
+    \subitem {this}, \hyperpage{104}
+    \subitem {value\+\_\+type}, \hyperpage{90}
+  \item {\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Static\+Polynomial$<$ \+\_\+\+Tp, \+\_\+\+Num $>$}, 
+		\hyperpage{87}
+  \item {\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+\_\+has\+\_\+imag\+\_\+t$<$ T, std\+::void\+\_\+t$<$ decltype(std\+::declval$<$ T \& $>$().\+imag())$>$ $>$}, 
+		\hyperpage{54}
+  \item {\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+\_\+has\+\_\+imag\+\_\+t$<$ typename, typename $>$}, 
+		\hyperpage{53}
+  \item {\+\_\+\+\_\+has\+\_\+imag\+\_\+v}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx}, \hyperpage{36}
+  \item {\+\_\+\+\_\+quadratic}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx}, \hyperpage{16, 17}
+  \item {\+\_\+\+\_\+quartic}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx}, \hyperpage{17}, \hyperpage{20}
+  \item {\+\_\+\+\_\+refine\+\_\+solution\+\_\+halley}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx}, \hyperpage{20}
+  \item {\+\_\+\+\_\+refine\+\_\+solution\+\_\+newton}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx}, \hyperpage{21}
+  \item {\+\_\+\+\_\+refine\+\_\+solutions}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx}, \hyperpage{21}
+
+  \indexspace
+
+  \item {abs}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx}, \hyperpage{22}
+
+  \indexspace
+
+  \item {begin}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Polynomial}, 
+		\hyperpage{63}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Static\+Polynomial}, 
+		\hyperpage{93}
+
+  \indexspace
+
+  \item {cbegin}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Polynomial}, 
+		\hyperpage{63}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Static\+Polynomial}, 
+		\hyperpage{94}
+  \item {cend}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Polynomial}, 
+		\hyperpage{63}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Static\+Polynomial}, 
+		\hyperpage{94}
+  \item {clear}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Static\+Polynomial}, 
+		\hyperpage{94}
+  \item {coefficient}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Polynomial}, 
+		\hyperpage{64}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Static\+Polynomial}, 
+		\hyperpage{94, 95}
+  \item {coefficients}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Polynomial}, 
+		\hyperpage{64, 65}
+  \item {const\+\_\+iterator}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Polynomial}, 
+		\hyperpage{58}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Static\+Polynomial}, 
+		\hyperpage{88}
+  \item {const\+\_\+pointer}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Polynomial}, 
+		\hyperpage{58}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Static\+Polynomial}, 
+		\hyperpage{89}
+  \item {const\+\_\+reference}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Polynomial}, 
+		\hyperpage{58}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Static\+Polynomial}, 
+		\hyperpage{89}
+  \item {const\+\_\+reverse\+\_\+iterator}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Polynomial}, 
+		\hyperpage{58}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Static\+Polynomial}, 
+		\hyperpage{89}
+  \item {crbegin}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Polynomial}, 
+		\hyperpage{65}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Static\+Polynomial}, 
+		\hyperpage{95}
+  \item {crend}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Polynomial}, 
+		\hyperpage{65}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Static\+Polynomial}, 
+		\hyperpage{95}
+
+  \indexspace
+
+  \item {degree}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Polynomial}, 
+		\hyperpage{65, 66}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Static\+Polynomial}, 
+		\hyperpage{95}
+  \item {denom}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Rational\+Polynomial}, 
+		\hyperpage{83}
+  \item {derivative}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Polynomial}, 
+		\hyperpage{66}
+  \item {difference\+\_\+type}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Polynomial}, 
+		\hyperpage{58}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Rational\+Polynomial}, 
+		\hyperpage{81}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Static\+Polynomial}, 
+		\hyperpage{89}
+  \item {divmod}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx}, \hyperpage{22}
+
+  \indexspace
+
+  \item {end}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Polynomial}, 
+		\hyperpage{66, 67}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Static\+Polynomial}, 
+		\hyperpage{96}
+  \item {eval}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Polynomial}, 
+		\hyperpage{67, 68}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Static\+Polynomial}, 
+		\hyperpage{96, 97}
+  \item {eval\+\_\+even}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Polynomial}, 
+		\hyperpage{68, 69}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Static\+Polynomial}, 
+		\hyperpage{97, 98}
+  \item {eval\+\_\+odd}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Polynomial}, 
+		\hyperpage{69, 70}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Static\+Polynomial}, 
+		\hyperpage{98, 99}
+
+  \indexspace
+
+  \item {for}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Static\+Polynomial}, 
+		\hyperpage{99}
+
+  \indexspace
+
+  \item {get\+\_\+scale}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx}, \hyperpage{23}
+
+  \indexspace
+
+  \item {horner}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx}, \hyperpage{23, 24}
+  \item {horner\+\_\+big\+\_\+end}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx}, \hyperpage{24, 25}
+
+  \indexspace
+
+  \item {imag}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx}, \hyperpage{25}
+  \item {include/ext/horner.\+h}, \hyperpage{105}
+  \item {include/ext/polynomial.\+h}, \hyperpage{106}
+  \item {include/ext/polynomial.\+tcc}, \hyperpage{108}
+  \item {include/ext/rational\+\_\+polynomial.\+h}, \hyperpage{110}
+  \item {include/ext/solution.\+h}, \hyperpage{111}
+  \item {include/ext/solver\+\_\+low\+\_\+degree.\+h}, \hyperpage{115}
+  \item {include/ext/solver\+\_\+low\+\_\+degree.\+tcc}, 
+		\hyperpage{117}
+  \item {include/ext/static\+\_\+polynomial.\+h}, \hyperpage{118}
+  \item {integral}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Polynomial}, 
+		\hyperpage{70}
+  \item {is\+\_\+valid}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx}, \hyperpage{26}
+  \item {iterator}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Polynomial}, 
+		\hyperpage{58}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Static\+Polynomial}, 
+		\hyperpage{89}
+
+  \indexspace
+
+  \item {numer}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Rational\+Polynomial}, 
+		\hyperpage{83, 84}
+
+  \indexspace
+
+  \item {operator!=}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx}, \hyperpage{26, 27}
+    \subitem {std}, \hyperpage{39, 40}
+  \item {operator$<$}
+    \subitem {std}, \hyperpage{48, 49}
+  \item {operator$<$$<$}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx}, \hyperpage{32}
+    \subitem {solution.\+h}, \hyperpage{114}
+  \item {operator$>$$>$}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx}, \hyperpage{34}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Polynomial}, 
+		\hyperpage{79}
+  \item {operator$\ast$}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx}, \hyperpage{28, 29}
+    \subitem {std}, \hyperpage{40--42}
+  \item {operator$\ast$=}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Polynomial}, 
+		\hyperpage{73}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Rational\+Polynomial}, 
+		\hyperpage{84}
+  \item {operator()}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Polynomial}, 
+		\hyperpage{71, 72}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Rational\+Polynomial}, 
+		\hyperpage{84}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Static\+Polynomial}, 
+		\hyperpage{100, 101}
+  \item {operator+}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx}, \hyperpage{29, 30}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Polynomial}, 
+		\hyperpage{74}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Rational\+Polynomial}, 
+		\hyperpage{84}
+    \subitem {std}, \hyperpage{42--44}
+  \item {operator+=}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Polynomial}, 
+		\hyperpage{74}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Rational\+Polynomial}, 
+		\hyperpage{85}
+  \item {operator-\/}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx}, \hyperpage{30, 31}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Polynomial}, 
+		\hyperpage{74}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Rational\+Polynomial}, 
+		\hyperpage{85}
+    \subitem {std}, \hyperpage{44--46}
+  \item {operator-\/=}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Polynomial}, 
+		\hyperpage{75}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Rational\+Polynomial}, 
+		\hyperpage{85}
+  \item {operator/}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx}, \hyperpage{31, 32}
+    \subitem {std}, \hyperpage{46, 47}
+  \item {operator/=}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Polynomial}, 
+		\hyperpage{75, 76}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Rational\+Polynomial}, 
+		\hyperpage{86}
+  \item {operator=}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Polynomial}, 
+		\hyperpage{76, 77}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Rational\+Polynomial}, 
+		\hyperpage{86}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Static\+Polynomial}, 
+		\hyperpage{101}
+  \item {operator==}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx}, \hyperpage{33}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Polynomial}, 
+		\hyperpage{79}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Static\+Polynomial}, 
+		\hyperpage{103}
+    \subitem {std}, \hyperpage{49--51}
+  \item {operator\%}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx}, \hyperpage{27, 28}
+  \item {operator\%=}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Polynomial}, 
+		\hyperpage{71}
+  \item {operator[]}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Polynomial}, 
+		\hyperpage{77}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Static\+Polynomial}, 
+		\hyperpage{101, 102}
+
+  \indexspace
+
+  \item {pointer}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Polynomial}, 
+		\hyperpage{59}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Static\+Polynomial}, 
+		\hyperpage{90}
+  \item {polynomial.\+tcc}
+    \subitem {\+\_\+\+E\+X\+T\+\_\+\+P\+O\+L\+Y\+N\+O\+M\+I\+A\+L\+\_\+\+T\+CC}, 
+		\hyperpage{110}
+  \item {polynomial\+\_\+type}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Rational\+Polynomial}, 
+		\hyperpage{81}
+
+  \indexspace
+
+  \item {rbegin}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Polynomial}, 
+		\hyperpage{78}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Static\+Polynomial}, 
+		\hyperpage{102}
+  \item {real}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx}, \hyperpage{35}
+  \item {reference}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Polynomial}, 
+		\hyperpage{59}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Static\+Polynomial}, 
+		\hyperpage{90}
+  \item {rend}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Polynomial}, 
+		\hyperpage{78}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Static\+Polynomial}, 
+		\hyperpage{102, 103}
+  \item {reverse\+\_\+iterator}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Polynomial}, 
+		\hyperpage{59}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Static\+Polynomial}, 
+		\hyperpage{90}
+
+  \indexspace
+
+  \item {size}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Polynomial}, 
+		\hyperpage{79}
+  \item {size\+\_\+type}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Polynomial}, 
+		\hyperpage{59}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Rational\+Polynomial}, 
+		\hyperpage{81}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Static\+Polynomial}, 
+		\hyperpage{90}
+  \item {solution.\+h}
+    \subitem {operator$<$$<$}, \hyperpage{114}
+  \item {solution\+\_\+t}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx}, \hyperpage{14}
+  \item {solver\+\_\+low\+\_\+degree.\+tcc}
+    \subitem {\+\_\+\+E\+X\+T\+\_\+\+S\+O\+L\+V\+E\+R\+\_\+\+L\+O\+W\+\_\+\+D\+E\+G\+R\+E\+E\+\_\+\+T\+CC}, 
+		\hyperpage{118}
+  \item {std}, \hyperpage{37}
+    \subitem {operator!=}, \hyperpage{39, 40}
+    \subitem {operator$<$}, \hyperpage{48, 49}
+    \subitem {operator$\ast$}, \hyperpage{40--42}
+    \subitem {operator+}, \hyperpage{42--44}
+    \subitem {operator-\/}, \hyperpage{44--46}
+    \subitem {operator/}, \hyperpage{46, 47}
+    \subitem {operator==}, \hyperpage{49--51}
+  \item {std\+::complex$<$ \+\_\+\+Tp $>$}, \hyperpage{104}
+  \item {swap}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx}, \hyperpage{35}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Polynomial}, 
+		\hyperpage{79}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Static\+Polynomial}, 
+		\hyperpage{103}
+
+  \indexspace
+
+  \item {this}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Static\+Polynomial}, 
+		\hyperpage{104}
+  \item {to\+\_\+complex}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx}, \hyperpage{36}
+
+  \indexspace
+
+  \item {value\+\_\+type}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Polynomial}, 
+		\hyperpage{59}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Rational\+Polynomial}, 
+		\hyperpage{82}
+    \subitem {\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Static\+Polynomial}, 
+		\hyperpage{90}
+
+\end{theindex}

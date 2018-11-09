@@ -1,0 +1,1562 @@
+\hypertarget{namespace____gnu__cxx}{}\section{\+\_\+\+\_\+gnu\+\_\+cxx Namespace Reference}
+\label{namespace____gnu__cxx}\index{\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct____gnu__cxx_1_1____has__imag__t}{\+\_\+\+\_\+has\+\_\+imag\+\_\+t}
+\item 
+struct \hyperlink{struct____gnu__cxx_1_1____has__imag__t_3_01T_00_01std_1_1void__t_3_01decltype_07std_1_1declval_389ee8aaba7dec2e199e7ad81d6cda763}{\+\_\+\+\_\+has\+\_\+imag\+\_\+t$<$ T, std\+::void\+\_\+t$<$ decltype(std\+::declval$<$ T \& $>$().\+imag())$>$ $>$}
+\item 
+class \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}
+\begin{DoxyCompactList}\small\item\em A dense polynomial class with a contiguous array of coefficients. The coefficients are lowest-\/order first\+: \[ P(x) = a_0 + a_1 x + ... + a_n x^n \]. \end{DoxyCompactList}\item 
+class \hyperlink{class____gnu__cxx_1_1__RationalPolynomial}{\+\_\+\+Rational\+Polynomial}
+\item 
+class \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename \+\_\+\+Real $>$ }\\using \hyperlink{namespace____gnu__cxx_ae20ea642de50eb361074c62676b0159c}{solution\+\_\+t} = std\+::variant$<$ std\+::monostate, \+\_\+\+Real, \hyperlink{classstd_1_1complex}{std\+::complex}$<$ \+\_\+\+Real $>$ $>$
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename \+\_\+\+Real , typename \+\_\+\+Iter $>$ }\\std\+::array$<$ \hyperlink{namespace____gnu__cxx_ae20ea642de50eb361074c62676b0159c}{solution\+\_\+t}$<$ \+\_\+\+Real $>$, 3 $>$ \hyperlink{namespace____gnu__cxx_a422f638b186be2071012321de5f9bb48}{\+\_\+\+\_\+cubic} (const \+\_\+\+Iter \&\+\_\+\+CC)
+\begin{DoxyCompactList}\small\item\em Finds the roots of a cubic equation of the form\+: \[ a_3 x^3 + a_2 x^2 + a_1 x + a_0 = 0 \] for real coefficients $ a_k $. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename \+\_\+\+Real $>$ }\\std\+::array$<$ \hyperlink{namespace____gnu__cxx_ae20ea642de50eb361074c62676b0159c}{solution\+\_\+t}$<$ \+\_\+\+Real $>$, 3 $>$ \hyperlink{namespace____gnu__cxx_ad1ce809c9dd84dd6cd0229fb73f7dbec}{\+\_\+\+\_\+cubic} (\+\_\+\+Real \+\_\+\+\_\+c0, \+\_\+\+Real \+\_\+\+\_\+c1, \+\_\+\+Real \+\_\+\+\_\+c2, \+\_\+\+Real \+\_\+\+\_\+c3)
+\item 
+{\footnotesize template$<$typename \+\_\+\+Real , typename \+\_\+\+Iter $>$ }\\std\+::array$<$ \hyperlink{namespace____gnu__cxx_ae20ea642de50eb361074c62676b0159c}{solution\+\_\+t}$<$ \+\_\+\+Real $>$, 2 $>$ \hyperlink{namespace____gnu__cxx_aa8c3d98e6508a1e20a17c5980ccbbd99}{\+\_\+\+\_\+quadratic} (const \+\_\+\+Iter \&\+\_\+\+CC)
+\begin{DoxyCompactList}\small\item\em Finds the roots of a quadratic equation of the form\+: \[ a_2 x^2 + a_1 x + a_0 = 0 \] for real coefficients $ a_k $. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename \+\_\+\+Real $>$ }\\std\+::array$<$ \hyperlink{namespace____gnu__cxx_ae20ea642de50eb361074c62676b0159c}{solution\+\_\+t}$<$ \+\_\+\+Real $>$, 2 $>$ \hyperlink{namespace____gnu__cxx_af7f59d18caa0bf264f591103478ebcb2}{\+\_\+\+\_\+quadratic} (\+\_\+\+Real \+\_\+\+\_\+c0, \+\_\+\+Real \+\_\+\+\_\+c1, \+\_\+\+Real \+\_\+\+\_\+c2)
+\item 
+{\footnotesize template$<$typename \+\_\+\+Real , typename \+\_\+\+Iter $>$ }\\std\+::array$<$ \hyperlink{namespace____gnu__cxx_ae20ea642de50eb361074c62676b0159c}{solution\+\_\+t}$<$ \+\_\+\+Real $>$, 4 $>$ \hyperlink{namespace____gnu__cxx_ac813fbad739bf1d431845d5175f24701}{\+\_\+\+\_\+quartic} (const \+\_\+\+Iter \&\+\_\+\+CC)
+\begin{DoxyCompactList}\small\item\em Finds the roots a quartic equation of the form\+: \[ a_4 x^4 + a_3 x^3 + a_2 x^2 + a_1 x + a_0 = 0 \] for real coefficients $ a_k $. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename \+\_\+\+Real $>$ }\\std\+::array$<$ \hyperlink{namespace____gnu__cxx_ae20ea642de50eb361074c62676b0159c}{solution\+\_\+t}$<$ \+\_\+\+Real $>$, 4 $>$ \hyperlink{namespace____gnu__cxx_a6dbbccdfca9b8a8dffdf99432986f0c9}{\+\_\+\+\_\+quartic} (\+\_\+\+Real \+\_\+\+\_\+c0, \+\_\+\+Real \+\_\+\+\_\+c1, \+\_\+\+Real \+\_\+\+\_\+c2, \+\_\+\+Real \+\_\+\+\_\+c3, \+\_\+\+Real \+\_\+\+\_\+c4)
+\item 
+{\footnotesize template$<$std\+::size\+\_\+t \+\_\+\+Dim, typename \+\_\+\+Iter , typename \+\_\+\+Num\+Tp $>$ }\\\+\_\+\+Num\+Tp \hyperlink{namespace____gnu__cxx_a957b92036746a66f3dff0c46cb18120b}{\+\_\+\+\_\+refine\+\_\+solution\+\_\+halley} (\+\_\+\+Num\+Tp \+\_\+\+\_\+z, const \+\_\+\+Iter \&\+\_\+\+CC)
+\item 
+{\footnotesize template$<$std\+::size\+\_\+t \+\_\+\+Dim, typename \+\_\+\+Iter , typename \+\_\+\+Num\+Tp $>$ }\\\+\_\+\+Num\+Tp \hyperlink{namespace____gnu__cxx_a2b802e73df33cafb7f95800cbca6ff30}{\+\_\+\+\_\+refine\+\_\+solution\+\_\+newton} (\+\_\+\+Num\+Tp \+\_\+\+\_\+z, const \+\_\+\+Iter \&\+\_\+\+CC)
+\item 
+{\footnotesize template$<$std\+::size\+\_\+t \+\_\+\+Dim, typename \+\_\+\+Iter , typename \+\_\+\+Real $>$ }\\void \hyperlink{namespace____gnu__cxx_aa8dd4c7542667cc5a8e435ca53d6fad7}{\+\_\+\+\_\+refine\+\_\+solutions} (std\+::array$<$ \hyperlink{namespace____gnu__cxx_ae20ea642de50eb361074c62676b0159c}{solution\+\_\+t}$<$ \+\_\+\+Real $>$, \+\_\+\+Dim -\/ 1 $>$ \&\+\_\+\+ZZ, const \+\_\+\+Iter \&\+\_\+\+CC)
+\item 
+{\footnotesize template$<$typename \+\_\+\+Real $>$ }\\constexpr \+\_\+\+Real \hyperlink{namespace____gnu__cxx_ab9eb9db3560f504f8cd25a71bcb6ead5}{abs} (const \hyperlink{namespace____gnu__cxx_ae20ea642de50eb361074c62676b0159c}{solution\+\_\+t}$<$ \+\_\+\+Real $>$ \&\+\_\+\+\_\+x)
+\item 
+{\footnotesize template$<$typename \+\_\+\+Tp $>$ }\\void \hyperlink{namespace____gnu__cxx_abe506cf34c921c378a681f0de31d49a5}{divmod} (const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \+\_\+\+Tp $>$ \&\+\_\+\+\_\+pa, const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \+\_\+\+Tp $>$ \&\+\_\+\+\_\+pb, \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \+\_\+\+Tp $>$ \&\+\_\+\+\_\+quo, \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \+\_\+\+Tp $>$ \&\+\_\+\+\_\+rem)
+\item 
+{\footnotesize template$<$typename \+\_\+\+Tp $>$ }\\\hyperlink{namespace____gnu__cxx_a2af747c0e255f3fae4d9f118c2817e1a}{get\+\_\+scale} (const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \+\_\+\+Tp $>$ \&\+\_\+\+\_\+poly)
+\item 
+{\footnotesize template$<$typename \+\_\+\+Tp $>$ }\\\hyperlink{namespace____gnu__cxx_a1a8bae104a6509f4e458d155acaf0476}{get\+\_\+scale} (const \+\_\+\+Tp \&\+\_\+\+\_\+x)
+\item 
+{\footnotesize template$<$typename \+\_\+\+ArgT , typename \+\_\+\+Coef0 $>$ }\\constexpr std\+::conditional\+\_\+t$<$ std\+::is\+\_\+integral$<$ \+\_\+\+ArgT $>$\+::value, double, \+\_\+\+ArgT $>$ \hyperlink{namespace____gnu__cxx_a2e77239e9d41f55a99755f285ba3d518}{horner} (\+\_\+\+ArgT \+\_\+\+\_\+x, \+\_\+\+Coef0 \+\_\+\+\_\+c0)
+\item 
+{\footnotesize template$<$typename \+\_\+\+ArgT , typename \+\_\+\+Coef0 , typename... \+\_\+\+Coef$>$ }\\constexpr std\+::conditional\+\_\+t$<$ std\+::is\+\_\+integral$<$ \+\_\+\+ArgT $>$\+::value, double, \+\_\+\+ArgT $>$ \hyperlink{namespace____gnu__cxx_a027e4b11b3b25078522220207c2d7f36}{horner} (\+\_\+\+ArgT \+\_\+\+\_\+x, \+\_\+\+Coef0 \+\_\+\+\_\+c0, \+\_\+\+Coef... \+\_\+\+\_\+c)
+\item 
+{\footnotesize template$<$typename \+\_\+\+ArgT , typename \+\_\+\+Coef0 $>$ }\\constexpr std\+::conditional\+\_\+t$<$ std\+::is\+\_\+integral$<$ \+\_\+\+ArgT $>$\+::value, double, \+\_\+\+ArgT $>$ \hyperlink{namespace____gnu__cxx_af87123557fba351af5069ed8d1b99ec1}{horner\+\_\+big\+\_\+end} (\+\_\+\+ArgT, \+\_\+\+Coef0 \+\_\+\+\_\+c0)
+\item 
+{\footnotesize template$<$typename \+\_\+\+ArgT , typename \+\_\+\+Coef1 , typename \+\_\+\+Coef0 $>$ }\\constexpr std\+::conditional\+\_\+t$<$ std\+::is\+\_\+integral$<$ \+\_\+\+ArgT $>$\+::value, double, \+\_\+\+ArgT $>$ \hyperlink{namespace____gnu__cxx_a546a72f007105e3ba32df87d7463edf7}{horner\+\_\+big\+\_\+end} (\+\_\+\+ArgT \+\_\+\+\_\+x, \+\_\+\+Coef1 \+\_\+\+\_\+c1, \+\_\+\+Coef0 \+\_\+\+\_\+c0)
+\item 
+{\footnotesize template$<$typename \+\_\+\+ArgT , typename \+\_\+\+CoefN , typename \+\_\+\+Coef\+Nm1 , typename... \+\_\+\+Coef$>$ }\\constexpr std\+::conditional\+\_\+t$<$ std\+::is\+\_\+integral$<$ \+\_\+\+ArgT $>$\+::value, double, \+\_\+\+ArgT $>$ \hyperlink{namespace____gnu__cxx_afda9e3a1e351db85a89d4e6434576159}{horner\+\_\+big\+\_\+end} (\+\_\+\+ArgT \+\_\+\+\_\+x, \+\_\+\+CoefN \+\_\+\+\_\+cn, \+\_\+\+Coef\+Nm1 \+\_\+\+\_\+cnm1, \+\_\+\+Coef... \+\_\+\+\_\+c)
+\item 
+{\footnotesize template$<$typename \+\_\+\+Real $>$ }\\constexpr \+\_\+\+Real \hyperlink{namespace____gnu__cxx_a685dd0477f8454431bcfb404fa201c57}{imag} (const \hyperlink{namespace____gnu__cxx_ae20ea642de50eb361074c62676b0159c}{solution\+\_\+t}$<$ \+\_\+\+Real $>$ \&\+\_\+\+\_\+x)
+\item 
+{\footnotesize template$<$typename \+\_\+\+Real $>$ }\\constexpr bool \hyperlink{namespace____gnu__cxx_ac6649e26a3db551b4f945ccfcd3ce0a7}{is\+\_\+valid} (const \hyperlink{namespace____gnu__cxx_ae20ea642de50eb361074c62676b0159c}{solution\+\_\+t}$<$ \+\_\+\+Real $>$ \&\+\_\+\+\_\+x)
+\item 
+{\footnotesize template$<$typename \+\_\+\+Tp , std\+::size\+\_\+t \+\_\+\+NumA, std\+::size\+\_\+t \+\_\+\+NumB$>$ }\\bool \hyperlink{namespace____gnu__cxx_ad79bae6336788c58358fcf9fcd342cb9}{operator!=} (const \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$ \+\_\+\+Tp, \+\_\+\+NumA $>$ \&\+\_\+\+\_\+pa, const \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$ \+\_\+\+Tp, \+\_\+\+NumB $>$ \&\+\_\+\+\_\+pb)
+\item 
+{\footnotesize template$<$typename \+\_\+\+Tp , std\+::size\+\_\+t \+\_\+\+Num$>$ }\\bool \hyperlink{namespace____gnu__cxx_a18cd3b1685ac1bb1c3f323e451e796d1}{operator!=} (const \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$ \+\_\+\+Tp, \+\_\+\+Num $>$ \&\+\_\+\+\_\+pa, const \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$ \+\_\+\+Tp, \+\_\+\+Num $>$ \&\+\_\+\+\_\+pb)
+\item 
+{\footnotesize template$<$typename \+\_\+\+Tp $>$ }\\bool \hyperlink{namespace____gnu__cxx_a1279934a2d6df66704c6eab9113b0f97}{operator!=} (const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \+\_\+\+Tp $>$ \&\+\_\+\+\_\+pa, const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \+\_\+\+Tp $>$ \&\+\_\+\+\_\+pb)
+\item 
+{\footnotesize template$<$typename \+\_\+\+Tp , typename \+\_\+\+Up $>$ }\\\hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ decltype(\+\_\+\+Tp()/\hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up}())$>$ \hyperlink{namespace____gnu__cxx_a3132828069a740986e97f1db8e07325c}{operator\%} (const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \+\_\+\+Tp $>$ \&\+\_\+\+\_\+poly, const \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up} \&\+\_\+\+\_\+x)
+\item 
+{\footnotesize template$<$typename \+\_\+\+Tp , typename \+\_\+\+Up $>$ }\\\hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ decltype(\+\_\+\+Tp()/\hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up}())$>$ \hyperlink{namespace____gnu__cxx_a13dae497264694313717a5aa70407de5}{operator\%} (const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \+\_\+\+Tp $>$ \&\+\_\+\+\_\+pa, const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up} $>$ \&\+\_\+\+\_\+pb)
+\item 
+{\footnotesize template$<$typename \+\_\+\+Tp , typename \+\_\+\+Up $>$ }\\\hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ decltype(\+\_\+\+Tp()/\hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up}())$>$ \hyperlink{namespace____gnu__cxx_a2d1e6cb96943b2c99f71cf77a7247e77}{operator\%} (const \+\_\+\+Tp \&\+\_\+\+\_\+x, const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up} $>$ \&\+\_\+\+\_\+poly)
+\item 
+{\footnotesize template$<$typename \+\_\+\+Tp , typename \+\_\+\+Up $>$ }\\\hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ decltype(\+\_\+\+Tp() $\ast$\hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up}())$>$ \hyperlink{namespace____gnu__cxx_a1d0b1e9322fd407848b43cecab1ab9ae}{operator$\ast$} (const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \+\_\+\+Tp $>$ \&\+\_\+\+\_\+poly, const \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up} \&\+\_\+\+\_\+x)
+\item 
+{\footnotesize template$<$typename \+\_\+\+Tp , typename \+\_\+\+Up $>$ }\\\hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ decltype(\+\_\+\+Tp() $\ast$\hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up}())$>$ \hyperlink{namespace____gnu__cxx_a2f76fd6f7c2c9e64fba1d5892844f26b}{operator$\ast$} (const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \+\_\+\+Tp $>$ \&\+\_\+\+\_\+pa, const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up} $>$ \&\+\_\+\+\_\+pb)
+\item 
+{\footnotesize template$<$typename \+\_\+\+Tp , typename \+\_\+\+Up $>$ }\\\hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ decltype(\+\_\+\+Tp() $\ast$\hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up}())$>$ \hyperlink{namespace____gnu__cxx_ac79cfe2d37e5d8116fcf51911c21c253}{operator$\ast$} (const \+\_\+\+Tp \&\+\_\+\+\_\+x, const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up} $>$ \&\+\_\+\+\_\+poly)
+\item 
+{\footnotesize template$<$typename \+\_\+\+Tp , typename \+\_\+\+Up $>$ }\\\hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ decltype(\+\_\+\+Tp()+\hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up}())$>$ \hyperlink{namespace____gnu__cxx_a2b408e7a7e5d2ec6879b8e40f7f5de3e}{operator+} (const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \+\_\+\+Tp $>$ \&\+\_\+\+\_\+poly, const \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up} \&\+\_\+\+\_\+x)
+\item 
+{\footnotesize template$<$typename \+\_\+\+Tp , typename \+\_\+\+Up $>$ }\\\hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ decltype(\+\_\+\+Tp()+\hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up}())$>$ \hyperlink{namespace____gnu__cxx_ada8a28005b5f71563bec55c71e03029b}{operator+} (const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \+\_\+\+Tp $>$ \&\+\_\+\+\_\+pa, const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up} $>$ \&\+\_\+\+\_\+pb)
+\item 
+{\footnotesize template$<$typename \+\_\+\+Tp , typename \+\_\+\+Up $>$ }\\\hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ decltype(\+\_\+\+Tp()+\hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up}())$>$ \hyperlink{namespace____gnu__cxx_ac9f58ced995b65628b5715c885569cb7}{operator+} (const \+\_\+\+Tp \&\+\_\+\+\_\+x, const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up} $>$ \&\+\_\+\+\_\+poly)
+\item 
+{\footnotesize template$<$typename \+\_\+\+Tp , typename \+\_\+\+Up $>$ }\\\hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ decltype(\+\_\+\+Tp() -\/ \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up}())$>$ \hyperlink{namespace____gnu__cxx_abc583ac0684f0aff079c6014f3d84c1d}{operator-\/} (const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \+\_\+\+Tp $>$ \&\+\_\+\+\_\+poly, const \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up} \&\+\_\+\+\_\+x)
+\item 
+{\footnotesize template$<$typename \+\_\+\+Tp , typename \+\_\+\+Up $>$ }\\\hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ decltype(\+\_\+\+Tp() -\/ \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up}())$>$ \hyperlink{namespace____gnu__cxx_a4609eee7a71e3be3a103df9556fab9b4}{operator-\/} (const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \+\_\+\+Tp $>$ \&\+\_\+\+\_\+pa, const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up} $>$ \&\+\_\+\+\_\+pb)
+\item 
+{\footnotesize template$<$typename \+\_\+\+Tp , typename \+\_\+\+Up $>$ }\\\hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ decltype(\+\_\+\+Tp() -\/ \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up}())$>$ \hyperlink{namespace____gnu__cxx_acc72fd3c1efcf09698d30d42c4a1eb1b}{operator-\/} (const \+\_\+\+Tp \&\+\_\+\+\_\+x, const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up} $>$ \&\+\_\+\+\_\+poly)
+\item 
+{\footnotesize template$<$typename \+\_\+\+Tp , typename \+\_\+\+Up $>$ }\\\hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ decltype(\+\_\+\+Tp()/\hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up}())$>$ \hyperlink{namespace____gnu__cxx_a5fd356349013bd60a41010cbf502444b}{operator/} (const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \+\_\+\+Tp $>$ \&\+\_\+\+\_\+poly, const \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up} \&\+\_\+\+\_\+x)
+\item 
+{\footnotesize template$<$typename \+\_\+\+Tp , typename \+\_\+\+Up $>$ }\\\hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ decltype(\+\_\+\+Tp()/\hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up}())$>$ \hyperlink{namespace____gnu__cxx_a6ba146c479b383e9ba26760c847e3dc6}{operator/} (const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \+\_\+\+Tp $>$ \&\+\_\+\+\_\+pa, const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up} $>$ \&\+\_\+\+\_\+pb)
+\item 
+{\footnotesize template$<$typename \+\_\+\+Tp , typename \+\_\+\+Up $>$ }\\\hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ decltype(\+\_\+\+Tp()/\hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up}())$>$ \hyperlink{namespace____gnu__cxx_a4c1b4c46ffc6c41fb5b5d1a4293ca563}{operator/} (const \+\_\+\+Tp \&\+\_\+\+\_\+x, const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up} $>$ \&\+\_\+\+\_\+poly)
+\item 
+{\footnotesize template$<$typename CharT , typename Traits , typename \+\_\+\+Tp $>$ }\\std\+::basic\+\_\+ostream$<$ CharT, Traits $>$ \& \hyperlink{namespace____gnu__cxx_a424044092ac184bfa1d17beb1b12e071}{operator$<$$<$} (std\+::basic\+\_\+ostream$<$ CharT, Traits $>$ \&\+\_\+\+\_\+os, const \hyperlink{class____gnu__cxx_1_1__RationalPolynomial}{\+\_\+\+Rational\+Polynomial}$<$ \+\_\+\+Tp $>$ \&\+\_\+\+\_\+poly)
+\item 
+{\footnotesize template$<$typename CharT , typename Traits , typename \+\_\+\+Tp $>$ }\\std\+::basic\+\_\+ostream$<$ CharT, Traits $>$ \& \hyperlink{namespace____gnu__cxx_ad713743dbfc30fba653621d1f7e99d3c}{operator$<$$<$} (std\+::basic\+\_\+ostream$<$ CharT, Traits $>$ \&\+\_\+\+\_\+os, const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \+\_\+\+Tp $>$ \&\+\_\+\+\_\+poly)
+\item 
+{\footnotesize template$<$typename \+\_\+\+Tp , std\+::size\+\_\+t \+\_\+\+NumA, std\+::size\+\_\+t \+\_\+\+NumB$>$ }\\bool \hyperlink{namespace____gnu__cxx_a85c9740061a6497bb695d2ee147f52b8}{operator==} (const \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$ \+\_\+\+Tp, \+\_\+\+NumA $>$ \&, const \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$ \+\_\+\+Tp, \+\_\+\+NumB $>$ \&)
+\item 
+{\footnotesize template$<$typename \+\_\+\+Tp , std\+::size\+\_\+t \+\_\+\+Num$>$ }\\bool \hyperlink{namespace____gnu__cxx_a2d1430ebbbaf156a6c80a8e8107960e1}{operator==} (const \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$ \+\_\+\+Tp, \+\_\+\+Num $>$ \&\+\_\+\+\_\+pa, const \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$ \+\_\+\+Tp, \+\_\+\+Num $>$ \&\+\_\+\+\_\+pb)
+\item 
+{\footnotesize template$<$typename \+\_\+\+Tp $>$ }\\bool \hyperlink{namespace____gnu__cxx_a7427db234bb8c8aab722a3196e898215}{operator==} (const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \+\_\+\+Tp $>$ \&\+\_\+\+\_\+pa, const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \+\_\+\+Tp $>$ \&\+\_\+\+\_\+pb)
+\item 
+{\footnotesize template$<$typename CharT , typename Traits , typename \+\_\+\+Tp $>$ }\\std\+::basic\+\_\+istream$<$ CharT, Traits $>$ \& \hyperlink{namespace____gnu__cxx_a71511bc907f332ce9bb925c953f11714}{operator$>$$>$} (std\+::basic\+\_\+istream$<$ CharT, Traits $>$ \&\+\_\+\+\_\+is, \hyperlink{class____gnu__cxx_1_1__RationalPolynomial}{\+\_\+\+Rational\+Polynomial}$<$ \+\_\+\+Tp $>$ \&\+\_\+\+\_\+poly)
+\item 
+{\footnotesize template$<$typename CharT , typename Traits , typename \+\_\+\+Tp $>$ }\\std\+::basic\+\_\+istream$<$ CharT, Traits $>$ \& \hyperlink{namespace____gnu__cxx_acf7d03318756578d08f672212cd91234}{operator$>$$>$} (std\+::basic\+\_\+istream$<$ CharT, Traits $>$ \&\+\_\+\+\_\+is, \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \+\_\+\+Tp $>$ \&\+\_\+\+\_\+poly)
+\item 
+{\footnotesize template$<$typename \+\_\+\+Real $>$ }\\constexpr \+\_\+\+Real \hyperlink{namespace____gnu__cxx_a2743043701f8e4c87d3f0f06ddb11348}{real} (const \hyperlink{namespace____gnu__cxx_ae20ea642de50eb361074c62676b0159c}{solution\+\_\+t}$<$ \+\_\+\+Real $>$ \&\+\_\+\+\_\+x)
+\item 
+{\footnotesize template$<$typename \+\_\+\+Tp $>$ }\\void \hyperlink{namespace____gnu__cxx_a10d002d78eb10d846416335ca9599c7a}{swap} (\hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \+\_\+\+Tp $>$ \&\+\_\+\+\_\+pa, \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \+\_\+\+Tp $>$ \&\+\_\+\+\_\+pb) noexcept(noexcept(\+\_\+\+\_\+pa.\+swap(\+\_\+\+\_\+pb)))
+\item 
+{\footnotesize template$<$typename \+\_\+\+Real $>$ }\\constexpr \hyperlink{namespace____gnu__cxx_ae20ea642de50eb361074c62676b0159c}{solution\+\_\+t}$<$ \+\_\+\+Real $>$ \hyperlink{namespace____gnu__cxx_aa21adeccc5b87713003459ab7f08fc7b}{to\+\_\+complex} (const \hyperlink{namespace____gnu__cxx_ae20ea642de50eb361074c62676b0159c}{solution\+\_\+t}$<$ \+\_\+\+Real $>$ \&\+\_\+\+\_\+x)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\constexpr auto \hyperlink{namespace____gnu__cxx_afa2404a914b06f950f3a46e75aca51a9}{\+\_\+\+\_\+has\+\_\+imag\+\_\+v} = \hyperlink{struct____gnu__cxx_1_1____has__imag__t}{\+\_\+\+\_\+has\+\_\+imag\+\_\+t}$<$T$>$\+::value
+\item 
+$\ast$ \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+detail\+: Do we want this to always have a size of at least one? a\+\_\+0 = \+\_\+\+Tp\{\}? Y\+ES. detail\+: Should I punt on the initial power? Y\+ES.
+
+If high degree coefficients are zero, should I resize down? Y\+ES (or provide another word for order). How to access coefficients (bikeshed)? poly\mbox{[}i\mbox{]}; coefficient(i); operator\mbox{[}$\,$\mbox{]}(int i); begin(), end()? const \+\_\+\+Tp$\ast$ coefficients(); // Access for C, Fortran. How to set individual coefficients? poly\mbox{[}i\mbox{]} = c; coefficient(i, c); coefficient(i) = c; How to handle division? operator/ and throw out remainder? operator\% to return the remainder? std\+::pair$<$$>$ div(const \+\_\+\+Polynomial\& \+\_\+\+\_\+a, const \+\_\+\+Polynomial\& \+\_\+\+\_\+b) or remquo. void divmod(const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}\& \+\_\+\+\_\+a, const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}\& \+\_\+\+\_\+b, \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}\& \+\_\+\+\_\+q, \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}\& \+\_\+\+\_\+r); Should factory methods like derivative and integral be globals? I could have members\+: \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}\& integrate(\+\_\+\+Tp c); \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}\& differentiate(); Largest coefficient\+: Enforce coefficient of largest power be nonzero? Return an \textquotesingle{}effective\textquotesingle{} order? Larest nonzero coefficient? Monic polynomial has largest coefficient as 1. Subclass? 
+
+\subsection{Typedef Documentation}
+\mbox{\Hypertarget{namespace____gnu__cxx_ae20ea642de50eb361074c62676b0159c}\label{namespace____gnu__cxx_ae20ea642de50eb361074c62676b0159c}} 
+\index{\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}!solution\+\_\+t@{solution\+\_\+t}}
+\index{solution\+\_\+t@{solution\+\_\+t}!\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}}
+\subsubsection{\texorpdfstring{solution\+\_\+t}{solution\_t}}
+{\footnotesize\ttfamily template$<$typename \+\_\+\+Real $>$ \\
+using \hyperlink{namespace____gnu__cxx_ae20ea642de50eb361074c62676b0159c}{\+\_\+\+\_\+gnu\+\_\+cxx\+::solution\+\_\+t} = typedef std\+::variant$<$std\+::monostate, \+\_\+\+Real, \hyperlink{classstd_1_1complex}{std\+::complex}$<$\+\_\+\+Real$>$ $>$}
+
+
+
+Definition at line 59 of file solution.\+h.
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{namespace____gnu__cxx_a422f638b186be2071012321de5f9bb48}\label{namespace____gnu__cxx_a422f638b186be2071012321de5f9bb48}} 
+\index{\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}!\+\_\+\+\_\+cubic@{\+\_\+\+\_\+cubic}}
+\index{\+\_\+\+\_\+cubic@{\+\_\+\+\_\+cubic}!\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}}
+\subsubsection{\texorpdfstring{\+\_\+\+\_\+cubic()}{\_\_cubic()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename \+\_\+\+Real , typename \+\_\+\+Iter $>$ \\
+std\+::array$<$ \hyperlink{namespace____gnu__cxx_ae20ea642de50eb361074c62676b0159c}{solution\+\_\+t}$<$ \+\_\+\+Real $>$, 3 $>$ \+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+\_\+cubic (\begin{DoxyParamCaption}\item[{const \+\_\+\+Iter \&}]{\+\_\+\+CC }\end{DoxyParamCaption})}
+
+
+
+Finds the roots of a cubic equation of the form\+: \[ a_3 x^3 + a_2 x^2 + a_1 x + a_0 = 0 \] for real coefficients $ a_k $. 
+
+In the non-\/degenerate case there are three roots\+:
+\begin{DoxyItemize}
+\item All three roots are real
+\item One root is real and the other two are a complex conjugate pair
+\end{DoxyItemize}
+
+If the cubic coefficient $ a_3 $ is zero (degenerate case) the problem is referred to the quadratic solver to return, at most, two valid roots.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em \+\_\+\+CC} & Array that contains the four coefficients of the cubic equation \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 226 of file solver\+\_\+low\+\_\+degree.\+tcc.
+
+
+
+References abs().
+
+
+
+Referenced by \+\_\+\+\_\+quadratic().
+
+
+\begin{DoxyCode}
+227     \{
+228       \textcolor{keyword}{using} std::experimental::make\_array;
+229 
+230       std::array<solution\_t<\_Real>, 3> \_ZZ;
+231 
+232       \textcolor{keywordflow}{if} (\_CC[3] == \_Real\{0\})
+233         \{
+234           \textcolor{comment}{// Last root is null, remaining equation is quadratic.}
+235           \textcolor{keyword}{const} \textcolor{keyword}{auto} \_ZZ2 = \_\_quadratic<\_Real>(\_CC);
+236           \_ZZ[0] = \_ZZ2[0];
+237           \_ZZ[1] = \_ZZ2[1];
+238         \}
+239       \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\_CC[0] == \_Real\{0\})
+240         \{
+241           \textcolor{comment}{// First root is zero, remaining equation is quadratic.}
+242           \_ZZ[0] = \_Real\{0\};
+243           \textcolor{keyword}{const} \textcolor{keyword}{auto} \_ZZ2 = \_\_quadratic<\_Real>(make\_array(\_CC[1], \_CC[2],
+244                                                           \_CC[3]));
+245           \_ZZ[1] = \_ZZ2[0];
+246           \_ZZ[2] = \_ZZ2[1];
+247         \}
+248       \textcolor{keywordflow}{else}
+249         \{
+250           \textcolor{comment}{// Normalize cubic equation coefficients.}
+251           std::array<\_Real, 4> \_AA3;
+252           \_AA3[3] = \_Real\{1\};
+253           \_AA3[2] = \_CC[2] / \_CC[3];
+254           \_AA3[1] = \_CC[1] / \_CC[3];
+255           \_AA3[0] = \_CC[0] / \_CC[3];
+256 
+257           \textcolor{keyword}{const} \textcolor{keyword}{auto} \_S\_2pi = \_Real\{2\} * \_\_gnu\_cxx::\_\_const\_pi(\_CC[0]);
+258           \textcolor{keyword}{const} \textcolor{keyword}{auto} \_PP = \_AA3[2] / \_Real\{3\};
+259           \textcolor{keyword}{const} \textcolor{keyword}{auto} \_QQ = (\_AA3[2] * \_AA3[2] - \_Real\{3\} * \_AA3[1])
+260                          / \_Real\{9\};
+261           \textcolor{keyword}{const} \textcolor{keyword}{auto} \_QQp3 = \_QQ * \_QQ * \_QQ;
+262           \textcolor{keyword}{const} \textcolor{keyword}{auto} \_RR = (\_Real\{2\} * \_AA3[2] * \_AA3[2] * \_AA3[2]
+263                           - \_Real\{9\} * \_AA3[2] * \_AA3[1]
+264                           + \_Real\{27\} * \_AA3[0]) / \_Real\{54\};
+265           \textcolor{keyword}{const} \textcolor{keyword}{auto} \_RRp2 = \_RR * \_RR;
+266 
+267           \textcolor{keywordflow}{if} (\_QQp3 - \_RRp2 > \_Real\{0\})
+268             \{
+269               \textcolor{comment}{// Calculate the three real roots.}
+270               \textcolor{keyword}{const} \textcolor{keyword}{auto} \_\_phi = std::acos(\_RR / std::sqrt(\_QQp3));
+271               \textcolor{keyword}{const} \textcolor{keyword}{auto} \_\_fact = -\_Real\{2\} * std::sqrt(\_QQ);
+272               \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} \_\_i = 0; \_\_i < 3; ++\_\_i)
+273                 \_ZZ[\_\_i] = \_\_fact * std::cos((\_\_phi + \_\_i * \_S\_2pi) / \_Real\{3\}) - \_PP;
+274             \}
+275           \textcolor{keywordflow}{else}
+276             \{
+277               \textcolor{comment}{// Calculate the single real root.}
+278               \textcolor{keyword}{const} \textcolor{keyword}{auto} \_\_fact = std::cbrt(\hyperlink{namespace____gnu__cxx_ab9eb9db3560f504f8cd25a71bcb6ead5}{std::abs}(\_RR)
+279                                           + std::sqrt(\_RRp2 - \_QQp3));
+280               \textcolor{keyword}{const} \textcolor{keyword}{auto} \_BB = -std::copysign(\_\_fact + \_QQ / \_\_fact, \_RR);
+281               \_ZZ[0] = \_BB - \_PP;
+282 
+283               \textcolor{comment}{// Find the other two roots which are complex conjugates.}
+284               std::array<\_Real, 3> \_AA2;
+285               \_AA2[2] = \_Real\{1\};
+286               \_AA2[1] = \_BB;
+287               \_AA2[0] = \_BB * \_BB - \_Real\{3\} * \_QQ;
+288               \textcolor{keyword}{const} \textcolor{keyword}{auto} \_ZZ2 = \_\_quadratic<\_Real>(\_AA2);
+289               \_ZZ[1] = std::get<2>(\_ZZ2[0]) - \_PP;
+290               \_ZZ[2] = std::get<2>(\_ZZ2[1]) - \_PP;
+291             \}
+292         \}
+293 
+294       \textcolor{keywordflow}{return} \_ZZ;
+295     \}
+\end{DoxyCode}
+\mbox{\Hypertarget{namespace____gnu__cxx_ad1ce809c9dd84dd6cd0229fb73f7dbec}\label{namespace____gnu__cxx_ad1ce809c9dd84dd6cd0229fb73f7dbec}} 
+\index{\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}!\+\_\+\+\_\+cubic@{\+\_\+\+\_\+cubic}}
+\index{\+\_\+\+\_\+cubic@{\+\_\+\+\_\+cubic}!\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}}
+\subsubsection{\texorpdfstring{\+\_\+\+\_\+cubic()}{\_\_cubic()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename \+\_\+\+Real $>$ \\
+std\+::array$<$\hyperlink{namespace____gnu__cxx_ae20ea642de50eb361074c62676b0159c}{solution\+\_\+t}$<$\+\_\+\+Real$>$, 3$>$ \+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+\_\+cubic (\begin{DoxyParamCaption}\item[{\+\_\+\+Real}]{\+\_\+\+\_\+c0,  }\item[{\+\_\+\+Real}]{\+\_\+\+\_\+c1,  }\item[{\+\_\+\+Real}]{\+\_\+\+\_\+c2,  }\item[{\+\_\+\+Real}]{\+\_\+\+\_\+c3 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 82 of file solver\+\_\+low\+\_\+degree.\+h.
+
+
+
+References \+\_\+\+\_\+quartic().
+
+
+\begin{DoxyCode}
+83     \{
+84       \textcolor{keyword}{using} std::experimental::make\_array;
+85       \textcolor{keywordflow}{return} \_\_cubic<\_Real>(make\_array(\_\_c0, \_\_c1, \_\_c2, \_\_c3));
+86     \}
+\end{DoxyCode}
+\mbox{\Hypertarget{namespace____gnu__cxx_aa8c3d98e6508a1e20a17c5980ccbbd99}\label{namespace____gnu__cxx_aa8c3d98e6508a1e20a17c5980ccbbd99}} 
+\index{\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}!\+\_\+\+\_\+quadratic@{\+\_\+\+\_\+quadratic}}
+\index{\+\_\+\+\_\+quadratic@{\+\_\+\+\_\+quadratic}!\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}}
+\subsubsection{\texorpdfstring{\+\_\+\+\_\+quadratic()}{\_\_quadratic()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename \+\_\+\+Real , typename \+\_\+\+Iter $>$ \\
+std\+::array$<$ \hyperlink{namespace____gnu__cxx_ae20ea642de50eb361074c62676b0159c}{solution\+\_\+t}$<$ \+\_\+\+Real $>$, 2 $>$ \+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+\_\+quadratic (\begin{DoxyParamCaption}\item[{const \+\_\+\+Iter \&}]{\+\_\+\+CC }\end{DoxyParamCaption})}
+
+
+
+Finds the roots of a quadratic equation of the form\+: \[ a_2 x^2 + a_1 x + a_0 = 0 \] for real coefficients $ a_k $. 
+
+For non-\/degenerate coefficients two roots are returned\+: Either the roots are real or the roots are a complex conjugate pair.
+
+If the quadratic coefficient $ a_2 $ is zero (degenerate case) at most one valid root is returned. If the linear coefficient $ a_1 $ is also zero no valid root is returned.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em \+\_\+\+CC} & Array that contains the three coefficients of the quadratic equation. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 153 of file solver\+\_\+low\+\_\+degree.\+tcc.
+
+
+
+References abs().
+
+
+\begin{DoxyCode}
+154     \{
+155       std::array<solution\_t<\_Real>, 2> \_ZZ;
+156 
+157       \textcolor{keywordflow}{if} (\_CC[2] == \_Real\{0\})
+158         \{
+159           \textcolor{comment}{// Equation is linear (or completely degenerate).}
+160           \textcolor{keywordflow}{if} (\_CC[1] == \_Real\{0\})
+161             \textcolor{keywordflow}{return} \_ZZ;
+162           \textcolor{keywordflow}{else}
+163             \{
+164               \_ZZ[0] = -\_CC[0] / \_CC[1];
+165               \textcolor{keywordflow}{return} \_ZZ;
+166             \}
+167         \}
+168       \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\_CC[0] == \_Real\{0\})
+169         \{
+170           \_ZZ[0] = \_Real\{0\};
+171           \textcolor{keywordflow}{if} (\_CC[2] == \_Real\{0\})
+172             \textcolor{keywordflow}{return} \_ZZ;
+173           \textcolor{keywordflow}{else}
+174             \{
+175               \_ZZ[1] = -\_CC[1] / \_CC[2];
+176               \textcolor{keywordflow}{return} \_ZZ;
+177             \}
+178         \}
+179       \textcolor{keywordflow}{else}
+180         \{
+181           \textcolor{comment}{// The discriminant of a quadratic equation}
+182           \textcolor{keyword}{const} \textcolor{keyword}{auto} \_QQ = \_CC[1] * \_CC[1] - \_Real\{4\} * \_CC[2] * \_CC[0];
+183 
+184           \textcolor{keywordflow}{if} (\_QQ < \_Real\{0\})
+185             \{
+186               \textcolor{comment}{// The roots are complex conjugates.}
+187               \textcolor{keyword}{const} \textcolor{keyword}{auto} \_ReZZ = -\_CC[1] / (\_Real\{2\} * \_CC[2]);
+188               \textcolor{keyword}{const} \textcolor{keyword}{auto} \_ImZZ = std::sqrt(\hyperlink{namespace____gnu__cxx_ab9eb9db3560f504f8cd25a71bcb6ead5}{std::abs}(\_QQ)) / (\_Real\{2\} * \_CC[2]);
+189               \_ZZ[0] = \hyperlink{classstd_1_1complex}{std::complex<\_Real>}(\_ReZZ, -\_ImZZ);
+190               \_ZZ[1] = \hyperlink{classstd_1_1complex}{std::complex<\_Real>}(\_ReZZ, \_ImZZ);
+191             \}
+192           \textcolor{keywordflow}{else}
+193             \{
+194               \textcolor{comment}{// The roots are real.}
+195               \_Real \_\_temp = -(\_CC[1]
+196                         + std::copysign(std::sqrt(\_QQ), \_CC[1])) / \_Real\{2\};
+197               \_ZZ[0] = \_\_temp / \_CC[2];
+198               \_ZZ[1] = \_CC[0] / \_\_temp;
+199             \}
+200         \}
+201 
+202       \textcolor{keywordflow}{return} \_ZZ;
+203     \}
+\end{DoxyCode}
+\mbox{\Hypertarget{namespace____gnu__cxx_af7f59d18caa0bf264f591103478ebcb2}\label{namespace____gnu__cxx_af7f59d18caa0bf264f591103478ebcb2}} 
+\index{\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}!\+\_\+\+\_\+quadratic@{\+\_\+\+\_\+quadratic}}
+\index{\+\_\+\+\_\+quadratic@{\+\_\+\+\_\+quadratic}!\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}}
+\subsubsection{\texorpdfstring{\+\_\+\+\_\+quadratic()}{\_\_quadratic()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename \+\_\+\+Real $>$ \\
+std\+::array$<$\hyperlink{namespace____gnu__cxx_ae20ea642de50eb361074c62676b0159c}{solution\+\_\+t}$<$\+\_\+\+Real$>$, 2$>$ \+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+\_\+quadratic (\begin{DoxyParamCaption}\item[{\+\_\+\+Real}]{\+\_\+\+\_\+c0,  }\item[{\+\_\+\+Real}]{\+\_\+\+\_\+c1,  }\item[{\+\_\+\+Real}]{\+\_\+\+\_\+c2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 70 of file solver\+\_\+low\+\_\+degree.\+h.
+
+
+
+References \+\_\+\+\_\+cubic().
+
+
+\begin{DoxyCode}
+71     \{
+72       \textcolor{keyword}{using} std::experimental::make\_array;
+73       \textcolor{keywordflow}{return} \_\_quadratic<\_Real>(make\_array(\_\_c0, \_\_c1, \_\_c2));
+74     \}
+\end{DoxyCode}
+\mbox{\Hypertarget{namespace____gnu__cxx_ac813fbad739bf1d431845d5175f24701}\label{namespace____gnu__cxx_ac813fbad739bf1d431845d5175f24701}} 
+\index{\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}!\+\_\+\+\_\+quartic@{\+\_\+\+\_\+quartic}}
+\index{\+\_\+\+\_\+quartic@{\+\_\+\+\_\+quartic}!\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}}
+\subsubsection{\texorpdfstring{\+\_\+\+\_\+quartic()}{\_\_quartic()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename \+\_\+\+Real , typename \+\_\+\+Iter $>$ \\
+std\+::array$<$ \hyperlink{namespace____gnu__cxx_ae20ea642de50eb361074c62676b0159c}{solution\+\_\+t}$<$ \+\_\+\+Real $>$, 4 $>$ \+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+\_\+quartic (\begin{DoxyParamCaption}\item[{const \+\_\+\+Iter \&}]{\+\_\+\+CC }\end{DoxyParamCaption})}
+
+
+
+Finds the roots a quartic equation of the form\+: \[ a_4 x^4 + a_3 x^3 + a_2 x^2 + a_1 x + a_0 = 0 \] for real coefficients $ a_k $. 
+
+In the non-\/degenerate case there are four roots\+:
+\begin{DoxyItemize}
+\item All four roots are real
+\item Two roots real and two complex roots are a complex conjugate pair
+\item Four complex roots in two complex conjugate pairs
+\end{DoxyItemize}
+
+If the qartic coefficient $ a_4 $ is zero (degenerate case) the problem is referred to the cubic solver to return, at most, three valid roots.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em \+\_\+\+CC} & Array that contains the five(5) coefficients of the quartic equation. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 319 of file solver\+\_\+low\+\_\+degree.\+tcc.
+
+
+
+References abs(), and swap().
+
+
+
+Referenced by \+\_\+\+\_\+cubic().
+
+
+\begin{DoxyCode}
+320     \{
+321       \textcolor{keyword}{using} std::experimental::make\_array;
+322 
+323       std::array<solution\_t<\_Real>, 4> \_ZZ;
+324 
+325       \textcolor{keywordflow}{if} (\_CC[4] == \_Real\{0\})
+326         \{
+327           \textcolor{keyword}{const} \textcolor{keyword}{auto} \_ZZ3 = \_\_cubic<\_Real>(\_CC);
+328           \_ZZ[0] = \_ZZ3[0];
+329           \_ZZ[1] = \_ZZ3[1];
+330           \_ZZ[2] = \_ZZ3[2];
+331         \}
+332       \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\_CC[0] == \_Real\{0\})
+333         \{
+334           \_ZZ[0] = \_Real\{0\};
+335           \textcolor{keyword}{const} \textcolor{keyword}{auto} \_ZZ3 = \_\_cubic<\_Real>(make\_array(\_CC[1], \_CC[2],
+336                                                       \_CC[3], \_CC[4]));
+337           \_ZZ[1] = \_ZZ3[0];
+338           \_ZZ[2] = \_ZZ3[1];
+339         \}
+340       \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\_CC[3] == \_Real\{0\} && \_CC[1] == \_Real\{0\})
+341         \{
+342           \textcolor{comment}{// Solve the biquadratic equation.}
+343           std::array<\_Real, 3> \_AA2\{\{\_CC[0], \_CC[2], \_CC[4]\}\};
+344           \textcolor{keyword}{const} \textcolor{keyword}{auto} \_ZZ2 = \_\_quadratic<\_Real>(\_AA2);
+345           \textcolor{keyword}{auto} \_\_sqrt = [](solution\_t<\_Real> \_\_z) -> solution\_t<\_Real>
+346                         \{
+347                           \textcolor{keyword}{const} \textcolor{keyword}{auto} \_\_idx = \_\_z.index();
+348                           \textcolor{keywordflow}{if} (\_\_idx == 0)
+349                             \textcolor{keywordflow}{return} \_\_z;
+350                           \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\_\_idx == 1)
+351                             \{
+352                               \textcolor{keyword}{auto} \_\_zz = std::get<1>(\_\_z);
+353                               \textcolor{keywordflow}{return} \_\_zz < \_Real\{0\}
+354                                    ? solution\_t<\_Real>(std::sqrt(
+      \hyperlink{classstd_1_1complex}{std::complex<\_Real>}(\_\_zz)))
+355                                    : solution\_t<\_Real>(std::sqrt(\_\_zz));
+356                             \}
+357                           \textcolor{keywordflow}{else}
+358                             \textcolor{keywordflow}{return} solution\_t<\_Real>(std::sqrt(std::get<2>(\_\_z)));
+359                         \};
+360           \_ZZ[0] = \_\_sqrt(\_ZZ2[0]);
+361           \_ZZ[1] = \_\_sqrt(\_ZZ2[1]);
+362           \_ZZ[2] = -\_ZZ[0];
+363           \_ZZ[3] = -\_ZZ[1];
+364         \}
+365       \textcolor{keywordflow}{else}
+366         \{
+367           \textcolor{comment}{// Normalize quartic equation coefficients.}
+368           std::array<\_Real, 5> \_AA4;
+369           \_AA4[4] = \_Real\{1\};
+370           \_AA4[3] = \_CC[3] / \_CC[4];
+371           \_AA4[2] = \_CC[2] / \_CC[4];
+372           \_AA4[1] = \_CC[1] / \_CC[4];
+373           \_AA4[0] = \_CC[0] / \_CC[4];
+374 
+375           \textcolor{comment}{// Calculate the coefficients of the resolvent cubic equation.}
+376           std::array<\_Real, 4> \_AA3;
+377           \_AA3[3] = \_Real\{1\};
+378           \_AA3[2] = -\_AA4[2];
+379           \_AA3[1] = \_AA4[3] * \_AA4[1] - \_Real\{4\} * \_AA4[0];
+380           \_AA3[0] = \_AA4[0] * (\_Real\{4\} * \_AA4[2] - \_AA4[3] * \_AA4[3])
+381                   - \_AA4[1] * \_AA4[1];
+382 
+383           \textcolor{comment}{// Find the algebraically largest real root of the cubic equation}
+384           \textcolor{comment}{// Note: A cubic equation has either three real roots or one}
+385           \textcolor{comment}{//       real root and two complex roots that are complex}
+386           \textcolor{comment}{//       conjugates. If there is only a single real root then}
+387           \textcolor{comment}{//       subroutine cubic always returns that single real root}
+388           \textcolor{comment}{//       (and therefore the algebraically largest real root of}
+389           \textcolor{comment}{//       the cubic equation) as root[0].}
+390           \_Real \_Z3max;
+391           \textcolor{keyword}{auto} \_ZZ3 = \_\_cubic<\_Real>(\_AA3);
+392           \textcolor{keywordflow}{if} (\_ZZ3[1].index() == 1 && \_ZZ3[2].index() == 1)
+393             \{
+394               \textcolor{comment}{// There is some horrible bug with swap and this variant.}
+395               \textcolor{comment}{// They may need to hold the same type.}
+396               \textcolor{keywordflow}{if} (\_ZZ3[0] < \_ZZ3[1])
+397                 \textcolor{comment}{//std::swap(\_ZZ3[0], \_ZZ3[1]);}
+398                 \{
+399                   \textcolor{keyword}{const} \textcolor{keyword}{auto} \_\_tmp = \_ZZ3[0];
+400                   \_ZZ3[0] = \_ZZ3[1];
+401                   \_ZZ3[1] = \_\_tmp;
+402                 \}
+403               \textcolor{keywordflow}{if} (\_ZZ3[0] < \_ZZ3[2])
+404                 \textcolor{comment}{//std::swap(\_ZZ3[0], \_ZZ3[2]);}
+405                 \{
+406                   \textcolor{keyword}{const} \textcolor{keyword}{auto} \_\_tmp = \_ZZ3[0];
+407                   \_ZZ3[0] = \_ZZ3[2];
+408                   \_ZZ3[2] = \_\_tmp;
+409                 \}
+410               \_Z3max = std::get<1>(\_ZZ3[0]);
+411             \}
+412           \textcolor{keywordflow}{else}
+413             \_Z3max = std::get<1>(\_ZZ3[0]);
+414 
+415           \textcolor{comment}{// Calculate the coefficients for the two quadratic equations}
+416           \textcolor{keyword}{const} \textcolor{keyword}{auto} \_\_capa = \_Real\{0.5L\} * \_AA4[3];
+417           \textcolor{keyword}{const} \textcolor{keyword}{auto} \_\_capb = \_Real\{0.5L\} * \_Z3max;
+418           \textcolor{keyword}{const} \textcolor{keyword}{auto} \_\_capc = std::sqrt(\_\_capa * \_\_capa - \_AA4[2] + \_Z3max);
+419           \textcolor{keyword}{const} \textcolor{keyword}{auto} \_\_capd = std::sqrt(\_\_capb * \_\_capb - \_AA4[0]);
+420           \textcolor{keyword}{const} \textcolor{keyword}{auto} \_\_cp = \_\_capa + \_\_capc;
+421           \textcolor{keyword}{const} \textcolor{keyword}{auto} \_\_cm = \_\_capa - \_\_capc;
+422           \textcolor{keyword}{auto} \_\_dp = \_\_capb + \_\_capd;
+423           \textcolor{keyword}{auto} \_\_dm = \_\_capb - \_\_capd;
+424           \textcolor{keyword}{const} \textcolor{keyword}{auto} \_\_t1 = \_\_cp * \_\_dm + \_\_cm * \_\_dp;
+425           \textcolor{keyword}{const} \textcolor{keyword}{auto} \_\_t2 = \_\_cp * \_\_dp + \_\_cm * \_\_dm;
+426           \textcolor{keywordflow}{if} (\hyperlink{namespace____gnu__cxx_ab9eb9db3560f504f8cd25a71bcb6ead5}{std::abs}(\_\_t2 - \_AA4[1]) < \hyperlink{namespace____gnu__cxx_ab9eb9db3560f504f8cd25a71bcb6ead5}{std::abs}(\_\_t1 - \_AA4[1]))
+427             \hyperlink{namespace____gnu__cxx_a10d002d78eb10d846416335ca9599c7a}{std::swap}(\_\_dp, \_\_dm);
+428 
+429           \textcolor{comment}{// Coefficients for the first quadratic equation and find the roots.}
+430           std::array<\_Real, 3> \_AA2;
+431           \_AA2[2] = \_Real\{1\};
+432           \_AA2[1] = \_\_cp;
+433           \_AA2[0] = \_\_dp;
+434           \textcolor{keyword}{const} \textcolor{keyword}{auto} \_ZZ2p = \_\_quadratic<\_Real>(\_AA2);
+435           \_ZZ[0] = \_ZZ2p[0];
+436           \_ZZ[1] = \_ZZ2p[1];
+437 
+438           \textcolor{comment}{// Coefficients for the second quadratic equation and find the roots.}
+439           \_AA2[2] = \_Real\{1\};
+440           \_AA2[1] = \_\_cm;
+441           \_AA2[0] = \_\_dm;
+442           \textcolor{keyword}{const} \textcolor{keyword}{auto} \_ZZ2m = \_\_quadratic<\_Real>(\_AA2);
+443           \_ZZ[2] = \_ZZ2m[0];
+444           \_ZZ[3] = \_ZZ2m[1];
+445         \}
+446 
+447       \textcolor{keywordflow}{return} \_ZZ;
+448     \}
+\end{DoxyCode}
+\mbox{\Hypertarget{namespace____gnu__cxx_a6dbbccdfca9b8a8dffdf99432986f0c9}\label{namespace____gnu__cxx_a6dbbccdfca9b8a8dffdf99432986f0c9}} 
+\index{\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}!\+\_\+\+\_\+quartic@{\+\_\+\+\_\+quartic}}
+\index{\+\_\+\+\_\+quartic@{\+\_\+\+\_\+quartic}!\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}}
+\subsubsection{\texorpdfstring{\+\_\+\+\_\+quartic()}{\_\_quartic()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename \+\_\+\+Real $>$ \\
+std\+::array$<$\hyperlink{namespace____gnu__cxx_ae20ea642de50eb361074c62676b0159c}{solution\+\_\+t}$<$\+\_\+\+Real$>$, 4$>$ \+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+\_\+quartic (\begin{DoxyParamCaption}\item[{\+\_\+\+Real}]{\+\_\+\+\_\+c0,  }\item[{\+\_\+\+Real}]{\+\_\+\+\_\+c1,  }\item[{\+\_\+\+Real}]{\+\_\+\+\_\+c2,  }\item[{\+\_\+\+Real}]{\+\_\+\+\_\+c3,  }\item[{\+\_\+\+Real}]{\+\_\+\+\_\+c4 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 94 of file solver\+\_\+low\+\_\+degree.\+h.
+
+
+\begin{DoxyCode}
+95     \{
+96       \textcolor{keyword}{using} std::experimental::make\_array;
+97       \textcolor{keywordflow}{return} \_\_quartic<\_Real>(make\_array(\_\_c0, \_\_c1, \_\_c2, \_\_c3, \_\_c4));
+98     \}
+\end{DoxyCode}
+\mbox{\Hypertarget{namespace____gnu__cxx_a957b92036746a66f3dff0c46cb18120b}\label{namespace____gnu__cxx_a957b92036746a66f3dff0c46cb18120b}} 
+\index{\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}!\+\_\+\+\_\+refine\+\_\+solution\+\_\+halley@{\+\_\+\+\_\+refine\+\_\+solution\+\_\+halley}}
+\index{\+\_\+\+\_\+refine\+\_\+solution\+\_\+halley@{\+\_\+\+\_\+refine\+\_\+solution\+\_\+halley}!\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}}
+\subsubsection{\texorpdfstring{\+\_\+\+\_\+refine\+\_\+solution\+\_\+halley()}{\_\_refine\_solution\_halley()}}
+{\footnotesize\ttfamily template$<$std\+::size\+\_\+t \+\_\+\+Dim, typename \+\_\+\+Iter , typename \+\_\+\+Num\+Tp $>$ \\
+\+\_\+\+Num\+Tp \+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+\_\+refine\+\_\+solution\+\_\+halley (\begin{DoxyParamCaption}\item[{\+\_\+\+Num\+Tp}]{\+\_\+\+\_\+z,  }\item[{const \+\_\+\+Iter \&}]{\+\_\+\+CC }\end{DoxyParamCaption})}
+
+Refine a solution using the Halley method\+: \[ x_{n+1} - x_n = -\frac{2 P(x_n) P'(x_n)} {2 [P'(x_n)]^2 - P(x_n) P''(x_n)} \] This form indicates the close relationship to the Newton method\+: \[ x_{n+1} - x_n = -\frac{P'(x_n)} {P'(x_n) - [P(x_n) P''(x_n)]/[2P'(x_n)]} \] 
+
+Definition at line 94 of file solver\+\_\+low\+\_\+degree.\+tcc.
+
+
+\begin{DoxyCode}
+95     \{
+96       \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} \_\_i = 0; \_\_i < 3; ++\_\_i)
+97         \{
+98           \textcolor{keyword}{auto} \_\_f = \_NumTp(\_CC[\_Dim - 1]);
+99           \textcolor{keywordflow}{for} (std::size\_t \_\_j = \_Dim - 1; \_\_j > 0; --\_\_j)
+100             \_\_f = \_NumTp(\_CC[\_\_j - 1]) + \_\_z * \_\_f;
+101 
+102           \textcolor{keyword}{auto} \_\_df = \_NumTp((\_Dim - 1) * \_CC[\_Dim - 1]);
+103           \textcolor{keywordflow}{for} (std::size\_t \_\_j = \_Dim - 1; \_\_j > 1; --\_\_j)
+104             \_\_df = \_NumTp((\_\_j - 1) * \_CC[\_\_j - 1]) + \_\_z * \_\_df;
+105 
+106           \textcolor{keyword}{auto} \_\_d2f = \_NumTp((\_Dim - 2) * (\_Dim - 1) * \_CC[\_Dim - 1]);
+107           \textcolor{keywordflow}{for} (std::size\_t \_\_j = \_Dim - 1; \_\_j > 2; --\_\_j)
+108             \_\_d2f = \_NumTp((\_\_j - 2) * (\_\_j - 1) * \_CC[\_\_j - 1]) + \_\_z * \_\_d2f;
+109 
+110           \textcolor{keyword}{const} \textcolor{keyword}{auto} \_\_del = \_NumTp\{2\} * \_\_f * \_\_df
+111                            / (\_NumTp\{2\} * \_\_df * \_\_df - \_\_f * \_\_d2f);
+112 
+113           \_\_z -= \_\_del;
+114         \}
+115       \textcolor{keywordflow}{return} \_\_z;
+116     \}
+\end{DoxyCode}
+\mbox{\Hypertarget{namespace____gnu__cxx_a2b802e73df33cafb7f95800cbca6ff30}\label{namespace____gnu__cxx_a2b802e73df33cafb7f95800cbca6ff30}} 
+\index{\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}!\+\_\+\+\_\+refine\+\_\+solution\+\_\+newton@{\+\_\+\+\_\+refine\+\_\+solution\+\_\+newton}}
+\index{\+\_\+\+\_\+refine\+\_\+solution\+\_\+newton@{\+\_\+\+\_\+refine\+\_\+solution\+\_\+newton}!\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}}
+\subsubsection{\texorpdfstring{\+\_\+\+\_\+refine\+\_\+solution\+\_\+newton()}{\_\_refine\_solution\_newton()}}
+{\footnotesize\ttfamily template$<$std\+::size\+\_\+t \+\_\+\+Dim, typename \+\_\+\+Iter , typename \+\_\+\+Num\+Tp $>$ \\
+\+\_\+\+Num\+Tp \+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+\_\+refine\+\_\+solution\+\_\+newton (\begin{DoxyParamCaption}\item[{\+\_\+\+Num\+Tp}]{\+\_\+\+\_\+z,  }\item[{const \+\_\+\+Iter \&}]{\+\_\+\+CC }\end{DoxyParamCaption})}
+
+Refine a solution using the Newton method\+: \[ x_{n+1} - x_n = -\frac{P(x_n)}{P'(x_n)} \] 
+
+Definition at line 62 of file solver\+\_\+low\+\_\+degree.\+tcc.
+
+
+\begin{DoxyCode}
+63     \{
+64       \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} \_\_i = 0; \_\_i < 3; ++\_\_i)
+65         \{
+66           \textcolor{keyword}{auto} \_\_f = \_NumTp(\_CC[\_Dim - 1]);
+67           \textcolor{keywordflow}{for} (std::size\_t \_\_j = \_Dim - 1; \_\_j > 0; --\_\_j)
+68             \_\_f = \_NumTp(\_CC[\_\_j - 1]) + \_\_z * \_\_f;
+69 
+70           \textcolor{keyword}{auto} \_\_df = \_NumTp((\_Dim - 1) * \_CC[\_Dim - 1]);
+71           \textcolor{keywordflow}{for} (std::size\_t \_\_j = \_Dim - 1; \_\_j > 1; --\_\_j)
+72             \_\_df = \_NumTp((\_\_j - 1) * \_CC[\_\_j - 1]) + \_\_z * \_\_df;
+73 
+74           \textcolor{keyword}{const} \textcolor{keyword}{auto} \_\_del = \_\_f / \_\_df;
+75           \_\_z -= \_\_del;
+76         \}
+77       \textcolor{keywordflow}{return} \_\_z;
+78     \}
+\end{DoxyCode}
+\mbox{\Hypertarget{namespace____gnu__cxx_aa8dd4c7542667cc5a8e435ca53d6fad7}\label{namespace____gnu__cxx_aa8dd4c7542667cc5a8e435ca53d6fad7}} 
+\index{\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}!\+\_\+\+\_\+refine\+\_\+solutions@{\+\_\+\+\_\+refine\+\_\+solutions}}
+\index{\+\_\+\+\_\+refine\+\_\+solutions@{\+\_\+\+\_\+refine\+\_\+solutions}!\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}}
+\subsubsection{\texorpdfstring{\+\_\+\+\_\+refine\+\_\+solutions()}{\_\_refine\_solutions()}}
+{\footnotesize\ttfamily template$<$std\+::size\+\_\+t \+\_\+\+Dim, typename \+\_\+\+Iter , typename \+\_\+\+Real $>$ \\
+void \+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+\_\+refine\+\_\+solutions (\begin{DoxyParamCaption}\item[{std\+::array$<$ \hyperlink{namespace____gnu__cxx_ae20ea642de50eb361074c62676b0159c}{solution\+\_\+t}$<$ \+\_\+\+Real $>$, \+\_\+\+Dim -\/ 1 $>$ \&}]{\+\_\+\+ZZ,  }\item[{const \+\_\+\+Iter \&}]{\+\_\+\+CC }\end{DoxyParamCaption})}
+
+
+
+Definition at line 120 of file solver\+\_\+low\+\_\+degree.\+tcc.
+
+
+\begin{DoxyCode}
+121     \{
+122       \textcolor{keywordflow}{for} (std::size\_t \_\_i = 0; \_\_i < \_Dim - 1; ++\_\_i)
+123         \{
+124           \textcolor{keywordflow}{if} (\_ZZ[\_\_i].index() == 0)
+125             \textcolor{keywordflow}{continue};
+126           \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\_ZZ[\_\_i].index() == 1)
+127             \_ZZ[\_\_i] = \_\_refine\_solution\_newton<\_Dim>(std::get<1>(\_ZZ[\_\_i]), \_CC);
+128           \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\_ZZ[\_\_i].index() == 2)
+129             \_ZZ[\_\_i] = \_\_refine\_solution\_newton<\_Dim>(std::get<2>(\_ZZ[\_\_i]), \_CC);
+130         \}
+131     \}
+\end{DoxyCode}
+\mbox{\Hypertarget{namespace____gnu__cxx_ab9eb9db3560f504f8cd25a71bcb6ead5}\label{namespace____gnu__cxx_ab9eb9db3560f504f8cd25a71bcb6ead5}} 
+\index{\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}!abs@{abs}}
+\index{abs@{abs}!\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}}
+\subsubsection{\texorpdfstring{abs()}{abs()}}
+{\footnotesize\ttfamily template$<$typename \+\_\+\+Real $>$ \\
+constexpr \+\_\+\+Real \+\_\+\+\_\+gnu\+\_\+cxx\+::abs (\begin{DoxyParamCaption}\item[{const \hyperlink{namespace____gnu__cxx_ae20ea642de50eb361074c62676b0159c}{solution\+\_\+t}$<$ \+\_\+\+Real $>$ \&}]{\+\_\+\+\_\+x }\end{DoxyParamCaption})}
+
+
+
+Definition at line 116 of file solution.\+h.
+
+
+
+Referenced by \+\_\+\+\_\+cubic(), \+\_\+\+\_\+quadratic(), \+\_\+\+\_\+quartic(), and get\+\_\+scale().
+
+
+\begin{DoxyCode}
+117     \{
+118       \textcolor{keywordflow}{if} (\_\_x.index() == 0)
+119         \textcolor{keywordflow}{return} std::numeric\_limits<\_Real>::quiet\_NaN();
+120       \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\_\_x.index() == 1)
+121         \textcolor{keywordflow}{return} \hyperlink{namespace____gnu__cxx_ab9eb9db3560f504f8cd25a71bcb6ead5}{std::abs}(std::get<1>(\_\_x));
+122       \textcolor{keywordflow}{else}
+123         \textcolor{keywordflow}{return} \hyperlink{namespace____gnu__cxx_ab9eb9db3560f504f8cd25a71bcb6ead5}{std::abs}(std::get<2>(\_\_x));
+124     \}
+\end{DoxyCode}
+\mbox{\Hypertarget{namespace____gnu__cxx_abe506cf34c921c378a681f0de31d49a5}\label{namespace____gnu__cxx_abe506cf34c921c378a681f0de31d49a5}} 
+\index{\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}!divmod@{divmod}}
+\index{divmod@{divmod}!\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}}
+\subsubsection{\texorpdfstring{divmod()}{divmod()}}
+{\footnotesize\ttfamily template$<$typename \+\_\+\+Tp $>$ \\
+void \+\_\+\+\_\+gnu\+\_\+cxx\+::divmod (\begin{DoxyParamCaption}\item[{const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \+\_\+\+Tp $>$ \&}]{\+\_\+\+\_\+pa,  }\item[{const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \+\_\+\+Tp $>$ \&}]{\+\_\+\+\_\+pb,  }\item[{\hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \+\_\+\+Tp $>$ \&}]{\+\_\+\+\_\+quo,  }\item[{\hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \+\_\+\+Tp $>$ \&}]{\+\_\+\+\_\+rem }\end{DoxyParamCaption})}
+
+Divide two polynomials returning the quotient and remainder. 
+
+Definition at line 351 of file polynomial.\+tcc.
+
+
+
+References \+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Polynomial$<$ \+\_\+\+Tp $>$\+::coefficient(), and \+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Polynomial$<$ \+\_\+\+Tp $>$\+::degree().
+
+
+
+Referenced by operator\%(), \+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Polynomial$<$ value\+\_\+type $>$\+::operator\%=(), and \+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Polynomial$<$ value\+\_\+type $>$\+::operator/=().
+
+
+\begin{DoxyCode}
+353     \{
+354       \_\_rem = \_\_pa;
+355       \_\_quo = \_Polynomial<\_Tp>(\_Tp(), \_\_pa.degree());
+356       \textcolor{keyword}{const} std::size\_t \_\_na = \_\_pa.degree();
+357       \textcolor{keyword}{const} std::size\_t \_\_nb = \_\_pb.degree();
+358       \textcolor{keywordflow}{if} (\_\_nb <= \_\_na)
+359         \{
+360           \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} \_\_k = \_\_na - \_\_nb; \_\_k >= 0; --\_\_k)
+361             \{
+362               \_\_quo.coefficient(\_\_k, \_\_rem.coefficient(\_\_nb + \_\_k)
+363                                    / \_\_pb.coefficient(\_\_nb));
+364               \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} \_\_j = \_\_nb + \_\_k - 1; \_\_j >= \_\_k; --\_\_j)
+365                 \_\_rem.coefficient(\_\_j, \_\_rem.coefficient(\_\_j)
+366                                      - \_\_quo.coefficient(\_\_k)
+367                                      * \_\_pb.coefficient(\_\_j - \_\_k));
+368             \}
+369           \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} \_\_j = \_\_nb; \_\_j <= \_\_na; ++\_\_j)
+370             \_\_rem.coefficient(\_\_j, \_Tp());
+371         \}
+372     \}
+\end{DoxyCode}
+\mbox{\Hypertarget{namespace____gnu__cxx_a2af747c0e255f3fae4d9f118c2817e1a}\label{namespace____gnu__cxx_a2af747c0e255f3fae4d9f118c2817e1a}} 
+\index{\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}!get\+\_\+scale@{get\+\_\+scale}}
+\index{get\+\_\+scale@{get\+\_\+scale}!\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}}
+\subsubsection{\texorpdfstring{get\+\_\+scale()}{get\_scale()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename \+\_\+\+Tp $>$ \\
+\+\_\+\+\_\+gnu\+\_\+cxx\+::get\+\_\+scale (\begin{DoxyParamCaption}\item[{const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \+\_\+\+Tp $>$ \&}]{\+\_\+\+\_\+poly }\end{DoxyParamCaption})}
+
+Return the scale for a polynomial. 
+
+Definition at line 728 of file polynomial.\+h.
+
+
+\begin{DoxyCode}
+729     \{ \textcolor{keywordflow}{return} \_\_poly.\_M\_get\_scale(); \}
+\end{DoxyCode}
+\mbox{\Hypertarget{namespace____gnu__cxx_a1a8bae104a6509f4e458d155acaf0476}\label{namespace____gnu__cxx_a1a8bae104a6509f4e458d155acaf0476}} 
+\index{\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}!get\+\_\+scale@{get\+\_\+scale}}
+\index{get\+\_\+scale@{get\+\_\+scale}!\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}}
+\subsubsection{\texorpdfstring{get\+\_\+scale()}{get\_scale()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename \+\_\+\+Tp $>$ \\
+\+\_\+\+\_\+gnu\+\_\+cxx\+::get\+\_\+scale (\begin{DoxyParamCaption}\item[{const \+\_\+\+Tp \&}]{\+\_\+\+\_\+x }\end{DoxyParamCaption})}
+
+Return the scale for a number. 
+
+Definition at line 735 of file polynomial.\+h.
+
+
+
+References abs().
+
+
+\begin{DoxyCode}
+736     \{ \textcolor{keywordflow}{return} \hyperlink{namespace____gnu__cxx_ab9eb9db3560f504f8cd25a71bcb6ead5}{std::abs}(\_\_x); \}
+\end{DoxyCode}
+\mbox{\Hypertarget{namespace____gnu__cxx_a2e77239e9d41f55a99755f285ba3d518}\label{namespace____gnu__cxx_a2e77239e9d41f55a99755f285ba3d518}} 
+\index{\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}!horner@{horner}}
+\index{horner@{horner}!\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}}
+\subsubsection{\texorpdfstring{horner()}{horner()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename \+\_\+\+ArgT , typename \+\_\+\+Coef0 $>$ \\
+constexpr std\+::conditional\+\_\+t$<$std\+::is\+\_\+integral$<$\+\_\+\+ArgT$>$\+::value, double, \+\_\+\+ArgT$>$ \+\_\+\+\_\+gnu\+\_\+cxx\+::horner (\begin{DoxyParamCaption}\item[{\+\_\+\+ArgT}]{\+\_\+\+\_\+x,  }\item[{\+\_\+\+Coef0}]{\+\_\+\+\_\+c0 }\end{DoxyParamCaption})}
+
+Perform compile-\/time evaluation of a constant zero-\/order polynomial. 
+
+Definition at line 52 of file horner.\+h.
+
+
+
+Referenced by horner().
+
+
+\begin{DoxyCode}
+53   \{
+54     \textcolor{keyword}{using} \_\_arg\_t = std::conditional\_t<std::is\_integral<\_ArgT>::value,
+55                                         double, \_ArgT>;
+56     \textcolor{keywordflow}{return} \_\_arg\_t\{\_\_c0\};
+57   \}
+\end{DoxyCode}
+\mbox{\Hypertarget{namespace____gnu__cxx_a027e4b11b3b25078522220207c2d7f36}\label{namespace____gnu__cxx_a027e4b11b3b25078522220207c2d7f36}} 
+\index{\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}!horner@{horner}}
+\index{horner@{horner}!\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}}
+\subsubsection{\texorpdfstring{horner()}{horner()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename \+\_\+\+ArgT , typename \+\_\+\+Coef0 , typename... \+\_\+\+Coef$>$ \\
+constexpr std\+::conditional\+\_\+t$<$std\+::is\+\_\+integral$<$\+\_\+\+ArgT$>$\+::value, double, \+\_\+\+ArgT$>$ \+\_\+\+\_\+gnu\+\_\+cxx\+::horner (\begin{DoxyParamCaption}\item[{\+\_\+\+ArgT}]{\+\_\+\+\_\+x,  }\item[{\+\_\+\+Coef0}]{\+\_\+\+\_\+c0,  }\item[{\+\_\+\+Coef...}]{\+\_\+\+\_\+c }\end{DoxyParamCaption})}
+
+Perform compile-\/time evaluation of a constant polynomial. The polynomial coefficients are lowest-\/order first. 
+
+Definition at line 65 of file horner.\+h.
+
+
+
+References horner().
+
+
+\begin{DoxyCode}
+66   \{
+67     \textcolor{keyword}{using} \_\_arg\_t = std::conditional\_t<std::is\_integral<\_ArgT>::value,
+68                                         double, \_ArgT>;
+69     \textcolor{keywordflow}{return} \_\_arg\_t\{\_\_c0\} + \_\_x * \hyperlink{namespace____gnu__cxx_a027e4b11b3b25078522220207c2d7f36}{horner}(\_\_x, \_\_c...);
+70   \}
+\end{DoxyCode}
+\mbox{\Hypertarget{namespace____gnu__cxx_af87123557fba351af5069ed8d1b99ec1}\label{namespace____gnu__cxx_af87123557fba351af5069ed8d1b99ec1}} 
+\index{\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}!horner\+\_\+big\+\_\+end@{horner\+\_\+big\+\_\+end}}
+\index{horner\+\_\+big\+\_\+end@{horner\+\_\+big\+\_\+end}!\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}}
+\subsubsection{\texorpdfstring{horner\+\_\+big\+\_\+end()}{horner\_big\_end()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily template$<$typename \+\_\+\+ArgT , typename \+\_\+\+Coef0 $>$ \\
+constexpr std\+::conditional\+\_\+t$<$std\+::is\+\_\+integral$<$\+\_\+\+ArgT$>$\+::value, double, \+\_\+\+ArgT$>$ \+\_\+\+\_\+gnu\+\_\+cxx\+::horner\+\_\+big\+\_\+end (\begin{DoxyParamCaption}\item[{\+\_\+\+ArgT}]{,  }\item[{\+\_\+\+Coef0}]{\+\_\+\+\_\+c0 }\end{DoxyParamCaption})}
+
+Perform compile-\/time evaluation of a constant zero-\/order polynomial. The polynomial coefficients are highest-\/order first. 
+
+Definition at line 79 of file horner.\+h.
+
+
+
+Referenced by horner\+\_\+big\+\_\+end().
+
+
+\begin{DoxyCode}
+80   \{
+81     \textcolor{keyword}{using} \_\_arg\_t = std::conditional\_t<std::is\_integral<\_ArgT>::value,
+82                                         double, \_ArgT>;
+83     \textcolor{keywordflow}{return} \_\_arg\_t\{\_\_c0\};
+84   \}
+\end{DoxyCode}
+\mbox{\Hypertarget{namespace____gnu__cxx_a546a72f007105e3ba32df87d7463edf7}\label{namespace____gnu__cxx_a546a72f007105e3ba32df87d7463edf7}} 
+\index{\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}!horner\+\_\+big\+\_\+end@{horner\+\_\+big\+\_\+end}}
+\index{horner\+\_\+big\+\_\+end@{horner\+\_\+big\+\_\+end}!\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}}
+\subsubsection{\texorpdfstring{horner\+\_\+big\+\_\+end()}{horner\_big\_end()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily template$<$typename \+\_\+\+ArgT , typename \+\_\+\+Coef1 , typename \+\_\+\+Coef0 $>$ \\
+constexpr std\+::conditional\+\_\+t$<$std\+::is\+\_\+integral$<$\+\_\+\+ArgT$>$\+::value, double, \+\_\+\+ArgT$>$ \+\_\+\+\_\+gnu\+\_\+cxx\+::horner\+\_\+big\+\_\+end (\begin{DoxyParamCaption}\item[{\+\_\+\+ArgT}]{\+\_\+\+\_\+x,  }\item[{\+\_\+\+Coef1}]{\+\_\+\+\_\+c1,  }\item[{\+\_\+\+Coef0}]{\+\_\+\+\_\+c0 }\end{DoxyParamCaption})}
+
+Perform compile-\/time evaluation of a constant first-\/order polynomial. The polynomial coefficients are highest-\/order first. 
+
+Definition at line 92 of file horner.\+h.
+
+
+
+References horner\+\_\+big\+\_\+end().
+
+
+\begin{DoxyCode}
+93   \{
+94     \textcolor{keyword}{using} \_\_arg\_t = std::conditional\_t<std::is\_integral<\_ArgT>::value,
+95                                         double, \_ArgT>;
+96     \textcolor{keywordflow}{return} \hyperlink{namespace____gnu__cxx_afda9e3a1e351db85a89d4e6434576159}{horner\_big\_end}(\_\_x, \_\_x * \_\_arg\_t\{\_\_c1\} + \_\_arg\_t\{\_\_c0\});
+97   \}
+\end{DoxyCode}
+\mbox{\Hypertarget{namespace____gnu__cxx_afda9e3a1e351db85a89d4e6434576159}\label{namespace____gnu__cxx_afda9e3a1e351db85a89d4e6434576159}} 
+\index{\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}!horner\+\_\+big\+\_\+end@{horner\+\_\+big\+\_\+end}}
+\index{horner\+\_\+big\+\_\+end@{horner\+\_\+big\+\_\+end}!\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}}
+\subsubsection{\texorpdfstring{horner\+\_\+big\+\_\+end()}{horner\_big\_end()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily template$<$typename \+\_\+\+ArgT , typename \+\_\+\+CoefN , typename \+\_\+\+Coef\+Nm1 , typename... \+\_\+\+Coef$>$ \\
+constexpr std\+::conditional\+\_\+t$<$std\+::is\+\_\+integral$<$\+\_\+\+ArgT$>$\+::value, double, \+\_\+\+ArgT$>$ \+\_\+\+\_\+gnu\+\_\+cxx\+::horner\+\_\+big\+\_\+end (\begin{DoxyParamCaption}\item[{\+\_\+\+ArgT}]{\+\_\+\+\_\+x,  }\item[{\+\_\+\+CoefN}]{\+\_\+\+\_\+cn,  }\item[{\+\_\+\+Coef\+Nm1}]{\+\_\+\+\_\+cnm1,  }\item[{\+\_\+\+Coef...}]{\+\_\+\+\_\+c }\end{DoxyParamCaption})}
+
+Perform compile-\/time evaluation of a constant polynomial. The polynomial coefficients are highest-\/order first. 
+
+Definition at line 105 of file horner.\+h.
+
+
+
+References horner\+\_\+big\+\_\+end().
+
+
+\begin{DoxyCode}
+106   \{
+107     \textcolor{keyword}{using} \_\_arg\_t = std::conditional\_t<std::is\_integral<\_ArgT>::value,
+108                                         double, \_ArgT>;
+109     \textcolor{keywordflow}{return} \hyperlink{namespace____gnu__cxx_afda9e3a1e351db85a89d4e6434576159}{horner\_big\_end}(\_\_x, \_\_x * \_\_arg\_t\{\_\_cn\} + \_\_arg\_t\{\_\_cnm1\}, \_\_c...);
+110   \}
+\end{DoxyCode}
+\mbox{\Hypertarget{namespace____gnu__cxx_a685dd0477f8454431bcfb404fa201c57}\label{namespace____gnu__cxx_a685dd0477f8454431bcfb404fa201c57}} 
+\index{\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}!imag@{imag}}
+\index{imag@{imag}!\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}}
+\subsubsection{\texorpdfstring{imag()}{imag()}}
+{\footnotesize\ttfamily template$<$typename \+\_\+\+Real $>$ \\
+constexpr \+\_\+\+Real \+\_\+\+\_\+gnu\+\_\+cxx\+::imag (\begin{DoxyParamCaption}\item[{const \hyperlink{namespace____gnu__cxx_ae20ea642de50eb361074c62676b0159c}{solution\+\_\+t}$<$ \+\_\+\+Real $>$ \&}]{\+\_\+\+\_\+x }\end{DoxyParamCaption})}
+
+
+
+Definition at line 104 of file solution.\+h.
+
+
+
+Referenced by std\+::operator$<$().
+
+
+\begin{DoxyCode}
+105     \{
+106       \textcolor{keywordflow}{if} (\_\_x.index() == 0)
+107         \textcolor{keywordflow}{return} std::numeric\_limits<\_Real>::quiet\_NaN();
+108       \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\_\_x.index() == 1)
+109         \textcolor{keywordflow}{return} \_Real\{0\};
+110       \textcolor{keywordflow}{else}
+111         \textcolor{keywordflow}{return} \hyperlink{namespace____gnu__cxx_a685dd0477f8454431bcfb404fa201c57}{std::imag}(std::get<2>(\_\_x));
+112     \}
+\end{DoxyCode}
+\mbox{\Hypertarget{namespace____gnu__cxx_ac6649e26a3db551b4f945ccfcd3ce0a7}\label{namespace____gnu__cxx_ac6649e26a3db551b4f945ccfcd3ce0a7}} 
+\index{\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}!is\+\_\+valid@{is\+\_\+valid}}
+\index{is\+\_\+valid@{is\+\_\+valid}!\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}}
+\subsubsection{\texorpdfstring{is\+\_\+valid()}{is\_valid()}}
+{\footnotesize\ttfamily template$<$typename \+\_\+\+Real $>$ \\
+constexpr bool \+\_\+\+\_\+gnu\+\_\+cxx\+::is\+\_\+valid (\begin{DoxyParamCaption}\item[{const \hyperlink{namespace____gnu__cxx_ae20ea642de50eb361074c62676b0159c}{solution\+\_\+t}$<$ \+\_\+\+Real $>$ \&}]{\+\_\+\+\_\+x }\end{DoxyParamCaption})}
+
+
+
+Definition at line 63 of file solution.\+h.
+
+
+\begin{DoxyCode}
+64     \{ \textcolor{keywordflow}{return} \_\_x.index() != 0; \}
+\end{DoxyCode}
+\mbox{\Hypertarget{namespace____gnu__cxx_ad79bae6336788c58358fcf9fcd342cb9}\label{namespace____gnu__cxx_ad79bae6336788c58358fcf9fcd342cb9}} 
+\index{\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}}
+\subsubsection{\texorpdfstring{operator"!=()}{operator!=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily template$<$typename \+\_\+\+Tp , std\+::size\+\_\+t \+\_\+\+NumA, std\+::size\+\_\+t \+\_\+\+NumB$>$ \\
+bool \+\_\+\+\_\+gnu\+\_\+cxx\+::operator!= (\begin{DoxyParamCaption}\item[{const \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$ \+\_\+\+Tp, \+\_\+\+NumA $>$ \&}]{\+\_\+\+\_\+pa,  }\item[{const \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$ \+\_\+\+Tp, \+\_\+\+NumB $>$ \&}]{\+\_\+\+\_\+pb }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Return false if two polynomials are equal. 
+
+Definition at line 558 of file static\+\_\+polynomial.\+h.
+
+
+\begin{DoxyCode}
+560     \{ \textcolor{keywordflow}{return} \textcolor{keyword}{true}; \}
+\end{DoxyCode}
+\mbox{\Hypertarget{namespace____gnu__cxx_a18cd3b1685ac1bb1c3f323e451e796d1}\label{namespace____gnu__cxx_a18cd3b1685ac1bb1c3f323e451e796d1}} 
+\index{\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}}
+\subsubsection{\texorpdfstring{operator"!=()}{operator!=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily template$<$typename \+\_\+\+Tp , std\+::size\+\_\+t \+\_\+\+Num$>$ \\
+bool \+\_\+\+\_\+gnu\+\_\+cxx\+::operator!= (\begin{DoxyParamCaption}\item[{const \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$ \+\_\+\+Tp, \+\_\+\+Num $>$ \&}]{\+\_\+\+\_\+pa,  }\item[{const \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$ \+\_\+\+Tp, \+\_\+\+Num $>$ \&}]{\+\_\+\+\_\+pb }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Return false if two polynomials are equal. 
+
+Definition at line 567 of file static\+\_\+polynomial.\+h.
+
+
+\begin{DoxyCode}
+569     \{ \textcolor{keywordflow}{return} !(\_\_pa == \_\_pb); \}
+\end{DoxyCode}
+\mbox{\Hypertarget{namespace____gnu__cxx_a1279934a2d6df66704c6eab9113b0f97}\label{namespace____gnu__cxx_a1279934a2d6df66704c6eab9113b0f97}} 
+\index{\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}}
+\subsubsection{\texorpdfstring{operator"!=()}{operator!=()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily template$<$typename \+\_\+\+Tp $>$ \\
+bool \+\_\+\+\_\+gnu\+\_\+cxx\+::operator!= (\begin{DoxyParamCaption}\item[{const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \+\_\+\+Tp $>$ \&}]{\+\_\+\+\_\+pa,  }\item[{const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \+\_\+\+Tp $>$ \&}]{\+\_\+\+\_\+pb }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Return false if two polynomials are equal. 
+
+Definition at line 898 of file polynomial.\+h.
+
+
+\begin{DoxyCode}
+899     \{ \textcolor{keywordflow}{return} !(\_\_pa == \_\_pb); \}
+\end{DoxyCode}
+\mbox{\Hypertarget{namespace____gnu__cxx_a3132828069a740986e97f1db8e07325c}\label{namespace____gnu__cxx_a3132828069a740986e97f1db8e07325c}} 
+\index{\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}!operator\%@{operator\%}}
+\index{operator\%@{operator\%}!\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}}
+\subsubsection{\texorpdfstring{operator\%()}{operator\%()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily template$<$typename \+\_\+\+Tp , typename \+\_\+\+Up $>$ \\
+\hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$decltype(\+\_\+\+Tp() / \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up}())$>$ \+\_\+\+\_\+gnu\+\_\+cxx\+::operator\% (\begin{DoxyParamCaption}\item[{const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \+\_\+\+Tp $>$ \&}]{\+\_\+\+\_\+poly,  }\item[{const \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up} \&}]{\+\_\+\+\_\+x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 775 of file polynomial.\+h.
+
+
+
+References \+\_\+\+Up.
+
+
+\begin{DoxyCode}
+776     \{ \textcolor{keywordflow}{return} \_Polynomial<decltype(\_Tp() / \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\_Up}())>(\_\_poly) %= \_\_x; \}
+\end{DoxyCode}
+\mbox{\Hypertarget{namespace____gnu__cxx_a13dae497264694313717a5aa70407de5}\label{namespace____gnu__cxx_a13dae497264694313717a5aa70407de5}} 
+\index{\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}!operator\%@{operator\%}}
+\index{operator\%@{operator\%}!\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}}
+\subsubsection{\texorpdfstring{operator\%()}{operator\%()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily template$<$typename \+\_\+\+Tp , typename \+\_\+\+Up $>$ \\
+\hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$decltype(\+\_\+\+Tp() / \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up}())$>$ \+\_\+\+\_\+gnu\+\_\+cxx\+::operator\% (\begin{DoxyParamCaption}\item[{const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \+\_\+\+Tp $>$ \&}]{\+\_\+\+\_\+pa,  }\item[{const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up} $>$ \&}]{\+\_\+\+\_\+pb }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Return the modulus or remainder of one polynomial relative to another one. 
+
+Definition at line 815 of file polynomial.\+h.
+
+
+
+References \+\_\+\+Up.
+
+
+\begin{DoxyCode}
+816     \{ \textcolor{keywordflow}{return} \_Polynomial<decltype(\_Tp() / \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\_Up}())>(\_\_pa) %= \_\_pb; \}
+\end{DoxyCode}
+\mbox{\Hypertarget{namespace____gnu__cxx_a2d1e6cb96943b2c99f71cf77a7247e77}\label{namespace____gnu__cxx_a2d1e6cb96943b2c99f71cf77a7247e77}} 
+\index{\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}!operator\%@{operator\%}}
+\index{operator\%@{operator\%}!\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}}
+\subsubsection{\texorpdfstring{operator\%()}{operator\%()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily template$<$typename \+\_\+\+Tp , typename \+\_\+\+Up $>$ \\
+\hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$decltype(\+\_\+\+Tp() / \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up}())$>$ \+\_\+\+\_\+gnu\+\_\+cxx\+::operator\% (\begin{DoxyParamCaption}\item[{const \+\_\+\+Tp \&}]{\+\_\+\+\_\+x,  }\item[{const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up} $>$ \&}]{\+\_\+\+\_\+poly }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Return the modulus or remainder of one polynomial relative to another one. 
+
+Definition at line 855 of file polynomial.\+h.
+
+
+
+References \+\_\+\+Up, divmod(), and operator$>$$>$().
+
+
+\begin{DoxyCode}
+856     \{ \textcolor{keywordflow}{return} \_Polynomial<decltype(\_Tp() / \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\_Up}())>(\_\_x) %= \_\_poly; \}
+\end{DoxyCode}
+\mbox{\Hypertarget{namespace____gnu__cxx_a1d0b1e9322fd407848b43cecab1ab9ae}\label{namespace____gnu__cxx_a1d0b1e9322fd407848b43cecab1ab9ae}} 
+\index{\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}}
+\subsubsection{\texorpdfstring{operator$\ast$()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily template$<$typename \+\_\+\+Tp , typename \+\_\+\+Up $>$ \\
+\hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$decltype(\+\_\+\+Tp() $\ast$ \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up}())$>$ \+\_\+\+\_\+gnu\+\_\+cxx\+::operator$\ast$ (\begin{DoxyParamCaption}\item[{const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \+\_\+\+Tp $>$ \&}]{\+\_\+\+\_\+poly,  }\item[{const \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up} \&}]{\+\_\+\+\_\+x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Return the product of a polynomial with a scalar. 
+
+Definition at line 759 of file polynomial.\+h.
+
+
+
+References \+\_\+\+Up.
+
+
+
+Referenced by std\+::operator$\ast$().
+
+
+\begin{DoxyCode}
+760     \{ \textcolor{keywordflow}{return} \_Polynomial<decltype(\_Tp() * \_Up())>(\_\_poly) *= \_\_x; \}
+\end{DoxyCode}
+\mbox{\Hypertarget{namespace____gnu__cxx_a2f76fd6f7c2c9e64fba1d5892844f26b}\label{namespace____gnu__cxx_a2f76fd6f7c2c9e64fba1d5892844f26b}} 
+\index{\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}}
+\subsubsection{\texorpdfstring{operator$\ast$()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily template$<$typename \+\_\+\+Tp , typename \+\_\+\+Up $>$ \\
+\hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$decltype(\+\_\+\+Tp() $\ast$ \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up}())$>$ \+\_\+\+\_\+gnu\+\_\+cxx\+::operator$\ast$ (\begin{DoxyParamCaption}\item[{const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \+\_\+\+Tp $>$ \&}]{\+\_\+\+\_\+pa,  }\item[{const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up} $>$ \&}]{\+\_\+\+\_\+pb }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Return the product of two polynomials. 
+
+Definition at line 799 of file polynomial.\+h.
+
+
+
+References \+\_\+\+Up.
+
+
+\begin{DoxyCode}
+800     \{ \textcolor{keywordflow}{return} \_Polynomial<decltype(\_Tp() * \_Up())>(\_\_pa) *= \_\_pb; \}
+\end{DoxyCode}
+\mbox{\Hypertarget{namespace____gnu__cxx_ac79cfe2d37e5d8116fcf51911c21c253}\label{namespace____gnu__cxx_ac79cfe2d37e5d8116fcf51911c21c253}} 
+\index{\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}}
+\subsubsection{\texorpdfstring{operator$\ast$()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily template$<$typename \+\_\+\+Tp , typename \+\_\+\+Up $>$ \\
+\hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$decltype(\+\_\+\+Tp() $\ast$ \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up}())$>$ \+\_\+\+\_\+gnu\+\_\+cxx\+::operator$\ast$ (\begin{DoxyParamCaption}\item[{const \+\_\+\+Tp \&}]{\+\_\+\+\_\+x,  }\item[{const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up} $>$ \&}]{\+\_\+\+\_\+poly }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 839 of file polynomial.\+h.
+
+
+
+References \+\_\+\+Up.
+
+
+\begin{DoxyCode}
+840     \{ \textcolor{keywordflow}{return} \_Polynomial<decltype(\_Tp() * \_Up())>(\_\_x) *= \_\_poly; \}
+\end{DoxyCode}
+\mbox{\Hypertarget{namespace____gnu__cxx_a2b408e7a7e5d2ec6879b8e40f7f5de3e}\label{namespace____gnu__cxx_a2b408e7a7e5d2ec6879b8e40f7f5de3e}} 
+\index{\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}!operator+@{operator+}}
+\index{operator+@{operator+}!\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}}
+\subsubsection{\texorpdfstring{operator+()}{operator+()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily template$<$typename \+\_\+\+Tp , typename \+\_\+\+Up $>$ \\
+\hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$decltype(\+\_\+\+Tp() + \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up}())$>$ \+\_\+\+\_\+gnu\+\_\+cxx\+::operator+ (\begin{DoxyParamCaption}\item[{const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \+\_\+\+Tp $>$ \&}]{\+\_\+\+\_\+poly,  }\item[{const \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up} \&}]{\+\_\+\+\_\+x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Return the sum of a polynomial with a scalar. 
+
+Definition at line 743 of file polynomial.\+h.
+
+
+
+References \+\_\+\+Up.
+
+
+
+Referenced by std\+::operator+().
+
+
+\begin{DoxyCode}
+744     \{ \textcolor{keywordflow}{return} \_Polynomial<decltype(\_Tp() + \_Up())>(\_\_poly) += \_\_x; \}
+\end{DoxyCode}
+\mbox{\Hypertarget{namespace____gnu__cxx_ada8a28005b5f71563bec55c71e03029b}\label{namespace____gnu__cxx_ada8a28005b5f71563bec55c71e03029b}} 
+\index{\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}!operator+@{operator+}}
+\index{operator+@{operator+}!\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}}
+\subsubsection{\texorpdfstring{operator+()}{operator+()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily template$<$typename \+\_\+\+Tp , typename \+\_\+\+Up $>$ \\
+\hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$decltype(\+\_\+\+Tp() + \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up}())$>$ \+\_\+\+\_\+gnu\+\_\+cxx\+::operator+ (\begin{DoxyParamCaption}\item[{const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \+\_\+\+Tp $>$ \&}]{\+\_\+\+\_\+pa,  }\item[{const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up} $>$ \&}]{\+\_\+\+\_\+pb }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Return the sum of two polynomials. 
+
+Definition at line 783 of file polynomial.\+h.
+
+
+
+References \+\_\+\+Up.
+
+
+\begin{DoxyCode}
+784     \{ \textcolor{keywordflow}{return} \_Polynomial<decltype(\_Tp() + \_Up())>(\_\_pa) += \_\_pb; \}
+\end{DoxyCode}
+\mbox{\Hypertarget{namespace____gnu__cxx_ac9f58ced995b65628b5715c885569cb7}\label{namespace____gnu__cxx_ac9f58ced995b65628b5715c885569cb7}} 
+\index{\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}!operator+@{operator+}}
+\index{operator+@{operator+}!\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}}
+\subsubsection{\texorpdfstring{operator+()}{operator+()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily template$<$typename \+\_\+\+Tp , typename \+\_\+\+Up $>$ \\
+\hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$decltype(\+\_\+\+Tp() + \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up}())$>$ \+\_\+\+\_\+gnu\+\_\+cxx\+::operator+ (\begin{DoxyParamCaption}\item[{const \+\_\+\+Tp \&}]{\+\_\+\+\_\+x,  }\item[{const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up} $>$ \&}]{\+\_\+\+\_\+poly }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 823 of file polynomial.\+h.
+
+
+
+References \+\_\+\+Up.
+
+
+\begin{DoxyCode}
+824     \{ \textcolor{keywordflow}{return} \_Polynomial<decltype(\_Tp() + \_Up())>(\_\_x) += \_\_poly; \}
+\end{DoxyCode}
+\mbox{\Hypertarget{namespace____gnu__cxx_abc583ac0684f0aff079c6014f3d84c1d}\label{namespace____gnu__cxx_abc583ac0684f0aff079c6014f3d84c1d}} 
+\index{\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}}
+\subsubsection{\texorpdfstring{operator-\/()}{operator-()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily template$<$typename \+\_\+\+Tp , typename \+\_\+\+Up $>$ \\
+\hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$decltype(\+\_\+\+Tp() -\/ \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up}())$>$ \+\_\+\+\_\+gnu\+\_\+cxx\+::operator-\/ (\begin{DoxyParamCaption}\item[{const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \+\_\+\+Tp $>$ \&}]{\+\_\+\+\_\+poly,  }\item[{const \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up} \&}]{\+\_\+\+\_\+x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Return the difference of a polynomial with a scalar. 
+
+Definition at line 751 of file polynomial.\+h.
+
+
+
+References \+\_\+\+Up.
+
+
+
+Referenced by std\+::operator-\/().
+
+
+\begin{DoxyCode}
+752     \{ \textcolor{keywordflow}{return} \_Polynomial<decltype(\_Tp() - \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\_Up}())>(\_\_poly) -= \_\_x; \}
+\end{DoxyCode}
+\mbox{\Hypertarget{namespace____gnu__cxx_a4609eee7a71e3be3a103df9556fab9b4}\label{namespace____gnu__cxx_a4609eee7a71e3be3a103df9556fab9b4}} 
+\index{\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}}
+\subsubsection{\texorpdfstring{operator-\/()}{operator-()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily template$<$typename \+\_\+\+Tp , typename \+\_\+\+Up $>$ \\
+\hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$decltype(\+\_\+\+Tp() -\/ \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up}())$>$ \+\_\+\+\_\+gnu\+\_\+cxx\+::operator-\/ (\begin{DoxyParamCaption}\item[{const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \+\_\+\+Tp $>$ \&}]{\+\_\+\+\_\+pa,  }\item[{const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up} $>$ \&}]{\+\_\+\+\_\+pb }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Return the difference of two polynomials. 
+
+Definition at line 791 of file polynomial.\+h.
+
+
+
+References \+\_\+\+Up.
+
+
+\begin{DoxyCode}
+792     \{ \textcolor{keywordflow}{return} \_Polynomial<decltype(\_Tp() - \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\_Up}())>(\_\_pa) -= \_\_pb; \}
+\end{DoxyCode}
+\mbox{\Hypertarget{namespace____gnu__cxx_acc72fd3c1efcf09698d30d42c4a1eb1b}\label{namespace____gnu__cxx_acc72fd3c1efcf09698d30d42c4a1eb1b}} 
+\index{\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}}
+\subsubsection{\texorpdfstring{operator-\/()}{operator-()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily template$<$typename \+\_\+\+Tp , typename \+\_\+\+Up $>$ \\
+\hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$decltype(\+\_\+\+Tp() -\/ \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up}())$>$ \+\_\+\+\_\+gnu\+\_\+cxx\+::operator-\/ (\begin{DoxyParamCaption}\item[{const \+\_\+\+Tp \&}]{\+\_\+\+\_\+x,  }\item[{const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up} $>$ \&}]{\+\_\+\+\_\+poly }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 831 of file polynomial.\+h.
+
+
+
+References \+\_\+\+Up.
+
+
+\begin{DoxyCode}
+832     \{ \textcolor{keywordflow}{return} \_Polynomial<decltype(\_Tp() - \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\_Up}())>(\_\_x) -= \_\_poly; \}
+\end{DoxyCode}
+\mbox{\Hypertarget{namespace____gnu__cxx_a5fd356349013bd60a41010cbf502444b}\label{namespace____gnu__cxx_a5fd356349013bd60a41010cbf502444b}} 
+\index{\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}!operator/@{operator/}}
+\index{operator/@{operator/}!\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}}
+\subsubsection{\texorpdfstring{operator/()}{operator/()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily template$<$typename \+\_\+\+Tp , typename \+\_\+\+Up $>$ \\
+\hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$decltype(\+\_\+\+Tp() / \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up}())$>$ \+\_\+\+\_\+gnu\+\_\+cxx\+::operator/ (\begin{DoxyParamCaption}\item[{const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \+\_\+\+Tp $>$ \&}]{\+\_\+\+\_\+poly,  }\item[{const \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up} \&}]{\+\_\+\+\_\+x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Return the quotient of a polynomial with a scalar. 
+
+Definition at line 767 of file polynomial.\+h.
+
+
+
+References \+\_\+\+Up.
+
+
+
+Referenced by std\+::operator/().
+
+
+\begin{DoxyCode}
+768     \{ \textcolor{keywordflow}{return} \_Polynomial<decltype(\_Tp() / \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\_Up}())>(\_\_poly) /= \_\_x; \}
+\end{DoxyCode}
+\mbox{\Hypertarget{namespace____gnu__cxx_a6ba146c479b383e9ba26760c847e3dc6}\label{namespace____gnu__cxx_a6ba146c479b383e9ba26760c847e3dc6}} 
+\index{\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}!operator/@{operator/}}
+\index{operator/@{operator/}!\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}}
+\subsubsection{\texorpdfstring{operator/()}{operator/()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily template$<$typename \+\_\+\+Tp , typename \+\_\+\+Up $>$ \\
+\hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$decltype(\+\_\+\+Tp() / \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up}())$>$ \+\_\+\+\_\+gnu\+\_\+cxx\+::operator/ (\begin{DoxyParamCaption}\item[{const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \+\_\+\+Tp $>$ \&}]{\+\_\+\+\_\+pa,  }\item[{const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up} $>$ \&}]{\+\_\+\+\_\+pb }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Return the quotient of two polynomials. 
+
+Definition at line 807 of file polynomial.\+h.
+
+
+
+References \+\_\+\+Up.
+
+
+\begin{DoxyCode}
+808     \{ \textcolor{keywordflow}{return} \_Polynomial<decltype(\_Tp() / \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\_Up}())>(\_\_pa) /= \_\_pb; \}
+\end{DoxyCode}
+\mbox{\Hypertarget{namespace____gnu__cxx_a4c1b4c46ffc6c41fb5b5d1a4293ca563}\label{namespace____gnu__cxx_a4c1b4c46ffc6c41fb5b5d1a4293ca563}} 
+\index{\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}!operator/@{operator/}}
+\index{operator/@{operator/}!\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}}
+\subsubsection{\texorpdfstring{operator/()}{operator/()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily template$<$typename \+\_\+\+Tp , typename \+\_\+\+Up $>$ \\
+\hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$decltype(\+\_\+\+Tp() / \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up}())$>$ \+\_\+\+\_\+gnu\+\_\+cxx\+::operator/ (\begin{DoxyParamCaption}\item[{const \+\_\+\+Tp \&}]{\+\_\+\+\_\+x,  }\item[{const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up} $>$ \&}]{\+\_\+\+\_\+poly }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Return the quotient of two polynomials. 
+
+Definition at line 847 of file polynomial.\+h.
+
+
+
+References \+\_\+\+Up.
+
+
+\begin{DoxyCode}
+848     \{ \textcolor{keywordflow}{return} \_Polynomial<decltype(\_Tp() / \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\_Up}())>(\_\_x) /= \_\_poly; \}
+\end{DoxyCode}
+\mbox{\Hypertarget{namespace____gnu__cxx_a424044092ac184bfa1d17beb1b12e071}\label{namespace____gnu__cxx_a424044092ac184bfa1d17beb1b12e071}} 
+\index{\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}}
+\subsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename CharT , typename Traits , typename \+\_\+\+Tp $>$ \\
+std\+::basic\+\_\+ostream$<$CharT, Traits$>$\& \+\_\+\+\_\+gnu\+\_\+cxx\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::basic\+\_\+ostream$<$ CharT, Traits $>$ \&}]{\+\_\+\+\_\+os,  }\item[{const \hyperlink{class____gnu__cxx_1_1__RationalPolynomial}{\+\_\+\+Rational\+Polynomial}$<$ \+\_\+\+Tp $>$ \&}]{\+\_\+\+\_\+poly }\end{DoxyParamCaption})}
+
+Write a polynomial to a stream. The format is a parenthesized comma-\/delimited list of coefficients. 
+
+Definition at line 198 of file rational\+\_\+polynomial.\+h.
+
+
+
+References \+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Rational\+Polynomial$<$ \+\_\+\+Tp $>$\+::numer().
+
+
+\begin{DoxyCode}
+199     \{
+200       \_\_os << \_\_poly.numer() << \textcolor{stringliteral}{"/"} << \_\_poly.denom();
+201       \textcolor{keywordflow}{return} \_\_os;
+202     \}
+\end{DoxyCode}
+\mbox{\Hypertarget{namespace____gnu__cxx_ad713743dbfc30fba653621d1f7e99d3c}\label{namespace____gnu__cxx_ad713743dbfc30fba653621d1f7e99d3c}} 
+\index{\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}}
+\subsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename CharT , typename Traits , typename \+\_\+\+Tp $>$ \\
+std\+::basic\+\_\+ostream$<$ CharT, Traits $>$ \& \+\_\+\+\_\+gnu\+\_\+cxx\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::basic\+\_\+ostream$<$ CharT, Traits $>$ \&}]{\+\_\+\+\_\+os,  }\item[{const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \+\_\+\+Tp $>$ \&}]{\+\_\+\+\_\+poly }\end{DoxyParamCaption})}
+
+Write a polynomial to a stream. The format is a parenthesized comma-\/delimited list of coefficients. 
+
+Definition at line 380 of file polynomial.\+tcc.
+
+
+
+References \+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Polynomial$<$ \+\_\+\+Tp $>$\+::coefficient().
+
+
+\begin{DoxyCode}
+382     \{
+383       \textcolor{keywordtype}{int} \_\_old\_prec = \_\_os.precision(std::numeric\_limits<\_Tp>::max\_digits10);
+384       \_\_os << \textcolor{stringliteral}{"("};
+385       \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} \_\_i = 0; \_\_i < \_\_poly.degree(); ++\_\_i)
+386         \_\_os << \_\_poly.coefficient(\_\_i) << \textcolor{stringliteral}{","};
+387       \_\_os << \_\_poly.coefficient(\_\_poly.degree());
+388       \_\_os << \textcolor{stringliteral}{")"};
+389       \_\_os.precision(\_\_old\_prec);
+390       \textcolor{keywordflow}{return} \_\_os;
+391     \}
+\end{DoxyCode}
+\mbox{\Hypertarget{namespace____gnu__cxx_a85c9740061a6497bb695d2ee147f52b8}\label{namespace____gnu__cxx_a85c9740061a6497bb695d2ee147f52b8}} 
+\index{\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}!operator==@{operator==}}
+\index{operator==@{operator==}!\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}}
+\subsubsection{\texorpdfstring{operator==()}{operator==()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily template$<$typename \+\_\+\+Tp , std\+::size\+\_\+t \+\_\+\+NumA, std\+::size\+\_\+t \+\_\+\+NumB$>$ \\
+bool \+\_\+\+\_\+gnu\+\_\+cxx\+::operator== (\begin{DoxyParamCaption}\item[{const \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$ \+\_\+\+Tp, \+\_\+\+NumA $>$ \&}]{,  }\item[{const \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$ \+\_\+\+Tp, \+\_\+\+NumB $>$ \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Return true if two polynomials are equal. 
+
+Definition at line 543 of file static\+\_\+polynomial.\+h.
+
+
+\begin{DoxyCode}
+545     \{ \textcolor{keywordflow}{return} \textcolor{keyword}{false}; \}
+\end{DoxyCode}
+\mbox{\Hypertarget{namespace____gnu__cxx_a2d1430ebbbaf156a6c80a8e8107960e1}\label{namespace____gnu__cxx_a2d1430ebbbaf156a6c80a8e8107960e1}} 
+\index{\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}!operator==@{operator==}}
+\index{operator==@{operator==}!\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}}
+\subsubsection{\texorpdfstring{operator==()}{operator==()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily template$<$typename \+\_\+\+Tp , std\+::size\+\_\+t \+\_\+\+Num$>$ \\
+bool \+\_\+\+\_\+gnu\+\_\+cxx\+::operator== (\begin{DoxyParamCaption}\item[{const \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$ \+\_\+\+Tp, \+\_\+\+Num $>$ \&}]{\+\_\+\+\_\+pa,  }\item[{const \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$ \+\_\+\+Tp, \+\_\+\+Num $>$ \&}]{\+\_\+\+\_\+pb }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 549 of file static\+\_\+polynomial.\+h.
+
+
+\begin{DoxyCode}
+551     \{ \textcolor{keywordflow}{return} \_\_pa.\_M\_coeff == \_\_pb.\_M\_coeff; \}
+\end{DoxyCode}
+\mbox{\Hypertarget{namespace____gnu__cxx_a7427db234bb8c8aab722a3196e898215}\label{namespace____gnu__cxx_a7427db234bb8c8aab722a3196e898215}} 
+\index{\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}!operator==@{operator==}}
+\index{operator==@{operator==}!\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}}
+\subsubsection{\texorpdfstring{operator==()}{operator==()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily template$<$typename \+\_\+\+Tp $>$ \\
+bool \+\_\+\+\_\+gnu\+\_\+cxx\+::operator== (\begin{DoxyParamCaption}\item[{const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \+\_\+\+Tp $>$ \&}]{\+\_\+\+\_\+pa,  }\item[{const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \+\_\+\+Tp $>$ \&}]{\+\_\+\+\_\+pb }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Return true if two polynomials are equal. 
+
+Definition at line 890 of file polynomial.\+h.
+
+
+\begin{DoxyCode}
+891     \{ \textcolor{keywordflow}{return} \_\_pa.\_M\_coeff == \_\_pb.\_M\_coeff; \}
+\end{DoxyCode}
+\mbox{\Hypertarget{namespace____gnu__cxx_a71511bc907f332ce9bb925c953f11714}\label{namespace____gnu__cxx_a71511bc907f332ce9bb925c953f11714}} 
+\index{\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}}
+\subsubsection{\texorpdfstring{operator$>$$>$()}{operator>>()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename CharT , typename Traits , typename \+\_\+\+Tp $>$ \\
+std\+::basic\+\_\+istream$<$CharT, Traits$>$\& \+\_\+\+\_\+gnu\+\_\+cxx\+::operator$>$$>$ (\begin{DoxyParamCaption}\item[{std\+::basic\+\_\+istream$<$ CharT, Traits $>$ \&}]{\+\_\+\+\_\+is,  }\item[{\hyperlink{class____gnu__cxx_1_1__RationalPolynomial}{\+\_\+\+Rational\+Polynomial}$<$ \+\_\+\+Tp $>$ \&}]{\+\_\+\+\_\+poly }\end{DoxyParamCaption})}
+
+Read a polynomial from a stream. The input format can be a plain scalar (zero degree polynomial) or a parenthesized comma-\/delimited list of coefficients. 
+
+Definition at line 211 of file rational\+\_\+polynomial.\+h.
+
+
+
+References \+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Rational\+Polynomial$<$ \+\_\+\+Tp $>$\+::denom(), and \+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Rational\+Polynomial$<$ \+\_\+\+Tp $>$\+::numer().
+
+
+\begin{DoxyCode}
+212     \{
+213       \_Polynomial<\_Tp> \_\_numer, \_\_denom;
+214       \_\_is >> \_\_numer;
+215       \textcolor{keywordflow}{if} (!\_\_is.fail())
+216         \{
+217           CharT \_\_ch;
+218           \_\_is >> \_\_ch;
+219           \textcolor{keywordflow}{if} (\_\_ch != \textcolor{charliteral}{'/'})
+220             \_\_is.setstate(std::ios\_base::failbit);
+221           \textcolor{keywordflow}{else}
+222             \{
+223               \_\_is >> \_\_denom;
+224               \textcolor{keywordflow}{if} (!\_\_is.fail())
+225                 \{
+226                   \_\_poly.numer() = \_\_numer;
+227                   \_\_poly.denom() = \_\_denom;
+228                 \}
+229             \}
+230         \}
+231       \textcolor{keywordflow}{return} \_\_is;
+232     \}
+\end{DoxyCode}
+\mbox{\Hypertarget{namespace____gnu__cxx_acf7d03318756578d08f672212cd91234}\label{namespace____gnu__cxx_acf7d03318756578d08f672212cd91234}} 
+\index{\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}}
+\subsubsection{\texorpdfstring{operator$>$$>$()}{operator>>()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename CharT , typename Traits , typename \+\_\+\+Tp $>$ \\
+std\+::basic\+\_\+istream$<$ CharT, Traits $>$ \& \+\_\+\+\_\+gnu\+\_\+cxx\+::operator$>$$>$ (\begin{DoxyParamCaption}\item[{std\+::basic\+\_\+istream$<$ CharT, Traits $>$ \&}]{\+\_\+\+\_\+is,  }\item[{\hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \+\_\+\+Tp $>$ \&}]{\+\_\+\+\_\+poly }\end{DoxyParamCaption})}
+
+Read a polynomial from a stream. The input format can be a plain scalar (zero degree polynomial) or a parenthesized comma-\/delimited list of coefficients. 
+
+Definition at line 400 of file polynomial.\+tcc.
+
+
+
+Referenced by \+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Polynomial$<$ value\+\_\+type $>$\+::crend(), and operator\%().
+
+
+\begin{DoxyCode}
+402     \{
+403       \_Tp \_\_x;
+404       CharT \_\_ch;
+405       \_\_is >> \_\_ch;
+406       \textcolor{keywordflow}{if} (\_\_ch == \textcolor{charliteral}{'('})
+407         \{
+408           \textcolor{keywordflow}{do}
+409             \{
+410               \_\_is >> \_\_x >> \_\_ch;
+411               \_\_poly.\_M\_coeff.push\_back(\_\_x);
+412             \}
+413           \textcolor{keywordflow}{while} (\_\_ch == \textcolor{charliteral}{','});
+414           \textcolor{keywordflow}{if} (\_\_ch != \textcolor{charliteral}{')'})
+415             \_\_is.setstate(std::ios\_base::failbit);
+416         \}
+417       \textcolor{keywordflow}{else}
+418         \{
+419           \_\_is.putback(\_\_ch);
+420           \_\_is >> \_\_x;
+421           \_\_poly = \_\_x;
+422         \}
+423       \textcolor{keywordflow}{return} \_\_is;
+424     \}
+\end{DoxyCode}
+\mbox{\Hypertarget{namespace____gnu__cxx_a2743043701f8e4c87d3f0f06ddb11348}\label{namespace____gnu__cxx_a2743043701f8e4c87d3f0f06ddb11348}} 
+\index{\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}!real@{real}}
+\index{real@{real}!\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}}
+\subsubsection{\texorpdfstring{real()}{real()}}
+{\footnotesize\ttfamily template$<$typename \+\_\+\+Real $>$ \\
+constexpr \+\_\+\+Real \+\_\+\+\_\+gnu\+\_\+cxx\+::real (\begin{DoxyParamCaption}\item[{const \hyperlink{namespace____gnu__cxx_ae20ea642de50eb361074c62676b0159c}{solution\+\_\+t}$<$ \+\_\+\+Real $>$ \&}]{\+\_\+\+\_\+x }\end{DoxyParamCaption})}
+
+
+
+Definition at line 92 of file solution.\+h.
+
+
+
+Referenced by \+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Static\+Polynomial$<$ \+\_\+\+Tp, \+\_\+\+Num $>$\+::eval\+\_\+even(), \+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Static\+Polynomial$<$ \+\_\+\+Tp, \+\_\+\+Num $>$\+::eval\+\_\+odd(), \+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Polynomial$<$ value\+\_\+type $>$\+::operator()(), \+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Static\+Polynomial$<$ \+\_\+\+Tp, \+\_\+\+Num $>$\+::operator()(), and std\+::operator$<$().
+
+
+\begin{DoxyCode}
+93     \{
+94       \textcolor{keywordflow}{if} (\_\_x.index() == 0)
+95         \textcolor{keywordflow}{return} std::numeric\_limits<\_Real>::quiet\_NaN();
+96       \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\_\_x.index() == 1)
+97         \textcolor{keywordflow}{return} std::get<1>(\_\_x);
+98       \textcolor{keywordflow}{else}
+99         \textcolor{keywordflow}{return} \hyperlink{namespace____gnu__cxx_a2743043701f8e4c87d3f0f06ddb11348}{std::real}(std::get<2>(\_\_x));
+100     \}
+\end{DoxyCode}
+\mbox{\Hypertarget{namespace____gnu__cxx_a10d002d78eb10d846416335ca9599c7a}\label{namespace____gnu__cxx_a10d002d78eb10d846416335ca9599c7a}} 
+\index{\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}!swap@{swap}}
+\index{swap@{swap}!\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}}
+\subsubsection{\texorpdfstring{swap()}{swap()}}
+{\footnotesize\ttfamily template$<$typename \+\_\+\+Tp $>$ \\
+void \+\_\+\+\_\+gnu\+\_\+cxx\+::swap (\begin{DoxyParamCaption}\item[{\hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \+\_\+\+Tp $>$ \&}]{\+\_\+\+\_\+pa,  }\item[{\hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \+\_\+\+Tp $>$ \&}]{\+\_\+\+\_\+pb }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+See \hyperlink{class____gnu__cxx_1_1__Polynomial_aec8b248101f7340d46fbac13b07b45bc}{\+\_\+\+Polynomial\+::swap()}. 
+
+Definition at line 906 of file polynomial.\+h.
+
+
+
+References \+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Polynomial$<$ \+\_\+\+Tp $>$\+::swap().
+
+
+
+Referenced by \+\_\+\+\_\+quartic().
+
+
+\begin{DoxyCode}
+908     \{ \_\_pa.swap(\_\_pb); \}
+\end{DoxyCode}
+\mbox{\Hypertarget{namespace____gnu__cxx_aa21adeccc5b87713003459ab7f08fc7b}\label{namespace____gnu__cxx_aa21adeccc5b87713003459ab7f08fc7b}} 
+\index{\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}!to\+\_\+complex@{to\+\_\+complex}}
+\index{to\+\_\+complex@{to\+\_\+complex}!\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}}
+\subsubsection{\texorpdfstring{to\+\_\+complex()}{to\_complex()}}
+{\footnotesize\ttfamily template$<$typename \+\_\+\+Real $>$ \\
+constexpr \hyperlink{namespace____gnu__cxx_ae20ea642de50eb361074c62676b0159c}{solution\+\_\+t}$<$\+\_\+\+Real$>$ \+\_\+\+\_\+gnu\+\_\+cxx\+::to\+\_\+complex (\begin{DoxyParamCaption}\item[{const \hyperlink{namespace____gnu__cxx_ae20ea642de50eb361074c62676b0159c}{solution\+\_\+t}$<$ \+\_\+\+Real $>$ \&}]{\+\_\+\+\_\+x }\end{DoxyParamCaption})}
+
+Return the solution as a complex number or NaN. 
+
+Definition at line 131 of file solution.\+h.
+
+
+\begin{DoxyCode}
+132     \{
+133       \textcolor{keywordflow}{if} (\_\_x.index() == 0)
+134         \textcolor{keywordflow}{return} solution\_t<\_Real>();
+135       \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\_\_x.index() == 1)
+136         \textcolor{keywordflow}{return} solution\_t<\_Real>(\hyperlink{classstd_1_1complex}{std::complex<\_Real>}(std::get<1>(\_\_x)));
+137       \textcolor{keywordflow}{else}
+138         \textcolor{keywordflow}{return} \_\_x;
+139     \}
+\end{DoxyCode}
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{namespace____gnu__cxx_afa2404a914b06f950f3a46e75aca51a9}\label{namespace____gnu__cxx_afa2404a914b06f950f3a46e75aca51a9}} 
+\index{\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}!\+\_\+\+\_\+has\+\_\+imag\+\_\+v@{\+\_\+\+\_\+has\+\_\+imag\+\_\+v}}
+\index{\+\_\+\+\_\+has\+\_\+imag\+\_\+v@{\+\_\+\+\_\+has\+\_\+imag\+\_\+v}!\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}}
+\subsubsection{\texorpdfstring{\+\_\+\+\_\+has\+\_\+imag\+\_\+v}{\_\_has\_imag\_v}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+constexpr auto \+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+\_\+has\+\_\+imag\+\_\+v = \hyperlink{struct____gnu__cxx_1_1____has__imag__t}{\+\_\+\+\_\+has\+\_\+imag\+\_\+t}$<$T$>$\+::value}
+
+
+
+Definition at line 104 of file polynomial.\+h.
+
+\mbox{\Hypertarget{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}\label{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}} 
+\index{\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}!\+\_\+\+Up@{\+\_\+\+Up}}
+\index{\+\_\+\+Up@{\+\_\+\+Up}!\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}}
+\subsubsection{\texorpdfstring{\+\_\+\+Up}{\_Up}}
+{\footnotesize\ttfamily $\ast$ \+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Up}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+\{\})>>>
+      \{
+        \textcolor{keyword}{using} \_\_real\_t = std::decay\_t<decltype(value\_type\{\} * \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\_Up}\{\})>;
+        \textcolor{keyword}{using} \_\_cmplx\_t = \hyperlink{classstd_1_1complex}{std::complex<\_\_real\_t>};
+        \textcolor{keywordflow}{if} (this->degree() > 0)
+          \{
+            \textcolor{keyword}{const} \textcolor{keyword}{auto} \_\_zz = \_\_z * \_\_z;
+            \textcolor{keyword}{const} \textcolor{keyword}{auto} \_\_r = \_Tp\{2\} * \hyperlink{namespace____gnu__cxx_a2743043701f8e4c87d3f0f06ddb11348}{std::real}(\_\_zz);
+            \textcolor{keyword}{const} \textcolor{keyword}{auto} \_\_s = std::norm(\_\_zz);
+            \textcolor{keyword}{auto} \_\_odd = this->degree() % 2;
+            size\_type \_\_n = this->degree() - \_\_odd;
+            \textcolor{keyword}{auto} \_\_aa = this->coefficient(\_\_n);
+            \textcolor{keyword}{auto} \_\_bb = this->coefficient(\_\_n - 2);
+            \textcolor{keywordflow}{for} (size\_type \_\_j = 4; \_\_j <= \_\_n; \_\_j += 2)
+              \_\_bb = std::fma(-\_\_s, \_\_exchange(\_\_aa, \_\_bb + \_\_r * \_\_aa),
+                              this->coefficient(\_\_n - \_\_j));
+            \textcolor{keywordflow}{return} std::fma(\_\_cmplx\_t(\_\_aa), \_\_cmplx\_t(\_\_zz), \_\_cmplx\_t(\_\_bb));
+          \}
+        \textcolor{keywordflow}{else}
+          \textcolor{keywordflow}{return} \_\_cmplx\_t\{\};
+      \}
+\end{DoxyCode}
+
+
+Definition at line 263 of file polynomial.\+tcc.
+
+
+
+Referenced by \+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Polynomial$<$ value\+\_\+type $>$\+::eval\+\_\+even(), \+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Polynomial$<$ value\+\_\+type $>$\+::eval\+\_\+odd(), operator\%(), operator$\ast$(), operator+(), operator-\/(), and operator/().
+
