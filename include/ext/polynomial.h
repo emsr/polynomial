@@ -23,7 +23,7 @@
 // <http://www.gnu.org/licenses/>.
 
 /**
- * @file polynomial.h Class declaration for a dense monovariate polynomial.
+ * @file polynomial.h Class declaration for a dense univariate polynomial.
  *
  * This file is a GNU extension to the Standard C++ Library.
  *
@@ -57,34 +57,39 @@ namespace std {
 }
 
 /**
- * detail: Do we want this to always have a size of at least one? a_0 = _Tp{}?  YES.
- * detail: Should I punt on the initial power?  YES.
+ * This class is a dense univariate polynomial.
  *
- * If high degree coefficients are zero, should I resize down? YES (or provide another word for order).
+ * This polynomial has a size of at least one.  The zero polynomial
+ * has a_0 = 0.  There is no null polynomial. size == degree + 1
+ *
  * How to access coefficients (bikeshed)?
- *   poly[i];
- *   coefficient(i);
- *   operator[](int i);
- *   begin(), end()?
- *   const _Tp* coefficients(); // Access for C, Fortran.
- * How to set individual coefficients?
- *   poly[i] = c;
- *   coefficient(i, c);
- *   coefficient(i) = c;
+ *   The coefficients have a sequence container interface.
+ *   Access for C, Fortran is supported with const _Tp* coefficients().
+ *
  * How to handle division?
- *   operator/ and throw out remainder?
- *   operator% to return the remainder?
- *   std::pair<> div(const _Polynomial& __a, const _Polynomial& __b) or remquo.
- *   void divmod(const _Polynomial& __a, const _Polynomial& __b,
- *               _Polynomial& __q, _Polynomial& __r);
- * Should factory methods like derivative and integral be globals?
- * I could have members:
+ *   operator/ returns the quotient of two polynomials discarding the remainder.
+ *   operator% returns the remainder of two polynomials discarding the quotient.
+ *   The divmod functions computes both the quotient and the remainder.
+ *   N. B. I could add the remquo function?
+ *
+ * Methods derivative and integral return polynomials the derivative and integral
+ * polynomials.  The integral method takes an optional integration constant.
+ * N. B. I could add members:
  *   _Polynomial& integrate(_Tp c);
  *   _Polynomial& differentiate();
+ *
  * Largest coefficient:
- *   Enforce coefficient of largest power be nonzero?
- *   Return an 'effective' order? Larest nonzero coefficient?
- *   Monic polynomial has largest coefficient as 1.  Subclass?
+ *   This class does not enforce the coefficient of largest power to be nonzero.
+ *   The user concerned about this should use the deflate method with a
+ *   tolerance for the minimim magnitude coefficient.
+ *   This library provides another deflate method that divides out a polynomial
+ *   that is expected to factor the polynomial within a tolerance on the
+ *   minimim magnitude coefficient.  If the remainder is non-zero then an
+ *   exception is thrown.
+ *
+ * We need a real_type for epsilons - ints promote to double.
+ * It would be promote_t<complex::value_type> for complex.
+ *
  */
 namespace __gnu_cxx //_GLIBCXX_VISIBILITY(default)
 {
@@ -207,7 +212,7 @@ template<typename T>
 	_Polynomial(Gen __gen, size_type __degree)
 	: _M_coeff()
 	{
-	  this->_M_coeff.reserve(__degree);
+	  this->_M_coeff.reserve(__degree + 1);
 	  for (size_type __k = 0; __k <= __degree; ++__k)
 	    this->_M_coeff.push_back(__gen(__k));
           this->_M_set_scale();
@@ -234,7 +239,7 @@ template<typename T>
 	    return __poly;
 	  }
 	else
-	  return value_type{};
+	  return this->coefficient(0);
       }
 
       /**
@@ -253,7 +258,7 @@ template<typename T>
 	      return __poly;
 	    }
 	  else
-	    return value_type{} * _Up{};
+	    return _Up{1} * this->coefficient(0);
 	}
 
       /**
@@ -418,7 +423,7 @@ template<typename T>
 	    {
 	      this->_M_coeff.clear();
 	      for (const auto __c : __poly)
-		this->_M_coeff = static_cast<value_type>(__c);
+		this->_M_coeff.push_back(static_cast<value_type>(__c));
 	      return *this;
 	    }
 	}
@@ -440,7 +445,6 @@ template<typename T>
 	_Polynomial&
 	operator+=(const _Up& __x)
 	{
-	  this->degree(this->degree()); // Resize if necessary.
 	  this->_M_coeff[0] += static_cast<value_type>(__x);
 	  return *this;
 	}
@@ -452,7 +456,6 @@ template<typename T>
 	_Polynomial&
 	operator-=(const _Up& __x)
 	{
-	  this->degree(this->degree()); // Resize if necessary.
 	  this->_M_coeff[0] -= static_cast<value_type>(__x);
 	  return *this;
 	}
@@ -462,11 +465,10 @@ template<typename T>
        */
       template<typename _Up>
 	_Polynomial&
-	operator*=(const _Up& __x)
+	operator*=(const _Up& __c)
 	{
-	  this->degree(this->degree()); // Resize if necessary.
 	  for (size_type __i = 0; __i < this->_M_coeff.size(); ++__i)
-	    this->_M_coeff[__i] *= static_cast<value_type>(__x);
+	    this->_M_coeff[__i] *= static_cast<value_type>(__c);
 	  return *this;
 	}
 
@@ -475,16 +477,16 @@ template<typename T>
        */
       template<typename _Up>
 	_Polynomial&
-	operator/=(const _Up& __x)
+	operator/=(const _Up& __c)
 	{
 	  for (size_type __i = 0; __i < this->_M_coeff.size(); ++__i)
-	    this->_M_coeff[__i] /= static_cast<value_type>(__x);
+	    this->_M_coeff[__i] /= static_cast<value_type>(__c);
 	  return *this;
 	}
 
       /**
        * Take the modulus of the polynomial relative to a scalar.
-       * The result is always null.
+       * The result is always a zero polunomial.
        */
       template<typename _Up>
 	_Polynomial&
@@ -560,7 +562,7 @@ template<typename T>
        */
       size_type
       degree() const noexcept
-      { return (this->_M_coeff.size() > 0 ? this->_M_coeff.size() - 1 : 0); }
+      { return this->_M_coeff.size() - 1; }
 
       /**
        * Set the degree or the power of the largest coefficient.
@@ -696,6 +698,49 @@ template<typename T>
 	friend bool
 	operator==(const _Polynomial<_Tp1>& __pa,
 		   const _Polynomial<_Tp1>& __pb);
+
+      /**
+       * Remove zero max-order coefficients.
+       */
+      _Polynomial&
+      deflate(value_type __max_abx_coef) // FIXME need real_type
+      {
+	size_type __n = this->degree();
+	for (size_type __i = this->degree(); __i > 0; --__i)
+	  if (std::abs(this->_M_coeff[__i]) < std::abs(__max_abx_coef)) // FIXME complex maybe
+	    --__n;
+	  else
+	    break;
+	this->degree(__n);
+        return *this;
+      }
+
+      /**
+       * Divide the polynomial by an input polynomia and remove zero
+       * max-order coefficients.
+       */
+      _Polynomial&
+      deflate(const _Polynomial<value_type>& __poly,
+	      value_type __max_abx_coef) // FIXME need real_type
+      {
+	_Polynomial<value_type> __quo, __rem;
+	divmod(*this, __poly, __quo, __rem);
+
+	// Remainder should be null.
+	size_type __n = __rem.degree();
+	for (size_type __i = __rem.degree(); __i > 0; --__i)
+	  if (std::abs(__rem[__i]) < std::abs(__max_abx_coef)) // FIXME __max_abx_coef complex maybe
+	    --__n;
+	  else
+	    break;
+
+	if (__n == 0)
+	  *this = __quo.deflate(__max_abx_coef);
+	else
+	  throw std::runtime_error("deflate: ");
+
+        return *this;
+      }
 
     private:
 /* This still falls of the type now.
@@ -848,7 +893,7 @@ I need a recursive decay type for polynomials.
     { return _Polynomial<decltype(_Tp() / _Up())>(__x) /= __poly; }
 
   /**
-   * Return the modulus or remainder of one polynomial relative to another one.
+   * Return the modulus or remainder of one polynomial divided by another one.
    */
   template<typename _Tp, typename _Up>
     inline _Polynomial<decltype(_Tp() / _Up())>
@@ -860,7 +905,7 @@ I need a recursive decay type for polynomials.
    */
   template<typename _Tp>
     void
-    divmod(const _Polynomial<_Tp>& __pa, const _Polynomial<_Tp>& __pb,
+    divmod(const _Polynomial<_Tp>& __num, const _Polynomial<_Tp>& __den,
            _Polynomial<_Tp>& __quo, _Polynomial<_Tp>& __rem);
 
   /**

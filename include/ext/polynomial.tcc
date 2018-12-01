@@ -24,7 +24,7 @@
 
 /**
  * @file polynomial.tcc Out-of-line definitions of members for
- * a dense monovariate polynomial.
+ * a dense univariate polynomial.
  *
  * This file is a GNU extension to the Standard C++ Library.
  * This file contains the out-of-line implementations of the polynomial class.
@@ -348,27 +348,29 @@ I need a recursive decay type for polynomials.
    */
   template<typename _Tp>
     void
-    divmod(const _Polynomial<_Tp>& __pa, const _Polynomial<_Tp>& __pb,
+    divmod(const _Polynomial<_Tp>& __num, const _Polynomial<_Tp>& __den,
            _Polynomial<_Tp>& __quo, _Polynomial<_Tp>& __rem)
     {
-      __rem = __pa;
-      __quo = _Polynomial<_Tp>(_Tp(), __pa.degree());
-      const std::size_t __na = __pa.degree();
-      const std::size_t __nb = __pb.degree();
-      if (__nb <= __na)
+      __rem = __num;
+      __quo = _Polynomial<_Tp>(_Tp{}, __num.degree());
+      const std::size_t __d_num = __num.degree();
+      const std::size_t __d_den = __den.degree();
+      if (__d_den <= __d_num)
 	{
-	  for (int __k = __na - __nb; __k >= 0; --__k)
+	  for (int __k = __d_num - __d_den; __k >= 0; --__k)
 	    {
-	      __quo.coefficient(__k, __rem.coefficient(__nb + __k)
-				   / __pb.coefficient(__nb));
-	      for (int __j = __nb + __k - 1; __j >= __k; --__j)
+	      __quo.coefficient(__k, __rem.coefficient(__d_den + __k)
+				   / __den.coefficient(__d_den));
+	      for (int __j = __d_den + __k - 1; __j >= __k; --__j)
 		__rem.coefficient(__j, __rem.coefficient(__j)
 				     - __quo.coefficient(__k)
-				     * __pb.coefficient(__j - __k));
+				     * __den.coefficient(__j - __k));
 	    }
-	  for (int __j = __nb; __j <= __na; ++__j)
-	    __rem.coefficient(__j, _Tp());
+	  __quo.degree(__d_num - __d_den);
+	  __rem.degree(__d_den > 0 ? __d_den - 1 : 0);
 	}
+      else
+	__quo.degree(0);
     }
 
   /**
@@ -420,6 +422,10 @@ I need a recursive decay type for polynomials.
 	  __is >> __x;
 	  __poly = __x;
 	}
+      // No null polynomial.
+      if (__poly.size() == 0)
+	__poly._M_coeff.resize(1, _Tp{});
+
       return __is;
     }
 
