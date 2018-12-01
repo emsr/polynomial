@@ -38,7 +38,9 @@ BINS = \
   $(BIN_DIR)/test_rational_polynomial \
   $(BIN_DIR)/test_solution \
   $(BIN_DIR)/test_solvers \
-  $(BIN_DIR)/test_static_polynomial
+  $(BIN_DIR)/test_static_polynomial \
+  $(BIN_DIR)/test_laguerre_step \
+  $(BIN_DIR)/test_quadratic_step
 
 all: $(BINS)
 
@@ -78,6 +80,12 @@ $(BIN_DIR)/test_solution: $(BIN_DIR) include/ext/solution.h test_solution.cpp
 $(BIN_DIR)/test_static_polynomial: $(BIN_DIR) include/ext/static_polynomial.h test_static_polynomial.cpp
 	$(CXX17) -Iinclude -I../include -o $(BIN_DIR)/test_static_polynomial test_static_polynomial.cpp -lquadmath
 
+$(BIN_DIR)/test_laguerre_step: $(BIN_DIR) test_laguerre_step.cpp
+	$(CXX17) -Iinclude -I../include -o $(BIN_DIR)/test_laguerre_step test_laguerre_step.cpp -lquadmath
+
+$(BIN_DIR)/test_quadratic_step: $(BIN_DIR) test_quadratic_step.cpp
+	$(CXX17) -Iinclude -I../include -o $(BIN_DIR)/test_quadratic_step test_quadratic_step.cpp -lquadmath
+
 docs:
 	rm -rf docs/html/*
 	rm -rf docs/latex/*
@@ -111,6 +119,8 @@ test: $(OUTPUT_DIR)
 	LD_LIBRARY_PATH=$(CXX_LIB_DIR):$$LD_LIBRARY_PATH $(BIN_DIR)/test_polynomial_root > $(OUTPUT_DIR)/test_polynomial_root.txt
 	LD_LIBRARY_PATH=$(CXX_LIB_DIR):$$LD_LIBRARY_PATH $(BIN_DIR)/test_solvers > $(OUTPUT_DIR)/test_solvers.txt
 	LD_LIBRARY_PATH=$(CXX_LIB_DIR):$$LD_LIBRARY_PATH $(BIN_DIR)/test_static_polynomial > $(OUTPUT_DIR)/test_static_polynomial.txt
+	LD_LIBRARY_PATH=$(CXX_LIB_DIR):$$LD_LIBRARY_PATH $(BIN_DIR)/test_laguerre_step > $(OUTPUT_DIR)/test_laguerre_step.txt
+	LD_LIBRARY_PATH=$(CXX_LIB_DIR):$$LD_LIBRARY_PATH $(BIN_DIR)/test_quadratic_step > $(OUTPUT_DIR)/test_quadratic_step.txt
 
 
 $(OUTPUT_DIR): $(OUTPUT_DIR)
