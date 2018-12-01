@@ -1,5 +1,5 @@
 /*
-$HOME/bin/bin/g++ -std=c++17 -Wall -Wextra -Wno-psabi -o test_horner test_horner.cpp
+$HOME/bin/bin/g++ -std=c++2a -Wall -Wextra -Wno-psabi -o test_horner test_horner.cpp
 
 clang++ -std=c++1z -stdlib=libc++ -o test_horner test_horner.cpp
 */

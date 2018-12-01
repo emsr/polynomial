@@ -1,8 +1,8 @@
 /*
-$HOME/bin/bin/g++ -std=gnu++17 -g -Wall -Wextra -Wno-psabi -I. -o test_static_polynomial test_static_polynomial.cpp -lquadmath
+$HOME/bin/bin/g++ -std=gnu++2a -g -Wall -Wextra -Wno-psabi -I. -o test_static_polynomial test_static_polynomial.cpp -lquadmath
 ./test_static_polynomial
 
-g++ -std=gnu++17 -g -Wall -Wextra -Wno-psabi -o test_static_polynomial test_static_polynomial.cpp -lquadmath
+g++ -std=gnu++2a -g -Wall -Wextra -Wno-psabi -o test_static_polynomial test_static_polynomial.cpp -lquadmath
 */
 
 //  Get past a bug....

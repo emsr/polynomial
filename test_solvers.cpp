@@ -1,5 +1,5 @@
 /*
-$HOME/bin/bin/g++ -std=gnu++17 -g -Wall -Wextra -Wno-psabi -I. -I../include -o test_solvers test_solvers.cpp -lquadmath
+$HOME/bin/bin/g++ -std=gnu++2a -g -Wall -Wextra -Wno-psabi -I. -I../include -o test_solvers test_solvers.cpp -lquadmath
 ./test_solvers > test_solvers.txt
 */
 

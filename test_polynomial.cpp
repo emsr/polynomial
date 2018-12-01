@@ -1,5 +1,5 @@
 /*
-$HOME/bin/bin/g++ -std=gnu++17 -g -Wall -Wextra -Wno-psabi -I. -I../include -o test_polynomial test_polynomial.cpp -lquadmath
+$HOME/bin/bin/g++ -std=gnu++2a -g -Wall -Wextra -Wno-psabi -I. -I../include -o test_polynomial test_polynomial.cpp -lquadmath
 ./test_polynomial > test_polynomial.txt
 */
 

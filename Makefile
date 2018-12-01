@@ -1,8 +1,6 @@
 
 # -Wconversion
 
-#SUFFIX = _tr29124
-#SUFFIX = _specfun
 CXX_INST_DIR = $(HOME)/bin$(SUFFIX)
 ifeq ("$(wildcard $(CXX_INST_DIR))","")
   SUFFIX = 
@@ -20,6 +18,8 @@ GFORTRAN = $(CXX_INST_DIR)/bin/gfortran -g -Wall -Wextra -Wno-compare-reals
 GCC = $(CXX_INST_DIR)/bin/gcc -g -Wall -Wextra
 CXX = $(CXX_INST_DIR)/bin/g++ -std=gnu++14 -g -D__STDCPP_WANT_MATH_SPEC_FUNCS__ -Wall -Wextra -Wno-psabi
 CXX17 = $(CXX_INST_DIR)/bin/g++ -std=gnu++17 -fconcepts -g -Wall -Wextra -Wno-psabi
+CXX20 = $(CXX_INST_DIR)/bin/g++ -std=gnu++2a -g -Wall -Wextra -Wno-psabi
+CXXMAX = $(CXX20)
 CXX_INC_DIR = $(CXX_INST_DIR)/include/c++/7.0.0/bits
 CXX_LIB_DIR = $(CXX_INST_DIR)/lib64
 CXX_TEST_INC_DIR = .
@@ -51,40 +51,40 @@ ext/solver_low_degree.h: include/ext/solution.h include/ext/solver_low_degree.tc
 ext/rational_polynomial.h: include/ext/polynomial.h
 
 $(BIN_DIR)/test_bairstow: $(BIN_DIR) test_bairstow.cpp
-	$(CXX17) -Iinclude -I../include -o $(BIN_DIR)/test_bairstow test_bairstow.cpp -lquadmath
+	$(CXXMAX) -Iinclude -I../include -o $(BIN_DIR)/test_bairstow test_bairstow.cpp -lquadmath
 
 $(BIN_DIR)/test_horner: $(BIN_DIR) include/ext/horner.h test_horner.cpp
-	$(CXX17) -Iinclude -I../include -o $(BIN_DIR)/test_horner test_horner.cpp -lquadmath
+	$(CXXMAX) -Iinclude -I../include -o $(BIN_DIR)/test_horner test_horner.cpp -lquadmath
 
 $(BIN_DIR)/test_jacobi_roots: $(BIN_DIR) include/ext/solution.h include/ext/solver_low_degree.h include/ext/polynomial.h test_jacobi_roots.cpp
-	$(CXX17) -Iinclude -I../include -o $(BIN_DIR)/test_jacobi_roots test_jacobi_roots.cpp -lquadmath
+	$(CXXMAX) -Iinclude -I../include -o $(BIN_DIR)/test_jacobi_roots test_jacobi_roots.cpp -lquadmath
 
 $(BIN_DIR)/test_jenkins_traub: $(BIN_DIR) include/ext/solution.h include/ext/solver_low_degree.h include/ext/polynomial.h test_jenkins_traub.cpp
-	$(CXX17) -Iinclude -I../include -o $(BIN_DIR)/test_jenkins_traub test_jenkins_traub.cpp -lquadmath
+	$(CXXMAX) -Iinclude -I../include -o $(BIN_DIR)/test_jenkins_traub test_jenkins_traub.cpp -lquadmath
 
 $(BIN_DIR)/test_polynomial: $(BIN_DIR) include/ext/polynomial.h include/ext/polynomial.tcc test_polynomial.cpp
-	$(CXX17) -Iinclude -I../include -o $(BIN_DIR)/test_polynomial test_polynomial.cpp -lquadmath
+	$(CXXMAX) -Iinclude -I../include -o $(BIN_DIR)/test_polynomial test_polynomial.cpp -lquadmath
 
 $(BIN_DIR)/test_polynomial_root: $(BIN_DIR) include/ext/polynomial.h test_polynomial_root.cpp
-	$(CXX17) -Iinclude -I../include -o $(BIN_DIR)/test_polynomial_root test_polynomial_root.cpp -lquadmath
+	$(CXXMAX) -Iinclude -I../include -o $(BIN_DIR)/test_polynomial_root test_polynomial_root.cpp -lquadmath
 
 $(BIN_DIR)/test_rational_polynomial: $(BIN_DIR) include/ext/rational_polynomial.h test_rational_polynomial.cpp
-	$(CXX17) -Iinclude -I../include -o $(BIN_DIR)/test_rational_polynomial test_rational_polynomial.cpp -lquadmath
+	$(CXXMAX) -Iinclude -I../include -o $(BIN_DIR)/test_rational_polynomial test_rational_polynomial.cpp -lquadmath
 
 $(BIN_DIR)/test_solvers: $(BIN_DIR) include/ext/solution.h include/ext/solver_low_degree.h include/ext/solver_low_degree.tcc test_solvers.cpp
-	$(CXX17) -Iinclude -I../include -o $(BIN_DIR)/test_solvers test_solvers.cpp -lquadmath
+	$(CXXMAX) -Iinclude -I../include -o $(BIN_DIR)/test_solvers test_solvers.cpp -lquadmath
 
 $(BIN_DIR)/test_solution: $(BIN_DIR) include/ext/solution.h test_solution.cpp
-	$(CXX17) -Iinclude -I../include -o $(BIN_DIR)/test_solution test_solution.cpp -lquadmath
+	$(CXXMAX) -Iinclude -I../include -o $(BIN_DIR)/test_solution test_solution.cpp -lquadmath
 
 $(BIN_DIR)/test_static_polynomial: $(BIN_DIR) include/ext/static_polynomial.h test_static_polynomial.cpp
-	$(CXX17) -Iinclude -I../include -o $(BIN_DIR)/test_static_polynomial test_static_polynomial.cpp -lquadmath
+	$(CXXMAX) -Iinclude -I../include -o $(BIN_DIR)/test_static_polynomial test_static_polynomial.cpp -lquadmath
 
 $(BIN_DIR)/test_laguerre_step: $(BIN_DIR) test_laguerre_step.cpp
-	$(CXX17) -Iinclude -I../include -o $(BIN_DIR)/test_laguerre_step test_laguerre_step.cpp -lquadmath
+	$(CXXMAX) -Iinclude -I../include -o $(BIN_DIR)/test_laguerre_step test_laguerre_step.cpp -lquadmath
 
 $(BIN_DIR)/test_quadratic_step: $(BIN_DIR) test_quadratic_step.cpp
-	$(CXX17) -Iinclude -I../include -o $(BIN_DIR)/test_quadratic_step test_quadratic_step.cpp -lquadmath
+	$(CXXMAX) -Iinclude -I../include -o $(BIN_DIR)/test_quadratic_step test_quadratic_step.cpp -lquadmath
 
 docs:
 	rm -rf docs/html/*
