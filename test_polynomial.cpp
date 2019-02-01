@@ -159,9 +159,12 @@ main()
   std::cout << "P(1) = " << P(1.0) << '\n';
   std::cout << "P(i) = " << P(1.0i) << '\n'; // Fucked...
   std::cout << "P(i) = " << P(std::complex<double>{0, 1}) << '\n';
-
-  __gnu_cxx::_Polynomial<double> e([](unsigned int k) -> double { return 1.0 / __gnu_cxx::factorial<double>(k); }, 20);
+/*
+  __gnu_cxx::_Polynomial<double> e([](unsigned int k)
+                                   -> double
+                                   { return 1.0 / __gnu_cxx::factorial<double>(k); }, 20);
   std::cout << "e = " << e << '\n';
   std::cout << "e(1) = " << e(1) << '\n';
+*/
 }
 
