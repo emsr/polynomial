@@ -6,6 +6,8 @@ LD_LIBRARY_PATH=$HOME/bin/lib64:$LD_LIBRARY_PATH ./test_jacobi_roots > test_jaco
 #include <vector>
 #include <algorithm>
 #include <fstream>
+#include <iostream>
+#include <iomanip>
 
 #include <ext/solver_jenkins_traub.h>
 #include <ext/math_const.h>

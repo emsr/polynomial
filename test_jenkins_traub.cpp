@@ -5,6 +5,8 @@ $HOME/bin/bin/g++ -std=gnu++2a -g -Wall -Wextra -Wno-psabi -I. -I../include -o t
 #include <vector>
 #include <limits>
 #include <cmath>
+#include <iostream>
+#include <iomanip>
 
 #include "ext/polynomial.h"
 #include "ext/solver_jenkins_traub.h"
