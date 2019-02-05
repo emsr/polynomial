@@ -359,7 +359,7 @@ template<typename T>
 		decltype(typename _Polynomial<_Tp>::value_type{} * _Up{})>>>;
 
       /**
-       * Return the derivative of the polynomial.
+       * Return the derivative polynomial.
        */
       _Polynomial
       derivative() const
@@ -372,7 +372,7 @@ template<typename T>
       }
 
       /**
-       * Return the integral of the polynomial with given integration constant.
+       * Return the integral polynomial with given integration constant.
        */
       _Polynomial
       integral(value_type __c = value_type{}) const
@@ -593,18 +593,32 @@ template<typename T>
       { this->_M_coeff.at(__i) = __val; }
 
       /**
+       * Return a const vector of coefficients.
+       */
+      const std::vector<value_type>
+      coefficients() const noexcept
+      { return this->_M_coeff; }
+
+      /**
+       * Return a vector of coefficients.
+       */
+      std::vector<value_type>
+      coefficients() noexcept
+      { return this->_M_coeff; }
+
+      /**
        * Return a @c const pointer to the coefficient sequence.
        */
       const value_type*
-      coefficients() const noexcept
-      { this->_M_coeff.data(); }
+      data() const noexcept
+      { return this->_M_coeff.data(); }
 
       /**
        * Return a @c pointer to the coefficient sequence.
        */
       value_type*
-      coefficients() noexcept
-      { this->_M_coeff.data(); }
+      data() noexcept
+      { return this->_M_coeff.data(); }
 
       /**
        * Return coefficient @c i.
