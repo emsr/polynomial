@@ -64,7 +64,7 @@ namespace std {
  *
  * How to access coefficients (bikeshed)?
  *   The coefficients have a sequence container interface.
- *   Access for C, Fortran is supported with const _Tp* coefficients().
+ *   Access for C, Fortran is supported with const _Tp* data().
  *
  * How to handle division?
  *   operator/ returns the quotient of two polynomials discarding the remainder.
@@ -275,7 +275,9 @@ template<typename T>
       template<typename _Up>
 	auto
 	operator()(const std::complex<_Up>& __z) const
-	-> decltype(value_type{} * std::complex<_Up>{});
+	-> std::enable_if_t<!__has_imag_v<_Tp>,
+			    std::complex<std::decay_t<
+		decltype(typename _Polynomial<_Tp>::value_type{} * _Up{})>>>;
 
       /**
        * Evaluate the polynomial at a range of input points.
@@ -294,7 +296,6 @@ template<typename T>
 	  return __pbegin;
 	}
 
-      //  Could/should this be done by output iterator range?
       template<size_type N>
 	void
 	eval(value_type __x, std::array<value_type, N>& __arr);
@@ -336,7 +337,7 @@ template<typename T>
 	auto
 	eval_even(const std::complex<_Up>& __z) const
 	-> std::enable_if_t<!__has_imag_v<_Tp>,
-			std::complex<std::decay_t<
+			    std::complex<std::decay_t<
 		decltype(typename _Polynomial<_Tp>::value_type{} * _Up{})>>>;
 
       /**

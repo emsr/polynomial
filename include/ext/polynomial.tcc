@@ -120,7 +120,9 @@ I need a recursive decay type for polynomials.
     template<typename _Up>
       auto
       _Polynomial<_Tp>::operator()(const std::complex<_Up>& __z) const
-      -> decltype(_Polynomial<_Tp>::value_type{} * std::complex<_Up>{})
+      -> std::enable_if_t<!__has_imag_v<_Tp>,
+			  std::complex<std::decay_t<
+		decltype(typename _Polynomial<_Tp>::value_type{} * _Up{})>>>
       {
 	const auto __r = _Tp{2} * std::real(__z);
 	const auto __s = std::norm(__z);
@@ -259,7 +261,7 @@ I need a recursive decay type for polynomials.
       auto
       _Polynomial<_Tp>::eval_even(const std::complex<_Up>& __z) const
       -> std::enable_if_t<!__has_imag_v<_Tp>,
-			std::complex<std::decay_t<
+			  std::complex<std::decay_t<
 		decltype(typename _Polynomial<_Tp>::value_type{} * _Up{})>>>
       {
 	using __real_t = std::decay_t<decltype(value_type{} * _Up{})>;
@@ -299,7 +301,7 @@ I need a recursive decay type for polynomials.
       auto
       _Polynomial<_Tp>::eval_odd(const std::complex<_Up>& __z) const
       -> std::enable_if_t<!__has_imag_v<_Tp>,
-			std::complex<std::decay_t<
+			  std::complex<std::decay_t<
 		decltype(typename _Polynomial<_Tp>::value_type{} * _Up{})>>>
       {
 	using __real_t = std::decay_t<decltype(value_type{} * _Up{})>;
