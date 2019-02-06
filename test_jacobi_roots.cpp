@@ -30,7 +30,7 @@ namespace __detail
     __jacobi_poly(unsigned int __n, _Tp __alpha1, _Tp __beta1)
     {
       __gnu_cxx::_Polynomial<_Tp> __poly;
-      const __gnu_cxx::_Polynomial<_Tp> __arg{_Tp{0.5L}, _Tp{-0.5L}};
+      const __gnu_cxx::_Polynomial<_Tp> __arg({_Tp{0.5L}, _Tp{-0.5L}});
 
       if (std::isnan(__alpha1) || std::isnan(__beta1))
 	return __poly;
@@ -42,17 +42,36 @@ namespace __detail
 
       auto __fact = _Tp{1};
       const auto __ab = __alpha1 + __beta1;
-      for (unsigned int __k = 1; __k <= __n; ++__k)
+      const int __m = int(__n);
+      for (int __k = 1; __k <= __m; ++__k)
 	{
 	  __fact *= _Tp(__alpha1 + __k) / _Tp(__k);
-	  __term *= _Tp(-__n + __k - 1) / _Tp(__k)
-		  * _Tp(__n + __k + __ab) / _Tp(__alpha1 + __k)
+
+	  __term *= (_Tp(-__m + __k - 1) / _Tp(__k))
+		  * (_Tp(__m + __k + __ab) / _Tp(__alpha1 + __k))
 		  * __arg;
+
 	  __poly += __term;
 	}
 
       return __fact * __poly;
     }
+
+  /**
+   * Highest degree term coefficient.
+   */
+  template<typename _Tp>
+    _Tp
+    __jacobi_norm(unsigned int __n, _Tp __alpha1, _Tp __beta1)
+    {
+      const auto lgam1 = __log_gamma(_Tp(2 * __n + __alpha1 + __beta1 + 1));
+      const auto sgam1 = __log_gamma_sign(_Tp(2 * __n + __alpha1 + __beta1 + 1));
+      const auto lgam2 = __log_gamma(_Tp(__n + __alpha1 + __beta1 + 1));
+      const auto sgam2 = __log_gamma_sign(_Tp(__n + __alpha1 + __beta1 + 1));
+      return sgam1 * sgam2 * std::exp(lgam1 - std::lgamma(_Tp(__n + 1))
+   				    - lgam2 - _Tp(__n) * std::log(_Tp{2}));
+    }
+
 } // namespace std
 } // namespace __detail
 
@@ -74,6 +93,7 @@ template<typename _Tp>
     std::cout << "\nThe polynomial coefficients are:\n";
     for (const auto& c : coef)
       std::cout << std::setw(w) << c << '\n';
+    std::cout << "\nMax coefficient: " << std::__detail::__jacobi_norm(n, alpha1, beta1) << '\n';
 
     std::reverse(coef.begin(), coef.end());
 
