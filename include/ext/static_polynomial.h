@@ -401,12 +401,12 @@ namespace __gnu_cxx //_GLIBCXX_VISIBILITY(default)
       /**
        *  Return the derivative of the polynomial.
        */
-      std::enable_if_t<0 < _Num, _StaticPolynomial<_Tp, _Num - 1>>
+      _StaticPolynomial<_Tp, (_Num > 1 ? _Num - 1 : 0)>
       derivative() const
       {
-	_StaticPolynomial<_Tp, _Num - 1> __res;
+	_StaticPolynomial<_Tp, (_Num > 1 ? _Num - 1 : 0)> __res;
 	for (size_type __i = 1; __i <= this->degree(); ++__i)
-	  __res._M_coeff[__i - 1] = __i * _M_coeff[__i];
+	  __res.coefficient(__i - 1, __i * _M_coeff[__i]);
 	return __res;
       }
 
@@ -417,9 +417,9 @@ namespace __gnu_cxx //_GLIBCXX_VISIBILITY(default)
       integral(value_type __c = value_type{}) const
       {
 	_StaticPolynomial<_Tp, _Num + 1> __res;
-	__res._M_coeff[0] = __c;
+	__res.coefficient(0, __c);
 	for (size_type __i = 0; __i <= this->degree(); ++__i)
-	  __res._M_coeff[__i + 1] = _M_coeff[__i] / value_type(__i + 1);
+	  __res.coefficient(__i + 1, _M_coeff[__i] / value_type(__i + 1));
 	return __res;
       }
 
@@ -476,6 +476,34 @@ namespace __gnu_cxx //_GLIBCXX_VISIBILITY(default)
       reference
       operator[](size_type __i)
       { return this->_M_coeff[__i]; }
+
+      /**
+       * Return a const vector of coefficients.
+       */
+      const std::array<value_type, _Num>
+      coefficients() const noexcept
+      { return this->_M_coeff; }
+
+      /**
+       * Return a vector of coefficients.
+       */
+      std::array<value_type, _Num>
+      coefficients() noexcept
+      { return this->_M_coeff; }
+
+      /**
+       * Return a @c const pointer to the coefficient sequence.
+       */
+      const value_type*
+      data() const noexcept
+      { return this->_M_coeff.data(); }
+
+      /**
+       * Return a @c pointer to the coefficient sequence.
+       */
+      value_type*
+      data() noexcept
+      { return this->_M_coeff.data(); }
 
       iterator
       begin()

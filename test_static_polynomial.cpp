@@ -60,9 +60,16 @@ main()
   float aa[5]{1.0f, 2.0f, -1.5f, 0.2f, -0.1f};
 
   __gnu_cxx::_StaticPolynomial<float, 5> p(aa);
-  //auto y = p(1.2);
-  __gnu_cxx::_StaticPolynomial<float, 5> a{{1.0f, 2.0f, -1.5f, 0.2f, -0.1f}};
+  auto yp = p(1.2);
 
-  //auto y = static_polynomial({1.0f, 2.0f, -1.5f, 0.2f, -0.1f}, 2.0);
-  //return 0;
+  __gnu_cxx::_StaticPolynomial<float, 5> a{{1.0f, 2.0f, -1.5f, 0.2f, -0.1f}};
+  auto ya = a(1.2);
+
+  auto za = __gnu_cxx::_StaticPolynomial<float, 5>({1.0f, 2.0f, -1.5f, 0.2f, -0.1f})(2.0);
+
+  double cc[1]{1.0};
+  __gnu_cxx::_StaticPolynomial<double, 1> c(cc);
+  auto dc = c.derivative();
+
+  auto ic = c.integral(3.0);
 }
