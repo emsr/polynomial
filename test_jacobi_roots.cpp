@@ -12,7 +12,6 @@ LD_LIBRARY_PATH=$HOME/bin/lib64:$LD_LIBRARY_PATH ./test_jacobi_roots > test_jaco
 #include <ext/solver_jenkins_traub.h>
 #include <ext/polynomial.h>
 
-// Just grab this Jacobi polynomial from tr29124_test.
 namespace std
 {
 namespace __detail
@@ -21,7 +20,7 @@ namespace __detail
    * Return the Jacobi polynomial as a polynomial.
    *
    * @tparam _Tp The real type of the argument and degree parameters.
-   * @param[in]  n  The order of the Jacobi polynomial
+   * @param[in]  n  The degree of the Jacobi polynomial
    * @param[in]  alpha1  The first parameter of the Jacobi polynomial
    * @param[in]  beta1  The second parameter of the Jacobi polynomial
    */
