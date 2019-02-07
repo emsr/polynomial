@@ -53,40 +53,40 @@ ext/solver_low_degree.h: include/ext/solution.h include/ext/solver_low_degree.tc
 ext/rational_polynomial.h: include/ext/polynomial.h
 
 $(BIN_DIR)/test_bairstow: test_bairstow.cpp
-	$(CXXMAX) -Iinclude -I../include -o $(BIN_DIR)/test_bairstow test_bairstow.cpp -lquadmath
+	$(CXXMAX) -Iinclude -o $(BIN_DIR)/test_bairstow test_bairstow.cpp -lquadmath
 
 $(BIN_DIR)/test_horner: include/ext/horner.h test_horner.cpp
-	$(CXXMAX) -Iinclude -I../include -o $(BIN_DIR)/test_horner test_horner.cpp -lquadmath
+	$(CXXMAX) -Iinclude -o $(BIN_DIR)/test_horner test_horner.cpp -lquadmath
 
 $(BIN_DIR)/test_jacobi_roots: include/ext/solution.h include/ext/solver_low_degree.h include/ext/polynomial.h test_jacobi_roots.cpp
 	$(CXXMAX) -Iinclude -I../include -o $(BIN_DIR)/test_jacobi_roots test_jacobi_roots.cpp -lquadmath
 
 $(BIN_DIR)/test_jenkins_traub: include/ext/solution.h include/ext/solver_low_degree.h include/ext/polynomial.h test_jenkins_traub.cpp
-	$(CXXMAX) -Iinclude -I../include -o $(BIN_DIR)/test_jenkins_traub test_jenkins_traub.cpp -lquadmath
+	$(CXXMAX) -Iinclude -o $(BIN_DIR)/test_jenkins_traub test_jenkins_traub.cpp -lquadmath
 
 $(BIN_DIR)/test_polynomial: include/ext/polynomial.h include/ext/polynomial.tcc test_polynomial.cpp
-	$(CXXMAX) -Iinclude -I../include -o $(BIN_DIR)/test_polynomial test_polynomial.cpp -lquadmath
+	$(CXXMAX) -Iinclude -o $(BIN_DIR)/test_polynomial test_polynomial.cpp -lquadmath
 
 $(BIN_DIR)/test_polynomial_root: include/ext/polynomial.h test_polynomial_root.cpp
-	$(CXXMAX) -Iinclude -I../include -o $(BIN_DIR)/test_polynomial_root test_polynomial_root.cpp -lquadmath
+	$(CXXMAX) -Iinclude -o $(BIN_DIR)/test_polynomial_root test_polynomial_root.cpp -lquadmath
 
 $(BIN_DIR)/test_rational_polynomial: include/ext/rational_polynomial.h test_rational_polynomial.cpp
-	$(CXXMAX) -Iinclude -I../include -o $(BIN_DIR)/test_rational_polynomial test_rational_polynomial.cpp -lquadmath
+	$(CXXMAX) -Iinclude -o $(BIN_DIR)/test_rational_polynomial test_rational_polynomial.cpp -lquadmath
 
 $(BIN_DIR)/test_solvers: include/ext/solution.h include/ext/solver_low_degree.h include/ext/solver_low_degree.tcc test_solvers.cpp
-	$(CXXMAX) -Iinclude -I../include -o $(BIN_DIR)/test_solvers test_solvers.cpp -lquadmath
+	$(CXXMAX) -Iinclude -o $(BIN_DIR)/test_solvers test_solvers.cpp -lquadmath
 
 $(BIN_DIR)/test_solution: include/ext/solution.h test_solution.cpp
-	$(CXXMAX) -Iinclude -I../include -o $(BIN_DIR)/test_solution test_solution.cpp -lquadmath
+	$(CXXMAX) -Iinclude -o $(BIN_DIR)/test_solution test_solution.cpp -lquadmath
 
 $(BIN_DIR)/test_static_polynomial: include/ext/static_polynomial.h test_static_polynomial.cpp
-	$(CXXMAX) -Iinclude -I../include -o $(BIN_DIR)/test_static_polynomial test_static_polynomial.cpp -lquadmath
+	$(CXXMAX) -Iinclude -o $(BIN_DIR)/test_static_polynomial test_static_polynomial.cpp -lquadmath
 
 $(BIN_DIR)/test_laguerre_step: test_laguerre_step.cpp
-	$(CXXMAX) -Iinclude -I../include -o $(BIN_DIR)/test_laguerre_step test_laguerre_step.cpp -lquadmath
+	$(CXXMAX) -Iinclude -o $(BIN_DIR)/test_laguerre_step test_laguerre_step.cpp -lquadmath
 
 $(BIN_DIR)/test_quadratic_step: test_quadratic_step.cpp
-	$(CXXMAX) -Iinclude -I../include -o $(BIN_DIR)/test_quadratic_step test_quadratic_step.cpp -lquadmath
+	$(CXXMAX) -Iinclude -o $(BIN_DIR)/test_quadratic_step test_quadratic_step.cpp -lquadmath
 
 docs:
 	rm -rf docs/html/*

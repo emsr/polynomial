@@ -11,24 +11,21 @@ $HOME/bin/bin/g++ -std=gnu++2a -g -Wall -Wextra -Wno-psabi -I. -I../include -o t
 #include "ext/polynomial.h"
 
 
-namespace __gnu_cxx
-{
-  // Quick factorial impl.
-  template<typename _Tp>
-    constexpr _Tp
-    factorial(unsigned int __n)
-    {
-      if (__n == 0)
-	return _Tp{1};
-      else
-	{
-	  auto __fact = _Tp{1};
-	  for (unsigned int __i = 1; __i <= __n; ++__i)
-	    __fact *= _Tp(__i);
-	  return __fact;
-	}
-    }
-}
+// Quick factorial impl.
+template<typename _Tp>
+  constexpr _Tp
+  factorial(unsigned int __n)
+  {
+    if (__n == 0)
+      return _Tp{1};
+    else
+      {
+	auto __fact = _Tp{1};
+	for (unsigned int __i = 1; __i <= __n; ++__i)
+	  __fact *= _Tp(__i);
+	return __fact;
+      }
+  }
 
 int
 main()
@@ -182,7 +179,7 @@ main()
 
   __gnu_cxx::_Polynomial<double> e([](unsigned int k)
                                    -> double
-                                   { return 1.0 / __gnu_cxx::factorial<double>(k); }, 20);
+                                   { return 1.0 / factorial<double>(k); }, 20);
   std::cout << "e = " << e << '\n';
   std::cout << "e(1) = " << e(1) << '\n';
 }
