@@ -594,6 +594,20 @@ template<typename T>
       { this->_M_coeff.at(__i) = __val; }
 
       /**
+       * Return coefficient @c i.
+       */
+      value_type
+      operator[](size_type __i) const noexcept
+      { return this->_M_coeff[__i]; }
+
+      /**
+       * Return coefficient @c i as an lvalue.
+       */
+      reference
+      operator[](size_type __i) noexcept
+      { return this->_M_coeff[__i]; }
+
+      /**
        * Return a const vector of coefficients.
        */
       const std::vector<value_type>
@@ -620,20 +634,6 @@ template<typename T>
       value_type*
       data() noexcept
       { return this->_M_coeff.data(); }
-
-      /**
-       * Return coefficient @c i.
-       */
-      value_type
-      operator[](size_type __i) const noexcept
-      { return this->_M_coeff[__i]; }
-
-      /**
-       * Return coefficient @c i as an lvalue.
-       */
-      reference
-      operator[](size_type __i) noexcept
-      { return this->_M_coeff[__i]; }
 
       /**
        * Return an iterator to the beginning of the coefficient sequence.
