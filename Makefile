@@ -25,13 +25,12 @@ CXX_LIB_DIR = $(CXX_INST_DIR)/lib64
 CXX_TEST_INC_DIR = .
 
 INPUT_DIR = test_input
-OUTPUT_DIR = output
+OUTPUT_DIR = test_output
 BIN_DIR = bin
 
 BINS = $(BIN_DIR) \
   $(BIN_DIR)/test_bairstow \
   $(BIN_DIR)/test_horner \
-  $(BIN_DIR)/test_jacobi_roots \
   $(BIN_DIR)/test_jenkins_traub \
   $(BIN_DIR)/test_polynomial \
   $(BIN_DIR)/test_polynomial_root \
@@ -40,7 +39,8 @@ BINS = $(BIN_DIR) \
   $(BIN_DIR)/test_solvers \
   $(BIN_DIR)/test_static_polynomial \
   $(BIN_DIR)/test_laguerre_step \
-  $(BIN_DIR)/test_quadratic_step
+  $(BIN_DIR)/test_quadratic_step \
+  $(BIN_DIR)/test_jacobi_roots
 
 
 
