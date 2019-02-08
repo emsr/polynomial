@@ -33,22 +33,20 @@ template<typename _Real>
 	std::cout << "a[" << i << "] = ";
 	std::cin >> a[i];
       }
+    std::cout << "\nP : ( ";
+    for (int i = 0; i < order; ++i)
+      std::cout << a[i] << ", ";
+    std::cout << a[order] << " )\n";
 
     __gnu_cxx::_JenkinsTraubSolver jenkins_traub(a);
     const auto zeros = jenkins_traub.solve();
     std::cout << "\nThe zeros are:\n";
     for (const auto& z : zeros)
       std::cout << z << '\n';
-/*
-    const auto eq = jenkins_traub.equations();
-    std::cout << "\nThe quadratic factors are:\n";
-    for (int p = 0; p < eq.size() / 2; ++p)
-      std::cout << "t^2 + " << eq[2 * p + 1] << " t + " << eq[2 * p] << '\n';
-    if ((eq.size() % 2) == 1)
-      std::cout << "The linear term is: \nt - " << eq.back() << '\n';
-*/
+
     std::cout << "\nSolution tests:\n";
-    __gnu_cxx::_Polynomial<_Real> poly(a.begin(), a.end());
+    // Remember to reverse the polynomial coefficients!
+    __gnu_cxx::_Polynomial<_Real> poly(a.rbegin(), a.rend());
     for (const auto& z : zeros)
       {
 	const auto idx = z.index();
@@ -57,6 +55,8 @@ template<typename _Real>
 	  std::cout << poly(std::get<1>(z));
 	else if (idx == 2)
 	  std::cout << poly(std::get<2>(z));
+	else
+	  std::cout << "error";
 	std::cout << '\n';
       }
   }
