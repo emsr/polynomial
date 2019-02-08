@@ -341,7 +341,7 @@ namespace __gnu_cxx //_GLIBCXX_VISIBILITY(default)
        *  n - 3 multiplies and 4 * n - 6 additions are saved.
        */
       template<typename _Tp2>
-	auto
+	constexpr auto
 	eval_even(std::complex<_Tp2> __z) const
 	-> decltype(value_type{} * std::complex<_Tp2>{})
 	{
@@ -376,7 +376,7 @@ namespace __gnu_cxx //_GLIBCXX_VISIBILITY(default)
        *  n - 3 multiplies and 4 * n - 6 additions are saved.
        */
       template<typename _Tp2>
-	auto
+	constexpr auto
 	eval_odd(std::complex<_Tp2> __z) const
 	-> decltype(value_type{} * std::complex<_Tp2>{})
 	{
@@ -401,7 +401,7 @@ namespace __gnu_cxx //_GLIBCXX_VISIBILITY(default)
       /**
        *  Return the derivative of the polynomial.
        */
-      _StaticPolynomial<_Tp, (_Num > 1 ? _Num - 1 : 0)>
+      constexpr _StaticPolynomial<_Tp, (_Num > 1 ? _Num - 1 : 0)>
       derivative() const
       {
 	_StaticPolynomial<_Tp, (_Num > 1 ? _Num - 1 : 0)> __res;
@@ -413,7 +413,7 @@ namespace __gnu_cxx //_GLIBCXX_VISIBILITY(default)
       /**
        *  Return the integral of the polynomial with given integration constant.
        */
-      _StaticPolynomial<_Tp, _Num + 1>
+      constexpr _StaticPolynomial<_Tp, _Num + 1>
       integral(value_type __c = value_type{}) const
       {
 	_StaticPolynomial<_Tp, _Num + 1> __res;
@@ -426,7 +426,7 @@ namespace __gnu_cxx //_GLIBCXX_VISIBILITY(default)
       /**
        *  Copy assignment.
        */
-      _StaticPolynomial&
+      constexpr _StaticPolynomial&
       operator=(const _StaticPolynomial&) = default;
 
       template<typename _Up>
@@ -465,7 +465,7 @@ namespace __gnu_cxx //_GLIBCXX_VISIBILITY(default)
       coefficient(size_type __i) const
       { return (this->_M_coeff.size() > __i ? this->_M_coeff[__i] : value_type{}); }
 
-      void
+      constexpr void
       coefficient(size_type __i, value_type __val)
       { this->_M_coeff.at(__i) = __val; }
 
@@ -480,28 +480,28 @@ namespace __gnu_cxx //_GLIBCXX_VISIBILITY(default)
       /**
        * Return a const vector of coefficients.
        */
-      const std::array<value_type, _Num>
+      constexpr const std::array<value_type, _Num>
       coefficients() const noexcept
       { return this->_M_coeff; }
 
       /**
        * Return a vector of coefficients.
        */
-      std::array<value_type, _Num>
+      constexpr std::array<value_type, _Num>
       coefficients() noexcept
       { return this->_M_coeff; }
 
       /**
        * Return a @c const pointer to the coefficient sequence.
        */
-      const value_type*
+      constexpr const value_type*
       data() const noexcept
       { return this->_M_coeff.data(); }
 
       /**
        * Return a @c pointer to the coefficient sequence.
        */
-      value_type*
+      constexpr value_type*
       data() noexcept
       { return this->_M_coeff.data(); }
 
