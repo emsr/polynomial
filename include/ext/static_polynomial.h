@@ -43,6 +43,7 @@
 #include <limits>
 #include <array>
 #include <complex>
+#include <iosfwd>
 
 namespace __gnu_cxx //_GLIBCXX_VISIBILITY(default)
 {
@@ -57,7 +58,6 @@ namespace __gnu_cxx //_GLIBCXX_VISIBILITY(default)
     public:
       /**
        *  Typedefs.
-       *  @todo Should we grab these from _M_coeff (i.e. std::array<_Tp, _Num>)?
        */
       using value_type = typename std::array<_Tp, _Num>::value_type;
       using reference = typename std::array<_Tp, _Num>::reference;
@@ -83,6 +83,7 @@ namespace __gnu_cxx //_GLIBCXX_VISIBILITY(default)
        *  Copy ctor.
        */
       constexpr _StaticPolynomial(const _StaticPolynomial&) = default;
+      constexpr _StaticPolynomial(_StaticPolynomial&&) = default;
 
       template<typename _Up>
 	constexpr
@@ -93,7 +94,9 @@ namespace __gnu_cxx //_GLIBCXX_VISIBILITY(default)
 	    this->_M_coeff[__i] = static_cast<value_type>(__poly._M_coeff[__i]);
 	}
 
-      //  Constructor from C-type array.
+      /**
+       *  Constructor from C-type array.
+       */
       template<typename _Up>
 	constexpr
 	_StaticPolynomial(const _Up (&__arr)[_Num])
@@ -103,7 +106,9 @@ namespace __gnu_cxx //_GLIBCXX_VISIBILITY(default)
 	    this->_M_coeff[__i] = static_cast<value_type>(__arr[__i]);
 	}
 
-      //  Constructor from initializer_list array.
+      /**
+       *  Constructor from initializer_list array.
+       */
       constexpr
       _StaticPolynomial(std::initializer_list<_Tp> __il)
       : _M_coeff{}
@@ -596,7 +601,18 @@ namespace __gnu_cxx //_GLIBCXX_VISIBILITY(default)
 	       const _StaticPolynomial<_Tp, _Num>& __pb)
     { return !(__pa == __pb); }
 
+  /**
+   * Write a polynomial to a stream.
+   * The format is a parenthesized comma-delimited list of coefficients.
+   */
+  template<typename CharT, typename Traits, typename _Tp, std::size_t _Num>
+    std::basic_ostream<CharT, Traits>&
+    operator<<(std::basic_ostream<CharT, Traits>& __os,
+	       const _StaticPolynomial<_Tp, _Num>& __poly);
+
 } // namespace __gnu_cxx
+
+#include "static_polynomial.tcc"
 
 #endif // C++14
 
