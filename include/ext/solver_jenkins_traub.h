@@ -7,6 +7,9 @@
 namespace __gnu_cxx
 {
 
+/**
+ * A solver for real-coefficient polynomials due to Jenkins and Traub.
+ */
 template<typename _Real>
   class _JenkinsTraubSolver
   {
