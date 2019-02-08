@@ -25,13 +25,12 @@ CXX_LIB_DIR = $(CXX_INST_DIR)/lib64
 CXX_TEST_INC_DIR = .
 
 INPUT_DIR = test_input
-OUTPUT_DIR = output
+OUTPUT_DIR = test_output
 BIN_DIR = bin
 
 BINS = $(BIN_DIR) \
   $(BIN_DIR)/test_bairstow \
   $(BIN_DIR)/test_horner \
-  $(BIN_DIR)/test_jacobi_roots \
   $(BIN_DIR)/test_jenkins_traub \
   $(BIN_DIR)/test_polynomial \
   $(BIN_DIR)/test_polynomial_root \
@@ -40,7 +39,8 @@ BINS = $(BIN_DIR) \
   $(BIN_DIR)/test_solvers \
   $(BIN_DIR)/test_static_polynomial \
   $(BIN_DIR)/test_laguerre_step \
-  $(BIN_DIR)/test_quadratic_step
+  $(BIN_DIR)/test_quadratic_step \
+  $(BIN_DIR)/test_jacobi_roots
 
 
 
@@ -95,7 +95,6 @@ docs:
 	cd docs/latex && make
 
 test: $(OUTPUT_DIR)
-	LD_LIBRARY_PATH=$(CXX_LIB_DIR):$$LD_LIBRARY_PATH $(BIN_DIR)/test_jacobi_roots > $(OUTPUT_DIR)/test_jacobi_roots.txt
 	LD_LIBRARY_PATH=$(CXX_LIB_DIR):$$LD_LIBRARY_PATH $(BIN_DIR)/test_rational_polynomial > $(OUTPUT_DIR)/test_rational_polynomial.txt
 	touch $(OUTPUT_DIR)/test_bairstow.prev && cp -f $(OUTPUT_DIR)/test_bairstow.prev $(OUTPUT_DIR)/test_bairstow.prev2
 	touch $(OUTPUT_DIR)/test_bairstow.txt && cp -f $(OUTPUT_DIR)/test_bairstow.txt $(OUTPUT_DIR)/test_bairstow.prev
@@ -123,6 +122,7 @@ test: $(OUTPUT_DIR)
 	LD_LIBRARY_PATH=$(CXX_LIB_DIR):$$LD_LIBRARY_PATH $(BIN_DIR)/test_static_polynomial > $(OUTPUT_DIR)/test_static_polynomial.txt
 	LD_LIBRARY_PATH=$(CXX_LIB_DIR):$$LD_LIBRARY_PATH $(BIN_DIR)/test_laguerre_step > $(OUTPUT_DIR)/test_laguerre_step.txt
 	LD_LIBRARY_PATH=$(CXX_LIB_DIR):$$LD_LIBRARY_PATH $(BIN_DIR)/test_quadratic_step > $(OUTPUT_DIR)/test_quadratic_step.txt
+	LD_LIBRARY_PATH=$(CXX_LIB_DIR):$$LD_LIBRARY_PATH $(BIN_DIR)/test_jacobi_roots > $(OUTPUT_DIR)/test_jacobi_roots.txt
 
 
 $(OUTPUT_DIR): $(OUTPUT_DIR)
