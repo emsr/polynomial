@@ -16,6 +16,7 @@ LD_LIBRARY_PATH=$HOME/bin/lib64:$LD_LIBRARY_PATH ./test_jacobi_roots > test_jaco
 #include <bits/float128_math.h>
 #include <bits/specfun_state.h>
 #include <bits/sf_trig.tcc>
+#include <bits/sf_bernoulli.tcc>
 #include <bits/sf_gamma.tcc>
 
 namespace std
