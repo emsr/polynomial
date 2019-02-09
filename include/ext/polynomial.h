@@ -233,10 +233,23 @@ template<typename T>
       {
 	if (this->degree() > 0)
 	  {
-	    value_type __poly(this->coefficient(this->degree()));
-	    for (int __i = this->degree() - 1; __i >= 0; --__i)
-	      __poly = __poly * __x + this->coefficient(__i);
-	    return __poly;
+	    if (std::abs(__x) <= 1)
+	      {
+		value_type __poly(this->coefficient(this->degree()));
+		for (int __i = this->degree() - 1; __i >= 0; --__i)
+		  __poly = __poly * __x + this->coefficient(__i);
+		return __poly;
+	      }
+	    else
+	      {
+		const auto __rx = 1 / __x;
+		value_type __poly(this->coefficient(0));
+		for (int __i = 1; __i <= this->degree(); ++__i)
+		  __poly = __poly * __rx + this->coefficient(__i);
+		for (int __i = 1; __i <= this->degree(); ++__i)
+		  __poly *= __x;
+		return __poly;
+	      }
 	  }
 	else
 	  return this->coefficient(0);
@@ -252,10 +265,23 @@ template<typename T>
 	{
 	  if (this->degree() > 0)
 	    {
-	      auto __poly(_Up{1} * this->coefficient(this->degree()));
-	      for (int __i = this->degree() - 1; __i >= 0; --__i)
-		__poly = __poly * __x + this->coefficient(__i);
-	      return __poly;
+	      if (std::abs(__x) <= 1)
+		{
+		  auto __poly(_Up{1} * this->coefficient(this->degree()));
+		  for (int __i = this->degree() - 1; __i >= 0; --__i)
+		    __poly = __poly * __x + this->coefficient(__i);
+		  return __poly;
+		}
+	      else
+		{
+		  const auto __rx = 1 / __x;
+		  auto __poly(_Up{1} * this->coefficient(0));
+		  for (int __i = 1; __i <= this->degree(); ++__i)
+		    __poly = __poly * __rx + this->coefficient(__i);
+		  for (int __i = 1; __i <= this->degree(); ++__i)
+		    __poly *= __x;
+		  return __poly;
+		}
 	    }
 	  else
 	    return _Up{1} * this->coefficient(0);
