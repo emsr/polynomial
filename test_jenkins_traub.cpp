@@ -19,7 +19,7 @@ template<typename _Real>
     std::cout.precision(std::numeric_limits<_Real>::digits10);
 
     int order = 0;
-    int MAX_TERMS = 100;
+    int MAX_TERMS = 1000;
     while ((order < 2) || (order > MAX_TERMS - 1))
       {
 	std::cout << "Polynomial order (2 - " << MAX_TERMS - 1 << "): ";
@@ -30,13 +30,13 @@ template<typename _Real>
     std::cout << "Enter coefficients, high order to low order.\n";
     for (int i = 0; i <= order; ++i)
       {
-	std::cout << "a[" << i << "] = ";
+	std::cout << "a[" << (order - i) << "] = ";
 	std::cin >> a[i];
       }
     std::cout << "\nP : ( ";
     for (int i = 0; i < order; ++i)
-      std::cout << a[i] << ", ";
-    std::cout << a[order] << " )\n";
+      std::cout << a[order - i] << ", ";
+    std::cout << a[0] << " )\n";
 
     __gnu_cxx::_JenkinsTraubSolver jenkins_traub(a);
     const auto zeros = jenkins_traub.solve();
