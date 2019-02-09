@@ -133,6 +133,7 @@ template<typename T>
       using const_reverse_iterator = typename std::vector<value_type>::const_reverse_iterator;
       using size_type = typename std::vector<_Tp>::size_type;
       using difference_type = typename std::vector<_Tp>::difference_type;
+      using real_type = decltype(std::abs(value_type()));
 
       /**
        * Create a zero degree polynomial with value zero.
@@ -233,7 +234,7 @@ template<typename T>
       {
 	if (this->degree() > 0)
 	  {
-	    if (std::abs(__x) <= 1)
+	    if (std::abs(__x) <= real_type{1})
 	      {
 		value_type __poly(this->coefficient(this->degree()));
 		for (int __i = this->degree() - 1; __i >= 0; --__i)
@@ -242,7 +243,7 @@ template<typename T>
 	      }
 	    else
 	      {
-		const auto __rx = 1 / __x;
+		const auto __rx = real_type{1} / __x;
 		value_type __poly(this->coefficient(0));
 		for (int __i = 1; __i <= this->degree(); ++__i)
 		  __poly = __poly * __rx + this->coefficient(__i);
@@ -265,7 +266,7 @@ template<typename T>
 	{
 	  if (this->degree() > 0)
 	    {
-	      if (std::abs(__x) <= 1)
+	      if (std::abs(__x) <= real_type{1})
 		{
 		  auto __poly(_Up{1} * this->coefficient(this->degree()));
 		  for (int __i = this->degree() - 1; __i >= 0; --__i)
@@ -274,7 +275,7 @@ template<typename T>
 		}
 	      else
 		{
-		  const auto __rx = 1 / __x;
+		  const auto __rx = real_type{1} / __x;
 		  auto __poly(_Up{1} * this->coefficient(0));
 		  for (int __i = 1; __i <= this->degree(); ++__i)
 		    __poly = __poly * __rx + this->coefficient(__i);
