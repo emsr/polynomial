@@ -50,11 +50,8 @@
 #include <limits>
 #include <array>
 #include <utility> // For exchange.
-
-namespace std {
-  template<typename _Tp>
-    class complex;
-}
+#include <type_traits>
+#include <complex>
 
 /**
  * This class is a dense univariate polynomial.
@@ -87,7 +84,6 @@ namespace std {
  *   minimim magnitude coefficient.  If the remainder is non-zero then an
  *   exception is thrown.
  *
- * We need a real_type for epsilons - ints promote to double.
  * It would be promote_t<complex::value_type> for complex.
  *
  */
@@ -95,18 +91,52 @@ namespace __gnu_cxx //_GLIBCXX_VISIBILITY(default)
 {
 _GLIBCXX_BEGIN_NAMESPACE_VERSION
 
-template<typename, typename = std::void_t<>>
-  struct __has_imag_t
-  : std::false_type
-  { };
 
-template<typename T>
-  struct __has_imag_t<T, std::void_t<decltype(std::declval<T&>().imag())>>
-  : std::true_type
-  { };
+  template<typename, typename = std::void_t<>>
+    struct __has_imag_t
+    : std::false_type
+    { };
 
-template<typename T>
-  constexpr auto __has_imag_v = __has_imag_t<T>::value;
+  template<typename _Tp>
+    struct __has_imag_t<_Tp, std::void_t<decltype(std::declval<_Tp&>().imag())>>
+    : std::true_type
+    { };
+
+  template<typename _Tp>
+    constexpr auto __has_imag_v = __has_imag_t<_Tp>::value;
+
+
+  template<typename, typename = std::void_t<>>
+    struct __has_value_type_t
+    : std::false_type
+    { };
+
+  template<typename _Tp>
+    struct __has_value_type_t<_Tp, std::void_t<typename _Tp::value_type>>
+    : std::true_type
+    { };
+
+  template<typename _Tp>
+    constexpr auto __has_value_type_v = __has_value_type_t<_Tp>::value;
+
+
+  template<typename _Tp>
+    class _Polynomial;
+
+  template<typename _Tp>
+    struct __real_type
+    { using type = _Tp; };
+
+  template<typename _Tp>
+    struct __real_type<std::complex<_Tp>>
+    { using type = _Tp; };
+
+  template<typename _Tp>
+    struct __real_type<_Polynomial<_Tp>>;
+
+  template<typename _Tp>
+    using __real_type_t = typename __real_type<_Tp>::type;
+
 
   /**
    * @brief A dense polynomial class with a contiguous array of coefficients.
@@ -129,11 +159,13 @@ template<typename T>
       using const_pointer = typename std::vector<value_type>::const_pointer;
       using iterator = typename std::vector<value_type>::iterator;
       using const_iterator = typename std::vector<value_type>::const_iterator;
-      using reverse_iterator = typename std::vector<value_type>::reverse_iterator;
-      using const_reverse_iterator = typename std::vector<value_type>::const_reverse_iterator;
-      using size_type = typename std::vector<_Tp>::size_type;
-      using difference_type = typename std::vector<_Tp>::difference_type;
-      using real_type = decltype(std::abs(value_type()));
+      using reverse_iterator
+		= typename std::vector<value_type>::reverse_iterator;
+      using const_reverse_iterator
+		= typename std::vector<value_type>::const_reverse_iterator;
+      using size_type = typename std::vector<value_type>::size_type;
+      using difference_type = typename std::vector<value_type>::difference_type;
+      using real_type = __real_type_t<_Tp>;
 
       /**
        * Create a zero degree polynomial with value zero.
@@ -745,7 +777,7 @@ template<typename T>
        * Remove zero max-order coefficients.
        */
       _Polynomial&
-      deflate(value_type __max_abx_coef) // FIXME need real_type
+      deflate(real_type __max_abx_coef)
       {
 	size_type __n = this->degree();
 	for (size_type __i = this->degree(); __i > 0; --__i)
@@ -763,7 +795,7 @@ template<typename T>
        */
       _Polynomial&
       deflate(const _Polynomial<value_type>& __poly,
-	      value_type __max_abx_coef) // FIXME need real_type
+	      real_type __max_abx_coef)
       {
 	_Polynomial<value_type> __quo, __rem;
 	divmod(*this, __poly, __quo, __rem);
@@ -787,13 +819,12 @@ template<typename T>
     private:
 /* This still falls of the type now.
 I need a recursive decay type for polynomials.
-      using real_type = decltype(std::abs(value_type()));
-      inline static const real_type _S_eps = std::numeric_limits<real_type>::epsilon();
-      inline static const real_type
+      inline static constexpr real_type _S_eps = std::numeric_limits<real_type>::epsilon();
+      inline static constexpr real_type
 	_S_base = real_type{std::numeric_limits<real_type>::radix};
-      inline static const real_type _S_tiny = _S_eps * _S_eps * _S_eps; // ~ 1.0e-50;
-      inline static const real_type _S_huge = real_type{1} / _S_tiny; // ~ 1.0e+50;
-      inline static const real_type _S_low = _S_tiny / _S_eps;
+      inline static constexpr real_type _S_tiny = _S_eps * _S_eps * _S_eps; // ~ 1.0e-50;
+      inline static constexpr real_type _S_huge = real_type{1} / _S_tiny; // ~ 1.0e+50;
+      inline static constexpr real_type _S_low = _S_tiny / _S_eps;
 
 
       /// Return the scale.
@@ -807,6 +838,10 @@ I need a recursive decay type for polynomials.
 
       std::vector<value_type> _M_coeff;
     };
+
+  template<typename _Tp>
+    struct __real_type<_Polynomial<_Tp>>
+    { using type = typename _Polynomial<_Tp>::real_type; };
 
   /**
    * Return the scale for a polynomial.
