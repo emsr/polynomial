@@ -14,10 +14,6 @@ LD_LIBRARY_PATH=$HOME/bin/lib64:$LD_LIBRARY_PATH ./test_jacobi_roots > test_jaco
 
 #include <bits/float128_io.h>
 #include <bits/float128_math.h>
-#include <bits/specfun_state.h>
-#include <bits/sf_trig.tcc>
-#include <bits/sf_bernoulli.tcc>
-#include <bits/sf_gamma.tcc>
 
 namespace std
 {
@@ -70,10 +66,9 @@ namespace __detail
     _Tp
     __jacobi_norm(unsigned int __n, _Tp __alpha1, _Tp __beta1)
     {
-      const auto lgam1 = __log_gamma(_Tp(2 * __n + __alpha1 + __beta1 + 1));
-      const auto sgam1 = __log_gamma_sign(_Tp(2 * __n + __alpha1 + __beta1 + 1));
-      const auto lgam2 = __log_gamma(_Tp(__n + __alpha1 + __beta1 + 1));
-      const auto sgam2 = __log_gamma_sign(_Tp(__n + __alpha1 + __beta1 + 1));
+      int sgam1, sgam2;
+      const auto lgam1 = lgamma_r(_Tp(2 * __n + __alpha1 + __beta1 + 1), &sgam1);
+      const auto lgam2 = lgamma_r(_Tp(__n + __alpha1 + __beta1 + 1), &sgam2);
       return sgam1 * sgam2 * std::exp(lgam1 - std::lgamma(_Tp(__n + 1))
    				    - lgam2 - _Tp(__n) * std::log(_Tp{2}));
     }
