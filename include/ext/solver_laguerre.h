@@ -28,10 +28,13 @@ namespace __gnu_cxx
       step()
       {
 	using __cmplx = std::complex<_Real>;
-	const auto __z = this->_M_root_laguerre();
-	_Polynomial<__cmplx> __zpoly({__z, __cmplx{1}});
+
+	const auto __z0 = this->_M_root_laguerre();
+
+	_Polynomial<__cmplx> __zpoly({-__z0, __cmplx{1}});
 	this->_M_poly /= __zpoly;
-	return __z;
+
+	return __z0;
       }
 
       int

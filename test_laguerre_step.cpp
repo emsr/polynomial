@@ -30,7 +30,7 @@ template<typename _Tp>
 	std::cout << '\n';
 	auto x = lagsolver.step();
 	std::cout << "x     = " << x << '\n';
-	std::cout << "its   = " << lagsolver.num_iters() << '\n';
+	std::cout << "iters = " << lagsolver.num_iters() << '\n';
 	std::cout << "CP(x) = " << CP(x) << '\n';
 	std::cout << "CP    = " << lagsolver.polynomial() << '\n';
       }

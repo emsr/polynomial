@@ -16,16 +16,19 @@ namespace __gnu_cxx
     {
       using __cmplx = std::complex<_Real>;
 
-      __cmplx __x;
-      int __m = this->_M_poly.degree();
+      const auto __m = this->_M_poly.degree();
+      const int __max_iter = this->_M_max_iter();
+
+      this->_M_num_iters = 0;
 
       //if (__m == 1)
 	//return -this->_M_poly.cefficient(0) / this->_M_poly.cefficient(1);
 
-      const int __max_iter = this->_M_max_iter();
+      __cmplx __x{};
       for (int __iter = 1; __iter <= __max_iter; ++__iter)
 	{
-	  this->_M_num_iters = __iter;
+	  ++this->_M_num_iters;
+
 	  // Efficient computation of the polynomial
 	  // and its first two derivatives. F stores P''(x)/2.
 	  auto __b = this->_M_poly[__m];
@@ -72,6 +75,9 @@ namespace __gnu_cxx
 				     "Maximum number of iterations exceeded"));
     }
 
+  /**
+   * Find all solutions of the  polynomial by stepping and 
+   */
   template<typename _Real>
     std::vector<std::complex<_Real>>
     _LaguerreSolver<_Real>::solve()
@@ -79,15 +85,16 @@ namespace __gnu_cxx
       using __cmplx = std::complex<_Real>;
 
       std::vector<__cmplx> __roots;
-      __roots.reserve(this->_M_poly.degree());
-      for (unsigned __i = 0; __i < this->_M_poly.degree(); ++__i)
+      const auto __deg = this->_M_poly.degree();
+      __roots.reserve(__deg);
+      for (unsigned __i = 0; __i < __deg; ++__i)
 	{
-	  const auto __z = this->_M_root_laguerre();
+	  const auto __z0 = this->_M_root_laguerre();
 
-	  _Polynomial<__cmplx> __zpoly({__z, __cmplx{1}});
+	  _Polynomial<__cmplx> __zpoly({-__z0, __cmplx{1}});
 	  this->_M_poly /= __zpoly;
 
-	  __roots.push_back(__z);
+	  __roots.push_back(__z0);
 	}
       return __roots;
     }
