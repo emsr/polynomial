@@ -817,15 +817,6 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
       }
 
     private:
-/* This still falls of the type now.
-I need a recursive decay type for polynomials.
-      inline static constexpr real_type _S_eps = std::numeric_limits<real_type>::epsilon();
-      inline static constexpr real_type
-	_S_base = real_type{std::numeric_limits<real_type>::radix};
-      inline static constexpr real_type _S_tiny = _S_eps * _S_eps * _S_eps; // ~ 1.0e-50;
-      inline static constexpr real_type _S_huge = real_type{1} / _S_tiny; // ~ 1.0e+50;
-      inline static constexpr real_type _S_low = _S_tiny / _S_eps;
-
 
       /// Return the scale.
       real_type
@@ -833,7 +824,7 @@ I need a recursive decay type for polynomials.
       { return this->_M_scale; }
 
       real_type _M_scale = real_type{1};
-*/
+
       void _M_set_scale();
 
       std::vector<value_type> _M_coeff;

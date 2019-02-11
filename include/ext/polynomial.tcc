@@ -55,12 +55,48 @@ namespace __gnu_cxx //_GLIBCXX_VISIBILITY(default)
 {
 _GLIBCXX_BEGIN_NAMESPACE_VERSION
 
-/* This still falls of the type now.
-I need a recursive decay type for polynomials.
+// We also need an integer coef version :-\ ?
   template<typename _Tp>
     void
     _Polynomial<_Tp>::_M_set_scale()
+    { }
+  /**
+   * 
+OTOH, What does it mean to get roots of integer polynomials - the roots will
+often be real or even complex.
+
+What does it even mean to get roots of polynomial polynomials.
+I think you'd want to pick a parameter for the inner coefficient polynomials.
+
+Wait! This has nothing to do with the coefficient type.  It's the evaluation type
+that determines this. It may be sane to make real_type be double if it comes in
+as integral.
+
+OTOOH, scaling down an integer polynomial will either screw up the polynomial
+or it will make a polynomial of a different type.
+
+This scaling thing can only apply to real or complex polynomials.
+
+  template<typename _Tp>
+    std::enable_if_t<std::is_integral_v<_Tp>>
+    _Polynomial<_Tp>::_M_set_scale()
+    { }
+   */
+
+  /**
+   * 
+  template<typename _Tp>
+    //std::enable_if_t<std::is_floating_point_v<_Tp>>
+    void
+    _Polynomial<_Tp>::_M_set_scale()
     {
+      constexpr real_type _S_eps = std::numeric_limits<real_type>::epsilon();
+      constexpr real_type
+	_S_base = real_type{std::numeric_limits<real_type>::radix};
+      constexpr real_type _S_tiny = _S_eps * _S_eps * _S_eps; // ~ 1.0e-50;
+      constexpr real_type _S_huge = std::numeric_limits<real_type>::max();
+      constexpr real_type _S_low = _S_tiny / _S_eps;
+
       // Find largest and smallest moduli of coefficients.
       auto __a_max = real_type{0};
       auto __a_min = _S_huge;
@@ -91,19 +127,25 @@ I need a recursive decay type for polynomials.
 	  // Scale polynomial.
 	  if (__scale == real_type{0})
 	    __scale = _S_tiny;
-	  const auto __lg = int(std::ceil(std::log(__scale) / std::log(_S_base)));
+	  const auto __lg = std::ilogb(__scale);
 	  this->_M_scale = std::pow(_S_base, __lg);
 	  //if (this->_M_scale != real_type{1})
 	  //  for (int __i = 0; __i <= this->degree(); ++__i)
 	  //    this->_M_coeff[__i] *= this->_M_scale;
 	}
     }
-*/
+   */
+
+  /**
+   * Scaling specialization for polynomial coefficient polynomials.
   template<typename _Tp>
     void
-    _Polynomial<_Tp>::_M_set_scale()
+    _Polynomial<_Polynomial<_Tp>>::_M_set_scale()
     {
+      for (int __i = 0; __i <= this->degree(); ++__i)
+	this->_M_coeff[__i]._M_set_scale();
     }
+   */
 
   /**
    * Evaluate the polynomial using a modification of Horner's rule which
