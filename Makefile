@@ -85,7 +85,7 @@ $(BIN_DIR)/test_static_polynomial: include/ext/static_polynomial.h test_static_p
 $(BIN_DIR)/test_laguerre_step: include/ext/solver_laguerre.h include/ext/solver_laguerre.tcc test_laguerre_step.cpp
 	$(CXXMAX) -Iinclude -o $(BIN_DIR)/test_laguerre_step test_laguerre_step.cpp -lquadmath
 
-$(BIN_DIR)/test_quadratic_step: test_quadratic_step.cpp
+$(BIN_DIR)/test_quadratic_step: include/ext/solver_quadratic.h include/ext/solver_quadratic.tcc test_quadratic_step.cpp
 	$(CXXMAX) -Iinclude -o $(BIN_DIR)/test_quadratic_step test_quadratic_step.cpp -lquadmath
 
 docs:

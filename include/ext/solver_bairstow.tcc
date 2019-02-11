@@ -1,7 +1,7 @@
 #ifndef SOLVER_BAIRSTOW_TCC
 #define SOLVER_BAIRSTOW_TCC 1
 
-#include "solver_low_degree.h"
+#include <ext/solver_low_degree.h>
 
 namespace __gnu_cxx
 {

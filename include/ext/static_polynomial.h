@@ -612,7 +612,7 @@ namespace __gnu_cxx //_GLIBCXX_VISIBILITY(default)
 
 } // namespace __gnu_cxx
 
-#include "static_polynomial.tcc"
+#include <ext/static_polynomial.tcc>
 
 #endif // C++14
 

@@ -47,7 +47,7 @@
 
 #include <experimental/array>
 
-#include "solution.h"
+#include <ext/solution.h>
 
 namespace __gnu_cxx //_GLIBCXX_VISIBILITY(default)
 {
@@ -100,7 +100,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 _GLIBCXX_END_NAMESPACE_VERSION
 } // namespace __gnu_cxx
 
-#include "solver_low_degree.tcc"
+#include <ext/solver_low_degree.tcc>
 
 #endif // C++14
 
