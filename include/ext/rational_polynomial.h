@@ -47,7 +47,7 @@
 
 #include <iostream>
 
-#include "polynomial.h"
+#include <ext/polynomial.h>
 
 namespace __gnu_cxx //_GLIBCXX_VISIBILITY(default)
 {

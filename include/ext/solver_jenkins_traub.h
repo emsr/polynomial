@@ -2,7 +2,7 @@
 #define SOLVER_JENKINS_TRAUB_H 1
 
 #include <ext/math_const.h> // For __const_pi, etc.
-#include "solution.h" // For solution_t
+#include <ext/solution.h> // For solution_t
 
 namespace __gnu_cxx
 {
@@ -84,6 +84,6 @@ template<typename _Real>
 
 } // namespace __gnu_cxx
 
-#include "solver_jenkins_traub.tcc"
+#include <ext/solver_jenkins_traub.tcc>
 
 #endif // SOLVER_JENKINS_TRAUB_H

@@ -1,7 +1,7 @@
 #ifndef SOLVER_BAIRSTOW_H
 #define SOLVER_BAIRSTOW_H 1
 
-#include "solver_low_degree.h"
+#include <ext/solver_low_degree.h>
 
 namespace __gnu_cxx
 {
@@ -78,6 +78,6 @@ template<typename _Real>
 
 } // namespace __gnu_cxx
 
-#include "solver_bairstow.tcc"
+#include <ext/solver_bairstow.tcc>
 
 #endif // SOLVER_BAIRSTOW_H

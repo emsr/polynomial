@@ -3,7 +3,7 @@
 
 #include <complex>
 
-#include "polynomial.h"
+#include <ext/polynomial.h>
 
 namespace __gnu_cxx
 {
@@ -86,6 +86,6 @@ namespace __gnu_cxx
 
 } // namespace __gnu_cxx
 
-#include "solver_laguerre.tcc"
+#include <ext/solver_laguerre.tcc>
 
 #endif // SOLVER_LAGUERRE_H

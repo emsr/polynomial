@@ -4,8 +4,8 @@
 
 #include <complex>
 
-#include "polynomial.h"
-//#include "solution.h" // For solution_t
+#include <ext/polynomial.h>
+//#include <ext/solution.h> // For solution_t
 
 namespace __gnu_cxx
 {
@@ -66,6 +66,6 @@ namespace __gnu_cxx
 
 } // namespace __gnu_cxx
 
-#include "solver_quadratic.tcc"
+#include <ext/solver_quadratic.tcc>
 
 #endif // SOLVER_QUADRATIC_H
