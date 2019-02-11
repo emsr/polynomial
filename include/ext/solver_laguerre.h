@@ -4,7 +4,6 @@
 #include <complex>
 
 #include "polynomial.h"
-#include "solution.h" // For solution_t
 
 namespace __gnu_cxx
 {
@@ -21,7 +20,6 @@ namespace __gnu_cxx
       : _M_poly(_P), _M_num_iters{0}
       { }
 
-      //std::vector<solution_t<_Real>> solve();
       std::vector<std::complex<_Real>> solve();
 
       std::complex<_Real>
@@ -40,6 +38,10 @@ namespace __gnu_cxx
       int
       num_iters() const
       { return this->_M_num_iters; }
+
+      int
+      max_num_iters() const
+      { return this->_M_max_iter(); }
 
       int
       num_steps_per_frac() const
