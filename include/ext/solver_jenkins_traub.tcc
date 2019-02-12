@@ -1,3 +1,37 @@
+// Math extensions -*- C++ -*-
+
+// Copyright (C) 2018-2019 Free Software Foundation, Inc.
+//
+// This file is part of the GNU ISO C++ Library.  This library is free
+// software; you can redistribute it and/or modify it under the
+// terms of the GNU General Public License as published by the
+// Free Software Foundation; either version 3, or (at your option)
+// any later version.
+
+// This library is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+
+// Under Section 7 of GPL version 3, you are granted additional
+// permissions described in the GCC Runtime Library Exception, version
+// 3.1, as published by the Free Software Foundation.
+
+// You should have received a copy of the GNU General Public License and
+// a copy of the GCC Runtime Library Exception along with this program;
+// see the files COPYING3 and COPYING.RUNTIME respectively.  If not, see
+// <http://www.gnu.org/licenses/>.
+
+/**
+ * @file solver_jenkins_traub.tcc Class declaration for
+ * the Jenkins-Traub solver.
+ */
+
+/**
+ * @def  SOLVER_JENKINS_TRAUB_TCC
+ *
+ * @brief  A guard for the _JenkinsTraubSolver class header.
+ */
 #ifndef SOLVER_JENKINS_TRAUB_TCC
 #define SOLVER_JENKINS_TRAUB_TCC 1
 
@@ -10,7 +44,8 @@ namespace __gnu_cxx
  * Constructor from input polynomial.
  */
 template<typename _Real>
-  _JenkinsTraubSolver<_Real>::_JenkinsTraubSolver(const std::vector<_Real>& __op)
+  _JenkinsTraubSolver<_Real>::
+  _JenkinsTraubSolver(const std::vector<_Real>& __op)
   : _P(__op)
   {
     if (this->_P.size() == 0)
@@ -168,7 +203,8 @@ template<typename _Real>
 	// and do 5 steps with no shift.
 	const auto __nm1 = this->__order - 1;
 	for (int __i = 1; __i < this->__order; ++__i)
-	  this->_H[__i] = _Real(this->__order - __i) * this->_P[__i] / _Real(this->__order);
+	  this->_H[__i] = _Real(this->__order - __i) * this->_P[__i]
+			/ _Real(this->__order);
 	this->_H[0] = this->_P[0];
 	const auto __aa = this->_P[this->__order];
 	const auto __bb = this->_P[this->__order - 1];
@@ -179,7 +215,8 @@ template<typename _Real>
 	    auto __cc = this->_H[this->__order - 1];
 	    if (!this->__zerok)
 	      {
-		// Use a scaled form of recurrence if value of H at 0 is nonzero.	
+		// Use a scaled form of recurrence if value of H at 0
+		// is nonzero.	
 		const auto __t = -__aa / __cc;
 		for (int __i = 0; __i < __nm1; ++__i)
 		  {
@@ -508,12 +545,14 @@ template<typename _Real>
 	auto __mp = std::abs(__pval);
 	// Compute a rigorous bound on the error in evaluating P.
 	const auto __ms = std::abs(__s);
-	auto __ee = (this->__mre / (this->__are + this->__mre)) * std::abs(this->_P_quot[0]);
+	auto __ee = (this->__mre / (this->__are + this->__mre))
+		  * std::abs(this->_P_quot[0]);
 	for (int __i = 1; __i <= this->__order; ++__i)
 	  __ee = __ee * __ms + std::abs(this->_P_quot[__i]);
 	// Iteration has converged sufficiently if the polynomial
 	// value is less than 20 times this bound.
-	if (__mp <= _Real{20} * ((this->__are + this->__mre) * __ee - this->__mre * __mp))
+	if (__mp <= _Real{20}
+		 * ((this->__are + this->__mre) * __ee - this->__mre * __mp))
 	  {
 	    __num_zeros = 1;
 	    this->__z_small = __s;
@@ -524,7 +563,8 @@ template<typename _Real>
 	if (i_real > this->max_iter_real)
 	  return __num_zeros;
 	else if (i_real < 2
-	  || std::abs(__t) > _Real{0.001L} * std::abs(__s - __t) || __mp < __omp)
+	  || std::abs(__t) > _Real{0.001L} * std::abs(__s - __t)
+	  || __mp < __omp)
 	  {
 	    // Return if the polynomial value has increased significantly.
 	    __omp = __mp;
