@@ -857,6 +857,14 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
     { return _Polynomial<decltype(_Tp() + _Up())>(__poly) += __x; }
 
   /**
+   *
+   */
+  template<typename _Tp, typename _Up>
+    inline _Polynomial<decltype(_Tp() + _Up())>
+    operator+(const _Tp& __x, const _Polynomial<_Up>& __poly)
+    { return _Polynomial<decltype(_Tp() + _Up())>(__x) += __poly; }
+
+  /**
    * Return the difference of a polynomial with a scalar.
    */
   template<typename _Tp, typename _Up>
@@ -865,12 +873,28 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
     { return _Polynomial<decltype(_Tp() - _Up())>(__poly) -= __x; }
 
   /**
+   *
+   */
+  template<typename _Tp, typename _Up>
+    inline _Polynomial<decltype(_Tp() - _Up())>
+    operator-(const _Tp& __x, const _Polynomial<_Up>& __poly)
+    { return _Polynomial<decltype(_Tp() - _Up())>(__x) -= __poly; }
+
+  /**
    * Return the product of a polynomial with a scalar.
    */
   template<typename _Tp, typename _Up>
     inline _Polynomial<decltype(_Tp() * _Up())>
     operator*(const _Polynomial<_Tp>& __poly, const _Up& __x)
     { return _Polynomial<decltype(_Tp() * _Up())>(__poly) *= __x; }
+
+  /**
+   *
+   */
+  template<typename _Tp, typename _Up>
+    inline _Polynomial<decltype(_Tp() * _Up())>
+    operator*(const _Tp& __x, const _Polynomial<_Up>& __poly)
+    { return _Polynomial<decltype(_Tp() * _Up())>(__x) *= __poly; }
 
   /**
    * Return the quotient of a polynomial with a scalar.
@@ -929,31 +953,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
     { return _Polynomial<decltype(_Tp() / _Up())>(__pa) %= __pb; }
 
   /**
-   *
-   */
-  template<typename _Tp, typename _Up>
-    inline _Polynomial<decltype(_Tp() + _Up())>
-    operator+(const _Tp& __x, const _Polynomial<_Up>& __poly)
-    { return _Polynomial<decltype(_Tp() + _Up())>(__x) += __poly; }
-
-  /**
-   *
-   */
-  template<typename _Tp, typename _Up>
-    inline _Polynomial<decltype(_Tp() - _Up())>
-    operator-(const _Tp& __x, const _Polynomial<_Up>& __poly)
-    { return _Polynomial<decltype(_Tp() - _Up())>(__x) -= __poly; }
-
-  /**
-   *
-   */
-  template<typename _Tp, typename _Up>
-    inline _Polynomial<decltype(_Tp() * _Up())>
-    operator*(const _Tp& __x, const _Polynomial<_Up>& __poly)
-    { return _Polynomial<decltype(_Tp() * _Up())>(__x) *= __poly; }
-
-  /**
-   * Return the quotient of two polynomials.
+   * Return the quotient of a scalar and a polynomials.
    */
   template<typename _Tp, typename _Up>
     inline _Polynomial<decltype(_Tp() / _Up())>
@@ -961,7 +961,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
     { return _Polynomial<decltype(_Tp() / _Up())>(__x) /= __poly; }
 
   /**
-   * Return the modulus or remainder of one polynomial divided by another one.
+   * Return the modulus or remainder of a scalar divided by a polynomial.
    */
   template<typename _Tp, typename _Up>
     inline _Polynomial<decltype(_Tp() / _Up())>
