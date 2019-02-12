@@ -660,7 +660,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
       { return this->_M_coeff[__i]; }
 
       /**
-       * Return coefficient @c i as an lvalue.
+       * Return coefficient @c i as an assignable quantity.
        */
       reference
       operator[](size_type __i) noexcept
