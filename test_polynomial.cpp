@@ -41,6 +41,7 @@ main()
   std::cout << "-P = " << -P << '\n';
   std::cout << "P = " << P << '\n';
   std::cout << "degree(P) = " << P.degree() << '\n';
+
   __gnu_cxx::_Polynomial<double> Q({2.0, 1.0});
   std::cout << "Q = " << Q << '\n';
   std::cout << "degree(Q) = " << Q.degree() << '\n';
@@ -49,6 +50,7 @@ main()
   std::cout << "P * Q = " << P * Q << '\n';
   std::cout << "P / Q = " << P / Q << '\n';
   std::cout << "P % Q = " << P % Q << '\n';
+
   double b = 5.0;
   std::cout << "b = " << b << '\n';
   std::cout << "P + b = " << P + b << '\n';
@@ -56,6 +58,7 @@ main()
   std::cout << "P * b = " << P * b << '\n';
   std::cout << "P / b = " << P / b << '\n';
   std::cout << "P % b = " << P % b << '\n';
+
   double a = 2.0;
   std::cout << "a = " << a << '\n';
   std::cout << "a + Q = " << a + Q << '\n';

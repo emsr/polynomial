@@ -49,10 +49,10 @@ namespace __gnu_cxx //_GLIBCXX_VISIBILITY(default)
    * Write a polynomial to a stream.
    * The format is a parenthesized comma-delimited list of coefficients.
    */
-  template<typename CharT, typename Traits, typename _Tp, std::size_t _Num>
+  template<typename CharT, typename Traits, typename _Tp, std::size_t _Size>
     std::basic_ostream<CharT, Traits>&
     operator<<(std::basic_ostream<CharT, Traits>& __os,
-	       const _StaticPolynomial<_Tp, _Num>& __poly)
+	       const _StaticPolynomial<_Tp, _Size>& __poly)
     {
       int __old_prec = __os.precision(std::numeric_limits<_Tp>::max_digits10);
       __os << "(";
@@ -62,6 +62,38 @@ namespace __gnu_cxx //_GLIBCXX_VISIBILITY(default)
       __os << ")";
       __os.precision(__old_prec);
       return __os;
+    }
+
+  /**
+   * Divide two polynomials returning the quotient and remainder.
+   */
+  template<typename _Tp, std::size_t _SizeN, std::size_t _SizeD>
+    constexpr __divmod_t<_Tp, _SizeN, _SizeD>
+    divmod(const _StaticPolynomial<_Tp, _SizeN>& __num,
+	   const _StaticPolynomial<_Tp, _SizeD>& __den)
+    {
+      constexpr auto _DegN = __num.degree();
+      constexpr auto _DegD = __den.degree();
+      auto __rem = __num;
+      auto __quo = _StaticPolynomial<_Tp, _SizeN>{};
+      if (_DegD <= _DegN)
+	{
+	  for (int __k = _DegN - _DegD; __k >= 0; --__k)
+	    {
+	      __quo.coefficient(__k, __rem.coefficient(_DegD + __k)
+				   / __den.coefficient(_DegD));
+	      for (int __j = _DegD + __k - 1; __j >= __k; --__j)
+		__rem.coefficient(__j, __rem.coefficient(__j)
+				       - __quo.coefficient(__k)
+				       * __den.coefficient(__j - __k));
+	    }
+	}
+      __divmod_t<_Tp, _SizeN, _SizeD> __ret;
+      for (int __i = 0; __i < __divmod_t<_Tp, _SizeN, _SizeD>::_SizeQuo; ++__i)
+        __ret.__quo[__i] = __quo[__i];
+      for (int __i = 0; __i < __divmod_t<_Tp, _SizeN, _SizeD>::_SizeRem; ++__i)
+        __ret.__rem[__i] = __rem[__i];
+      return __ret;
     }
 
 } // namespace __gnu_cxx
