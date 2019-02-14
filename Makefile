@@ -39,12 +39,14 @@ BINS = $(BIN_DIR) \
   $(BIN_DIR)/test_solvers \
   $(BIN_DIR)/test_static_polynomial \
   $(BIN_DIR)/test_laguerre_step \
-  $(BIN_DIR)/test_quadratic_step \
+  $(BIN_DIR)/test_quadratic_step
+
+EXTRA = \
   $(BIN_DIR)/test_jacobi_roots
 
-
-
 all: $(BINS)
+
+extra: $(EXTRA)
 
 ext/polynomial.h: include/ext/polynomial.tcc
 
@@ -140,4 +142,4 @@ $(BIN_DIR):
 clean:
 	rm -f a.out
 	rm -f *.stackdump
-	rm -f $(BINS)
+	rm -f $(BINS) $(EXTRA)
