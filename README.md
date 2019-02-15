@@ -1,4 +1,7 @@
 # polynomial
+
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/7f6bcfc8326a4dde8ff0d56069e94ed3)](https://app.codacy.com/app/emsr/polynomial?utm_source=github.com&utm_medium=referral&utm_content=emsr/polynomial&utm_campaign=Badge_Grade_Dashboard)
+
 This project contains C++ polynomial classes and related algorithms.
 The primary polynomial class is a dense polynomial array with all of your favorite
 polynomial arithmetic operator overloads.
