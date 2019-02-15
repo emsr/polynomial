@@ -2,10 +2,10 @@
 # -Wconversion
 
 CXX_INST_DIR = $(HOME)/bin$(SUFFIX)
-ifeq ("$(wildcard $(CXX_INST_DIR))","")
+ifeq ("$(wildcard $(CXX_INST_DIR)/bin/g++)","")
   SUFFIX = 
   CXX_INST_DIR = $(HOME)/bin
-  ifeq ("$(wildcard $(CXX_INST_DIR))","")
+  ifeq ("$(wildcard $(CXX_INST_DIR)/bin/g++)","")
     ifneq ($(wildcard "/mingw64"),"")
       CXX_INST_DIR = /mingw64
     else
