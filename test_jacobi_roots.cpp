@@ -9,6 +9,8 @@ LD_LIBRARY_PATH=$HOME/bin/lib64:$LD_LIBRARY_PATH ./test_jacobi_roots > test_jaco
 #include <iostream>
 #include <iomanip>
 
+#include <cmath> // FIXME: For isnan for math_util.h
+#include <ext/math_util.h>
 #include <ext/solver_jenkins_traub.h>
 #include <ext/polynomial.h>
 
@@ -44,7 +46,12 @@ namespace __detail
 
       auto __fact = _Tp{1};
       const auto __ab = __alpha1 + __beta1;
-      const int __m = int(__n);
+
+      int __m = int(__n);
+      const auto _Maybe = __gnu_cxx::__fp_is_integer(__n + __ab);
+      if (_Maybe && _Maybe() < 0 && -_Maybe() < __m)
+	__m = -_Maybe();
+
       for (int __k = 1; __k <= __m; ++__k)
 	{
 	  __fact *= _Tp(__alpha1 + __k) / _Tp(__k);
@@ -145,7 +152,7 @@ template<typename _Tp>
   void
   run()
   {
-    std::ofstream gp("roots.gp");
+    std::ofstream gp("jacobi_roots.gp");
 
     unsigned n = 50;
     _Tp alpha1, beta1;
@@ -155,7 +162,7 @@ template<typename _Tp>
     test_jacobi_roots(n, alpha1, beta1, gp);
 
     alpha1 = _Tp{2.0L};
-    beta1 = _Tp{-52.1L};
+    beta1 = _Tp{-52.0L};
     test_jacobi_roots(n, alpha1, beta1, gp);
 
     alpha1 = _Tp{2.0L};
@@ -169,7 +176,7 @@ template<typename _Tp>
     test_jacobi_roots(n, beta1, alpha1, gp);
 
     alpha1 = _Tp{2.0L};
-    beta1 = _Tp{-52.1L};
+    beta1 = _Tp{-52.0L};
     test_jacobi_roots(n, beta1, alpha1, gp);
 
     alpha1 = _Tp{2.0L};

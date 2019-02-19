@@ -1,0 +1,13 @@
+gnuplot
+
+plot "jacobi_roots.gp" index 0 title "Roots of P_{50}^{(2.0,-42.5)}"
+
+plot "jacobi_roots.gp" index 1 title "Roots of P_{50}^{(2.0,-52.0)}"
+
+plot "jacobi_roots.gp" index 2 title "Roots of P_{50}^{(2.0,-63.5)}"
+
+plot "jacobi_roots.gp" index 3 title "Roots of P_{50}^{(-42.5,2.0)}"
+
+plot "jacobi_roots.gp" index 4 title "Roots of P_{50}^{(-52.0,2.0)}"
+
+plot "jacobi_roots.gp" index 5 title "Roots of P_{50}^{(-63.5,2.0)}"

@@ -1,12 +1,14 @@
 
 # -Wconversion
 
+CXX_VER = -std=gnu++17
 CXX_INST_DIR = $(HOME)/bin$(SUFFIX)
 ifeq ("$(wildcard $(CXX_INST_DIR)/bin/g++)","")
-  SUFFIX = 
+  CXX_VER = -std=gnu++2a
   CXX_INST_DIR = $(HOME)/bin
   ifeq ("$(wildcard $(CXX_INST_DIR)/bin/g++)","")
-    ifneq ($(wildcard "/mingw64"),"")
+    CXX_VER = -std=gnu++17
+    ifeq ($(wildcard "/mingw64"),"")
       CXX_INST_DIR = /mingw64
     else
       CXX_INST_DIR = /usr
@@ -19,7 +21,8 @@ GCC = $(CXX_INST_DIR)/bin/gcc -g -Wall -Wextra
 CXX = $(CXX_INST_DIR)/bin/g++ -std=gnu++14 -g -D__STDCPP_WANT_MATH_SPEC_FUNCS__ -Wall -Wextra -Wno-psabi
 CXX17 = $(CXX_INST_DIR)/bin/g++ -std=gnu++17 -fconcepts -g -Wall -Wextra -Wno-psabi
 CXX20 = $(CXX_INST_DIR)/bin/g++ -std=gnu++2a -g -Wall -Wextra -Wno-psabi
-CXXMAX = $(CXX20)
+#CXXMAX = $(CXX20)
+CXXMAX = $(CXX_INST_DIR)/bin/g++ $(CXX_VER) -g -Wall -Wextra -Wno-psabi
 CXX_INC_DIR = $(CXX_INST_DIR)/include/c++/7.0.0/bits
 CXX_LIB_DIR = $(CXX_INST_DIR)/lib64
 CXX_TEST_INC_DIR = .
@@ -28,7 +31,7 @@ INPUT_DIR = test_input
 OUTPUT_DIR = test_output
 BIN_DIR = bin
 
-BINS = $(BIN_DIR) \
+BINS = \
   $(BIN_DIR)/test_bairstow \
   $(BIN_DIR)/test_horner \
   $(BIN_DIR)/test_jenkins_traub \
@@ -44,9 +47,9 @@ BINS = $(BIN_DIR) \
 EXTRA = \
   $(BIN_DIR)/test_jacobi_roots
 
-all: $(BINS)
+all: $(BIN_DIR) $(BINS)
 
-extra: $(EXTRA)
+extra: $(BIN_DIR) $(EXTRA)
 
 ext/polynomial.h: include/ext/polynomial.tcc
 
@@ -61,7 +64,7 @@ $(BIN_DIR)/test_horner: include/ext/horner.h test_horner.cpp
 	$(CXXMAX) -Iinclude -o $(BIN_DIR)/test_horner test_horner.cpp -lquadmath
 
 $(BIN_DIR)/test_jacobi_roots: include/ext/solution.h include/ext/solver_low_degree.h include/ext/polynomial.h test_jacobi_roots.cpp
-	$(CXXMAX) -Iinclude -I../include -o $(BIN_DIR)/test_jacobi_roots test_jacobi_roots.cpp -lquadmath
+	$(CXXMAX) -Iinclude -I../include -I../cxx_fp_utils/include -o $(BIN_DIR)/test_jacobi_roots test_jacobi_roots.cpp -lquadmath
 
 $(BIN_DIR)/test_jenkins_traub: include/ext/solution.h include/ext/solver_low_degree.h include/ext/polynomial.h test_jenkins_traub.cpp
 	$(CXXMAX) -Iinclude -o $(BIN_DIR)/test_jenkins_traub test_jenkins_traub.cpp -lquadmath
