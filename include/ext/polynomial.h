@@ -56,7 +56,7 @@
 /**
  * This class is a dense univariate polynomial.
  *
- * This polynomial has a size of at least one.  The zero polynomial
+ * This polynomial has a size of at least one - degree 0.  The zero polynomial
  * has a_0 = 0.  There is no null polynomial. size == degree + 1
  *
  * How to access coefficients (bikeshed)?
@@ -83,6 +83,12 @@
  *   that is expected to factor the polynomial within a tolerance on the
  *   minimim magnitude coefficient.  If the remainder is non-zero then an
  *   exception is thrown.
+ *
+ * Mixed-type evaluation:
+ *   It is common to have integer coefficient polynomials that you wish to
+ *   evaluate at floating opint or complex values, or real-valued  coefficient
+ *   polynomials evaluate at complex values.  For this reason we need evaluation
+ *   function templates in this library.
  *
  * It would be promote_t<complex::value_type> for complex.
  *
@@ -777,11 +783,11 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
        * Remove zero max-order coefficients.
        */
       _Polynomial&
-      deflate(real_type __max_abx_coef)
+      deflate(real_type __max_abs_coef)
       {
 	size_type __n = this->degree();
 	for (size_type __i = this->degree(); __i > 0; --__i)
-	  if (std::abs(this->_M_coeff[__i]) < std::abs(__max_abx_coef)) // FIXME complex maybe
+	  if (std::abs(this->_M_coeff[__i]) < __max_abs_coef)
 	    --__n;
 	  else
 	    break;
@@ -795,7 +801,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
        */
       _Polynomial&
       deflate(const _Polynomial<value_type>& __poly,
-	      real_type __max_abx_coef)
+	      real_type __max_abs_coef)
       {
 	_Polynomial<value_type> __quo, __rem;
 	divmod(*this, __poly, __quo, __rem);
@@ -803,13 +809,13 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 	// Remainder should be null.
 	size_type __n = __rem.degree();
 	for (size_type __i = __rem.degree(); __i > 0; --__i)
-	  if (std::abs(__rem[__i]) < std::abs(__max_abx_coef)) // FIXME __max_abx_coef complex maybe
+	  if (std::abs(__rem[__i]) < __max_abs_coef)
 	    --__n;
 	  else
 	    break;
 
 	if (__n == 0)
-	  *this = __quo.deflate(__max_abx_coef);
+	  *this = __quo.deflate(__max_abs_coef);
 	else
 	  throw std::runtime_error("deflate: ");
 
