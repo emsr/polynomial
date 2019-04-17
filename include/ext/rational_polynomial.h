@@ -91,9 +91,18 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
        */
       _RationalPolynomial(const _RationalPolynomial&) = default;
 
+      /**
+       * Move ctor.
+       */
+      _RationalPolynomial(_RationalPolynomial&&) = default;
+
       _RationalPolynomial(const _Polynomial<_Tp>& __num,
       			  const _Polynomial<_Tp>& __den)
       : _M_num(__num), _M_den(__den)
+      { }
+
+      explicit _RationalPolynomial(const _Polynomial<_Tp>& __num)
+      : _M_num(__num), _M_den(_Polynomial<_Tp>(_Tp{1}))
       { }
 
       /**
@@ -122,6 +131,12 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
        */
       _RationalPolynomial&
       operator=(const _RationalPolynomial&) = default;
+
+      /**
+       * Move assignment.
+       */
+      _RationalPolynomial&
+      operator=(_RationalPolynomial&&) = default;
 
       /**
        * Add a rational polynomial to this rational polynomial.

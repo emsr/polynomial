@@ -174,7 +174,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
       using real_type = __real_type_t<_Tp>;
 
       /**
-       * Create a zero degree polynomial with value zero.
+       * Create a zero degree polynomial with coefficient value zero.
        */
       _Polynomial()
       : _M_coeff(1)
