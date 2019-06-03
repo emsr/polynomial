@@ -1,5 +1,5 @@
 /*
-$HOME/bin/bin/g++ -std=gnu++2a -g -Wall -Wextra -Wno-psabi -I. -I../include -o test_polynomial test_polynomial.cpp -lquadmath
+$HOME/bin/bin/g++ -std=gnu++2a -g -Wall -Wextra -Wno-psabi -Iinclude -o test_polynomial test_polynomial.cpp -lquadmath
 ./test_polynomial > test_polynomial.txt
 */
 
@@ -8,7 +8,7 @@ $HOME/bin/bin/g++ -std=gnu++2a -g -Wall -Wextra -Wno-psabi -I. -I../include -o t
 #include <complex>
 #include <sstream>
 
-#include "ext/polynomial.h"
+#include <ext/polynomial.h>
 
 
 // Quick factorial impl.
@@ -177,7 +177,9 @@ main()
 
   std::cout << "P = " << P << '\n';
   std::cout << "P(1) = " << P(1.0) << '\n';
-  std::cout << "P(i) = " << P(1.0i) << '\n'; // Fucked...
+  // This can fail compile if complex literals return something other than std::complex.
+  //if (std::is_same_v<decltype(1.0i), std::complex<double>>)
+  //  std::cout << "P(i) = " << P(1.0i) << '\n';
   std::cout << "P(i) = " << P(std::complex<double>{0, 1}) << '\n';
 
   __gnu_cxx::_Polynomial<double> e([](unsigned int k)

@@ -18,3 +18,21 @@ a.out
 obj
 bin
 
+CMakeCache.txt
+CMakeFiles/
+CMakeLists.txt
+CTestTestfile.cmake
+Makefile
+cmake_install.cmake
+
+test_bairstow
+test_horner
+test_jenkins_traub
+test_laguerre_step
+test_polynomial
+test_polynomial_root
+test_quadratic_step
+test_rational_polynomial
+test_solution
+test_solvers
+test_static_polynomial
