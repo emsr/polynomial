@@ -79,7 +79,8 @@ template<typename _Real>
     static constexpr auto _S_base = _Real{std::numeric_limits<_Real>::radix};
     static constexpr auto _S_tiny = _S_eps * _S_eps * _S_eps; // 1.0e-50; //std::numeric_limits<_Real>::min();
     static constexpr auto _S_huge = std::numeric_limits<_Real>::max();
-    static constexpr auto _S_low = _S_tiny / _S_eps;
+    //static constexpr auto _S_low = _S_tiny / _S_eps;
+    const _Real _S_low = _S_tiny / _S_eps;
     static constexpr auto _S_pi = __gnu_cxx::__const_pi<_Real>();
     static constexpr auto _S_rotation = _Real{94} * _S_pi / _Real{180};
 
