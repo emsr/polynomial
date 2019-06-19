@@ -15,7 +15,7 @@ before_install:
 #  - sudo apt-get install -qq g++-8
 
 script: 
-  - cmake
+  - cmake .
   - make
 
 after_success:
