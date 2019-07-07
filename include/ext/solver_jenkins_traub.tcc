@@ -72,7 +72,7 @@ template<typename _Real>
   _JenkinsTraubSolver<_Real>::solve()
   {
     // Initialization of constants for shift rotation.
-    auto __xx = __gnu_cxx::__const_one_div_root_2<_Real>();
+    auto __xx = __gnu_cxx::math::__one_div_root_2_v<_Real>;
     auto __yy = -__xx;
     const auto __cosr = std::cos(_S_rotation);
     const auto __sinr = std::sin(_S_rotation);

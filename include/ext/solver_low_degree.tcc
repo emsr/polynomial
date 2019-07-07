@@ -45,7 +45,7 @@
 # include <bits/c++0x_warning.h>
 #else
 
-#include <ext/math_const.h>
+#include <ext/math_constants.h>
 
 namespace __gnu_cxx //_GLIBCXX_VISIBILITY(default)
 {
@@ -254,7 +254,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 	  _AA3[1] = _CC[1] / _CC[3];
 	  _AA3[0] = _CC[0] / _CC[3];
 
-	  const auto _S_2pi = _Real{2} * __gnu_cxx::__const_pi(_CC[0]);
+	  const auto _S_2pi = _Real{2} * __gnu_cxx::math::__pi_v<_Real>;
 	  const auto _PP = _AA3[2] / _Real{3};
 	  const auto _QQ = (_AA3[2] * _AA3[2] - _Real{3} * _AA3[1])
 			 / _Real{9};
