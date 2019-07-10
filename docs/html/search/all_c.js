@@ -1,7 +1,10 @@
 var searchData=
 [
-  ['pointer',['pointer',['../class____gnu__cxx_1_1__Polynomial.html#a876dcb9c1b92c4896a3f3b9f26e7e3df',1,'__gnu_cxx::_Polynomial::pointer()'],['../class____gnu__cxx_1_1__StaticPolynomial.html#ae3f08c03fb0b4172765f8e406c16029d',1,'__gnu_cxx::_StaticPolynomial::pointer()']]],
-  ['polynomial_2eh',['polynomial.h',['../polynomial_8h.html',1,'']]],
-  ['polynomial_2etcc',['polynomial.tcc',['../polynomial_8tcc.html',1,'']]],
-  ['polynomial_5ftype',['polynomial_type',['../class____gnu__cxx_1_1__RationalPolynomial.html#a96949c9007664fae9fef1e26cf6c2078',1,'__gnu_cxx::_RationalPolynomial']]]
+  ['rational_5fpolynomial_2eh',['rational_polynomial.h',['../rational__polynomial_8h.html',1,'']]],
+  ['rbegin',['rbegin',['../class____gnu__cxx_1_1__Polynomial.html#a10924e0d5e228684c721a4bba73a7af3',1,'__gnu_cxx::_Polynomial::rbegin() noexcept'],['../class____gnu__cxx_1_1__Polynomial.html#ab5cd3c6e861ebf3adac38e3df4e099aa',1,'__gnu_cxx::_Polynomial::rbegin() const noexcept'],['../class____gnu__cxx_1_1__StaticPolynomial.html#ad26b5676e30705aae3ff051f149e52df',1,'__gnu_cxx::_StaticPolynomial::rbegin()'],['../class____gnu__cxx_1_1__StaticPolynomial.html#a53306b159074b3eec382432137a4d297',1,'__gnu_cxx::_StaticPolynomial::rbegin() const']]],
+  ['real',['real',['../namespace____gnu__cxx.html#a2743043701f8e4c87d3f0f06ddb11348',1,'__gnu_cxx']]],
+  ['real_5ftype',['real_type',['../class____gnu__cxx_1_1__Polynomial.html#a656ceaafcb42abd626c253da3284998b',1,'__gnu_cxx::_Polynomial']]],
+  ['reference',['reference',['../class____gnu__cxx_1_1__Polynomial.html#accb3b4df60e4ad82d466173d54ea731a',1,'__gnu_cxx::_Polynomial::reference()'],['../class____gnu__cxx_1_1__StaticPolynomial.html#a2416b66d254edf3e7118a8fb1204403f',1,'__gnu_cxx::_StaticPolynomial::reference()']]],
+  ['rend',['rend',['../class____gnu__cxx_1_1__Polynomial.html#a8373c6b9a787a52798e4319906858d33',1,'__gnu_cxx::_Polynomial::rend() noexcept'],['../class____gnu__cxx_1_1__Polynomial.html#abeca4b1cffc4a52db34375b99b6d3d11',1,'__gnu_cxx::_Polynomial::rend() const noexcept'],['../class____gnu__cxx_1_1__StaticPolynomial.html#a5f3ae3de860401093c3bbf768218db70',1,'__gnu_cxx::_StaticPolynomial::rend()'],['../class____gnu__cxx_1_1__StaticPolynomial.html#ad39f8cb28001cdfa18776c50160c5ce7',1,'__gnu_cxx::_StaticPolynomial::rend() const']]],
+  ['reverse_5fiterator',['reverse_iterator',['../class____gnu__cxx_1_1__Polynomial.html#aed8f7d97c575d5c34c54170631953415',1,'__gnu_cxx::_Polynomial::reverse_iterator()'],['../class____gnu__cxx_1_1__StaticPolynomial.html#a6313ff2d9e03c7911016595440c6a2ae',1,'__gnu_cxx::_StaticPolynomial::reverse_iterator()']]]
 ];

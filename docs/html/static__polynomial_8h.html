@@ -90,19 +90,21 @@ $(document).ready(function(){initNavTree('static__polynomial_8h.html','');});
 <div class="textblock"><code>#include &lt;limits&gt;</code><br />
 <code>#include &lt;array&gt;</code><br />
 <code>#include &lt;complex&gt;</code><br />
+<code>#include &lt;iosfwd&gt;</code><br />
+<code>#include &lt;ext/static_polynomial.tcc&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for static_polynomial.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="static__polynomial_8h__incl.png" border="0" usemap="#include_2ext_2static__polynomial_8h" alt=""/></div>
-<map name="include_2ext_2static__polynomial_8h" id="include_2ext_2static__polynomial_8h">
-</map>
 </div>
 </div>
 <p><a href="static__polynomial_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class____gnu__cxx_1_1__StaticPolynomial.html">__gnu_cxx::_StaticPolynomial&lt; _Tp, _Num &gt;</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct____gnu__cxx_1_1____divmod__t.html">__gnu_cxx::__divmod_t&lt; _Tp, _SizeN, _SizeD &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class____gnu__cxx_1_1__StaticPolynomial.html">__gnu_cxx::_StaticPolynomial&lt; _Tp, _Size &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
@@ -112,18 +114,60 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ad79bae6336788c58358fcf9fcd342cb9"><td class="memTemplParams" colspan="2">template&lt;typename _Tp , std::size_t _NumA, std::size_t _NumB&gt; </td></tr>
-<tr class="memitem:ad79bae6336788c58358fcf9fcd342cb9"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace____gnu__cxx.html#ad79bae6336788c58358fcf9fcd342cb9">__gnu_cxx::operator!=</a> (const _StaticPolynomial&lt; _Tp, _NumA &gt; &amp;__pa, const _StaticPolynomial&lt; _Tp, _NumB &gt; &amp;__pb)</td></tr>
-<tr class="separator:ad79bae6336788c58358fcf9fcd342cb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a18cd3b1685ac1bb1c3f323e451e796d1"><td class="memTemplParams" colspan="2">template&lt;typename _Tp , std::size_t _Num&gt; </td></tr>
-<tr class="memitem:a18cd3b1685ac1bb1c3f323e451e796d1"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace____gnu__cxx.html#a18cd3b1685ac1bb1c3f323e451e796d1">__gnu_cxx::operator!=</a> (const _StaticPolynomial&lt; _Tp, _Num &gt; &amp;__pa, const _StaticPolynomial&lt; _Tp, _Num &gt; &amp;__pb)</td></tr>
-<tr class="separator:a18cd3b1685ac1bb1c3f323e451e796d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a85c9740061a6497bb695d2ee147f52b8"><td class="memTemplParams" colspan="2">template&lt;typename _Tp , std::size_t _NumA, std::size_t _NumB&gt; </td></tr>
-<tr class="memitem:a85c9740061a6497bb695d2ee147f52b8"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace____gnu__cxx.html#a85c9740061a6497bb695d2ee147f52b8">__gnu_cxx::operator==</a> (const _StaticPolynomial&lt; _Tp, _NumA &gt; &amp;, const _StaticPolynomial&lt; _Tp, _NumB &gt; &amp;)</td></tr>
-<tr class="separator:a85c9740061a6497bb695d2ee147f52b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2d1430ebbbaf156a6c80a8e8107960e1"><td class="memTemplParams" colspan="2">template&lt;typename _Tp , std::size_t _Num&gt; </td></tr>
-<tr class="memitem:a2d1430ebbbaf156a6c80a8e8107960e1"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace____gnu__cxx.html#a2d1430ebbbaf156a6c80a8e8107960e1">__gnu_cxx::operator==</a> (const _StaticPolynomial&lt; _Tp, _Num &gt; &amp;__pa, const _StaticPolynomial&lt; _Tp, _Num &gt; &amp;__pb)</td></tr>
-<tr class="separator:a2d1430ebbbaf156a6c80a8e8107960e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a33c585ec7ce2ac87e7f5cb1b1fe403b1"><td class="memTemplParams" colspan="2">template&lt;typename _Tp , std::size_t _SizeN, std::size_t _SizeD&gt; </td></tr>
+<tr class="memitem:a33c585ec7ce2ac87e7f5cb1b1fe403b1"><td class="memTemplItemLeft" align="right" valign="top">constexpr __divmod_t&lt; _Tp, _SizeN, _SizeD &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace____gnu__cxx.html#a33c585ec7ce2ac87e7f5cb1b1fe403b1">__gnu_cxx::divmod</a> (const _StaticPolynomial&lt; _Tp, _SizeN &gt; &amp;__num, const _StaticPolynomial&lt; _Tp, _SizeD &gt; &amp;__den)</td></tr>
+<tr class="separator:a33c585ec7ce2ac87e7f5cb1b1fe403b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af19ad85b9b29562d2e134f3db6b3a651"><td class="memTemplParams" colspan="2">template&lt;typename _Tp , std::size_t _SizeA, std::size_t _SizeB&gt; </td></tr>
+<tr class="memitem:af19ad85b9b29562d2e134f3db6b3a651"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace____gnu__cxx.html#af19ad85b9b29562d2e134f3db6b3a651">__gnu_cxx::operator!=</a> (const _StaticPolynomial&lt; _Tp, _SizeA &gt; &amp;__pa, const _StaticPolynomial&lt; _Tp, _SizeB &gt; &amp;__pb)</td></tr>
+<tr class="separator:af19ad85b9b29562d2e134f3db6b3a651"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac759e59bd5e23de4cbd603b846081718"><td class="memTemplParams" colspan="2">template&lt;typename _Tp , std::size_t _Size&gt; </td></tr>
+<tr class="memitem:ac759e59bd5e23de4cbd603b846081718"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace____gnu__cxx.html#ac759e59bd5e23de4cbd603b846081718">__gnu_cxx::operator!=</a> (const _StaticPolynomial&lt; _Tp, _Size &gt; &amp;__pa, const _StaticPolynomial&lt; _Tp, _Size &gt; &amp;__pb)</td></tr>
+<tr class="separator:ac759e59bd5e23de4cbd603b846081718"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a15445a05944d0b0235051dbfb380f9bf"><td class="memTemplParams" colspan="2">template&lt;typename _Tp , std::size_t _SizeP, std::size_t _SizeQ&gt; </td></tr>
+<tr class="memitem:a15445a05944d0b0235051dbfb380f9bf"><td class="memTemplItemLeft" align="right" valign="top">constexpr _StaticPolynomial&lt; _Tp, __divmod_t&lt; _Tp, _SizeP, _SizeQ &gt;::_SizeRem &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace____gnu__cxx.html#a15445a05944d0b0235051dbfb380f9bf">__gnu_cxx::operator%</a> (const _StaticPolynomial&lt; _Tp, _SizeP &gt; &amp;_P, const _StaticPolynomial&lt; _Tp, _SizeQ &gt; &amp;_Q)</td></tr>
+<tr class="separator:a15445a05944d0b0235051dbfb380f9bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a71781c23f8dd75f9cf9d7610a26225ad"><td class="memTemplParams" colspan="2">template&lt;typename _Tp , std::size_t _Size&gt; </td></tr>
+<tr class="memitem:a71781c23f8dd75f9cf9d7610a26225ad"><td class="memTemplItemLeft" align="right" valign="top">constexpr _StaticPolynomial&lt; _Tp, _Size &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace____gnu__cxx.html#a71781c23f8dd75f9cf9d7610a26225ad">__gnu_cxx::operator*</a> (const _StaticPolynomial&lt; _Tp, _Size &gt; &amp;__poly, const _Tp &amp;__x)</td></tr>
+<tr class="separator:a71781c23f8dd75f9cf9d7610a26225ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a91cea4290bb3218fc6d869a655db5891"><td class="memTemplParams" colspan="2">template&lt;typename _Tp , std::size_t _Size&gt; </td></tr>
+<tr class="memitem:a91cea4290bb3218fc6d869a655db5891"><td class="memTemplItemLeft" align="right" valign="top">_StaticPolynomial&lt; _Tp, _Size &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace____gnu__cxx.html#a91cea4290bb3218fc6d869a655db5891">__gnu_cxx::operator*</a> (const _Tp &amp;__x, const _StaticPolynomial&lt; _Tp, _Size &gt; &amp;__poly)</td></tr>
+<tr class="separator:a91cea4290bb3218fc6d869a655db5891"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8570f2d82260e7f64d985be3ddf007f8"><td class="memTemplParams" colspan="2">template&lt;typename _Tp , std::size_t _SizeP, std::size_t _SizeQ&gt; </td></tr>
+<tr class="memitem:a8570f2d82260e7f64d985be3ddf007f8"><td class="memTemplItemLeft" align="right" valign="top">constexpr _StaticPolynomial&lt; _Tp, _SizeP+_SizeQ - 1 &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace____gnu__cxx.html#a8570f2d82260e7f64d985be3ddf007f8">__gnu_cxx::operator*</a> (const _StaticPolynomial&lt; _Tp, _SizeP &gt; &amp;_P, const _StaticPolynomial&lt; _Tp, _SizeQ &gt; &amp;_Q)</td></tr>
+<tr class="separator:a8570f2d82260e7f64d985be3ddf007f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6864af2e99c7797a84209d8dffcf11e5"><td class="memTemplParams" colspan="2">template&lt;typename _Tp , std::size_t _Size&gt; </td></tr>
+<tr class="memitem:a6864af2e99c7797a84209d8dffcf11e5"><td class="memTemplItemLeft" align="right" valign="top">constexpr _StaticPolynomial&lt; _Tp, _Size &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace____gnu__cxx.html#a6864af2e99c7797a84209d8dffcf11e5">__gnu_cxx::operator+</a> (const _StaticPolynomial&lt; _Tp, _Size &gt; &amp;__poly, const _Tp &amp;__x)</td></tr>
+<tr class="separator:a6864af2e99c7797a84209d8dffcf11e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a06334b50d2c25cdadf11c1785a57cde0"><td class="memTemplParams" colspan="2">template&lt;typename _Tp , std::size_t _Size&gt; </td></tr>
+<tr class="memitem:a06334b50d2c25cdadf11c1785a57cde0"><td class="memTemplItemLeft" align="right" valign="top">_StaticPolynomial&lt; _Tp, _Size &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace____gnu__cxx.html#a06334b50d2c25cdadf11c1785a57cde0">__gnu_cxx::operator+</a> (const _Tp &amp;__x, const _StaticPolynomial&lt; _Tp, _Size &gt; &amp;__poly)</td></tr>
+<tr class="separator:a06334b50d2c25cdadf11c1785a57cde0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab21b8f613598d3de78239f9a5d45bee7"><td class="memTemplParams" colspan="2">template&lt;typename _Tp , std::size_t _SizeP, std::size_t _SizeQ&gt; </td></tr>
+<tr class="memitem:ab21b8f613598d3de78239f9a5d45bee7"><td class="memTemplItemLeft" align="right" valign="top">constexpr _StaticPolynomial&lt; _Tp, std::max(_SizeP, _SizeQ)&gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace____gnu__cxx.html#ab21b8f613598d3de78239f9a5d45bee7">__gnu_cxx::operator+</a> (const _StaticPolynomial&lt; _Tp, _SizeP &gt; &amp;_P, const _StaticPolynomial&lt; _Tp, _SizeQ &gt; &amp;_Q)</td></tr>
+<tr class="separator:ab21b8f613598d3de78239f9a5d45bee7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f3b5d6e3db0c359eb0c8c067fc9ae05"><td class="memTemplParams" colspan="2">template&lt;typename _Tp , std::size_t _Size&gt; </td></tr>
+<tr class="memitem:a9f3b5d6e3db0c359eb0c8c067fc9ae05"><td class="memTemplItemLeft" align="right" valign="top">constexpr _StaticPolynomial&lt; _Tp, _Size &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace____gnu__cxx.html#a9f3b5d6e3db0c359eb0c8c067fc9ae05">__gnu_cxx::operator-</a> (const _StaticPolynomial&lt; _Tp, _Size &gt; &amp;__poly, const _Tp &amp;__x)</td></tr>
+<tr class="separator:a9f3b5d6e3db0c359eb0c8c067fc9ae05"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6bc4eecdfefce0b2dea328cb6cc5412a"><td class="memTemplParams" colspan="2">template&lt;typename _Tp , std::size_t _Size&gt; </td></tr>
+<tr class="memitem:a6bc4eecdfefce0b2dea328cb6cc5412a"><td class="memTemplItemLeft" align="right" valign="top">_StaticPolynomial&lt; _Tp, _Size &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace____gnu__cxx.html#a6bc4eecdfefce0b2dea328cb6cc5412a">__gnu_cxx::operator-</a> (const _Tp &amp;__x, const _StaticPolynomial&lt; _Tp, _Size &gt; &amp;__poly)</td></tr>
+<tr class="separator:a6bc4eecdfefce0b2dea328cb6cc5412a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a0dd6f28607ef9be1e5eb053716076f"><td class="memTemplParams" colspan="2">template&lt;typename _Tp , std::size_t _SizeP, std::size_t _SizeQ&gt; </td></tr>
+<tr class="memitem:a7a0dd6f28607ef9be1e5eb053716076f"><td class="memTemplItemLeft" align="right" valign="top">constexpr _StaticPolynomial&lt; _Tp, std::max(_SizeP, _SizeQ)&gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace____gnu__cxx.html#a7a0dd6f28607ef9be1e5eb053716076f">__gnu_cxx::operator-</a> (const _StaticPolynomial&lt; _Tp, _SizeP &gt; &amp;_P, const _StaticPolynomial&lt; _Tp, _SizeQ &gt; &amp;_Q)</td></tr>
+<tr class="separator:a7a0dd6f28607ef9be1e5eb053716076f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a646b9470b937733c916192c121e8ecdb"><td class="memTemplParams" colspan="2">template&lt;typename _Tp , std::size_t _Size&gt; </td></tr>
+<tr class="memitem:a646b9470b937733c916192c121e8ecdb"><td class="memTemplItemLeft" align="right" valign="top">constexpr _StaticPolynomial&lt; _Tp, _Size &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace____gnu__cxx.html#a646b9470b937733c916192c121e8ecdb">__gnu_cxx::operator/</a> (const _StaticPolynomial&lt; _Tp, _Size &gt; &amp;__poly, const _Tp &amp;__x)</td></tr>
+<tr class="separator:a646b9470b937733c916192c121e8ecdb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a451a609c6de284cdeed747a994938801"><td class="memTemplParams" colspan="2">template&lt;typename _Tp , std::size_t _SizeP, std::size_t _SizeQ&gt; </td></tr>
+<tr class="memitem:a451a609c6de284cdeed747a994938801"><td class="memTemplItemLeft" align="right" valign="top">constexpr _StaticPolynomial&lt; _Tp, __divmod_t&lt; _Tp, _SizeP, _SizeQ &gt;::_SizeQuo &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace____gnu__cxx.html#a451a609c6de284cdeed747a994938801">__gnu_cxx::operator/</a> (const _StaticPolynomial&lt; _Tp, _SizeP &gt; &amp;_P, const _StaticPolynomial&lt; _Tp, _SizeQ &gt; &amp;_Q)</td></tr>
+<tr class="separator:a451a609c6de284cdeed747a994938801"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a143c7d2302fc613fd818f9149707b753"><td class="memTemplParams" colspan="2">template&lt;typename CharT , typename Traits , typename _Tp , std::size_t _Size&gt; </td></tr>
+<tr class="memitem:a143c7d2302fc613fd818f9149707b753"><td class="memTemplItemLeft" align="right" valign="top">std::basic_ostream&lt; CharT, Traits &gt; &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace____gnu__cxx.html#a143c7d2302fc613fd818f9149707b753">__gnu_cxx::operator&lt;&lt;</a> (std::basic_ostream&lt; CharT, Traits &gt; &amp;__os, const _StaticPolynomial&lt; _Tp, _Size &gt; &amp;__poly)</td></tr>
+<tr class="separator:a143c7d2302fc613fd818f9149707b753"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a316d841c3d2addecec46960379815cd4"><td class="memTemplParams" colspan="2">template&lt;typename _Tp , std::size_t _SizeA, std::size_t _SizeB&gt; </td></tr>
+<tr class="memitem:a316d841c3d2addecec46960379815cd4"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace____gnu__cxx.html#a316d841c3d2addecec46960379815cd4">__gnu_cxx::operator==</a> (const _StaticPolynomial&lt; _Tp, _SizeA &gt; &amp;, const _StaticPolynomial&lt; _Tp, _SizeB &gt; &amp;)</td></tr>
+<tr class="separator:a316d841c3d2addecec46960379815cd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4156deb610ec73be9e2f56a1a4caf391"><td class="memTemplParams" colspan="2">template&lt;typename _Tp , std::size_t _Size&gt; </td></tr>
+<tr class="memitem:a4156deb610ec73be9e2f56a1a4caf391"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace____gnu__cxx.html#a4156deb610ec73be9e2f56a1a4caf391">__gnu_cxx::operator==</a> (const _StaticPolynomial&lt; _Tp, _Size &gt; &amp;__pa, const _StaticPolynomial&lt; _Tp, _Size &gt; &amp;__pb)</td></tr>
+<tr class="separator:a4156deb610ec73be9e2f56a1a4caf391"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Class definition for a static polynomial. </p>

@@ -1,15 +1,14 @@
 var indexSectionsWithContent =
 {
-  0: "_abcdefghinoprstv",
-  1: "_c",
+  0: "_abcdeghinoprstv",
+  1: "_",
   2: "_s",
   3: "hprs",
-  4: "_abcdefghinorst",
-  5: "_t",
-  6: "cdiprsv",
+  4: "_abcdeghinorst",
+  5: "_",
+  6: "_cdiprstv",
   7: "o",
-  8: "_",
-  9: "t"
+  8: "_"
 };
 
 var indexSectionNames =
@@ -22,8 +21,7 @@ var indexSectionNames =
   5: "variables",
   6: "typedefs",
   7: "related",
-  8: "defines",
-  9: "pages"
+  8: "defines"
 };
 
 var indexSectionLabels =
@@ -36,7 +34,6 @@ var indexSectionLabels =
   5: "Variables",
   6: "Typedefs",
   7: "Friends",
-  8: "Macros",
-  9: "Pages"
+  8: "Macros"
 };
 

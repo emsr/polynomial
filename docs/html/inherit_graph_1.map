@@ -1,3 +1,4 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node2" href="$struct____gnu__cxx_1_1____has__imag__t.html" title="__gnu_cxx::__has_imag\l_t\&lt; typename, typename \&gt;" alt="" coords="136,5,315,47"/>
+<area shape="rect" id="node1" href="$struct____gnu__cxx_1_1____has__imag__t_3_01__Tp_00_01std_1_1void__t_3_01decltype_07std_1_1declva705d5f96db36a5134d7de4531d29483c.html" title="__gnu_cxx::__has_imag\l_t\&lt; _Tp, std::void_t\l\&lt; decltype(std::declval\l\&lt; _Tp &amp; \&gt;().imag())\&gt; \&gt;" alt="" coords="5,29,168,100"/>
+<area shape="rect" id="node2" href="$struct____gnu__cxx_1_1____has__value__type__t_3_01__Tp_00_01std_1_1void__t_3_01typename_01__Tp_1_1value__type_01_4_01_4.html" title="__gnu_cxx::__has_value\l_type_t\&lt; _Tp, std::void\l_t\&lt; typename _Tp::value\l_type \&gt; \&gt;" alt="" coords="216,29,383,100"/>
 </map>

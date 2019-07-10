@@ -82,6 +82,7 @@ $(document).ready(function(){initNavTree('polynomial_8h.html','');});
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
 <a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
@@ -94,13 +95,15 @@ $(document).ready(function(){initNavTree('polynomial_8h.html','');});
 <code>#include &lt;limits&gt;</code><br />
 <code>#include &lt;array&gt;</code><br />
 <code>#include &lt;utility&gt;</code><br />
-<code>#include &quot;<a class="el" href="polynomial_8tcc_source.html">polynomial.tcc</a>&quot;</code><br />
+<code>#include &lt;type_traits&gt;</code><br />
+<code>#include &lt;complex&gt;</code><br />
+<code>#include &lt;<a class="el" href="polynomial_8tcc_source.html">ext/polynomial.tcc</a>&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for polynomial.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="polynomial_8h__incl.png" border="0" usemap="#include_2ext_2polynomial_8h" alt=""/></div>
 <map name="include_2ext_2polynomial_8h" id="include_2ext_2polynomial_8h">
-<area shape="rect" id="node8" href="polynomial_8tcc.html" title="polynomial.tcc" alt="" coords="525,80,631,107"/>
+<area shape="rect" id="node10" href="polynomial_8tcc.html" title="ext/polynomial.tcc" alt="" coords="682,80,810,107"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -118,7 +121,17 @@ This graph shows which files directly or indirectly include this file:</div>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct____gnu__cxx_1_1____has__imag__t.html">__gnu_cxx::__has_imag_t&lt; typename, typename &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct____gnu__cxx_1_1____has__imag__t_3_01T_00_01std_1_1void__t_3_01decltype_07std_1_1declval_389ee8aaba7dec2e199e7ad81d6cda763.html">__gnu_cxx::__has_imag_t&lt; T, std::void_t&lt; decltype(std::declval&lt; T &amp; &gt;().imag())&gt; &gt;</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct____gnu__cxx_1_1____has__imag__t_3_01__Tp_00_01std_1_1void__t_3_01decltype_07std_1_1declva705d5f96db36a5134d7de4531d29483c.html">__gnu_cxx::__has_imag_t&lt; _Tp, std::void_t&lt; decltype(std::declval&lt; _Tp &amp; &gt;().imag())&gt; &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct____gnu__cxx_1_1____has__value__type__t.html">__gnu_cxx::__has_value_type_t&lt; typename, typename &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct____gnu__cxx_1_1____has__value__type__t_3_01__Tp_00_01std_1_1void__t_3_01typename_01__Tp_1_1value__type_01_4_01_4.html">__gnu_cxx::__has_value_type_t&lt; _Tp, std::void_t&lt; typename _Tp::value_type &gt; &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct____gnu__cxx_1_1____real__type.html">__gnu_cxx::__real_type&lt; _Tp &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct____gnu__cxx_1_1____real__type_3_01__Polynomial_3_01__Tp_01_4_01_4.html">__gnu_cxx::__real_type&lt; _Polynomial&lt; _Tp &gt; &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct____gnu__cxx_1_1____real__type_3_01std_1_1complex_3_01__Tp_01_4_01_4.html">__gnu_cxx::__real_type&lt; std::complex&lt; _Tp &gt; &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class____gnu__cxx_1_1__Polynomial.html">__gnu_cxx::_Polynomial&lt; _Tp &gt;</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A dense polynomial class with a contiguous array of coefficients. The coefficients are lowest-order first: </p><p class="formulaDsp">
@@ -126,21 +139,29 @@ Classes</h2></td></tr>
 </p>
 <p>.  <a href="class____gnu__cxx_1_1__Polynomial.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstd_1_1complex.html">std::complex&lt; _Tp &gt;</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class____gnu__cxx_1_1__Polynomial.html">__gnu_cxx::_Polynomial&lt; _Tp &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A dense polynomial class with a contiguous array of coefficients. The coefficients are lowest-order first: </p><p class="formulaDsp">
+<img class="formulaDsp" alt="\[ P(x) = a_0 + a_1 x + ... + a_n x^n \]" src="form_0.png"/>
+</p>
+<p>.  <a href="class____gnu__cxx_1_1__Polynomial.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
 <tr class="memitem:namespace____gnu__cxx"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace____gnu__cxx.html">__gnu_cxx</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:namespacestd"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestd.html">std</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:a3f707c0c6f6926cf68b74072733751f7"><td class="memTemplParams" colspan="2">template&lt;typename _Tp &gt; </td></tr>
+<tr class="memitem:a3f707c0c6f6926cf68b74072733751f7"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace____gnu__cxx.html#a3f707c0c6f6926cf68b74072733751f7">__gnu_cxx::__real_type_t</a> = typename __real_type&lt; _Tp &gt;::type</td></tr>
+<tr class="separator:a3f707c0c6f6926cf68b74072733751f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:abe506cf34c921c378a681f0de31d49a5"><td class="memTemplParams" colspan="2">template&lt;typename _Tp &gt; </td></tr>
-<tr class="memitem:abe506cf34c921c378a681f0de31d49a5"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace____gnu__cxx.html#abe506cf34c921c378a681f0de31d49a5">__gnu_cxx::divmod</a> (const _Polynomial&lt; _Tp &gt; &amp;__pa, const _Polynomial&lt; _Tp &gt; &amp;__pb, _Polynomial&lt; _Tp &gt; &amp;__quo, _Polynomial&lt; _Tp &gt; &amp;__rem)</td></tr>
-<tr class="separator:abe506cf34c921c378a681f0de31d49a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a84c52dc7c40b8b2731425e93db52903d"><td class="memTemplParams" colspan="2">template&lt;typename _Tp &gt; </td></tr>
+<tr class="memitem:a84c52dc7c40b8b2731425e93db52903d"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace____gnu__cxx.html#a84c52dc7c40b8b2731425e93db52903d">__gnu_cxx::divmod</a> (const _Polynomial&lt; _Tp &gt; &amp;__num, const _Polynomial&lt; _Tp &gt; &amp;__den, _Polynomial&lt; _Tp &gt; &amp;__quo, _Polynomial&lt; _Tp &gt; &amp;__rem)</td></tr>
+<tr class="separator:a84c52dc7c40b8b2731425e93db52903d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2af747c0e255f3fae4d9f118c2817e1a"><td class="memTemplParams" colspan="2">template&lt;typename _Tp &gt; </td></tr>
 <tr class="memitem:a2af747c0e255f3fae4d9f118c2817e1a"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace____gnu__cxx.html#a2af747c0e255f3fae4d9f118c2817e1a">__gnu_cxx::get_scale</a> (const _Polynomial&lt; _Tp &gt; &amp;__poly)</td></tr>
 <tr class="separator:a2af747c0e255f3fae4d9f118c2817e1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -162,30 +183,30 @@ Functions</h2></td></tr>
 <tr class="memitem:a1d0b1e9322fd407848b43cecab1ab9ae"><td class="memTemplParams" colspan="2">template&lt;typename _Tp , typename _Up &gt; </td></tr>
 <tr class="memitem:a1d0b1e9322fd407848b43cecab1ab9ae"><td class="memTemplItemLeft" align="right" valign="top">_Polynomial&lt; decltype(_Tp() *_Up())&gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace____gnu__cxx.html#a1d0b1e9322fd407848b43cecab1ab9ae">__gnu_cxx::operator*</a> (const _Polynomial&lt; _Tp &gt; &amp;__poly, const _Up &amp;__x)</td></tr>
 <tr class="separator:a1d0b1e9322fd407848b43cecab1ab9ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2f76fd6f7c2c9e64fba1d5892844f26b"><td class="memTemplParams" colspan="2">template&lt;typename _Tp , typename _Up &gt; </td></tr>
-<tr class="memitem:a2f76fd6f7c2c9e64fba1d5892844f26b"><td class="memTemplItemLeft" align="right" valign="top">_Polynomial&lt; decltype(_Tp() *_Up())&gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace____gnu__cxx.html#a2f76fd6f7c2c9e64fba1d5892844f26b">__gnu_cxx::operator*</a> (const _Polynomial&lt; _Tp &gt; &amp;__pa, const _Polynomial&lt; _Up &gt; &amp;__pb)</td></tr>
-<tr class="separator:a2f76fd6f7c2c9e64fba1d5892844f26b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac79cfe2d37e5d8116fcf51911c21c253"><td class="memTemplParams" colspan="2">template&lt;typename _Tp , typename _Up &gt; </td></tr>
 <tr class="memitem:ac79cfe2d37e5d8116fcf51911c21c253"><td class="memTemplItemLeft" align="right" valign="top">_Polynomial&lt; decltype(_Tp() *_Up())&gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace____gnu__cxx.html#ac79cfe2d37e5d8116fcf51911c21c253">__gnu_cxx::operator*</a> (const _Tp &amp;__x, const _Polynomial&lt; _Up &gt; &amp;__poly)</td></tr>
 <tr class="separator:ac79cfe2d37e5d8116fcf51911c21c253"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f76fd6f7c2c9e64fba1d5892844f26b"><td class="memTemplParams" colspan="2">template&lt;typename _Tp , typename _Up &gt; </td></tr>
+<tr class="memitem:a2f76fd6f7c2c9e64fba1d5892844f26b"><td class="memTemplItemLeft" align="right" valign="top">_Polynomial&lt; decltype(_Tp() *_Up())&gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace____gnu__cxx.html#a2f76fd6f7c2c9e64fba1d5892844f26b">__gnu_cxx::operator*</a> (const _Polynomial&lt; _Tp &gt; &amp;__pa, const _Polynomial&lt; _Up &gt; &amp;__pb)</td></tr>
+<tr class="separator:a2f76fd6f7c2c9e64fba1d5892844f26b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2b408e7a7e5d2ec6879b8e40f7f5de3e"><td class="memTemplParams" colspan="2">template&lt;typename _Tp , typename _Up &gt; </td></tr>
 <tr class="memitem:a2b408e7a7e5d2ec6879b8e40f7f5de3e"><td class="memTemplItemLeft" align="right" valign="top">_Polynomial&lt; decltype(_Tp()+_Up())&gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace____gnu__cxx.html#a2b408e7a7e5d2ec6879b8e40f7f5de3e">__gnu_cxx::operator+</a> (const _Polynomial&lt; _Tp &gt; &amp;__poly, const _Up &amp;__x)</td></tr>
 <tr class="separator:a2b408e7a7e5d2ec6879b8e40f7f5de3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ada8a28005b5f71563bec55c71e03029b"><td class="memTemplParams" colspan="2">template&lt;typename _Tp , typename _Up &gt; </td></tr>
-<tr class="memitem:ada8a28005b5f71563bec55c71e03029b"><td class="memTemplItemLeft" align="right" valign="top">_Polynomial&lt; decltype(_Tp()+_Up())&gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace____gnu__cxx.html#ada8a28005b5f71563bec55c71e03029b">__gnu_cxx::operator+</a> (const _Polynomial&lt; _Tp &gt; &amp;__pa, const _Polynomial&lt; _Up &gt; &amp;__pb)</td></tr>
-<tr class="separator:ada8a28005b5f71563bec55c71e03029b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac9f58ced995b65628b5715c885569cb7"><td class="memTemplParams" colspan="2">template&lt;typename _Tp , typename _Up &gt; </td></tr>
 <tr class="memitem:ac9f58ced995b65628b5715c885569cb7"><td class="memTemplItemLeft" align="right" valign="top">_Polynomial&lt; decltype(_Tp()+_Up())&gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace____gnu__cxx.html#ac9f58ced995b65628b5715c885569cb7">__gnu_cxx::operator+</a> (const _Tp &amp;__x, const _Polynomial&lt; _Up &gt; &amp;__poly)</td></tr>
 <tr class="separator:ac9f58ced995b65628b5715c885569cb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada8a28005b5f71563bec55c71e03029b"><td class="memTemplParams" colspan="2">template&lt;typename _Tp , typename _Up &gt; </td></tr>
+<tr class="memitem:ada8a28005b5f71563bec55c71e03029b"><td class="memTemplItemLeft" align="right" valign="top">_Polynomial&lt; decltype(_Tp()+_Up())&gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace____gnu__cxx.html#ada8a28005b5f71563bec55c71e03029b">__gnu_cxx::operator+</a> (const _Polynomial&lt; _Tp &gt; &amp;__pa, const _Polynomial&lt; _Up &gt; &amp;__pb)</td></tr>
+<tr class="separator:ada8a28005b5f71563bec55c71e03029b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abc583ac0684f0aff079c6014f3d84c1d"><td class="memTemplParams" colspan="2">template&lt;typename _Tp , typename _Up &gt; </td></tr>
 <tr class="memitem:abc583ac0684f0aff079c6014f3d84c1d"><td class="memTemplItemLeft" align="right" valign="top">_Polynomial&lt; decltype(_Tp() - _Up())&gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace____gnu__cxx.html#abc583ac0684f0aff079c6014f3d84c1d">__gnu_cxx::operator-</a> (const _Polynomial&lt; _Tp &gt; &amp;__poly, const _Up &amp;__x)</td></tr>
 <tr class="separator:abc583ac0684f0aff079c6014f3d84c1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4609eee7a71e3be3a103df9556fab9b4"><td class="memTemplParams" colspan="2">template&lt;typename _Tp , typename _Up &gt; </td></tr>
-<tr class="memitem:a4609eee7a71e3be3a103df9556fab9b4"><td class="memTemplItemLeft" align="right" valign="top">_Polynomial&lt; decltype(_Tp() - _Up())&gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace____gnu__cxx.html#a4609eee7a71e3be3a103df9556fab9b4">__gnu_cxx::operator-</a> (const _Polynomial&lt; _Tp &gt; &amp;__pa, const _Polynomial&lt; _Up &gt; &amp;__pb)</td></tr>
-<tr class="separator:a4609eee7a71e3be3a103df9556fab9b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acc72fd3c1efcf09698d30d42c4a1eb1b"><td class="memTemplParams" colspan="2">template&lt;typename _Tp , typename _Up &gt; </td></tr>
 <tr class="memitem:acc72fd3c1efcf09698d30d42c4a1eb1b"><td class="memTemplItemLeft" align="right" valign="top">_Polynomial&lt; decltype(_Tp() - _Up())&gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace____gnu__cxx.html#acc72fd3c1efcf09698d30d42c4a1eb1b">__gnu_cxx::operator-</a> (const _Tp &amp;__x, const _Polynomial&lt; _Up &gt; &amp;__poly)</td></tr>
 <tr class="separator:acc72fd3c1efcf09698d30d42c4a1eb1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4609eee7a71e3be3a103df9556fab9b4"><td class="memTemplParams" colspan="2">template&lt;typename _Tp , typename _Up &gt; </td></tr>
+<tr class="memitem:a4609eee7a71e3be3a103df9556fab9b4"><td class="memTemplItemLeft" align="right" valign="top">_Polynomial&lt; decltype(_Tp() - _Up())&gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace____gnu__cxx.html#a4609eee7a71e3be3a103df9556fab9b4">__gnu_cxx::operator-</a> (const _Polynomial&lt; _Tp &gt; &amp;__pa, const _Polynomial&lt; _Up &gt; &amp;__pb)</td></tr>
+<tr class="separator:a4609eee7a71e3be3a103df9556fab9b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5fd356349013bd60a41010cbf502444b"><td class="memTemplParams" colspan="2">template&lt;typename _Tp , typename _Up &gt; </td></tr>
 <tr class="memitem:a5fd356349013bd60a41010cbf502444b"><td class="memTemplItemLeft" align="right" valign="top">_Polynomial&lt; decltype(_Tp()/_Up())&gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace____gnu__cxx.html#a5fd356349013bd60a41010cbf502444b">__gnu_cxx::operator/</a> (const _Polynomial&lt; _Tp &gt; &amp;__poly, const _Up &amp;__x)</td></tr>
 <tr class="separator:a5fd356349013bd60a41010cbf502444b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -210,12 +231,15 @@ Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:afa2404a914b06f950f3a46e75aca51a9"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:afa2404a914b06f950f3a46e75aca51a9"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace____gnu__cxx.html#afa2404a914b06f950f3a46e75aca51a9">__gnu_cxx::__has_imag_v</a> = __has_imag_t&lt;T&gt;::value</td></tr>
+<tr class="memitem:afa2404a914b06f950f3a46e75aca51a9"><td class="memTemplParams" colspan="2">template&lt;typename _Tp &gt; </td></tr>
+<tr class="memitem:afa2404a914b06f950f3a46e75aca51a9"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace____gnu__cxx.html#afa2404a914b06f950f3a46e75aca51a9">__gnu_cxx::__has_imag_v</a> = __has_imag_t&lt;_Tp&gt;::value</td></tr>
 <tr class="separator:afa2404a914b06f950f3a46e75aca51a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ec7bbecf1d944f8aa448f873584cf98"><td class="memTemplParams" colspan="2">template&lt;typename _Tp &gt; </td></tr>
+<tr class="memitem:a5ec7bbecf1d944f8aa448f873584cf98"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace____gnu__cxx.html#a5ec7bbecf1d944f8aa448f873584cf98">__gnu_cxx::__has_value_type_v</a> = __has_value_type_t&lt;_Tp&gt;::value</td></tr>
+<tr class="separator:a5ec7bbecf1d944f8aa448f873584cf98"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Class declaration for a dense monovariate polynomial.</p>
+<div class="textblock"><p>Class declaration for a dense univariate polynomial.</p>
 <p>This file is a GNU extension to the Standard C++ Library.</p>
 <p>This file contains the declaration of a dense-polynomial class. </p>
 

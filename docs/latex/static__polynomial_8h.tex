@@ -3,18 +3,22 @@
 {\ttfamily \#include $<$limits$>$}\newline
 {\ttfamily \#include $<$array$>$}\newline
 {\ttfamily \#include $<$complex$>$}\newline
+{\ttfamily \#include $<$iosfwd$>$}\newline
+{\ttfamily \#include $<$ext/static\+\_\+polynomial.\+tcc$>$}\newline
 Include dependency graph for static\+\_\+polynomial.\+h\+:
 \nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=248pt]{static__polynomial_8h__incl}
+\includegraphics[width=350pt]{static__polynomial_8h__incl}
 \end{center}
 \end{figure}
 \subsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
-class \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Static\+Polynomial$<$ \+\_\+\+Tp, \+\_\+\+Num $>$}
+struct \hyperlink{struct____gnu__cxx_1_1____divmod__t}{\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+\_\+divmod\+\_\+t$<$ \+\_\+\+Tp, \+\_\+\+Size\+N, \+\_\+\+Size\+D $>$}
+\item 
+class \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Static\+Polynomial$<$ \+\_\+\+Tp, \+\_\+\+Size $>$}
 \end{DoxyCompactItemize}
 \subsection*{Namespaces}
 \begin{DoxyCompactItemize}
@@ -24,13 +28,41 @@ class \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+\_\+gnu\+\_\+c
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-{\footnotesize template$<$typename \+\_\+\+Tp , std\+::size\+\_\+t \+\_\+\+NumA, std\+::size\+\_\+t \+\_\+\+NumB$>$ }\\bool \hyperlink{namespace____gnu__cxx_ad79bae6336788c58358fcf9fcd342cb9}{\+\_\+\+\_\+gnu\+\_\+cxx\+::operator!=} (const \+\_\+\+Static\+Polynomial$<$ \+\_\+\+Tp, \+\_\+\+NumA $>$ \&\+\_\+\+\_\+pa, const \+\_\+\+Static\+Polynomial$<$ \+\_\+\+Tp, \+\_\+\+NumB $>$ \&\+\_\+\+\_\+pb)
+{\footnotesize template$<$typename \+\_\+\+Tp , std\+::size\+\_\+t \+\_\+\+SizeN, std\+::size\+\_\+t \+\_\+\+SizeD$>$ }\\constexpr \+\_\+\+\_\+divmod\+\_\+t$<$ \+\_\+\+Tp, \+\_\+\+SizeN, \+\_\+\+SizeD $>$ \hyperlink{namespace____gnu__cxx_a33c585ec7ce2ac87e7f5cb1b1fe403b1}{\+\_\+\+\_\+gnu\+\_\+cxx\+::divmod} (const \+\_\+\+Static\+Polynomial$<$ \+\_\+\+Tp, \+\_\+\+SizeN $>$ \&\+\_\+\+\_\+num, const \+\_\+\+Static\+Polynomial$<$ \+\_\+\+Tp, \+\_\+\+SizeD $>$ \&\+\_\+\+\_\+den)
 \item 
-{\footnotesize template$<$typename \+\_\+\+Tp , std\+::size\+\_\+t \+\_\+\+Num$>$ }\\bool \hyperlink{namespace____gnu__cxx_a18cd3b1685ac1bb1c3f323e451e796d1}{\+\_\+\+\_\+gnu\+\_\+cxx\+::operator!=} (const \+\_\+\+Static\+Polynomial$<$ \+\_\+\+Tp, \+\_\+\+Num $>$ \&\+\_\+\+\_\+pa, const \+\_\+\+Static\+Polynomial$<$ \+\_\+\+Tp, \+\_\+\+Num $>$ \&\+\_\+\+\_\+pb)
+{\footnotesize template$<$typename \+\_\+\+Tp , std\+::size\+\_\+t \+\_\+\+SizeA, std\+::size\+\_\+t \+\_\+\+SizeB$>$ }\\constexpr bool \hyperlink{namespace____gnu__cxx_af19ad85b9b29562d2e134f3db6b3a651}{\+\_\+\+\_\+gnu\+\_\+cxx\+::operator!=} (const \+\_\+\+Static\+Polynomial$<$ \+\_\+\+Tp, \+\_\+\+SizeA $>$ \&\+\_\+\+\_\+pa, const \+\_\+\+Static\+Polynomial$<$ \+\_\+\+Tp, \+\_\+\+SizeB $>$ \&\+\_\+\+\_\+pb)
 \item 
-{\footnotesize template$<$typename \+\_\+\+Tp , std\+::size\+\_\+t \+\_\+\+NumA, std\+::size\+\_\+t \+\_\+\+NumB$>$ }\\bool \hyperlink{namespace____gnu__cxx_a85c9740061a6497bb695d2ee147f52b8}{\+\_\+\+\_\+gnu\+\_\+cxx\+::operator==} (const \+\_\+\+Static\+Polynomial$<$ \+\_\+\+Tp, \+\_\+\+NumA $>$ \&, const \+\_\+\+Static\+Polynomial$<$ \+\_\+\+Tp, \+\_\+\+NumB $>$ \&)
+{\footnotesize template$<$typename \+\_\+\+Tp , std\+::size\+\_\+t \+\_\+\+Size$>$ }\\constexpr bool \hyperlink{namespace____gnu__cxx_ac759e59bd5e23de4cbd603b846081718}{\+\_\+\+\_\+gnu\+\_\+cxx\+::operator!=} (const \+\_\+\+Static\+Polynomial$<$ \+\_\+\+Tp, \+\_\+\+Size $>$ \&\+\_\+\+\_\+pa, const \+\_\+\+Static\+Polynomial$<$ \+\_\+\+Tp, \+\_\+\+Size $>$ \&\+\_\+\+\_\+pb)
 \item 
-{\footnotesize template$<$typename \+\_\+\+Tp , std\+::size\+\_\+t \+\_\+\+Num$>$ }\\bool \hyperlink{namespace____gnu__cxx_a2d1430ebbbaf156a6c80a8e8107960e1}{\+\_\+\+\_\+gnu\+\_\+cxx\+::operator==} (const \+\_\+\+Static\+Polynomial$<$ \+\_\+\+Tp, \+\_\+\+Num $>$ \&\+\_\+\+\_\+pa, const \+\_\+\+Static\+Polynomial$<$ \+\_\+\+Tp, \+\_\+\+Num $>$ \&\+\_\+\+\_\+pb)
+{\footnotesize template$<$typename \+\_\+\+Tp , std\+::size\+\_\+t \+\_\+\+SizeP, std\+::size\+\_\+t \+\_\+\+SizeQ$>$ }\\constexpr \+\_\+\+Static\+Polynomial$<$ \+\_\+\+Tp, \+\_\+\+\_\+divmod\+\_\+t$<$ \+\_\+\+Tp, \+\_\+\+SizeP, \+\_\+\+SizeQ $>$\+::\+\_\+\+Size\+Rem $>$ \hyperlink{namespace____gnu__cxx_a15445a05944d0b0235051dbfb380f9bf}{\+\_\+\+\_\+gnu\+\_\+cxx\+::operator\%} (const \+\_\+\+Static\+Polynomial$<$ \+\_\+\+Tp, \+\_\+\+SizeP $>$ \&\+\_\+P, const \+\_\+\+Static\+Polynomial$<$ \+\_\+\+Tp, \+\_\+\+SizeQ $>$ \&\+\_\+Q)
+\item 
+{\footnotesize template$<$typename \+\_\+\+Tp , std\+::size\+\_\+t \+\_\+\+Size$>$ }\\constexpr \+\_\+\+Static\+Polynomial$<$ \+\_\+\+Tp, \+\_\+\+Size $>$ \hyperlink{namespace____gnu__cxx_a71781c23f8dd75f9cf9d7610a26225ad}{\+\_\+\+\_\+gnu\+\_\+cxx\+::operator$\ast$} (const \+\_\+\+Static\+Polynomial$<$ \+\_\+\+Tp, \+\_\+\+Size $>$ \&\+\_\+\+\_\+poly, const \+\_\+\+Tp \&\+\_\+\+\_\+x)
+\item 
+{\footnotesize template$<$typename \+\_\+\+Tp , std\+::size\+\_\+t \+\_\+\+Size$>$ }\\\+\_\+\+Static\+Polynomial$<$ \+\_\+\+Tp, \+\_\+\+Size $>$ \hyperlink{namespace____gnu__cxx_a91cea4290bb3218fc6d869a655db5891}{\+\_\+\+\_\+gnu\+\_\+cxx\+::operator$\ast$} (const \+\_\+\+Tp \&\+\_\+\+\_\+x, const \+\_\+\+Static\+Polynomial$<$ \+\_\+\+Tp, \+\_\+\+Size $>$ \&\+\_\+\+\_\+poly)
+\item 
+{\footnotesize template$<$typename \+\_\+\+Tp , std\+::size\+\_\+t \+\_\+\+SizeP, std\+::size\+\_\+t \+\_\+\+SizeQ$>$ }\\constexpr \+\_\+\+Static\+Polynomial$<$ \+\_\+\+Tp, \+\_\+\+SizeP+\+\_\+\+SizeQ -\/ 1 $>$ \hyperlink{namespace____gnu__cxx_a8570f2d82260e7f64d985be3ddf007f8}{\+\_\+\+\_\+gnu\+\_\+cxx\+::operator$\ast$} (const \+\_\+\+Static\+Polynomial$<$ \+\_\+\+Tp, \+\_\+\+SizeP $>$ \&\+\_\+P, const \+\_\+\+Static\+Polynomial$<$ \+\_\+\+Tp, \+\_\+\+SizeQ $>$ \&\+\_\+Q)
+\item 
+{\footnotesize template$<$typename \+\_\+\+Tp , std\+::size\+\_\+t \+\_\+\+Size$>$ }\\constexpr \+\_\+\+Static\+Polynomial$<$ \+\_\+\+Tp, \+\_\+\+Size $>$ \hyperlink{namespace____gnu__cxx_a6864af2e99c7797a84209d8dffcf11e5}{\+\_\+\+\_\+gnu\+\_\+cxx\+::operator+} (const \+\_\+\+Static\+Polynomial$<$ \+\_\+\+Tp, \+\_\+\+Size $>$ \&\+\_\+\+\_\+poly, const \+\_\+\+Tp \&\+\_\+\+\_\+x)
+\item 
+{\footnotesize template$<$typename \+\_\+\+Tp , std\+::size\+\_\+t \+\_\+\+Size$>$ }\\\+\_\+\+Static\+Polynomial$<$ \+\_\+\+Tp, \+\_\+\+Size $>$ \hyperlink{namespace____gnu__cxx_a06334b50d2c25cdadf11c1785a57cde0}{\+\_\+\+\_\+gnu\+\_\+cxx\+::operator+} (const \+\_\+\+Tp \&\+\_\+\+\_\+x, const \+\_\+\+Static\+Polynomial$<$ \+\_\+\+Tp, \+\_\+\+Size $>$ \&\+\_\+\+\_\+poly)
+\item 
+{\footnotesize template$<$typename \+\_\+\+Tp , std\+::size\+\_\+t \+\_\+\+SizeP, std\+::size\+\_\+t \+\_\+\+SizeQ$>$ }\\constexpr \+\_\+\+Static\+Polynomial$<$ \+\_\+\+Tp, std\+::max(\+\_\+\+SizeP, \+\_\+\+SizeQ)$>$ \hyperlink{namespace____gnu__cxx_ab21b8f613598d3de78239f9a5d45bee7}{\+\_\+\+\_\+gnu\+\_\+cxx\+::operator+} (const \+\_\+\+Static\+Polynomial$<$ \+\_\+\+Tp, \+\_\+\+SizeP $>$ \&\+\_\+P, const \+\_\+\+Static\+Polynomial$<$ \+\_\+\+Tp, \+\_\+\+SizeQ $>$ \&\+\_\+Q)
+\item 
+{\footnotesize template$<$typename \+\_\+\+Tp , std\+::size\+\_\+t \+\_\+\+Size$>$ }\\constexpr \+\_\+\+Static\+Polynomial$<$ \+\_\+\+Tp, \+\_\+\+Size $>$ \hyperlink{namespace____gnu__cxx_a9f3b5d6e3db0c359eb0c8c067fc9ae05}{\+\_\+\+\_\+gnu\+\_\+cxx\+::operator-\/} (const \+\_\+\+Static\+Polynomial$<$ \+\_\+\+Tp, \+\_\+\+Size $>$ \&\+\_\+\+\_\+poly, const \+\_\+\+Tp \&\+\_\+\+\_\+x)
+\item 
+{\footnotesize template$<$typename \+\_\+\+Tp , std\+::size\+\_\+t \+\_\+\+Size$>$ }\\\+\_\+\+Static\+Polynomial$<$ \+\_\+\+Tp, \+\_\+\+Size $>$ \hyperlink{namespace____gnu__cxx_a6bc4eecdfefce0b2dea328cb6cc5412a}{\+\_\+\+\_\+gnu\+\_\+cxx\+::operator-\/} (const \+\_\+\+Tp \&\+\_\+\+\_\+x, const \+\_\+\+Static\+Polynomial$<$ \+\_\+\+Tp, \+\_\+\+Size $>$ \&\+\_\+\+\_\+poly)
+\item 
+{\footnotesize template$<$typename \+\_\+\+Tp , std\+::size\+\_\+t \+\_\+\+SizeP, std\+::size\+\_\+t \+\_\+\+SizeQ$>$ }\\constexpr \+\_\+\+Static\+Polynomial$<$ \+\_\+\+Tp, std\+::max(\+\_\+\+SizeP, \+\_\+\+SizeQ)$>$ \hyperlink{namespace____gnu__cxx_a7a0dd6f28607ef9be1e5eb053716076f}{\+\_\+\+\_\+gnu\+\_\+cxx\+::operator-\/} (const \+\_\+\+Static\+Polynomial$<$ \+\_\+\+Tp, \+\_\+\+SizeP $>$ \&\+\_\+P, const \+\_\+\+Static\+Polynomial$<$ \+\_\+\+Tp, \+\_\+\+SizeQ $>$ \&\+\_\+Q)
+\item 
+{\footnotesize template$<$typename \+\_\+\+Tp , std\+::size\+\_\+t \+\_\+\+Size$>$ }\\constexpr \+\_\+\+Static\+Polynomial$<$ \+\_\+\+Tp, \+\_\+\+Size $>$ \hyperlink{namespace____gnu__cxx_a646b9470b937733c916192c121e8ecdb}{\+\_\+\+\_\+gnu\+\_\+cxx\+::operator/} (const \+\_\+\+Static\+Polynomial$<$ \+\_\+\+Tp, \+\_\+\+Size $>$ \&\+\_\+\+\_\+poly, const \+\_\+\+Tp \&\+\_\+\+\_\+x)
+\item 
+{\footnotesize template$<$typename \+\_\+\+Tp , std\+::size\+\_\+t \+\_\+\+SizeP, std\+::size\+\_\+t \+\_\+\+SizeQ$>$ }\\constexpr \+\_\+\+Static\+Polynomial$<$ \+\_\+\+Tp, \+\_\+\+\_\+divmod\+\_\+t$<$ \+\_\+\+Tp, \+\_\+\+SizeP, \+\_\+\+SizeQ $>$\+::\+\_\+\+Size\+Quo $>$ \hyperlink{namespace____gnu__cxx_a451a609c6de284cdeed747a994938801}{\+\_\+\+\_\+gnu\+\_\+cxx\+::operator/} (const \+\_\+\+Static\+Polynomial$<$ \+\_\+\+Tp, \+\_\+\+SizeP $>$ \&\+\_\+P, const \+\_\+\+Static\+Polynomial$<$ \+\_\+\+Tp, \+\_\+\+SizeQ $>$ \&\+\_\+Q)
+\item 
+{\footnotesize template$<$typename CharT , typename Traits , typename \+\_\+\+Tp , std\+::size\+\_\+t \+\_\+\+Size$>$ }\\std\+::basic\+\_\+ostream$<$ CharT, Traits $>$ \& \hyperlink{namespace____gnu__cxx_a143c7d2302fc613fd818f9149707b753}{\+\_\+\+\_\+gnu\+\_\+cxx\+::operator$<$$<$} (std\+::basic\+\_\+ostream$<$ CharT, Traits $>$ \&\+\_\+\+\_\+os, const \+\_\+\+Static\+Polynomial$<$ \+\_\+\+Tp, \+\_\+\+Size $>$ \&\+\_\+\+\_\+poly)
+\item 
+{\footnotesize template$<$typename \+\_\+\+Tp , std\+::size\+\_\+t \+\_\+\+SizeA, std\+::size\+\_\+t \+\_\+\+SizeB$>$ }\\constexpr bool \hyperlink{namespace____gnu__cxx_a316d841c3d2addecec46960379815cd4}{\+\_\+\+\_\+gnu\+\_\+cxx\+::operator==} (const \+\_\+\+Static\+Polynomial$<$ \+\_\+\+Tp, \+\_\+\+SizeA $>$ \&, const \+\_\+\+Static\+Polynomial$<$ \+\_\+\+Tp, \+\_\+\+SizeB $>$ \&)
+\item 
+{\footnotesize template$<$typename \+\_\+\+Tp , std\+::size\+\_\+t \+\_\+\+Size$>$ }\\constexpr bool \hyperlink{namespace____gnu__cxx_a4156deb610ec73be9e2f56a1a4caf391}{\+\_\+\+\_\+gnu\+\_\+cxx\+::operator==} (const \+\_\+\+Static\+Polynomial$<$ \+\_\+\+Tp, \+\_\+\+Size $>$ \&\+\_\+\+\_\+pa, const \+\_\+\+Static\+Polynomial$<$ \+\_\+\+Tp, \+\_\+\+Size $>$ \&\+\_\+\+\_\+pb)
 \end{DoxyCompactItemize}
 
 

@@ -1,7 +1,6 @@
 var NAVTREE =
 [
   [ "C++ Polynomial", "index.html", [
-    [ "Todo List", "todo.html", null ],
     [ "Namespaces", null, [
       [ "Namespace List", "namespaces.html", "namespaces" ],
       [ "Namespace Members", "namespacemembers.html", [
@@ -37,7 +36,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"solution_8h.html#aa21adeccc5b87713003459ab7f08fc7b"
+"solution_8h.html#a308d96e2c3172aebb97f03880e8c5946"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

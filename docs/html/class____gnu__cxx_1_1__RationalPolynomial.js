@@ -6,7 +6,9 @@ var class____gnu__cxx_1_1__RationalPolynomial =
     [ "value_type", "class____gnu__cxx_1_1__RationalPolynomial.html#adeec7f1bec03111031599f337848ee8b", null ],
     [ "_RationalPolynomial", "class____gnu__cxx_1_1__RationalPolynomial.html#a35b2504272a73aa54b48310004c46fd1", null ],
     [ "_RationalPolynomial", "class____gnu__cxx_1_1__RationalPolynomial.html#a7a775d294625fb0f5493051579510816", null ],
+    [ "_RationalPolynomial", "class____gnu__cxx_1_1__RationalPolynomial.html#a4165c6106ef81d1c8de40c4e846462c2", null ],
     [ "_RationalPolynomial", "class____gnu__cxx_1_1__RationalPolynomial.html#aef1f631e89bdeb2976b0629591e4e61e", null ],
+    [ "_RationalPolynomial", "class____gnu__cxx_1_1__RationalPolynomial.html#ac5c31fc032a246743689ef7b86c1552f", null ],
     [ "denom", "class____gnu__cxx_1_1__RationalPolynomial.html#a05e84913ccfddcf6fcbfe623cb56c937", null ],
     [ "denom", "class____gnu__cxx_1_1__RationalPolynomial.html#a81fdcf1099981053c3d08ebcf8e2d278", null ],
     [ "numer", "class____gnu__cxx_1_1__RationalPolynomial.html#aa42ac2f6c2368cae05ba3a3cebf0fa24", null ],
@@ -18,5 +20,6 @@ var class____gnu__cxx_1_1__RationalPolynomial =
     [ "operator-", "class____gnu__cxx_1_1__RationalPolynomial.html#a21c445f37dbceb2832ab1eebf5d2d965", null ],
     [ "operator-=", "class____gnu__cxx_1_1__RationalPolynomial.html#ad233308f7f97d2658486b5eae84f90a5", null ],
     [ "operator/=", "class____gnu__cxx_1_1__RationalPolynomial.html#aa730392e9487843aad01fb28328ce032", null ],
-    [ "operator=", "class____gnu__cxx_1_1__RationalPolynomial.html#afa1efd00dfffcf6851bac3da7ba399dc", null ]
+    [ "operator=", "class____gnu__cxx_1_1__RationalPolynomial.html#afa1efd00dfffcf6851bac3da7ba399dc", null ],
+    [ "operator=", "class____gnu__cxx_1_1__RationalPolynomial.html#a8013626cc835738ce3dda59d59dfbee8", null ]
 ];

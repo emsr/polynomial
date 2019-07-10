@@ -1,3 +1,4 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$class____gnu__cxx_1_1__Polynomial.html" title="A dense polynomial class with a contiguous array of coefficients. The coefficients are lowest&#45;order f..." alt="" coords="5,5,169,47"/>
+<area shape="rect" id="node2" href="$struct____gnu__cxx_1_1____has__imag__t.html" title="__gnu_cxx::__has_imag\l_t\&lt; typename, typename \&gt;" alt="" coords="152,5,331,47"/>
+<area shape="rect" id="node3" href="$struct____gnu__cxx_1_1____has__value__type__t.html" title="__gnu_cxx::__has_value\l_type_t\&lt; typename, typename \&gt;" alt="" coords="136,71,347,112"/>
 </map>

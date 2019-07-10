@@ -14,6 +14,16 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
 enable_testing()
 
+find_package(Doxygen)
+if (DOXYGEN_FOUND)
+  add_custom_target(docs_polynomial
+    COMMAND ${CMAKE_COMMAND} -E make_directory ${CMAKE_CURRENT_BINARY_DIR}/docs
+    COMMAND ${DOXYGEN_EXECUTABLE} ${DOXYGEN_OUTPUT}
+    WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
+    COMMENT "Generating API documentation for cxx_polynomial" VERBATIM
+  )
+endif (DOXYGEN_FOUND)
+
 add_executable(test_bairstow test_bairstow.cpp)
 target_include_directories(test_bairstow PRIVATE include ../cxx_math_constants/include)
 target_link_libraries(test_bairstow quadmath)

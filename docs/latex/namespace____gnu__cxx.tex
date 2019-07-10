@@ -3,9 +3,21 @@
 \subsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
+struct \hyperlink{struct____gnu__cxx_1_1____divmod__t}{\+\_\+\+\_\+divmod\+\_\+t}
+\item 
 struct \hyperlink{struct____gnu__cxx_1_1____has__imag__t}{\+\_\+\+\_\+has\+\_\+imag\+\_\+t}
 \item 
-struct \hyperlink{struct____gnu__cxx_1_1____has__imag__t_3_01T_00_01std_1_1void__t_3_01decltype_07std_1_1declval_389ee8aaba7dec2e199e7ad81d6cda763}{\+\_\+\+\_\+has\+\_\+imag\+\_\+t$<$ T, std\+::void\+\_\+t$<$ decltype(std\+::declval$<$ T \& $>$().\+imag())$>$ $>$}
+struct \hyperlink{struct____gnu__cxx_1_1____has__imag__t_3_01__Tp_00_01std_1_1void__t_3_01decltype_07std_1_1declva705d5f96db36a5134d7de4531d29483c}{\+\_\+\+\_\+has\+\_\+imag\+\_\+t$<$ \+\_\+\+Tp, std\+::void\+\_\+t$<$ decltype(std\+::declval$<$ \+\_\+\+Tp \& $>$().\+imag())$>$ $>$}
+\item 
+struct \hyperlink{struct____gnu__cxx_1_1____has__value__type__t}{\+\_\+\+\_\+has\+\_\+value\+\_\+type\+\_\+t}
+\item 
+struct \hyperlink{struct____gnu__cxx_1_1____has__value__type__t_3_01__Tp_00_01std_1_1void__t_3_01typename_01__Tp_1_1value__type_01_4_01_4}{\+\_\+\+\_\+has\+\_\+value\+\_\+type\+\_\+t$<$ \+\_\+\+Tp, std\+::void\+\_\+t$<$ typename \+\_\+\+Tp\+::value\+\_\+type $>$ $>$}
+\item 
+struct \hyperlink{struct____gnu__cxx_1_1____real__type}{\+\_\+\+\_\+real\+\_\+type}
+\item 
+struct \hyperlink{struct____gnu__cxx_1_1____real__type_3_01__Polynomial_3_01__Tp_01_4_01_4}{\+\_\+\+\_\+real\+\_\+type$<$ \+\_\+\+Polynomial$<$ \+\_\+\+Tp $>$ $>$}
+\item 
+struct \hyperlink{struct____gnu__cxx_1_1____real__type_3_01std_1_1complex_3_01__Tp_01_4_01_4}{\+\_\+\+\_\+real\+\_\+type$<$ std\+::complex$<$ \+\_\+\+Tp $>$ $>$}
 \item 
 class \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}
 \begin{DoxyCompactList}\small\item\em A dense polynomial class with a contiguous array of coefficients. The coefficients are lowest-\/order first\+: \[ P(x) = a_0 + a_1 x + ... + a_n x^n \]. \end{DoxyCompactList}\item 
@@ -16,7 +28,9 @@ class \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polyno
 \subsection*{Typedefs}
 \begin{DoxyCompactItemize}
 \item 
-{\footnotesize template$<$typename \+\_\+\+Real $>$ }\\using \hyperlink{namespace____gnu__cxx_ae20ea642de50eb361074c62676b0159c}{solution\+\_\+t} = std\+::variant$<$ std\+::monostate, \+\_\+\+Real, \hyperlink{classstd_1_1complex}{std\+::complex}$<$ \+\_\+\+Real $>$ $>$
+{\footnotesize template$<$typename \+\_\+\+Tp $>$ }\\using \hyperlink{namespace____gnu__cxx_a3f707c0c6f6926cf68b74072733751f7}{\+\_\+\+\_\+real\+\_\+type\+\_\+t} = typename \hyperlink{struct____gnu__cxx_1_1____real__type}{\+\_\+\+\_\+real\+\_\+type}$<$ \+\_\+\+Tp $>$\+::type
+\item 
+{\footnotesize template$<$typename \+\_\+\+Real $>$ }\\using \hyperlink{namespace____gnu__cxx_ae20ea642de50eb361074c62676b0159c}{solution\+\_\+t} = std\+::variant$<$ std\+::monostate, \+\_\+\+Real, std\+::complex$<$ \+\_\+\+Real $>$ $>$
 \end{DoxyCompactItemize}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
@@ -41,7 +55,9 @@ class \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polyno
 \item 
 {\footnotesize template$<$typename \+\_\+\+Real $>$ }\\constexpr \+\_\+\+Real \hyperlink{namespace____gnu__cxx_ab9eb9db3560f504f8cd25a71bcb6ead5}{abs} (const \hyperlink{namespace____gnu__cxx_ae20ea642de50eb361074c62676b0159c}{solution\+\_\+t}$<$ \+\_\+\+Real $>$ \&\+\_\+\+\_\+x)
 \item 
-{\footnotesize template$<$typename \+\_\+\+Tp $>$ }\\void \hyperlink{namespace____gnu__cxx_abe506cf34c921c378a681f0de31d49a5}{divmod} (const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \+\_\+\+Tp $>$ \&\+\_\+\+\_\+pa, const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \+\_\+\+Tp $>$ \&\+\_\+\+\_\+pb, \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \+\_\+\+Tp $>$ \&\+\_\+\+\_\+quo, \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \+\_\+\+Tp $>$ \&\+\_\+\+\_\+rem)
+{\footnotesize template$<$typename \+\_\+\+Tp , std\+::size\+\_\+t \+\_\+\+SizeN, std\+::size\+\_\+t \+\_\+\+SizeD$>$ }\\constexpr \hyperlink{struct____gnu__cxx_1_1____divmod__t}{\+\_\+\+\_\+divmod\+\_\+t}$<$ \+\_\+\+Tp, \+\_\+\+SizeN, \+\_\+\+SizeD $>$ \hyperlink{namespace____gnu__cxx_a33c585ec7ce2ac87e7f5cb1b1fe403b1}{divmod} (const \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$ \+\_\+\+Tp, \+\_\+\+SizeN $>$ \&\+\_\+\+\_\+num, const \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$ \+\_\+\+Tp, \+\_\+\+SizeD $>$ \&\+\_\+\+\_\+den)
+\item 
+{\footnotesize template$<$typename \+\_\+\+Tp $>$ }\\void \hyperlink{namespace____gnu__cxx_a84c52dc7c40b8b2731425e93db52903d}{divmod} (const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \+\_\+\+Tp $>$ \&\+\_\+\+\_\+num, const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \+\_\+\+Tp $>$ \&\+\_\+\+\_\+den, \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \+\_\+\+Tp $>$ \&\+\_\+\+\_\+quo, \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \+\_\+\+Tp $>$ \&\+\_\+\+\_\+rem)
 \item 
 {\footnotesize template$<$typename \+\_\+\+Tp $>$ }\\\hyperlink{namespace____gnu__cxx_a2af747c0e255f3fae4d9f118c2817e1a}{get\+\_\+scale} (const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \+\_\+\+Tp $>$ \&\+\_\+\+\_\+poly)
 \item 
@@ -61,11 +77,13 @@ class \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polyno
 \item 
 {\footnotesize template$<$typename \+\_\+\+Real $>$ }\\constexpr bool \hyperlink{namespace____gnu__cxx_ac6649e26a3db551b4f945ccfcd3ce0a7}{is\+\_\+valid} (const \hyperlink{namespace____gnu__cxx_ae20ea642de50eb361074c62676b0159c}{solution\+\_\+t}$<$ \+\_\+\+Real $>$ \&\+\_\+\+\_\+x)
 \item 
-{\footnotesize template$<$typename \+\_\+\+Tp , std\+::size\+\_\+t \+\_\+\+NumA, std\+::size\+\_\+t \+\_\+\+NumB$>$ }\\bool \hyperlink{namespace____gnu__cxx_ad79bae6336788c58358fcf9fcd342cb9}{operator!=} (const \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$ \+\_\+\+Tp, \+\_\+\+NumA $>$ \&\+\_\+\+\_\+pa, const \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$ \+\_\+\+Tp, \+\_\+\+NumB $>$ \&\+\_\+\+\_\+pb)
+{\footnotesize template$<$typename \+\_\+\+Tp , std\+::size\+\_\+t \+\_\+\+SizeA, std\+::size\+\_\+t \+\_\+\+SizeB$>$ }\\constexpr bool \hyperlink{namespace____gnu__cxx_af19ad85b9b29562d2e134f3db6b3a651}{operator!=} (const \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$ \+\_\+\+Tp, \+\_\+\+SizeA $>$ \&\+\_\+\+\_\+pa, const \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$ \+\_\+\+Tp, \+\_\+\+SizeB $>$ \&\+\_\+\+\_\+pb)
 \item 
-{\footnotesize template$<$typename \+\_\+\+Tp , std\+::size\+\_\+t \+\_\+\+Num$>$ }\\bool \hyperlink{namespace____gnu__cxx_a18cd3b1685ac1bb1c3f323e451e796d1}{operator!=} (const \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$ \+\_\+\+Tp, \+\_\+\+Num $>$ \&\+\_\+\+\_\+pa, const \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$ \+\_\+\+Tp, \+\_\+\+Num $>$ \&\+\_\+\+\_\+pb)
+{\footnotesize template$<$typename \+\_\+\+Tp , std\+::size\+\_\+t \+\_\+\+Size$>$ }\\constexpr bool \hyperlink{namespace____gnu__cxx_ac759e59bd5e23de4cbd603b846081718}{operator!=} (const \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$ \+\_\+\+Tp, \+\_\+\+Size $>$ \&\+\_\+\+\_\+pa, const \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$ \+\_\+\+Tp, \+\_\+\+Size $>$ \&\+\_\+\+\_\+pb)
 \item 
 {\footnotesize template$<$typename \+\_\+\+Tp $>$ }\\bool \hyperlink{namespace____gnu__cxx_a1279934a2d6df66704c6eab9113b0f97}{operator!=} (const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \+\_\+\+Tp $>$ \&\+\_\+\+\_\+pa, const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \+\_\+\+Tp $>$ \&\+\_\+\+\_\+pb)
+\item 
+{\footnotesize template$<$typename \+\_\+\+Tp , std\+::size\+\_\+t \+\_\+\+SizeP, std\+::size\+\_\+t \+\_\+\+SizeQ$>$ }\\constexpr \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$ \+\_\+\+Tp, \hyperlink{struct____gnu__cxx_1_1____divmod__t}{\+\_\+\+\_\+divmod\+\_\+t}$<$ \+\_\+\+Tp, \+\_\+\+SizeP, \+\_\+\+SizeQ $>$\+::\+\_\+\+Size\+Rem $>$ \hyperlink{namespace____gnu__cxx_a15445a05944d0b0235051dbfb380f9bf}{operator\%} (const \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$ \+\_\+\+Tp, \+\_\+\+SizeP $>$ \&\+\_\+P, const \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$ \+\_\+\+Tp, \+\_\+\+SizeQ $>$ \&\+\_\+Q)
 \item 
 {\footnotesize template$<$typename \+\_\+\+Tp , typename \+\_\+\+Up $>$ }\\\hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ decltype(\+\_\+\+Tp()/\hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up}())$>$ \hyperlink{namespace____gnu__cxx_a3132828069a740986e97f1db8e07325c}{operator\%} (const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \+\_\+\+Tp $>$ \&\+\_\+\+\_\+poly, const \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up} \&\+\_\+\+\_\+x)
 \item 
@@ -73,23 +91,45 @@ class \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polyno
 \item 
 {\footnotesize template$<$typename \+\_\+\+Tp , typename \+\_\+\+Up $>$ }\\\hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ decltype(\+\_\+\+Tp()/\hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up}())$>$ \hyperlink{namespace____gnu__cxx_a2d1e6cb96943b2c99f71cf77a7247e77}{operator\%} (const \+\_\+\+Tp \&\+\_\+\+\_\+x, const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up} $>$ \&\+\_\+\+\_\+poly)
 \item 
-{\footnotesize template$<$typename \+\_\+\+Tp , typename \+\_\+\+Up $>$ }\\\hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ decltype(\+\_\+\+Tp() $\ast$\hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up}())$>$ \hyperlink{namespace____gnu__cxx_a1d0b1e9322fd407848b43cecab1ab9ae}{operator$\ast$} (const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \+\_\+\+Tp $>$ \&\+\_\+\+\_\+poly, const \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up} \&\+\_\+\+\_\+x)
+{\footnotesize template$<$typename \+\_\+\+Tp , std\+::size\+\_\+t \+\_\+\+Size$>$ }\\constexpr \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$ \+\_\+\+Tp, \+\_\+\+Size $>$ \hyperlink{namespace____gnu__cxx_a71781c23f8dd75f9cf9d7610a26225ad}{operator$\ast$} (const \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$ \+\_\+\+Tp, \+\_\+\+Size $>$ \&\+\_\+\+\_\+poly, const \+\_\+\+Tp \&\+\_\+\+\_\+x)
 \item 
-{\footnotesize template$<$typename \+\_\+\+Tp , typename \+\_\+\+Up $>$ }\\\hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ decltype(\+\_\+\+Tp() $\ast$\hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up}())$>$ \hyperlink{namespace____gnu__cxx_a2f76fd6f7c2c9e64fba1d5892844f26b}{operator$\ast$} (const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \+\_\+\+Tp $>$ \&\+\_\+\+\_\+pa, const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up} $>$ \&\+\_\+\+\_\+pb)
+{\footnotesize template$<$typename \+\_\+\+Tp , std\+::size\+\_\+t \+\_\+\+Size$>$ }\\\hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$ \+\_\+\+Tp, \+\_\+\+Size $>$ \hyperlink{namespace____gnu__cxx_a91cea4290bb3218fc6d869a655db5891}{operator$\ast$} (const \+\_\+\+Tp \&\+\_\+\+\_\+x, const \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$ \+\_\+\+Tp, \+\_\+\+Size $>$ \&\+\_\+\+\_\+poly)
+\item 
+{\footnotesize template$<$typename \+\_\+\+Tp , std\+::size\+\_\+t \+\_\+\+SizeP, std\+::size\+\_\+t \+\_\+\+SizeQ$>$ }\\constexpr \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$ \+\_\+\+Tp, \+\_\+\+SizeP+\+\_\+\+SizeQ -\/ 1 $>$ \hyperlink{namespace____gnu__cxx_a8570f2d82260e7f64d985be3ddf007f8}{operator$\ast$} (const \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$ \+\_\+\+Tp, \+\_\+\+SizeP $>$ \&\+\_\+P, const \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$ \+\_\+\+Tp, \+\_\+\+SizeQ $>$ \&\+\_\+Q)
+\item 
+{\footnotesize template$<$typename \+\_\+\+Tp , typename \+\_\+\+Up $>$ }\\\hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ decltype(\+\_\+\+Tp() $\ast$\hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up}())$>$ \hyperlink{namespace____gnu__cxx_a1d0b1e9322fd407848b43cecab1ab9ae}{operator$\ast$} (const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \+\_\+\+Tp $>$ \&\+\_\+\+\_\+poly, const \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up} \&\+\_\+\+\_\+x)
 \item 
 {\footnotesize template$<$typename \+\_\+\+Tp , typename \+\_\+\+Up $>$ }\\\hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ decltype(\+\_\+\+Tp() $\ast$\hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up}())$>$ \hyperlink{namespace____gnu__cxx_ac79cfe2d37e5d8116fcf51911c21c253}{operator$\ast$} (const \+\_\+\+Tp \&\+\_\+\+\_\+x, const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up} $>$ \&\+\_\+\+\_\+poly)
 \item 
-{\footnotesize template$<$typename \+\_\+\+Tp , typename \+\_\+\+Up $>$ }\\\hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ decltype(\+\_\+\+Tp()+\hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up}())$>$ \hyperlink{namespace____gnu__cxx_a2b408e7a7e5d2ec6879b8e40f7f5de3e}{operator+} (const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \+\_\+\+Tp $>$ \&\+\_\+\+\_\+poly, const \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up} \&\+\_\+\+\_\+x)
+{\footnotesize template$<$typename \+\_\+\+Tp , typename \+\_\+\+Up $>$ }\\\hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ decltype(\+\_\+\+Tp() $\ast$\hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up}())$>$ \hyperlink{namespace____gnu__cxx_a2f76fd6f7c2c9e64fba1d5892844f26b}{operator$\ast$} (const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \+\_\+\+Tp $>$ \&\+\_\+\+\_\+pa, const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up} $>$ \&\+\_\+\+\_\+pb)
 \item 
-{\footnotesize template$<$typename \+\_\+\+Tp , typename \+\_\+\+Up $>$ }\\\hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ decltype(\+\_\+\+Tp()+\hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up}())$>$ \hyperlink{namespace____gnu__cxx_ada8a28005b5f71563bec55c71e03029b}{operator+} (const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \+\_\+\+Tp $>$ \&\+\_\+\+\_\+pa, const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up} $>$ \&\+\_\+\+\_\+pb)
+{\footnotesize template$<$typename \+\_\+\+Tp , std\+::size\+\_\+t \+\_\+\+Size$>$ }\\constexpr \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$ \+\_\+\+Tp, \+\_\+\+Size $>$ \hyperlink{namespace____gnu__cxx_a6864af2e99c7797a84209d8dffcf11e5}{operator+} (const \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$ \+\_\+\+Tp, \+\_\+\+Size $>$ \&\+\_\+\+\_\+poly, const \+\_\+\+Tp \&\+\_\+\+\_\+x)
+\item 
+{\footnotesize template$<$typename \+\_\+\+Tp , std\+::size\+\_\+t \+\_\+\+Size$>$ }\\\hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$ \+\_\+\+Tp, \+\_\+\+Size $>$ \hyperlink{namespace____gnu__cxx_a06334b50d2c25cdadf11c1785a57cde0}{operator+} (const \+\_\+\+Tp \&\+\_\+\+\_\+x, const \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$ \+\_\+\+Tp, \+\_\+\+Size $>$ \&\+\_\+\+\_\+poly)
+\item 
+{\footnotesize template$<$typename \+\_\+\+Tp , std\+::size\+\_\+t \+\_\+\+SizeP, std\+::size\+\_\+t \+\_\+\+SizeQ$>$ }\\constexpr \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$ \+\_\+\+Tp, std\+::max(\+\_\+\+SizeP, \+\_\+\+SizeQ)$>$ \hyperlink{namespace____gnu__cxx_ab21b8f613598d3de78239f9a5d45bee7}{operator+} (const \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$ \+\_\+\+Tp, \+\_\+\+SizeP $>$ \&\+\_\+P, const \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$ \+\_\+\+Tp, \+\_\+\+SizeQ $>$ \&\+\_\+Q)
+\item 
+{\footnotesize template$<$typename \+\_\+\+Tp , typename \+\_\+\+Up $>$ }\\\hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ decltype(\+\_\+\+Tp()+\hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up}())$>$ \hyperlink{namespace____gnu__cxx_a2b408e7a7e5d2ec6879b8e40f7f5de3e}{operator+} (const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \+\_\+\+Tp $>$ \&\+\_\+\+\_\+poly, const \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up} \&\+\_\+\+\_\+x)
 \item 
 {\footnotesize template$<$typename \+\_\+\+Tp , typename \+\_\+\+Up $>$ }\\\hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ decltype(\+\_\+\+Tp()+\hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up}())$>$ \hyperlink{namespace____gnu__cxx_ac9f58ced995b65628b5715c885569cb7}{operator+} (const \+\_\+\+Tp \&\+\_\+\+\_\+x, const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up} $>$ \&\+\_\+\+\_\+poly)
 \item 
+{\footnotesize template$<$typename \+\_\+\+Tp , typename \+\_\+\+Up $>$ }\\\hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ decltype(\+\_\+\+Tp()+\hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up}())$>$ \hyperlink{namespace____gnu__cxx_ada8a28005b5f71563bec55c71e03029b}{operator+} (const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \+\_\+\+Tp $>$ \&\+\_\+\+\_\+pa, const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up} $>$ \&\+\_\+\+\_\+pb)
+\item 
+{\footnotesize template$<$typename \+\_\+\+Tp , std\+::size\+\_\+t \+\_\+\+Size$>$ }\\constexpr \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$ \+\_\+\+Tp, \+\_\+\+Size $>$ \hyperlink{namespace____gnu__cxx_a9f3b5d6e3db0c359eb0c8c067fc9ae05}{operator-\/} (const \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$ \+\_\+\+Tp, \+\_\+\+Size $>$ \&\+\_\+\+\_\+poly, const \+\_\+\+Tp \&\+\_\+\+\_\+x)
+\item 
+{\footnotesize template$<$typename \+\_\+\+Tp , std\+::size\+\_\+t \+\_\+\+Size$>$ }\\\hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$ \+\_\+\+Tp, \+\_\+\+Size $>$ \hyperlink{namespace____gnu__cxx_a6bc4eecdfefce0b2dea328cb6cc5412a}{operator-\/} (const \+\_\+\+Tp \&\+\_\+\+\_\+x, const \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$ \+\_\+\+Tp, \+\_\+\+Size $>$ \&\+\_\+\+\_\+poly)
+\item 
+{\footnotesize template$<$typename \+\_\+\+Tp , std\+::size\+\_\+t \+\_\+\+SizeP, std\+::size\+\_\+t \+\_\+\+SizeQ$>$ }\\constexpr \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$ \+\_\+\+Tp, std\+::max(\+\_\+\+SizeP, \+\_\+\+SizeQ)$>$ \hyperlink{namespace____gnu__cxx_a7a0dd6f28607ef9be1e5eb053716076f}{operator-\/} (const \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$ \+\_\+\+Tp, \+\_\+\+SizeP $>$ \&\+\_\+P, const \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$ \+\_\+\+Tp, \+\_\+\+SizeQ $>$ \&\+\_\+Q)
+\item 
 {\footnotesize template$<$typename \+\_\+\+Tp , typename \+\_\+\+Up $>$ }\\\hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ decltype(\+\_\+\+Tp() -\/ \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up}())$>$ \hyperlink{namespace____gnu__cxx_abc583ac0684f0aff079c6014f3d84c1d}{operator-\/} (const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \+\_\+\+Tp $>$ \&\+\_\+\+\_\+poly, const \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up} \&\+\_\+\+\_\+x)
+\item 
+{\footnotesize template$<$typename \+\_\+\+Tp , typename \+\_\+\+Up $>$ }\\\hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ decltype(\+\_\+\+Tp() -\/ \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up}())$>$ \hyperlink{namespace____gnu__cxx_acc72fd3c1efcf09698d30d42c4a1eb1b}{operator-\/} (const \+\_\+\+Tp \&\+\_\+\+\_\+x, const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up} $>$ \&\+\_\+\+\_\+poly)
 \item 
 {\footnotesize template$<$typename \+\_\+\+Tp , typename \+\_\+\+Up $>$ }\\\hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ decltype(\+\_\+\+Tp() -\/ \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up}())$>$ \hyperlink{namespace____gnu__cxx_a4609eee7a71e3be3a103df9556fab9b4}{operator-\/} (const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \+\_\+\+Tp $>$ \&\+\_\+\+\_\+pa, const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up} $>$ \&\+\_\+\+\_\+pb)
 \item 
-{\footnotesize template$<$typename \+\_\+\+Tp , typename \+\_\+\+Up $>$ }\\\hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ decltype(\+\_\+\+Tp() -\/ \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up}())$>$ \hyperlink{namespace____gnu__cxx_acc72fd3c1efcf09698d30d42c4a1eb1b}{operator-\/} (const \+\_\+\+Tp \&\+\_\+\+\_\+x, const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up} $>$ \&\+\_\+\+\_\+poly)
+{\footnotesize template$<$typename \+\_\+\+Tp , std\+::size\+\_\+t \+\_\+\+Size$>$ }\\constexpr \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$ \+\_\+\+Tp, \+\_\+\+Size $>$ \hyperlink{namespace____gnu__cxx_a646b9470b937733c916192c121e8ecdb}{operator/} (const \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$ \+\_\+\+Tp, \+\_\+\+Size $>$ \&\+\_\+\+\_\+poly, const \+\_\+\+Tp \&\+\_\+\+\_\+x)
+\item 
+{\footnotesize template$<$typename \+\_\+\+Tp , std\+::size\+\_\+t \+\_\+\+SizeP, std\+::size\+\_\+t \+\_\+\+SizeQ$>$ }\\constexpr \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$ \+\_\+\+Tp, \hyperlink{struct____gnu__cxx_1_1____divmod__t}{\+\_\+\+\_\+divmod\+\_\+t}$<$ \+\_\+\+Tp, \+\_\+\+SizeP, \+\_\+\+SizeQ $>$\+::\+\_\+\+Size\+Quo $>$ \hyperlink{namespace____gnu__cxx_a451a609c6de284cdeed747a994938801}{operator/} (const \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$ \+\_\+\+Tp, \+\_\+\+SizeP $>$ \&\+\_\+P, const \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$ \+\_\+\+Tp, \+\_\+\+SizeQ $>$ \&\+\_\+Q)
 \item 
 {\footnotesize template$<$typename \+\_\+\+Tp , typename \+\_\+\+Up $>$ }\\\hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ decltype(\+\_\+\+Tp()/\hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up}())$>$ \hyperlink{namespace____gnu__cxx_a5fd356349013bd60a41010cbf502444b}{operator/} (const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \+\_\+\+Tp $>$ \&\+\_\+\+\_\+poly, const \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up} \&\+\_\+\+\_\+x)
 \item 
@@ -99,11 +139,13 @@ class \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polyno
 \item 
 {\footnotesize template$<$typename CharT , typename Traits , typename \+\_\+\+Tp $>$ }\\std\+::basic\+\_\+ostream$<$ CharT, Traits $>$ \& \hyperlink{namespace____gnu__cxx_a424044092ac184bfa1d17beb1b12e071}{operator$<$$<$} (std\+::basic\+\_\+ostream$<$ CharT, Traits $>$ \&\+\_\+\+\_\+os, const \hyperlink{class____gnu__cxx_1_1__RationalPolynomial}{\+\_\+\+Rational\+Polynomial}$<$ \+\_\+\+Tp $>$ \&\+\_\+\+\_\+poly)
 \item 
+{\footnotesize template$<$typename CharT , typename Traits , typename \+\_\+\+Tp , std\+::size\+\_\+t \+\_\+\+Size$>$ }\\std\+::basic\+\_\+ostream$<$ CharT, Traits $>$ \& \hyperlink{namespace____gnu__cxx_a143c7d2302fc613fd818f9149707b753}{operator$<$$<$} (std\+::basic\+\_\+ostream$<$ CharT, Traits $>$ \&\+\_\+\+\_\+os, const \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$ \+\_\+\+Tp, \+\_\+\+Size $>$ \&\+\_\+\+\_\+poly)
+\item 
 {\footnotesize template$<$typename CharT , typename Traits , typename \+\_\+\+Tp $>$ }\\std\+::basic\+\_\+ostream$<$ CharT, Traits $>$ \& \hyperlink{namespace____gnu__cxx_ad713743dbfc30fba653621d1f7e99d3c}{operator$<$$<$} (std\+::basic\+\_\+ostream$<$ CharT, Traits $>$ \&\+\_\+\+\_\+os, const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \+\_\+\+Tp $>$ \&\+\_\+\+\_\+poly)
 \item 
-{\footnotesize template$<$typename \+\_\+\+Tp , std\+::size\+\_\+t \+\_\+\+NumA, std\+::size\+\_\+t \+\_\+\+NumB$>$ }\\bool \hyperlink{namespace____gnu__cxx_a85c9740061a6497bb695d2ee147f52b8}{operator==} (const \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$ \+\_\+\+Tp, \+\_\+\+NumA $>$ \&, const \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$ \+\_\+\+Tp, \+\_\+\+NumB $>$ \&)
+{\footnotesize template$<$typename \+\_\+\+Tp , std\+::size\+\_\+t \+\_\+\+SizeA, std\+::size\+\_\+t \+\_\+\+SizeB$>$ }\\constexpr bool \hyperlink{namespace____gnu__cxx_a316d841c3d2addecec46960379815cd4}{operator==} (const \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$ \+\_\+\+Tp, \+\_\+\+SizeA $>$ \&, const \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$ \+\_\+\+Tp, \+\_\+\+SizeB $>$ \&)
 \item 
-{\footnotesize template$<$typename \+\_\+\+Tp , std\+::size\+\_\+t \+\_\+\+Num$>$ }\\bool \hyperlink{namespace____gnu__cxx_a2d1430ebbbaf156a6c80a8e8107960e1}{operator==} (const \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$ \+\_\+\+Tp, \+\_\+\+Num $>$ \&\+\_\+\+\_\+pa, const \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$ \+\_\+\+Tp, \+\_\+\+Num $>$ \&\+\_\+\+\_\+pb)
+{\footnotesize template$<$typename \+\_\+\+Tp , std\+::size\+\_\+t \+\_\+\+Size$>$ }\\constexpr bool \hyperlink{namespace____gnu__cxx_a4156deb610ec73be9e2f56a1a4caf391}{operator==} (const \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$ \+\_\+\+Tp, \+\_\+\+Size $>$ \&\+\_\+\+\_\+pa, const \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$ \+\_\+\+Tp, \+\_\+\+Size $>$ \&\+\_\+\+\_\+pb)
 \item 
 {\footnotesize template$<$typename \+\_\+\+Tp $>$ }\\bool \hyperlink{namespace____gnu__cxx_a7427db234bb8c8aab722a3196e898215}{operator==} (const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \+\_\+\+Tp $>$ \&\+\_\+\+\_\+pa, const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \+\_\+\+Tp $>$ \&\+\_\+\+\_\+pb)
 \item 
@@ -120,24 +162,49 @@ class \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polyno
 \subsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
-{\footnotesize template$<$typename T $>$ }\\constexpr auto \hyperlink{namespace____gnu__cxx_afa2404a914b06f950f3a46e75aca51a9}{\+\_\+\+\_\+has\+\_\+imag\+\_\+v} = \hyperlink{struct____gnu__cxx_1_1____has__imag__t}{\+\_\+\+\_\+has\+\_\+imag\+\_\+t}$<$T$>$\+::value
+{\footnotesize template$<$typename \+\_\+\+Tp $>$ }\\constexpr auto \hyperlink{namespace____gnu__cxx_afa2404a914b06f950f3a46e75aca51a9}{\+\_\+\+\_\+has\+\_\+imag\+\_\+v} = \hyperlink{struct____gnu__cxx_1_1____has__imag__t}{\+\_\+\+\_\+has\+\_\+imag\+\_\+t}$<$\+\_\+\+Tp$>$\+::value
+\item 
+{\footnotesize template$<$typename \+\_\+\+Tp $>$ }\\constexpr auto \hyperlink{namespace____gnu__cxx_a5ec7bbecf1d944f8aa448f873584cf98}{\+\_\+\+\_\+has\+\_\+value\+\_\+type\+\_\+v} = \hyperlink{struct____gnu__cxx_1_1____has__value__type__t}{\+\_\+\+\_\+has\+\_\+value\+\_\+type\+\_\+t}$<$\+\_\+\+Tp$>$\+::value
 \item 
 $\ast$ \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up}
 \end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
-detail\+: Do we want this to always have a size of at least one? a\+\_\+0 = \+\_\+\+Tp\{\}? Y\+ES. detail\+: Should I punt on the initial power? Y\+ES.
+This class is a dense univariate polynomial.
 
-If high degree coefficients are zero, should I resize down? Y\+ES (or provide another word for order). How to access coefficients (bikeshed)? poly\mbox{[}i\mbox{]}; coefficient(i); operator\mbox{[}$\,$\mbox{]}(int i); begin(), end()? const \+\_\+\+Tp$\ast$ coefficients(); // Access for C, Fortran. How to set individual coefficients? poly\mbox{[}i\mbox{]} = c; coefficient(i, c); coefficient(i) = c; How to handle division? operator/ and throw out remainder? operator\% to return the remainder? std\+::pair$<$$>$ div(const \+\_\+\+Polynomial\& \+\_\+\+\_\+a, const \+\_\+\+Polynomial\& \+\_\+\+\_\+b) or remquo. void divmod(const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}\& \+\_\+\+\_\+a, const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}\& \+\_\+\+\_\+b, \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}\& \+\_\+\+\_\+q, \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}\& \+\_\+\+\_\+r); Should factory methods like derivative and integral be globals? I could have members\+: \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}\& integrate(\+\_\+\+Tp c); \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}\& differentiate(); Largest coefficient\+: Enforce coefficient of largest power be nonzero? Return an \textquotesingle{}effective\textquotesingle{} order? Larest nonzero coefficient? Monic polynomial has largest coefficient as 1. Subclass? 
+This polynomial has a size of at least one -\/ degree 0. The zero polynomial has a\+\_\+0 = 0. There is no null polynomial. size == degree + 1
+
+How to access coefficients (bikeshed)? The coefficients have a sequence container interface. Access for C, Fortran is supported with const \+\_\+\+Tp$\ast$ data().
+
+How to handle division? operator/ returns the quotient of two polynomials discarding the remainder. operator\% returns the remainder of two polynomials discarding the quotient. The divmod functions computes both the quotient and the remainder. N. B. I could add the remquo function?
+
+Methods derivative and integral return polynomials the derivative and integral polynomials. The integral method takes an optional integration constant. N. B. I could add members\+: \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}\& integrate(\+\_\+\+Tp c); \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}\& differentiate();
+
+Largest coefficient\+: This class does not enforce the coefficient of largest power to be nonzero. The user concerned about this should use the deflate method with a tolerance for the minimim magnitude coefficient. This library provides another deflate method that divides out a polynomial that is expected to factor the polynomial within a tolerance on the minimim magnitude coefficient. If the remainder is non-\/zero then an exception is thrown.
+
+Mixed-\/type evaluation\+: It is common to have integer coefficient polynomials that you wish to evaluate at floating opint or complex values, or real-\/valued coefficient polynomials evaluate at complex values. For this reason we need evaluation function templates in this library.
+
+It would be promote\+\_\+t$<$complex\+::value\+\_\+type$>$ for complex. 
 
 \subsection{Typedef Documentation}
+\mbox{\Hypertarget{namespace____gnu__cxx_a3f707c0c6f6926cf68b74072733751f7}\label{namespace____gnu__cxx_a3f707c0c6f6926cf68b74072733751f7}} 
+\index{\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}!\+\_\+\+\_\+real\+\_\+type\+\_\+t@{\+\_\+\+\_\+real\+\_\+type\+\_\+t}}
+\index{\+\_\+\+\_\+real\+\_\+type\+\_\+t@{\+\_\+\+\_\+real\+\_\+type\+\_\+t}!\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}}
+\subsubsection{\texorpdfstring{\+\_\+\+\_\+real\+\_\+type\+\_\+t}{\_\_real\_type\_t}}
+{\footnotesize\ttfamily template$<$typename \+\_\+\+Tp $>$ \\
+using \hyperlink{namespace____gnu__cxx_a3f707c0c6f6926cf68b74072733751f7}{\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+\_\+real\+\_\+type\+\_\+t} = typedef typename \hyperlink{struct____gnu__cxx_1_1____real__type}{\+\_\+\+\_\+real\+\_\+type}$<$\+\_\+\+Tp$>$\+::type}
+
+
+
+Definition at line 144 of file polynomial.\+h.
+
 \mbox{\Hypertarget{namespace____gnu__cxx_ae20ea642de50eb361074c62676b0159c}\label{namespace____gnu__cxx_ae20ea642de50eb361074c62676b0159c}} 
 \index{\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}!solution\+\_\+t@{solution\+\_\+t}}
 \index{solution\+\_\+t@{solution\+\_\+t}!\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}}
 \subsubsection{\texorpdfstring{solution\+\_\+t}{solution\_t}}
 {\footnotesize\ttfamily template$<$typename \+\_\+\+Real $>$ \\
-using \hyperlink{namespace____gnu__cxx_ae20ea642de50eb361074c62676b0159c}{\+\_\+\+\_\+gnu\+\_\+cxx\+::solution\+\_\+t} = typedef std\+::variant$<$std\+::monostate, \+\_\+\+Real, \hyperlink{classstd_1_1complex}{std\+::complex}$<$\+\_\+\+Real$>$ $>$}
+using \hyperlink{namespace____gnu__cxx_ae20ea642de50eb361074c62676b0159c}{\+\_\+\+\_\+gnu\+\_\+cxx\+::solution\+\_\+t} = typedef std\+::variant$<$std\+::monostate, \+\_\+\+Real, std\+::complex$<$\+\_\+\+Real$>$ $>$}
 
 
 
@@ -214,7 +281,7 @@ Referenced by \+\_\+\+\_\+quadratic().
 254           \_AA3[1] = \_CC[1] / \_CC[3];
 255           \_AA3[0] = \_CC[0] / \_CC[3];
 256 
-257           \textcolor{keyword}{const} \textcolor{keyword}{auto} \_S\_2pi = \_Real\{2\} * \_\_gnu\_cxx::\_\_const\_pi(\_CC[0]);
+257           \textcolor{keyword}{const} \textcolor{keyword}{auto} \_S\_2pi = \_Real\{2\} * \_\_gnu\_cxx::math::\_\_pi\_v<\_Real>;
 258           \textcolor{keyword}{const} \textcolor{keyword}{auto} \_PP = \_AA3[2] / \_Real\{3\};
 259           \textcolor{keyword}{const} \textcolor{keyword}{auto} \_QQ = (\_AA3[2] * \_AA3[2] - \_Real\{3\} * \_AA3[1])
 260                          / \_Real\{9\};
@@ -341,8 +408,8 @@ References abs().
 186               \textcolor{comment}{// The roots are complex conjugates.}
 187               \textcolor{keyword}{const} \textcolor{keyword}{auto} \_ReZZ = -\_CC[1] / (\_Real\{2\} * \_CC[2]);
 188               \textcolor{keyword}{const} \textcolor{keyword}{auto} \_ImZZ = std::sqrt(\hyperlink{namespace____gnu__cxx_ab9eb9db3560f504f8cd25a71bcb6ead5}{std::abs}(\_QQ)) / (\_Real\{2\} * \_CC[2]);
-189               \_ZZ[0] = \hyperlink{classstd_1_1complex}{std::complex<\_Real>}(\_ReZZ, -\_ImZZ);
-190               \_ZZ[1] = \hyperlink{classstd_1_1complex}{std::complex<\_Real>}(\_ReZZ, \_ImZZ);
+189               \_ZZ[0] = std::complex<\_Real>(\_ReZZ, -\_ImZZ);
+190               \_ZZ[1] = std::complex<\_Real>(\_ReZZ, \_ImZZ);
 191             \}
 192           \textcolor{keywordflow}{else}
 193             \{
@@ -452,8 +519,7 @@ Referenced by \+\_\+\+\_\+cubic().
 351                             \{
 352                               \textcolor{keyword}{auto} \_\_zz = std::get<1>(\_\_z);
 353                               \textcolor{keywordflow}{return} \_\_zz < \_Real\{0\}
-354                                    ? solution\_t<\_Real>(std::sqrt(
-      \hyperlink{classstd_1_1complex}{std::complex<\_Real>}(\_\_zz)))
+354                                    ? solution\_t<\_Real>(std::sqrt(std::complex<\_Real>(\_\_zz)))
 355                                    : solution\_t<\_Real>(std::sqrt(\_\_zz));
 356                             \}
 357                           \textcolor{keywordflow}{else}
@@ -671,7 +737,7 @@ Definition at line 116 of file solution.\+h.
 
 
 
-Referenced by \+\_\+\+\_\+cubic(), \+\_\+\+\_\+quadratic(), \+\_\+\+\_\+quartic(), and get\+\_\+scale().
+Referenced by \+\_\+\+\_\+cubic(), \+\_\+\+\_\+quadratic(), \+\_\+\+\_\+quartic(), \+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Polynomial$<$ value\+\_\+type $>$\+::deflate(), get\+\_\+scale(), and \+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Polynomial$<$ value\+\_\+type $>$\+::operator()().
 
 
 \begin{DoxyCode}
@@ -684,16 +750,23 @@ Referenced by \+\_\+\+\_\+cubic(), \+\_\+\+\_\+quadratic(), \+\_\+\+\_\+quartic(
 123         \textcolor{keywordflow}{return} \hyperlink{namespace____gnu__cxx_ab9eb9db3560f504f8cd25a71bcb6ead5}{std::abs}(std::get<2>(\_\_x));
 124     \}
 \end{DoxyCode}
-\mbox{\Hypertarget{namespace____gnu__cxx_abe506cf34c921c378a681f0de31d49a5}\label{namespace____gnu__cxx_abe506cf34c921c378a681f0de31d49a5}} 
+\mbox{\Hypertarget{namespace____gnu__cxx_a33c585ec7ce2ac87e7f5cb1b1fe403b1}\label{namespace____gnu__cxx_a33c585ec7ce2ac87e7f5cb1b1fe403b1}} 
 \index{\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}!divmod@{divmod}}
 \index{divmod@{divmod}!\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}}
-\subsubsection{\texorpdfstring{divmod()}{divmod()}}
+\subsubsection{\texorpdfstring{divmod()}{divmod()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename \+\_\+\+Tp , std\+::size\+\_\+t \+\_\+\+SizeN, std\+::size\+\_\+t \+\_\+\+SizeD$>$ \\
+constexpr \hyperlink{struct____gnu__cxx_1_1____divmod__t}{\+\_\+\+\_\+divmod\+\_\+t}$<$\+\_\+\+Tp, \+\_\+\+SizeN, \+\_\+\+SizeD$>$ \+\_\+\+\_\+gnu\+\_\+cxx\+::divmod (\begin{DoxyParamCaption}\item[{const \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$ \+\_\+\+Tp, \+\_\+\+SizeN $>$ \&}]{\+\_\+\+\_\+num,  }\item[{const \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$ \+\_\+\+Tp, \+\_\+\+SizeD $>$ \&}]{\+\_\+\+\_\+den }\end{DoxyParamCaption})}
+
+Divide two polynomials returning the quotient and remainder. \mbox{\Hypertarget{namespace____gnu__cxx_a84c52dc7c40b8b2731425e93db52903d}\label{namespace____gnu__cxx_a84c52dc7c40b8b2731425e93db52903d}} 
+\index{\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}!divmod@{divmod}}
+\index{divmod@{divmod}!\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}}
+\subsubsection{\texorpdfstring{divmod()}{divmod()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily template$<$typename \+\_\+\+Tp $>$ \\
-void \+\_\+\+\_\+gnu\+\_\+cxx\+::divmod (\begin{DoxyParamCaption}\item[{const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \+\_\+\+Tp $>$ \&}]{\+\_\+\+\_\+pa,  }\item[{const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \+\_\+\+Tp $>$ \&}]{\+\_\+\+\_\+pb,  }\item[{\hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \+\_\+\+Tp $>$ \&}]{\+\_\+\+\_\+quo,  }\item[{\hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \+\_\+\+Tp $>$ \&}]{\+\_\+\+\_\+rem }\end{DoxyParamCaption})}
+void \+\_\+\+\_\+gnu\+\_\+cxx\+::divmod (\begin{DoxyParamCaption}\item[{const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \+\_\+\+Tp $>$ \&}]{\+\_\+\+\_\+num,  }\item[{const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \+\_\+\+Tp $>$ \&}]{\+\_\+\+\_\+den,  }\item[{\hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \+\_\+\+Tp $>$ \&}]{\+\_\+\+\_\+quo,  }\item[{\hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \+\_\+\+Tp $>$ \&}]{\+\_\+\+\_\+rem }\end{DoxyParamCaption})}
 
 Divide two polynomials returning the quotient and remainder. 
 
-Definition at line 351 of file polynomial.\+tcc.
+Definition at line 393 of file polynomial.\+tcc.
 
 
 
@@ -701,30 +774,32 @@ References \+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Polynomial$<$ \+\_\+\+Tp $>$\+::c
 
 
 
-Referenced by operator\%(), \+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Polynomial$<$ value\+\_\+type $>$\+::operator\%=(), and \+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Polynomial$<$ value\+\_\+type $>$\+::operator/=().
+Referenced by \+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Polynomial$<$ value\+\_\+type $>$\+::deflate(), operator\%(), \+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Polynomial$<$ value\+\_\+type $>$\+::operator\%=(), operator/(), and \+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Polynomial$<$ value\+\_\+type $>$\+::operator/=().
 
 
 \begin{DoxyCode}
-353     \{
-354       \_\_rem = \_\_pa;
-355       \_\_quo = \_Polynomial<\_Tp>(\_Tp(), \_\_pa.degree());
-356       \textcolor{keyword}{const} std::size\_t \_\_na = \_\_pa.degree();
-357       \textcolor{keyword}{const} std::size\_t \_\_nb = \_\_pb.degree();
-358       \textcolor{keywordflow}{if} (\_\_nb <= \_\_na)
-359         \{
-360           \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} \_\_k = \_\_na - \_\_nb; \_\_k >= 0; --\_\_k)
-361             \{
-362               \_\_quo.coefficient(\_\_k, \_\_rem.coefficient(\_\_nb + \_\_k)
-363                                    / \_\_pb.coefficient(\_\_nb));
-364               \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} \_\_j = \_\_nb + \_\_k - 1; \_\_j >= \_\_k; --\_\_j)
-365                 \_\_rem.coefficient(\_\_j, \_\_rem.coefficient(\_\_j)
-366                                      - \_\_quo.coefficient(\_\_k)
-367                                      * \_\_pb.coefficient(\_\_j - \_\_k));
-368             \}
-369           \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} \_\_j = \_\_nb; \_\_j <= \_\_na; ++\_\_j)
-370             \_\_rem.coefficient(\_\_j, \_Tp());
-371         \}
-372     \}
+395     \{
+396       \_\_rem = \_\_num;
+397       \_\_quo = \_Polynomial<\_Tp>(\_Tp\{\}, \_\_num.degree());
+398       \textcolor{keyword}{const} std::size\_t \_\_d\_num = \_\_num.degree();
+399       \textcolor{keyword}{const} std::size\_t \_\_d\_den = \_\_den.degree();
+400       \textcolor{keywordflow}{if} (\_\_d\_den <= \_\_d\_num)
+401         \{
+402           \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} \_\_k = \_\_d\_num - \_\_d\_den; \_\_k >= 0; --\_\_k)
+403             \{
+404               \_\_quo.coefficient(\_\_k, \_\_rem.coefficient(\_\_d\_den + \_\_k)
+405                                    / \_\_den.coefficient(\_\_d\_den));
+406               \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} \_\_j = \_\_d\_den + \_\_k - 1; \_\_j >= \_\_k; --\_\_j)
+407                 \_\_rem.coefficient(\_\_j, \_\_rem.coefficient(\_\_j)
+408                                      - \_\_quo.coefficient(\_\_k)
+409                                      * \_\_den.coefficient(\_\_j - \_\_k));
+410             \}
+411           \_\_quo.degree(\_\_d\_num - \_\_d\_den);
+412           \_\_rem.degree(\_\_d\_den > 0 ? \_\_d\_den - 1 : 0);
+413         \}
+414       \textcolor{keywordflow}{else}
+415         \_\_quo.degree(0);
+416     \}
 \end{DoxyCode}
 \mbox{\Hypertarget{namespace____gnu__cxx_a2af747c0e255f3fae4d9f118c2817e1a}\label{namespace____gnu__cxx_a2af747c0e255f3fae4d9f118c2817e1a}} 
 \index{\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}!get\+\_\+scale@{get\+\_\+scale}}
@@ -735,11 +810,11 @@ Referenced by operator\%(), \+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Polynomial$<$ va
 
 Return the scale for a polynomial. 
 
-Definition at line 728 of file polynomial.\+h.
+Definition at line 847 of file polynomial.\+h.
 
 
 \begin{DoxyCode}
-729     \{ \textcolor{keywordflow}{return} \_\_poly.\_M\_get\_scale(); \}
+848     \{ \textcolor{keywordflow}{return} \_\_poly.\_M\_get\_scale(); \}
 \end{DoxyCode}
 \mbox{\Hypertarget{namespace____gnu__cxx_a1a8bae104a6509f4e458d155acaf0476}\label{namespace____gnu__cxx_a1a8bae104a6509f4e458d155acaf0476}} 
 \index{\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}!get\+\_\+scale@{get\+\_\+scale}}
@@ -750,7 +825,7 @@ Definition at line 728 of file polynomial.\+h.
 
 Return the scale for a number. 
 
-Definition at line 735 of file polynomial.\+h.
+Definition at line 854 of file polynomial.\+h.
 
 
 
@@ -758,7 +833,7 @@ References abs().
 
 
 \begin{DoxyCode}
-736     \{ \textcolor{keywordflow}{return} \hyperlink{namespace____gnu__cxx_ab9eb9db3560f504f8cd25a71bcb6ead5}{std::abs}(\_\_x); \}
+855     \{ \textcolor{keywordflow}{return} \hyperlink{namespace____gnu__cxx_ab9eb9db3560f504f8cd25a71bcb6ead5}{std::abs}(\_\_x); \}
 \end{DoxyCode}
 \mbox{\Hypertarget{namespace____gnu__cxx_a2e77239e9d41f55a99755f285ba3d518}\label{namespace____gnu__cxx_a2e77239e9d41f55a99755f285ba3d518}} 
 \index{\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}!horner@{horner}}
@@ -916,35 +991,35 @@ Definition at line 63 of file solution.\+h.
 \begin{DoxyCode}
 64     \{ \textcolor{keywordflow}{return} \_\_x.index() != 0; \}
 \end{DoxyCode}
-\mbox{\Hypertarget{namespace____gnu__cxx_ad79bae6336788c58358fcf9fcd342cb9}\label{namespace____gnu__cxx_ad79bae6336788c58358fcf9fcd342cb9}} 
+\mbox{\Hypertarget{namespace____gnu__cxx_af19ad85b9b29562d2e134f3db6b3a651}\label{namespace____gnu__cxx_af19ad85b9b29562d2e134f3db6b3a651}} 
 \index{\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}!operator"!=@{operator"!=}}
 \index{operator"!=@{operator"!=}!\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}}
 \subsubsection{\texorpdfstring{operator"!=()}{operator!=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
-{\footnotesize\ttfamily template$<$typename \+\_\+\+Tp , std\+::size\+\_\+t \+\_\+\+NumA, std\+::size\+\_\+t \+\_\+\+NumB$>$ \\
-bool \+\_\+\+\_\+gnu\+\_\+cxx\+::operator!= (\begin{DoxyParamCaption}\item[{const \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$ \+\_\+\+Tp, \+\_\+\+NumA $>$ \&}]{\+\_\+\+\_\+pa,  }\item[{const \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$ \+\_\+\+Tp, \+\_\+\+NumB $>$ \&}]{\+\_\+\+\_\+pb }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily template$<$typename \+\_\+\+Tp , std\+::size\+\_\+t \+\_\+\+SizeA, std\+::size\+\_\+t \+\_\+\+SizeB$>$ \\
+constexpr bool \+\_\+\+\_\+gnu\+\_\+cxx\+::operator!= (\begin{DoxyParamCaption}\item[{const \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$ \+\_\+\+Tp, \+\_\+\+SizeA $>$ \&}]{\+\_\+\+\_\+pa,  }\item[{const \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$ \+\_\+\+Tp, \+\_\+\+SizeB $>$ \&}]{\+\_\+\+\_\+pb }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 Return false if two polynomials are equal. 
 
-Definition at line 558 of file static\+\_\+polynomial.\+h.
+Definition at line 659 of file static\+\_\+polynomial.\+h.
 
 
 \begin{DoxyCode}
-560     \{ \textcolor{keywordflow}{return} \textcolor{keyword}{true}; \}
+661     \{ \textcolor{keywordflow}{return} \textcolor{keyword}{true}; \}
 \end{DoxyCode}
-\mbox{\Hypertarget{namespace____gnu__cxx_a18cd3b1685ac1bb1c3f323e451e796d1}\label{namespace____gnu__cxx_a18cd3b1685ac1bb1c3f323e451e796d1}} 
+\mbox{\Hypertarget{namespace____gnu__cxx_ac759e59bd5e23de4cbd603b846081718}\label{namespace____gnu__cxx_ac759e59bd5e23de4cbd603b846081718}} 
 \index{\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}!operator"!=@{operator"!=}}
 \index{operator"!=@{operator"!=}!\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}}
 \subsubsection{\texorpdfstring{operator"!=()}{operator!=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
-{\footnotesize\ttfamily template$<$typename \+\_\+\+Tp , std\+::size\+\_\+t \+\_\+\+Num$>$ \\
-bool \+\_\+\+\_\+gnu\+\_\+cxx\+::operator!= (\begin{DoxyParamCaption}\item[{const \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$ \+\_\+\+Tp, \+\_\+\+Num $>$ \&}]{\+\_\+\+\_\+pa,  }\item[{const \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$ \+\_\+\+Tp, \+\_\+\+Num $>$ \&}]{\+\_\+\+\_\+pb }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily template$<$typename \+\_\+\+Tp , std\+::size\+\_\+t \+\_\+\+Size$>$ \\
+constexpr bool \+\_\+\+\_\+gnu\+\_\+cxx\+::operator!= (\begin{DoxyParamCaption}\item[{const \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$ \+\_\+\+Tp, \+\_\+\+Size $>$ \&}]{\+\_\+\+\_\+pa,  }\item[{const \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$ \+\_\+\+Tp, \+\_\+\+Size $>$ \&}]{\+\_\+\+\_\+pb }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 Return false if two polynomials are equal. 
 
-Definition at line 567 of file static\+\_\+polynomial.\+h.
+Definition at line 668 of file static\+\_\+polynomial.\+h.
 
 
 \begin{DoxyCode}
-569     \{ \textcolor{keywordflow}{return} !(\_\_pa == \_\_pb); \}
+670     \{ \textcolor{keywordflow}{return} !(\_\_pa == \_\_pb); \}
 \end{DoxyCode}
 \mbox{\Hypertarget{namespace____gnu__cxx_a1279934a2d6df66704c6eab9113b0f97}\label{namespace____gnu__cxx_a1279934a2d6df66704c6eab9113b0f97}} 
 \index{\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}!operator"!=@{operator"!=}}
@@ -955,22 +1030,41 @@ bool \+\_\+\+\_\+gnu\+\_\+cxx\+::operator!= (\begin{DoxyParamCaption}\item[{cons
 
 Return false if two polynomials are equal. 
 
-Definition at line 898 of file polynomial.\+h.
+Definition at line 1017 of file polynomial.\+h.
 
 
 \begin{DoxyCode}
-899     \{ \textcolor{keywordflow}{return} !(\_\_pa == \_\_pb); \}
+1018     \{ \textcolor{keywordflow}{return} !(\_\_pa == \_\_pb); \}
+\end{DoxyCode}
+\mbox{\Hypertarget{namespace____gnu__cxx_a15445a05944d0b0235051dbfb380f9bf}\label{namespace____gnu__cxx_a15445a05944d0b0235051dbfb380f9bf}} 
+\index{\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}!operator\%@{operator\%}}
+\index{operator\%@{operator\%}!\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}}
+\subsubsection{\texorpdfstring{operator\%()}{operator\%()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily template$<$typename \+\_\+\+Tp , std\+::size\+\_\+t \+\_\+\+SizeP, std\+::size\+\_\+t \+\_\+\+SizeQ$>$ \\
+constexpr \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$\+\_\+\+Tp, \hyperlink{struct____gnu__cxx_1_1____divmod__t}{\+\_\+\+\_\+divmod\+\_\+t}$<$\+\_\+\+Tp, \+\_\+\+SizeP, \+\_\+\+SizeQ$>$\+::\+\_\+\+Size\+Rem$>$ \+\_\+\+\_\+gnu\+\_\+cxx\+::operator\% (\begin{DoxyParamCaption}\item[{const \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$ \+\_\+\+Tp, \+\_\+\+SizeP $>$ \&}]{\+\_\+P,  }\item[{const \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$ \+\_\+\+Tp, \+\_\+\+SizeQ $>$ \&}]{\+\_\+Q }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Return the remainder of two polynomials. 
+
+Definition at line 818 of file static\+\_\+polynomial.\+h.
+
+
+
+References divmod().
+
+
+\begin{DoxyCode}
+820     \{ \textcolor{keywordflow}{return} \hyperlink{namespace____gnu__cxx_a33c585ec7ce2ac87e7f5cb1b1fe403b1}{divmod}(\_P, \_Q).\_\_rem; \}
 \end{DoxyCode}
 \mbox{\Hypertarget{namespace____gnu__cxx_a3132828069a740986e97f1db8e07325c}\label{namespace____gnu__cxx_a3132828069a740986e97f1db8e07325c}} 
 \index{\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}!operator\%@{operator\%}}
 \index{operator\%@{operator\%}!\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}}
-\subsubsection{\texorpdfstring{operator\%()}{operator\%()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+\subsubsection{\texorpdfstring{operator\%()}{operator\%()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
 {\footnotesize\ttfamily template$<$typename \+\_\+\+Tp , typename \+\_\+\+Up $>$ \\
 \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$decltype(\+\_\+\+Tp() / \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up}())$>$ \+\_\+\+\_\+gnu\+\_\+cxx\+::operator\% (\begin{DoxyParamCaption}\item[{const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \+\_\+\+Tp $>$ \&}]{\+\_\+\+\_\+poly,  }\item[{const \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up} \&}]{\+\_\+\+\_\+x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
-Definition at line 775 of file polynomial.\+h.
+Definition at line 918 of file polynomial.\+h.
 
 
 
@@ -978,18 +1072,18 @@ References \+\_\+\+Up.
 
 
 \begin{DoxyCode}
-776     \{ \textcolor{keywordflow}{return} \_Polynomial<decltype(\_Tp() / \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\_Up}())>(\_\_poly) %= \_\_x; \}
+919     \{ \textcolor{keywordflow}{return} \_Polynomial<decltype(\_Tp() / \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\_Up}())>(\_\_poly) %= \_\_x; \}
 \end{DoxyCode}
 \mbox{\Hypertarget{namespace____gnu__cxx_a13dae497264694313717a5aa70407de5}\label{namespace____gnu__cxx_a13dae497264694313717a5aa70407de5}} 
 \index{\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}!operator\%@{operator\%}}
 \index{operator\%@{operator\%}!\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}}
-\subsubsection{\texorpdfstring{operator\%()}{operator\%()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+\subsubsection{\texorpdfstring{operator\%()}{operator\%()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
 {\footnotesize\ttfamily template$<$typename \+\_\+\+Tp , typename \+\_\+\+Up $>$ \\
 \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$decltype(\+\_\+\+Tp() / \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up}())$>$ \+\_\+\+\_\+gnu\+\_\+cxx\+::operator\% (\begin{DoxyParamCaption}\item[{const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \+\_\+\+Tp $>$ \&}]{\+\_\+\+\_\+pa,  }\item[{const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up} $>$ \&}]{\+\_\+\+\_\+pb }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 Return the modulus or remainder of one polynomial relative to another one. 
 
-Definition at line 815 of file polynomial.\+h.
+Definition at line 958 of file polynomial.\+h.
 
 
 
@@ -997,18 +1091,18 @@ References \+\_\+\+Up.
 
 
 \begin{DoxyCode}
-816     \{ \textcolor{keywordflow}{return} \_Polynomial<decltype(\_Tp() / \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\_Up}())>(\_\_pa) %= \_\_pb; \}
+959     \{ \textcolor{keywordflow}{return} \_Polynomial<decltype(\_Tp() / \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\_Up}())>(\_\_pa) %= \_\_pb; \}
 \end{DoxyCode}
 \mbox{\Hypertarget{namespace____gnu__cxx_a2d1e6cb96943b2c99f71cf77a7247e77}\label{namespace____gnu__cxx_a2d1e6cb96943b2c99f71cf77a7247e77}} 
 \index{\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}!operator\%@{operator\%}}
 \index{operator\%@{operator\%}!\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}}
-\subsubsection{\texorpdfstring{operator\%()}{operator\%()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+\subsubsection{\texorpdfstring{operator\%()}{operator\%()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
 {\footnotesize\ttfamily template$<$typename \+\_\+\+Tp , typename \+\_\+\+Up $>$ \\
 \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$decltype(\+\_\+\+Tp() / \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up}())$>$ \+\_\+\+\_\+gnu\+\_\+cxx\+::operator\% (\begin{DoxyParamCaption}\item[{const \+\_\+\+Tp \&}]{\+\_\+\+\_\+x,  }\item[{const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up} $>$ \&}]{\+\_\+\+\_\+poly }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
-Return the modulus or remainder of one polynomial relative to another one. 
+Return the modulus or remainder of a scalar divided by a polynomial. 
 
-Definition at line 855 of file polynomial.\+h.
+Definition at line 974 of file polynomial.\+h.
 
 
 
@@ -1016,60 +1110,94 @@ References \+\_\+\+Up, divmod(), and operator$>$$>$().
 
 
 \begin{DoxyCode}
-856     \{ \textcolor{keywordflow}{return} \_Polynomial<decltype(\_Tp() / \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\_Up}())>(\_\_x) %= \_\_poly; \}
+975     \{ \textcolor{keywordflow}{return} \_Polynomial<decltype(\_Tp() / \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\_Up}())>(\_\_x) %= \_\_poly; \}
+\end{DoxyCode}
+\mbox{\Hypertarget{namespace____gnu__cxx_a71781c23f8dd75f9cf9d7610a26225ad}\label{namespace____gnu__cxx_a71781c23f8dd75f9cf9d7610a26225ad}} 
+\index{\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}}
+\subsubsection{\texorpdfstring{operator$\ast$()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [1/6]}}
+{\footnotesize\ttfamily template$<$typename \+\_\+\+Tp , std\+::size\+\_\+t \+\_\+\+Size$>$ \\
+constexpr \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$\+\_\+\+Tp, \+\_\+\+Size$>$ \+\_\+\+\_\+gnu\+\_\+cxx\+::operator$\ast$ (\begin{DoxyParamCaption}\item[{const \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$ \+\_\+\+Tp, \+\_\+\+Size $>$ \&}]{\+\_\+\+\_\+poly,  }\item[{const \+\_\+\+Tp \&}]{\+\_\+\+\_\+x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Return the product of a polynomial with a scalar. 
+
+Definition at line 703 of file static\+\_\+polynomial.\+h.
+
+
+\begin{DoxyCode}
+704     \{ \textcolor{keywordflow}{return} \_StaticPolynomial<\_Tp, \_Size>(\_\_poly) *= \_\_x; \}
+\end{DoxyCode}
+\mbox{\Hypertarget{namespace____gnu__cxx_a91cea4290bb3218fc6d869a655db5891}\label{namespace____gnu__cxx_a91cea4290bb3218fc6d869a655db5891}} 
+\index{\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}}
+\subsubsection{\texorpdfstring{operator$\ast$()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [2/6]}}
+{\footnotesize\ttfamily template$<$typename \+\_\+\+Tp , std\+::size\+\_\+t \+\_\+\+Size$>$ \\
+\hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$\+\_\+\+Tp, \+\_\+\+Size$>$ \+\_\+\+\_\+gnu\+\_\+cxx\+::operator$\ast$ (\begin{DoxyParamCaption}\item[{const \+\_\+\+Tp \&}]{\+\_\+\+\_\+x,  }\item[{const \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$ \+\_\+\+Tp, \+\_\+\+Size $>$ \&}]{\+\_\+\+\_\+poly }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 708 of file static\+\_\+polynomial.\+h.
+
+
+\begin{DoxyCode}
+709     \{ \textcolor{keywordflow}{return} \_StaticPolynomial<\_Tp, \_Size>(\_\_poly) *= \_\_x; \}
+\end{DoxyCode}
+\mbox{\Hypertarget{namespace____gnu__cxx_a8570f2d82260e7f64d985be3ddf007f8}\label{namespace____gnu__cxx_a8570f2d82260e7f64d985be3ddf007f8}} 
+\index{\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}}
+\subsubsection{\texorpdfstring{operator$\ast$()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [3/6]}}
+{\footnotesize\ttfamily template$<$typename \+\_\+\+Tp , std\+::size\+\_\+t \+\_\+\+SizeP, std\+::size\+\_\+t \+\_\+\+SizeQ$>$ \\
+constexpr \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$ \+\_\+\+Tp, \+\_\+\+SizeP+\+\_\+\+SizeQ -\/ 1 $>$ \+\_\+\+\_\+gnu\+\_\+cxx\+::operator$\ast$ (\begin{DoxyParamCaption}\item[{const \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$ \+\_\+\+Tp, \+\_\+\+SizeP $>$ \&}]{\+\_\+P,  }\item[{const \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$ \+\_\+\+Tp, \+\_\+\+SizeQ $>$ \&}]{\+\_\+Q }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Return the product of two polynomials.
+
+Return the quotient of two polynomials. 
+
+Definition at line 761 of file static\+\_\+polynomial.\+h.
+
+
+
+References \+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Static\+Polynomial$<$ \+\_\+\+Tp, \+\_\+\+Size $>$\+::degree(), and operator$\ast$().
+
+
+\begin{DoxyCode}
+763     \{
+764       \_StaticPolynomial<\_Tp, \_P.degree() + \_Q.degree() + 1> \_R;
+765       \textcolor{keywordflow}{for} (std::size\_t \_\_i = 0; \_\_i <= \_P.degree(); ++\_\_i)
+766         \textcolor{keywordflow}{for} (std::size\_t \_\_j = 0; \_\_j <= \_Q.degree(); ++\_\_j)
+767           \_R[\_\_i + \_\_j] = \_P[\_\_i] * \_Q[\_\_j];
+768       \textcolor{keywordflow}{return} \_R;
+769     \}
 \end{DoxyCode}
 \mbox{\Hypertarget{namespace____gnu__cxx_a1d0b1e9322fd407848b43cecab1ab9ae}\label{namespace____gnu__cxx_a1d0b1e9322fd407848b43cecab1ab9ae}} 
 \index{\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}!operator$\ast$@{operator$\ast$}}
 \index{operator$\ast$@{operator$\ast$}!\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}}
-\subsubsection{\texorpdfstring{operator$\ast$()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+\subsubsection{\texorpdfstring{operator$\ast$()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [4/6]}}
 {\footnotesize\ttfamily template$<$typename \+\_\+\+Tp , typename \+\_\+\+Up $>$ \\
 \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$decltype(\+\_\+\+Tp() $\ast$ \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up}())$>$ \+\_\+\+\_\+gnu\+\_\+cxx\+::operator$\ast$ (\begin{DoxyParamCaption}\item[{const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \+\_\+\+Tp $>$ \&}]{\+\_\+\+\_\+poly,  }\item[{const \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up} \&}]{\+\_\+\+\_\+x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 Return the product of a polynomial with a scalar. 
 
-Definition at line 759 of file polynomial.\+h.
+Definition at line 894 of file polynomial.\+h.
 
 
 
-References \+\_\+\+Up.
-
-
-
-Referenced by std\+::operator$\ast$().
+Referenced by std\+::operator$\ast$(), and operator$\ast$().
 
 
 \begin{DoxyCode}
-760     \{ \textcolor{keywordflow}{return} \_Polynomial<decltype(\_Tp() * \_Up())>(\_\_poly) *= \_\_x; \}
-\end{DoxyCode}
-\mbox{\Hypertarget{namespace____gnu__cxx_a2f76fd6f7c2c9e64fba1d5892844f26b}\label{namespace____gnu__cxx_a2f76fd6f7c2c9e64fba1d5892844f26b}} 
-\index{\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}!operator$\ast$@{operator$\ast$}}
-\index{operator$\ast$@{operator$\ast$}!\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}}
-\subsubsection{\texorpdfstring{operator$\ast$()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
-{\footnotesize\ttfamily template$<$typename \+\_\+\+Tp , typename \+\_\+\+Up $>$ \\
-\hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$decltype(\+\_\+\+Tp() $\ast$ \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up}())$>$ \+\_\+\+\_\+gnu\+\_\+cxx\+::operator$\ast$ (\begin{DoxyParamCaption}\item[{const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \+\_\+\+Tp $>$ \&}]{\+\_\+\+\_\+pa,  }\item[{const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up} $>$ \&}]{\+\_\+\+\_\+pb }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
-
-Return the product of two polynomials. 
-
-Definition at line 799 of file polynomial.\+h.
-
-
-
-References \+\_\+\+Up.
-
-
-\begin{DoxyCode}
-800     \{ \textcolor{keywordflow}{return} \_Polynomial<decltype(\_Tp() * \_Up())>(\_\_pa) *= \_\_pb; \}
+895     \{ \textcolor{keywordflow}{return} \_Polynomial<decltype(\_Tp() * \_Up())>(\_\_poly) *= \_\_x; \}
 \end{DoxyCode}
 \mbox{\Hypertarget{namespace____gnu__cxx_ac79cfe2d37e5d8116fcf51911c21c253}\label{namespace____gnu__cxx_ac79cfe2d37e5d8116fcf51911c21c253}} 
 \index{\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}!operator$\ast$@{operator$\ast$}}
 \index{operator$\ast$@{operator$\ast$}!\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}}
-\subsubsection{\texorpdfstring{operator$\ast$()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+\subsubsection{\texorpdfstring{operator$\ast$()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [5/6]}}
 {\footnotesize\ttfamily template$<$typename \+\_\+\+Tp , typename \+\_\+\+Up $>$ \\
 \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$decltype(\+\_\+\+Tp() $\ast$ \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up}())$>$ \+\_\+\+\_\+gnu\+\_\+cxx\+::operator$\ast$ (\begin{DoxyParamCaption}\item[{const \+\_\+\+Tp \&}]{\+\_\+\+\_\+x,  }\item[{const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up} $>$ \&}]{\+\_\+\+\_\+poly }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
-Definition at line 839 of file polynomial.\+h.
+Definition at line 902 of file polynomial.\+h.
 
 
 
@@ -1077,22 +1205,92 @@ References \+\_\+\+Up.
 
 
 \begin{DoxyCode}
-840     \{ \textcolor{keywordflow}{return} \_Polynomial<decltype(\_Tp() * \_Up())>(\_\_x) *= \_\_poly; \}
+903     \{ \textcolor{keywordflow}{return} \_Polynomial<decltype(\_Tp() * \_Up())>(\_\_x) *= \_\_poly; \}
+\end{DoxyCode}
+\mbox{\Hypertarget{namespace____gnu__cxx_a2f76fd6f7c2c9e64fba1d5892844f26b}\label{namespace____gnu__cxx_a2f76fd6f7c2c9e64fba1d5892844f26b}} 
+\index{\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}}
+\subsubsection{\texorpdfstring{operator$\ast$()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [6/6]}}
+{\footnotesize\ttfamily template$<$typename \+\_\+\+Tp , typename \+\_\+\+Up $>$ \\
+\hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$decltype(\+\_\+\+Tp() $\ast$ \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up}())$>$ \+\_\+\+\_\+gnu\+\_\+cxx\+::operator$\ast$ (\begin{DoxyParamCaption}\item[{const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \+\_\+\+Tp $>$ \&}]{\+\_\+\+\_\+pa,  }\item[{const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up} $>$ \&}]{\+\_\+\+\_\+pb }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Return the product of two polynomials. 
+
+Definition at line 942 of file polynomial.\+h.
+
+
+
+References \+\_\+\+Up.
+
+
+\begin{DoxyCode}
+943     \{ \textcolor{keywordflow}{return} \_Polynomial<decltype(\_Tp() * \_Up())>(\_\_pa) *= \_\_pb; \}
+\end{DoxyCode}
+\mbox{\Hypertarget{namespace____gnu__cxx_a6864af2e99c7797a84209d8dffcf11e5}\label{namespace____gnu__cxx_a6864af2e99c7797a84209d8dffcf11e5}} 
+\index{\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}!operator+@{operator+}}
+\index{operator+@{operator+}!\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}}
+\subsubsection{\texorpdfstring{operator+()}{operator+()}\hspace{0.1cm}{\footnotesize\ttfamily [1/6]}}
+{\footnotesize\ttfamily template$<$typename \+\_\+\+Tp , std\+::size\+\_\+t \+\_\+\+Size$>$ \\
+constexpr \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$\+\_\+\+Tp, \+\_\+\+Size$>$ \+\_\+\+\_\+gnu\+\_\+cxx\+::operator+ (\begin{DoxyParamCaption}\item[{const \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$ \+\_\+\+Tp, \+\_\+\+Size $>$ \&}]{\+\_\+\+\_\+poly,  }\item[{const \+\_\+\+Tp \&}]{\+\_\+\+\_\+x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Return the sum of a polynomial with a scalar. 
+
+Definition at line 677 of file static\+\_\+polynomial.\+h.
+
+
+\begin{DoxyCode}
+678     \{ \textcolor{keywordflow}{return} \_StaticPolynomial<\_Tp, \_Size>(\_\_poly) += \_\_x; \}
+\end{DoxyCode}
+\mbox{\Hypertarget{namespace____gnu__cxx_a06334b50d2c25cdadf11c1785a57cde0}\label{namespace____gnu__cxx_a06334b50d2c25cdadf11c1785a57cde0}} 
+\index{\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}!operator+@{operator+}}
+\index{operator+@{operator+}!\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}}
+\subsubsection{\texorpdfstring{operator+()}{operator+()}\hspace{0.1cm}{\footnotesize\ttfamily [2/6]}}
+{\footnotesize\ttfamily template$<$typename \+\_\+\+Tp , std\+::size\+\_\+t \+\_\+\+Size$>$ \\
+\hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$\+\_\+\+Tp, \+\_\+\+Size$>$ \+\_\+\+\_\+gnu\+\_\+cxx\+::operator+ (\begin{DoxyParamCaption}\item[{const \+\_\+\+Tp \&}]{\+\_\+\+\_\+x,  }\item[{const \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$ \+\_\+\+Tp, \+\_\+\+Size $>$ \&}]{\+\_\+\+\_\+poly }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 682 of file static\+\_\+polynomial.\+h.
+
+
+\begin{DoxyCode}
+683     \{ \textcolor{keywordflow}{return} \_StaticPolynomial<\_Tp, \_Size>(\_\_poly) += \_\_x; \}
+\end{DoxyCode}
+\mbox{\Hypertarget{namespace____gnu__cxx_ab21b8f613598d3de78239f9a5d45bee7}\label{namespace____gnu__cxx_ab21b8f613598d3de78239f9a5d45bee7}} 
+\index{\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}!operator+@{operator+}}
+\index{operator+@{operator+}!\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}}
+\subsubsection{\texorpdfstring{operator+()}{operator+()}\hspace{0.1cm}{\footnotesize\ttfamily [3/6]}}
+{\footnotesize\ttfamily template$<$typename \+\_\+\+Tp , std\+::size\+\_\+t \+\_\+\+SizeP, std\+::size\+\_\+t \+\_\+\+SizeQ$>$ \\
+constexpr \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$\+\_\+\+Tp, std\+::max(\+\_\+\+SizeP, \+\_\+\+SizeQ)$>$ \+\_\+\+\_\+gnu\+\_\+cxx\+::operator+ (\begin{DoxyParamCaption}\item[{const \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$ \+\_\+\+Tp, \+\_\+\+SizeP $>$ \&}]{\+\_\+P,  }\item[{const \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$ \+\_\+\+Tp, \+\_\+\+SizeQ $>$ \&}]{\+\_\+Q }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Return the sum of two polynomials. 
+
+Definition at line 733 of file static\+\_\+polynomial.\+h.
+
+
+\begin{DoxyCode}
+735     \{
+736       \textcolor{keywordflow}{if} constexpr (\_SizeP >= \_SizeQ)
+737         \{
+738           \_StaticPolynomial<\_Tp, \_SizeP> \_R = \_P;
+739           \textcolor{keywordflow}{for} (std::size\_t \_\_i = 0; \_\_i < \_SizeQ; ++\_\_i)
+740             \_R[\_\_i] += \_Q[\_\_i];
+741           \textcolor{keywordflow}{return} \_R;
+742         \}
+743       \textcolor{keywordflow}{else}
+744         \textcolor{keywordflow}{return} \_Q + \_P;
+745     \}
 \end{DoxyCode}
 \mbox{\Hypertarget{namespace____gnu__cxx_a2b408e7a7e5d2ec6879b8e40f7f5de3e}\label{namespace____gnu__cxx_a2b408e7a7e5d2ec6879b8e40f7f5de3e}} 
 \index{\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}!operator+@{operator+}}
 \index{operator+@{operator+}!\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}}
-\subsubsection{\texorpdfstring{operator+()}{operator+()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+\subsubsection{\texorpdfstring{operator+()}{operator+()}\hspace{0.1cm}{\footnotesize\ttfamily [4/6]}}
 {\footnotesize\ttfamily template$<$typename \+\_\+\+Tp , typename \+\_\+\+Up $>$ \\
 \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$decltype(\+\_\+\+Tp() + \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up}())$>$ \+\_\+\+\_\+gnu\+\_\+cxx\+::operator+ (\begin{DoxyParamCaption}\item[{const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \+\_\+\+Tp $>$ \&}]{\+\_\+\+\_\+poly,  }\item[{const \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up} \&}]{\+\_\+\+\_\+x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 Return the sum of a polynomial with a scalar. 
 
-Definition at line 743 of file polynomial.\+h.
-
-
-
-References \+\_\+\+Up.
+Definition at line 862 of file polynomial.\+h.
 
 
 
@@ -1100,37 +1298,18 @@ Referenced by std\+::operator+().
 
 
 \begin{DoxyCode}
-744     \{ \textcolor{keywordflow}{return} \_Polynomial<decltype(\_Tp() + \_Up())>(\_\_poly) += \_\_x; \}
-\end{DoxyCode}
-\mbox{\Hypertarget{namespace____gnu__cxx_ada8a28005b5f71563bec55c71e03029b}\label{namespace____gnu__cxx_ada8a28005b5f71563bec55c71e03029b}} 
-\index{\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}!operator+@{operator+}}
-\index{operator+@{operator+}!\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}}
-\subsubsection{\texorpdfstring{operator+()}{operator+()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
-{\footnotesize\ttfamily template$<$typename \+\_\+\+Tp , typename \+\_\+\+Up $>$ \\
-\hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$decltype(\+\_\+\+Tp() + \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up}())$>$ \+\_\+\+\_\+gnu\+\_\+cxx\+::operator+ (\begin{DoxyParamCaption}\item[{const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \+\_\+\+Tp $>$ \&}]{\+\_\+\+\_\+pa,  }\item[{const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up} $>$ \&}]{\+\_\+\+\_\+pb }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
-
-Return the sum of two polynomials. 
-
-Definition at line 783 of file polynomial.\+h.
-
-
-
-References \+\_\+\+Up.
-
-
-\begin{DoxyCode}
-784     \{ \textcolor{keywordflow}{return} \_Polynomial<decltype(\_Tp() + \_Up())>(\_\_pa) += \_\_pb; \}
+863     \{ \textcolor{keywordflow}{return} \_Polynomial<decltype(\_Tp() + \_Up())>(\_\_poly) += \_\_x; \}
 \end{DoxyCode}
 \mbox{\Hypertarget{namespace____gnu__cxx_ac9f58ced995b65628b5715c885569cb7}\label{namespace____gnu__cxx_ac9f58ced995b65628b5715c885569cb7}} 
 \index{\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}!operator+@{operator+}}
 \index{operator+@{operator+}!\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}}
-\subsubsection{\texorpdfstring{operator+()}{operator+()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+\subsubsection{\texorpdfstring{operator+()}{operator+()}\hspace{0.1cm}{\footnotesize\ttfamily [5/6]}}
 {\footnotesize\ttfamily template$<$typename \+\_\+\+Tp , typename \+\_\+\+Up $>$ \\
 \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$decltype(\+\_\+\+Tp() + \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up}())$>$ \+\_\+\+\_\+gnu\+\_\+cxx\+::operator+ (\begin{DoxyParamCaption}\item[{const \+\_\+\+Tp \&}]{\+\_\+\+\_\+x,  }\item[{const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up} $>$ \&}]{\+\_\+\+\_\+poly }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
-Definition at line 823 of file polynomial.\+h.
+Definition at line 870 of file polynomial.\+h.
 
 
 
@@ -1138,18 +1317,82 @@ References \+\_\+\+Up.
 
 
 \begin{DoxyCode}
-824     \{ \textcolor{keywordflow}{return} \_Polynomial<decltype(\_Tp() + \_Up())>(\_\_x) += \_\_poly; \}
+871     \{ \textcolor{keywordflow}{return} \_Polynomial<decltype(\_Tp() + \_Up())>(\_\_x) += \_\_poly; \}
+\end{DoxyCode}
+\mbox{\Hypertarget{namespace____gnu__cxx_ada8a28005b5f71563bec55c71e03029b}\label{namespace____gnu__cxx_ada8a28005b5f71563bec55c71e03029b}} 
+\index{\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}!operator+@{operator+}}
+\index{operator+@{operator+}!\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}}
+\subsubsection{\texorpdfstring{operator+()}{operator+()}\hspace{0.1cm}{\footnotesize\ttfamily [6/6]}}
+{\footnotesize\ttfamily template$<$typename \+\_\+\+Tp , typename \+\_\+\+Up $>$ \\
+\hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$decltype(\+\_\+\+Tp() + \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up}())$>$ \+\_\+\+\_\+gnu\+\_\+cxx\+::operator+ (\begin{DoxyParamCaption}\item[{const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \+\_\+\+Tp $>$ \&}]{\+\_\+\+\_\+pa,  }\item[{const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up} $>$ \&}]{\+\_\+\+\_\+pb }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Return the sum of two polynomials. 
+
+Definition at line 926 of file polynomial.\+h.
+
+
+
+References \+\_\+\+Up.
+
+
+\begin{DoxyCode}
+927     \{ \textcolor{keywordflow}{return} \_Polynomial<decltype(\_Tp() + \_Up())>(\_\_pa) += \_\_pb; \}
+\end{DoxyCode}
+\mbox{\Hypertarget{namespace____gnu__cxx_a9f3b5d6e3db0c359eb0c8c067fc9ae05}\label{namespace____gnu__cxx_a9f3b5d6e3db0c359eb0c8c067fc9ae05}} 
+\index{\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}}
+\subsubsection{\texorpdfstring{operator-\/()}{operator-()}\hspace{0.1cm}{\footnotesize\ttfamily [1/6]}}
+{\footnotesize\ttfamily template$<$typename \+\_\+\+Tp , std\+::size\+\_\+t \+\_\+\+Size$>$ \\
+constexpr \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$\+\_\+\+Tp, \+\_\+\+Size$>$ \+\_\+\+\_\+gnu\+\_\+cxx\+::operator-\/ (\begin{DoxyParamCaption}\item[{const \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$ \+\_\+\+Tp, \+\_\+\+Size $>$ \&}]{\+\_\+\+\_\+poly,  }\item[{const \+\_\+\+Tp \&}]{\+\_\+\+\_\+x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Return the difference of a polynomial with a scalar. 
+
+Definition at line 690 of file static\+\_\+polynomial.\+h.
+
+
+\begin{DoxyCode}
+691     \{ \textcolor{keywordflow}{return} \_StaticPolynomial<\_Tp, \_Size>(\_\_poly) -= \_\_x; \}
+\end{DoxyCode}
+\mbox{\Hypertarget{namespace____gnu__cxx_a6bc4eecdfefce0b2dea328cb6cc5412a}\label{namespace____gnu__cxx_a6bc4eecdfefce0b2dea328cb6cc5412a}} 
+\index{\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}}
+\subsubsection{\texorpdfstring{operator-\/()}{operator-()}\hspace{0.1cm}{\footnotesize\ttfamily [2/6]}}
+{\footnotesize\ttfamily template$<$typename \+\_\+\+Tp , std\+::size\+\_\+t \+\_\+\+Size$>$ \\
+\hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$\+\_\+\+Tp, \+\_\+\+Size$>$ \+\_\+\+\_\+gnu\+\_\+cxx\+::operator-\/ (\begin{DoxyParamCaption}\item[{const \+\_\+\+Tp \&}]{\+\_\+\+\_\+x,  }\item[{const \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$ \+\_\+\+Tp, \+\_\+\+Size $>$ \&}]{\+\_\+\+\_\+poly }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 695 of file static\+\_\+polynomial.\+h.
+
+
+\begin{DoxyCode}
+696     \{ \textcolor{keywordflow}{return} -\_StaticPolynomial<\_Tp, \_Size>(\_\_poly) += \_\_x; \}
+\end{DoxyCode}
+\mbox{\Hypertarget{namespace____gnu__cxx_a7a0dd6f28607ef9be1e5eb053716076f}\label{namespace____gnu__cxx_a7a0dd6f28607ef9be1e5eb053716076f}} 
+\index{\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}}
+\subsubsection{\texorpdfstring{operator-\/()}{operator-()}\hspace{0.1cm}{\footnotesize\ttfamily [3/6]}}
+{\footnotesize\ttfamily template$<$typename \+\_\+\+Tp , std\+::size\+\_\+t \+\_\+\+SizeP, std\+::size\+\_\+t \+\_\+\+SizeQ$>$ \\
+constexpr \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$\+\_\+\+Tp, std\+::max(\+\_\+\+SizeP, \+\_\+\+SizeQ)$>$ \+\_\+\+\_\+gnu\+\_\+cxx\+::operator-\/ (\begin{DoxyParamCaption}\item[{const \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$ \+\_\+\+Tp, \+\_\+\+SizeP $>$ \&}]{\+\_\+P,  }\item[{const \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$ \+\_\+\+Tp, \+\_\+\+SizeQ $>$ \&}]{\+\_\+Q }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Return the difference of two polynomials. 
+
+Definition at line 752 of file static\+\_\+polynomial.\+h.
+
+
+\begin{DoxyCode}
+754     \{ \textcolor{keywordflow}{return} \_P + -\_Q; \}
 \end{DoxyCode}
 \mbox{\Hypertarget{namespace____gnu__cxx_abc583ac0684f0aff079c6014f3d84c1d}\label{namespace____gnu__cxx_abc583ac0684f0aff079c6014f3d84c1d}} 
 \index{\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}!operator-\/@{operator-\/}}
 \index{operator-\/@{operator-\/}!\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}}
-\subsubsection{\texorpdfstring{operator-\/()}{operator-()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+\subsubsection{\texorpdfstring{operator-\/()}{operator-()}\hspace{0.1cm}{\footnotesize\ttfamily [4/6]}}
 {\footnotesize\ttfamily template$<$typename \+\_\+\+Tp , typename \+\_\+\+Up $>$ \\
 \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$decltype(\+\_\+\+Tp() -\/ \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up}())$>$ \+\_\+\+\_\+gnu\+\_\+cxx\+::operator-\/ (\begin{DoxyParamCaption}\item[{const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \+\_\+\+Tp $>$ \&}]{\+\_\+\+\_\+poly,  }\item[{const \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up} \&}]{\+\_\+\+\_\+x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 Return the difference of a polynomial with a scalar. 
 
-Definition at line 751 of file polynomial.\+h.
+Definition at line 878 of file polynomial.\+h.
 
 
 
@@ -1161,37 +1404,18 @@ Referenced by std\+::operator-\/().
 
 
 \begin{DoxyCode}
-752     \{ \textcolor{keywordflow}{return} \_Polynomial<decltype(\_Tp() - \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\_Up}())>(\_\_poly) -= \_\_x; \}
-\end{DoxyCode}
-\mbox{\Hypertarget{namespace____gnu__cxx_a4609eee7a71e3be3a103df9556fab9b4}\label{namespace____gnu__cxx_a4609eee7a71e3be3a103df9556fab9b4}} 
-\index{\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}!operator-\/@{operator-\/}}
-\index{operator-\/@{operator-\/}!\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}}
-\subsubsection{\texorpdfstring{operator-\/()}{operator-()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
-{\footnotesize\ttfamily template$<$typename \+\_\+\+Tp , typename \+\_\+\+Up $>$ \\
-\hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$decltype(\+\_\+\+Tp() -\/ \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up}())$>$ \+\_\+\+\_\+gnu\+\_\+cxx\+::operator-\/ (\begin{DoxyParamCaption}\item[{const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \+\_\+\+Tp $>$ \&}]{\+\_\+\+\_\+pa,  }\item[{const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up} $>$ \&}]{\+\_\+\+\_\+pb }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
-
-Return the difference of two polynomials. 
-
-Definition at line 791 of file polynomial.\+h.
-
-
-
-References \+\_\+\+Up.
-
-
-\begin{DoxyCode}
-792     \{ \textcolor{keywordflow}{return} \_Polynomial<decltype(\_Tp() - \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\_Up}())>(\_\_pa) -= \_\_pb; \}
+879     \{ \textcolor{keywordflow}{return} \_Polynomial<decltype(\_Tp() - \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\_Up}())>(\_\_poly) -= \_\_x; \}
 \end{DoxyCode}
 \mbox{\Hypertarget{namespace____gnu__cxx_acc72fd3c1efcf09698d30d42c4a1eb1b}\label{namespace____gnu__cxx_acc72fd3c1efcf09698d30d42c4a1eb1b}} 
 \index{\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}!operator-\/@{operator-\/}}
 \index{operator-\/@{operator-\/}!\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}}
-\subsubsection{\texorpdfstring{operator-\/()}{operator-()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+\subsubsection{\texorpdfstring{operator-\/()}{operator-()}\hspace{0.1cm}{\footnotesize\ttfamily [5/6]}}
 {\footnotesize\ttfamily template$<$typename \+\_\+\+Tp , typename \+\_\+\+Up $>$ \\
 \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$decltype(\+\_\+\+Tp() -\/ \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up}())$>$ \+\_\+\+\_\+gnu\+\_\+cxx\+::operator-\/ (\begin{DoxyParamCaption}\item[{const \+\_\+\+Tp \&}]{\+\_\+\+\_\+x,  }\item[{const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up} $>$ \&}]{\+\_\+\+\_\+poly }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
-Definition at line 831 of file polynomial.\+h.
+Definition at line 886 of file polynomial.\+h.
 
 
 
@@ -1199,18 +1423,71 @@ References \+\_\+\+Up.
 
 
 \begin{DoxyCode}
-832     \{ \textcolor{keywordflow}{return} \_Polynomial<decltype(\_Tp() - \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\_Up}())>(\_\_x) -= \_\_poly; \}
+887     \{ \textcolor{keywordflow}{return} \_Polynomial<decltype(\_Tp() - \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\_Up}())>(\_\_x) -= \_\_poly; \}
+\end{DoxyCode}
+\mbox{\Hypertarget{namespace____gnu__cxx_a4609eee7a71e3be3a103df9556fab9b4}\label{namespace____gnu__cxx_a4609eee7a71e3be3a103df9556fab9b4}} 
+\index{\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}}
+\subsubsection{\texorpdfstring{operator-\/()}{operator-()}\hspace{0.1cm}{\footnotesize\ttfamily [6/6]}}
+{\footnotesize\ttfamily template$<$typename \+\_\+\+Tp , typename \+\_\+\+Up $>$ \\
+\hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$decltype(\+\_\+\+Tp() -\/ \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up}())$>$ \+\_\+\+\_\+gnu\+\_\+cxx\+::operator-\/ (\begin{DoxyParamCaption}\item[{const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \+\_\+\+Tp $>$ \&}]{\+\_\+\+\_\+pa,  }\item[{const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up} $>$ \&}]{\+\_\+\+\_\+pb }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Return the difference of two polynomials. 
+
+Definition at line 934 of file polynomial.\+h.
+
+
+
+References \+\_\+\+Up.
+
+
+\begin{DoxyCode}
+935     \{ \textcolor{keywordflow}{return} \_Polynomial<decltype(\_Tp() - \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\_Up}())>(\_\_pa) -= \_\_pb; \}
+\end{DoxyCode}
+\mbox{\Hypertarget{namespace____gnu__cxx_a646b9470b937733c916192c121e8ecdb}\label{namespace____gnu__cxx_a646b9470b937733c916192c121e8ecdb}} 
+\index{\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}!operator/@{operator/}}
+\index{operator/@{operator/}!\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}}
+\subsubsection{\texorpdfstring{operator/()}{operator/()}\hspace{0.1cm}{\footnotesize\ttfamily [1/5]}}
+{\footnotesize\ttfamily template$<$typename \+\_\+\+Tp , std\+::size\+\_\+t \+\_\+\+Size$>$ \\
+constexpr \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$\+\_\+\+Tp, \+\_\+\+Size$>$ \+\_\+\+\_\+gnu\+\_\+cxx\+::operator/ (\begin{DoxyParamCaption}\item[{const \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$ \+\_\+\+Tp, \+\_\+\+Size $>$ \&}]{\+\_\+\+\_\+poly,  }\item[{const \+\_\+\+Tp \&}]{\+\_\+\+\_\+x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Return the quotient of a polynomial with a scalar. 
+
+Definition at line 716 of file static\+\_\+polynomial.\+h.
+
+
+\begin{DoxyCode}
+717     \{ \textcolor{keywordflow}{return} \_StaticPolynomial<\_Tp, \_Size>(\_\_poly) /= \_\_x; \}
+\end{DoxyCode}
+\mbox{\Hypertarget{namespace____gnu__cxx_a451a609c6de284cdeed747a994938801}\label{namespace____gnu__cxx_a451a609c6de284cdeed747a994938801}} 
+\index{\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}!operator/@{operator/}}
+\index{operator/@{operator/}!\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}}
+\subsubsection{\texorpdfstring{operator/()}{operator/()}\hspace{0.1cm}{\footnotesize\ttfamily [2/5]}}
+{\footnotesize\ttfamily template$<$typename \+\_\+\+Tp , std\+::size\+\_\+t \+\_\+\+SizeP, std\+::size\+\_\+t \+\_\+\+SizeQ$>$ \\
+constexpr \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$\+\_\+\+Tp, \hyperlink{struct____gnu__cxx_1_1____divmod__t}{\+\_\+\+\_\+divmod\+\_\+t}$<$\+\_\+\+Tp, \+\_\+\+SizeP, \+\_\+\+SizeQ$>$\+::\+\_\+\+Size\+Quo$>$ \+\_\+\+\_\+gnu\+\_\+cxx\+::operator/ (\begin{DoxyParamCaption}\item[{const \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$ \+\_\+\+Tp, \+\_\+\+SizeP $>$ \&}]{\+\_\+P,  }\item[{const \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$ \+\_\+\+Tp, \+\_\+\+SizeQ $>$ \&}]{\+\_\+Q }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Return the quotient of two polynomials. 
+
+Definition at line 808 of file static\+\_\+polynomial.\+h.
+
+
+
+References divmod().
+
+
+\begin{DoxyCode}
+810     \{ \textcolor{keywordflow}{return} \hyperlink{namespace____gnu__cxx_a33c585ec7ce2ac87e7f5cb1b1fe403b1}{divmod}(\_P, \_Q).\_\_quo; \}
 \end{DoxyCode}
 \mbox{\Hypertarget{namespace____gnu__cxx_a5fd356349013bd60a41010cbf502444b}\label{namespace____gnu__cxx_a5fd356349013bd60a41010cbf502444b}} 
 \index{\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}!operator/@{operator/}}
 \index{operator/@{operator/}!\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}}
-\subsubsection{\texorpdfstring{operator/()}{operator/()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+\subsubsection{\texorpdfstring{operator/()}{operator/()}\hspace{0.1cm}{\footnotesize\ttfamily [3/5]}}
 {\footnotesize\ttfamily template$<$typename \+\_\+\+Tp , typename \+\_\+\+Up $>$ \\
 \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$decltype(\+\_\+\+Tp() / \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up}())$>$ \+\_\+\+\_\+gnu\+\_\+cxx\+::operator/ (\begin{DoxyParamCaption}\item[{const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \+\_\+\+Tp $>$ \&}]{\+\_\+\+\_\+poly,  }\item[{const \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up} \&}]{\+\_\+\+\_\+x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 Return the quotient of a polynomial with a scalar. 
 
-Definition at line 767 of file polynomial.\+h.
+Definition at line 910 of file polynomial.\+h.
 
 
 
@@ -1222,18 +1499,18 @@ Referenced by std\+::operator/().
 
 
 \begin{DoxyCode}
-768     \{ \textcolor{keywordflow}{return} \_Polynomial<decltype(\_Tp() / \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\_Up}())>(\_\_poly) /= \_\_x; \}
+911     \{ \textcolor{keywordflow}{return} \_Polynomial<decltype(\_Tp() / \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\_Up}())>(\_\_poly) /= \_\_x; \}
 \end{DoxyCode}
 \mbox{\Hypertarget{namespace____gnu__cxx_a6ba146c479b383e9ba26760c847e3dc6}\label{namespace____gnu__cxx_a6ba146c479b383e9ba26760c847e3dc6}} 
 \index{\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}!operator/@{operator/}}
 \index{operator/@{operator/}!\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}}
-\subsubsection{\texorpdfstring{operator/()}{operator/()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+\subsubsection{\texorpdfstring{operator/()}{operator/()}\hspace{0.1cm}{\footnotesize\ttfamily [4/5]}}
 {\footnotesize\ttfamily template$<$typename \+\_\+\+Tp , typename \+\_\+\+Up $>$ \\
 \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$decltype(\+\_\+\+Tp() / \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up}())$>$ \+\_\+\+\_\+gnu\+\_\+cxx\+::operator/ (\begin{DoxyParamCaption}\item[{const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \+\_\+\+Tp $>$ \&}]{\+\_\+\+\_\+pa,  }\item[{const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up} $>$ \&}]{\+\_\+\+\_\+pb }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 Return the quotient of two polynomials. 
 
-Definition at line 807 of file polynomial.\+h.
+Definition at line 950 of file polynomial.\+h.
 
 
 
@@ -1241,18 +1518,18 @@ References \+\_\+\+Up.
 
 
 \begin{DoxyCode}
-808     \{ \textcolor{keywordflow}{return} \_Polynomial<decltype(\_Tp() / \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\_Up}())>(\_\_pa) /= \_\_pb; \}
+951     \{ \textcolor{keywordflow}{return} \_Polynomial<decltype(\_Tp() / \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\_Up}())>(\_\_pa) /= \_\_pb; \}
 \end{DoxyCode}
 \mbox{\Hypertarget{namespace____gnu__cxx_a4c1b4c46ffc6c41fb5b5d1a4293ca563}\label{namespace____gnu__cxx_a4c1b4c46ffc6c41fb5b5d1a4293ca563}} 
 \index{\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}!operator/@{operator/}}
 \index{operator/@{operator/}!\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}}
-\subsubsection{\texorpdfstring{operator/()}{operator/()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+\subsubsection{\texorpdfstring{operator/()}{operator/()}\hspace{0.1cm}{\footnotesize\ttfamily [5/5]}}
 {\footnotesize\ttfamily template$<$typename \+\_\+\+Tp , typename \+\_\+\+Up $>$ \\
 \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$decltype(\+\_\+\+Tp() / \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up}())$>$ \+\_\+\+\_\+gnu\+\_\+cxx\+::operator/ (\begin{DoxyParamCaption}\item[{const \+\_\+\+Tp \&}]{\+\_\+\+\_\+x,  }\item[{const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+Up} $>$ \&}]{\+\_\+\+\_\+poly }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
-Return the quotient of two polynomials. 
+Return the quotient of a scalar and a polynomials. 
 
-Definition at line 847 of file polynomial.\+h.
+Definition at line 966 of file polynomial.\+h.
 
 
 
@@ -1260,18 +1537,18 @@ References \+\_\+\+Up.
 
 
 \begin{DoxyCode}
-848     \{ \textcolor{keywordflow}{return} \_Polynomial<decltype(\_Tp() / \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\_Up}())>(\_\_x) /= \_\_poly; \}
+967     \{ \textcolor{keywordflow}{return} \_Polynomial<decltype(\_Tp() / \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\_Up}())>(\_\_x) /= \_\_poly; \}
 \end{DoxyCode}
 \mbox{\Hypertarget{namespace____gnu__cxx_a424044092ac184bfa1d17beb1b12e071}\label{namespace____gnu__cxx_a424044092ac184bfa1d17beb1b12e071}} 
 \index{\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}!operator$<$$<$@{operator$<$$<$}}
 \index{operator$<$$<$@{operator$<$$<$}!\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}}
-\subsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+\subsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
 {\footnotesize\ttfamily template$<$typename CharT , typename Traits , typename \+\_\+\+Tp $>$ \\
 std\+::basic\+\_\+ostream$<$CharT, Traits$>$\& \+\_\+\+\_\+gnu\+\_\+cxx\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::basic\+\_\+ostream$<$ CharT, Traits $>$ \&}]{\+\_\+\+\_\+os,  }\item[{const \hyperlink{class____gnu__cxx_1_1__RationalPolynomial}{\+\_\+\+Rational\+Polynomial}$<$ \+\_\+\+Tp $>$ \&}]{\+\_\+\+\_\+poly }\end{DoxyParamCaption})}
 
 Write a polynomial to a stream. The format is a parenthesized comma-\/delimited list of coefficients. 
 
-Definition at line 198 of file rational\+\_\+polynomial.\+h.
+Definition at line 213 of file rational\+\_\+polynomial.\+h.
 
 
 
@@ -1279,21 +1556,28 @@ References \+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Rational\+Polynomial$<$ \+\_\+\+T
 
 
 \begin{DoxyCode}
-199     \{
-200       \_\_os << \_\_poly.numer() << \textcolor{stringliteral}{"/"} << \_\_poly.denom();
-201       \textcolor{keywordflow}{return} \_\_os;
-202     \}
+214     \{
+215       \_\_os << \_\_poly.numer() << \textcolor{stringliteral}{"/"} << \_\_poly.denom();
+216       \textcolor{keywordflow}{return} \_\_os;
+217     \}
 \end{DoxyCode}
-\mbox{\Hypertarget{namespace____gnu__cxx_ad713743dbfc30fba653621d1f7e99d3c}\label{namespace____gnu__cxx_ad713743dbfc30fba653621d1f7e99d3c}} 
+\mbox{\Hypertarget{namespace____gnu__cxx_a143c7d2302fc613fd818f9149707b753}\label{namespace____gnu__cxx_a143c7d2302fc613fd818f9149707b753}} 
 \index{\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}!operator$<$$<$@{operator$<$$<$}}
 \index{operator$<$$<$@{operator$<$$<$}!\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}}
-\subsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+\subsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily template$<$typename CharT , typename Traits , typename \+\_\+\+Tp , std\+::size\+\_\+t \+\_\+\+Size$>$ \\
+std\+::basic\+\_\+ostream$<$CharT, Traits$>$\& \+\_\+\+\_\+gnu\+\_\+cxx\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::basic\+\_\+ostream$<$ CharT, Traits $>$ \&}]{\+\_\+\+\_\+os,  }\item[{const \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$ \+\_\+\+Tp, \+\_\+\+Size $>$ \&}]{\+\_\+\+\_\+poly }\end{DoxyParamCaption})}
+
+Write a polynomial to a stream. The format is a parenthesized comma-\/delimited list of coefficients. \mbox{\Hypertarget{namespace____gnu__cxx_ad713743dbfc30fba653621d1f7e99d3c}\label{namespace____gnu__cxx_ad713743dbfc30fba653621d1f7e99d3c}} 
+\index{\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}}
+\subsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
 {\footnotesize\ttfamily template$<$typename CharT , typename Traits , typename \+\_\+\+Tp $>$ \\
 std\+::basic\+\_\+ostream$<$ CharT, Traits $>$ \& \+\_\+\+\_\+gnu\+\_\+cxx\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::basic\+\_\+ostream$<$ CharT, Traits $>$ \&}]{\+\_\+\+\_\+os,  }\item[{const \hyperlink{class____gnu__cxx_1_1__Polynomial}{\+\_\+\+Polynomial}$<$ \+\_\+\+Tp $>$ \&}]{\+\_\+\+\_\+poly }\end{DoxyParamCaption})}
 
 Write a polynomial to a stream. The format is a parenthesized comma-\/delimited list of coefficients. 
 
-Definition at line 380 of file polynomial.\+tcc.
+Definition at line 424 of file polynomial.\+tcc.
 
 
 
@@ -1301,46 +1585,46 @@ References \+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Polynomial$<$ \+\_\+\+Tp $>$\+::c
 
 
 \begin{DoxyCode}
-382     \{
-383       \textcolor{keywordtype}{int} \_\_old\_prec = \_\_os.precision(std::numeric\_limits<\_Tp>::max\_digits10);
-384       \_\_os << \textcolor{stringliteral}{"("};
-385       \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} \_\_i = 0; \_\_i < \_\_poly.degree(); ++\_\_i)
-386         \_\_os << \_\_poly.coefficient(\_\_i) << \textcolor{stringliteral}{","};
-387       \_\_os << \_\_poly.coefficient(\_\_poly.degree());
-388       \_\_os << \textcolor{stringliteral}{")"};
-389       \_\_os.precision(\_\_old\_prec);
-390       \textcolor{keywordflow}{return} \_\_os;
-391     \}
+426     \{
+427       \textcolor{keywordtype}{int} \_\_old\_prec = \_\_os.precision(std::numeric\_limits<\_Tp>::max\_digits10);
+428       \_\_os << \textcolor{stringliteral}{"("};
+429       \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} \_\_i = 0; \_\_i < \_\_poly.degree(); ++\_\_i)
+430         \_\_os << \_\_poly.coefficient(\_\_i) << \textcolor{stringliteral}{","};
+431       \_\_os << \_\_poly.coefficient(\_\_poly.degree());
+432       \_\_os << \textcolor{stringliteral}{")"};
+433       \_\_os.precision(\_\_old\_prec);
+434       \textcolor{keywordflow}{return} \_\_os;
+435     \}
 \end{DoxyCode}
-\mbox{\Hypertarget{namespace____gnu__cxx_a85c9740061a6497bb695d2ee147f52b8}\label{namespace____gnu__cxx_a85c9740061a6497bb695d2ee147f52b8}} 
+\mbox{\Hypertarget{namespace____gnu__cxx_a316d841c3d2addecec46960379815cd4}\label{namespace____gnu__cxx_a316d841c3d2addecec46960379815cd4}} 
 \index{\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}!operator==@{operator==}}
 \index{operator==@{operator==}!\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}}
 \subsubsection{\texorpdfstring{operator==()}{operator==()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
-{\footnotesize\ttfamily template$<$typename \+\_\+\+Tp , std\+::size\+\_\+t \+\_\+\+NumA, std\+::size\+\_\+t \+\_\+\+NumB$>$ \\
-bool \+\_\+\+\_\+gnu\+\_\+cxx\+::operator== (\begin{DoxyParamCaption}\item[{const \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$ \+\_\+\+Tp, \+\_\+\+NumA $>$ \&}]{,  }\item[{const \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$ \+\_\+\+Tp, \+\_\+\+NumB $>$ \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily template$<$typename \+\_\+\+Tp , std\+::size\+\_\+t \+\_\+\+SizeA, std\+::size\+\_\+t \+\_\+\+SizeB$>$ \\
+constexpr bool \+\_\+\+\_\+gnu\+\_\+cxx\+::operator== (\begin{DoxyParamCaption}\item[{const \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$ \+\_\+\+Tp, \+\_\+\+SizeA $>$ \&}]{,  }\item[{const \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$ \+\_\+\+Tp, \+\_\+\+SizeB $>$ \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 Return true if two polynomials are equal. 
 
-Definition at line 543 of file static\+\_\+polynomial.\+h.
+Definition at line 644 of file static\+\_\+polynomial.\+h.
 
 
 \begin{DoxyCode}
-545     \{ \textcolor{keywordflow}{return} \textcolor{keyword}{false}; \}
+646     \{ \textcolor{keywordflow}{return} \textcolor{keyword}{false}; \}
 \end{DoxyCode}
-\mbox{\Hypertarget{namespace____gnu__cxx_a2d1430ebbbaf156a6c80a8e8107960e1}\label{namespace____gnu__cxx_a2d1430ebbbaf156a6c80a8e8107960e1}} 
+\mbox{\Hypertarget{namespace____gnu__cxx_a4156deb610ec73be9e2f56a1a4caf391}\label{namespace____gnu__cxx_a4156deb610ec73be9e2f56a1a4caf391}} 
 \index{\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}!operator==@{operator==}}
 \index{operator==@{operator==}!\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}}
 \subsubsection{\texorpdfstring{operator==()}{operator==()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
-{\footnotesize\ttfamily template$<$typename \+\_\+\+Tp , std\+::size\+\_\+t \+\_\+\+Num$>$ \\
-bool \+\_\+\+\_\+gnu\+\_\+cxx\+::operator== (\begin{DoxyParamCaption}\item[{const \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$ \+\_\+\+Tp, \+\_\+\+Num $>$ \&}]{\+\_\+\+\_\+pa,  }\item[{const \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$ \+\_\+\+Tp, \+\_\+\+Num $>$ \&}]{\+\_\+\+\_\+pb }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily template$<$typename \+\_\+\+Tp , std\+::size\+\_\+t \+\_\+\+Size$>$ \\
+constexpr bool \+\_\+\+\_\+gnu\+\_\+cxx\+::operator== (\begin{DoxyParamCaption}\item[{const \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$ \+\_\+\+Tp, \+\_\+\+Size $>$ \&}]{\+\_\+\+\_\+pa,  }\item[{const \hyperlink{class____gnu__cxx_1_1__StaticPolynomial}{\+\_\+\+Static\+Polynomial}$<$ \+\_\+\+Tp, \+\_\+\+Size $>$ \&}]{\+\_\+\+\_\+pb }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
-Definition at line 549 of file static\+\_\+polynomial.\+h.
+Definition at line 650 of file static\+\_\+polynomial.\+h.
 
 
 \begin{DoxyCode}
-551     \{ \textcolor{keywordflow}{return} \_\_pa.\_M\_coeff == \_\_pb.\_M\_coeff; \}
+652     \{ \textcolor{keywordflow}{return} \_\_pa.\_M\_coeff == \_\_pb.\_M\_coeff; \}
 \end{DoxyCode}
 \mbox{\Hypertarget{namespace____gnu__cxx_a7427db234bb8c8aab722a3196e898215}\label{namespace____gnu__cxx_a7427db234bb8c8aab722a3196e898215}} 
 \index{\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}!operator==@{operator==}}
@@ -1351,11 +1635,15 @@ bool \+\_\+\+\_\+gnu\+\_\+cxx\+::operator== (\begin{DoxyParamCaption}\item[{cons
 
 Return true if two polynomials are equal. 
 
-Definition at line 890 of file polynomial.\+h.
+Definition at line 1009 of file polynomial.\+h.
+
+
+
+Referenced by \+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Polynomial$<$ value\+\_\+type $>$\+::crend().
 
 
 \begin{DoxyCode}
-891     \{ \textcolor{keywordflow}{return} \_\_pa.\_M\_coeff == \_\_pb.\_M\_coeff; \}
+1010     \{ \textcolor{keywordflow}{return} \_\_pa.\_M\_coeff == \_\_pb.\_M\_coeff; \}
 \end{DoxyCode}
 \mbox{\Hypertarget{namespace____gnu__cxx_a71511bc907f332ce9bb925c953f11714}\label{namespace____gnu__cxx_a71511bc907f332ce9bb925c953f11714}} 
 \index{\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}!operator$>$$>$@{operator$>$$>$}}
@@ -1366,7 +1654,7 @@ std\+::basic\+\_\+istream$<$CharT, Traits$>$\& \+\_\+\+\_\+gnu\+\_\+cxx\+::opera
 
 Read a polynomial from a stream. The input format can be a plain scalar (zero degree polynomial) or a parenthesized comma-\/delimited list of coefficients. 
 
-Definition at line 211 of file rational\+\_\+polynomial.\+h.
+Definition at line 226 of file rational\+\_\+polynomial.\+h.
 
 
 
@@ -1374,27 +1662,27 @@ References \+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Rational\+Polynomial$<$ \+\_\+\+T
 
 
 \begin{DoxyCode}
-212     \{
-213       \_Polynomial<\_Tp> \_\_numer, \_\_denom;
-214       \_\_is >> \_\_numer;
-215       \textcolor{keywordflow}{if} (!\_\_is.fail())
-216         \{
-217           CharT \_\_ch;
-218           \_\_is >> \_\_ch;
-219           \textcolor{keywordflow}{if} (\_\_ch != \textcolor{charliteral}{'/'})
-220             \_\_is.setstate(std::ios\_base::failbit);
-221           \textcolor{keywordflow}{else}
-222             \{
-223               \_\_is >> \_\_denom;
-224               \textcolor{keywordflow}{if} (!\_\_is.fail())
-225                 \{
-226                   \_\_poly.numer() = \_\_numer;
-227                   \_\_poly.denom() = \_\_denom;
-228                 \}
-229             \}
-230         \}
-231       \textcolor{keywordflow}{return} \_\_is;
-232     \}
+227     \{
+228       \_Polynomial<\_Tp> \_\_numer, \_\_denom;
+229       \_\_is >> \_\_numer;
+230       \textcolor{keywordflow}{if} (!\_\_is.fail())
+231         \{
+232           CharT \_\_ch;
+233           \_\_is >> \_\_ch;
+234           \textcolor{keywordflow}{if} (\_\_ch != \textcolor{charliteral}{'/'})
+235             \_\_is.setstate(std::ios\_base::failbit);
+236           \textcolor{keywordflow}{else}
+237             \{
+238               \_\_is >> \_\_denom;
+239               \textcolor{keywordflow}{if} (!\_\_is.fail())
+240                 \{
+241                   \_\_poly.numer() = \_\_numer;
+242                   \_\_poly.denom() = \_\_denom;
+243                 \}
+244             \}
+245         \}
+246       \textcolor{keywordflow}{return} \_\_is;
+247     \}
 \end{DoxyCode}
 \mbox{\Hypertarget{namespace____gnu__cxx_acf7d03318756578d08f672212cd91234}\label{namespace____gnu__cxx_acf7d03318756578d08f672212cd91234}} 
 \index{\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}!operator$>$$>$@{operator$>$$>$}}
@@ -1405,7 +1693,11 @@ std\+::basic\+\_\+istream$<$ CharT, Traits $>$ \& \+\_\+\+\_\+gnu\+\_\+cxx\+::op
 
 Read a polynomial from a stream. The input format can be a plain scalar (zero degree polynomial) or a parenthesized comma-\/delimited list of coefficients. 
 
-Definition at line 400 of file polynomial.\+tcc.
+Definition at line 444 of file polynomial.\+tcc.
+
+
+
+References \+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Polynomial$<$ \+\_\+\+Tp $>$\+::size().
 
 
 
@@ -1413,29 +1705,33 @@ Referenced by \+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Polynomial$<$ value\+\_\+type 
 
 
 \begin{DoxyCode}
-402     \{
-403       \_Tp \_\_x;
-404       CharT \_\_ch;
-405       \_\_is >> \_\_ch;
-406       \textcolor{keywordflow}{if} (\_\_ch == \textcolor{charliteral}{'('})
-407         \{
-408           \textcolor{keywordflow}{do}
-409             \{
-410               \_\_is >> \_\_x >> \_\_ch;
-411               \_\_poly.\_M\_coeff.push\_back(\_\_x);
-412             \}
-413           \textcolor{keywordflow}{while} (\_\_ch == \textcolor{charliteral}{','});
-414           \textcolor{keywordflow}{if} (\_\_ch != \textcolor{charliteral}{')'})
-415             \_\_is.setstate(std::ios\_base::failbit);
-416         \}
-417       \textcolor{keywordflow}{else}
-418         \{
-419           \_\_is.putback(\_\_ch);
-420           \_\_is >> \_\_x;
-421           \_\_poly = \_\_x;
-422         \}
-423       \textcolor{keywordflow}{return} \_\_is;
-424     \}
+446     \{
+447       \_Tp \_\_x;
+448       CharT \_\_ch;
+449       \_\_is >> \_\_ch;
+450       \textcolor{keywordflow}{if} (\_\_ch == \textcolor{charliteral}{'('})
+451         \{
+452           \textcolor{keywordflow}{do}
+453             \{
+454               \_\_is >> \_\_x >> \_\_ch;
+455               \_\_poly.\_M\_coeff.push\_back(\_\_x);
+456             \}
+457           \textcolor{keywordflow}{while} (\_\_ch == \textcolor{charliteral}{','});
+458           \textcolor{keywordflow}{if} (\_\_ch != \textcolor{charliteral}{')'})
+459             \_\_is.setstate(std::ios\_base::failbit);
+460         \}
+461       \textcolor{keywordflow}{else}
+462         \{
+463           \_\_is.putback(\_\_ch);
+464           \_\_is >> \_\_x;
+465           \_\_poly = \_\_x;
+466         \}
+467       \textcolor{comment}{// No null polynomial.}
+468       \textcolor{keywordflow}{if} (\_\_poly.size() == 0)
+469         \_\_poly.\_M\_coeff.resize(1, \_Tp\{\});
+470 
+471       \textcolor{keywordflow}{return} \_\_is;
+472     \}
 \end{DoxyCode}
 \mbox{\Hypertarget{namespace____gnu__cxx_a2743043701f8e4c87d3f0f06ddb11348}\label{namespace____gnu__cxx_a2743043701f8e4c87d3f0f06ddb11348}} 
 \index{\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}!real@{real}}
@@ -1450,7 +1746,7 @@ Definition at line 92 of file solution.\+h.
 
 
 
-Referenced by \+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Static\+Polynomial$<$ \+\_\+\+Tp, \+\_\+\+Num $>$\+::eval\+\_\+even(), \+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Static\+Polynomial$<$ \+\_\+\+Tp, \+\_\+\+Num $>$\+::eval\+\_\+odd(), \+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Polynomial$<$ value\+\_\+type $>$\+::operator()(), \+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Static\+Polynomial$<$ \+\_\+\+Tp, \+\_\+\+Num $>$\+::operator()(), and std\+::operator$<$().
+Referenced by \+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Static\+Polynomial$<$ \+\_\+\+Tp, \+\_\+\+Size\+Rem $>$\+::eval\+\_\+even(), \+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Polynomial$<$ value\+\_\+type $>$\+::eval\+\_\+odd(), \+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Static\+Polynomial$<$ \+\_\+\+Tp, \+\_\+\+Size\+Rem $>$\+::eval\+\_\+odd(), \+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Static\+Polynomial$<$ \+\_\+\+Tp, \+\_\+\+Size\+Rem $>$\+::operator()(), and std\+::operator$<$().
 
 
 \begin{DoxyCode}
@@ -1472,11 +1768,7 @@ void \+\_\+\+\_\+gnu\+\_\+cxx\+::swap (\begin{DoxyParamCaption}\item[{\hyperlink
 
 See \hyperlink{class____gnu__cxx_1_1__Polynomial_aec8b248101f7340d46fbac13b07b45bc}{\+\_\+\+Polynomial\+::swap()}. 
 
-Definition at line 906 of file polynomial.\+h.
-
-
-
-References \+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Polynomial$<$ \+\_\+\+Tp $>$\+::swap().
+Definition at line 1025 of file polynomial.\+h.
 
 
 
@@ -1484,7 +1776,7 @@ Referenced by \+\_\+\+\_\+quartic().
 
 
 \begin{DoxyCode}
-908     \{ \_\_pa.swap(\_\_pb); \}
+1027     \{ \_\_pa.swap(\_\_pb); \}
 \end{DoxyCode}
 \mbox{\Hypertarget{namespace____gnu__cxx_aa21adeccc5b87713003459ab7f08fc7b}\label{namespace____gnu__cxx_aa21adeccc5b87713003459ab7f08fc7b}} 
 \index{\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}!to\+\_\+complex@{to\+\_\+complex}}
@@ -1503,7 +1795,7 @@ Definition at line 131 of file solution.\+h.
 133       \textcolor{keywordflow}{if} (\_\_x.index() == 0)
 134         \textcolor{keywordflow}{return} solution\_t<\_Real>();
 135       \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\_\_x.index() == 1)
-136         \textcolor{keywordflow}{return} solution\_t<\_Real>(\hyperlink{classstd_1_1complex}{std::complex<\_Real>}(std::get<1>(\_\_x)));
+136         \textcolor{keywordflow}{return} solution\_t<\_Real>(std::complex<\_Real>(std::get<1>(\_\_x)));
 137       \textcolor{keywordflow}{else}
 138         \textcolor{keywordflow}{return} \_\_x;
 139     \}
@@ -1515,12 +1807,23 @@ Definition at line 131 of file solution.\+h.
 \index{\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}!\+\_\+\+\_\+has\+\_\+imag\+\_\+v@{\+\_\+\+\_\+has\+\_\+imag\+\_\+v}}
 \index{\+\_\+\+\_\+has\+\_\+imag\+\_\+v@{\+\_\+\+\_\+has\+\_\+imag\+\_\+v}!\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}}
 \subsubsection{\texorpdfstring{\+\_\+\+\_\+has\+\_\+imag\+\_\+v}{\_\_has\_imag\_v}}
-{\footnotesize\ttfamily template$<$typename T $>$ \\
-constexpr auto \+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+\_\+has\+\_\+imag\+\_\+v = \hyperlink{struct____gnu__cxx_1_1____has__imag__t}{\+\_\+\+\_\+has\+\_\+imag\+\_\+t}$<$T$>$\+::value}
+{\footnotesize\ttfamily template$<$typename \+\_\+\+Tp $>$ \\
+constexpr auto \+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+\_\+has\+\_\+imag\+\_\+v = \hyperlink{struct____gnu__cxx_1_1____has__imag__t}{\+\_\+\+\_\+has\+\_\+imag\+\_\+t}$<$\+\_\+\+Tp$>$\+::value}
 
 
 
-Definition at line 104 of file polynomial.\+h.
+Definition at line 112 of file polynomial.\+h.
+
+\mbox{\Hypertarget{namespace____gnu__cxx_a5ec7bbecf1d944f8aa448f873584cf98}\label{namespace____gnu__cxx_a5ec7bbecf1d944f8aa448f873584cf98}} 
+\index{\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}!\+\_\+\+\_\+has\+\_\+value\+\_\+type\+\_\+v@{\+\_\+\+\_\+has\+\_\+value\+\_\+type\+\_\+v}}
+\index{\+\_\+\+\_\+has\+\_\+value\+\_\+type\+\_\+v@{\+\_\+\+\_\+has\+\_\+value\+\_\+type\+\_\+v}!\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}}
+\subsubsection{\texorpdfstring{\+\_\+\+\_\+has\+\_\+value\+\_\+type\+\_\+v}{\_\_has\_value\_type\_v}}
+{\footnotesize\ttfamily template$<$typename \+\_\+\+Tp $>$ \\
+constexpr auto \+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+\_\+has\+\_\+value\+\_\+type\+\_\+v = \hyperlink{struct____gnu__cxx_1_1____has__value__type__t}{\+\_\+\+\_\+has\+\_\+value\+\_\+type\+\_\+t}$<$\+\_\+\+Tp$>$\+::value}
+
+
+
+Definition at line 126 of file polynomial.\+h.
 
 \mbox{\Hypertarget{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}\label{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}} 
 \index{\+\_\+\+\_\+gnu\+\_\+cxx@{\+\_\+\+\_\+gnu\+\_\+cxx}!\+\_\+\+Up@{\+\_\+\+Up}}
@@ -1532,29 +1835,25 @@ Definition at line 104 of file polynomial.\+h.
 \begin{DoxyCode}
 \{\})>>>
       \{
-        \textcolor{keyword}{using} \_\_real\_t = std::decay\_t<decltype(value\_type\{\} * \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\_Up}\{\})>;
-        \textcolor{keyword}{using} \_\_cmplx\_t = \hyperlink{classstd_1_1complex}{std::complex<\_\_real\_t>};
-        \textcolor{keywordflow}{if} (this->degree() > 0)
+        \textcolor{keyword}{const} \textcolor{keyword}{auto} \_\_r = \_Tp\{2\} * \hyperlink{namespace____gnu__cxx_a2743043701f8e4c87d3f0f06ddb11348}{std::real}(\_\_z);
+        \textcolor{keyword}{const} \textcolor{keyword}{auto} \_\_s = std::norm(\_\_z);
+        size\_type \_\_n = this->degree();
+        \textcolor{keyword}{auto} \_\_aa = this->coefficient(\_\_n);
+        \textcolor{keywordflow}{if} (\_\_n > 0)
           \{
-            \textcolor{keyword}{const} \textcolor{keyword}{auto} \_\_zz = \_\_z * \_\_z;
-            \textcolor{keyword}{const} \textcolor{keyword}{auto} \_\_r = \_Tp\{2\} * \hyperlink{namespace____gnu__cxx_a2743043701f8e4c87d3f0f06ddb11348}{std::real}(\_\_zz);
-            \textcolor{keyword}{const} \textcolor{keyword}{auto} \_\_s = std::norm(\_\_zz);
-            \textcolor{keyword}{auto} \_\_odd = this->degree() % 2;
-            size\_type \_\_n = this->degree() - \_\_odd;
-            \textcolor{keyword}{auto} \_\_aa = this->coefficient(\_\_n);
-            \textcolor{keyword}{auto} \_\_bb = this->coefficient(\_\_n - 2);
-            \textcolor{keywordflow}{for} (size\_type \_\_j = 4; \_\_j <= \_\_n; \_\_j += 2)
-              \_\_bb = std::fma(-\_\_s, \_\_exchange(\_\_aa, \_\_bb + \_\_r * \_\_aa),
-                              this->coefficient(\_\_n - \_\_j));
-            \textcolor{keywordflow}{return} std::fma(\_\_cmplx\_t(\_\_aa), \_\_cmplx\_t(\_\_zz), \_\_cmplx\_t(\_\_bb));
+            \textcolor{keyword}{auto} \_\_bb = this->coefficient(\_\_n - 1);
+            \textcolor{keywordflow}{for} (size\_type \_\_j = 2; \_\_j <= \_\_n; ++\_\_j)
+              \_\_bb = this->coefficient(\_\_n - \_\_j)
+                   - \_\_s * std::exchange(\_\_aa, \_\_bb + \_\_r * \_\_aa);
+            \textcolor{keywordflow}{return} \_\_aa * \_\_z + \_\_bb;
           \}
         \textcolor{keywordflow}{else}
-          \textcolor{keywordflow}{return} \_\_cmplx\_t\{\};
+          \textcolor{keywordflow}{return} \_\_aa;
       \}
 \end{DoxyCode}
 
 
-Definition at line 263 of file polynomial.\+tcc.
+Definition at line 165 of file polynomial.\+tcc.
 
 
 
