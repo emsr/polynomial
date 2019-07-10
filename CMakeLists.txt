@@ -24,58 +24,61 @@ if (DOXYGEN_FOUND)
   )
 endif (DOXYGEN_FOUND)
 
+# Header-only library.
+add_library(cxx_polynomial INTERFACE)
+target_include_directories(cxx_polynomial INTERFACE include)
+
 add_executable(test_bairstow test_bairstow.cpp)
-target_include_directories(test_bairstow PRIVATE include ../cxx_math_constants/include)
-target_link_libraries(test_bairstow quadmath)
+target_include_directories(test_bairstow PRIVATE ../cxx_math_constants/include)
+target_link_libraries(test_bairstow cxx_polynomial quadmath)
 
 add_executable(test_horner test_horner.cpp)
-target_include_directories(test_horner PRIVATE include ../cxx_math_constants/include)
-target_link_libraries(test_horner quadmath)
+target_include_directories(test_horner PRIVATE ../cxx_math_constants/include)
+target_link_libraries(test_horner cxx_polynomial quadmath)
 
 add_executable(test_jenkins_traub test_jenkins_traub.cpp)
-target_include_directories(test_jenkins_traub PRIVATE include ../cxx_math_constants/include)
-target_link_libraries(test_jenkins_traub quadmath)
+target_include_directories(test_jenkins_traub PRIVATE ../cxx_math_constants/include)
+target_link_libraries(test_jenkins_traub cxx_polynomial quadmath)
 
 add_executable(test_polynomial test_polynomial.cpp)
 target_include_directories(test_polynomial PRIVATE include ../cxx_math_constants/include)
-target_link_libraries(test_polynomial quadmath)
+target_link_libraries(test_polynomial cxx_polynomial quadmath)
 
 add_executable(test_polynomial_root test_polynomial_root.cpp)
-target_include_directories(test_polynomial_root PRIVATE include ../cxx_math_constants/include)
-target_link_libraries(test_polynomial_root quadmath)
+target_include_directories(test_polynomial_root PRIVATE ../cxx_math_constants/include)
+target_link_libraries(test_polynomial_root cxx_polynomial quadmath)
 
 add_executable(test_rational_polynomial test_rational_polynomial.cpp)
-target_include_directories(test_rational_polynomial PRIVATE include ../cxx_math_constants/include)
-target_link_libraries(test_rational_polynomial quadmath)
+target_include_directories(test_rational_polynomial PRIVATE ../cxx_math_constants/include)
+target_link_libraries(test_rational_polynomial cxx_polynomial quadmath)
 
 add_executable(test_solution test_solution.cpp)
-target_include_directories(test_solution PRIVATE include ../cxx_math_constants/include)
-target_link_libraries(test_solution quadmath)
+target_include_directories(test_solution PRIVATE ../cxx_math_constants/include)
+target_link_libraries(test_solution cxx_polynomial quadmath)
 
 add_executable(test_solvers test_solvers.cpp)
-target_include_directories(test_solvers PRIVATE include ../cxx_math_constants/include)
-target_link_libraries(test_solvers quadmath)
+target_include_directories(test_solvers PRIVATE ../cxx_math_constants/include)
+target_link_libraries(test_solvers cxx_polynomial quadmath)
 
 add_executable(test_static_polynomial test_static_polynomial.cpp)
-target_include_directories(test_static_polynomial PRIVATE include ../cxx_math_constants/include)
-target_link_libraries(test_static_polynomial quadmath)
+target_include_directories(test_static_polynomial PRIVATE ../cxx_math_constants/include)
+target_link_libraries(test_static_polynomial cxx_polynomial quadmath)
 
 add_executable(test_laguerre_step test_laguerre_step.cpp)
-target_include_directories(test_laguerre_step PRIVATE include ../cxx_math_constants/include)
-target_link_libraries(test_laguerre_step quadmath)
+target_include_directories(test_laguerre_step PRIVATE ../cxx_math_constants/include)
+target_link_libraries(test_laguerre_step cxx_polynomial quadmath)
 
 add_executable(test_quadratic_step test_quadratic_step.cpp)
-target_include_directories(test_quadratic_step PRIVATE include ../cxx_math_constants/include)
-target_link_libraries(test_quadratic_step quadmath)
+target_include_directories(test_quadratic_step PRIVATE ../cxx_math_constants/include)
+target_link_libraries(test_quadratic_step cxx_polynomial quadmath)
 
 # Requires tr29124...
 
 if (FOUND_TR29124)
   add_executable(test_jacobi_roots test_jacobi_roots.cpp)
   target_include_directories(test_jacobi_roots PRIVATE
-    include
     ../include
     ../cxx_math_constants/include
     ../cxx_fp_utils/include)
-  target_link_libraries(test_jacobi_roots quadmath)
+  target_link_libraries(test_jacobi_roots cxx_polynomial quadmath)
 endif(FOUND_TR29124)
