@@ -14,9 +14,12 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
 enable_testing()
 
+add_custom_target(make_cxx_polynomial_output_dir ALL
+  COMMAND ${CMAKE_COMMAND} -E make_directory output)
+
 find_package(Doxygen)
 if (DOXYGEN_FOUND)
-  add_custom_target(docs_polynomial
+  add_custom_target(docs_cxx_polynomial
     COMMAND ${CMAKE_COMMAND} -E make_directory ${CMAKE_CURRENT_BINARY_DIR}/docs
     COMMAND ${DOXYGEN_EXECUTABLE} ${DOXYGEN_OUTPUT}
     WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
