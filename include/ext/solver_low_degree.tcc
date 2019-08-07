@@ -253,7 +253,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 	  _AA3[0] = _CC[0] / _CC[3];
 
 	  const auto _S_2pi
-	    = 2 * _Tp{3.1415'92653'58979'32384'62643'38327'95028'84195e+0L};
+	    = 2 * _Real{3.1415'92653'58979'32384'62643'38327'95028'84195e+0L};
 	  const auto _PP = _AA3[2] / _Real{3};
 	  const auto _QQ = (_AA3[2] * _AA3[2] - _Real{3} * _AA3[1])
 			 / _Real{9};
