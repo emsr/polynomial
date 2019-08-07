@@ -34,7 +34,6 @@
 #ifndef SOLVER_JENKINS_TRAUB_H
 #define SOLVER_JENKINS_TRAUB_H 1
 
-#include <ext/math_constants.h> // For __const_pi, etc.
 #include <ext/solution.h> // For solution_t
 
 namespace __gnu_cxx
@@ -81,7 +80,7 @@ template<typename _Real>
     static constexpr auto _S_huge = std::numeric_limits<_Real>::max();
     //static constexpr auto _S_low = _S_tiny / _S_eps;
     const _Real _S_low = _S_tiny / _S_eps;
-    static constexpr auto _S_pi = __gnu_cxx::numbers::__pi_v<_Real>;
+    static constexpr auto _S_pi = _Real{3.1415'92653'58979'32384'62643'38327'95028'84195e+0L};
     static constexpr auto _S_rotation = _Real{94} * _S_pi / _Real{180};
 
     int max_iter_quadratic = 20;
