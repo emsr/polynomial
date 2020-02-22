@@ -1,5 +1,5 @@
 /*
-$HOME/bin/bin/g++ -g -std=gnu++2a -g -Wall -Wextra -Wno-psabi -I. -o test_rational_polynomial test_rational_polynomial.cpp -lquadmath
+$HOME/bin/bin/g++ -g -std=gnu++20 -g -Wall -Wextra -Wno-psabi -I. -o test_rational_polynomial test_rational_polynomial.cpp -lquadmath
 ./test_rational_polynomial > test_rational_polynomial.txt
 */
 
