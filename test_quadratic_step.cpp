@@ -1,6 +1,3 @@
-/*
-$HOME/bin/bin/g++ -std=c++20 -Iinclude -g -Wall -Wextra -o test_quadratic_step test_quadratic_step.cpp
-*/
 
 #include <limits>
 #include <complex>

@@ -1,6 +1,3 @@
-/*
-$HOME/bin/bin/g++ -std=c++20 -Iinclude -g -Wall -Wextra -o test_laguerre_step test_laguerre_step.cpp
-*/
 
 #include <limits>
 #include <complex>

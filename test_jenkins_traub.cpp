@@ -1,6 +1,3 @@
-/*
-$HOME/bin/bin/g++ -std=gnu++20 -g -Wall -Wextra -Wno-psabi -I. -I../include -o test_jenkins_traub test_jenkins_traub.cpp -lquadmath
-*/
 
 #include <vector>
 #include <limits>

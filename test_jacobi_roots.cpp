@@ -1,7 +1,3 @@
-/*
-$HOME/bin/bin/g++ -std=gnu++20 -g -Wall -Wextra -Wno-psabi -I. -I../include -o test_jacobi_roots test_jacobi_roots.cpp -lquadmath
-LD_LIBRARY_PATH=$HOME/bin/lib64:$LD_LIBRARY_PATH ./test_jacobi_roots > test_jacobi_roots.txt
-*/
 
 #include <vector>
 #include <algorithm>

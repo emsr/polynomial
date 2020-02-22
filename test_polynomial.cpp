@@ -1,7 +1,3 @@
-/*
-$HOME/bin/bin/g++ -std=gnu++2a -g -Wall -Wextra -Wno-psabi -Iinclude -o test_polynomial test_polynomial.cpp -lquadmath
-./test_polynomial > test_polynomial.txt
-*/
 
 #include <cmath>
 #include <iostream>
