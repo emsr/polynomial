@@ -148,7 +148,7 @@ template<typename _Tp>
   void
   run()
   {
-    std::ofstream gp("jacobi_roots.gp");
+    std::ofstream gp("jacobi_roots.dat");
 
     unsigned n = 50;
     _Tp alpha1, beta1;
