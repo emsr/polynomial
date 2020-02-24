@@ -295,15 +295,15 @@ template<typename _Real>
   int
   _JenkinsTraubSolver<_Real>::fxshfr(int __l2)
   {
-    _Real __ots, __otv;
+    _Real __ts_old = 0, __tv_old = 0;
     int __iflag;
 
     int __num_zeros = 0;
 
     auto __betav = _Real{0.25};
     auto __betas = _Real{0.25};
-    auto __oss = this->__sr;
-    auto __ovv = this->__v;
+    auto __ss_old = this->__sr;
+    auto __vv_old = this->__v;
     // Evaluate polynomial by synthetic division.
     this->remquo_quadratic(this->__order, this->__u, this->__v,
 			   this->_P, this->_P_quot,
@@ -324,32 +324,32 @@ template<typename _Real>
 	auto __ts = _Real{1};
 	if (__j == 0 || __type == near_h_root)
 	  {
-	    __ovv = __vv;
-	    __oss = __ss;
-	    __otv = __tv;
-	    __ots = __ts;
+	    __vv_old = __vv;
+	    __ss_old = __ss;
+	    __tv_old = __tv;
+	    __ts_old = __ts;
 	    continue;
 	  }
 
 	// Compute relative measures of convergence of s and v sequences.
 	if (__vv != _Real{0})
-	  __tv = std::abs((__vv - __ovv) / __vv);
+	  __tv = std::abs((__vv - __vv_old) / __vv);
 	if (__ss != _Real{0})
-	  __ts = std::abs((__ss - __oss) / __ss);
+	  __ts = std::abs((__ss - __ss_old) / __ss);
 
 	// If decreasing, multiply two most recent convergence measures.
-	const auto __tvv = __tv < __otv ? __tv * __otv : _Real{1};
-	const auto __tss = __ts < __ots ? __ts * __ots : _Real{1};
+	const auto __tvv = __tv < __tv_old ? __tv * __tv_old : _Real{1};
+	const auto __tss = __ts < __ts_old ? __ts * __ts_old : _Real{1};
 
 	// Compare with convergence criteria.
 	const auto __vpass = __tvv < __betav;
 	const auto __spass = __tss < __betas;
 	if (!(__spass || __vpass))
 	  {
-	    __ovv = __vv;
-	    __oss = __ss;
-	    __otv = __tv;
-	    __ots = __ts;
+	    __vv_old = __vv;
+	    __ss_old = __ss;
+	    __tv_old = __tv;
+	    __ts_old = __ts;
 	    continue;
 	  }
 
@@ -429,7 +429,8 @@ template<typename _Real>
   int
   _JenkinsTraubSolver<_Real>::iter_quadratic(_Real __uu, _Real __vv)
   {
-    _Real __mp, __omp, __ee, __relstp, __t, __zm;
+    _Real __mp, __mp_old = 0, __ee, __t, __zm;
+    _Real __relstp = std::sqrt(_S_eps);
     NormalizationType __type;
 
     int __num_zeros = 0;
@@ -476,9 +477,9 @@ template<typename _Real>
 	// Stop iteration after 20 steps.
 	if (__j > this->max_iter_quadratic)
 	  return __num_zeros;
-	if (__j < 2 || __relstp > _Real{0.01L} || __mp < __omp || __tried)
+	if (__j < 2 || __relstp > _Real{0.01L} || __mp < __mp_old || __tried)
 	  {
-	    __omp = __mp;
+	    __mp_old = __mp;
 	    // Calculate next H polynomial and new u and v.
 	    __type = this->init_next_h_poly();
 	    this->next_h_poly(__type);
@@ -524,7 +525,7 @@ template<typename _Real>
   _JenkinsTraubSolver<_Real>::iter_real(_Real __sss, int& __iflag)
   {
     auto __t = _Real{0};
-    decltype(std::abs(this->_P[0])) __omp;
+    decltype(std::abs(this->_P[0])) __mp_old = 0;
 
     int __num_zeros = 0;
     auto __s = __sss;
@@ -564,10 +565,10 @@ template<typename _Real>
 	  return __num_zeros;
 	else if (i_real < 2
 	  || std::abs(__t) > _Real{0.001L} * std::abs(__s - __t)
-	  || __mp < __omp)
+	  || __mp < __mp_old)
 	  {
 	    // Return if the polynomial value has increased significantly.
-	    __omp = __mp;
+	    __mp_old = __mp;
 
 	    // Compute t, the next polynomial, and the new iterate.
 	    auto __hval = this->_H[0];
