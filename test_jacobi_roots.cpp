@@ -1,7 +1,3 @@
-/*
-$HOME/bin/bin/g++ -std=gnu++2a -g -Wall -Wextra -Wno-psabi -I. -I../include -o test_jacobi_roots test_jacobi_roots.cpp -lquadmath
-LD_LIBRARY_PATH=$HOME/bin/lib64:$LD_LIBRARY_PATH ./test_jacobi_roots > test_jacobi_roots.txt
-*/
 
 #include <vector>
 #include <algorithm>
@@ -152,7 +148,7 @@ template<typename _Tp>
   void
   run()
   {
-    std::ofstream gp("jacobi_roots.gp");
+    std::ofstream gp("jacobi_roots.dat");
 
     unsigned n = 50;
     _Tp alpha1, beta1;

@@ -1,9 +1,3 @@
-/*
-$HOME/bin/bin/g++ -std=gnu++2a -g -Wall -Wextra -Wno-psabi -I. -o test_static_polynomial test_static_polynomial.cpp -lquadmath
-./test_static_polynomial
-
-g++ -std=gnu++2a -g -Wall -Wextra -Wno-psabi -o test_static_polynomial test_static_polynomial.cpp -lquadmath
-*/
 
 //  Get past a bug....
 // $HOME/bin/bin/g++ -D__STDCPP_WANT_MATH_SPEC_FUNCS__=0 -o test_static_polynomial test_static_polynomial.cpp

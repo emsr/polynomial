@@ -17,6 +17,16 @@ enable_testing()
 add_custom_target(make_cxx_polynomial_output_dir ALL
   COMMAND ${CMAKE_COMMAND} -E make_directory output)
 
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/test_input/test_solver1.in ${CMAKE_CURRENT_BINARY_DIR}/test_solver1.in COPYONLY)
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/test_input/test_solver2.in ${CMAKE_CURRENT_BINARY_DIR}/test_solver2.in COPYONLY)
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/test_input/test_solver3.in ${CMAKE_CURRENT_BINARY_DIR}/test_solver3.in COPYONLY)
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/test_input/test_solver4.in ${CMAKE_CURRENT_BINARY_DIR}/test_solver4.in COPYONLY)
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/test_input/test_solver5.in ${CMAKE_CURRENT_BINARY_DIR}/test_solver5.in COPYONLY)
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/test_input/test_solver6.in ${CMAKE_CURRENT_BINARY_DIR}/test_solver6.in COPYONLY)
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/test_input/test_solver7.in ${CMAKE_CURRENT_BINARY_DIR}/test_solver7.in COPYONLY)
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/test_input/test_solver8.in ${CMAKE_CURRENT_BINARY_DIR}/test_solver8.in COPYONLY)
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/test_input/test_bairstow.in ${CMAKE_CURRENT_BINARY_DIR}/test_bairstow.in COPYONLY)
+
 find_package(Doxygen)
 if (DOXYGEN_FOUND)
   add_custom_target(docs_cxx_polynomial
@@ -33,36 +43,53 @@ target_include_directories(cxx_polynomial INTERFACE include)
 
 add_executable(test_bairstow test_bairstow.cpp)
 target_link_libraries(test_bairstow cxx_polynomial quadmath)
+add_test(NAME run_test_bairstow COMMAND bash -c "${CMAKE_BINARY_DIR}/bin/test_bairstow < ${CMAKE_CURRENT_BINARY_DIR}/test_bairstow.in > output/test_bairstow.txt")
 
 add_executable(test_horner test_horner.cpp)
 target_link_libraries(test_horner cxx_polynomial quadmath)
+add_test(NAME run_test_horner COMMAND bash -c "${CMAKE_BINARY_DIR}/bin/test_horner > output/test_horner.txt")
 
 add_executable(test_jenkins_traub test_jenkins_traub.cpp)
 target_link_libraries(test_jenkins_traub cxx_polynomial quadmath)
+add_test(NAME run_test_jenkins_traub_1 COMMAND bash -c "${CMAKE_BINARY_DIR}/bin/test_jenkins_traub < ${CMAKE_CURRENT_BINARY_DIR}/test_solver1.in > output/test_jenkins_traub_1.txt")
+add_test(NAME run_test_jenkins_traub_2 COMMAND bash -c "${CMAKE_BINARY_DIR}/bin/test_jenkins_traub < ${CMAKE_CURRENT_BINARY_DIR}/test_solver2.in > output/test_jenkins_traub_2.txt")
+add_test(NAME run_test_jenkins_traub_3 COMMAND bash -c "${CMAKE_BINARY_DIR}/bin/test_jenkins_traub < ${CMAKE_CURRENT_BINARY_DIR}/test_solver3.in > output/test_jenkins_traub_3.txt")
+add_test(NAME run_test_jenkins_traub_4 COMMAND bash -c "${CMAKE_BINARY_DIR}/bin/test_jenkins_traub < ${CMAKE_CURRENT_BINARY_DIR}/test_solver4.in > output/test_jenkins_traub_4.txt")
+add_test(NAME run_test_jenkins_traub_5 COMMAND bash -c "${CMAKE_BINARY_DIR}/bin/test_jenkins_traub < ${CMAKE_CURRENT_BINARY_DIR}/test_solver5.in > output/test_jenkins_traub_5.txt")
+add_test(NAME run_test_jenkins_traub_6 COMMAND bash -c "${CMAKE_BINARY_DIR}/bin/test_jenkins_traub < ${CMAKE_CURRENT_BINARY_DIR}/test_solver6.in > output/test_jenkins_traub_6.txt")
+add_test(NAME run_test_jenkins_traub_7 COMMAND bash -c "${CMAKE_BINARY_DIR}/bin/test_jenkins_traub < ${CMAKE_CURRENT_BINARY_DIR}/test_solver7.in > output/test_jenkins_traub_7.txt")
+add_test(NAME run_test_jenkins_traub_8 COMMAND bash -c "${CMAKE_BINARY_DIR}/bin/test_jenkins_traub < ${CMAKE_CURRENT_BINARY_DIR}/test_solver8.in > output/test_jenkins_traub_8.txt")
 
 add_executable(test_polynomial test_polynomial.cpp)
 target_link_libraries(test_polynomial cxx_polynomial quadmath)
+add_test(NAME run_test_polynomial COMMAND bash -c "${CMAKE_BINARY_DIR}/bin/test_polynomial > output/test_polynomial.txt")
 
 add_executable(test_polynomial_root test_polynomial_root.cpp)
 target_link_libraries(test_polynomial_root cxx_polynomial quadmath)
+add_test(NAME run_test_polynomial_root COMMAND bash -c "${CMAKE_BINARY_DIR}/bin/test_polynomial_root > output/test_polynomial_root.txt")
 
 add_executable(test_rational_polynomial test_rational_polynomial.cpp)
 target_link_libraries(test_rational_polynomial cxx_polynomial quadmath)
+add_test(NAME run_test_rational_polynomial COMMAND bash -c "${CMAKE_BINARY_DIR}/bin/test_rational_polynomial > output/test_rational_polynomial.txt")
 
 add_executable(test_solution test_solution.cpp)
 target_link_libraries(test_solution cxx_polynomial quadmath)
 
 add_executable(test_solvers test_solvers.cpp)
 target_link_libraries(test_solvers cxx_polynomial quadmath)
+add_test(NAME run_test_solvers COMMAND bash -c "${CMAKE_BINARY_DIR}/bin/test_solvers > output/test_solvers.txt")
 
 add_executable(test_static_polynomial test_static_polynomial.cpp)
 target_link_libraries(test_static_polynomial cxx_polynomial quadmath)
+add_test(NAME run_test_static_polynomial COMMAND bash -c "${CMAKE_BINARY_DIR}/bin/test_static_polynomial > output/test_static_polynomial.txt")
 
 add_executable(test_laguerre_step test_laguerre_step.cpp)
 target_link_libraries(test_laguerre_step cxx_polynomial quadmath)
+add_test(NAME run_test_laguerre_step COMMAND bash -c "${CMAKE_BINARY_DIR}/bin/test_laguerre_step > output/test_laguerre_step.txt")
 
 add_executable(test_quadratic_step test_quadratic_step.cpp)
 target_link_libraries(test_quadratic_step cxx_polynomial quadmath)
+add_test(NAME run_test_quadratic_step COMMAND bash -c "${CMAKE_BINARY_DIR}/bin/test_quadratic_step > output/test_quadratic_step.txt")
 
 # Requires tr29124...
 

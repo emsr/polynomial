@@ -1,7 +1,3 @@
-/*
-$HOME/bin/bin/g++ -std=gnu++2a -g -Wall -Wextra -Wno-psabi -I. -o test_polynomial_root test_polynomial_root.cpp -lquadmath
-./test_polynomial_root > test_polynomial_root.txt
-*/
 
 #include <complex>
 #include <vector>

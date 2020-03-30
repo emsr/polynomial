@@ -1,7 +1,3 @@
-/*
-$HOME/bin/bin/g++ -std=c++2a -g -Wall -Wextra -Wno-psabi -I. -I../include -o test_bairstow test_bairstow.cpp
-./test_bairstow < test_bairstow.in > test_bairstow.txt
-*/
 
 #include <vector>
 #include <limits>

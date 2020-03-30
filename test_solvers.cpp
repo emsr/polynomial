@@ -1,7 +1,3 @@
-/*
-$HOME/bin/bin/g++ -std=gnu++2a -g -Wall -Wextra -Wno-psabi -I. -I../include -o test_solvers test_solvers.cpp -lquadmath
-./test_solvers > test_solvers.txt
-*/
 
 #include <experimental/array>
 #include <iostream>
