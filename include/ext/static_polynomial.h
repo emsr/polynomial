@@ -758,8 +758,8 @@ namespace __gnu_cxx //_GLIBCXX_VISIBILITY(default)
    */
   template<typename _Tp, std::size_t _SizeP, std::size_t _SizeQ>
     inline constexpr _StaticPolynomial<_Tp, _SizeP + _SizeQ - 1>
-    operator*(const _StaticPolynomial<_Tp, _SizeP>& _P,
-	      const _StaticPolynomial<_Tp, _SizeQ>& _Q)
+    operator*(_StaticPolynomial<_Tp, _SizeP> _P,
+	      _StaticPolynomial<_Tp, _SizeQ> _Q)
     {
       _StaticPolynomial<_Tp, _P.degree() + _Q.degree() + 1> _R;
       for (std::size_t __i = 0; __i <= _P.degree(); ++__i)
@@ -769,12 +769,12 @@ namespace __gnu_cxx //_GLIBCXX_VISIBILITY(default)
     }
 
   /**
-   * Return the quotient of two polynomials.
+   * Return the product of two polynomials.
    */
   template<typename _Tp, std::size_t _SizeP, std::size_t _SizeQ>
     inline constexpr _StaticPolynomial<_Tp, _SizeP + _SizeQ - 1>
-    operator*(const _StaticPolynomial<_Tp, _SizeP>& _P,
-	      const _StaticPolynomial<_Tp, _SizeQ>& _Q);
+    operator*(_StaticPolynomial<_Tp, _SizeP> _P,
+	      _StaticPolynomial<_Tp, _SizeQ> _Q);
 
   /**
    * Return type for divmod.
@@ -796,8 +796,8 @@ namespace __gnu_cxx //_GLIBCXX_VISIBILITY(default)
    */
   template<typename _Tp, std::size_t _SizeN, std::size_t _SizeD>
     constexpr __divmod_t<_Tp, _SizeN, _SizeD>
-    divmod(const _StaticPolynomial<_Tp, _SizeN>& __num,
-	   const _StaticPolynomial<_Tp, _SizeD>& __den);
+    divmod(_StaticPolynomial<_Tp, _SizeN> __num,
+	   _StaticPolynomial<_Tp, _SizeD> __den);
 
   /**
    * Return the quotient of two polynomials.
@@ -805,8 +805,8 @@ namespace __gnu_cxx //_GLIBCXX_VISIBILITY(default)
   template<typename _Tp, std::size_t _SizeP, std::size_t _SizeQ>
     inline constexpr _StaticPolynomial<_Tp,
 		     __divmod_t<_Tp, _SizeP, _SizeQ>::_SizeQuo>
-    operator/(const _StaticPolynomial<_Tp, _SizeP>& _P,
-	      const _StaticPolynomial<_Tp, _SizeQ>& _Q)
+    operator/(_StaticPolynomial<_Tp, _SizeP> _P,
+	      _StaticPolynomial<_Tp, _SizeQ> _Q)
     { return divmod(_P, _Q).__quo; }
 
   /**
@@ -815,8 +815,8 @@ namespace __gnu_cxx //_GLIBCXX_VISIBILITY(default)
   template<typename _Tp, std::size_t _SizeP, std::size_t _SizeQ>
     inline constexpr _StaticPolynomial<_Tp,
 		     __divmod_t<_Tp, _SizeP, _SizeQ>::_SizeRem>
-    operator%(const _StaticPolynomial<_Tp, _SizeP>& _P,
-	      const _StaticPolynomial<_Tp, _SizeQ>& _Q)
+    operator%(_StaticPolynomial<_Tp, _SizeP> _P,
+	      _StaticPolynomial<_Tp, _SizeQ> _Q)
     { return divmod(_P, _Q).__rem; }
 
 } // namespace __gnu_cxx

@@ -69,8 +69,8 @@ namespace __gnu_cxx //_GLIBCXX_VISIBILITY(default)
    */
   template<typename _Tp, std::size_t _SizeN, std::size_t _SizeD>
     constexpr __divmod_t<_Tp, _SizeN, _SizeD>
-    divmod(const _StaticPolynomial<_Tp, _SizeN>& __num,
-	   const _StaticPolynomial<_Tp, _SizeD>& __den)
+    divmod(_StaticPolynomial<_Tp, _SizeN> __num,
+	   _StaticPolynomial<_Tp, _SizeD> __den)
     {
       constexpr auto _DegN = __num.degree();
       constexpr auto _DegD = __den.degree();
