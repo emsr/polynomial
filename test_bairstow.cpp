@@ -21,8 +21,10 @@ template<typename _Real>
     int MAX_TERMS = 1000;
     while ((order < 2) || (order > MAX_TERMS - 1))
       {
-	std::cout << "Polynomial order (2 - " << MAX_TERMS - 1 << "): ";
+	std::cout << "Polynomial order (2 - " << MAX_TERMS - 1 << "; 0 to quit): ";
 	std::cin >> order;
+        if (order <= 0)
+          break;
       }
     std::vector<_Real> a(order + 1);
 
