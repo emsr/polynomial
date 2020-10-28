@@ -48,6 +48,7 @@
 
 #include <ios>
 #include <complex>
+#include <utility> // For exchange.
 
 namespace __gnu_cxx //_GLIBCXX_VISIBILITY(default)
 {
@@ -316,7 +317,7 @@ This scaling thing can only apply to real or complex polynomials.
 	    auto __aa = this->coefficient(__n);
 	    auto __bb = this->coefficient(__n - 2);
 	    for (size_type __j = 4; __j <= __n; __j += 2)
-	      __bb = std::fma(-__s, __exchange(__aa, __bb + __r * __aa),
+	      __bb = std::fma(-__s, std::exchange(__aa, __bb + __r * __aa),
 			      this->coefficient(__n - __j));
 	    return std::fma(__cmplx_t(__aa), __cmplx_t(__zz), __cmplx_t(__bb));
 	  }
@@ -356,7 +357,7 @@ This scaling thing can only apply to real or complex polynomials.
 	    auto __aa = this->coefficient(__n);
 	    auto __bb = this->coefficient(__n - 2);
 	    for (size_type __j = 4; __j <= __n; __j += 2)
-	      __bb = std::fma(-__s, __exchange(__aa, __bb + __r * __aa),
+	      __bb = std::fma(-__s, std::exchange(__aa, __bb + __r * __aa),
 			      this->coefficient(__n - __j));
 	    return __z
 		 * std::fma(__cmplx_t(__aa), __cmplx_t(__zz), __cmplx_t(__bb));
