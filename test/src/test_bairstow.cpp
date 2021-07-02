@@ -10,7 +10,7 @@
 #include "ext/solver_bairstow.h"
 
 template<typename _Real>
-  void
+  int
   test_bairstow()
   {
     std::cout.precision(std::numeric_limits<_Real>::digits10);
@@ -52,6 +52,9 @@ template<typename _Real>
     if ((eq.size() % 2) == 1)
       std::cout << "The linear term is: \nt - " << eq.back() << '\n';
 
+    int num_errors = 0;
+    const auto tol = std::sqrt(std::numeric_limits<_Real>::epsilon());
+
     std::cout << "\nSolution tests:\n";
     __gnu_cxx::_Polynomial<_Real> poly(a.begin(), a.end());
     for (const auto& z : zeros)
@@ -59,22 +62,43 @@ template<typename _Real>
 	const auto idx = z.index();
 	std::cout << "P(" << z << ") = ";
 	if (idx == 1)
-	  std::cout << poly(std::get<1>(z));
+	  {
+	    const auto P = poly(std::get<1>(z));
+	    std::cout << P << '\n';
+	    if (const auto aP = std::abs(P); aP > tol)
+	      {
+		++num_errors;
+		std::cout << "Fail: |P| = " << aP << '\n';
+	      }
+          }
 	else if (idx == 2)
-	  std::cout << poly(std::get<2>(z));
-	std::cout << '\n';
+          {
+	    const auto P = poly(std::get<2>(z));
+	    std::cout << P << '\n';
+	    if (const auto aP = std::abs(P); aP > tol)
+	      {
+		++num_errors;
+		std::cout << "Fail: |P| = " << aP << '\n';
+	      }
+          }
       }
+
+    return num_errors;
   }
 
 int
 main()
 {
+  int num_errors = 0;
+
   std::cout << "\ndouble\n======\n";
-  test_bairstow<double>();
+  num_errors += test_bairstow<double>();
 
   std::cout << "\nlong double\n===========\n";
-  test_bairstow<long double>();
+  num_errors += test_bairstow<long double>();
 
   std::cout << "\nfloat\n=====\n";
-  test_bairstow<float>();
+  num_errors += test_bairstow<float>();
+
+  return num_errors;
 }

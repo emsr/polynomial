@@ -1,0 +1,35 @@
+7
+1.0
+-6.01
+12.54
+-8.545
+-5.505
+12.545
+-8.035
+2.01
+7
+1.0
+-6.01
+12.54
+-8.545
+-5.505
+12.545
+-8.035
+2.01
+7
+1.0
+-6.01
+12.54
+-8.545
+-5.505
+12.545
+-8.035
+2.01
+
+This is from
+"A THREE-STAGE ALGORITHM FOR REAL POLYNOMIALS USING QUADRATIC ITERATION,"
+M. A. JENKINSf AND J. F. TRAUB,
+SIAM J. NUMER. ANAL. Vol.7, No.4, December 1970
+
+P(z) = z^7 + 6.01 z^6 + 12.54 z^5 - 8.545 z^4 - 5.505 z^3 + 12.545 z^2 - 8.035z + 2.01
+     = (z - 0.5 + 0.5i) (z - 0.5 - 0.5i) (z - 1)^2 (z + 1) (z - 2) (z - 2.01)

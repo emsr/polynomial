@@ -51,7 +51,7 @@ template<typename _Real>
     if (this->_P.size() == 0)
       std::__throw_domain_error("Polynomial degree must be at least 1.");
 
-    // Algorithm fails of the leading coefficient is zero.
+    // Algorithm fails if the leading coefficient is zero.
     // We could erase leading-order zero coefficients.
     if (this->_P[0] == _Real{0})
       std::__throw_domain_error("Leading coefficient must be nonzero.");

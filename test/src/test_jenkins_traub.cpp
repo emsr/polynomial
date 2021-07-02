@@ -10,7 +10,7 @@
 
 
 template<typename _Real>
-  void
+  int
   test_jenkins_traub()
   {
     std::cout.precision(std::numeric_limits<_Real>::digits10);
@@ -43,6 +43,9 @@ template<typename _Real>
     for (const auto& z : zeros)
       std::cout << z << '\n';
 
+    int num_errors = 0;
+    const auto tol = std::sqrt(std::numeric_limits<_Real>::epsilon());
+
     std::cout << "\nSolution tests:\n";
     // Remember to reverse the polynomial coefficients!
     __gnu_cxx::_Polynomial<_Real> poly(a.rbegin(), a.rend());
@@ -51,25 +54,48 @@ template<typename _Real>
 	const auto idx = z.index();
 	std::cout << "P(" << z << ") = ";
 	if (idx == 1)
-	  std::cout << poly(std::get<1>(z));
+	  {
+	    const auto P = poly(std::get<1>(z));
+	    std::cout << P << '\n';
+	    if (const auto aP = std::abs(P); aP > tol)
+	      {
+		++num_errors;
+		std::cout << "Fail: |P| = " << aP << '\n';
+	      }
+	  }
 	else if (idx == 2)
-	  std::cout << poly(std::get<2>(z));
+	  {
+	    const auto P = poly(std::get<2>(z));
+	    std::cout << P << '\n';
+	    if (const auto aP = std::abs(P); aP > tol)
+	      {
+		++num_errors;
+		std::cout << "Fail: |P| = " << aP << '\n';
+	      }
+	  }
 	else
-	  std::cout << "error";
-	std::cout << '\n';
+	  {
+	    std::cout << "error\n";
+	  }
       }
+
+    return num_errors;
   }
 
 int
 main()
 {
+  int num_errors = 0;
+
   std::cout << "\ndouble\n======\n" << std::flush;
-  test_jenkins_traub<double>();
+  num_errors += test_jenkins_traub<double>();
 
   std::cout << "\nlong double\n===========\n" << std::flush;
-  test_jenkins_traub<long double>();
+  num_errors += test_jenkins_traub<long double>();
 
   std::cout << "\nfloat\n=====\n" << std::flush;
-  test_jenkins_traub<float>();
+  num_errors += test_jenkins_traub<float>();
+
+  return num_errors;
 }
 

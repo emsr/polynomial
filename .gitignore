@@ -38,3 +38,12 @@ test_rational_polynomial
 test_solution
 test_solvers
 test_static_polynomial
+test_jenkins_traub_complex
+
+run_cpoly
+run_cpoly.cpp
+cpoly_ver_1.cpp
+
+jenkins_traub.cpp
+
+test.txt
