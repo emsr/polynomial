@@ -118,5 +118,6 @@ template<typename _Real>
 } // namespace __gnu_cxx
 
 #include <ext/solver_jenkins_traub.tcc>
+#include <ext/solver_jenkins_traub_complex.tcc>
 
 #endif // SOLVER_JENKINS_TRAUB_H

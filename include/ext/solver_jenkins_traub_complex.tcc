@@ -1,26 +1,27 @@
+/**
+ * @def  SOLVER_JENKINS_TRAUB_COMPLEX_TCC
+ *
+ * @brief  A guard for the _JenkinsTraubSolver class header.
+ */
+#ifndef SOLVER_JENKINS_TRAUB_COMPLEX_TCC
+#define SOLVER_JENKINS_TRAUB_COMPLEX_TCC 1
+
 #include <vector>
 #include <complex>
 #include <limits>
 
-template<typename Real>
-static void
-mcon(Real& epsilon, Real& infiny, Real& smalno, Real& base)
+namespace __gnu_cxx
 {
-    base = std::numeric_limits<Real>::radix;
-    epsilon = std::numeric_limits<Real>::epsilon();
-    infiny = std::numeric_limits<Real>::max();
-    smalno = std::numeric_limits<Real>::min();
-}
 
 template<typename Real>
-class Solver
+class _JenkinsTraubSolver<std::complex<Real>>
 {
 
 public:
 
     using Cmplx = std::complex<Real>;
 
-    Solver(const std::vector<Cmplx>& op)
+    _JenkinsTraubSolver(const std::vector<Cmplx>& op)
     : p(op)
     {
         if (p.size() == 0)
@@ -67,6 +68,15 @@ private:
     static constexpr auto s_sqrt2 = Real{1.4142'13562'37309'50488'01688'72420'96980'78569e+0L};
     static constexpr auto s_pi = Real{3.1415'92653'58979'32384'62643'38327'95028'84195e+0L};
     static constexpr auto s_rotation = Real{94} * s_pi / Real{180};
+
+    static void
+    mcon(Real& epsilon, Real& infiny, Real& smalno, Real& base)
+    {
+        base = std::numeric_limits<Real>::radix;
+        epsilon = std::numeric_limits<Real>::epsilon();
+        infiny = std::numeric_limits<Real>::max();
+        smalno = std::numeric_limits<Real>::min();
+    }
 
     int
     solve(std::vector<Cmplx>& zero)
@@ -529,3 +539,7 @@ private:
         return fn_val;
     }
 };
+
+} // namespace __gnu_cxx
+
+#endif // SOLVER_JENKINS_TRAUB_COMPLEX_TCC

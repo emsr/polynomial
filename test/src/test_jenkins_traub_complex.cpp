@@ -4,8 +4,8 @@
 #include <iostream>
 #include <limits>
 
-#include "ext/solver_jenkins_traub_complex.tcc"
 #include "ext/polynomial.h"
+#include "ext/solver_jenkins_traub.h"
 
 template<typename Real>
 int
@@ -24,7 +24,7 @@ test_complex_jenkins_traub()
         std::cin >> p[i];
     }
 
-    Solver jt(p);
+    __gnu_cxx::_JenkinsTraubSolver<std::complex<Real>> jt(p);
     auto zero = jt.solve();
     std::cout << '\n';
     for (unsigned int i = 0; i < zero.size(); ++i)
