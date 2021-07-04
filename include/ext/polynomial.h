@@ -438,6 +438,21 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
       }
 
       /**
+       * Return the derivative of the polynomial at the given point.
+       */
+      template<typename _Up>
+        decltype(_Up{} * value_type{})
+        derivative(_Up c) const
+        {
+	  using res_t = decltype(_Up{} * value_type{});
+	  const int n = this->degree();
+	  res_t res = real_type(n) * this->_M_coeff[n];
+          for (int i = n - 1; i > 0; --i)
+	    res = c * res + real_type(i) * this->_M_coeff[i];
+	  return res;
+        }
+
+      /**
        * Return the integral polynomial with given integration constant.
        */
       _Polynomial
@@ -449,6 +464,29 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 	  __res._M_coeff[__i + 1] = this->_M_coeff[__i] / value_type(__i + 1);
 	return __res;
       }
+
+      /**
+       * Return the integral of the polynomial with given integration limits.
+       */
+      template<typename _Up>
+        decltype(_Up{} * value_type{})
+	integral(_Up a, _Up b) const
+        {
+	  using res_t = decltype(_Up{} * value_type{});
+	  const int n = this->degree();
+	  const auto coeff = this->_M_coeff[n] / real_type(n + 1);
+	  res_t resa = coeff * a;
+	  res_t resb = coeff * b;
+	  for (int i = n - 1; i >= 0; --i)
+	    {
+	      const auto coeff = this->_M_coeff[i] / real_type(i + 1);
+	      resa += coeff;
+	      resa *= a;
+	      resb += coeff;
+	      resb *= b;
+	    }
+	  return resb - resa;
+        }
 
       /**
        * Unary plus.

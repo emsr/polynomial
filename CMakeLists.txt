@@ -109,6 +109,10 @@ add_executable(test_quadratic_step test/src/test_quadratic_step.cpp)
 target_link_libraries(test_quadratic_step cxx_polynomial quadmath)
 add_test(NAME run_test_quadratic_step COMMAND bash -c "${CMAKE_BINARY_DIR}/bin/test_quadratic_step > output/test_quadratic_step.txt")
 
+add_executable(test_derivative_integral test/src/test_derivative_integral.cpp)
+target_link_libraries(test_derivative_integral cxx_polynomial quadmath)
+add_test(NAME run_test_derivative_integral COMMAND bash -c "${CMAKE_BINARY_DIR}/bin/test_derivative_integral > output/test_derivative_integral.txt")
+
 # Requires tr29124...
 
 if (FOUND_TR29124)
