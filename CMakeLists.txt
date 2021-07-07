@@ -113,6 +113,10 @@ add_executable(test_derivative_integral test/src/test_derivative_integral.cpp)
 target_link_libraries(test_derivative_integral cxx_polynomial quadmath)
 add_test(NAME run_test_derivative_integral COMMAND bash -c "${CMAKE_BINARY_DIR}/bin/test_derivative_integral > output/test_derivative_integral.txt")
 
+add_executable(test_shift test/src/test_shift.cpp)
+target_link_libraries(test_shift cxx_polynomial quadmath)
+add_test(NAME run_test_shift COMMAND bash -c "${CMAKE_BINARY_DIR}/bin/test_shift > output/test_shift.txt")
+
 # Requires tr29124...
 
 if (FOUND_TR29124)

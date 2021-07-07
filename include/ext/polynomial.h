@@ -59,22 +59,12 @@
  * This polynomial has a size of at least one - degree 0.  The zero polynomial
  * has a_0 = 0.  There is no null polynomial. size == degree + 1
  *
- * How to access coefficients (bikeshed)?
- *   The coefficients have a sequence container interface.
- *   Access for C, Fortran is supported with const _Tp* data().
- *
  * How to handle division?
  *   operator/ returns the quotient of two polynomials discarding the remainder.
  *   operator% returns the remainder of two polynomials discarding the quotient.
  *   The divmod functions computes both the quotient and the remainder.
  *   N. B. I could add the remquo function?
- *
- * Methods derivative and integral return polynomials the derivative and integral
- * polynomials.  The integral method takes an optional integration constant.
- * N. B. I could add members:
- *   _Polynomial& integrate(_Tp c);
- *   _Polynomial& differentiate();
- *
+ * *
  * Largest coefficient:
  *   This class does not enforce the coefficient of largest power to be nonzero.
  *   The user concerned about this should use the deflate method with a
@@ -660,6 +650,28 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 	  *this = __rem;
 	  return *this;
 	}
+
+      /**
+       * Shift the polynomial using the Horner scheme.
+       * Given our polynomial
+       * @f[
+       *   P(x) = a_0 + a_1 x + a_2 x^2 + ...
+       * @f]
+       * Obtain a new polynomial
+       * @f[
+       *   Q(z) = P(x + s) = a_0 + a_1 (x + s) + a_2 (x + s)^2 + ... = b_0 + b_1 x + b_2 x^2
+       * @f]
+       */
+      void
+      shift(value_type shift)
+      {
+	if (shift == value_type{})
+	  return;
+        const int n = this->degree();
+	for (int j = 1; j <= n; ++j)
+	  for (int i = 1; i <= n - j + 1; ++i)
+	    this->_M_coeff[n - i] += shift * this->_M_coeff[n - i + 1];
+      }
 
       /**
        * Return the degree or the power of the largest coefficient.
