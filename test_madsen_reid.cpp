@@ -20,22 +20,29 @@
 using Real = double;
 using Cmplx = std::complex<Real>;
 
+/**
+ * Return the L1 sum of absolute values or Manhattan metric of a complex number.
+ */
 Real
 norml1(Cmplx z)
 {
     return std::abs(std::real(z)) + std::abs(std::imag(z));
 }
 
-// Evaluate polynomial at z, set fz, return squared modulus.
+/**
+ * Return the L2 modulus of the complex number (this is std::norm).
+ */
 Real
 norml2(Cmplx z)
 {
     return std::norm(z);
 }
 
-// Evaluate polynomial at z, set fz, return squared modulus.
+/**
+ * Evaluate polynomial at z, set fz, return squared modulus.
+ */
 Real
-pa06dd(Cmplx z, Cmplx& fz, int n1, const std::vector<Cmplx>& a)
+eval(Cmplx z, Cmplx& fz, int n1, const std::vector<Cmplx>& a)
 {
     auto n = n1 - 1;
     auto p = a[1];
@@ -53,7 +60,7 @@ pa06dd(Cmplx z, Cmplx& fz, int n1, const std::vector<Cmplx>& a)
 // Root search...
 //
 void
-pa06bd(std::vector<Cmplx>& a1, int m, std::vector<Cmplx>& root, std::vector<Cmplx>& a, int mp1)
+solve(std::vector<Cmplx>& a1, int m, std::vector<Cmplx>& root, std::vector<Cmplx>& a, int mp1)
 {
 
     //Cmplx a1(m+1), root(m), a(mp1)
@@ -87,21 +94,17 @@ pa06bd(std::vector<Cmplx>& a1, int m, std::vector<Cmplx>& root, std::vector<Cmpl
     }
 
     // Test for zeros at infinity.
- _20:
-    if (norml1(a[1]) > 0.0)
+    while (norml1(a[1]) <= 0 && n > 0)
     {
-        goto _40;
+        for (int i = 1; i <= n; ++i)
+        {
+            a[i] = a[i + 1];
+        }
+        root[n] = BIG;
+        --n;
     }
-    for (int i = 1; i <= n; ++i)
-    {
-        a[i] = a[i + 1];
-    }
-    root[n] = BIG;
-    --n;
-    if (n > 0) {
-        goto _20;
-    }
-    goto _310;
+    if (n <= 0)
+        return;
 
  _40:
     if (n <= 1) {
@@ -177,12 +180,12 @@ pa06bd(std::vector<Cmplx>& a1, int m, std::vector<Cmplx>& root, std::vector<Cmpl
     u = 0.5 * t / norml1(z);
     z = u * z;
     dz = z;
-    f =  pa06dd(z, fz, n + 1, a);
+    f =  eval(z, fz, n + 1, a);
     r0 = 0.5 * t;
 
     // Calculate tentative step.
 _120:
-    u = pa06dd(z, f1z, n, a1);
+    u = eval(z, f1z, n, a1);
     if (u == 0.0) {
         goto _140;
     }
@@ -221,7 +224,7 @@ _160:
         z = Cmplx(std::real(z), 0.0);
     }
     w = z;
-    f = pa06dd(z, fz, n + 1, a);
+    f = eval(z, fz, n + 1, a);
     ff = f;
     if (!stage1) {
         goto _240;
@@ -238,7 +241,7 @@ _180:
         w += dz;
     }
 
-    fa = pa06dd(w, fw, n + 1, a);
+    fa = eval(w, fw, n + 1, a);
     if (fa >= f) {
         goto _240;
     }
@@ -257,7 +260,7 @@ _220:
     dz = Cmplx(0.6 * std::real(dz) - 0.8 * std::imag(dz),
                0.8 * std::real(dz) + 0.6 * std::imag(dz));
     z = z0 + dz;
-    f = pa06dd(z, fz, n + 1, a);
+    f = eval(z, fz, n + 1, a);
 
     // End of stage 1 search.
 
@@ -308,7 +311,7 @@ _290:
     }else{
         goto _40;
     }
-_310:
+
     return;
 }
 
@@ -335,7 +338,7 @@ main()
         std::cin >> a1[m + 2 - k];
     }
     
-    pa06bd(a1, m, root, a, m+1);
+    solve(a1, m, root, a, m+1);
 
     std::cout << '\n';
     for (int k = 1; k <= m; ++k)
