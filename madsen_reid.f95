@@ -65,8 +65,9 @@ subroutine pa06bd(a1, m, root, a, mp1)
         a(i) = a1(j)
         j = j - 1
     end do
+
     ! Test for zeros at infinity.
-20 continue
+ 20 continue
     if (norml1(a(1)) .gt. 0.0) then
         goto 40
     end if
@@ -79,7 +80,8 @@ subroutine pa06bd(a1, m, root, a, mp1)
         goto 20
     end if
     goto 310
-40 continue
+
+ 40 continue
     if (n .le. 1) then
         goto 260
     end if
