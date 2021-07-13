@@ -90,9 +90,10 @@ solve(std::vector<Cmplx>& a1, int m, std::vector<Cmplx>& root, std::vector<Cmplx
     Real f0, ff, f, fa, fmin, f2;
     bool stage1, div2;
 
-    Real r0, t, u, u0, u1, u2, r, r1;
+    Real r0, u0, r, r1;
 
-    int i, n1;
+    const auto theta = std::atan(Real{3} / Real{4});
+    const auto phase = std::polar(Real{1}, theta);
 
     const Real DIGITS = std::numeric_limits<Real>::max_digits10;
     const Real BIG = std::numeric_limits<Real>::max(); // Overflow limit
@@ -136,11 +137,11 @@ solve(std::vector<Cmplx>& a1, int m, std::vector<Cmplx>& root, std::vector<Cmplx
             return;
         }
 
-        n1 = n + 1;
+        int n1 = n + 1;
 
         // Scale the coefficients.
-        u1 = 0.0;
-        u2 = BIG;
+        auto u1 = Real {0};
+        auto u2 = BIG;
         for(int k = 1; k <= n1; ++k)
         {
             u = norm_l1(a[k]);
@@ -154,8 +155,8 @@ solve(std::vector<Cmplx>& a1, int m, std::vector<Cmplx>& root, std::vector<Cmplx
                 u2 = u;
             }
         }
-        u = std::sqrt(u1) * std::sqrt(u2);
-        i = -std::log(u) / ALOGB; // ilogb?
+        auto u = std::sqrt(u1) * std::sqrt(u2);
+        int i = -std::log(u) / ALOGB; // ilogb?
         u = std::pow(BASE, Real(i));
         for (int k = 1; k <= n; ++k)
         {
@@ -184,14 +185,14 @@ solve(std::vector<Cmplx>& a1, int m, std::vector<Cmplx>& root, std::vector<Cmplx
         // dz is the last tentative step if the last step was successful or is the required next step.
         ff = f0;
         u0 = f0;
-        t = BIG;
+        auto t = BIG;
         for (int k = 1; k <= n; ++k)
         {
             u = norm_l2(a[k]);
             if (u == Real{0}) {
                 continue;
             }
-            u = log(u0 / u) / Real(2 *(n1 - k));
+            u = std::log(u0 / u) / Real(2 *(n1 - k));
             if (u < t) {
                 t = u;
             }
@@ -214,8 +215,7 @@ solve(std::vector<Cmplx>& a1, int m, std::vector<Cmplx>& root, std::vector<Cmplx
         u = eval(z, f1z, n, a1);
         if (u == 0.0)
         {
-            dz = Cmplx(1.8 * std::real(dz) - 2.4 * std::imag(dz),
-                       2.4 * std::real(dz) + 1.8 * std::imag(dz));
+            dz *= Real{3} * phase;
             stage1 = true;
         }
         else
@@ -224,9 +224,9 @@ solve(std::vector<Cmplx>& a1, int m, std::vector<Cmplx>& root, std::vector<Cmplx
             f2 = norm_l2(f0z - f1z) / norm_l2(z0 - z);
             stage1 = (f * f2 / u > 0.25 * u) || (f != ff);
             r = norm_l1(dz);
-            if (r > 3.0 * r0) {
-                dz = Cmplx(1.8 * std::real(dz) - 2.4 * std::imag(dz) * r0 / r,
-                           2.4 * std::real(dz) + 1.8 * std::imag(dz) * r0 / r);
+            if (r > Real{3} * r0)
+            {
+                dz *= Real{3} * phase * r0 / r;
             }
         }
 
@@ -277,8 +277,7 @@ solve(std::vector<Cmplx>& a1, int m, std::vector<Cmplx>& root, std::vector<Cmplx
                 ++j;
                 if (div2 && j == 3)
                 {
-                    dz = Cmplx(0.6 * std::real(dz) - 0.8 * std::imag(dz),
-                               0.8 * std::real(dz) + 0.6 * std::imag(dz));
+                    dz *= phase;
                     z = z0 + dz;
                     f = eval(z, fz, n + 1, a);
                     break;
@@ -316,8 +315,7 @@ solve(std::vector<Cmplx>& a1, int m, std::vector<Cmplx>& root, std::vector<Cmplx
             continue;
         }
 
-        dz = Cmplx(-0.3 * std::real(dzk) + 0.4 * std::imag(dzk),
-                   -0.4 * std::real(dzk) - 0.3 * std::imag(dzk));
+        dz = -Real{0.5} * phase * dzk;
         stage1 = true;
         goto _160;
     }
