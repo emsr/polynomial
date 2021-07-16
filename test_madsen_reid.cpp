@@ -80,20 +80,17 @@ deflate(std::vector<Cmplx>& a, int n, Cmplx z)
     }
 }
 
-//
-// Root search...
-//
+/**
+ * Root search...
+ */
 void
-solve(std::vector<Cmplx>& a1, int m, std::vector<Cmplx>& root, std::vector<Cmplx>& a, int mp1)
+solve(std::vector<Cmplx>& a1, int m, std::vector<Cmplx>& root, std::vector<Cmplx>& a)
 {
     Cmplx z0, f0z, z, dz, f1z, fz, w, fw, dzk;
     Real f0, ff, f, fa, fmin, f2;
     bool stage1, div2;
 
     Real r0, u0, r, r1;
-
-    const auto theta = std::atan(Real{3} / Real{4});
-    const auto phase = std::polar(Real{1}, theta);
 
     const Real DIGITS = std::numeric_limits<Real>::max_digits10;
     const Real BIG = std::numeric_limits<Real>::max(); // Overflow limit
@@ -103,6 +100,9 @@ solve(std::vector<Cmplx>& a1, int m, std::vector<Cmplx>& root, std::vector<Cmplx
 
     const Real SSMALL = std::sqrt(SMALL);
     const Real ALOGB = std::log(BASE);
+
+    const auto THETA = std::atan(Real{3} / Real{4});
+    const auto PHASE = std::polar(Real{1}, THETA);
 
     int n = m;
 
@@ -144,16 +144,13 @@ solve(std::vector<Cmplx>& a1, int m, std::vector<Cmplx>& root, std::vector<Cmplx
         auto u2 = BIG;
         for(int k = 1; k <= n1; ++k)
         {
-            u = norm_l1(a[k]);
-            if (u <= 0.0) {
+            auto u = norm_l1(a[k]);
+            if (u <= Real{0})
                 continue;
-            }
-            if (u > u1) {
+            if (u > u1)
                 u1 = u;
-            }
-            if (u < u2) {
+            if (u < u2)
                 u2 = u;
-            }
         }
         auto u = std::sqrt(u1) * std::sqrt(u2);
         int i = -std::log(u) / ALOGB; // ilogb?
@@ -189,13 +186,11 @@ solve(std::vector<Cmplx>& a1, int m, std::vector<Cmplx>& root, std::vector<Cmplx
         for (int k = 1; k <= n; ++k)
         {
             u = norm_l2(a[k]);
-            if (u == Real{0}) {
+            if (u == Real{0})
                 continue;
-            }
             u = std::log(u0 / u) / Real(2 *(n1 - k));
-            if (u < t) {
+            if (u < t)
                 t = u;
-            }
         }
         t = std::exp(t);
         f0z = a[n];
@@ -210,12 +205,12 @@ solve(std::vector<Cmplx>& a1, int m, std::vector<Cmplx>& root, std::vector<Cmplx
         f =  eval(z, fz, n + 1, a);
         r0 = 0.5 * t;
 
-        // Calculate tentative step.
     _120:
+        // Calculate tentative step.
         u = eval(z, f1z, n, a1);
-        if (u == 0.0)
+        if (u == Real{0})
         {
-            dz *= Real{3} * phase;
+            dz *= Real{3} * PHASE;
             stage1 = true;
         }
         else
@@ -226,32 +221,30 @@ solve(std::vector<Cmplx>& a1, int m, std::vector<Cmplx>& root, std::vector<Cmplx
             r = norm_l1(dz);
             if (r > Real{3} * r0)
             {
-                dz *= Real{3} * phase * r0 / r;
+                dz *= Real{3} * PHASE * (r0 / r);
             }
         }
 
         f0z = f1z;
 
+    _160:
         // Find the next point in the iteration.
         // This is where iteration starts if the previous one was unsuccessful.
-    _160:
         z0 = z;
         f0 = f;
         dzk = dz;
         z = z0 + dz;
         // If either part of z is small replace by zero to avoid underflows.
-        if (std::abs(std::real(z)) < EPS * std::abs(std::imag(z))) {
-            z = Cmplx(0, std::imag(z));
-        }
-        if (std::abs(std::imag(z)) < EPS * std::abs(std::real(z))) {
-            z = Cmplx(std::real(z), 0.0);
-        }
+        if (std::abs(std::real(z)) < EPS * std::abs(std::imag(z)))
+            z = Cmplx(Real{0}, std::imag(z));
+        if (std::abs(std::imag(z)) < EPS * std::abs(std::real(z)))
+            z = Cmplx(std::real(z), Real{0});
         w = z;
         f = eval(z, fz, n + 1, a);
         ff = f;
         if (stage1)
         {
-            j = 1;
+            int j = 1;
             div2 = f >= f0;
 
             do
@@ -277,7 +270,7 @@ solve(std::vector<Cmplx>& a1, int m, std::vector<Cmplx>& root, std::vector<Cmplx
                 ++j;
                 if (div2 && j == 3)
                 {
-                    dz *= phase;
+                    dz *= PHASE;
                     z = z0 + dz;
                     f = eval(z, fz, n + 1, a);
                     break;
@@ -315,7 +308,7 @@ solve(std::vector<Cmplx>& a1, int m, std::vector<Cmplx>& root, std::vector<Cmplx
             continue;
         }
 
-        dz = -Real{0.5} * phase * dzk;
+        dz = -Real{0.5} * PHASE * dzk;
         stage1 = true;
         goto _160;
     }
@@ -346,7 +339,7 @@ main()
         std::cin >> a1[m + 2 - k];
     }
     
-    solve(a1, m, root, a, m+1);
+    solve(a1, m, root, a);
 
     std::cout << '\n';
     for (int k = 1; k <= m; ++k)
