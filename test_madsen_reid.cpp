@@ -13,19 +13,25 @@
  ./test_madsen_reid < test/input/test_solver8.in >> out2
 */
 
+/**
+ * @def  SOLVER_MADSEN_REID_H
+ *
+ * @brief  A guard for the SolverMadsenReid class header.
+ */
+#ifndef SOLVER_MADSEN_REID_H
+#define SOLVER_MADSEN_REID_H 1
+
 #include <limits>
 #include <complex>
 #include <vector>
 #include <iostream>
 
-using Real = double;
-using Cmplx = std::complex<Real>;
-
 /**
  * Return the L1 sum of absolute values or Manhattan metric of a complex number.
  */
+template<typename Real>
 Real
-norm_l1(Cmplx z)
+norm_l1(std::complex<Real> z)
 {
     return std::abs(std::real(z)) + std::abs(std::imag(z));
 }
@@ -33,11 +39,51 @@ norm_l1(Cmplx z)
 /**
  * Return the L2 modulus of the complex number (this is std::norm).
  */
+template<typename Real>
 Real
-norm_l2(Cmplx z)
+norm_l2(std::complex<Real> z)
 {
     return std::norm(z);
 }
+
+template<typename Real>
+class SolverMadsenReid
+{
+public:
+
+using Cmplx = std::complex<Real>;
+
+/**
+ * Constructor.
+ */
+SolverMadsenReid(const std::vector<Cmplx>& a_in)
+: poly(a_in),
+  poly_work(a_in.size())
+{}
+
+/**
+ * Solve.
+ */
+std::vector<Cmplx>
+solve()
+{
+    std::vector<Cmplx> root;
+    if (poly.size() <= 1)
+        return root;
+
+    int m = poly.size() - 2;
+    root.resize(m + 1);
+    solve(poly, m, root, poly_work);
+    return root;
+}
+
+private:
+
+/// Big-endian polynomial.
+std::vector<Cmplx> poly;
+
+/// Big-endian working polynomial.
+std::vector<Cmplx> poly_work;
 
 /**
  * Evaluate polynomial at z, set fz, return squared modulus.
@@ -69,7 +115,7 @@ push_root(std::vector<Cmplx>& a1, std::vector<Cmplx>& root, int& n, Cmplx z)
 }
 
 /**
- * Store the root.
+ * Deflate the polynomial.
  */
 void
 deflate(std::vector<Cmplx>& a, int n, Cmplx z)
@@ -315,31 +361,37 @@ solve(std::vector<Cmplx>& a1, int m, std::vector<Cmplx>& root, std::vector<Cmplx
 
     return;
 }
+};
 
+#endif // SOLVER_MADSEN_REID_H
 
+using Real = double;
+using Cmplx = std::complex<Real>;
 
 int
 main()
 {
     int m;
-    std::vector<Cmplx> a1(21), a(21), root(20);
+    std::vector<Cmplx> a1;
 
     std::cout << "Enter degree: ";
     std::cin >> m;
     if (m <= 0)
         return 0;
 
-    a1.resize(m + 1);
-    a.resize(m + 1);
-    root.resize(m);
+    a1.resize(m + 2);
+    //a.resize(m + 1);
+    //root.resize(m);
 
     for (int k = 1; k <= m + 1; ++k)
     {
         std::cout << "Enter coefficient " << k - 1 << ": ";
         std::cin >> a1[m + 2 - k];
     }
-    
-    solve(a1, m, root, a);
+
+    //solve(a1, m, root, a);
+    SolverMadsenReid<Real> smr(a1);
+    auto root = smr.solve();
 
     std::cout << '\n';
     for (int k = 1; k <= m; ++k)
