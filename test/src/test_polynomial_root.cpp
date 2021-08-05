@@ -3,7 +3,7 @@
 #include <vector>
 #include <iostream>
 
-#include "ext/polynomial.h"
+#include <ext/polynomial.h>
 
 template<typename _Tp>
   int

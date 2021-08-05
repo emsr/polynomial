@@ -6,8 +6,8 @@
 #include <algorithm>
 #include <random>
 
-#include "ext/polynomial.h"
-#include "ext/solver_bairstow.h"
+#include <ext/polynomial.h>
+#include <ext/solver_bairstow.h>
 
 template<typename _Real>
   int

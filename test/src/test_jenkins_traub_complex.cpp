@@ -4,8 +4,8 @@
 #include <iostream>
 #include <limits>
 
-#include "ext/polynomial.h"
-#include "ext/solver_jenkins_traub.h"
+#include <ext/polynomial.h>
+#include <ext/solver_jenkins_traub.h>
 
 template<typename Real>
 int

@@ -7,7 +7,7 @@
 #include <complex>
 #include <sstream>
 
-#include "ext/static_polynomial.h"
+#include <ext/static_polynomial.h>
 
 constexpr void
 test_static_polynomial()

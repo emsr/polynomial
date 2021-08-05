@@ -2,8 +2,8 @@
 #include <iostream>
 #include <iomanip>
 
-#include "ext/polynomial.h"
-#include "ext/solver_jenkins_traub.h"
+#include <ext/polynomial.h>
+#include <ext/solver_jenkins_traub.h>
 
 
 template<typename Real>

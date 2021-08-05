@@ -3,7 +3,7 @@
 #include <complex>
 #include <sstream>
 
-#include "ext/rational_polynomial.h"
+#include <ext/rational_polynomial.h>
 
 int
 main()
