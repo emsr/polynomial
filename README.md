@@ -10,4 +10,4 @@ It is designed to work with C and fortran algorithms that have a size, pointer i
 
 I am working on a sparse polynomial that is a set of (possibly multivariate) monomials.
 
-This library has implementations of several root finders including Jenkins-Traub and Bairstow, and Laguerre and quadratic factorization steppers.
+This library has implementations of several root finders including Jenkins-Traub (real and complex), Madsen-Reid and Bairstow, and Laguerre and quadratic factorization steppers.
