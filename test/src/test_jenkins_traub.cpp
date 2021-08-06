@@ -33,7 +33,7 @@ template<typename _Real>
 	std::cin >> a[i];
       }
     std::cout << "\nP : ( ";
-    for (int i = 0; i < order; ++i)
+    for (int i = 0; i <= order; ++i)
       std::cout << a[order - i] << ", ";
     std::cout << a[0] << " )\n";
 
