@@ -1,7 +1,7 @@
 #! /bin/bash
 
-src_dir=`pwd`
-echo $src_dir
+src_dir=$(pwd)
+echo "Source directory: $src_dir"
 
 mkdir -p $HOME/builds/cxx_polynomial/release
 cd $HOME/builds/cxx_polynomial/release
