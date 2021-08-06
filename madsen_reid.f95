@@ -12,7 +12,7 @@ double precision function norml2(z)
 end function
 
 ! Evaluate polynomial at z, set fz, return squared modulus.
-double precision function pa06dd(z, fz, n1, a)
+double precision function eval(z, fz, n1, a)
 
     implicit none
     double complex z, fz, a(n1), p
@@ -26,13 +26,13 @@ double precision function pa06dd(z, fz, n1, a)
     end do
     fz = p
 
-    pa06dd = real(fz)**2 + aimag(fz)**2
+    eval = real(fz)**2 + aimag(fz)**2
 end function
 
 !
 ! Root search...
 !
-subroutine pa06bd(a1, m, root, a, mp1)
+subroutine solve(a1, m, root, a, mp1)
 
     implicit none
 
@@ -41,7 +41,7 @@ subroutine pa06bd(a1, m, root, a, mp1)
     double precision f0, ff, f, fa, dz1, fmin, f2
     logical stage1, div2
     double precision BIG, SMALL, BASE, EPS, SSMALL, ALOGB
-    double precision norml1, norml2, pa06dd
+    double precision norml1, norml2, eval
 
     integer m, mp1, n, j, i, n1, k
     double precision r0, t, u, u0, u1, u2, r, r1
@@ -150,12 +150,12 @@ subroutine pa06bd(a1, m, root, a, mp1)
     u = 0.5 * t / norml1(z)
     z = u * z
     dz = z
-    f =  pa06dd(z, fz, n + 1, a)
+    f =  eval(z, fz, n + 1, a)
     r0 = 0.5 * t
 
     ! Calculate tentative step.
 120 continue
-    u = pa06dd(z, f1z, n, a1)
+    u = eval(z, f1z, n, a1)
     if (u .eq. 0.0) then
         goto 140
     end if
@@ -196,7 +196,7 @@ subroutine pa06bd(a1, m, root, a, mp1)
         z = complex(real(z), 0.0)
     end if
     w = z
-    f = pa06dd(z, fz, n + 1, a)
+    f = eval(z, fz, n + 1, a)
     ff = f
     if (.not.stage1) then
         goto 240
@@ -213,7 +213,7 @@ subroutine pa06bd(a1, m, root, a, mp1)
         w = w + dz
     end if
 
-    fa = pa06dd(w, fw, n + 1, a)
+    fa = eval(w, fw, n + 1, a)
     if (fa .ge. f) then
         goto 240
     end if
@@ -233,7 +233,7 @@ subroutine pa06bd(a1, m, root, a, mp1)
     dz = complex(0.6 * dz1 - 0.8 * aimag(dz), &
                  0.8 * dz1 + 0.6 * aimag(dz))
     z = z0 + dz
-    f = pa06dd(z, fz, n + 1, a)
+    f = eval(z, fz, n + 1, a)
 
     ! End of stage 1 search.
 
@@ -306,7 +306,7 @@ program mr
         read(5,*) a1(m+2-k)
     end do
     
-    call pa06bd(a1, m, root, a, m+1)
+    call solve(a1, m, root, a, m+1)
 
     do k = 1, m
         write(6,*) 'Zero ', k-1, ': ', root(k)
