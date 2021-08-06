@@ -10,8 +10,6 @@
 #ifndef SOLVER_MADSEN_REID_TCC
 #define SOLVER_MADSEN_REID_TCC 1
 
-#include <complex>
-
   /**
    * Root search...
    */
@@ -29,24 +27,18 @@
 
         Real r0, u0, r, r1;
 
-        const Real DIGITS = std::numeric_limits<Real>::max_digits10;
-        const Real BIG = std::numeric_limits<Real>::max(); // Overflow limit
-        const Real SMALL = std::numeric_limits<Real>::min(); // Underflow limit.
-        const Real BASE = std::numeric_limits<Real>::radix; // 16 -> 2
-        const Real EPS = std::numeric_limits<Real>::epsilon();
-
         const Real SSMALL = std::sqrt(SMALL);
         const Real ALOGB = std::log(BASE);
 
         const auto THETA = std::atan(Real{3} / Real{4});
-        const auto PHASE = std::polar(Real{1}, THETA);
+        const auto PHASE = std::polar(Real{1}, -THETA);
 
         int n = m;
 
         // Store original polynomial in a and in root.
-        int j = m + 1;
-        a[j] = a1[1];
-        for (int i = 1; i <= m; ++i)
+        int j = m;
+        a[j] = a1[0];
+        for (int i = 0; i < m; ++i)
         {
             root[i] = a1[i];
             a[i] = a1[j];
@@ -54,9 +46,9 @@
         }
 
         // Test for zeros at infinity.
-        while (norm_l1(a[1]) <= 0 && n > 0)
+        while (norm_l1(a[0]) <= 0 && n > 0)
         {
-            for (int i = 1; i <= n; ++i)
+            for (int i = 0; i < n; ++i)
             {
                 a[i] = a[i + 1];
             }
@@ -64,22 +56,20 @@
             --n;
         }
 
-        while (n >= 1)
+        while (n >= 0)
         {
             if (n == 1)
             {
-                z = -a[2] / a[1];
-                a1[n] = root[n];
-                root[n] = z;
+                z = -a[1] / a[0];
+                a1[n-1] = root[n-1];
+                root[n-1] = z;
                 return;
             }
-
-            int n1 = n + 1;
 
             // Scale the coefficients.
             auto u1 = Real {0};
             auto u2 = BIG;
-            for(int k = 1; k <= n1; ++k)
+            for(int k = 0; k <= n; ++k)
             {
                 auto u = norm_l1(a[k]);
                 if (u <= Real{0})
@@ -92,22 +82,22 @@
             auto u = std::sqrt(u1) * std::sqrt(u2);
             int i = -std::log(u) / ALOGB; // ilogb?
             u = std::pow(BASE, Real(i));
-            for (int k = 1; k <= n; ++k)
+            for (int k = 0; k < n; ++k)
             {
                 a[k] = u * a[k];
-                a1[k] = a[k] * Real(n1 - k);
+                a1[k] = a[k] * Real(n - k);
             }
-            a[n1] = u * a[n1];
+            a[n] = u * a[n];
 
             // Test for zeros at (0, 0)
             z = Cmplx(0, 0);
-            if (norm_l1(a[n1]) <= SSMALL)
+            if (norm_l1(a[n]) <= SSMALL)
             {
                 push_root(a1, root, n, z);
                 continue;
             }
             z0 = Cmplx(0, 0);
-            f0 = norm_l2(a[n1]);
+            f0 = norm_l2(a[n]);
             fmin = f0 * std::pow(Real(n) * DIGITS * EPS, 2);
 
             // z is the current point
@@ -120,21 +110,21 @@
             ff = f0;
             u0 = f0;
             auto t = BIG;
-            for (int k = 1; k <= n; ++k)
+            for (int k = 0; k < n; ++k)
             {
                 u = norm_l2(a[k]);
                 if (u == Real{0})
                     continue;
-                u = std::log(u0 / u) / Real(2 *(n1 - k));
+                u = std::log(u0 / u) / Real(2 *(n - k));
                 if (u < t)
                     t = u;
             }
             t = std::exp(t);
-            f0z = a[n];
+            f0z = a[n - 1];
             z = Cmplx(1, 0);
             if (norm_l1(f0z) > Real{0})
             {
-                z = -a[n1] / a[n];
+                z = -a[n] / a[n - 1];
             }
             u = 0.5 * t / norm_l1(z);
             z = u * z;
@@ -188,7 +178,7 @@
                 {
                     if (div2)
                     {
-                        dz = Real{0.5L} * dz;
+                        dz *= Real{0.5L};
                         w = z0 + dz;
                     }
                     else

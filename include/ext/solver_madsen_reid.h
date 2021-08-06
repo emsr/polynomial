@@ -1,4 +1,8 @@
 /**
+ * @file solver_madsen_reid.h Class declaration for the Madsen-Reid solver.
+ */
+
+/**
  * @def  SOLVER_MADSEN_REID_H
  *
  * @brief  A guard for the SolverMadsenReid class header.
@@ -15,21 +19,21 @@
  * Return the L1 sum of absolute values or Manhattan metric of a complex number.
  */
 template<typename Real>
-inline Real
-norm_l1(std::complex<Real> z)
-{
+  inline Real
+  norm_l1(std::complex<Real> z)
+  {
     return std::abs(std::real(z)) + std::abs(std::imag(z));
-}
+  }
 
 /**
  * Return the L2 modulus of the complex number (this is std::norm).
  */
 template<typename Real>
-inline Real
-norm_l2(std::complex<Real> z)
-{
+  inline Real
+  norm_l2(std::complex<Real> z)
+  {
     return std::norm(z);
-}
+  }
 
 template<typename Real>
   class SolverMadsenReid
@@ -40,6 +44,8 @@ template<typename Real>
 
     /**
      * Constructor.
+     *
+     * @param a_in Coefficient of the polynomial in "big-endian" - largest degree coefficient first - order.
      */
     SolverMadsenReid(const std::vector<Cmplx>& a_in)
     : poly(a_in),
@@ -47,7 +53,7 @@ template<typename Real>
     {}
 
     /**
-     * Solve.
+     * Solve the polynomial.
      */
     std::vector<Cmplx>
     solve()
@@ -56,13 +62,19 @@ template<typename Real>
         if (poly.size() <= 1)
             return root;
 
-        int m = poly.size() - 2;
-        root.resize(m + 1);
-        solve(poly, m, root, poly_work);
+        int degree = poly.size() - 1;
+        root.resize(degree);
+        solve(poly, degree, root, poly_work);
         return root;
     }
 
   private:
+
+    static constexpr Real DIGITS = std::numeric_limits<Real>::max_digits10;
+    static constexpr Real BIG = std::numeric_limits<Real>::max(); // Overflow limit
+    static constexpr Real SMALL = std::numeric_limits<Real>::min(); // Underflow limit.
+    static constexpr Real BASE = std::numeric_limits<Real>::radix;
+    static constexpr Real EPS = std::numeric_limits<Real>::epsilon();
 
     /// Big-endian polynomial.
     std::vector<Cmplx> poly;
@@ -72,13 +84,19 @@ template<typename Real>
 
     /**
      * Evaluate polynomial at z, set fz, return squared modulus.
+     *
+     * @param  z     Argument of the polynomial.
+     * @param  fz    Polynomial value at the given argument.
+     * @param  size  Size (degree + 1) of the polynomial polynomial.
+     * @param  a     Polynomial coefficients.
+     * @return  Squared modulus of the function value.
      */
     Real
-    eval(Cmplx z, Cmplx& fz, int n1, const std::vector<Cmplx>& a)
+    eval(Cmplx z, Cmplx& fz, int size, const std::vector<Cmplx>& a)
     {
-        auto n = n1 - 1;
-        auto p = a[1];
-        for (int i = 1; i <= n; ++i)
+        auto deg = size - 1;
+        auto p = a[0];
+        for (int i = 0; i < deg; ++i)
         {
             p = p * z + a[i + 1];
         }
@@ -90,22 +108,30 @@ template<typename Real>
 
     /**
      * Store the root.
+     *
+     * @param  a1  Working polynomial.
+     * @param  root  Roots of the polynomial.
+     * @param  z  New root of the polynomial.
      */
     void
     push_root(std::vector<Cmplx>& a1, std::vector<Cmplx>& root, int& n, Cmplx z)
     {
-        a1[n] = root[n];
-        root[n] = z;
+        a1[n - 1] = root[n - 1];
+        root[n - 1] = z;
         --n;
     }
 
     /**
      * Deflate the polynomial.
+     *
+     * @param  a  Polynomial
+     * @param  n  New degree.
+     * @param  z  New root of the polynomial.
      */
     void
     deflate(std::vector<Cmplx>& a, int n, Cmplx z)
     {
-        for (int k = 2; k <= n; ++k)
+        for (int k = 1; k < n; ++k)
         {
             a[k] = a[k - 1] * z + a[k];
         }
@@ -113,6 +139,11 @@ template<typename Real>
 
     /**
      * Root search...
+     *
+     * @param  a     Input polynomial
+     * @param  n     Degree.
+     * @param  root  Roots of the polynomial.
+     * @param  a     Working polynomial.
      */
     void solve(std::vector<Cmplx>& a1, int m, std::vector<Cmplx>& root, std::vector<Cmplx>& a);
   };

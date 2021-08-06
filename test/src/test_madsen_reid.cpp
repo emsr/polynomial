@@ -24,34 +24,30 @@ template<typename Real>
     if (m <= 0)
       return 0;
 
-    a1.resize(m + 2);
+    a1.resize(m + 1);
 
-    for (int k = 1; k <= m + 1; ++k)
+    for (int k = 0; k <= m; ++k)
       {
-        std::cout << "Enter coefficient " << k - 1 << ": ";
-        std::cin >> a1[m + 2 - k];
+        std::cout << "Enter coefficient " << k << ": ";
+        std::cin >> a1[m - k];
       }
 
     SolverMadsenReid<Real> smr(a1);
     auto root = smr.solve();
 
     std::cout << '\n';
-    for (int k = 1; k <= m; ++k)
-      {
-        std::cout << "Zero " << k - 1 << ": " << root[k] << '\n';
-      }
+    for (unsigned int k = 0; k < root.size(); ++k)
+      std::cout << "Zero " << k << ": " << root[k] << '\n';
 
     int num_errors = 0;
     const auto tol = std::sqrt(std::numeric_limits<Real>::epsilon());
 
     std::cout << "\nSolution tests:\n";
     // Remember to reverse the polynomial coefficients!
-    __gnu_cxx::_Polynomial<Cmplx> poly(a1.rbegin(), a1.rend() - 1);
+    __gnu_cxx::_Polynomial<Cmplx> poly(a1.rbegin(), a1.rend());
     std::cout << "P(z) = " << poly << '\n';
-    //for (const auto& z : zeros)
-    for (int k = 1; k <= m; ++k)
+    for (const auto& z : root)
       {
-        const auto z = root[k];
 	std::cout << "P(" << z << ") = ";
 	const auto P = poly(z);
 	std::cout << P << '\n';
