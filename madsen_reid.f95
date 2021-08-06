@@ -119,9 +119,9 @@ subroutine solve(a1, m, root, a, mp1)
     end if
     z0 = complex(0.0, 0.0)
     f0 = norml2(a(n1))
-    fmin = f0 * (dble(n) * 16.0 * EPS)**2 ! 16.0 -> 2.0
+    fmin = f0 * (dble(n) * 16.0 * EPS)**2
 
-    ! z is te current point
+    ! z is the current point
     ! f = |f(z)|^2
     ! z0 is the last point
     ! f0z = f'(z0)
