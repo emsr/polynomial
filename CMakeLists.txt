@@ -29,6 +29,7 @@ configure_file(${CMAKE_CURRENT_SOURCE_DIR}/test/input/test_solver7.in ${CMAKE_CU
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/test/input/test_solver8.in ${CMAKE_CURRENT_BINARY_DIR}/test_solver8.in COPYONLY)
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/test/input/test_solver9.in ${CMAKE_CURRENT_BINARY_DIR}/test_solver9.in COPYONLY)
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/test/input/test_bairstow.in ${CMAKE_CURRENT_BINARY_DIR}/test_bairstow.in COPYONLY)
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/test/input/madsen_reid_bug.in ${CMAKE_CURRENT_BINARY_DIR}/madsen_reid_bug.in COPYONLY)
 
 find_package(Doxygen)
 if (DOXYGEN_FOUND)
@@ -65,6 +66,7 @@ add_test(NAME run_test_madsen_reid_8 COMMAND bash -c "${CMAKE_BINARY_DIR}/bin/te
 add_test(NAME run_test_madsen_reid_9 COMMAND bash -c "${CMAKE_BINARY_DIR}/bin/test_madsen_reid < ${CMAKE_CURRENT_BINARY_DIR}/test_solver9.in > output/test_madsen_reid_9.txt")
 add_test(NAME test_madsen_reid_complex_1 COMMAND bash -c "${CMAKE_BINARY_DIR}/bin/test_madsen_reid < ${CMAKE_CURRENT_BINARY_DIR}/complex_solver1.in > output/test_madsen_reid_complex_1.txt")
 add_test(NAME test_madsen_reid_complex_2 COMMAND bash -c "${CMAKE_BINARY_DIR}/bin/test_madsen_reid < ${CMAKE_CURRENT_BINARY_DIR}/complex_solver2.in > output/test_madsen_reid_complex_2.txt")
+add_test(NAME test_madsen_reid_bug COMMAND bash -c "${CMAKE_BINARY_DIR}/bin/test_madsen_reid < ${CMAKE_CURRENT_BINARY_DIR}/madsen_reid_bug.in > output/madsen_reid_bug.txt")
 
 add_executable(test_jenkins_traub test/src/test_jenkins_traub.cpp)
 target_link_libraries(test_jenkins_traub cxx_polynomial quadmath)
@@ -95,10 +97,6 @@ add_test(NAME test_jenkins_traub_complex_complex_2 COMMAND bash -c "${CMAKE_BINA
 add_executable(test_polynomial test/src/test_polynomial.cpp)
 target_link_libraries(test_polynomial cxx_polynomial quadmath)
 add_test(NAME run_test_polynomial COMMAND bash -c "${CMAKE_BINARY_DIR}/bin/test_polynomial > output/test_polynomial.txt")
-
-add_executable(test_polynomial_root test/src/test_polynomial_root.cpp)
-target_link_libraries(test_polynomial_root cxx_polynomial quadmath)
-add_test(NAME run_test_polynomial_root COMMAND bash -c "${CMAKE_BINARY_DIR}/bin/test_polynomial_root > output/test_polynomial_root.txt")
 
 add_executable(test_rational_polynomial test/src/test_rational_polynomial.cpp)
 target_link_libraries(test_rational_polynomial cxx_polynomial quadmath)
