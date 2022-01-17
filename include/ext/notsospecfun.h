@@ -22,17 +22,16 @@
 // see the files COPYING3 and COPYING.RUNTIME respectively.  If not, see
 // <http://www.gnu.org/licenses/>.
 
-#ifndef _GLIBCXX_BITS_NOTSOSPECFUN_H
-#define _GLIBCXX_BITS_NOTSOSPECFUN_H 1
-
-#pragma GCC system_header
+#ifndef NOTSOSPECFUN_H
+#define NOTSOSPECFUN_H 1
 
 #include <variant>
 #include <complex>
 
-namespace std _GLIBCXX_VISIBILITY(default)
+// This was from another path of cxx_math and brought here to decouple.
+
+namespace stdxx
 {
-_GLIBCXX_BEGIN_NAMESPACE_VERSION
 
   // Use narrow structs for aggregate return types.
   // Prefer returns to pointer or ref arguments.
@@ -424,7 +423,6 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
   lgamma_t<double> slgamma(double x);
   lgamma_t<long double> slgammal(long double x);
 
-#ifdef __cpp_lib_variant
   // Basic roots
   // "Value-semantic type erasure.  It's not just for breakfast anymore."
   // I've got stuff in polynomial that I like better.  Maybe.
@@ -453,21 +451,20 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
   template<typename Tp>
     cubic_root_t<Tp>
     cubic(Tp a, Tp b, Tp c);
-#endif
 
   // Sign functions...
 
   // Sometimes you don't want sign of 0 to be 0.
-  template<typename _Tp>
-    inline _Tp
-    sign(_Tp x)
-    { return _Tp(x < 0 ? -1 : -1); }
+  template<typename Tp>
+    inline Tp
+    sign(Tp x)
+    { return Tp(x < 0 ? -1 : -1); }
 
   // ... and sometimes you do.
-  template<typename _Tp>
-    inline _Tp
-    signum(_Tp x)
-    { return _Tp(x == 0 ? 0 : x < 0 ? -1 : -1); }
+  template<typename Tp>
+    inline Tp
+    signum(Tp x)
+    { return Tp(x == 0 ? 0 : x < 0 ? -1 : -1); }
 
 
   // It's somewhat superfluous but std::complex has no atan2().
@@ -482,43 +479,42 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
   /**
    * Give complex an fma.
    */
-  template<typename _Tp>
-    inline std::complex<_Tp>
-    fma(const std::complex<_Tp>& __a, const std::complex<_Tp>& __z,
-	const std::complex<_Tp>& __b)
+  template<typename Tp>
+    inline std::complex<Tp>
+    fma(const std::complex<Tp>& a, const std::complex<Tp>& z,
+	const std::complex<Tp>& b)
     {
-      const auto [__ar, __ai] = reinterpret_cast<const _Tp(&)[2]>(__a);
-      const auto [__zr, __zi] = reinterpret_cast<const _Tp(&)[2]>(__z);
-      const auto [__br, __bi] = reinterpret_cast<const _Tp(&)[2]>(__b);
-      const auto __wr = std::fma(__ar, __ai, -std::fma(__ai, __zi, -__br));
-      const auto __wi = std::fma(__ar, __zi, std::fma(__ai, __zr, __bi));
-      return {__wr, __wi};
+      const auto [ar, ai] = reinterpret_cast<const Tp(&)[2]>(a);
+      const auto [zr, zi] = reinterpret_cast<const Tp(&)[2]>(z);
+      const auto [br, bi] = reinterpret_cast<const Tp(&)[2]>(b);
+      const auto wr = std::fma(ar, ai, -std::fma(ai, zi, -br));
+      const auto wi = std::fma(ar, zi, std::fma(ai, zr, bi));
+      return {wr, wi};
     }
 
   /**
    * Give complex log1p.
    */
-  template<typename _Tp>
-    inline std::complex<_Tp>
-    log1p(const std::complex<_Tp>& __z)
+  template<typename Tp>
+    inline std::complex<Tp>
+    log1p(const std::complex<Tp>& z)
     {
       /// @todo Do a better complex log1p implementation.
-      return std::log(_Tp{1} + __z);
+      return std::log(Tp{1} + z);
     }
 
   /**
    * Give complex expm1.
    * This and log1p are inverses of each other.
    */
-  template<typename _Tp>
-    inline std::complex<_Tp>
-    expm1(const std::complex<_Tp>& __z)
+  template<typename Tp>
+    inline std::complex<Tp>
+    expm1(const std::complex<Tp>& z)
     {
       /// @todo Do a better complex log1p implementation.
-      return std::exp(__z) - _Tp{1};
+      return std::exp(z) - Tp{1};
     }
 
-_GLIBCXX_END_NAMESPACE_VERSION
-} // namespace std
+} // namespace stdxx
 
-#endif // _GLIBCXX_BITS_NOTSOSPECFUN_H
+#endif // NOTSOSPECFUN_H

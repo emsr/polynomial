@@ -31,18 +31,12 @@
  */
 
 /**
- * @def  _EXT_POLYNOMIAL_H
+ * @def  POLYNOMIAL_H
  *
  * @brief  A guard for the polynomial class header.
  */
-#ifndef _EXT_POLYNOMIAL_H
-#define _EXT_POLYNOMIAL_H 1
-
-#pragma GCC system_header
-
-#if __cplusplus < 201402L
-# include <bits/c++0x_warning.h>
-#else
+#ifndef POLYNOMIAL_H
+#define POLYNOMIAL_H 1
 
 #include <initializer_list>
 #include <vector>
@@ -52,6 +46,8 @@
 #include <utility> // For exchange.
 #include <type_traits>
 #include <complex>
+
+#include <ext/notsospecfun.h>
 
 /**
  * This class is a dense univariate polynomial.
@@ -83,55 +79,53 @@
  * It would be promote_t<complex::value_type> for complex.
  *
  */
-namespace __gnu_cxx //_GLIBCXX_VISIBILITY(default)
+namespace emsr
 {
-_GLIBCXX_BEGIN_NAMESPACE_VERSION
-
 
   template<typename, typename = std::void_t<>>
-    struct __has_imag_t
+    struct has_imag_t
     : std::false_type
     { };
 
-  template<typename _Tp>
-    struct __has_imag_t<_Tp, std::void_t<decltype(std::declval<_Tp&>().imag())>>
+  template<typename Tp>
+    struct has_imag_t<Tp, std::void_t<decltype(std::declval<Tp&>().imag())>>
     : std::true_type
     { };
 
-  template<typename _Tp>
-    constexpr auto __has_imag_v = __has_imag_t<_Tp>::value;
+  template<typename Tp>
+    constexpr auto has_imag_v = has_imag_t<Tp>::value;
 
 
   template<typename, typename = std::void_t<>>
-    struct __has_value_type_t
+    struct has_value_type_t
     : std::false_type
     { };
 
-  template<typename _Tp>
-    struct __has_value_type_t<_Tp, std::void_t<typename _Tp::value_type>>
+  template<typename Tp>
+    struct has_value_type_t<Tp, std::void_t<typename Tp::value_type>>
     : std::true_type
     { };
 
-  template<typename _Tp>
-    constexpr auto __has_value_type_v = __has_value_type_t<_Tp>::value;
+  template<typename Tp>
+    constexpr auto has_value_type_v = has_value_type_t<Tp>::value;
 
 
-  template<typename _Tp>
-    class _Polynomial;
+  template<typename Tp>
+    class Polynomial;
 
-  template<typename _Tp>
-    struct __real_type
-    { using type = _Tp; };
+  template<typename Tp>
+    struct real_type
+    { using type = Tp; };
 
-  template<typename _Tp>
-    struct __real_type<std::complex<_Tp>>
-    { using type = _Tp; };
+  template<typename Tp>
+    struct real_type<std::complex<Tp>>
+    { using type = Tp; };
 
-  template<typename _Tp>
-    struct __real_type<_Polynomial<_Tp>>;
+  template<typename Tp>
+    struct real_type<Polynomial<Tp>>;
 
-  template<typename _Tp>
-    using __real_type_t = typename __real_type<_Tp>::type;
+  template<typename Tp>
+    using real_type_t = typename real_type<Tp>::type;
 
 
   /**
@@ -141,14 +135,14 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
    *    P(x) = a_0 + a_1 x + ... + a_n x^n
    * @f]
    */
-  template<typename _Tp>
-    class _Polynomial
+  template<typename Tp>
+    class Polynomial
     {
     public:
       /**
        * Typedefs.
        */
-      using value_type = typename std::vector<_Tp>::value_type;
+      using value_type = typename std::vector<Tp>::value_type;
       using reference = typename std::vector<value_type>::reference;
       using const_reference = typename std::vector<value_type>::const_reference;
       using pointer = typename std::vector<value_type>::pointer;
@@ -161,57 +155,57 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 		= typename std::vector<value_type>::const_reverse_iterator;
       using size_type = typename std::vector<value_type>::size_type;
       using difference_type = typename std::vector<value_type>::difference_type;
-      using real_type = __real_type_t<_Tp>;
+      using real_type = real_type_t<Tp>;
 
       /**
        * Create a zero degree polynomial with coefficient value zero.
        */
-      _Polynomial()
-      : _M_coeff(1)
+      Polynomial()
+      : m_coeff(1)
       { }
 
       /**
        * Copy ctor.
        */
-      _Polynomial(const _Polynomial&) = default;
+      Polynomial(const Polynomial&) = default;
 
       /**
        * Move ctor.
        */
-      _Polynomial(_Polynomial&&) noexcept = default;
+      Polynomial(Polynomial&&) noexcept = default;
 
-      template<typename _Up>
-	_Polynomial(const _Polynomial<_Up>& __poly)
-	: _M_coeff{}
+      template<typename Up>
+	Polynomial(const Polynomial<Up>& poly)
+	: m_coeff{}
 	{
-          for (const auto __c : __poly)
-	    this->_M_coeff.push_back(static_cast<value_type>(__c));
-          this->_M_set_scale();
+          for (const auto c : poly)
+	    this->m_coeff.push_back(static_cast<value_type>(c));
+          this->m_set_scale();
 	}
 
       /**
        * Create a monomial.
        */
       explicit
-      _Polynomial(value_type __a, size_type __degree = 0)
-      : _M_coeff(__degree + 1)
-      { this->_M_coeff[__degree] = __a; }
+      Polynomial(value_type a, size_type degree = 0)
+      : m_coeff(degree + 1)
+      { this->m_coeff[degree] = a; }
 
       /**
        * Create a polynomial from an initializer list of coefficients.
        */
-      _Polynomial(std::initializer_list<value_type> __ila)
-      : _M_coeff(__ila)
-      { this->_M_set_scale(); }
+      Polynomial(std::initializer_list<value_type> ila)
+      : m_coeff(ila)
+      { this->m_set_scale(); }
 
       /**
        * Create a polynomial from an input iterator range of coefficients.
        */
       template<typename InIter,
 	       typename = std::_RequireInputIter<InIter>>
-	_Polynomial(const InIter& __abegin, const InIter& __aend)
-	: _M_coeff(__abegin, __aend)
-	{ this->_M_set_scale(); }
+	Polynomial(const InIter& abegin, const InIter& aend)
+	: m_coeff(abegin, aend)
+	{ this->m_set_scale(); }
 
       /**
        * Use Lagrange interpolation to construct a polynomial passing through
@@ -219,65 +213,65 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
        */
       template<typename InIter,
 	       typename = std::_RequireInputIter<InIter>>
-	_Polynomial(const InIter& __xbegin, const InIter& __xend,
-		    const InIter& __ybegin)
-	: _M_coeff()
+	Polynomial(const InIter& xbegin, const InIter& xend,
+		    const InIter& ybegin)
+	: m_coeff()
 	{
-	  std::vector<_Polynomial<value_type>> __numer;
-	  std::vector<_Polynomial<value_type>> __denom;
-	  for (auto __xi = __xbegin; __xi != __xend; ++__xi)
+	  std::vector<Polynomial<value_type>> numer;
+	  std::vector<Polynomial<value_type>> denom;
+	  for (auto xi = xbegin; xi != xend; ++xi)
 	    {
-	      for (auto __xj = __xi + 1; __xj != __xend; ++__xj)
-		__denom.push_back(value_type(*__xj) - value_type(*__xi));
-	      __numer.push_back({-value_type(*__xi), value_type{1}});
+	      for (auto xj = xi + 1; xj != xend; ++xj)
+		denom.push_back(value_type(*xj) - value_type(*xi));
+	      numer.push_back({-value_type(*xi), value_type{1}});
 	    }
-          this->_M_set_scale();
+          this->m_set_scale();
 	}
 
       /**
        * Create a polynomial from a generator and a maximum degree.
        */
       template<typename Gen>
-	_Polynomial(Gen __gen, size_type __degree)
-	: _M_coeff()
+	Polynomial(Gen gen, size_type degree)
+	: m_coeff()
 	{
-	  this->_M_coeff.reserve(__degree + 1);
-	  for (size_type __k = 0; __k <= __degree; ++__k)
-	    this->_M_coeff.push_back(__gen(__k));
-          this->_M_set_scale();
+	  this->m_coeff.reserve(degree + 1);
+	  for (size_type k = 0; k <= degree; ++k)
+	    this->m_coeff.push_back(gen(k));
+          this->m_set_scale();
 	}
 
       /**
        * Swap the polynomial with another polynomial.
        */
       void
-      swap(_Polynomial& __poly) noexcept
-      { this->_M_coeff.swap(__poly._M_coeff); }
+      swap(Polynomial& poly) noexcept
+      { this->m_coeff.swap(poly.m_coeff); }
 
       /**
        * Evaluate the polynomial at the input point.
        */
       value_type
-      operator()(value_type __x) const
+      operator()(value_type x) const
       {
 	if (this->degree() > 0)
 	  {
-	    if (std::abs(__x) <= real_type{1})
+	    if (std::abs(x) <= real_type{1})
 	      {
-		value_type __poly(this->coefficient(this->degree()));
-		for (int __i = this->degree() - 1; __i >= 0; --__i)
-		  __poly = __poly * __x + this->coefficient(__i);
-		return __poly;
+		value_type poly(this->coefficient(this->degree()));
+		for (int i = this->degree() - 1; i >= 0; --i)
+		  poly = poly * x + this->coefficient(i);
+		return poly;
 	      }
 	    else
 	      {
-		const auto __rx = real_type{1} / __x;
-		value_type __poly(this->coefficient(0));
-		for (int __i = 1; __i <= this->degree(); ++__i)
-		  __poly = __poly * __rx + this->coefficient(__i);
-		for (int __i = 1; __i <= this->degree(); ++__i)
-		  __poly *= __x;
-		return __poly;
+		const auto rx = real_type{1} / x;
+		value_type poly(this->coefficient(0));
+		for (std::size_t i = 1ull; i <= this->degree(); ++i)
+		  poly = poly * rx + this->coefficient(i);
+		for (std::size_t i = 1ull; i <= this->degree(); ++i)
+		  poly *= x;
+		return poly;
 	      }
 	  }
 	else
@@ -287,33 +281,33 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
       /**
        * Evaluate the polynomial at the input point.
        */
-      template<typename _Up>
+      template<typename Up>
 	auto
-	operator()(_Up __x) const
-	-> decltype(value_type{} * _Up{})
+	operator()(Up x) const
+	-> decltype(value_type{} * Up{})
 	{
 	  if (this->degree() > 0)
 	    {
-	      if (std::abs(__x) <= real_type{1})
+	      if (std::abs(x) <= real_type{1})
 		{
-		  auto __poly(_Up{1} * this->coefficient(this->degree()));
-		  for (int __i = this->degree() - 1; __i >= 0; --__i)
-		    __poly = __poly * __x + this->coefficient(__i);
-		  return __poly;
+		  auto poly(Up{1} * this->coefficient(this->degree()));
+		  for (int i = this->degree() - 1; i >= 0; --i)
+		    poly = poly * x + this->coefficient(i);
+		  return poly;
 		}
 	      else
 		{
-		  const auto __rx = real_type{1} / __x;
-		  auto __poly(_Up{1} * this->coefficient(0));
-		  for (int __i = 1; __i <= this->degree(); ++__i)
-		    __poly = __poly * __rx + this->coefficient(__i);
-		  for (int __i = 1; __i <= this->degree(); ++__i)
-		    __poly *= __x;
-		  return __poly;
+		  const auto rx = real_type{1} / x;
+		  auto poly(Up{1} * this->coefficient(0));
+		  for (std::size_t i = 1ull; i <= this->degree(); ++i)
+		    poly = poly * rx + this->coefficient(i);
+		  for (std::size_t i = 1ull; i <= this->degree(); ++i)
+		    poly *= x;
+		  return poly;
 		}
 	    }
 	  else
-	    return _Up{1} * this->coefficient(0);
+	    return Up{1} * this->coefficient(0);
 	}
 
       /**
@@ -327,12 +321,12 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
        * If n is the degree of the polynomial,
        * n - 3 multiplies and 4 * n - 6 additions are saved.
        */
-      template<typename _Up>
+      template<typename Up>
 	auto
-	operator()(const std::complex<_Up>& __z) const
-	-> std::enable_if_t<!__has_imag_v<_Tp>,
+	operator()(const std::complex<Up>& z) const
+	-> std::enable_if_t<!has_imag_v<Tp>,
 			    std::complex<std::decay_t<
-		decltype(typename _Polynomial<_Tp>::value_type{} * _Up{})>>>;
+		decltype(typename Polynomial<Tp>::value_type{} * Up{})>>>;
 
       /**
        * Evaluate the polynomial at a range of input points.
@@ -343,17 +337,17 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
       template<typename InIter, typename OutIter,
 	       typename = std::_RequireInputIter<InIter>>
 	OutIter
-	operator()(const InIter& __xbegin, const InIter& __xend,
-        	   OutIter& __pbegin) const
+	operator()(const InIter& xbegin, const InIter& xend,
+        	   OutIter& pbegin) const
 	{
-	  for (; __xbegin != __xend; ++__xbegin)
-	    __pbegin++ = (*this)(__xbegin++);
-	  return __pbegin;
+	  for (; xbegin != xend; ++xbegin)
+	    pbegin++ = (*this)(xbegin++);
+	  return pbegin;
 	}
 
       template<size_type N>
 	void
-	eval(value_type __x, std::array<value_type, N>& __arr);
+	eval(value_type x, std::array<value_type, N>& arr);
 
       /**
        * Evaluate the polynomial and its derivatives at the point x.
@@ -362,19 +356,19 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
        */
       template<typename OutIter>
 	void
-	eval(value_type __x, OutIter __b, OutIter __e);
+	eval(value_type x, OutIter b, OutIter e);
 
       /**
        * Evaluate the even part of the polynomial at the input point.
        */
       value_type
-      eval_even(value_type __x) const;
+      eval_even(value_type x) const;
 
       /**
        * Evaluate the odd part of the polynomial at the input point.
        */
       value_type
-      eval_odd(value_type __x) const;
+      eval_odd(value_type x) const;
 
       /**
        * Evaluate the even part of the polynomial using a modification
@@ -388,12 +382,12 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
        * If n is the degree of the polynomial,
        * n - 3 multiplies and 4 * n - 6 additions are saved.
        */
-      template<typename _Up>
+      template<typename Up>
 	auto
-	eval_even(const std::complex<_Up>& __z) const
-	-> std::enable_if_t<!__has_imag_v<_Tp>,
+	eval_even(const std::complex<Up>& z) const
+	-> std::enable_if_t<!has_imag_v<Tp>,
 			    std::complex<std::decay_t<
-		decltype(typename _Polynomial<_Tp>::value_type{} * _Up{})>>>;
+		decltype(typename Polynomial<Tp>::value_type{} * Up{})>>>;
 
       /**
        * Evaluate the odd part of the polynomial using a modification
@@ -407,69 +401,69 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
        * If n is the degree of the polynomial,
        * n - 3 multiplies and 4 * n - 6 additions are saved.
        */
-      template<typename _Up>
+      template<typename Up>
 	auto
-	eval_odd(const std::complex<_Up>& __z) const
-	-> std::enable_if_t<!__has_imag_v<_Tp>,
+	eval_odd(const std::complex<Up>& z) const
+	-> std::enable_if_t<!has_imag_v<Tp>,
 			std::complex<std::decay_t<
-		decltype(typename _Polynomial<_Tp>::value_type{} * _Up{})>>>;
+		decltype(typename Polynomial<Tp>::value_type{} * Up{})>>>;
 
       /**
        * Return the derivative polynomial.
        */
-      _Polynomial
+      Polynomial
       derivative() const
       {
-	_Polynomial __res(value_type{},
+	Polynomial res(value_type{},
 			  this->degree() > 0UL ? this->degree() - 1 : 0UL);
-	for (size_type __n = this->degree(), __i = 1; __i <= __n; ++__i)
-	  __res._M_coeff[__i - 1] = __i * this->_M_coeff[__i];
-	return __res;
+	for (size_type n = this->degree(), i = 1; i <= n; ++i)
+	  res.m_coeff[i - 1] = i * this->m_coeff[i];
+	return res;
       }
 
       /**
        * Return the derivative of the polynomial at the given point.
        */
-      template<typename _Up>
-        decltype(_Up{} * value_type{})
-        derivative(_Up c) const
+      template<typename Up>
+        decltype(Up{} * value_type{})
+        derivative(Up c) const
         {
-	  using res_t = decltype(_Up{} * value_type{});
+	  using res_t = decltype(Up{} * value_type{});
 	  const int n = this->degree();
-	  res_t res = real_type(n) * this->_M_coeff[n];
+	  res_t res = real_type(n) * this->m_coeff[n];
           for (int i = n - 1; i > 0; --i)
-	    res = c * res + real_type(i) * this->_M_coeff[i];
+	    res = c * res + real_type(i) * this->m_coeff[i];
 	  return res;
         }
 
       /**
        * Return the integral polynomial with given integration constant.
        */
-      _Polynomial
-      integral(value_type __c = value_type{}) const
+      Polynomial
+      integral(value_type c = value_type{}) const
       {
-	_Polynomial __res(value_type{}, this->degree() + 1);
-	__res._M_coeff[0] = __c;
-	for (size_type __n = this->degree(), __i = 0; __i <= __n; ++__i)
-	  __res._M_coeff[__i + 1] = this->_M_coeff[__i] / value_type(__i + 1);
-	return __res;
+	Polynomial res(value_type{}, this->degree() + 1);
+	res.m_coeff[0] = c;
+	for (size_type n = this->degree(), i = 0; i <= n; ++i)
+	  res.m_coeff[i + 1] = this->m_coeff[i] / value_type(i + 1);
+	return res;
       }
 
       /**
        * Return the integral of the polynomial with given integration limits.
        */
-      template<typename _Up>
-        decltype(_Up{} * value_type{})
-	integral(_Up a, _Up b) const
+      template<typename Up>
+        decltype(Up{} * value_type{})
+	integral(Up a, Up b) const
         {
-	  using res_t = decltype(_Up{} * value_type{});
+	  using res_t = decltype(Up{} * value_type{});
 	  const int n = this->degree();
-	  const auto coeff = this->_M_coeff[n] / real_type(n + 1);
+	  const auto coeff = this->m_coeff[n] / real_type(n + 1);
 	  res_t resa = coeff * a;
 	  res_t resb = coeff * b;
 	  for (int i = n - 1; i >= 0; --i)
 	    {
-	      const auto coeff = this->_M_coeff[i] / real_type(i + 1);
+	      const auto coeff = this->m_coeff[i] / real_type(i + 1);
 	      resa += coeff;
 	      resa *= a;
 	      resb += coeff;
@@ -481,43 +475,43 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
       /**
        * Unary plus.
        */
-      _Polynomial
+      Polynomial
       operator+() const noexcept
       { return *this; }
 
       /**
        * Unary minus.
        */
-      _Polynomial
+      Polynomial
       operator-() const
-      { return _Polynomial(*this) *= value_type(-1); }
+      { return Polynomial(*this) *= value_type(-1); }
 
       /**
        * Assign from a scalar.
        * The result is a zero degree polynomial equal to the scalar.
        */
-      _Polynomial&
-      operator=(const value_type& __x)
+      Polynomial&
+      operator=(const value_type& x)
       {
-	this->_M_coeff = {__x};
+	this->m_coeff = {x};
 	return *this;
       }
 
       /**
        * Copy assignment.
        */
-      _Polynomial&
-      operator=(const _Polynomial&) = default;
+      Polynomial&
+      operator=(const Polynomial&) = default;
 
-      template<typename _Up>
-	_Polynomial&
-	operator=(const _Polynomial<_Up>& __poly)
+      template<typename Up>
+	Polynomial&
+	operator=(const Polynomial<Up>& poly)
 	{
-	  if (&__poly != this)
+	  if (&poly != this)
 	    {
-	      this->_M_coeff.clear();
-	      for (const auto __c : __poly)
-		this->_M_coeff.push_back(static_cast<value_type>(__c));
+	      this->m_coeff.clear();
+	      for (const auto c : poly)
+		this->m_coeff.push_back(static_cast<value_type>(c));
 	      return *this;
 	    }
 	}
@@ -525,56 +519,56 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
       /**
        * Assign from an initialiser list.
        */
-      _Polynomial&
-      operator=(std::initializer_list<value_type> __ila)
+      Polynomial&
+      operator=(std::initializer_list<value_type> ila)
       {
-	this->_M_coeff = __ila;
+	this->m_coeff = ila;
 	return *this;
       }
 
       /**
        * Add a scalar to the polynomial.
        */
-      template<typename _Up>
-	_Polynomial&
-	operator+=(const _Up& __x)
+      template<typename Up>
+	Polynomial&
+	operator+=(const Up& x)
 	{
-	  this->_M_coeff[0] += static_cast<value_type>(__x);
+	  this->m_coeff[0] += static_cast<value_type>(x);
 	  return *this;
 	}
 
       /**
        * Subtract a scalar from the polynomial.
        */
-      template<typename _Up>
-	_Polynomial&
-	operator-=(const _Up& __x)
+      template<typename Up>
+	Polynomial&
+	operator-=(const Up& x)
 	{
-	  this->_M_coeff[0] -= static_cast<value_type>(__x);
+	  this->m_coeff[0] -= static_cast<value_type>(x);
 	  return *this;
 	}
 
       /**
        * Multiply the polynomial by a scalar.
        */
-      template<typename _Up>
-	_Polynomial&
-	operator*=(const _Up& __c)
+      template<typename Up>
+	Polynomial&
+	operator*=(const Up& c)
 	{
-	  for (size_type __i = 0; __i < this->_M_coeff.size(); ++__i)
-	    this->_M_coeff[__i] *= static_cast<value_type>(__c);
+	  for (size_type i = 0; i < this->m_coeff.size(); ++i)
+	    this->m_coeff[i] *= static_cast<value_type>(c);
 	  return *this;
 	}
 
       /**
        * Divide the polynomial by a scalar.
        */
-      template<typename _Up>
-	_Polynomial&
-	operator/=(const _Up& __c)
+      template<typename Up>
+	Polynomial&
+	operator/=(const Up& c)
 	{
-	  for (size_type __i = 0; __i < this->_M_coeff.size(); ++__i)
-	    this->_M_coeff[__i] /= static_cast<value_type>(__c);
+	  for (size_type i = 0; i < this->m_coeff.size(); ++i)
+	    this->m_coeff[i] /= static_cast<value_type>(c);
 	  return *this;
 	}
 
@@ -582,72 +576,72 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
        * Take the modulus of the polynomial relative to a scalar.
        * The result is always a zero polunomial.
        */
-      template<typename _Up>
-	_Polynomial&
-	operator%=(const _Up&)
+      template<typename Up>
+	Polynomial&
+	operator%=(const Up&)
 	{
 	  this->degree(0UL); // Resize.
-	  this->_M_coeff[0] = value_type{};
+	  this->m_coeff[0] = value_type{};
 	  return *this;
 	}
 
       /**
        * Add another polynomial to the polynomial.
        */
-      template<typename _Up>
-	_Polynomial&
-	operator+=(const _Polynomial<_Up>& __poly)
+      template<typename Up>
+	Polynomial&
+	operator+=(const Polynomial<Up>& poly)
 	{
-	  this->degree(std::max(this->degree(), __poly.degree()));
-	  for (size_type __n = __poly.degree(), __i = 0; __i <= __n; ++__i)
-	    this->_M_coeff[__i] += static_cast<value_type>(__poly._M_coeff[__i]);
+	  this->degree(std::max(this->degree(), poly.degree()));
+	  for (size_type n = poly.degree(), i = 0; i <= n; ++i)
+	    this->m_coeff[i] += static_cast<value_type>(poly.m_coeff[i]);
 	  return *this;
 	}
 
       /**
        * Subtract another polynomial from the polynomial.
        */
-      template<typename _Up>
-	_Polynomial&
-	operator-=(const _Polynomial<_Up>& __poly)
+      template<typename Up>
+	Polynomial&
+	operator-=(const Polynomial<Up>& poly)
 	{
 	  // Resize if necessary.
-	  this->degree(std::max(this->degree(), __poly.degree()));
-	  for (size_type __n = __poly.degree(), __i = 0; __i <= __n; ++__i)
-	    this->_M_coeff[__i] -= static_cast<value_type>(__poly._M_coeff[__i]);
+	  this->degree(std::max(this->degree(), poly.degree()));
+	  for (size_type n = poly.degree(), i = 0; i <= n; ++i)
+	    this->m_coeff[i] -= static_cast<value_type>(poly.m_coeff[i]);
 	  return *this;
 	}
 
       /**
        * Multiply the polynomial by another polynomial.
        */
-      template<typename _Up>
-	_Polynomial&
-	operator*=(const _Polynomial<_Up>& __poly);
+      template<typename Up>
+	Polynomial&
+	operator*=(const Polynomial<Up>& poly);
 
       /**
        * Divide the polynomial by another polynomial.
        */
-      template<typename _Up>
-	_Polynomial&
-	operator/=(const _Polynomial<_Up>& __poly)
+      template<typename Up>
+	Polynomial&
+	operator/=(const Polynomial<Up>& poly)
 	{
-	  _Polynomial<value_type >__quo, __rem;
-	  divmod(*this, __poly, __quo, __rem);
-	  *this = __quo;
+	  Polynomial<value_type >quo, rem;
+	  divmod(*this, poly, quo, rem);
+	  *this = quo;
 	  return *this;
 	}
 
       /**
        * Take the modulus of (modulate?) the polynomial relative to another polynomial.
        */
-      template<typename _Up>
-	_Polynomial&
-	operator%=(const _Polynomial<_Up>& __poly)
+      template<typename Up>
+	Polynomial&
+	operator%=(const Polynomial<Up>& poly)
 	{
-	  _Polynomial<value_type >__quo, __rem;
-	  divmod(*this, __poly, __quo, __rem);
-	  *this = __rem;
+	  Polynomial<value_type >quo, rem;
+	  divmod(*this, poly, quo, rem);
+	  *this = rem;
 	  return *this;
 	}
 
@@ -670,7 +664,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
         const int n = this->degree();
 	for (int j = 1; j <= n; ++j)
 	  for (int i = 1; i <= n - j + 1; ++i)
-	    this->_M_coeff[n - i] += shift * this->_M_coeff[n - i + 1];
+	    this->m_coeff[n - i] += shift * this->m_coeff[n - i + 1];
       }
 
       /**
@@ -678,91 +672,91 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
        */
       size_type
       degree() const noexcept
-      { return this->_M_coeff.size() - 1; }
+      { return this->m_coeff.size() - 1; }
 
       /**
        * Set the degree or the power of the largest coefficient.
        */
       void
-      degree(size_type __degree)
-      { this->_M_coeff.resize(__degree + 1UL); }
+      degree(size_type degree)
+      { this->m_coeff.resize(degree + 1UL); }
 
       /**
        * Return the size of the coefficient sequence.
        */
       size_type
       size() const noexcept
-      { return this->_M_coeff.size(); }
+      { return this->m_coeff.size(); }
 
       /**
        * Return the @c ith coefficient with range checking.
        */
       value_type
-      coefficient(size_type __i) const
-      { return this->_M_coeff.at(__i); }
+      coefficient(size_type i) const
+      { return this->m_coeff.at(i); }
 
       /**
        * Set coefficient @c i to @c val with range checking.
        */
       void
-      coefficient(size_type __i, value_type __val)
-      { this->_M_coeff.at(__i) = __val; }
+      coefficient(size_type i, value_type val)
+      { this->m_coeff.at(i) = val; }
 
       /**
        * Return coefficient @c i.
        */
       value_type
-      operator[](size_type __i) const noexcept
-      { return this->_M_coeff[__i]; }
+      operator[](size_type i) const noexcept
+      { return this->m_coeff[i]; }
 
       /**
        * Return coefficient @c i as an assignable quantity.
        */
       reference
-      operator[](size_type __i) noexcept
-      { return this->_M_coeff[__i]; }
+      operator[](size_type i) noexcept
+      { return this->m_coeff[i]; }
 
       /**
        * Return a const vector of coefficients.
        */
       const std::vector<value_type>
       coefficients() const noexcept
-      { return this->_M_coeff; }
+      { return this->m_coeff; }
 
       /**
        * Return a vector of coefficients.
        */
       std::vector<value_type>
       coefficients() noexcept
-      { return this->_M_coeff; }
+      { return this->m_coeff; }
 
       /**
        * Return a @c const pointer to the coefficient sequence.
        */
       const value_type*
       data() const noexcept
-      { return this->_M_coeff.data(); }
+      { return this->m_coeff.data(); }
 
       /**
        * Return a @c pointer to the coefficient sequence.
        */
       value_type*
       data() noexcept
-      { return this->_M_coeff.data(); }
+      { return this->m_coeff.data(); }
 
       /**
        * Return an iterator to the beginning of the coefficient sequence.
        */
       iterator
       begin() noexcept
-      { return this->_M_coeff.begin(); }
+      { return this->m_coeff.begin(); }
 
       /**
        * Return an iterator to one past the end of the coefficient sequence.
        */
       iterator
       end() noexcept
-      { return this->_M_coeff.end(); }
+      { return this->m_coeff.end(); }
 
       /**
        * Return a @c const iterator the beginning
@@ -770,7 +764,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
        */
       const_iterator
       begin() const noexcept
-      { return this->_M_coeff.begin(); }
+      { return this->m_coeff.begin(); }
 
       /**
        * Return a @c const iterator to one past the end
@@ -778,7 +772,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
        */
       const_iterator
       end() const noexcept
-      { return this->_M_coeff.end(); }
+      { return this->m_coeff.end(); }
 
       /**
        * Return a @c const iterator the beginning
@@ -786,7 +780,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
        */
       const_iterator
       cbegin() const noexcept
-      { return this->_M_coeff.cbegin(); }
+      { return this->m_coeff.cbegin(); }
 
       /**
        * Return a @c const iterator to one past the end
@@ -794,54 +788,54 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
        */
       const_iterator
       cend() const noexcept
-      { return this->_M_coeff.cend(); }
+      { return this->m_coeff.cend(); }
 
       reverse_iterator
       rbegin() noexcept
-      { return this->_M_coeff.rbegin(); }
+      { return this->m_coeff.rbegin(); }
 
       reverse_iterator
       rend() noexcept
-      { return this->_M_coeff.rend(); }
+      { return this->m_coeff.rend(); }
 
       const_reverse_iterator
       rbegin() const noexcept
-      { return this->_M_coeff.rbegin(); }
+      { return this->m_coeff.rbegin(); }
 
       const_reverse_iterator
       rend() const noexcept
-      { return this->_M_coeff.rend(); }
+      { return this->m_coeff.rend(); }
 
       const_reverse_iterator
       crbegin() const noexcept
-      { return this->_M_coeff.crbegin(); }
+      { return this->m_coeff.crbegin(); }
 
       const_reverse_iterator
       crend() const noexcept
-      { return this->_M_coeff.crend(); }
+      { return this->m_coeff.crend(); }
 
-      template<typename CharT, typename Traits, typename _Tp1>
+      template<typename CharT, typename Traits, typename Tp1>
 	friend std::basic_istream<CharT, Traits>&
-	operator>>(std::basic_istream<CharT, Traits>&, _Polynomial<_Tp1>&);
+	operator>>(std::basic_istream<CharT, Traits>&, Polynomial<Tp1>&);
 
-      template<typename _Tp1>
+      template<typename Tp1>
 	friend bool
-	operator==(const _Polynomial<_Tp1>& __pa,
-		   const _Polynomial<_Tp1>& __pb);
+	operator==(const Polynomial<Tp1>& pa,
+		   const Polynomial<Tp1>& pb);
 
       /**
        * Remove zero max-order coefficients.
        */
-      _Polynomial&
-      deflate(real_type __max_abs_coef)
+      Polynomial&
+      deflate(real_type max_abs_coef)
       {
-	size_type __n = this->degree();
-	for (size_type __i = this->degree(); __i > 0; --__i)
-	  if (std::abs(this->_M_coeff[__i]) < __max_abs_coef)
-	    --__n;
+	size_type n = this->degree();
+	for (size_type i = this->degree(); i > 0; --i)
+	  if (std::abs(this->m_coeff[i]) < max_abs_coef)
+	    --n;
 	  else
 	    break;
-	this->degree(__n);
+	this->degree(n);
         return *this;
       }
 
@@ -849,23 +843,23 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
        * Divide the polynomial by an input polynomia and remove zero
        * max-order coefficients.
        */
-      _Polynomial&
-      deflate(const _Polynomial<value_type>& __poly,
-	      real_type __max_abs_coef)
+      Polynomial&
+      deflate(const Polynomial<value_type>& poly,
+	      real_type max_abs_coef)
       {
-	_Polynomial<value_type> __quo, __rem;
-	divmod(*this, __poly, __quo, __rem);
+	Polynomial<value_type> quo, rem;
+	divmod(*this, poly, quo, rem);
 
 	// Remainder should be null.
-	size_type __n = __rem.degree();
-	for (size_type __i = __rem.degree(); __i > 0; --__i)
-	  if (std::abs(__rem[__i]) < __max_abs_coef)
-	    --__n;
+	size_type n = rem.degree();
+	for (size_type i = rem.degree(); i > 0; --i)
+	  if (std::abs(rem[i]) < max_abs_coef)
+	    --n;
 	  else
 	    break;
 
-	if (__n == 0)
-	  *this = __quo.deflate(__max_abs_coef);
+	if (n == 0)
+	  *this = quo.deflate(max_abs_coef);
 	else
 	  throw std::runtime_error("deflate: ");
 
@@ -876,212 +870,211 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 
       /// Return the scale.
       real_type
-      _M_get_scale() const
-      { return this->_M_scale; }
+      m_get_scale() const
+      { return this->m_scale; }
 
-      real_type _M_scale = real_type{1};
+      real_type m_scale = real_type{1};
 
-      void _M_set_scale();
+      void m_set_scale();
 
-      std::vector<value_type> _M_coeff;
+      std::vector<value_type> m_coeff;
     };
 
-  template<typename _Tp>
-    struct __real_type<_Polynomial<_Tp>>
-    { using type = typename _Polynomial<_Tp>::real_type; };
+  template<typename Tp>
+    struct real_type<Polynomial<Tp>>
+    { using type = typename Polynomial<Tp>::real_type; };
 
   /**
    * Return the scale for a polynomial.
    */
-  template<typename _Tp>
-    get_scale(const _Polynomial<_Tp>& __poly)
-    { return __poly._M_get_scale(); }
+  template<typename Tp>
+    real_type_t<Polynomial<Tp>>
+    get_scale(const Polynomial<Tp>& poly)
+    { return poly.m_get_scale(); }
 
   /**
    * Return the scale for a number.
    */
-  template<typename _Tp>
-    get_scale(const _Tp& __x)
-    { return std::abs(__x); }
+  template<typename Tp>
+    decltype(std::abs(Tp()))
+    get_scale(const Tp& x)
+    { return std::abs(x); }
 
   /**
    * Return the sum of a polynomial with a scalar.
    */
-  template<typename _Tp, typename _Up>
-    inline _Polynomial<decltype(_Tp() + _Up())>
-    operator+(const _Polynomial<_Tp>& __poly, const _Up& __x)
-    { return _Polynomial<decltype(_Tp() + _Up())>(__poly) += __x; }
+  template<typename Tp, typename Up>
+    inline Polynomial<decltype(Tp() + Up())>
+    operator+(const Polynomial<Tp>& poly, const Up& x)
+    { return Polynomial<decltype(Tp() + Up())>(poly) += x; }
 
   /**
    *
    */
-  template<typename _Tp, typename _Up>
-    inline _Polynomial<decltype(_Tp() + _Up())>
-    operator+(const _Tp& __x, const _Polynomial<_Up>& __poly)
-    { return _Polynomial<decltype(_Tp() + _Up())>(__x) += __poly; }
+  template<typename Tp, typename Up>
+    inline Polynomial<decltype(Tp() + Up())>
+    operator+(const Tp& x, const Polynomial<Up>& poly)
+    { return Polynomial<decltype(Tp() + Up())>(x) += poly; }
 
   /**
    * Return the difference of a polynomial with a scalar.
    */
-  template<typename _Tp, typename _Up>
-    inline _Polynomial<decltype(_Tp() - _Up())>
-    operator-(const _Polynomial<_Tp>& __poly, const _Up& __x)
-    { return _Polynomial<decltype(_Tp() - _Up())>(__poly) -= __x; }
+  template<typename Tp, typename Up>
+    inline Polynomial<decltype(Tp() - Up())>
+    operator-(const Polynomial<Tp>& poly, const Up& x)
+    { return Polynomial<decltype(Tp() - Up())>(poly) -= x; }
 
   /**
    *
    */
-  template<typename _Tp, typename _Up>
-    inline _Polynomial<decltype(_Tp() - _Up())>
-    operator-(const _Tp& __x, const _Polynomial<_Up>& __poly)
-    { return _Polynomial<decltype(_Tp() - _Up())>(__x) -= __poly; }
+  template<typename Tp, typename Up>
+    inline Polynomial<decltype(Tp() - Up())>
+    operator-(const Tp& x, const Polynomial<Up>& poly)
+    { return Polynomial<decltype(Tp() - Up())>(x) -= poly; }
 
   /**
    * Return the product of a polynomial with a scalar.
    */
-  template<typename _Tp, typename _Up>
-    inline _Polynomial<decltype(_Tp() * _Up())>
-    operator*(const _Polynomial<_Tp>& __poly, const _Up& __x)
-    { return _Polynomial<decltype(_Tp() * _Up())>(__poly) *= __x; }
+  template<typename Tp, typename Up>
+    inline Polynomial<decltype(Tp() * Up())>
+    operator*(const Polynomial<Tp>& poly, const Up& x)
+    { return Polynomial<decltype(Tp() * Up())>(poly) *= x; }
 
   /**
    *
    */
-  template<typename _Tp, typename _Up>
-    inline _Polynomial<decltype(_Tp() * _Up())>
-    operator*(const _Tp& __x, const _Polynomial<_Up>& __poly)
-    { return _Polynomial<decltype(_Tp() * _Up())>(__x) *= __poly; }
+  template<typename Tp, typename Up>
+    inline Polynomial<decltype(Tp() * Up())>
+    operator*(const Tp& x, const Polynomial<Up>& poly)
+    { return Polynomial<decltype(Tp() * Up())>(x) *= poly; }
 
   /**
    * Return the quotient of a polynomial with a scalar.
    */
-  template<typename _Tp, typename _Up>
-    inline _Polynomial<decltype(_Tp() / _Up())>
-    operator/(const _Polynomial<_Tp>& __poly, const _Up& __x)
-    { return _Polynomial<decltype(_Tp() / _Up())>(__poly) /= __x; }
+  template<typename Tp, typename Up>
+    inline Polynomial<decltype(Tp() / Up())>
+    operator/(const Polynomial<Tp>& poly, const Up& x)
+    { return Polynomial<decltype(Tp() / Up())>(poly) /= x; }
 
   /**
    *
    */
-  template<typename _Tp, typename _Up>
-    inline _Polynomial<decltype(_Tp() / _Up())>
-    operator%(const _Polynomial<_Tp>& __poly, const _Up& __x)
-    { return _Polynomial<decltype(_Tp() / _Up())>(__poly) %= __x; }
+  template<typename Tp, typename Up>
+    inline Polynomial<decltype(Tp() / Up())>
+    operator%(const Polynomial<Tp>& poly, const Up& x)
+    { return Polynomial<decltype(Tp() / Up())>(poly) %= x; }
 
   /**
    * Return the sum of two polynomials.
    */
-  template<typename _Tp, typename _Up>
-    inline _Polynomial<decltype(_Tp() + _Up())>
-    operator+(const _Polynomial<_Tp>& __pa, const _Polynomial<_Up>& __pb)
-    { return _Polynomial<decltype(_Tp() + _Up())>(__pa) += __pb; }
+  template<typename Tp, typename Up>
+    inline Polynomial<decltype(Tp() + Up())>
+    operator+(const Polynomial<Tp>& pa, const Polynomial<Up>& pb)
+    { return Polynomial<decltype(Tp() + Up())>(pa) += pb; }
 
   /**
    * Return the difference of two polynomials.
    */
-  template<typename _Tp, typename _Up>
-    inline _Polynomial<decltype(_Tp() - _Up())>
-    operator-(const _Polynomial<_Tp>& __pa, const _Polynomial<_Up>& __pb)
-    { return _Polynomial<decltype(_Tp() - _Up())>(__pa) -= __pb; }
+  template<typename Tp, typename Up>
+    inline Polynomial<decltype(Tp() - Up())>
+    operator-(const Polynomial<Tp>& pa, const Polynomial<Up>& pb)
+    { return Polynomial<decltype(Tp() - Up())>(pa) -= pb; }
 
   /**
    * Return the product of two polynomials.
    */
-  template<typename _Tp, typename _Up>
-    inline _Polynomial<decltype(_Tp() * _Up())>
-    operator*(const _Polynomial<_Tp>& __pa, const _Polynomial<_Up>& __pb)
-    { return _Polynomial<decltype(_Tp() * _Up())>(__pa) *= __pb; }
+  template<typename Tp, typename Up>
+    inline Polynomial<decltype(Tp() * Up())>
+    operator*(const Polynomial<Tp>& pa, const Polynomial<Up>& pb)
+    { return Polynomial<decltype(Tp() * Up())>(pa) *= pb; }
 
   /**
    * Return the quotient of two polynomials.
    */
-  template<typename _Tp, typename _Up>
-    inline _Polynomial<decltype(_Tp() / _Up())>
-    operator/(const _Polynomial<_Tp>& __pa, const _Polynomial<_Up>& __pb)
-    { return _Polynomial<decltype(_Tp() / _Up())>(__pa) /= __pb; }
+  template<typename Tp, typename Up>
+    inline Polynomial<decltype(Tp() / Up())>
+    operator/(const Polynomial<Tp>& pa, const Polynomial<Up>& pb)
+    { return Polynomial<decltype(Tp() / Up())>(pa) /= pb; }
 
   /**
    * Return the modulus or remainder of one polynomial relative to another one.
    */
-  template<typename _Tp, typename _Up>
-    inline _Polynomial<decltype(_Tp() / _Up())>
-    operator%(const _Polynomial<_Tp>& __pa, const _Polynomial<_Up>& __pb)
-    { return _Polynomial<decltype(_Tp() / _Up())>(__pa) %= __pb; }
+  template<typename Tp, typename Up>
+    inline Polynomial<decltype(Tp() / Up())>
+    operator%(const Polynomial<Tp>& pa, const Polynomial<Up>& pb)
+    { return Polynomial<decltype(Tp() / Up())>(pa) %= pb; }
 
   /**
    * Return the quotient of a scalar and a polynomials.
    */
-  template<typename _Tp, typename _Up>
-    inline _Polynomial<decltype(_Tp() / _Up())>
-    operator/(const _Tp& __x, const _Polynomial<_Up>& __poly)
-    { return _Polynomial<decltype(_Tp() / _Up())>(__x) /= __poly; }
+  template<typename Tp, typename Up>
+    inline Polynomial<decltype(Tp() / Up())>
+    operator/(const Tp& x, const Polynomial<Up>& poly)
+    { return Polynomial<decltype(Tp() / Up())>(x) /= poly; }
 
   /**
    * Return the modulus or remainder of a scalar divided by a polynomial.
    */
-  template<typename _Tp, typename _Up>
-    inline _Polynomial<decltype(_Tp() / _Up())>
-    operator%(const _Tp& __x, const _Polynomial<_Up>& __poly)
-    { return _Polynomial<decltype(_Tp() / _Up())>(__x) %= __poly; }
+  template<typename Tp, typename Up>
+    inline Polynomial<decltype(Tp() / Up())>
+    operator%(const Tp& x, const Polynomial<Up>& poly)
+    { return Polynomial<decltype(Tp() / Up())>(x) %= poly; }
 
   /**
    * Divide two polynomials returning the quotient and remainder.
    */
-  template<typename _Tp>
+  template<typename Tp>
     void
-    divmod(const _Polynomial<_Tp>& __num, const _Polynomial<_Tp>& __den,
-           _Polynomial<_Tp>& __quo, _Polynomial<_Tp>& __rem);
+    divmod(const Polynomial<Tp>& num, const Polynomial<Tp>& den,
+           Polynomial<Tp>& quo, Polynomial<Tp>& rem);
 
   /**
    * Write a polynomial to a stream.
    * The format is a parenthesized comma-delimited list of coefficients.
    */
-  template<typename CharT, typename Traits, typename _Tp>
+  template<typename CharT, typename Traits, typename Tp>
     std::basic_ostream<CharT, Traits>&
-    operator<<(std::basic_ostream<CharT, Traits>& __os,
-	       const _Polynomial<_Tp>& __poly);
+    operator<<(std::basic_ostream<CharT, Traits>& os,
+	       const Polynomial<Tp>& poly);
 
   /**
    * Read a polynomial from a stream.
    * The input format can be a plain scalar (zero degree polynomial)
    * or a parenthesized comma-delimited list of coefficients.
    */
-  template<typename CharT, typename Traits, typename _Tp>
+  template<typename CharT, typename Traits, typename Tp>
     std::basic_istream<CharT, Traits>&
-    operator>>(std::basic_istream<CharT, Traits>& __is,
-	       _Polynomial<_Tp>& __poly);
+    operator>>(std::basic_istream<CharT, Traits>& is,
+	       Polynomial<Tp>& poly);
 
   /**
    * Return true if two polynomials are equal.
    */
-  template<typename _Tp>
+  template<typename Tp>
     inline bool
-    operator==(const _Polynomial<_Tp>& __pa, const _Polynomial<_Tp>& __pb)
-    { return __pa._M_coeff == __pb._M_coeff; }
+    operator==(const Polynomial<Tp>& pa, const Polynomial<Tp>& pb)
+    { return pa.m_coeff == pb.m_coeff; }
 
   /**
    * Return false if two polynomials are equal.
    */
-  template<typename _Tp>
+  template<typename Tp>
     inline bool
-    operator!=(const _Polynomial<_Tp>& __pa, const _Polynomial<_Tp>& __pb)
-    { return !(__pa == __pb); }
+    operator!=(const Polynomial<Tp>& pa, const Polynomial<Tp>& pb)
+    { return !(pa == pb); }
 
   /**
-   * See _Polynomial::swap().
+   * See Polynomial::swap().
    */
-  template<typename _Tp>
+  template<typename Tp>
     inline void
-    swap(_Polynomial<_Tp>& __pa, _Polynomial<_Tp>& __pb)
-    noexcept(noexcept(__pa.swap(__pb)))
-    { __pa.swap(__pb); }
+    swap(Polynomial<Tp>& pa, Polynomial<Tp>& pb)
+    noexcept(noexcept(pa.swap(pb)))
+    { pa.swap(pb); }
 
-_GLIBCXX_END_NAMESPACE_VERSION
-} // namespace __gnu_cxx
+} // namespace emsr
 
 #include <ext/polynomial.tcc>
 
-#endif // C++14
-
-#endif // _EXT_POLYNOMIAL_H
+#endif // POLYNOMIAL_H
 

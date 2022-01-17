@@ -24,7 +24,7 @@ test_complex_jenkins_traub()
         std::cin >> p[i];
     }
 
-    __gnu_cxx::_JenkinsTraubSolver<std::complex<Real>> jt(p);
+    emsr::JenkinsTraubSolver<std::complex<Real>> jt(p);
     auto zero = jt.solve();
     std::cout << '\n';
     for (unsigned int i = 0; i < zero.size(); ++i)
@@ -35,7 +35,7 @@ test_complex_jenkins_traub()
     int num_errors = 0;
     const auto tol = std::sqrt(std::numeric_limits<Real>::epsilon());
 
-    __gnu_cxx::_Polynomial<std::complex<Real>> poly(p.rbegin(), p.rend());
+    emsr::Polynomial<std::complex<Real>> poly(p.rbegin(), p.rend());
 
     std::cout << "\nSolution tests:\n";
     for (unsigned int i = 0; i < zero.size(); ++i)

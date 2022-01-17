@@ -34,7 +34,7 @@
 #ifndef SOLVER_LAGUERRE_TCC
 #define SOLVER_LAGUERRE_TCC 1
 
-namespace __gnu_cxx
+namespace emsr
 {
 
   /**
@@ -43,95 +43,94 @@ namespace __gnu_cxx
    * by the root factor (z - x) where x is the found root and finding
    * the next root.
    */
-  template<typename _Real>
-    std::complex<_Real>
-    _LaguerreSolver<_Real>::_M_root_laguerre()
+  template<typename Real>
+    std::complex<Real>
+    LaguerreSolver<Real>::m_root_laguerre()
     {
-      using __cmplx = std::complex<_Real>;
+      using cmplx = std::complex<Real>;
 
-      const auto __m = this->_M_poly.degree();
-      const int __max_iter = this->_M_max_iter();
+      const auto m = this->m_poly.degree();
+      const int max_iter = this->m_max_iter();
 
-      this->_M_num_iters = 0;
+      this->m_num_iters = 0;
 
-      //if (__m == 1)
-	//return -this->_M_poly.cefficient(0) / this->_M_poly.cefficient(1);
+      //if (m == 1)
+	//return -this->m_poly.cefficient(0) / this->m_poly.cefficient(1);
 
-      __cmplx __x{};
-      for (int __iter = 1; __iter <= __max_iter; ++__iter)
+      cmplx x{};
+      for (int iter = 1; iter <= max_iter; ++iter)
 	{
-	  ++this->_M_num_iters;
+	  ++this->m_num_iters;
 
 	  // Efficient computation of the polynomial
 	  // and its first two derivatives. F stores P''(x)/2.
-	  auto __b = this->_M_poly[__m];
-	  auto __err = std::abs(__b);
-	  const auto __abx = std::abs(__x);
-	  __cmplx __d{}, __f{};
-	  for (int __j = __m - 1; __j >= 0; --__j)
+	  auto b = this->m_poly[m];
+	  auto err = std::abs(b);
+	  const auto abx = std::abs(x);
+	  cmplx d{}, f{};
+	  for (int j = m - 1; j >= 0; --j)
 	    {
-	      __f = __x * __f + __d;
-	      __d = __x * __d + __b;
-	      __b = __x * __b + this->_M_poly[__j];
-	      __err = __abx * __err + std::abs(__b);
+	      f = x * f + d;
+	      d = x * d + b;
+	      b = x * b + this->m_poly[j];
+	      err = abx * err + std::abs(b);
 	    }
-	  __err *= _S_eps;
+	  err *= s_eps;
 	  // Estimate of roundoff error in evaluating polynomial.
-	  if (std::abs(__b) <= __err) // We have the root.
-	    return __x;
+	  if (std::abs(b) <= err) // We have the root.
+	    return x;
 
 	  // Use Laguerre's formula.
-	  const auto __g = __d / __b;
-	  const auto __g2 = __g * __g;
-	  const auto __h = __g2 - _Real{2} * __f / __b;
-	  const auto __sq = std::sqrt(_Real(__m - 1)
-				   * (_Real(__m) * __h - __g2));
-	  auto __gp = __g + __sq;
-	  const auto __gm = __g - __sq;
-	  const auto __abp = std::abs(__gp);
-	  const auto __abm = std::abs(__gm);
-	  if (__abp < __abm)
-	    __gp = __gm;
-	  const auto __dx = std::max(__abp, __abm) > _Real{0}
-			  ? _Real(__m) / __gp
-			  : std::polar(_Real{1} + __abx, _Real(__iter));
-	  const auto __x1 = __x - __dx;
-	  if (__x == __x1)
-	    return __x;
-	  if (__iter % this->_M_steps_per_frac != 0)
-	    __x = __x1;
+	  const auto g = d / b;
+	  const auto g2 = g * g;
+	  const auto h = g2 - Real{2} * f / b;
+	  const auto sq = std::sqrt(Real(m - 1)
+				   * (Real(m) * h - g2));
+	  auto gp = g + sq;
+	  const auto gm = g - sq;
+	  const auto abp = std::abs(gp);
+	  const auto abm = std::abs(gm);
+	  if (abp < abm)
+	    gp = gm;
+	  const auto dx = std::max(abp, abm) > Real{0}
+			  ? Real(m) / gp
+			  : std::polar(Real{1} + abx, Real(iter));
+	  const auto x1 = x - dx;
+	  if (x == x1)
+	    return x;
+	  if (iter % this->m_steps_per_frac != 0)
+	    x = x1;
 	  else
-	    __x -= _S_frac[__iter / this->_M_steps_per_frac] * __dx;
+	    x -= s_frac[iter / this->m_steps_per_frac] * dx;
 	}
 
-      std::__throw_runtime_error(__N("_M_root_laguerre: "
-				     "Maximum number of iterations exceeded"));
+      throw std::runtime_error("m_root_laguerre: Maximum number of iterations exceeded");
     }
 
   /**
    * Find all solutions of the  polynomial by stepping and 
    */
-  template<typename _Real>
-    std::vector<std::complex<_Real>>
-    _LaguerreSolver<_Real>::solve()
+  template<typename Real>
+    std::vector<std::complex<Real>>
+    LaguerreSolver<Real>::solve()
     {
-      using __cmplx = std::complex<_Real>;
+      using cmplx = std::complex<Real>;
 
-      std::vector<__cmplx> __roots;
-      const auto __deg = this->_M_poly.degree();
-      __roots.reserve(__deg);
-      for (unsigned __i = 0; __i < __deg; ++__i)
+      std::vector<cmplx> roots;
+      const auto deg = this->m_poly.degree();
+      roots.reserve(deg);
+      for (unsigned i = 0; i < deg; ++i)
 	{
-	  const auto __z0 = this->_M_root_laguerre();
+	  const auto z0 = this->m_root_laguerre();
 
-	  _Polynomial<__cmplx> __zpoly({-__z0, __cmplx{1}});
-	  this->_M_poly /= __zpoly;
+	  Polynomial<cmplx> zpoly({-z0, cmplx{1}});
+	  this->m_poly /= zpoly;
 
-	  __roots.push_back(__z0);
+	  roots.push_back(z0);
 	}
-      return __roots;
+      return roots;
     }
 
-} // namespace __gnu_cxx
+} // namespace emsr
 
 #endif // SOLVER_LAGUERRE_TCC

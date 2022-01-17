@@ -29,44 +29,43 @@
  */
 
 /**
- * @def  _EXT_HORNER_H
+ * @def  HORNER_H
  *
  * @brief  A guard for the horner functions header.
  */
-#ifndef _EXT_HORNER_H
-#define _EXT_HORNER_H 1
+#ifndef HORNER_H
+#define HORNER_H 1
 
 #pragma GCC system_header
 
 #include <type_traits>
 
-namespace __gnu_cxx //_GLIBCXX_VISIBILITY(default)
+namespace emsr
 {
-_GLIBCXX_BEGIN_NAMESPACE_VERSION
 
 /**
  * Perform compile-time evaluation of a constant zero-order polynomial.
  */
-template<typename _ArgT, typename _Coef0>
-  constexpr std::conditional_t<std::is_integral<_ArgT>::value, double, _ArgT>
-  horner(_ArgT __x, _Coef0 __c0)
+template<typename ArgT, typename Coef0>
+  constexpr std::conditional_t<std::is_integral<ArgT>::value, double, ArgT>
+  horner(ArgT x, Coef0 c0)
   {
-    using __arg_t = std::conditional_t<std::is_integral<_ArgT>::value,
-					double, _ArgT>;
-    return __arg_t{__c0};
+    using arg_t = std::conditional_t<std::is_integral<ArgT>::value,
+					double, ArgT>;
+    return arg_t{c0};
   }
 
 /**
  * Perform compile-time evaluation of a constant polynomial.
  * The polynomial coefficients are lowest-order first.
  */
-template<typename _ArgT, typename _Coef0, typename... _Coef>
-  constexpr std::conditional_t<std::is_integral<_ArgT>::value, double, _ArgT>
-  horner(_ArgT __x, _Coef0 __c0, _Coef... __c)
+template<typename ArgT, typename Coef0, typename... Coef>
+  constexpr std::conditional_t<std::is_integral<ArgT>::value, double, ArgT>
+  horner(ArgT x, Coef0 c0, Coef... c)
   {
-    using __arg_t = std::conditional_t<std::is_integral<_ArgT>::value,
-					double, _ArgT>;
-    return __arg_t{__c0} + __x * horner(__x, __c...);
+    using arg_t = std::conditional_t<std::is_integral<ArgT>::value,
+					double, ArgT>;
+    return arg_t{c0} + x * horner(x, c...);
   }
 
 
@@ -74,42 +73,41 @@ template<typename _ArgT, typename _Coef0, typename... _Coef>
  * Perform compile-time evaluation of a constant zero-order polynomial.
  * The polynomial coefficients are highest-order first.
  */
-template<typename _ArgT, typename _Coef0>
-  constexpr std::conditional_t<std::is_integral<_ArgT>::value, double, _ArgT>
-  horner_big_end(_ArgT, _Coef0 __c0)
+template<typename ArgT, typename Coef0>
+  constexpr std::conditional_t<std::is_integral<ArgT>::value, double, ArgT>
+  horner_big_end(ArgT, Coef0 c0)
   {
-    using __arg_t = std::conditional_t<std::is_integral<_ArgT>::value,
-					double, _ArgT>;
-    return __arg_t{__c0};
+    using arg_t = std::conditional_t<std::is_integral<ArgT>::value,
+					double, ArgT>;
+    return arg_t{c0};
   }
 
 /**
  * Perform compile-time evaluation of a constant first-order polynomial.
  * The polynomial coefficients are highest-order first.
  */
-template<typename _ArgT, typename _Coef1, typename _Coef0>
-  constexpr std::conditional_t<std::is_integral<_ArgT>::value, double, _ArgT>
-  horner_big_end(_ArgT __x, _Coef1 __c1, _Coef0 __c0)
+template<typename ArgT, typename Coef1, typename Coef0>
+  constexpr std::conditional_t<std::is_integral<ArgT>::value, double, ArgT>
+  horner_big_end(ArgT x, Coef1 c1, Coef0 c0)
   {
-    using __arg_t = std::conditional_t<std::is_integral<_ArgT>::value,
-					double, _ArgT>;
-    return horner_big_end(__x, __x * __arg_t{__c1} + __arg_t{__c0});
+    using arg_t = std::conditional_t<std::is_integral<ArgT>::value,
+					double, ArgT>;
+    return horner_big_end(x, x * arg_t{c1} + arg_t{c0});
   }
 
 /**
  * Perform compile-time evaluation of a constant polynomial.
  * The polynomial coefficients are highest-order first.
  */
-template<typename _ArgT, typename _CoefN, typename _CoefNm1, typename... _Coef>
-  constexpr std::conditional_t<std::is_integral<_ArgT>::value, double, _ArgT>
-  horner_big_end(_ArgT __x, _CoefN __cn, _CoefNm1 __cnm1, _Coef... __c)
+template<typename ArgT, typename CoefN, typename CoefNm1, typename... Coef>
+  constexpr std::conditional_t<std::is_integral<ArgT>::value, double, ArgT>
+  horner_big_end(ArgT x, CoefN cn, CoefNm1 cnm1, Coef... c)
   {
-    using __arg_t = std::conditional_t<std::is_integral<_ArgT>::value,
-					double, _ArgT>;
-    return horner_big_end(__x, __x * __arg_t{__cn} + __arg_t{__cnm1}, __c...);
+    using arg_t = std::conditional_t<std::is_integral<ArgT>::value,
+					double, ArgT>;
+    return horner_big_end(x, x * arg_t{cn} + arg_t{cnm1}, c...);
   }
 
-_GLIBCXX_END_NAMESPACE_VERSION
-} // namespace __gnu_cxx
+} // namespace emsr
 
-#endif // _EXT_HORNER_H
+#endif // HORNER_H

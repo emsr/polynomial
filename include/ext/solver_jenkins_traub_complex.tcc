@@ -10,33 +10,33 @@
 #include <complex>
 #include <limits>
 
-namespace __gnu_cxx
+namespace emsr
 {
 
 template<typename Real>
-class _JenkinsTraubSolver<std::complex<Real>>
+class JenkinsTraubSolver<std::complex<Real>>
 {
 
 public:
 
     using Cmplx = std::complex<Real>;
 
-    _JenkinsTraubSolver(const std::vector<Cmplx>& op)
-    : p(op)
+    JenkinsTraubSolver(const std::vector<Cmplx>& op)
+    : m_p(op)
     {
-        if (p.size() == 0)
+        if (this->m_p.size() == 0)
             throw std::domain_error("Polynomial degree must be at least 1.");
 
         // Algorithm fails if the leading-order coefficient is zero
-        if (op[0] == ZERO)
+        if (this->m_p[0] == ZERO)
             throw std::domain_error("Leading-order coefficient must be nonzero.");;
 
-        degree = p.size() - 1;
+        this->m_degree = this->m_p.size() - 1;
 
-        h.resize(degree + 1);
-        qp.resize(degree + 1);
-        qh.resize(degree + 1);
-        sh.resize(degree + 1);
+        this->m_h.resize(this->m_degree + 1);
+        this->m_qp.resize(this->m_degree + 1);
+        this->m_qh.resize(this->m_degree + 1);
+        this->m_sh.resize(this->m_degree + 1);
     }
 
     std::vector<Cmplx>
@@ -49,19 +49,19 @@ public:
 
 private:
 
-    Cmplx s;
-    Cmplx t;
-    Cmplx pv;
+    Cmplx m_s;
+    Cmplx m_t;
+    Cmplx m_pv;
 
     Real add_rel_err, mul_rel_err, epsilon, infin;
 
-    int degree;
+    int m_degree;
 
-    std::vector<Cmplx> p;
-    std::vector<Cmplx> h;
-    std::vector<Cmplx> qp;
-    std::vector<Cmplx> qh;
-    std::vector<Cmplx> sh;
+    std::vector<Cmplx> m_p;
+    std::vector<Cmplx> m_h;
+    std::vector<Cmplx> m_qp;
+    std::vector<Cmplx> m_qh;
+    std::vector<Cmplx> m_sh;
 
     inline static constexpr Cmplx ZERO{0.0, 0.0};
 
@@ -70,7 +70,7 @@ private:
     static constexpr auto s_rotation = Real{94} * s_pi / Real{180};
 
     static void
-    mcon(Real& epsilon, Real& infiny, Real& smalno, Real& base)
+    m_mcon(Real& epsilon, Real& infiny, Real& smalno, Real& base)
     {
         base = std::numeric_limits<Real>::radix;
         epsilon = std::numeric_limits<Real>::epsilon();
@@ -86,7 +86,7 @@ private:
         Cmplx z;
 
         Real smalno, base;
-        mcon(epsilon, infin, smalno, base);
+        this->m_mcon(epsilon, infin, smalno, base);
         add_rel_err = epsilon;
         mul_rel_err = 2 * s_sqrt2 * epsilon;
         Real xx = 1 / s_sqrt2;
@@ -94,46 +94,46 @@ private:
         Real cosr = std::cos(s_rotation);
         Real sinr = std::sin(s_rotation);
 
-        zero.reserve(degree + 1);
+        zero.reserve(this->m_degree + 1);
 
         // Remove the zeros at the origin if any
-        while (p[degree] == ZERO)
+        while (this->m_p[this->m_degree] == ZERO)
         {
             zero.push_back(ZERO);
-            --degree;
+            --this->m_degree;
         }
 
         // Get scales.
-        for (i = 0; i <= degree; ++i)
+        for (i = 0; i <= this->m_degree; ++i)
         {
             //p[i] = op[i];
-            sh[i] = std::abs(p[i]);
+            this->m_sh[i] = std::abs(this->m_p[i]);
         }
 
         // Scale the polynomial
-        auto bound = scale(degree, sh, epsilon, infin, smalno, base);
+        auto bound = this->m_scale(this->m_degree, this->m_sh, epsilon, infin, smalno, base);
         if (bound != Real{1})
-            for (i = 0; i <= degree; ++i)
-                p[i] *= bound;
+            for (i = 0; i <= this->m_degree; ++i)
+                this->m_p[i] *= bound;
 
     search: 
-        if (degree <= 1)
+        if (this->m_degree <= 1)
         {
-            zero.push_back(-p[1] / p[0]);
-            return degree;
+            zero.push_back(-this->m_p[1] / this->m_p[0]);
+            return this->m_degree;
         }
 
         // Calculate bound, a lower bound on the modulus of the zeros
-        for (i = 0; i <= degree; ++i)
-            sh[i] = std::abs(p[i]);
+        for (i = 0; i <= this->m_degree; ++i)
+            this->m_sh[i] = std::abs(this->m_p[i]);
 
-        bound = cauchy(degree, sh);
+        bound = this->m_cauchy(this->m_degree, this->m_sh);
 
         // Outer loop to control 2 Major passes with different sequences of shifts
         for (cnt1 = 1; cnt1 <= 2; ++cnt1)
         {
             // First stage  calculation , no shift
-            no_shift(5);
+            this->m_no_shift(5);
 
             // Inner loop to select a shift
             for (cnt2 = 1; cnt2 <= 9; ++cnt2)
@@ -142,19 +142,19 @@ private:
                 auto xxx = cosr * xx - sinr * yy;
                 yy = sinr * xx + cosr * yy;
                 xx = xxx;
-                s = bound * Cmplx(xx, yy);
+                this->m_s = bound * Cmplx(xx, yy);
 
                 // Second stage calculation, fixed shift
-                fixed_shift(10 * cnt2, z, converged);
+                this->m_fixed_shift(10 * cnt2, z, converged);
                 if (converged)
                 {
                     // The second stage jumps directly to the third stage ieration.
                     // If successful the zero is stored and the polynomial deflated.
                     zero.push_back(z);
-                    --degree;
-                    for (i = 0; i <= degree; ++i)
+                    --this->m_degree;
+                    for (i = 0; i <= this->m_degree; ++i)
                     {
-                        p[i] = qp[i];
+                        this->m_p[i] = this->m_qp[i];
                     }
                     goto search;
                 }
@@ -166,7 +166,7 @@ private:
         // The zerofinder has failed on two major passes
         // return empty handed with the number of roots found (less than the original degree)
 
-        return degree;       
+        return this->m_degree;       
     }
 
     /**
@@ -174,37 +174,37 @@ private:
      * polynomial and computes num_no_shift_iters no-shift h polynomials.
      */
     void
-    no_shift(int num_no_shift_iters)
+    m_no_shift(int num_no_shift_iters)
     {
-        auto n = degree;
+        auto n = this->m_degree;
         auto nm1 = n - 1;
         for (int i = 0; i < n; ++i)
         {
-            Real xni = degree - i;
-            h[i] = xni * p[i] / Real(n);
+            Real xni = this->m_degree - i;
+            this->m_h[i] = xni * this->m_p[i] / Real(n);
         }
         for (int jj = 1; jj <= num_no_shift_iters; ++jj)
         {
-            if (std::abs(h[n - 1]) > epsilon * 10 * std::abs(p[n - 1]))
+            if (std::abs(this->m_h[n - 1]) > epsilon * 10 * std::abs(this->m_p[n - 1]))
             {
-                t = -p[degree] / h[n - 1];
+                this->m_t = -this->m_p[this->m_degree] / this->m_h[n - 1];
                 for (int i = 0; i < nm1; ++i)
                 {
-                    int j = degree - i - 1;
-                    auto tt = h[j - 1];
-                    h[j] = t * tt + p[j];
+                    int j = this->m_degree - i - 1;
+                    auto tt = this->m_h[j - 1];
+                    this->m_h[j] = this->m_t * tt + this->m_p[j];
                 }
-                h[0] = p[0];
+                this->m_h[0] = this->m_p[0];
             }
             else
             {
                 // If the constant term is essentially zero, shift H coefficients
                 for (int i = 0; i < nm1; ++i)
                 {
-                    int j = degree - i - 1;
-                    h[j] = h[j - 1];
+                    int j = this->m_degree - i - 1;
+                    this->m_h[j] = this->m_h[j - 1];
                 }
-                h[0] = ZERO;
+                this->m_h[0] = ZERO;
             }
         }
     }
@@ -217,32 +217,32 @@ private:
      * @param[out] converged  - Boolean indicating convergence of stage 3 iteration
      */
     void
-    fixed_shift(int num_fixed_shift_iters, Cmplx& z, bool& converged)
+    m_fixed_shift(int num_fixed_shift_iters, Cmplx& z, bool& converged)
     {
-        auto n = degree;
-        poly_eval(degree, s, p, qp, pv);
+        auto n = this->m_degree;
+        this->m_poly_eval(this->m_degree, this->m_s, this->m_p, this->m_qp, this->m_pv);
         bool test = true;
         bool pasd = false;
 
         // Calculate first T = -P(S)/H(S)
         bool h_is_tiny;
-        calc_t(h_is_tiny);
+        this->m_calc_t(h_is_tiny);
 
         // Main loop for second stage
         for (int j = 1; j <= num_fixed_shift_iters; ++j)
         {
-            auto ot = t;
+            auto ot = this->m_t;
 
             // Compute the next H Polynomial and new t
-            next_h_poly(h_is_tiny);
-            calc_t(h_is_tiny);
-            z = s + t;
+            this->m_next_h_poly(h_is_tiny);
+            this->m_calc_t(h_is_tiny);
+            z = this->m_s + this->m_t;
 
             // Test for convergence unless stage 3 has failed once or this
             // is the last H Polynomial
             if (!(h_is_tiny || !test || j == 12))
             {
-                if (std::abs(t - ot) < 0.5 * std::abs(z))
+                if (std::abs(this->m_t - ot) < 0.5 * std::abs(z))
                 {
                     if (pasd)
                     {
@@ -250,10 +250,10 @@ private:
                         // Iteration, after saving the current H polynomial and shift
                         for (int i = 0; i < n; ++i)
                         {
-                            sh[i] = h[i];
+                            this->m_sh[i] = this->m_h[i];
                         }
-                        auto svs = s;
-                        variable_shift(10, z, converged);
+                        auto svs = this->m_s;
+                        this->m_variable_shift(10, z, converged);
                         if (converged)
                             return;
 
@@ -261,11 +261,11 @@ private:
                         test = 0;
                         for (int i = 0; i < n; ++i)
                         {
-                            h[i] = sh[i];
+                            this->m_h[i] = this->m_sh[i];
                         }
-                        s = svs;
-                        poly_eval(degree, s, p, qp, pv);
-                        calc_t(h_is_tiny);
+                        this->m_s = svs;
+                        this->m_poly_eval(this->m_degree, this->m_s, this->m_p, this->m_qp, this->m_pv);
+                        this->m_calc_t(h_is_tiny);
                         continue;
                     }
                     pasd = true;
@@ -276,7 +276,7 @@ private:
         }
 
         // Attempt an iteration with final H polynomial from second stage
-        variable_shift(10, z, converged);
+        this->m_variable_shift(10, z, converged);
     }
 
     /**
@@ -288,28 +288,28 @@ private:
      * @param[out] converged   True if iteration converges
      */
     void
-    variable_shift(int num_variable_shift_iters, Cmplx &z, bool &converged)
+    m_variable_shift(int num_variable_shift_iters, Cmplx &z, bool &converged)
     {
         bool h_is_tiny;
         Real omp, relstp;
 
         converged = false;
         bool b = false;
-        s = z;
+        this->m_s = z;
 
         // Main loop for stage three
         for (int i = 1; i <= num_variable_shift_iters; ++i)
         {
             // Evaluate P at S and test for convergence
-            poly_eval(degree, s, p, qp, pv);
-            auto mp = std::abs(pv);
-            auto ms = std::abs(s);
-            if (mp <= 20 * error_eval(degree, qp, ms, mp, add_rel_err, mul_rel_err))
+            this->m_poly_eval(this->m_degree, this->m_s, this->m_p, this->m_qp, this->m_pv);
+            auto mp = std::abs(this->m_pv);
+            auto ms = std::abs(this->m_s);
+            if (mp <= 20 * this->m_error_eval(this->m_degree, this->m_qp, ms, mp, add_rel_err, mul_rel_err))
             {
                 // Polynomial value is smaller in value than a bound onthe error
                 // in evaluationg P, terminate the ietartion
                 converged = true;
-                z = s;
+                z = this->m_s;
                 return;
             }
             if (i != 1)
@@ -323,14 +323,14 @@ private:
                     if (relstp < epsilon)
                         tp = epsilon;
                     Real r1 = std::sqrt(tp);
-                    Real r2 = s.real() * (1 + r1) - s.imag() * r1;
-                    s.imag(s.real() * r1 + s.imag() * (1 + r1));
-                    s.real(r2);
-                    poly_eval(degree, s, p, qp, pv);
+                    Real r2 = this->m_s.real() * (1 + r1) - this->m_s.imag() * r1;
+                    this->m_s.imag(this->m_s.real() * r1 + this->m_s.imag() * (1 + r1));
+                    this->m_s.real(r2);
+                    this->m_poly_eval(this->m_degree, this->m_s, this->m_p, this->m_qp, this->m_pv);
                     for (int j = 1; j <= 5; ++j)
                     {
-                        calc_t(h_is_tiny);
-                        next_h_poly(h_is_tiny);
+                        this->m_calc_t(h_is_tiny);
+                        this->m_next_h_poly(h_is_tiny);
                     }
                     omp = infin;
                     goto _20;
@@ -344,13 +344,13 @@ private:
             omp = mp;
 
             // Calculate next iterate
-      _20:  calc_t(h_is_tiny);
-            next_h_poly(h_is_tiny);
-            calc_t(h_is_tiny);
+      _20:  this->m_calc_t(h_is_tiny);
+            this->m_next_h_poly(h_is_tiny);
+            this->m_calc_t(h_is_tiny);
             if (!h_is_tiny)
             {
-                relstp = std::abs(t) / std::abs(s);
-                s += t;
+                relstp = std::abs(this->m_t) / std::abs(this->m_s);
+                this->m_s += this->m_t;
             }
         }
     }
@@ -360,21 +360,21 @@ private:
      * @param[out]  h_is_tiny  True if h(s) is essentially zero.
      */
     void
-    calc_t(bool& h_is_tiny)
+    m_calc_t(bool& h_is_tiny)
     {
-        auto n = degree;
+        auto n = this->m_degree;
 
         // evaluate h(s)
         Cmplx hv;
-        poly_eval(n - 1, s, h, qh, hv);
-        h_is_tiny = std::abs(hv) <= add_rel_err * 10 * std::abs(h[n - 1]) ? true : false;
+        this->m_poly_eval(n - 1, this->m_s, this->m_h, this->m_qh, hv);
+        h_is_tiny = std::abs(hv) <= add_rel_err * 10 * std::abs(this->m_h[n - 1]) ? true : false;
         if (!h_is_tiny)
         {
-            t = -pv / hv;
+            this->m_t = -this->m_pv / hv;
             return;
         }
 
-        t = ZERO;
+        this->m_t = ZERO;
     }
 
     /**
@@ -383,26 +383,26 @@ private:
      * @param[in]  h_is_tiny  True if h(s) is essentially zero
      */
     void
-    next_h_poly(bool h_is_tiny)
+    m_next_h_poly(bool h_is_tiny)
     {
-        auto n = degree;
+        auto n = this->m_degree;
         if (!h_is_tiny)
         {
             for(int j = 1; j < n; ++j)
             {
-                auto tt = qh[j - 1];
-                h[j] = t * tt + qp[j];
+                auto tt = this->m_qh[j - 1];
+                this->m_h[j] = this->m_t * tt + this->m_qp[j];
             }
-            h[0] = qp[0];
+            this->m_h[0] = this->m_qp[0];
             return;
         }
 
         // If h[s] is zero replace h with qh
         for (int j = 1; j < n; ++j)
         {
-            h[j] = qh[j - 1];
+            this->m_h[j] = this->m_qh[j - 1];
         }
-        h[0] = ZERO;
+        this->m_h[0] = ZERO;
     }
 
     /**
@@ -410,7 +410,7 @@ private:
      * placing the partial sums in q and the computed value in pv.
      */
     void
-    poly_eval(int nn, const Cmplx& s, const std::vector<Cmplx>& p,
+    m_poly_eval(int nn, const Cmplx& s, const std::vector<Cmplx>& p,
            std::vector<Cmplx>& q, Cmplx &pv)  
     {
         q[0] = p[0];
@@ -433,7 +433,7 @@ private:
      * @param[in]  mre  Error bound on complex multiplication
      */
     Real
-    error_eval(int nn, const std::vector<Cmplx>& q,
+    m_error_eval(int nn, const std::vector<Cmplx>& q,
           Real ms, Real mp, Real add_rel_err, Real mul_rel_err)
     {
         auto e = std::abs(q[0]) * mul_rel_err / (add_rel_err + mul_rel_err);
@@ -448,7 +448,7 @@ private:
      * @param[in]  pt  The modulus of the coefficients.
      */
     Real
-    cauchy(int nn, std::vector<Cmplx>& pt)
+    m_cauchy(int nn, std::vector<Cmplx>& pt)
     {
         pt[nn].real(-pt[nn].real());
 
@@ -499,7 +499,7 @@ private:
     // pt - MODULUS OF COEFFICIENTS OF P
     // epsilon, INFIN, SMALNO, BASE - CONSTANTS DESCRIBING THE FLOATING POINT ARITHMETIC.
     Real
-    scale(int nn, const std::vector<Cmplx>& pt,
+    m_scale(int nn, const std::vector<Cmplx>& pt,
           Real epsilon, Real infin, Real smalno, Real base)
     {
         int i, l;
@@ -540,6 +540,6 @@ private:
     }
 };
 
-} // namespace __gnu_cxx
+} // namespace emsr
 
 #endif // SOLVER_JENKINS_TRAUB_COMPLEX_TCC

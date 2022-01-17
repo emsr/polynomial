@@ -36,21 +36,21 @@
 
 #include <ext/solution.h> // For solution_t
 
-namespace __gnu_cxx
+namespace emsr
 {
 
 /**
  * A solver for real-coefficient polynomials due to Jenkins and Traub.
  */
-template<typename _Real>
-  class _JenkinsTraubSolver
+template<typename Real>
+  class JenkinsTraubSolver
   {
   public:
 
-    _JenkinsTraubSolver(const std::vector<_Real>& op);
-    _JenkinsTraubSolver(std::vector<_Real>&& op);
+    JenkinsTraubSolver(const std::vector<Real>& op);
+    JenkinsTraubSolver(std::vector<Real>&& op);
 
-    std::vector<solution_t<_Real>> solve();
+    std::vector<solution_t<Real>> solve();
 
   private:
 
@@ -62,60 +62,60 @@ template<typename _Real>
       near_h_root
     };
 
-    void quadratic(_Real a, _Real b, _Real c,
-		   solution_t<_Real> &z_small, solution_t<_Real> &z_large);
+    void quadratic(Real a, Real b, Real c,
+		   solution_t<Real> &z_small, solution_t<Real> &z_large);
     int fxshfr(int l2);
-    int iter_quadratic(_Real uu, _Real vv);
-    int iter_real(_Real sss, int& iflag);
+    int iter_quadratic(Real uu, Real vv);
+    int iter_real(Real sss, int& iflag);
     NormalizationType init_next_h_poly();
     void next_h_poly(NormalizationType type);
-    std::pair<_Real, _Real> quadratic_coefficients(NormalizationType type);
-    void remquo_quadratic(int n, _Real u, _Real v,
-			  std::vector<_Real>& poly, std::vector<_Real>& quot,
-			  _Real& a, _Real& b);
+    std::pair<Real, Real> quadratic_coefficients(NormalizationType type);
+    void remquo_quadratic(int n, Real u, Real v,
+			  std::vector<Real>& poly, std::vector<Real>& quot,
+			  Real& a, Real& b);
 
-    static constexpr auto _S_eps = std::numeric_limits<_Real>::epsilon();
-    static constexpr auto _S_base = _Real{std::numeric_limits<_Real>::radix};
-    static constexpr auto _S_tiny = _S_eps * _S_eps * _S_eps; // 1.0e-50; //std::numeric_limits<_Real>::min();
-    static constexpr auto _S_huge = std::numeric_limits<_Real>::max();
-    //static constexpr auto _S_low = _S_tiny / _S_eps;
-    const _Real _S_low = _S_tiny / _S_eps;
-    static constexpr auto _S_pi = _Real{3.1415'92653'58979'32384'62643'38327'95028'84195e+0L};
-    static constexpr auto _S_rotation = _Real{94} * _S_pi / _Real{180};
+    static constexpr auto s_eps = std::numeric_limits<Real>::epsilon();
+    static constexpr auto s_base = Real{std::numeric_limits<Real>::radix};
+    static constexpr auto s_tiny = s_eps * s_eps * s_eps; // 1.0e-50; //std::numeric_limits<Real>::min();
+    static constexpr auto s_huge = std::numeric_limits<Real>::max();
+    //static constexpr auto s_low = s_tiny / s_eps;
+    const Real s_low = s_tiny / s_eps;
+    static constexpr auto s_pi = Real{3.1415'92653'58979'32384'62643'38327'95028'84195e+0L};
+    static constexpr auto s_rotation = Real{94} * s_pi / Real{180};
 
-    int max_iter_quadratic = 20;
-    _Real min_log_deriv = _Real{0.005L};
-    int max_iter_real = 10;
+    int m_max_iter_quadratic = 20;
+    Real m_min_log_deriv = Real{0.005L};
+    int m_max_iter_real = 10;
     // Epsilon parameter.
-    _Real __are = _S_eps;
+    Real m_are = s_eps;
     // Epsilon parameter.
-    _Real __mre = _S_eps;
+    Real m_mre = s_eps;
 
-    std::vector<_Real> _P;
-    std::vector<_Real> _P_quot;
-    std::vector<_Real> _H, _H_quot, _H_save;
-    _Real __sr, __si;
-    _Real __u, __v;
-    _Real __a;
-    _Real __b;
-    _Real __c;
-    _Real __d;
-    _Real __e;
-    _Real __f;
-    _Real __g;
-    _Real __h;
-    _Real __a1;
-    _Real __a2;
-    _Real __a3;
-    _Real __a7;
-    solution_t<_Real> __z_small;
-    solution_t<_Real> __z_large;
-    int __order;
-    bool __zerok;
-    int __num_iters = 0;
+    std::vector<Real> m_P;
+    std::vector<Real> m_P_quot;
+    std::vector<Real> m_H, m_H_quot, m_H_save;
+    Real m_sr, m_si;
+    Real m_u, m_v;
+    Real m_a;
+    Real m_b;
+    Real m_c;
+    Real m_d;
+    Real m_e;
+    Real m_f;
+    Real m_g;
+    Real m_h;
+    Real m_a1;
+    Real m_a2;
+    Real m_a3;
+    Real m_a7;
+    solution_t<Real> m_z_small;
+    solution_t<Real> m_z_large;
+    int m_order;
+    bool m_zerok;
+    int m_num_iters = 0;
   };
 
-} // namespace __gnu_cxx
+} // namespace emsr
 
 #include <ext/solver_jenkins_traub.tcc>
 #include <ext/solver_jenkins_traub_complex.tcc>

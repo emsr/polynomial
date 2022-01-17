@@ -9,11 +9,11 @@
 #include <ext/solver_jenkins_traub.h>
 
 
-template<typename _Real>
+template<typename Real>
   int
   test_jenkins_traub()
   {
-    std::cout.precision(std::numeric_limits<_Real>::digits10);
+    std::cout.precision(std::numeric_limits<Real>::digits10);
 
     int order = 0;
     int MAX_TERMS = 1000;
@@ -24,7 +24,7 @@ template<typename _Real>
         if (order <= 0)
           break;
       }
-    std::vector<_Real> a(order + 1);
+    std::vector<Real> a(order + 1);
 
     std::cout << "Enter coefficients, high order to low order.\n";
     for (int i = 0; i <= order; ++i)
@@ -37,18 +37,18 @@ template<typename _Real>
       std::cout << a[order - i] << ", ";
     std::cout << a[0] << " )\n";
 
-    __gnu_cxx::_JenkinsTraubSolver jenkins_traub(a);
+    emsr::JenkinsTraubSolver jenkins_traub(a);
     const auto zeros = jenkins_traub.solve();
     std::cout << "\nThe zeros are:\n";
     for (const auto& z : zeros)
       std::cout << z << '\n';
 
     int num_errors = 0;
-    const auto tol = std::sqrt(std::numeric_limits<_Real>::epsilon());
+    const auto tol = std::sqrt(std::numeric_limits<Real>::epsilon());
 
     std::cout << "\nSolution tests:\n";
     // Remember to reverse the polynomial coefficients!
-    __gnu_cxx::_Polynomial<_Real> poly(a.rbegin(), a.rend());
+    emsr::Polynomial<Real> poly(a.rbegin(), a.rend());
     for (const auto& z : zeros)
       {
 	const auto idx = z.index();

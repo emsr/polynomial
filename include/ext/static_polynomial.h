@@ -27,116 +27,102 @@
  */
 
 /**
- * @def  _EXT_STATIC_POLYNOMIAL_H
+ * @def  STATIC_POLYNOMIAL_H
  *
  * @brief  A guard for the static_polynomial class header.
  */
-#ifndef _EXT_STATIC_POLYNOMIAL_H
-#define _EXT_STATIC_POLYNOMIAL_H 1
-
-#pragma GCC system_header
-
-#if __cplusplus < 201402L
-# include <bits/c++0x_warning.h>
-#else
+#ifndef STATIC_POLYNOMIAL_H
+#define STATIC_POLYNOMIAL_H 1
 
 #include <limits>
 #include <array>
 #include <complex>
 #include <iosfwd>
 
-namespace __gnu_cxx //_GLIBCXX_VISIBILITY(default)
+namespace emsr
 {
 
   /**
    * This is a constant size polynomial.
    * It is really meant to just evaluate canned polynomial literals.
    */
-  template<typename _Tp, std::size_t _Size>
-    class _StaticPolynomial
+  template<typename Tp, std::size_t Size>
+    class StaticPolynomial
     {
     public:
       /**
        *  Typedefs.
        */
-      using value_type = typename std::array<_Tp, _Size>::value_type;
-      using reference = typename std::array<_Tp, _Size>::reference;
-      using const_reference = typename std::array<_Tp, _Size>::const_reference;
-      using pointer = typename std::array<_Tp, _Size>::pointer;
-      using const_pointer = typename std::array<_Tp, _Size>::const_pointer;
-      using iterator = typename std::array<value_type, _Size>::iterator;
-      using const_iterator = typename std::array<value_type, _Size>::const_iterator;
-      using reverse_iterator = typename std::array<value_type, _Size>::reverse_iterator;
-      using const_reverse_iterator = typename std::array<value_type, _Size>::const_reverse_iterator;
-      using size_type = typename std::array<_Tp, _Size>::size_type;
-      using difference_type = typename std::array<_Tp, _Size>::difference_type;
+      using value_type = typename std::array<Tp, Size>::value_type;
+      using reference = typename std::array<Tp, Size>::reference;
+      using const_reference = typename std::array<Tp, Size>::const_reference;
+      using pointer = typename std::array<Tp, Size>::pointer;
+      using const_pointer = typename std::array<Tp, Size>::const_pointer;
+      using iterator = typename std::array<value_type, Size>::iterator;
+      using const_iterator = typename std::array<value_type, Size>::const_iterator;
+      using reverse_iterator = typename std::array<value_type, Size>::reverse_iterator;
+      using const_reverse_iterator = typename std::array<value_type, Size>::const_reverse_iterator;
+      using size_type = typename std::array<Tp, Size>::size_type;
+      using difference_type = typename std::array<Tp, Size>::difference_type;
 
       /**
        *  Create a zero degree polynomial with value zero.
        */
       constexpr
-      _StaticPolynomial()
-      : _M_coeff{}
+      StaticPolynomial()
+      : m_coeff{}
       { }
 
       /**
        *  Copy ctor.
        */
-      constexpr _StaticPolynomial(const _StaticPolynomial&) = default;
-      constexpr _StaticPolynomial(_StaticPolynomial&&) = default;
+      constexpr StaticPolynomial(const StaticPolynomial&) = default;
+      constexpr StaticPolynomial(StaticPolynomial&&) = default;
 
-      template<typename _Up>
+      template<typename Up>
 	constexpr
-	_StaticPolynomial(const _StaticPolynomial<_Up, _Size>& __poly)
-	: _M_coeff{}
+	StaticPolynomial(const StaticPolynomial<Up, Size>& poly)
+	: m_coeff{}
 	{
-          for (auto __i = 0ULL; __i < _Size; ++__i)
-	    this->_M_coeff[__i] = static_cast<value_type>(__poly._M_coeff[__i]);
+          for (auto i = 0ULL; i < Size; ++i)
+	    this->m_coeff[i] = static_cast<value_type>(poly.m_coeff[i]);
 	}
 
       /**
        *  Constructor from C-type array.
        */
-      template<typename _Up>
+      template<typename Up>
 	constexpr
-	_StaticPolynomial(const _Up (&__arr)[_Size])
-	: _M_coeff{}
+	StaticPolynomial(const Up (&arr)[Size])
+	: m_coeff{}
 	{
-          for (auto __i = 0ULL; __i < _Size; ++__i)
-	    this->_M_coeff[__i] = static_cast<value_type>(__arr[__i]);
+          for (auto i = 0ULL; i < Size; ++i)
+	    this->m_coeff[i] = static_cast<value_type>(arr[i]);
 	}
 
       /**
        *  Constructor from initializer_list array.
        */
       constexpr
-      _StaticPolynomial(std::initializer_list<_Tp> __il)
-      : _M_coeff{}
+      StaticPolynomial(std::initializer_list<Tp> il)
+      : m_coeff{}
       {
-	//static_assert(__il.size() == _Size, "");
-	std::size_t __i = 0;
-	for (auto&& __coeff : __il)
-	  this->_M_coeff[__i++] = __coeff;
+	//static_assert(il.size() == Size, "");
+	std::size_t i = 0;
+	for (auto&& coeff : il)
+	  this->m_coeff[i++] = coeff;
       }
 
       /**
        *  Create a polynomial - actually a monomial - of just one term.
        */
       constexpr explicit
-      _StaticPolynomial(value_type __a, size_type __degree = 0)
-      : _M_coeff(__degree + 1)
+      StaticPolynomial(value_type a, size_type degree = 0)
+      : m_coeff(degree + 1)
       {
-        static_assert(__degree < _Size, "_StaticPolynomial: degree out of range");
-        this->_M_coeff[__degree] = __a;
+        static_assert(degree < Size, "StaticPolynomial: degree out of range");
+        this->m_coeff[degree] = a;
       }
-
-      /**
-       *  Create a polynomial from an argument list of coefficients.
-      constexpr
-      _StaticPolynomial(value_type&& __aa0, value_type&&... __aa)
-      : _M_coeff(std::experimental::make_array(__aa0, __aa...))
-      { }
-       */
 
       /**
        *  Create a polynomial from an input iterator range of coefficients.
@@ -144,29 +130,29 @@ namespace __gnu_cxx //_GLIBCXX_VISIBILITY(default)
       template<typename InIter,
 	       typename = std::_RequireInputIter<InIter>>
 	constexpr
-	_StaticPolynomial(const InIter& __abegin, const InIter& __aend)
-	: _M_coeff(__abegin, __aend)
+	StaticPolynomial(const InIter& abegin, const InIter& aend)
+	: m_coeff(abegin, aend)
 	{ }
 
       /**
        *  Swap the polynomial with another polynomial.
        */
       void
-      swap(_StaticPolynomial& __poly)
-      { this->_M_coeff.swap(__poly._M_coeff); }
+      swap(StaticPolynomial& poly)
+      { this->m_coeff.swap(poly.m_coeff); }
 
       /**
        *  Evaluate the polynomial at the input point.
        */
       constexpr value_type
-      operator()(value_type __x) const
+      operator()(value_type x) const
       {
 	if (this->degree() > 0)
 	  {
-	    value_type __poly(this->coefficient(this->degree()));
-	    for (int __i = this->degree() - 1; __i >= 0; --__i)
-	      __poly = __poly * __x + this->coefficient(__i);
-	    return __poly;
+	    value_type poly(this->coefficient(this->degree()));
+	    for (int i = this->degree() - 1; i >= 0; --i)
+	      poly = poly * x + this->coefficient(i);
+	    return poly;
 	  }
 	else
 	  return value_type{};
@@ -175,17 +161,17 @@ namespace __gnu_cxx //_GLIBCXX_VISIBILITY(default)
       /**
        *  Evaluate the polynomial at the input point.
        */
-      template<typename _Tp2>
+      template<typename Tp2>
 	constexpr auto
-	operator()(_Tp2 __x) const
-	-> decltype(value_type{} * _Tp2())
+	operator()(Tp2 x) const
+	-> decltype(value_type{} * Tp2())
 	{
 	  if (this->degree() > 0)
 	    {
-	      auto __poly(this->coefficient(this->degree()) * _Tp2(1));
-	      for (int __i = this->degree() - 1; __i >= 0; --__i)
-		__poly = __poly * __x + this->coefficient(__i);
-	      return __poly;
+	      auto poly(this->coefficient(this->degree()) * Tp2(1));
+	      for (int i = this->degree() - 1; i >= 0; --i)
+		poly = poly * x + this->coefficient(i);
+	      return poly;
 	    }
 	  else
 	    return value_type{};
@@ -202,22 +188,22 @@ namespace __gnu_cxx //_GLIBCXX_VISIBILITY(default)
        *  If n is the degree of the polynomial, n - 3 multiplies are
        *  saved and 4 * n - 6 additions are saved.
        */
-      template<typename _Tp2>
+      template<typename Tp2>
 	constexpr auto
-	operator()(std::complex<_Tp2> __z) const
-	-> decltype(value_type{} * std::complex<_Tp2>{})
+	operator()(std::complex<Tp2> z) const
+	-> decltype(value_type{} * std::complex<Tp2>{})
 	{
-	  const auto __r = _Tp{2} * std::real(__z);
-	  const auto __s = std::norm(__z);
-	  auto __aa = this->coefficient(this->degree());
-	  auto __bb = this->coefficient(this->degree() - 1);
-	  for (int __j = 1; __j <= this->degree(); ++__j)
+	  const auto r = Tp{2} * std::real(z);
+	  const auto s = std::norm(z);
+	  auto aa = this->coefficient(this->degree());
+	  auto bb = this->coefficient(this->degree() - 1);
+	  for (int j = 1; j <= this->degree(); ++j)
 	    {
-	      auto __cc  = __s * __aa;
-	      __aa = __bb + __r * __aa;
-	      __bb = this->coefficient(this->degree() - __j) - __cc;
+	      auto cc  = s * aa;
+	      aa = bb + r * aa;
+	      bb = this->coefficient(this->degree() - j) - cc;
 	    }
-	  return __aa * __z + __bb;
+	  return aa * z + bb;
 	};
 
       /**
@@ -229,37 +215,37 @@ namespace __gnu_cxx //_GLIBCXX_VISIBILITY(default)
       template<typename InIter, typename OutIter,
 	       typename = std::_RequireInputIter<InIter>>
 	constexpr OutIter
-	operator()(const InIter& __xbegin, const InIter& __xend,
-        	   OutIter& __pbegin) const
+	operator()(const InIter& xbegin, const InIter& xend,
+        	   OutIter& pbegin) const
 	{
-	  for (; __xbegin != __xend; ++__xbegin)
-	    __pbegin++ = (*this)(__xbegin++);
-	  return __pbegin;
+	  for (; xbegin != xend; ++xbegin)
+	    pbegin++ = (*this)(xbegin++);
+	  return pbegin;
 	}
 
       //  Could/should this be done by output iterator range?
       template<size_type N>
 	constexpr void
-	eval(value_type __x, std::array<value_type, N>& __arr)
+	eval(value_type x, std::array<value_type, N>& arr)
 	{
-	  if (__arr.size() > 0)
+	  if (arr.size() > 0)
 	    {
-	      __arr.fill(value_type{});
-	      const size_type __sz = _M_coeff.size();
-	      __arr[0] = this->coefficient(__sz - 1);
-              for (int __i = __sz - 2; __i >= 0; --__i)
+	      arr.fill(value_type{});
+	      const size_type sz = m_coeff.size();
+	      arr[0] = this->coefficient(sz - 1);
+              for (int i = sz - 2; i >= 0; --i)
 		{
-		  int __nn = std::min(__arr.size() - 1, __sz - 1 - __i);
-		  for (int __j = __nn; __j >= 1; --__j)
-		    __arr[__j] = __arr[__j] * __x + __arr[__j - 1];
-		  __arr[0] = __arr[0] * __x + this->coefficient(__i);
+		  int nn = std::min(arr.size() - 1, sz - 1 - i);
+		  for (int j = nn; j >= 1; --j)
+		    arr[j] = arr[j] * x + arr[j - 1];
+		  arr[0] = arr[0] * x + this->coefficient(i);
 		}
 	      //  Now put in the factorials.
-	      value_type __fact = value_type(1);
-	      for (size_t __i = 2; __i < __arr.size(); ++__i)
+	      value_type fact = value_type(1);
+	      for (size_t i = 2; i < arr.size(); ++i)
 		{
-		  __fact *= value_type(__i);
-		  __arr[__i] *= __fact;
+		  fact *= value_type(i);
+		  arr[i] *= fact;
 		}
 	    }
 	}
@@ -271,28 +257,28 @@ namespace __gnu_cxx //_GLIBCXX_VISIBILITY(default)
        */
       template<typename OutIter>
 	constexpr void
-	eval(value_type __x, OutIter __b, OutIter __e)
+	eval(value_type x, OutIter b, OutIter e)
 	{
-	  if(__b != __e)
+	  if(b != e)
 	    {
-	      std::fill(__b, __e, value_type{});
-	      constexpr size_type __sz = _M_coeff.size();
-	      *__b = _M_coeff[__sz - 1];
-              for (int __i = __sz - 2; __i >= 0; --__i)
+	      std::fill(b, e, value_type{});
+	      constexpr size_type sz = m_coeff.size();
+	      *b = m_coeff[sz - 1];
+              for (int i = sz - 2; i >= 0; --i)
 		{
-		  for (auto __it = std::reverse_iterator<OutIter>(__e);
-			   __it != std::reverse_iterator<OutIter>(__b) - 1; ++__it)
-		    *__it = *__it * __x + *(__it + 1);
-		  *__b = *__b * __x + _M_coeff[__i];
+		  for (auto it = std::reverse_iterator<OutIter>(e);
+			   it != std::reverse_iterator<OutIter>(b) - 1; ++it)
+		    *it = *it * x + *(it + 1);
+		  *b = *b * x + m_coeff[i];
 		}
 	      //  Now put in the factorials.
-	      int __i = 0;
-	      value_type __fact = value_type(++__i);
-	      for (auto __it = __b + 1; __it != __e; ++__it)
+	      int i = 0;
+	      value_type fact = value_type(++i);
+	      for (auto it = b + 1; it != e; ++it)
 		{
-		  __fact *= value_type(__i);
-		  *__it *= __fact;
-		  ++__i;
+		  fact *= value_type(i);
+		  *it *= fact;
+		  ++i;
 		}
 	    }
 	}
@@ -301,15 +287,15 @@ namespace __gnu_cxx //_GLIBCXX_VISIBILITY(default)
        *  Evaluate the even part of the polynomial at the input point.
        */
       constexpr value_type
-      eval_even(value_type __x) const
+      eval_even(value_type x) const
       {
 	if (this->degree() > 0)
 	  {
-	    auto __odd = this->degree() % 2;
-	    value_type __poly(this->coefficient(this->degree() - __odd));
-	    for (int __i = this->degree() - __odd - 2; __i >= 0; __i -= 2)
-	      __poly = __poly * __x * __x + this->coefficient(__i);
-	    return __poly;
+	    auto odd = this->degree() % 2;
+	    value_type poly(this->coefficient(this->degree() - odd));
+	    for (int i = this->degree() - odd - 2; i >= 0; i -= 2)
+	      poly = poly * x * x + this->coefficient(i);
+	    return poly;
 	  }
 	else
 	  return value_type{};
@@ -319,15 +305,15 @@ namespace __gnu_cxx //_GLIBCXX_VISIBILITY(default)
        *  Evaluate the odd part of the polynomial at the input point.
        */
       constexpr value_type
-      eval_odd(value_type __x) const
+      eval_odd(value_type x) const
       {
 	if (this->degree() > 0)
 	  {
-	    auto __even = (this->degree() % 2 == 0 ? 1 : 0);
-	    value_type __poly(this->coefficient(this->degree() - __even));
-	    for (int __i = this->degree() - __even - 2; __i >= 0; __i -= 2)
-	      __poly = __poly * __x * __x + this->coefficient(__i);
-	    return __poly * __x;
+	    auto even = (this->degree() % 2 == 0 ? 1 : 0);
+	    value_type poly(this->coefficient(this->degree() - even));
+	    for (int i = this->degree() - even - 2; i >= 0; i -= 2)
+	      poly = poly * x * x + this->coefficient(i);
+	    return poly * x;
 	  }
 	else
 	  return value_type{};
@@ -345,27 +331,27 @@ namespace __gnu_cxx //_GLIBCXX_VISIBILITY(default)
        *  If n is the degree of the polynomial,
        *  n - 3 multiplies and 4 * n - 6 additions are saved.
        */
-      template<typename _Tp2>
+      template<typename Tp2>
 	constexpr auto
-	eval_even(std::complex<_Tp2> __z) const
-	-> decltype(value_type{} * std::complex<_Tp2>{})
+	eval_even(std::complex<Tp2> z) const
+	-> decltype(value_type{} * std::complex<Tp2>{})
 	{
 	  if (this->degree() > 0)
 	    {
-	      const auto __zz = __z * __z;
-	      const auto __r = _Tp{2} * std::real(__zz);
-	      const auto __s = std::norm(__zz);
-	      auto __odd = this->degree() % 2;
-	      size_type __n = this->degree() - __odd;
-	      auto __aa = this->coefficient(__n);
-	      auto __bb = this->coefficient(__n - 2);
-	      for (size_type __j = 4; __j <= __n; __j += 2)
-		__bb = this->coefficient(__n - __j)
-		     - __s * std::exchange(__aa, __bb + __r * __aa);
-	      return __aa * __zz + __bb;
+	      const auto zz = z * z;
+	      const auto r = Tp{2} * std::real(zz);
+	      const auto s = std::norm(zz);
+	      auto odd = this->degree() % 2;
+	      size_type n = this->degree() - odd;
+	      auto aa = this->coefficient(n);
+	      auto bb = this->coefficient(n - 2);
+	      for (size_type j = 4; j <= n; j += 2)
+		bb = this->coefficient(n - j)
+		     - s * std::exchange(aa, bb + r * aa);
+	      return aa * zz + bb;
 	    }
 	  else
-	    return decltype(value_type{} * std::complex<_Tp2>{}){};
+	    return decltype(value_type{} * std::complex<Tp2>{}){};
 	};
 
       /**
@@ -380,83 +366,83 @@ namespace __gnu_cxx //_GLIBCXX_VISIBILITY(default)
        *  If n is the degree of the polynomial,
        *  n - 3 multiplies and 4 * n - 6 additions are saved.
        */
-      template<typename _Tp2>
+      template<typename Tp2>
 	constexpr auto
-	eval_odd(std::complex<_Tp2> __z) const
-	-> decltype(value_type{} * std::complex<_Tp2>{})
+	eval_odd(std::complex<Tp2> z) const
+	-> decltype(value_type{} * std::complex<Tp2>{})
 	{
 	  if (this->degree() > 0)
 	    {
-	      const auto __zz = __z * __z;
-	      const auto __r = _Tp{2} * std::real(__zz);
-	      const auto __s = std::norm(__zz);
-	      auto __even = (this->degree() % 2 == 0 ? 1 : 0);
-	      size_type __n = this->degree() - __even;
-	      auto __aa = this->coefficient(__n);
-	      auto __bb = this->coefficient(__n - 2);
-	      for (size_type __j = 4; __j <= __n; __j += 2)
-		__bb = this->coefficient(__n - __j)
-		     - __s * std::exchange(__aa, __bb + __r * __aa);
-	      return __z * (__aa * __zz + __bb);
+	      const auto zz = z * z;
+	      const auto r = Tp{2} * std::real(zz);
+	      const auto s = std::norm(zz);
+	      auto even = (this->degree() % 2 == 0 ? 1 : 0);
+	      size_type n = this->degree() - even;
+	      auto aa = this->coefficient(n);
+	      auto bb = this->coefficient(n - 2);
+	      for (size_type j = 4; j <= n; j += 2)
+		bb = this->coefficient(n - j)
+		     - s * std::exchange(aa, bb + r * aa);
+	      return z * (aa * zz + bb);
 	    }
 	  else
-	    return decltype(value_type{} * std::complex<_Tp2>{}){};
+	    return decltype(value_type{} * std::complex<Tp2>{}){};
 	};
 
       /**
        *  Return the derivative of the polynomial.
        */
-      constexpr _StaticPolynomial<_Tp, (_Size > 1 ? _Size - 1 : 1)>
+      constexpr StaticPolynomial<Tp, (Size > 1 ? Size - 1 : 1)>
       derivative() const
       {
-	_StaticPolynomial<_Tp, (_Size > 1 ? _Size - 1 : 1)> __res;
-	for (size_type __i = 1; __i <= this->degree(); ++__i)
-	  __res.coefficient(__i - 1, __i * _M_coeff[__i]);
-	return __res;
+	StaticPolynomial<Tp, (Size > 1 ? Size - 1 : 1)> res;
+	for (size_type i = 1; i <= this->degree(); ++i)
+	  res.coefficient(i - 1, i * m_coeff[i]);
+	return res;
       }
 
       /**
        *  Return the integral of the polynomial with given integration constant.
        */
-      constexpr _StaticPolynomial<_Tp, _Size + 1>
-      integral(value_type __c = value_type{}) const
+      constexpr StaticPolynomial<Tp, Size + 1>
+      integral(value_type c = value_type{}) const
       {
-	_StaticPolynomial<_Tp, _Size + 1> __res;
-	__res.coefficient(0, __c);
-	for (size_type __i = 0; __i <= this->degree(); ++__i)
-	  __res.coefficient(__i + 1, _M_coeff[__i] / value_type(__i + 1));
-	return __res;
+	StaticPolynomial<Tp, Size + 1> res;
+	res.coefficient(0, c);
+	for (size_type i = 0; i <= this->degree(); ++i)
+	  res.coefficient(i + 1, m_coeff[i] / value_type(i + 1));
+	return res;
       }
 
       /**
        * Unary plus.
        */
-      constexpr _StaticPolynomial
+      constexpr StaticPolynomial
       operator+() const noexcept
       { return *this; }
 
       /**
        * Unary minus.
        */
-      constexpr _StaticPolynomial
+      constexpr StaticPolynomial
       operator-() const
-      { return _StaticPolynomial(*this) *= value_type(-1); }
+      { return StaticPolynomial(*this) *= value_type(-1); }
 
       /**
        *  Copy assignment.
        */
-      constexpr _StaticPolynomial&
-      operator=(const _StaticPolynomial&) = default;
+      constexpr StaticPolynomial&
+      operator=(const StaticPolynomial&) = default;
 
-      template<typename _Up>
-	_StaticPolynomial&
-	operator=(const _StaticPolynomial<_Up, _Size>& __poly)
+      template<typename Up>
+	StaticPolynomial&
+	operator=(const StaticPolynomial<Up, Size>& poly)
 	{
-	  if (&__poly != this)
+	  if (&poly != this)
 	    {
-	      this->_M_coeff.clear();
-	      for (const auto __c : __poly)
-		this->_M_coeff = static_cast<value_type>(__c);
+	      this->m_coeff.clear();
+	      for (const auto c : poly)
+		this->m_coeff = static_cast<value_type>(c);
 	      return *this;
 	    }
 	}
@@ -464,54 +450,54 @@ namespace __gnu_cxx //_GLIBCXX_VISIBILITY(default)
       /**
        *  Assign from an initialiser list.
        */
-      constexpr _StaticPolynomial&
-      operator=(std::initializer_list<value_type> __ila)
+      constexpr StaticPolynomial&
+      operator=(std::initializer_list<value_type> ila)
       {
-	for (size_type __i = 0;
-	     __i <= std::min(this->degree(), __ila.size()); ++__i)
-	  this->_M_coeff[__i] = __ila[__i];
+	for (size_type i = 0;
+	     i <= std::min(this->degree(), ila.size()); ++i)
+	  this->m_coeff[i] = ila[i];
 	return *this;
       }
 
       /**
        * Add a scalar to the polynomial.
        */
-      _StaticPolynomial&
-      operator+=(const value_type& __x)
+      StaticPolynomial&
+      operator+=(const value_type& x)
       {
-	this->_M_coeff[0] += static_cast<value_type>(__x);
+	this->m_coeff[0] += static_cast<value_type>(x);
 	return *this;
       }
 
       /**
        * Subtract a scalar from the polynomial.
        */
-      _StaticPolynomial&
-      operator-=(const value_type& __x)
+      StaticPolynomial&
+      operator-=(const value_type& x)
       {
-	this->_M_coeff[0] -= static_cast<value_type>(__x);
+	this->m_coeff[0] -= static_cast<value_type>(x);
 	return *this;
       }
 
       /**
        * Multiply the polynomial by a scalar.
        */
-      _StaticPolynomial&
-      operator*=(const value_type& __c)
+      StaticPolynomial&
+      operator*=(const value_type& c)
       {
-	for (size_type __i = 0; __i < this->_M_coeff.size(); ++__i)
-	  this->_M_coeff[__i] *= static_cast<value_type>(__c);
+	for (size_type i = 0; i < this->m_coeff.size(); ++i)
+	  this->m_coeff[i] *= static_cast<value_type>(c);
 	return *this;
       }
 
       /**
        * Divide the polynomial by a scalar.
        */
-      _StaticPolynomial&
-      operator/=(const value_type& __c)
+      StaticPolynomial&
+      operator/=(const value_type& c)
       {
-	for (size_type __i = 0; __i < this->_M_coeff.size(); ++__i)
-	  this->_M_coeff[__i] /= static_cast<value_type>(__c);
+	for (size_type i = 0; i < this->m_coeff.size(); ++i)
+	  this->m_coeff[i] /= static_cast<value_type>(c);
 	return *this;
       }
 
@@ -520,309 +506,307 @@ namespace __gnu_cxx //_GLIBCXX_VISIBILITY(default)
        */
       constexpr size_type
       degree() const
-      { return (this->_M_coeff.size() > 0 ? this->_M_coeff.size() - 1 : 0); }
+      { return (this->m_coeff.size() > 0 ? this->m_coeff.size() - 1 : 0); }
 
       /**
        * Return the @c ith coefficient with range checking.
        */
       constexpr value_type
-      coefficient(size_type __i) const
-      { return this->_M_coeff.at(__i); }
+      coefficient(size_type i) const
+      { return this->m_coeff.at(i); }
 
       /**
        * Set coefficient @c i to @c val with range checking.
        */
       constexpr void
-      coefficient(size_type __i, value_type __val)
-      { this->_M_coeff.at(__i) = __val; }
+      coefficient(size_type i, value_type val)
+      { this->m_coeff.at(i) = val; }
 
       /**
        * Return coefficient @c i.
        */
       constexpr value_type
-      operator[](size_type __i) const
-      { return this->_M_coeff[__i]; }
+      operator[](size_type i) const
+      { return this->m_coeff[i]; }
 
       /**
        * Return coefficient @c i as an assignable quantity.
        */
       reference
-      operator[](size_type __i)
-      { return this->_M_coeff[__i]; }
+      operator[](size_type i)
+      { return this->m_coeff[i]; }
 
       /**
        * Return a const vector of coefficients.
        */
-      constexpr const std::array<value_type, _Size>
+      constexpr const std::array<value_type, Size>
       coefficients() const noexcept
-      { return this->_M_coeff; }
+      { return this->m_coeff; }
 
       /**
        * Return a vector of coefficients.
        */
-      constexpr std::array<value_type, _Size>
+      constexpr std::array<value_type, Size>
       coefficients() noexcept
-      { return this->_M_coeff; }
+      { return this->m_coeff; }
 
       /**
        * Return a @c const pointer to the coefficient sequence.
        */
       constexpr const value_type*
       data() const noexcept
-      { return this->_M_coeff.data(); }
+      { return this->m_coeff.data(); }
 
       /**
        * Return a @c pointer to the coefficient sequence.
        */
       constexpr value_type*
       data() noexcept
-      { return this->_M_coeff.data(); }
+      { return this->m_coeff.data(); }
 
       iterator
       begin()
-      { return this->_M_coeff.begin(); }
+      { return this->m_coeff.begin(); }
 
       iterator
       end()
-      { return this->_M_coeff.end(); }
+      { return this->m_coeff.end(); }
 
       const_iterator
       begin() const
-      { return this->_M_coeff.begin(); }
+      { return this->m_coeff.begin(); }
 
       const_iterator
       end() const
-      { return this->_M_coeff.end(); }
+      { return this->m_coeff.end(); }
 
       const_iterator
       cbegin() const
-      { return this->_M_coeff.cbegin(); }
+      { return this->m_coeff.cbegin(); }
 
       const_iterator
       cend() const
-      { return this->_M_coeff.cend(); }
+      { return this->m_coeff.cend(); }
 
       reverse_iterator
       rbegin()
-      { return this->_M_coeff.rbegin(); }
+      { return this->m_coeff.rbegin(); }
 
       reverse_iterator
       rend()
-      { return this->_M_coeff.rend(); }
+      { return this->m_coeff.rend(); }
 
       const_reverse_iterator
       rbegin() const
-      { return this->_M_coeff.rbegin(); }
+      { return this->m_coeff.rbegin(); }
 
       const_reverse_iterator
       rend() const
-      { return this->_M_coeff.rend(); }
+      { return this->m_coeff.rend(); }
 
       const_reverse_iterator
       crbegin() const
-      { return this->_M_coeff.crbegin(); }
+      { return this->m_coeff.crbegin(); }
 
       const_reverse_iterator
       crend() const
-      { return this->_M_coeff.crend(); }
+      { return this->m_coeff.crend(); }
 
-      template<typename _Tp1>
+      template<typename Tp1>
 	friend bool
-	operator==(const _StaticPolynomial<_Tp1, _Size>& __pa,
-		   const _StaticPolynomial<_Tp1, _Size>& __pb);
+	operator==(const StaticPolynomial<Tp1, Size>& pa,
+		   const StaticPolynomial<Tp1, Size>& pb);
 
     private:
 
-      std::array<value_type, _Size> _M_coeff;
+      std::array<value_type, Size> m_coeff;
     };
 
   /**
    *  Return true if two polynomials are equal.
    */
-  template<typename _Tp, std::size_t _SizeA, std::size_t _SizeB>
+  template<typename Tp, std::size_t SizeA, std::size_t SizeB>
     inline constexpr bool
-    operator==(const _StaticPolynomial<_Tp, _SizeA>&,
-	       const _StaticPolynomial<_Tp, _SizeB>&)
+    operator==(const StaticPolynomial<Tp, SizeA>&,
+	       const StaticPolynomial<Tp, SizeB>&)
     { return false; }
 
-  template<typename _Tp, std::size_t _Size>
+  template<typename Tp, std::size_t Size>
     inline constexpr bool
-    operator==(const _StaticPolynomial<_Tp, _Size>& __pa,
-	       const _StaticPolynomial<_Tp, _Size>& __pb)
-    { return __pa._M_coeff == __pb._M_coeff; }
+    operator==(const StaticPolynomial<Tp, Size>& pa,
+	       const StaticPolynomial<Tp, Size>& pb)
+    { return pa.m_coeff == pb.m_coeff; }
 
   /**
    *  Return false if two polynomials are equal.
    */
-  template<typename _Tp, std::size_t _SizeA, std::size_t _SizeB>
+  template<typename Tp, std::size_t SizeA, std::size_t SizeB>
     inline constexpr bool
-    operator!=(const _StaticPolynomial<_Tp, _SizeA>& __pa,
-	       const _StaticPolynomial<_Tp, _SizeB>& __pb)
+    operator!=(const StaticPolynomial<Tp, SizeA>& pa,
+	       const StaticPolynomial<Tp, SizeB>& pb)
     { return true; }
 
   /**
    *  Return false if two polynomials are equal.
    */
-  template<typename _Tp, std::size_t _Size>
+  template<typename Tp, std::size_t Size>
     inline constexpr bool
-    operator!=(const _StaticPolynomial<_Tp, _Size>& __pa,
-	       const _StaticPolynomial<_Tp, _Size>& __pb)
-    { return !(__pa == __pb); }
+    operator!=(const StaticPolynomial<Tp, Size>& pa,
+	       const StaticPolynomial<Tp, Size>& pb)
+    { return !(pa == pb); }
 
   /**
    * Return the sum of a polynomial with a scalar.
    */
-  template<typename _Tp, std::size_t _Size>
-    inline constexpr _StaticPolynomial<_Tp, _Size>
-    operator+(const _StaticPolynomial<_Tp, _Size>& __poly, const _Tp& __x)
-    { return _StaticPolynomial<_Tp, _Size>(__poly) += __x; }
+  template<typename Tp, std::size_t Size>
+    inline constexpr StaticPolynomial<Tp, Size>
+    operator+(const StaticPolynomial<Tp, Size>& poly, const Tp& x)
+    { return StaticPolynomial<Tp, Size>(poly) += x; }
 
-  template<typename _Tp, std::size_t _Size>
-    inline _StaticPolynomial<_Tp, _Size>
-    operator+(const _Tp& __x, const _StaticPolynomial<_Tp, _Size>& __poly)
-    { return _StaticPolynomial<_Tp, _Size>(__poly) += __x; }
+  template<typename Tp, std::size_t Size>
+    inline StaticPolynomial<Tp, Size>
+    operator+(const Tp& x, const StaticPolynomial<Tp, Size>& poly)
+    { return StaticPolynomial<Tp, Size>(poly) += x; }
 
   /**
    * Return the difference of a polynomial with a scalar.
    */
-  template<typename _Tp, std::size_t _Size>
-    inline constexpr _StaticPolynomial<_Tp, _Size>
-    operator-(const _StaticPolynomial<_Tp, _Size>& __poly, const _Tp& __x)
-    { return _StaticPolynomial<_Tp, _Size>(__poly) -= __x; }
+  template<typename Tp, std::size_t Size>
+    inline constexpr StaticPolynomial<Tp, Size>
+    operator-(const StaticPolynomial<Tp, Size>& poly, const Tp& x)
+    { return StaticPolynomial<Tp, Size>(poly) -= x; }
 
-  template<typename _Tp, std::size_t _Size>
-    inline _StaticPolynomial<_Tp, _Size>
-    operator-(const _Tp& __x, const _StaticPolynomial<_Tp, _Size>& __poly)
-    { return -_StaticPolynomial<_Tp, _Size>(__poly) += __x; }
+  template<typename Tp, std::size_t Size>
+    inline StaticPolynomial<Tp, Size>
+    operator-(const Tp& x, const StaticPolynomial<Tp, Size>& poly)
+    { return -StaticPolynomial<Tp, Size>(poly) += x; }
 
   /**
    * Return the product of a polynomial with a scalar.
    */
-  template<typename _Tp, std::size_t _Size>
-    inline constexpr _StaticPolynomial<_Tp, _Size>
-    operator*(const _StaticPolynomial<_Tp, _Size>& __poly, const _Tp& __x)
-    { return _StaticPolynomial<_Tp, _Size>(__poly) *= __x; }
+  template<typename Tp, std::size_t Size>
+    inline constexpr StaticPolynomial<Tp, Size>
+    operator*(const StaticPolynomial<Tp, Size>& poly, const Tp& x)
+    { return StaticPolynomial<Tp, Size>(poly) *= x; }
 
-  template<typename _Tp, std::size_t _Size>
-    inline _StaticPolynomial<_Tp, _Size>
-    operator*(const _Tp& __x, const _StaticPolynomial<_Tp, _Size>& __poly)
-    { return _StaticPolynomial<_Tp, _Size>(__poly) *= __x; }
+  template<typename Tp, std::size_t Size>
+    inline StaticPolynomial<Tp, Size>
+    operator*(const Tp& x, const StaticPolynomial<Tp, Size>& poly)
+    { return StaticPolynomial<Tp, Size>(poly) *= x; }
 
   /**
    * Return the quotient of a polynomial with a scalar.
    */
-  template<typename _Tp, std::size_t _Size>
-    inline constexpr _StaticPolynomial<_Tp, _Size>
-    operator/(const _StaticPolynomial<_Tp, _Size>& __poly, const _Tp& __x)
-    { return _StaticPolynomial<_Tp, _Size>(__poly) /= __x; }
+  template<typename Tp, std::size_t Size>
+    inline constexpr StaticPolynomial<Tp, Size>
+    operator/(const StaticPolynomial<Tp, Size>& poly, const Tp& x)
+    { return StaticPolynomial<Tp, Size>(poly) /= x; }
 
   /**
    * Write a polynomial to a stream.
    * The format is a parenthesized comma-delimited list of coefficients.
    */
-  template<typename CharT, typename Traits, typename _Tp, std::size_t _Size>
+  template<typename CharT, typename Traits, typename Tp, std::size_t Size>
     std::basic_ostream<CharT, Traits>&
-    operator<<(std::basic_ostream<CharT, Traits>& __os,
-	       const _StaticPolynomial<_Tp, _Size>& __poly);
+    operator<<(std::basic_ostream<CharT, Traits>& os,
+	       const StaticPolynomial<Tp, Size>& poly);
 
   /**
    *  Return the sum of two polynomials.
    */
-  template<typename _Tp, std::size_t _SizeP, std::size_t _SizeQ>
-    inline constexpr _StaticPolynomial<_Tp, std::max(_SizeP, _SizeQ)>
-    operator+(const _StaticPolynomial<_Tp, _SizeP>& _P,
-	      const _StaticPolynomial<_Tp, _SizeQ>& _Q)
+  template<typename Tp, std::size_t SizeP, std::size_t SizeQ>
+    inline constexpr StaticPolynomial<Tp, std::max(SizeP, SizeQ)>
+    operator+(const StaticPolynomial<Tp, SizeP>& P,
+	      const StaticPolynomial<Tp, SizeQ>& Q)
     {
-      if constexpr (_SizeP >= _SizeQ)
+      if constexpr (SizeP >= SizeQ)
 	{
-	  _StaticPolynomial<_Tp, _SizeP> _R = _P;
-	  for (std::size_t __i = 0; __i < _SizeQ; ++__i)
-	    _R[__i] += _Q[__i];
-	  return _R;
+	  StaticPolynomial<Tp, SizeP> R = P;
+	  for (std::size_t i = 0; i < SizeQ; ++i)
+	    R[i] += Q[i];
+	  return R;
 	}
       else
-	return _Q + _P;
+	return Q + P;
     }
 
   /**
    *  Return the difference of two polynomials.
    */
-  template<typename _Tp, std::size_t _SizeP, std::size_t _SizeQ>
-    inline constexpr _StaticPolynomial<_Tp, std::max(_SizeP, _SizeQ)>
-    operator-(const _StaticPolynomial<_Tp, _SizeP>& _P,
-	      const _StaticPolynomial<_Tp, _SizeQ>& _Q)
-    { return _P + -_Q; }
+  template<typename Tp, std::size_t SizeP, std::size_t SizeQ>
+    inline constexpr StaticPolynomial<Tp, std::max(SizeP, SizeQ)>
+    operator-(const StaticPolynomial<Tp, SizeP>& P,
+	      const StaticPolynomial<Tp, SizeQ>& Q)
+    { return P + -Q; }
 
   /**
    *  Return the product of two polynomials.
    */
-  template<typename _Tp, std::size_t _SizeP, std::size_t _SizeQ>
-    inline constexpr _StaticPolynomial<_Tp, _SizeP + _SizeQ - 1>
-    operator*(_StaticPolynomial<_Tp, _SizeP> _P,
-	      _StaticPolynomial<_Tp, _SizeQ> _Q)
+  template<typename Tp, std::size_t SizeP, std::size_t SizeQ>
+    inline constexpr StaticPolynomial<Tp, SizeP + SizeQ - 1>
+    operator*(StaticPolynomial<Tp, SizeP> P,
+	      StaticPolynomial<Tp, SizeQ> Q)
     {
-      _StaticPolynomial<_Tp, _P.degree() + _Q.degree() + 1> _R;
-      for (std::size_t __i = 0; __i <= _P.degree(); ++__i)
-	for (std::size_t __j = 0; __j <= _Q.degree(); ++__j)
-	  _R[__i + __j] = _P[__i] * _Q[__j];
-      return _R;
+      StaticPolynomial<Tp, P.degree() + Q.degree() + 1> R;
+      for (std::size_t i = 0; i <= P.degree(); ++i)
+	for (std::size_t j = 0; j <= Q.degree(); ++j)
+	  R[i + j] = P[i] * Q[j];
+      return R;
     }
 
   /**
    * Return the product of two polynomials.
    */
-  template<typename _Tp, std::size_t _SizeP, std::size_t _SizeQ>
-    inline constexpr _StaticPolynomial<_Tp, _SizeP + _SizeQ - 1>
-    operator*(_StaticPolynomial<_Tp, _SizeP> _P,
-	      _StaticPolynomial<_Tp, _SizeQ> _Q);
+  template<typename Tp, std::size_t SizeP, std::size_t SizeQ>
+    inline constexpr StaticPolynomial<Tp, SizeP + SizeQ - 1>
+    operator*(StaticPolynomial<Tp, SizeP> P,
+	      StaticPolynomial<Tp, SizeQ> Q);
 
   /**
    * Return type for divmod.
    */
-  template<typename _Tp, std::size_t _SizeN, std::size_t _SizeD>
-    struct __divmod_t
+  template<typename Tp, std::size_t SizeN, std::size_t SizeD>
+    struct divmod_t
     {
       static constexpr std::size_t
-      _SizeQuo = (_SizeD <= _SizeN) ? _SizeN - _SizeD + 1 : 1;
+      SizeQuo = (SizeD <= SizeN) ? SizeN - SizeD + 1 : 1;
       static constexpr std::size_t
-      _SizeRem = (_SizeD > 1) ? _SizeD - 1 : 1;
+      SizeRem = (SizeD > 1) ? SizeD - 1 : 1;
 
-      _StaticPolynomial<_Tp, _SizeQuo> __quo;
-      _StaticPolynomial<_Tp, _SizeRem> __rem;
+      StaticPolynomial<Tp, SizeQuo> quo;
+      StaticPolynomial<Tp, SizeRem> rem;
     };
 
   /**
    * Divide two polynomials returning the quotient and remainder.
    */
-  template<typename _Tp, std::size_t _SizeN, std::size_t _SizeD>
-    constexpr __divmod_t<_Tp, _SizeN, _SizeD>
-    divmod(_StaticPolynomial<_Tp, _SizeN> __num,
-	   _StaticPolynomial<_Tp, _SizeD> __den);
+  template<typename Tp, std::size_t SizeN, std::size_t SizeD>
+    constexpr divmod_t<Tp, SizeN, SizeD>
+    divmod(StaticPolynomial<Tp, SizeN> num,
+	   StaticPolynomial<Tp, SizeD> den);
 
   /**
    * Return the quotient of two polynomials.
    */
-  template<typename _Tp, std::size_t _SizeP, std::size_t _SizeQ>
-    inline constexpr _StaticPolynomial<_Tp,
-		     __divmod_t<_Tp, _SizeP, _SizeQ>::_SizeQuo>
-    operator/(_StaticPolynomial<_Tp, _SizeP> _P,
-	      _StaticPolynomial<_Tp, _SizeQ> _Q)
-    { return divmod(_P, _Q).__quo; }
+  template<typename Tp, std::size_t SizeP, std::size_t SizeQ>
+    inline constexpr StaticPolynomial<Tp,
+		     divmod_t<Tp, SizeP, SizeQ>::SizeQuo>
+    operator/(StaticPolynomial<Tp, SizeP> P,
+	      StaticPolynomial<Tp, SizeQ> Q)
+    { return divmod(P, Q).quo; }
 
   /**
    * Return the remainder of two polynomials.
    */
-  template<typename _Tp, std::size_t _SizeP, std::size_t _SizeQ>
-    inline constexpr _StaticPolynomial<_Tp,
-		     __divmod_t<_Tp, _SizeP, _SizeQ>::_SizeRem>
-    operator%(_StaticPolynomial<_Tp, _SizeP> _P,
-	      _StaticPolynomial<_Tp, _SizeQ> _Q)
-    { return divmod(_P, _Q).__rem; }
+  template<typename Tp, std::size_t SizeP, std::size_t SizeQ>
+    inline constexpr StaticPolynomial<Tp,
+		     divmod_t<Tp, SizeP, SizeQ>::SizeRem>
+    operator%(StaticPolynomial<Tp, SizeP> P,
+	      StaticPolynomial<Tp, SizeQ> Q)
+    { return divmod(P, Q).rem; }
 
-} // namespace __gnu_cxx
+} // namespace emsr
 
 #include <ext/static_polynomial.tcc>
 
-#endif // C++14
-
-#endif // _EXT_STATIC_POLYNOMIAL_H
+#endif // STATIC_POLYNOMIAL_H

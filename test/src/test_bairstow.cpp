@@ -9,11 +9,11 @@
 #include <ext/polynomial.h>
 #include <ext/solver_bairstow.h>
 
-template<typename _Real>
+template<typename Real>
   int
   test_bairstow()
   {
-    std::cout.precision(std::numeric_limits<_Real>::digits10);
+    std::cout.precision(std::numeric_limits<Real>::digits10);
     //const auto w = 6 + std::cout.precision();
     //const auto cw = 4 + 2 * w;
 
@@ -26,7 +26,7 @@ template<typename _Real>
         if (order <= 0)
           break;
       }
-    std::vector<_Real> a(order + 1);
+    std::vector<Real> a(order + 1);
 
     std::cout << "Enter coefficients, high order to low order.\n";
     for (int i = 0; i <= order; ++i)
@@ -39,7 +39,7 @@ template<typename _Real>
       std::cout << a[order - i] << ", ";
     std::cout << a[0] << " )\n";
 
-    __gnu_cxx::_BairstowSolver bairstow(a, 123456);
+    emsr::BairstowSolver bairstow(a, 123456);
     const auto zeros = bairstow.solve();
     std::cout << "\nThe zeros are:\n";
     for (const auto& z : zeros)
@@ -53,10 +53,10 @@ template<typename _Real>
       std::cout << "The linear term is: \nt - " << eq.back() << '\n';
 
     int num_errors = 0;
-    const auto tol = std::sqrt(std::numeric_limits<_Real>::epsilon());
+    const auto tol = std::sqrt(std::numeric_limits<Real>::epsilon());
 
     std::cout << "\nSolution tests:\n";
-    __gnu_cxx::_Polynomial<_Real> poly(a.begin(), a.end());
+    emsr::Polynomial<Real> poly(a.begin(), a.end());
     for (const auto& z : zeros)
       {
 	const auto idx = z.index();

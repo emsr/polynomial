@@ -38,86 +38,86 @@
 
 #include <ext/polynomial.h>
 
-namespace __gnu_cxx
+namespace emsr
 {
 
   /**
    * A solver for complex-coefficient polynomials due to Laguerre.
    */
-  template<typename _Real>
-    class _LaguerreSolver
+  template<typename Real>
+    class LaguerreSolver
     {
     public:
 
-      _LaguerreSolver(_Polynomial<std::complex<_Real>>& _P)
-      : _M_poly(_P), _M_num_iters{0}
+      LaguerreSolver(Polynomial<std::complex<Real>>& P)
+      : m_poly(P), m_num_iters{0}
       { }
 
-      std::vector<std::complex<_Real>> solve();
+      std::vector<std::complex<Real>> solve();
 
-      std::complex<_Real>
+      std::complex<Real>
       step()
       {
-	using __cmplx = std::complex<_Real>;
+	using cmplx = std::complex<Real>;
 
-	const auto __z0 = this->_M_root_laguerre();
+	const auto z0 = this->m_root_laguerre();
 
-	_Polynomial<__cmplx> __zpoly({-__z0, __cmplx{1}});
-	this->_M_poly /= __zpoly;
+	Polynomial<cmplx> zpoly({-z0, cmplx{1}});
+	this->m_poly /= zpoly;
 
-	return __z0;
+	return z0;
       }
 
       int
       num_iters() const
-      { return this->_M_num_iters; }
+      { return this->m_num_iters; }
 
       int
       max_num_iters() const
-      { return this->_M_max_iter(); }
+      { return this->m_max_iter(); }
 
       int
       num_steps_per_frac() const
-      { return this->_M_steps_per_frac; }
+      { return this->m_steps_per_frac; }
 
-      const _Polynomial<std::complex<_Real>>&
+      const Polynomial<std::complex<Real>>&
       polynomial() const
-      { return this->_M_poly; }
+      { return this->m_poly; }
 
-      _LaguerreSolver&
+      LaguerreSolver&
       num_steps_per_frac(int num)
       {
-	this->_M_steps_per_frac = num;
+	this->m_steps_per_frac = num;
 	return *this;
       }
 
     private:
 
       // Estimated fractional roundoff error.
-      static constexpr _Real _S_eps = std::numeric_limits<_Real>::epsilon();
+      static constexpr Real s_eps = std::numeric_limits<Real>::epsilon();
 
       // Number of fractional values.
-      static constexpr int _S_num_fracs = 8;
+      static constexpr int s_num_fracs = 8;
       // Fractions used to break a limit cycle (in a heap).
-      static constexpr _Real
-      _S_frac[_S_num_fracs + 1]
+      static constexpr Real
+      s_frac[s_num_fracs + 1]
       {0.0, 0.5, 0.25, 0.75, 0.125, 0.375, 0.625, 0.875, 1.0};
 
       // Number of steps taken before trying a new fraction.
-      int _M_steps_per_frac = 10;
+      int m_steps_per_frac = 10;
 
       int
-      _M_max_iter()
-      { return this->_M_steps_per_frac * _S_num_fracs; }
+      m_max_iter()
+      { return this->m_steps_per_frac * s_num_fracs; }
 
-      std::complex<_Real> _M_root_laguerre();
+      std::complex<Real> m_root_laguerre();
 
-      _Polynomial<std::complex<_Real>> _M_poly;
+      Polynomial<std::complex<Real>> m_poly;
 
-      int _M_num_iters = 0;
+      int m_num_iters = 0;
     };
 
-} // namespace __gnu_cxx
+} // namespace emsr
 
 #include <ext/solver_laguerre.tcc>
 

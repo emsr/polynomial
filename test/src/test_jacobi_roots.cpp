@@ -20,70 +20,70 @@ namespace __detail
   /**
    * Return the Jacobi polynomial as a polynomial.
    *
-   * @tparam _Tp The real type of the argument and degree parameters.
+   * @tparam Tp The real type of the argument and degree parameters.
    * @param[in]  n  The degree of the Jacobi polynomial
    * @param[in]  alpha1  The first parameter of the Jacobi polynomial
    * @param[in]  beta1  The second parameter of the Jacobi polynomial
    */
-  template<typename _Tp>
-    __gnu_cxx::_Polynomial<_Tp>
-    __jacobi_poly(unsigned int __n, _Tp __alpha1, _Tp __beta1)
+  template<typename Tp>
+    emsr::Polynomial<Tp>
+    jacobi_poly(unsigned int n, Tp alpha1, Tp beta1)
     {
-      __gnu_cxx::_Polynomial<_Tp> __poly;
-      const __gnu_cxx::_Polynomial<_Tp> __arg({_Tp{0.5L}, _Tp{-0.5L}});
+      emsr::Polynomial<Tp> poly;
+      const emsr::Polynomial<Tp> arg({Tp{0.5L}, Tp{-0.5L}});
 
-      if (std::isnan(__alpha1) || std::isnan(__beta1))
-	return __poly;
+      if (std::isnan(alpha1) || std::isnan(beta1))
+	return poly;
 
-      auto __term = __gnu_cxx::_Polynomial<_Tp>{1};
-      __poly += __term;
-      if (__n == 0)
-	return __poly;
+      auto term = emsr::Polynomial<Tp>{1};
+      poly += term;
+      if (n == 0)
+	return poly;
 
-      auto __fact = _Tp{1};
-      const auto __ab = __alpha1 + __beta1;
+      auto fact = Tp{1};
+      const auto ab = alpha1 + beta1;
 
-      int __m = int(__n);
-      const auto _Maybe = __gnu_cxx::__fp_is_integer(__n + __ab);
-      if (_Maybe && _Maybe() < 0 && -_Maybe() < __m)
-	__m = -_Maybe();
+      int m = int(n);
+      const auto Maybe = emsr::fp_is_integer(n + ab);
+      if (Maybe && Maybe() < 0 && -Maybe() < m)
+	m = -Maybe();
 
-      for (int __k = 1; __k <= __m; ++__k)
+      for (int k = 1; k <= m; ++k)
 	{
-	  __fact *= _Tp(__alpha1 + __k) / _Tp(__k);
+	  fact *= Tp(alpha1 + k) / Tp(k);
 
-	  __term *= (_Tp(-__m + __k - 1) / _Tp(__k))
-		  * (_Tp(__m + __k + __ab) / _Tp(__alpha1 + __k))
-		  * __arg;
+	  term *= (Tp(-m + k - 1) / Tp(k))
+		  * (Tp(m + k + ab) / Tp(alpha1 + k))
+		  * arg;
 
-	  __poly += __term;
+	  poly += term;
 	}
 
-      return __fact * __poly;
+      return fact * poly;
     }
 
   /**
    * Highest degree term coefficient.
    */
-  template<typename _Tp>
-    _Tp
-    __jacobi_norm(unsigned int __n, _Tp __alpha1, _Tp __beta1)
+  template<typename Tp>
+    Tp
+    jacobi_norm(unsigned int n, Tp alpha1, Tp beta1)
     {
       int sgam1, sgam2;
-      const auto lgam1 = lgamma_r(_Tp(2 * __n + __alpha1 + __beta1 + 1), &sgam1);
-      const auto lgam2 = lgamma_r(_Tp(__n + __alpha1 + __beta1 + 1), &sgam2);
-      return sgam1 * sgam2 * std::exp(lgam1 - std::lgamma(_Tp(__n + 1))
-   				    - lgam2 - _Tp(__n) * std::log(_Tp{2}));
+      const auto lgam1 = lgamma_r(Tp(2 * n + alpha1 + beta1 + 1), &sgam1);
+      const auto lgam2 = lgamma_r(Tp(n + alpha1 + beta1 + 1), &sgam2);
+      return sgam1 * sgam2 * std::exp(lgam1 - std::lgamma(Tp(n + 1))
+   				    - lgam2 - Tp(n) * std::log(Tp{2}));
     }
 
-} // namespace std
 } // namespace __detail
+} // namespace std
 
-template<typename _Tp>
+template<typename Tp>
   void
-  test_jacobi_roots(unsigned n, _Tp alpha1, _Tp beta1, std::ofstream& gp)
+  test_jacobi_roots(unsigned n, Tp alpha1, Tp beta1, std::ofstream& gp)
   {
-    const auto prec = std::numeric_limits<_Tp>::digits10;
+    const auto prec = std::numeric_limits<Tp>::digits10;
     const auto w = 6 + prec;
 
     std::cout << std::setprecision(prec);
@@ -92,16 +92,16 @@ template<typename _Tp>
 	      << "; alpha = " << alpha1
 	      << "; beta = " << beta1 << '\n';
 
-    const auto poly = std::__detail::__jacobi_poly(n, alpha1, beta1);
+    const auto poly = std::detail::jacobi_poly(n, alpha1, beta1);
     auto coef = poly.coefficients();
     std::cout << "\nThe polynomial coefficients are:\n";
     for (const auto& c : coef)
       std::cout << std::setw(w) << c << '\n';
-    std::cout << "\nMax coefficient: " << std::__detail::__jacobi_norm(n, alpha1, beta1) << '\n';
+    std::cout << "\nMax coefficient: " << std::__detail::jacobi_norm(n, alpha1, beta1) << '\n';
 
     std::reverse(coef.begin(), coef.end());
 
-    auto jt = __gnu_cxx::_JenkinsTraubSolver(coef);
+    auto jt = emsr::JenkinsTraubSolver(coef);
     auto roots = jt.solve();
     std::cout << "\nThe roots are:\n";
     for (const auto& z : roots)
@@ -144,39 +144,39 @@ template<typename _Tp>
 /**
  * Numerical Methods for Special Functions, Gil, Segura, Temme, pp. 192.
  */
-template<typename _Tp>
+template<typename Tp>
   void
   run()
   {
     std::ofstream gp("jacobi_roots.dat");
 
     unsigned n = 50;
-    _Tp alpha1, beta1;
+    Tp alpha1, beta1;
 
-    alpha1 = _Tp{2.0L};
-    beta1 = _Tp{-42.5L};
+    alpha1 = Tp{2.0L};
+    beta1 = Tp{-42.5L};
     test_jacobi_roots(n, alpha1, beta1, gp);
 
-    alpha1 = _Tp{2.0L};
-    beta1 = _Tp{-52.0L};
+    alpha1 = Tp{2.0L};
+    beta1 = Tp{-52.0L};
     test_jacobi_roots(n, alpha1, beta1, gp);
 
-    alpha1 = _Tp{2.0L};
-    beta1 = _Tp{-63.5L};
+    alpha1 = Tp{2.0L};
+    beta1 = Tp{-63.5L};
     test_jacobi_roots(n, alpha1, beta1, gp);
 
     // Flip alpha and beta.
 
-    alpha1 = _Tp{2.0L};
-    beta1 = _Tp{-42.5L};
+    alpha1 = Tp{2.0L};
+    beta1 = Tp{-42.5L};
     test_jacobi_roots(n, beta1, alpha1, gp);
 
-    alpha1 = _Tp{2.0L};
-    beta1 = _Tp{-52.0L};
+    alpha1 = Tp{2.0L};
+    beta1 = Tp{-52.0L};
     test_jacobi_roots(n, beta1, alpha1, gp);
 
-    alpha1 = _Tp{2.0L};
-    beta1 = _Tp{-63.5L};
+    alpha1 = Tp{2.0L};
+    beta1 = Tp{-63.5L};
     test_jacobi_roots(n, beta1, alpha1, gp);
   }
 

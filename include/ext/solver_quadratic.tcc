@@ -34,61 +34,60 @@
 #ifndef SOLVER_QUADRATIC_TCC
 #define SOLVER_QUADRATIC_TCC 1
 
-namespace __gnu_cxx
+namespace emsr
 {
 
   /**
    * I think this is trying to factor out a quadratic
    * from a complex-coefficient polynomial.
    */
-  template<typename _Tp>
-    _Polynomial<std::complex<_Tp>>
-    _QuadraticSolver<_Tp>::_M_root_quadratic()
+  template<typename Tp>
+    Polynomial<std::complex<Tp>>
+    QuadraticSolver<Tp>::m_root_quadratic()
     {
-      using _Cmplx = std::complex<_Tp>;
-      using _Poly = _Polynomial<_Cmplx>;
+      using Cmplx = std::complex<Tp>;
+      using Poly = Polynomial<Cmplx>;
 
-      if (this->_M_poly.degree() <= 2)
-	return this->_M_poly;
+      if (this->m_poly.degree() <= 2)
+	return this->m_poly;
 
-      this->_M_num_iters = 0;
+      this->m_num_iters = 0;
 
-      _Cmplx __c, __b;
-      _Poly __q, __qq, __rem;
-      for (int __iter = 0; __iter < this->_M_max_iter; ++__iter)
+      Cmplx c, b;
+      Poly q, qq, rem;
+      for (int iter = 0; iter < this->m_max_iter; ++iter)
 	{
-	  ++this->_M_num_iters;
+	  ++this->m_num_iters;
 
-	  _Poly __d({__c, __b, _Cmplx{1}});
+	  Poly d({c, b, Cmplx{1}});
 
 	  // First division: r, s.
-	  divmod(this->_M_poly, __d, __q, __rem);
-	  const auto __s = __rem[0];
-	  const auto __r = __rem[1];
+	  divmod(this->m_poly, d, q, rem);
+	  const auto s = rem[0];
+	  const auto r = rem[1];
 
 	  // Second division: partial r, s with respect to c.
-	  divmod(__q, __d, __qq, __rem);
-	  const auto __sc = -__rem[0];
-	  const auto __rc = -__rem[1];
-	  const auto __sb = -__c * __rc;
-	  const auto __rb = -__b * __rc + __sc;
+	  divmod(q, d, qq, rem);
+	  const auto sc = -rem[0];
+	  const auto rc = -rem[1];
+	  const auto sb = -c * rc;
+	  const auto rb = -b * rc + sc;
 
 	  // Solve 2x2 equation.
-	  const auto __dv = _Tp{1} / (__sb * __rc - __sc * __rb);
-	  const auto __delb = ( __r * __sc - __s * __rc) * __dv;
-	  __b += __delb;
-	  const auto __delc = (-__r * __sb + __s * __rb) * __dv;
-	  __c += __delc;
-	  if ((std::abs(__delb) <= this->_M_eps * std::abs(__b)
-	      || std::abs(__b) < _S_tiny)
-           && (std::abs(__delc) <= this->_M_eps * std::abs(__c)
-	      || std::abs(__c) < _S_tiny))
-	    return _Poly({__c, __b, _Cmplx{1}});
+	  const auto dv = Tp{1} / (sb * rc - sc * rb);
+	  const auto delb = ( r * sc - s * rc) * dv;
+	  b += delb;
+	  const auto delc = (-r * sb + s * rb) * dv;
+	  c += delc;
+	  if ((std::abs(delb) <= this->m_eps * std::abs(b)
+	      || std::abs(b) < s_tiny)
+           && (std::abs(delc) <= this->m_eps * std::abs(c)
+	      || std::abs(c) < s_tiny))
+	    return Poly({c, b, Cmplx{1}});
 	}
-      std::__throw_runtime_error(__N("_M_root_quadratic: "
-				     "Maximum number of iterations exceeded"));
+      throw std::runtime_error("m_root_quadratic: Maximum number of iterations exceeded");
     }
 
-} // namespace __gnu_cxx
+} // namespace emsr
 
 #endif // SOLVER_QUADRATIC_TCC

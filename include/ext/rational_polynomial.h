@@ -32,40 +32,33 @@
  */
 
 /**
- * @def  _EXT_RATIONAL_POLYNOMIAL_H
+ * @def  RATIONAL_POLYNOMIAL_H
  *
  * @brief  A guard for the rational_polynomial class header.
  */
-#ifndef _EXT_RATIONAL_POLYNOMIAL_H
-#define _EXT_RATIONAL_POLYNOMIAL_H 1
-
-#pragma GCC system_header
-
-#if __cplusplus < 201402L
-# include <bits/c++0x_warning.h>
-#else
+#ifndef RATIONAL_POLYNOMIAL_H
+#define RATIONAL_POLYNOMIAL_H 1
 
 #include <iostream>
 
 #include <ext/polynomial.h>
 
-namespace __gnu_cxx //_GLIBCXX_VISIBILITY(default)
+namespace emsr
 {
-_GLIBCXX_BEGIN_NAMESPACE_VERSION
 
   /**
    *
    */
-  template<typename _Tp>
-    class _RationalPolynomial
+  template<typename Tp>
+    class RationalPolynomial
     {
     public:
       /**
        * Typedefs.
        */
-      using polynomial_type = _Polynomial<_Tp>;
+      using polynomial_type = Polynomial<Tp>;
       using value_type = typename polynomial_type::value_type;
-// The above should be _Polynomial<_Tp>to be consistent with rational.h
+// The above should be Polynomial<Tp>to be consistent with rational.h
 /* These might not make sense.
       using reference = typename polynomial_type::reference;
       using const_reference = typename polynomial_type::const_reference;
@@ -82,138 +75,138 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
       /**
        * Create a zero degree polynomial with value zero.
        */
-      _RationalPolynomial()
-      : _M_num(), _M_den()
+      RationalPolynomial()
+      : m_num(), m_den()
       { }
 
       /**
        * Copy ctor.
        */
-      _RationalPolynomial(const _RationalPolynomial&) = default;
+      RationalPolynomial(const RationalPolynomial&) = default;
 
       /**
        * Move ctor.
        */
-      _RationalPolynomial(_RationalPolynomial&&) = default;
+      RationalPolynomial(RationalPolynomial&&) = default;
 
-      _RationalPolynomial(const _Polynomial<_Tp>& __num,
-      			  const _Polynomial<_Tp>& __den)
-      : _M_num(__num), _M_den(__den)
+      RationalPolynomial(const Polynomial<Tp>& num,
+      			  const Polynomial<Tp>& den)
+      : m_num(num), m_den(den)
       { }
 
-      explicit _RationalPolynomial(const _Polynomial<_Tp>& __num)
-      : _M_num(__num), _M_den(_Polynomial<_Tp>(_Tp{1}))
+      explicit RationalPolynomial(const Polynomial<Tp>& num)
+      : m_num(num), m_den(Polynomial<Tp>(Tp{1}))
       { }
 
       /**
        * Evaluate the polynomial at the input point.
        */
       value_type
-      operator()(value_type __x) const
-      { return this->_M_num(__x) / this->_M_den(__x); }
+      operator()(value_type x) const
+      { return this->m_num(x) / this->m_den(x); }
 
       /**
        * Unary plus.
        */
-      _RationalPolynomial
+      RationalPolynomial
       operator+() const
       { return *this; }
 
       /**
        * Unary minus.
        */
-      _RationalPolynomial
+      RationalPolynomial
       operator-() const
-      { return _RationalPolynomial(*this) *= value_type(-1); }
+      { return RationalPolynomial(*this) *= value_type(-1); }
 
       /**
        * Copy assignment.
        */
-      _RationalPolynomial&
-      operator=(const _RationalPolynomial&) = default;
+      RationalPolynomial&
+      operator=(const RationalPolynomial&) = default;
 
       /**
        * Move assignment.
        */
-      _RationalPolynomial&
-      operator=(_RationalPolynomial&&) = default;
+      RationalPolynomial&
+      operator=(RationalPolynomial&&) = default;
 
       /**
        * Add a rational polynomial to this rational polynomial.
        */
-      _RationalPolynomial&
-      operator+=(const _RationalPolynomial& __x)
+      RationalPolynomial&
+      operator+=(const RationalPolynomial& x)
       {
-        this->numer() = this->numer() * __x.denom() + this->denom() * __x.numer();
-        this->denom() *= __x.denom();
+        this->numer() = this->numer() * x.denom() + this->denom() * x.numer();
+        this->denom() *= x.denom();
 	return *this;
       }
 
       /**
        * Subtract a rational polynomial from this rational polynomial.
        */
-      _RationalPolynomial&
-      operator-=(const _RationalPolynomial& __x)
+      RationalPolynomial&
+      operator-=(const RationalPolynomial& x)
       {
-        this->numer() = this->numer() * __x.denom() - this->denom() * __x.numer();
-        this->denom() *= __x.denom();
+        this->numer() = this->numer() * x.denom() - this->denom() * x.numer();
+        this->denom() *= x.denom();
 	return *this;
       }
 
       /**
        * Multiply this rational polynomial by a rational polynomial.
        */
-      _RationalPolynomial&
-      operator*=(const _RationalPolynomial& __x)
+      RationalPolynomial&
+      operator*=(const RationalPolynomial& x)
       {
-	this->numer() *= __x.numer();
-	this->denom() *= __x.denom();
+	this->numer() *= x.numer();
+	this->denom() *= x.denom();
 	return *this;
       }
 
       /**
        * Divide this rational polynomial by a rational polynomial.
        */
-      _RationalPolynomial&
-      operator/=(const _RationalPolynomial& __x)
+      RationalPolynomial&
+      operator/=(const RationalPolynomial& x)
       {
-	this->numer() *= __x.denom();
-	this->denom() *= __x.numer();
+	this->numer() *= x.denom();
+	this->denom() *= x.numer();
 	return *this;
       }
 
-      const _Polynomial<value_type>&
+      const Polynomial<value_type>&
       numer() const
-      { return this->_M_num; }
+      { return this->m_num; }
 
-      _Polynomial<value_type>&
+      Polynomial<value_type>&
       numer()
-      { return this->_M_num; }
+      { return this->m_num; }
 
-      const _Polynomial<value_type>&
+      const Polynomial<value_type>&
       denom() const
-      { return this->_M_den; }
+      { return this->m_den; }
 
-      _Polynomial<value_type>&
+      Polynomial<value_type>&
       denom()
-      { return this->_M_den; }
+      { return this->m_den; }
 
     private:
 
-      _Polynomial<value_type> _M_num;
-      _Polynomial<value_type> _M_den;
+      Polynomial<value_type> m_num;
+      Polynomial<value_type> m_den;
     };
 
   /**
    * Write a polynomial to a stream.
    * The format is a parenthesized comma-delimited list of coefficients.
    */
-  template<typename CharT, typename Traits, typename _Tp>
+  template<typename CharT, typename Traits, typename Tp>
     std::basic_ostream<CharT, Traits>&
-    operator<<(std::basic_ostream<CharT, Traits>& __os, const _RationalPolynomial<_Tp>& __poly)
+    operator<<(std::basic_ostream<CharT, Traits>& os, const RationalPolynomial<Tp>& poly)
     {
-      __os << __poly.numer() << "/" << __poly.denom();
-      return __os;
+      os << poly.numer() << "/" << poly.denom();
+      return os;
     }
 
   /**
@@ -221,34 +214,31 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
    * The input format can be a plain scalar (zero degree polynomial)
    * or a parenthesized comma-delimited list of coefficients.
    */
-  template<typename CharT, typename Traits, typename _Tp>
+  template<typename CharT, typename Traits, typename Tp>
     std::basic_istream<CharT, Traits>&
-    operator>>(std::basic_istream<CharT, Traits>& __is, _RationalPolynomial<_Tp>& __poly)
+    operator>>(std::basic_istream<CharT, Traits>& is, RationalPolynomial<Tp>& poly)
     {
-      _Polynomial<_Tp> __numer, __denom;
-      __is >> __numer;
-      if (!__is.fail())
+      Polynomial<Tp> numer, denom;
+      is >> numer;
+      if (!is.fail())
 	{
-	  CharT __ch;
-	  __is >> __ch;
-	  if (__ch != '/')
-	    __is.setstate(std::ios_base::failbit);
+	  CharT ch;
+	  is >> ch;
+	  if (ch != '/')
+	    is.setstate(std::ios_base::failbit);
 	  else
 	    {
-	      __is >> __denom;
-	      if (!__is.fail())
+	      is >> denom;
+	      if (!is.fail())
 		{
-		  __poly.numer() = __numer;
-		  __poly.denom() = __denom;
+		  poly.numer() = numer;
+		  poly.denom() = denom;
 		}
 	    }
 	}
-      return __is;
+      return is;
     }
 
-_GLIBCXX_END_NAMESPACE_VERSION
-} // namespace __gnu_cxx
+} // namespace emsr
 
-#endif // C++14
-
-#endif // _EXT_RATIONAL_POLYNOMIAL_H
+#endif // RATIONAL_POLYNOMIAL_H

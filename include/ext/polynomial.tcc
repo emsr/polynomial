@@ -33,31 +33,24 @@
  */
 
 /**
- * @def  _EXT_POLYNOMIAL_TCC
+ * @def  POLYNOMIAL_TCC
  *
  * @brief  A guard for the polynomial class implementation header.
  */
-#ifndef _EXT_POLYNOMIAL_TCC
-#define _EXT_POLYNOMIAL_TCC 1
-
-#pragma GCC system_header
-
-#if __cplusplus < 201402L
-# include <bits/c++0x_warning.h>
-#else
+#ifndef POLYNOMIAL_TCC
+#define POLYNOMIAL_TCC 1
 
 #include <ios>
 #include <complex>
 #include <utility> // For exchange.
 
-namespace __gnu_cxx //_GLIBCXX_VISIBILITY(default)
+namespace emsr
 {
-_GLIBCXX_BEGIN_NAMESPACE_VERSION
 
 // We also need an integer coef version :-\ ?
-  template<typename _Tp>
+  template<typename Tp>
     void
-    _Polynomial<_Tp>::_M_set_scale()
+    Polynomial<Tp>::m_set_scale()
     { }
   /**
    * 
@@ -76,36 +69,36 @@ or it will make a polynomial of a different type.
 
 This scaling thing can only apply to real or complex polynomials.
 
-  template<typename _Tp>
-    std::enable_if_t<std::is_integral_v<_Tp>>
-    _Polynomial<_Tp>::_M_set_scale()
+  template<typename Tp>
+    std::enable_if_t<std::is_integral_v<Tp>>
+    Polynomial<Tp>::m_set_scale()
     { }
    */
 
   /**
    * 
-  template<typename _Tp>
-    //std::enable_if_t<std::is_floating_point_v<_Tp>>
+  template<typename Tp>
+    //std::enable_if_t<std::is_floating_point_v<Tp>>
     void
-    _Polynomial<_Tp>::_M_set_scale()
+    Polynomial<Tp>::m_set_scale()
     {
-      constexpr real_type _S_eps = std::numeric_limits<real_type>::epsilon();
+      constexpr real_type s_eps = std::numeric_limits<real_type>::epsilon();
       constexpr real_type
-	_S_base = real_type{std::numeric_limits<real_type>::radix};
-      constexpr real_type _S_tiny = _S_eps * _S_eps * _S_eps; // ~ 1.0e-50;
-      constexpr real_type _S_huge = std::numeric_limits<real_type>::max();
-      constexpr real_type _S_low = _S_tiny / _S_eps;
+	s_base = real_type{std::numeric_limits<real_type>::radix};
+      constexpr real_type s_tiny = s_eps * s_eps * s_eps; // ~ 1.0e-50;
+      constexpr real_type s_huge = std::numeric_limits<real_type>::max();
+      constexpr real_type s_low = s_tiny / s_eps;
 
       // Find largest and smallest moduli of coefficients.
-      auto __a_max = real_type{0};
-      auto __a_min = _S_huge;
-      for (int __i = 0; __i <= this->degree(); ++__i)
+      auto a_max = real_type{0};
+      auto a_min = s_huge;
+      for (int i = 0; i <= this->degree(); ++i)
 	{
-	  const auto __x = get_scale(this->_M_coeff[__i]);
-	  if (__x > __a_max)
-	    __a_max = __x;
-	  if (__x != real_type{0} && __x < __a_min)
-	    __a_min = __x;
+	  const auto x = get_scale(this->m_coeff[i]);
+	  if (x > a_max)
+	    a_max = x;
+	  if (x != real_type{0} && x < a_min)
+	    a_min = x;
 	}
       // Scale if there are large or very tiny coefficients.
       // Computes a scale factor to multiply the coefficients
@@ -113,36 +106,36 @@ This scaling thing can only apply to real or complex polynomials.
       // and to avoid undetected underflow interfering
       // with the convergence criterion.
       // The factor is a power of the base.
-      auto __scale = _S_low / __a_min;
-      bool __rescale = true;
-      if (__scale > real_type{1} && _S_huge / __scale < __a_max)
-	__rescale = false;
-      if (__scale <= real_type{1} && __a_max < real_type{10})
-	__rescale = false;
+      auto scale = s_low / a_min;
+      bool rescale = true;
+      if (scale > real_type{1} && s_huge / scale < a_max)
+	rescale = false;
+      if (scale <= real_type{1} && a_max < real_type{10})
+	rescale = false;
 
-      this->_M_scale = real_type{1};
-      if (__rescale)
+      this->m_scale = real_type{1};
+      if (rescale)
 	{
 	  // Scale polynomial.
-	  if (__scale == real_type{0})
-	    __scale = _S_tiny;
-	  const auto __lg = std::ilogb(__scale);
-	  this->_M_scale = std::pow(_S_base, __lg);
-	  //if (this->_M_scale != real_type{1})
-	  //  for (int __i = 0; __i <= this->degree(); ++__i)
-	  //    this->_M_coeff[__i] *= this->_M_scale;
+	  if (scale == real_type{0})
+	    scale = s_tiny;
+	  const auto lg = std::ilogb(scale);
+	  this->m_scale = std::pow(s_base, lg);
+	  //if (this->m_scale != real_type{1})
+	  //  for (int i = 0; i <= this->degree(); ++i)
+	  //    this->m_coeff[i] *= this->m_scale;
 	}
     }
    */
 
   /**
    * Scaling specialization for polynomial coefficient polynomials.
-  template<typename _Tp>
+  template<typename Tp>
     void
-    _Polynomial<_Polynomial<_Tp>>::_M_set_scale()
+    Polynomial<Polynomial<Tp>>::m_set_scale()
     {
-      for (int __i = 0; __i <= this->degree(); ++__i)
-	this->_M_coeff[__i]._M_set_scale();
+      for (int i = 0; i <= this->degree(); ++i)
+	this->m_coeff[i].m_set_scale();
     }
    */
 
@@ -157,55 +150,55 @@ This scaling thing can only apply to real or complex polynomials.
    * If n is the degree of the polynomial,
    * n - 3 multiplies and 4 * n - 6 additions are saved.
    */
-  template<typename _Tp>
-    template<typename _Up>
+  template<typename Tp>
+    template<typename Up>
       auto
-      _Polynomial<_Tp>::operator()(const std::complex<_Up>& __z) const
-      -> std::enable_if_t<!__has_imag_v<_Tp>,
+      Polynomial<Tp>::operator()(const std::complex<Up>& z) const
+      -> std::enable_if_t<!has_imag_v<Tp>,
 			  std::complex<std::decay_t<
-		decltype(typename _Polynomial<_Tp>::value_type{} * _Up{})>>>
+		decltype(typename Polynomial<Tp>::value_type{} * Up{})>>>
       {
-	const auto __r = _Tp{2} * std::real(__z);
-	const auto __s = std::norm(__z);
-	size_type __n = this->degree();
-	auto __aa = this->coefficient(__n);
-	if (__n > 0)
+	const auto r = Tp{2} * std::real(z);
+	const auto s = std::norm(z);
+	size_type n = this->degree();
+	auto aa = this->coefficient(n);
+	if (n > 0)
 	  {
-	    auto __bb = this->coefficient(__n - 1);
-	    for (size_type __j = 2; __j <= __n; ++__j)
-	      __bb = this->coefficient(__n - __j)
-		   - __s * std::exchange(__aa, __bb + __r * __aa);
-	    return __aa * __z + __bb;
+	    auto bb = this->coefficient(n - 1);
+	    for (size_type j = 2; j <= n; ++j)
+	      bb = this->coefficient(n - j)
+		   - s * std::exchange(aa, bb + r * aa);
+	    return aa * z + bb;
 	  }
 	else
-	  return __aa;
+	  return aa;
       };
 
   //  Could/should this be done by output iterator range?
-  template<typename _Tp>
-    template<typename _Polynomial<_Tp>::size_type N>
+  template<typename Tp>
+    template<typename Polynomial<Tp>::size_type N>
       void
-      _Polynomial<_Tp>::eval(typename _Polynomial<_Tp>::value_type __x,
-			     std::array<_Polynomial<_Tp>::value_type, N>& __arr)
+      Polynomial<Tp>::eval(typename Polynomial<Tp>::value_type x,
+			     std::array<Polynomial<Tp>::value_type, N>& arr)
       {
-	if (__arr.size() > 0)
+	if (arr.size() > 0)
 	  {
-	    __arr.fill(value_type{});
-	    const size_type __sz = _M_coeff.size();
-	    __arr[0] = this->coefficient(__sz - 1);
-            for (int __i = __sz - 2; __i >= 0; --__i)
+	    arr.fill(value_type{});
+	    const size_type sz = m_coeff.size();
+	    arr[0] = this->coefficient(sz - 1);
+            for (int i = sz - 2; i >= 0; --i)
 	      {
-		int __nn = std::min(__arr.size() - 1, __sz - 1 - __i);
-		for (int __j = __nn; __j >= 1; --__j)
-		  __arr[__j] = std::fma(__arr[__j], __x, __arr[__j - 1]);
-		__arr[0] = std::fma(__arr[0], __x, this->coefficient(__i));
+		int nn = std::min(arr.size() - 1, sz - 1 - i);
+		for (int j = nn; j >= 1; --j)
+		  arr[j] = std::fma(arr[j], x, arr[j - 1]);
+		arr[0] = std::fma(arr[0], x, this->coefficient(i));
 	      }
 	    //  Now put in the factorials.
-	    value_type __fact = value_type(1);
-	    for (size_type __n = __arr.size(), __i = 2; __i < __n; ++__i)
+	    value_type fact = value_type(1);
+	    for (size_type n = arr.size(), i = 2; i < n; ++i)
 	      {
-		__fact *= value_type(__i);
-		__arr[__i] *= __fact;
+		fact *= value_type(i);
+		arr[i] *= fact;
 	      }
 	  }
       }
@@ -215,32 +208,32 @@ This scaling thing can only apply to real or complex polynomials.
    * The values are placed in the output range starting with the
    * polynomial value and continuing through higher derivatives.
    */
-  template<typename _Tp>
+  template<typename Tp>
     template<typename OutIter>
       void
-      _Polynomial<_Tp>::eval(typename _Polynomial<_Tp>::value_type __x,
-			     OutIter __b, OutIter __e)
+      Polynomial<Tp>::eval(typename Polynomial<Tp>::value_type x,
+			     OutIter b, OutIter e)
       {
-	if(__b != __e)
+	if(b != e)
 	  {
-	    std::fill(__b, __e, value_type{});
-	    const size_type __sz = _M_coeff.size();
-	    *__b = _M_coeff[__sz - 1];
-            for (int __i = __sz - 2; __i >= 0; --__i)
+	    std::fill(b, e, value_type{});
+	    const size_type sz = m_coeff.size();
+	    *b = m_coeff[sz - 1];
+            for (int i = sz - 2; i >= 0; --i)
 	      {
-		for (auto __it = std::reverse_iterator<OutIter>(__e);
-		     __it != std::reverse_iterator<OutIter>(__b) - 1; ++__it)
-		  *__it = std::fma(*__it, __x, *(__it + 1));
-		*__b = std::fma(*__b, __x, _M_coeff[__i]);
+		for (auto it = std::reverse_iterator<OutIter>(e);
+		     it != std::reverse_iterator<OutIter>(b) - 1; ++it)
+		  *it = std::fma(*it, x, *(it + 1));
+		*b = std::fma(*b, x, m_coeff[i]);
 	      }
 	    //  Now put in the factorials.
-	    int __i = 0;
-	    value_type __fact = value_type(++__i);
-	    for (auto __it = __b + 1; __it != __e; ++__it)
+	    int i = 0;
+	    value_type fact = value_type(++i);
+	    for (auto it = b + 1; it != e; ++it)
 	      {
-		__fact *= value_type(__i);
-		*__it *= __fact;
-		++__i;
+		fact *= value_type(i);
+		*it *= fact;
+		++i;
 	      }
 	  }
       }
@@ -248,18 +241,18 @@ This scaling thing can only apply to real or complex polynomials.
   /**
    * Evaluate the even part of the polynomial at the input point.
    */
-  template<typename _Tp>
-    typename _Polynomial<_Tp>::value_type
-    _Polynomial<_Tp>::eval_even(typename _Polynomial<_Tp>::value_type __x) const
+  template<typename Tp>
+    typename Polynomial<Tp>::value_type
+    Polynomial<Tp>::eval_even(typename Polynomial<Tp>::value_type x) const
     {
       if (this->degree() > 0)
 	{
-	  const auto __odd = this->degree() % 2;
-	  const auto __xx = __x * __x;
-	  auto __poly(this->coefficient(this->degree() - __odd));
-	  for (int __i = this->degree() - __odd - 2; __i >= 0; __i -= 2)
-	    __poly = std::fma(__xx, __poly, this->coefficient(__i));
-	  return __poly;
+	  const auto odd = this->degree() % 2;
+	  const auto xx = x * x;
+	  auto poly(this->coefficient(this->degree() - odd));
+	  for (int i = this->degree() - odd - 2; i >= 0; i -= 2)
+	    poly = std::fma(xx, poly, this->coefficient(i));
+	  return poly;
 	}
       else
 	return value_type{};
@@ -268,18 +261,18 @@ This scaling thing can only apply to real or complex polynomials.
   /**
    * Evaluate the odd part of the polynomial at the input point.
    */
-  template<typename _Tp>
-    typename _Polynomial<_Tp>::value_type
-    _Polynomial<_Tp>::eval_odd(typename _Polynomial<_Tp>::value_type __x) const
+  template<typename Tp>
+    typename Polynomial<Tp>::value_type
+    Polynomial<Tp>::eval_odd(typename Polynomial<Tp>::value_type x) const
     {
       if (this->degree() > 0)
 	{
-	  const auto __even = (this->degree() % 2 == 0 ? 1 : 0);
-	  const auto __xx = __x * __x;
-	  auto __poly(this->coefficient(this->degree() - __even));
-	  for (int __i = this->degree() - __even - 2; __i >= 0; __i -= 2)
-	    __poly = std::fma(__xx, __poly, this->coefficient(__i));
-	  return __x * __poly;
+	  const auto even = (this->degree() % 2 == 0 ? 1 : 0);
+	  const auto xx = x * x;
+	  auto poly(this->coefficient(this->degree() - even));
+	  for (int i = this->degree() - even - 2; i >= 0; i -= 2)
+	    poly = std::fma(xx, poly, this->coefficient(i));
+	  return x * poly;
 	}
       else
 	return value_type{};
@@ -297,32 +290,32 @@ This scaling thing can only apply to real or complex polynomials.
    * If n is the degree of the polynomial,
    * n - 3 multiplies and 4 * n - 6 additions are saved.
    */
-  template<typename _Tp>
-    template<typename _Up>
+  template<typename Tp>
+    template<typename Up>
       auto
-      _Polynomial<_Tp>::eval_even(const std::complex<_Up>& __z) const
-      -> std::enable_if_t<!__has_imag_v<_Tp>,
+      Polynomial<Tp>::eval_even(const std::complex<Up>& z) const
+      -> std::enable_if_t<!has_imag_v<Tp>,
 			  std::complex<std::decay_t<
-		decltype(typename _Polynomial<_Tp>::value_type{} * _Up{})>>>
+		decltype(typename Polynomial<Tp>::value_type{} * Up{})>>>
       {
-	using __real_t = std::decay_t<decltype(value_type{} * _Up{})>;
-	using __cmplx_t = std::complex<__real_t>;
+	using real_t = std::decay_t<decltype(value_type{} * Up{})>;
+	using cmplx_t = std::complex<real_t>;
 	if (this->degree() > 0)
 	  {
-	    const auto __zz = __z * __z;
-	    const auto __r = _Tp{2} * std::real(__zz);
-	    const auto __s = std::norm(__zz);
-	    auto __odd = this->degree() % 2;
-	    size_type __n = this->degree() - __odd;
-	    auto __aa = this->coefficient(__n);
-	    auto __bb = this->coefficient(__n - 2);
-	    for (size_type __j = 4; __j <= __n; __j += 2)
-	      __bb = std::fma(-__s, std::exchange(__aa, __bb + __r * __aa),
-			      this->coefficient(__n - __j));
-	    return std::fma(__cmplx_t(__aa), __cmplx_t(__zz), __cmplx_t(__bb));
+	    const auto zz = z * z;
+	    const auto r = Tp{2} * std::real(zz);
+	    const auto s = std::norm(zz);
+	    auto odd = this->degree() % 2;
+	    size_type n = this->degree() - odd;
+	    auto aa = this->coefficient(n);
+	    auto bb = this->coefficient(n - 2);
+	    for (size_type j = 4; j <= n; j += 2)
+	      bb = std::fma(-s, std::exchange(aa, bb + r * aa),
+			      this->coefficient(n - j));
+	    return std::fma(cmplx_t(aa), cmplx_t(zz), cmplx_t(bb));
 	  }
 	else
-	  return __cmplx_t{};
+	  return cmplx_t{};
       };
 
   /**
@@ -337,102 +330,102 @@ This scaling thing can only apply to real or complex polynomials.
    * If n is the degree of the polynomial,
    * n - 3 multiplies and 4 * n - 6 additions are saved.
    */
-  template<typename _Tp>
-    template<typename _Up>
+  template<typename Tp>
+    template<typename Up>
       auto
-      _Polynomial<_Tp>::eval_odd(const std::complex<_Up>& __z) const
-      -> std::enable_if_t<!__has_imag_v<_Tp>,
+      Polynomial<Tp>::eval_odd(const std::complex<Up>& z) const
+      -> std::enable_if_t<!has_imag_v<Tp>,
 			  std::complex<std::decay_t<
-		decltype(typename _Polynomial<_Tp>::value_type{} * _Up{})>>>
+		decltype(typename Polynomial<Tp>::value_type{} * Up{})>>>
       {
-	using __real_t = std::decay_t<decltype(value_type{} * _Up{})>;
-	using __cmplx_t = std::complex<__real_t>;
+	using real_t = std::decay_t<decltype(value_type{} * Up{})>;
+	using cmplx_t = std::complex<real_t>;
 	if (this->degree() > 0)
 	  {
-	    const auto __zz = __z * __z;
-	    const auto __r = _Tp{2} * std::real(__zz);
-	    const auto __s = std::norm(__zz);
-	    auto __even = (this->degree() % 2 == 0 ? 1 : 0);
-	    size_type __n = this->degree() - __even;
-	    auto __aa = this->coefficient(__n);
-	    auto __bb = this->coefficient(__n - 2);
-	    for (size_type __j = 4; __j <= __n; __j += 2)
-	      __bb = std::fma(-__s, std::exchange(__aa, __bb + __r * __aa),
-			      this->coefficient(__n - __j));
-	    return __z
-		 * std::fma(__cmplx_t(__aa), __cmplx_t(__zz), __cmplx_t(__bb));
+	    const auto zz = z * z;
+	    const auto r = Tp{2} * std::real(zz);
+	    const auto s = std::norm(zz);
+	    auto even = (this->degree() % 2 == 0 ? 1 : 0);
+	    size_type n = this->degree() - even;
+	    auto aa = this->coefficient(n);
+	    auto bb = this->coefficient(n - 2);
+	    for (size_type j = 4; j <= n; j += 2)
+	      bb = std::fma(-s, std::exchange(aa, bb + r * aa),
+			      this->coefficient(n - j));
+	    return z
+		 * std::fma(cmplx_t(aa), cmplx_t(zz), cmplx_t(bb));
 	  }
 	else
-	  return __cmplx_t{};
+	  return cmplx_t{};
       };
 
     /**
      * Multiply the polynomial by another polynomial.
      */
-  template<typename _Tp>
-    template<typename _Up>
-      _Polynomial<_Tp>&
-      _Polynomial<_Tp>::operator*=(const _Polynomial<_Up>& __poly)
+  template<typename Tp>
+    template<typename Up>
+      Polynomial<Tp>&
+      Polynomial<Tp>::operator*=(const Polynomial<Up>& poly)
       {
 	//  Test for zero size polys and do special processing?
-	const size_type __m = this->degree();
-	const size_type __n = __poly.degree();
-	std::vector<value_type> __new_coeff(__m + __n + 1);
-	for (size_type __i = 0; __i <= __m; ++__i)
-	  for (size_type __j = 0; __j <= __n; ++__j)
-	    __new_coeff[__i + __j] += this->_M_coeff[__i]
-				* static_cast<value_type>(__poly._M_coeff[__j]);
-	this->_M_coeff = __new_coeff;
+	const size_type m = this->degree();
+	const size_type n = poly.degree();
+	std::vector<value_type> new_coeff(m + n + 1);
+	for (size_type i = 0; i <= m; ++i)
+	  for (size_type j = 0; j <= n; ++j)
+	    new_coeff[i + j] += this->m_coeff[i]
+				* static_cast<value_type>(poly.m_coeff[j]);
+	this->m_coeff = new_coeff;
 	return *this;
       }
 
   /**
    * Divide two polynomials returning the quotient and remainder.
    */
-  template<typename _Tp>
+  template<typename Tp>
     void
-    divmod(const _Polynomial<_Tp>& __num, const _Polynomial<_Tp>& __den,
-           _Polynomial<_Tp>& __quo, _Polynomial<_Tp>& __rem)
+    divmod(const Polynomial<Tp>& num, const Polynomial<Tp>& den,
+           Polynomial<Tp>& quo, Polynomial<Tp>& rem)
     {
-      __rem = __num;
-      __quo = _Polynomial<_Tp>(_Tp{}, __num.degree());
-      const std::size_t __d_num = __num.degree();
-      const std::size_t __d_den = __den.degree();
-      if (__d_den <= __d_num)
+      rem = num;
+      quo = Polynomial<Tp>(Tp{}, num.degree());
+      const std::size_t d_num = num.degree();
+      const std::size_t d_den = den.degree();
+      if (d_den <= d_num)
 	{
-	  for (int __k = __d_num - __d_den; __k >= 0; --__k)
+	  for (int k = d_num - d_den; k >= 0; --k)
 	    {
-	      __quo.coefficient(__k, __rem.coefficient(__d_den + __k)
-				   / __den.coefficient(__d_den));
-	      for (int __j = __d_den + __k - 1; __j >= __k; --__j)
-		__rem.coefficient(__j, __rem.coefficient(__j)
-				     - __quo.coefficient(__k)
-				     * __den.coefficient(__j - __k));
+	      quo.coefficient(k, rem.coefficient(d_den + k)
+				   / den.coefficient(d_den));
+	      for (int j = d_den + k - 1; j >= k; --j)
+		rem.coefficient(j, rem.coefficient(j)
+				     - quo.coefficient(k)
+				     * den.coefficient(j - k));
 	    }
-	  __quo.degree(__d_num - __d_den);
-	  __rem.degree(__d_den > 0 ? __d_den - 1 : 0);
+	  quo.degree(d_num - d_den);
+	  rem.degree(d_den > 0 ? d_den - 1 : 0);
 	}
       else
-	__quo.degree(0);
+	quo.degree(0);
     }
 
   /**
    * Write a polynomial to a stream.
    * The format is a parenthesized comma-delimited list of coefficients.
    */
-  template<typename CharT, typename Traits, typename _Tp>
+  template<typename CharT, typename Traits, typename Tp>
     std::basic_ostream<CharT, Traits>&
-    operator<<(std::basic_ostream<CharT, Traits>& __os,
-	       const _Polynomial<_Tp>& __poly)
+    operator<<(std::basic_ostream<CharT, Traits>& os,
+	       const Polynomial<Tp>& poly)
     {
-      int __old_prec = __os.precision(std::numeric_limits<_Tp>::max_digits10);
-      __os << "(";
-      for (size_t __i = 0; __i < __poly.degree(); ++__i)
-        __os << __poly.coefficient(__i) << ",";
-      __os << __poly.coefficient(__poly.degree());
-      __os << ")";
-      __os.precision(__old_prec);
-      return __os;
+      int old_prec = os.precision(std::numeric_limits<Tp>::max_digits10);
+      os << "(";
+      for (size_t i = 0; i < poly.degree(); ++i)
+        os << poly.coefficient(i) << ",";
+      os << poly.coefficient(poly.degree());
+      os << ")";
+      os.precision(old_prec);
+      return os;
     }
 
   /**
@@ -440,42 +433,39 @@ This scaling thing can only apply to real or complex polynomials.
    * The input format can be a plain scalar (zero degree polynomial)
    * or a parenthesized comma-delimited list of coefficients.
    */
-  template<typename CharT, typename Traits, typename _Tp>
+  template<typename CharT, typename Traits, typename Tp>
     std::basic_istream<CharT, Traits>&
-    operator>>(std::basic_istream<CharT, Traits>& __is,
-	       _Polynomial<_Tp>& __poly)
+    operator>>(std::basic_istream<CharT, Traits>& is,
+	       Polynomial<Tp>& poly)
     {
-      _Tp __x;
-      CharT __ch;
-      __is >> __ch;
-      if (__ch == '(')
+      Tp x;
+      CharT ch;
+      is >> ch;
+      if (ch == '(')
 	{
 	  do
 	    {
-	      __is >> __x >> __ch;
-	      __poly._M_coeff.push_back(__x);
+	      is >> x >> ch;
+	      poly.m_coeff.push_back(x);
 	    }
-	  while (__ch == ',');
-	  if (__ch != ')')
-	    __is.setstate(std::ios_base::failbit);
+	  while (ch == ',');
+	  if (ch != ')')
+	    is.setstate(std::ios_base::failbit);
 	}
       else
 	{
-	  __is.putback(__ch);
-	  __is >> __x;
-	  __poly = __x;
+	  is.putback(ch);
+	  is >> x;
+	  poly = x;
 	}
       // No null polynomial.
-      if (__poly.size() == 0)
-	__poly._M_coeff.resize(1, _Tp{});
+      if (poly.size() == 0)
+	poly.m_coeff.resize(1, Tp{});
 
-      return __is;
+      return is;
     }
 
-_GLIBCXX_END_NAMESPACE_VERSION
-} // namespace __gnu_cxx
+} // namespace emsr
 
-#endif // C++14
-
-#endif // _EXT_POLYNOMIAL_TCC
+#endif // POLYNOMIAL_TCC
 

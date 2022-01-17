@@ -32,22 +32,15 @@
 
 
 /**
- * @def  _EXT_SOLVER_LOW_DEGREE_TCC
+ * @def  SOLVER_LOW_DEGREE_TCC
  *
  * @brief  A guard for the low-degree polynomial solver functions header.
  */
-#ifndef _EXT_SOLVER_LOW_DEGREE_TCC
-#define _EXT_SOLVER_LOW_DEGREE_TCC 1
+#ifndef SOLVER_LOW_DEGREE_TCC
+#define SOLVER_LOW_DEGREE_TCC 1
 
-#pragma GCC system_header
-
-#if __cplusplus < 201402L
-# include <bits/c++0x_warning.h>
-#else
-
-namespace __gnu_cxx //_GLIBCXX_VISIBILITY(default)
+namespace emsr
 {
-_GLIBCXX_BEGIN_NAMESPACE_VERSION
 
   /**
    * Refine a solution using the Newton method:
@@ -57,22 +50,22 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
    */
   template<std::size_t _Dim, typename _Iter, typename _NumTp>
     _NumTp
-    __refine_solution_newton(_NumTp __z, const _Iter& _CC)
+    refine_solution_newton(_NumTp z, const _Iter& _CC)
     {
-      for (int __i = 0; __i < 3; ++__i)
+      for (int i = 0; i < 3; ++i)
 	{
-	  auto __f = _NumTp(_CC[_Dim - 1]);
-	  for (std::size_t __j = _Dim - 1; __j > 0; --__j)
-	    __f = _NumTp(_CC[__j - 1]) + __z * __f;
+	  auto f = _NumTp(_CC[_Dim - 1]);
+	  for (std::size_t j = _Dim - 1; j > 0; --j)
+	    f = _NumTp(_CC[j - 1]) + z * f;
 
-	  auto __df = _NumTp((_Dim - 1) * _CC[_Dim - 1]);
-	  for (std::size_t __j = _Dim - 1; __j > 1; --__j)
-	    __df = _NumTp((__j - 1) * _CC[__j - 1]) + __z * __df;
+	  auto df = _NumTp((_Dim - 1) * _CC[_Dim - 1]);
+	  for (std::size_t j = _Dim - 1; j > 1; --j)
+	    df = _NumTp((j - 1) * _CC[j - 1]) + z * df;
 
-	  const auto __del = __f / __df;
-	  __z -= __del;
+	  const auto del = f / df;
+	  z -= del;
 	}
-      return __z;
+      return z;
     }
 
   /**
@@ -89,42 +82,42 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
    */
   template<std::size_t _Dim, typename _Iter, typename _NumTp>
     _NumTp
-    __refine_solution_halley(_NumTp __z, const _Iter& _CC)
+    refine_solution_halley(_NumTp z, const _Iter& _CC)
     {
-      for (int __i = 0; __i < 3; ++__i)
+      for (int i = 0; i < 3; ++i)
 	{
-	  auto __f = _NumTp(_CC[_Dim - 1]);
-	  for (std::size_t __j = _Dim - 1; __j > 0; --__j)
-	    __f = _NumTp(_CC[__j - 1]) + __z * __f;
+	  auto f = _NumTp(_CC[_Dim - 1]);
+	  for (std::size_t j = _Dim - 1; j > 0; --j)
+	    f = _NumTp(_CC[j - 1]) + z * f;
 
-	  auto __df = _NumTp((_Dim - 1) * _CC[_Dim - 1]);
-	  for (std::size_t __j = _Dim - 1; __j > 1; --__j)
-	    __df = _NumTp((__j - 1) * _CC[__j - 1]) + __z * __df;
+	  auto df = _NumTp((_Dim - 1) * _CC[_Dim - 1]);
+	  for (std::size_t j = _Dim - 1; j > 1; --j)
+	    df = _NumTp((j - 1) * _CC[j - 1]) + z * df;
 
-	  auto __d2f = _NumTp((_Dim - 2) * (_Dim - 1) * _CC[_Dim - 1]);
-	  for (std::size_t __j = _Dim - 1; __j > 2; --__j)
-	    __d2f = _NumTp((__j - 2) * (__j - 1) * _CC[__j - 1]) + __z * __d2f;
+	  auto d2f = _NumTp((_Dim - 2) * (_Dim - 1) * _CC[_Dim - 1]);
+	  for (std::size_t j = _Dim - 1; j > 2; --j)
+	    d2f = _NumTp((j - 2) * (j - 1) * _CC[j - 1]) + z * d2f;
 
-	  const auto __del = _NumTp{2} * __f * __df
-			   / (_NumTp{2} * __df * __df - __f * __d2f);
+	  const auto del = _NumTp{2} * f * df
+			   / (_NumTp{2} * df * df - f * d2f);
 
-	  __z -= __del;
+	  z -= del;
 	}
-      return __z;
+      return z;
     }
 
-  template<std::size_t _Dim, typename _Iter, typename _Real>
+  template<std::size_t _Dim, typename _Iter, typename Real>
     void
-    __refine_solutions(std::array<solution_t<_Real>, _Dim - 1>& _ZZ, const _Iter& _CC)
+    refine_solutions(std::array<solution_t<Real>, _Dim - 1>& _ZZ, const _Iter& _CC)
     {
-      for (std::size_t __i = 0; __i < _Dim - 1; ++__i)
+      for (std::size_t i = 0; i < _Dim - 1; ++i)
 	{
-	  if (_ZZ[__i].index() == 0)
+	  if (_ZZ[i].index() == 0)
 	    continue;
-	  else if (_ZZ[__i].index() == 1)
-	    _ZZ[__i] = __refine_solution_newton<_Dim>(std::get<1>(_ZZ[__i]), _CC);
-	  else if (_ZZ[__i].index() == 2)
-	    _ZZ[__i] = __refine_solution_newton<_Dim>(std::get<2>(_ZZ[__i]), _CC);
+	  else if (_ZZ[i].index() == 1)
+	    _ZZ[i] = refine_solution_newton<_Dim>(std::get<1>(_ZZ[i]), _CC);
+	  else if (_ZZ[i].index() == 2)
+	    _ZZ[i] = refine_solution_newton<_Dim>(std::get<2>(_ZZ[i]), _CC);
 	}
     }
 
@@ -146,16 +139,16 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
    * @param[in] _CC Array that contains the three coefficients
    *                  of the quadratic equation.
    */
-  template<typename _Real, typename _Iter>
-    std::array<solution_t<_Real>, 2>
-    __quadratic(const _Iter& _CC)
+  template<typename Real, typename _Iter>
+    std::array<solution_t<Real>, 2>
+    quadratic(const _Iter& _CC)
     {
-      std::array<solution_t<_Real>, 2> _ZZ;
+      std::array<solution_t<Real>, 2> _ZZ;
 
-      if (_CC[2] == _Real{0})
+      if (_CC[2] == Real{0})
 	{
 	  // Equation is linear (or completely degenerate).
-	  if (_CC[1] == _Real{0})
+	  if (_CC[1] == Real{0})
 	    return _ZZ;
 	  else
 	    {
@@ -163,10 +156,10 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 	      return _ZZ;
 	    }
 	}
-      else if (_CC[0] == _Real{0})
+      else if (_CC[0] == Real{0})
 	{
-	  _ZZ[0] = _Real{0};
-	  if (_CC[2] == _Real{0})
+	  _ZZ[0] = Real{0};
+	  if (_CC[2] == Real{0})
 	    return _ZZ;
 	  else
 	    {
@@ -177,23 +170,23 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
       else
 	{
 	  // The discriminant of a quadratic equation
-	  const auto _QQ = _CC[1] * _CC[1] - _Real{4} * _CC[2] * _CC[0];
+	  const auto _QQ = _CC[1] * _CC[1] - Real{4} * _CC[2] * _CC[0];
 
-	  if (_QQ < _Real{0})
+	  if (_QQ < Real{0})
 	    {
 	      // The roots are complex conjugates.
-	      const auto _ReZZ = -_CC[1] / (_Real{2} * _CC[2]);
-	      const auto _ImZZ = std::sqrt(std::abs(_QQ)) / (_Real{2} * _CC[2]);
-	      _ZZ[0] = std::complex<_Real>(_ReZZ, -_ImZZ);
-	      _ZZ[1] = std::complex<_Real>(_ReZZ, _ImZZ);
+	      const auto _ReZZ = -_CC[1] / (Real{2} * _CC[2]);
+	      const auto _ImZZ = std::sqrt(std::abs(_QQ)) / (Real{2} * _CC[2]);
+	      _ZZ[0] = std::complex<Real>(_ReZZ, -_ImZZ);
+	      _ZZ[1] = std::complex<Real>(_ReZZ, _ImZZ);
 	    }
 	  else
 	    {
 	      // The roots are real.
-	      _Real __temp = -(_CC[1]
-			+ std::copysign(std::sqrt(_QQ), _CC[1])) / _Real{2};
-	      _ZZ[0] = __temp / _CC[2];
-	      _ZZ[1] = _CC[0] / __temp;
+	      Real temp = -(_CC[1]
+			+ std::copysign(std::sqrt(_QQ), _CC[1])) / Real{2};
+	      _ZZ[0] = temp / _CC[2];
+	      _ZZ[1] = _CC[0] / temp;
 	    }
 	}
 
@@ -219,78 +212,75 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
    * @param[in] _CC Array that contains the four coefficients
    *                  of the cubic equation
    */
-  template<typename _Real, typename _Iter>
-    std::array<solution_t<_Real>, 3>
-    __cubic(const _Iter& _CC)
+  template<typename Real, typename Iter>
+    std::array<solution_t<Real>, 3>
+    cubic(const Iter& CC)
     {
-      using std::experimental::make_array;
+      std::array<solution_t<Real>, 3> ZZ;
 
-      std::array<solution_t<_Real>, 3> _ZZ;
-
-      if (_CC[3] == _Real{0})
+      if (CC[3] == Real{0})
 	{
 	  // Last root is null, remaining equation is quadratic.
-	  const auto _ZZ2 = __quadratic<_Real>(_CC);
-	  _ZZ[0] = _ZZ2[0];
-	  _ZZ[1] = _ZZ2[1];
+	  const auto ZZ2 = quadratic<Real>(CC);
+	  ZZ[0] = ZZ2[0];
+	  ZZ[1] = ZZ2[1];
 	}
-      else if (_CC[0] == _Real{0})
+      else if (CC[0] == Real{0})
 	{
 	  // First root is zero, remaining equation is quadratic.
-	  _ZZ[0] = _Real{0};
-	  const auto _ZZ2 = __quadratic<_Real>(make_array(_CC[1], _CC[2],
-							  _CC[3]));
-	  _ZZ[1] = _ZZ2[0];
-	  _ZZ[2] = _ZZ2[1];
+	  ZZ[0] = Real{0};
+	  const auto ZZ2 = quadratic<Real>(CC[1], CC[2], CC[3]);
+	  ZZ[1] = ZZ2[0];
+	  ZZ[2] = ZZ2[1];
 	}
       else
 	{
 	  // Normalize cubic equation coefficients.
-	  std::array<_Real, 4> _AA3;
-	  _AA3[3] = _Real{1};
-	  _AA3[2] = _CC[2] / _CC[3];
-	  _AA3[1] = _CC[1] / _CC[3];
-	  _AA3[0] = _CC[0] / _CC[3];
+	  std::array<Real, 4> AA3;
+	  AA3[3] = Real{1};
+	  AA3[2] = CC[2] / CC[3];
+	  AA3[1] = CC[1] / CC[3];
+	  AA3[0] = CC[0] / CC[3];
 
-	  const auto _S_2pi
-	    = 2 * _Real{3.1415'92653'58979'32384'62643'38327'95028'84195e+0L};
-	  const auto _PP = _AA3[2] / _Real{3};
-	  const auto _QQ = (_AA3[2] * _AA3[2] - _Real{3} * _AA3[1])
-			 / _Real{9};
-	  const auto _QQp3 = _QQ * _QQ * _QQ;
-	  const auto _RR = (_Real{2} * _AA3[2] * _AA3[2] * _AA3[2]
-			  - _Real{9} * _AA3[2] * _AA3[1]
-			  + _Real{27} * _AA3[0]) / _Real{54};
-	  const auto _RRp2 = _RR * _RR;
+	  const auto S_2pi
+	    = 2 * Real{3.1415'92653'58979'32384'62643'38327'95028'84195e+0L};
+	  const auto PP = AA3[2] / Real{3};
+	  const auto QQ = (AA3[2] * AA3[2] - Real{3} * AA3[1])
+			 / Real{9};
+	  const auto QQp3 = QQ * QQ * QQ;
+	  const auto RR = (Real{2} * AA3[2] * AA3[2] * AA3[2]
+			  - Real{9} * AA3[2] * AA3[1]
+			  + Real{27} * AA3[0]) / Real{54};
+	  const auto RRp2 = RR * RR;
 
-	  if (_QQp3 - _RRp2 > _Real{0})
+	  if (QQp3 - RRp2 > Real{0})
 	    {
 	      // Calculate the three real roots.
-	      const auto __phi = std::acos(_RR / std::sqrt(_QQp3));
-	      const auto __fact = -_Real{2} * std::sqrt(_QQ);
-	      for (int __i = 0; __i < 3; ++__i)
-		_ZZ[__i] = __fact * std::cos((__phi + __i * _S_2pi) / _Real{3}) - _PP;
+	      const auto phi = std::acos(RR / std::sqrt(QQp3));
+	      const auto fact = -Real{2} * std::sqrt(QQ);
+	      for (int i = 0; i < 3; ++i)
+		ZZ[i] = fact * std::cos((phi + i * S_2pi) / Real{3}) - PP;
 	    }
 	  else
 	    {
 	      // Calculate the single real root.
-	      const auto __fact = std::cbrt(std::abs(_RR)
-					  + std::sqrt(_RRp2 - _QQp3));
-	      const auto _BB = -std::copysign(__fact + _QQ / __fact, _RR);
-	      _ZZ[0] = _BB - _PP;
+	      const auto fact = std::cbrt(std::abs(RR)
+					  + std::sqrt(RRp2 - QQp3));
+	      const auto BB = -std::copysign(fact + QQ / fact, RR);
+	      ZZ[0] = BB - PP;
 
 	      // Find the other two roots which are complex conjugates.
-	      std::array<_Real, 3> _AA2;
-	      _AA2[2] = _Real{1};
-	      _AA2[1] = _BB;
-	      _AA2[0] = _BB * _BB - _Real{3} * _QQ;
-	      const auto _ZZ2 = __quadratic<_Real>(_AA2);
-	      _ZZ[1] = std::get<2>(_ZZ2[0]) - _PP;
-	      _ZZ[2] = std::get<2>(_ZZ2[1]) - _PP;
+	      std::array<Real, 3> AA2;
+	      AA2[2] = Real{1};
+	      AA2[1] = BB;
+	      AA2[0] = BB * BB - Real{3} * QQ;
+	      const auto ZZ2 = quadratic<Real>(AA2);
+	      ZZ[1] = std::get<2>(ZZ2[0]) - PP;
+	      ZZ[2] = std::get<2>(ZZ2[1]) - PP;
 	    }
 	}
 
-      return _ZZ;
+      return ZZ;
     }
 
 
@@ -310,74 +300,71 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
    * the problem is referred to the cubic solver to return, at most,
    * three valid roots.
    *
-   * @param[in] _CC Array that contains the five(5) coefficients
+   * @param[in] CC Array that contains the five(5) coefficients
    *                  of the quartic equation.
    */
-  template<typename _Real, typename _Iter>
-    std::array<solution_t<_Real>, 4>
-    __quartic(const _Iter& _CC)
+  template<typename Real, typename Iter>
+    std::array<solution_t<Real>, 4>
+    quartic(const Iter& CC)
     {
-      using std::experimental::make_array;
+      std::array<solution_t<Real>, 4> ZZ;
 
-      std::array<solution_t<_Real>, 4> _ZZ;
-
-      if (_CC[4] == _Real{0})
+      if (CC[4] == Real{0})
 	{
-	  const auto _ZZ3 = __cubic<_Real>(_CC);
-	  _ZZ[0] = _ZZ3[0];
-	  _ZZ[1] = _ZZ3[1];
-	  _ZZ[2] = _ZZ3[2];
+	  const auto ZZ3 = cubic<Real>(CC);
+	  ZZ[0] = ZZ3[0];
+	  ZZ[1] = ZZ3[1];
+	  ZZ[2] = ZZ3[2];
 	}
-      else if (_CC[0] == _Real{0})
+      else if (CC[0] == Real{0})
 	{
-	  _ZZ[0] = _Real{0};
-	  const auto _ZZ3 = __cubic<_Real>(make_array(_CC[1], _CC[2],
-						      _CC[3], _CC[4]));
-	  _ZZ[1] = _ZZ3[0];
-	  _ZZ[2] = _ZZ3[1];
+	  ZZ[0] = Real{0};
+	  const auto ZZ3 = cubic<Real>(CC[1], CC[2], CC[3], CC[4]);
+	  ZZ[1] = ZZ3[0];
+	  ZZ[2] = ZZ3[1];
 	}
-      else if (_CC[3] == _Real{0} && _CC[1] == _Real{0})
+      else if (CC[3] == Real{0} && CC[1] == Real{0})
 	{
 	  // Solve the biquadratic equation.
-	  std::array<_Real, 3> _AA2{{_CC[0], _CC[2], _CC[4]}};
-	  const auto _ZZ2 = __quadratic<_Real>(_AA2);
-	  auto __sqrt = [](solution_t<_Real> __z) -> solution_t<_Real>
+	  std::array<Real, 3> AA2{{CC[0], CC[2], CC[4]}};
+	  const auto ZZ2 = quadratic<Real>(AA2);
+	  auto sqrt = [](solution_t<Real> z) -> solution_t<Real>
 			{
-			  const auto __idx = __z.index();
-			  if (__idx == 0)
-			    return __z;
-			  else if (__idx == 1)
+			  const auto idx = z.index();
+			  if (idx == 0)
+			    return z;
+			  else if (idx == 1)
 			    {
-			      auto __zz = std::get<1>(__z);
-			      return __zz < _Real{0}
-				   ? solution_t<_Real>(std::sqrt(std::complex<_Real>(__zz)))
-				   : solution_t<_Real>(std::sqrt(__zz));
+			      auto zz = std::get<1>(z);
+			      return zz < Real{0}
+				   ? solution_t<Real>(std::sqrt(std::complex<Real>(zz)))
+				   : solution_t<Real>(std::sqrt(zz));
 			    }
 			  else
-			    return solution_t<_Real>(std::sqrt(std::get<2>(__z)));
+			    return solution_t<Real>(std::sqrt(std::get<2>(z)));
 			};
-	  _ZZ[0] = __sqrt(_ZZ2[0]);
-	  _ZZ[1] = __sqrt(_ZZ2[1]);
-	  _ZZ[2] = -_ZZ[0];
-	  _ZZ[3] = -_ZZ[1];
+	  ZZ[0] = sqrt(ZZ2[0]);
+	  ZZ[1] = sqrt(ZZ2[1]);
+	  ZZ[2] = -ZZ[0];
+	  ZZ[3] = -ZZ[1];
 	}
       else
 	{
 	  // Normalize quartic equation coefficients.
-	  std::array<_Real, 5> _AA4;
-	  _AA4[4] = _Real{1};
-	  _AA4[3] = _CC[3] / _CC[4];
-	  _AA4[2] = _CC[2] / _CC[4];
-	  _AA4[1] = _CC[1] / _CC[4];
-	  _AA4[0] = _CC[0] / _CC[4];
+	  std::array<Real, 5> AA4;
+	  AA4[4] = Real{1};
+	  AA4[3] = CC[3] / CC[4];
+	  AA4[2] = CC[2] / CC[4];
+	  AA4[1] = CC[1] / CC[4];
+	  AA4[0] = CC[0] / CC[4];
 
 	  // Calculate the coefficients of the resolvent cubic equation.
-	  std::array<_Real, 4> _AA3;
-	  _AA3[3] = _Real{1};
-	  _AA3[2] = -_AA4[2];
-	  _AA3[1] = _AA4[3] * _AA4[1] - _Real{4} * _AA4[0];
-	  _AA3[0] = _AA4[0] * (_Real{4} * _AA4[2] - _AA4[3] * _AA4[3])
-		  - _AA4[1] * _AA4[1];
+	  std::array<Real, 4> AA3;
+	  AA3[3] = Real{1};
+	  AA3[2] = -AA4[2];
+	  AA3[1] = AA4[3] * AA4[1] - Real{4} * AA4[0];
+	  AA3[0] = AA4[0] * (Real{4} * AA4[2] - AA4[3] * AA4[3])
+		  - AA4[1] * AA4[1];
 
 	  // Find the algebraically largest real root of the cubic equation
 	  // Note: A cubic equation has either three real roots or one
@@ -386,69 +373,66 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 	  //       subroutine cubic always returns that single real root
 	  //       (and therefore the algebraically largest real root of
 	  //       the cubic equation) as root[0].
-	  _Real _Z3max;
-	  auto _ZZ3 = __cubic<_Real>(_AA3);
-	  if (_ZZ3[1].index() == 1 && _ZZ3[2].index() == 1)
+	  Real Z3max;
+	  auto ZZ3 = cubic<Real>(AA3);
+	  if (ZZ3[1].index() == 1 && ZZ3[2].index() == 1)
             {
 	      // There is some horrible bug with swap and this variant.
 	      // They may need to hold the same type.
-	      if (_ZZ3[0] < _ZZ3[1])
-		//std::swap(_ZZ3[0], _ZZ3[1]);
+	      if (ZZ3[0] < ZZ3[1])
+		//std::swap(ZZ3[0], ZZ3[1]);
 		{
-		  const auto __tmp = _ZZ3[0];
-		  _ZZ3[0] = _ZZ3[1];
-		  _ZZ3[1] = __tmp;
+		  const auto tmp = ZZ3[0];
+		  ZZ3[0] = ZZ3[1];
+		  ZZ3[1] = tmp;
 		}
-	      if (_ZZ3[0] < _ZZ3[2])
-		//std::swap(_ZZ3[0], _ZZ3[2]);
+	      if (ZZ3[0] < ZZ3[2])
+		//std::swap(ZZ3[0], ZZ3[2]);
 		{
-		  const auto __tmp = _ZZ3[0];
-		  _ZZ3[0] = _ZZ3[2];
-		  _ZZ3[2] = __tmp;
+		  const auto tmp = ZZ3[0];
+		  ZZ3[0] = ZZ3[2];
+		  ZZ3[2] = tmp;
 		}
-	      _Z3max = std::get<1>(_ZZ3[0]);
+	      Z3max = std::get<1>(ZZ3[0]);
             }
 	  else
-	    _Z3max = std::get<1>(_ZZ3[0]);
+	    Z3max = std::get<1>(ZZ3[0]);
 
 	  // Calculate the coefficients for the two quadratic equations
-	  const auto __capa = _Real{0.5L} * _AA4[3];
-	  const auto __capb = _Real{0.5L} * _Z3max;
-	  const auto __capc = std::sqrt(__capa * __capa - _AA4[2] + _Z3max);
-	  const auto __capd = std::sqrt(__capb * __capb - _AA4[0]);
-	  const auto __cp = __capa + __capc;
-	  const auto __cm = __capa - __capc;
-	  auto __dp = __capb + __capd;
-	  auto __dm = __capb - __capd;
-	  const auto __t1 = __cp * __dm + __cm * __dp;
-	  const auto __t2 = __cp * __dp + __cm * __dm;
-	  if (std::abs(__t2 - _AA4[1]) < std::abs(__t1 - _AA4[1]))
-	    std::swap(__dp, __dm);
+	  const auto capa = Real{0.5L} * AA4[3];
+	  const auto capb = Real{0.5L} * Z3max;
+	  const auto capc = std::sqrt(capa * capa - AA4[2] + Z3max);
+	  const auto capd = std::sqrt(capb * capb - AA4[0]);
+	  const auto cp = capa + capc;
+	  const auto cm = capa - capc;
+	  auto dp = capb + capd;
+	  auto dm = capb - capd;
+	  const auto t1 = cp * dm + cm * dp;
+	  const auto t2 = cp * dp + cm * dm;
+	  if (std::abs(t2 - AA4[1]) < std::abs(t1 - AA4[1]))
+	    std::swap(dp, dm);
 
 	  // Coefficients for the first quadratic equation and find the roots.
-	  std::array<_Real, 3> _AA2;
-	  _AA2[2] = _Real{1};
-	  _AA2[1] = __cp;
-	  _AA2[0] = __dp;
-	  const auto _ZZ2p = __quadratic<_Real>(_AA2);
-	  _ZZ[0] = _ZZ2p[0];
-	  _ZZ[1] = _ZZ2p[1];
+	  std::array<Real, 3> AA2;
+	  AA2[2] = Real{1};
+	  AA2[1] = cp;
+	  AA2[0] = dp;
+	  const auto ZZ2p = quadratic<Real>(AA2);
+	  ZZ[0] = ZZ2p[0];
+	  ZZ[1] = ZZ2p[1];
 
 	  // Coefficients for the second quadratic equation and find the roots.
-	  _AA2[2] = _Real{1};
-	  _AA2[1] = __cm;
-	  _AA2[0] = __dm;
-	  const auto _ZZ2m = __quadratic<_Real>(_AA2);
-	  _ZZ[2] = _ZZ2m[0];
-	  _ZZ[3] = _ZZ2m[1];
+	  AA2[2] = Real{1};
+	  AA2[1] = cm;
+	  AA2[0] = dm;
+	  const auto ZZ2m = quadratic<Real>(AA2);
+	  ZZ[2] = ZZ2m[0];
+	  ZZ[3] = ZZ2m[1];
 	}
 
-      return _ZZ;
+      return ZZ;
     }
 
-_GLIBCXX_END_NAMESPACE_VERSION
-} // namespace __gnu_cxx
+} // namespace emsr
 
-#endif // C++14
-
-#endif // _EXT_SOLVER_LOW_DEGREE_TCC
+#endif // SOLVER_LOW_DEGREE_TCC

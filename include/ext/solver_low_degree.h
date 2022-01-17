@@ -32,76 +32,63 @@
  */
 
 /**
- * @def  _EXT_SOLVER_LOW_DEGREE_H
+ * @def  SOLVER_LOW_DEGREE_H
  *
  * @brief  A guard for the low-degree polynomial solver functions header.
  */
-#ifndef _EXT_SOLVER_LOW_DEGREE_H
-#define _EXT_SOLVER_LOW_DEGREE_H 1
+#ifndef SOLVER_LOW_DEGREE_H
+#define SOLVER_LOW_DEGREE_H 1
 
-#pragma GCC system_header
-
-#if __cplusplus < 201402L
-# include <bits/c++0x_warning.h>
-#else
-
-#include <experimental/array>
+#include <array>
 
 #include <ext/solution.h>
 
-namespace __gnu_cxx //_GLIBCXX_VISIBILITY(default)
+namespace emsr
 {
-_GLIBCXX_BEGIN_NAMESPACE_VERSION
 
-  template<std::size_t _Dim, typename _Iter, typename _NumTp>
-    _NumTp
-    __refine_solution_newton(_NumTp __z, const _Iter& _CC);
+  template<std::size_t Dim, typename Iter, typename NumTp>
+    NumTp
+    refine_solution_newton(NumTp z, const Iter& CC);
 
-  template<std::size_t _Dim, typename _Iter, typename _NumTp>
-    _NumTp
-    __refine_solution_halley(_NumTp __z, const _Iter& _CC);
+  template<std::size_t Dim, typename Iter, typename NumTp>
+    NumTp
+    refine_solution_halley(NumTp z, const Iter& CC);
 
-  template<typename _Real, typename _Iter>
-    std::array<solution_t<_Real>, 2>
-    __quadratic(const _Iter& __coef);
+  template<typename Real, typename Iter>
+    std::array<solution_t<Real>, 2>
+    quadratic(const Iter& coef);
 
-  template<typename _Real>
-    inline std::array<solution_t<_Real>, 2>
-    __quadratic(_Real __c0, _Real __c1, _Real __c2)
+  template<typename Real>
+    inline std::array<solution_t<Real>, 2>
+    quadratic(Real c0, Real c1, Real c2)
     {
-      using std::experimental::make_array;
-      return __quadratic<_Real>(make_array(__c0, __c1, __c2));
+      return quadratic<Real>(std::array<Real, 3>{c0, c1, c2});
     }
 
-  template<typename _Real, typename _Iter>
-    std::array<solution_t<_Real>, 3>
-    __cubic(const _Iter& __coef);
+  template<typename Real, typename Iter>
+    std::array<solution_t<Real>, 3>
+    cubic(const Iter& coef);
 
-  template<typename _Real>
-    inline std::array<solution_t<_Real>, 3>
-    __cubic(_Real __c0, _Real __c1, _Real __c2, _Real __c3)
+  template<typename Real>
+    inline std::array<solution_t<Real>, 3>
+    cubic(Real c0, Real c1, Real c2, Real c3)
     {
-      using std::experimental::make_array;
-      return __cubic<_Real>(make_array(__c0, __c1, __c2, __c3));
+      return cubic<Real>(std::array<Real, 4>{c0, c1, c2, c3});
     }
 
-  template<typename _Real, typename _Iter>
-    std::array<solution_t<_Real>, 4>
-    __quartic(const _Iter& __coef);
+  template<typename Real, typename Iter>
+    std::array<solution_t<Real>, 4>
+    quartic(const Iter& coef);
 
-  template<typename _Real>
-    inline std::array<solution_t<_Real>, 4>
-    __quartic(_Real __c0, _Real __c1, _Real __c2, _Real __c3, _Real __c4)
+  template<typename Real>
+    inline std::array<solution_t<Real>, 4>
+    quartic(Real c0, Real c1, Real c2, Real c3, Real c4)
     {
-      using std::experimental::make_array;
-      return __quartic<_Real>(make_array(__c0, __c1, __c2, __c3, __c4));
+      return quartic<Real>(std::array<Real, 5>{c0, c1, c2, c3, c4});
     }
 
-_GLIBCXX_END_NAMESPACE_VERSION
-} // namespace __gnu_cxx
+} // namespace emsr
 
 #include <ext/solver_low_degree.tcc>
 
-#endif // C++14
-
-#endif // _EXT_SOLVER_LOW_DEGREE_H
+#endif // SOLVER_LOW_DEGREE_H

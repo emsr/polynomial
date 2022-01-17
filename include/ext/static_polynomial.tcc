@@ -27,77 +27,69 @@
  */
 
 /**
- * @def  _EXT_STATIC_POLYNOMIAL_TCC
+ * @def  STATIC_POLYNOMIAL_TCC
  *
  * @brief  A guard for the static_polynomial class header.
  */
-#ifndef _EXT_STATIC_POLYNOMIAL_TCC
-#define _EXT_STATIC_POLYNOMIAL_TCC 1
-
-#pragma GCC system_header
-
-#if __cplusplus < 201402L
-# include <bits/c++0x_warning.h>
-#else
+#ifndef STATIC_POLYNOMIAL_TCC
+#define STATIC_POLYNOMIAL_TCC 1
 
 #include <iostream>
 
-namespace __gnu_cxx //_GLIBCXX_VISIBILITY(default)
+namespace emsr
 {
 
   /**
    * Write a polynomial to a stream.
    * The format is a parenthesized comma-delimited list of coefficients.
    */
-  template<typename CharT, typename Traits, typename _Tp, std::size_t _Size>
+  template<typename CharT, typename Traits, typename Tp, std::size_t Size>
     std::basic_ostream<CharT, Traits>&
-    operator<<(std::basic_ostream<CharT, Traits>& __os,
-	       const _StaticPolynomial<_Tp, _Size>& __poly)
+    operator<<(std::basic_ostream<CharT, Traits>& os,
+	       const StaticPolynomial<Tp, Size>& poly)
     {
-      int __old_prec = __os.precision(std::numeric_limits<_Tp>::max_digits10);
-      __os << "(";
-      for (size_t __i = 0; __i < __poly.degree(); ++__i)
-        __os << __poly.coefficient(__i) << ",";
-      __os << __poly.coefficient(__poly.degree());
-      __os << ")";
-      __os.precision(__old_prec);
-      return __os;
+      int old_prec = os.precision(std::numeric_limits<Tp>::max_digits10);
+      os << "(";
+      for (size_t i = 0; i < poly.degree(); ++i)
+        os << poly.coefficient(i) << ",";
+      os << poly.coefficient(poly.degree());
+      os << ")";
+      os.precision(old_prec);
+      return os;
     }
 
   /**
    * Divide two polynomials returning the quotient and remainder.
    */
-  template<typename _Tp, std::size_t _SizeN, std::size_t _SizeD>
-    constexpr __divmod_t<_Tp, _SizeN, _SizeD>
-    divmod(_StaticPolynomial<_Tp, _SizeN> __num,
-	   _StaticPolynomial<_Tp, _SizeD> __den)
+  template<typename Tp, std::size_t SizeN, std::size_t SizeD>
+    constexpr divmod_t<Tp, SizeN, SizeD>
+    divmod(StaticPolynomial<Tp, SizeN> num,
+	   StaticPolynomial<Tp, SizeD> den)
     {
-      constexpr auto _DegN = __num.degree();
-      constexpr auto _DegD = __den.degree();
-      auto __rem = __num;
-      auto __quo = _StaticPolynomial<_Tp, _SizeN>{};
-      if (_DegD <= _DegN)
+      constexpr auto DegN = num.degree();
+      constexpr auto DegD = den.degree();
+      auto rem = num;
+      auto quo = StaticPolynomial<Tp, SizeN>{};
+      if (DegD <= DegN)
 	{
-	  for (int __k = _DegN - _DegD; __k >= 0; --__k)
+	  for (std::ptrdiff_t k = DegN - DegD; k >= 0; --k)
 	    {
-	      __quo.coefficient(__k, __rem.coefficient(_DegD + __k)
-				   / __den.coefficient(_DegD));
-	      for (int __j = _DegD + __k - 1; __j >= __k; --__j)
-		__rem.coefficient(__j, __rem.coefficient(__j)
-				       - __quo.coefficient(__k)
-				       * __den.coefficient(__j - __k));
+	      quo.coefficient(k, rem.coefficient(DegD + k)
+				   / den.coefficient(DegD));
+	      for (int j = DegD + k - 1; j >= k; --j)
+		rem.coefficient(j, rem.coefficient(j)
+				       - quo.coefficient(k)
+				       * den.coefficient(j - k));
 	    }
 	}
-      __divmod_t<_Tp, _SizeN, _SizeD> __ret;
-      for (int __i = 0; __i < __divmod_t<_Tp, _SizeN, _SizeD>::_SizeQuo; ++__i)
-        __ret.__quo[__i] = __quo[__i];
-      for (int __i = 0; __i < __divmod_t<_Tp, _SizeN, _SizeD>::_SizeRem; ++__i)
-        __ret.__rem[__i] = __rem[__i];
-      return __ret;
+      divmod_t<Tp, SizeN, SizeD> ret;
+      for (std::size_t i = 0ULL; i < divmod_t<Tp, SizeN, SizeD>::SizeQuo; ++i)
+        ret.quo[i] = quo[i];
+      for (std::size_t i = 0ULL; i < divmod_t<Tp, SizeN, SizeD>::SizeRem; ++i)
+        ret.rem[i] = rem[i];
+      return ret;
     }
 
-} // namespace __gnu_cxx
+} // namespace emsr
 
-#endif // C++14
-
-#endif // _EXT_STATIC_POLYNOMIAL_TCC
+#endif // STATIC_POLYNOMIAL_TCC

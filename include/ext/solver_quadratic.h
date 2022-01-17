@@ -39,64 +39,63 @@
 #include <ext/polynomial.h>
 //#include <ext/solution.h> // For solution_t
 
-namespace __gnu_cxx
+namespace emsr
 {
 
   /**
    * A solver for complex-coefficient polynomials due to Laguerre.
    */
-  template<typename _Real>
-    class _QuadraticSolver
+  template<typename Real>
+    class QuadraticSolver
     {
     public:
 
-      _QuadraticSolver(_Polynomial<std::complex<_Real>>& _P)
-      : _M_poly(_P), _M_num_iters{0}
+      QuadraticSolver(Polynomial<std::complex<Real>>& P)
+      : m_poly(P), m_num_iters{0}
       { }
 
-      //std::vector<solution_t<_Real>> solve();
-      std::vector<std::complex<_Real>> solve();
+      //std::vector<solution_t<Real>> solve();
+      std::vector<std::complex<Real>> solve();
 
-      _Polynomial<std::complex<_Real>>
+      Polynomial<std::complex<Real>>
       step()
       {
-	const auto __q = this->_M_root_quadratic();
-	this->_M_poly.deflate(__q, _Real{10} * _S_eps);
-	return __q;
+	const auto q = this->m_root_quadratic();
+	this->m_poly.deflate(q, Real{10} * s_eps);
+	return q;
       }
 
       int
       num_iters() const
-      { return this->_M_num_iters; }
+      { return this->m_num_iters; }
 
       int
       max_num_iters() const
-      { return this->_M_max_num_iters; }
+      { return this->m_max_num_iters; }
 
-      const _Polynomial<std::complex<_Real>>&
+      const Polynomial<std::complex<Real>>&
       polynomial() const
-      { return this->_M_poly; }
+      { return this->m_poly; }
 
     private:
 
       // Estimated fractional roundoff error.
-      static constexpr _Real _S_eps = std::numeric_limits<_Real>::epsilon();
-      static constexpr _Real _S_tiny = _Real{10} * _S_eps;
+      static constexpr Real s_eps = std::numeric_limits<Real>::epsilon();
+      static constexpr Real s_tiny = Real{10} * s_eps;
 
       // Fractional roundoff error.
-      _Real _M_eps = _Real{100} * _S_eps;
+      Real m_eps = Real{100} * s_eps;
 
-      int _M_max_iter = 50;
+      int m_max_iter = 50;
 
-      _Polynomial<std::complex<_Real>> _M_root_quadratic();
+      Polynomial<std::complex<Real>> m_root_quadratic();
 
-      _Polynomial<std::complex<_Real>> _M_poly;
+      Polynomial<std::complex<Real>> m_poly;
 
-      int _M_num_iters = 0;
+      int m_num_iters = 0;
     };
 
-
-} // namespace __gnu_cxx
+} // namespace emsr
 
 #include <ext/solver_quadratic.tcc>
 
