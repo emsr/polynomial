@@ -36,7 +36,7 @@
 #include <complex>
 
 #include <emsr/polynomial.h>
-//#include <emsr/solution.h> // For solution_t
+//#include <emsr/solution.h> // For Solution
 
 namespace emsr
 {
@@ -53,7 +53,7 @@ namespace emsr
       : m_poly(P), m_num_iters{0}
       { }
 
-      //std::vector<solution_t<Real>> solve();
+      //std::vector<Solution<Real>> solve();
       std::vector<std::complex<Real>> solve();
 
       Polynomial<std::complex<Real>>

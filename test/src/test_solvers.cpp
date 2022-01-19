@@ -16,7 +16,7 @@ template<typename Real>
 template<typename Real, unsigned long int Dim>
   status<Real>
   try_solution(std::array<Real, Dim> coef,
-	       const emsr::solution_t<Real>& z)
+	       const emsr::Solution<Real>& z)
   {
     const auto s_eps = Real{100} * std::numeric_limits<Real>::epsilon();
     if (z.index() == 0)

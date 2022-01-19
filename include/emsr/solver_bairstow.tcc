@@ -115,14 +115,14 @@ template<typename Real>
     for (int i = 0; i < this->m_order - 1; ++i)
       this->m_coeff[i] = this->m_b[i];
 
-    std::array<solution_t<Real>, 2> z2 = quadratic(s, r, Real{1});
+    std::array<Solution<Real>, 2> z2 = quadratic(s, r, Real{1});
 
     this->m_add_zero(z2[0]);
     this->m_add_zero(z2[1]);
   }
 
 template<typename Real>
-  std::vector<solution_t<Real>>
+  std::vector<Solution<Real>>
   BairstowSolver<Real>::solve()
   {
     this->m_eps = s_eps;
@@ -160,7 +160,7 @@ template<typename Real>
     void
     BairstowSolver<Real>::s_refine_quadratic_eqn(Real& dr, Real& r,
 					Real& ds, Real& s,
-					std::array<solution_t<Real>, 2>& w)
+					std::array<Solution<Real>, 2>& w)
     {
       const auto p = std::array<Real, 3>{s, r, Real{1}};
       w[0] = refine_solution_newton<3>(std::get<Index>(w[0]), p);

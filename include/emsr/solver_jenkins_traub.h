@@ -33,7 +33,7 @@
 #ifndef SOLVER_JENKINS_TRAUB_H
 #define SOLVER_JENKINS_TRAUB_H 1
 
-#include <emsr/solution.h> // For solution_t
+#include <emsr/solution.h> // For Solution
 
 namespace emsr
 {
@@ -49,7 +49,7 @@ template<typename Real>
     JenkinsTraubSolver(const std::vector<Real>& op);
     JenkinsTraubSolver(std::vector<Real>&& op);
 
-    std::vector<solution_t<Real>> solve();
+    std::vector<Solution<Real>> solve();
 
   private:
 
@@ -62,7 +62,7 @@ template<typename Real>
     };
 
     void quadratic(Real a, Real b, Real c,
-		   solution_t<Real> &z_small, solution_t<Real> &z_large);
+		   Solution<Real> &z_small, Solution<Real> &z_large);
     int fxshfr(int l2);
     int iter_quadratic(Real uu, Real vv);
     int iter_real(Real sss, int& iflag);
@@ -107,8 +107,8 @@ template<typename Real>
     Real m_a2;
     Real m_a3;
     Real m_a7;
-    solution_t<Real> m_z_small;
-    solution_t<Real> m_z_large;
+    Solution<Real> m_z_small;
+    Solution<Real> m_z_large;
     int m_order;
     bool m_zerok;
     int m_num_iters = 0;

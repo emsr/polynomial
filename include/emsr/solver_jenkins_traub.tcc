@@ -67,7 +67,7 @@ template<typename Real>
  *
  */
 template<typename Real>
-  std::vector<solution_t<Real>>
+  std::vector<Solution<Real>>
   JenkinsTraubSolver<Real>::solve()
   {
     // Initialization of constants for shift rotation.
@@ -76,7 +76,7 @@ template<typename Real>
     const auto cosr = std::cos(s_rotation);
     const auto sinr = std::sin(s_rotation);
 
-    std::vector<solution_t<Real>> zero;
+    std::vector<Solution<Real>> zero;
     zero.reserve(this->m_P.size());
 
     // Remove the zeros at the origin, if any.
@@ -104,7 +104,7 @@ template<typename Real>
 	// Calculate the final zero or pair of zeros.
 	if (this->m_order == 2)
 	  {
-	    solution_t<Real> z_small, z_large;
+	    Solution<Real> z_small, z_large;
 	    this->quadratic(this->m_P[0], this->m_P[1], this->m_P[2],
 			    z_small, z_large);
 	    if (z_small.index() != 0)
@@ -791,8 +791,8 @@ template<typename Real>
 template<typename Real>
   void
   JenkinsTraubSolver<Real>::quadratic(Real a, Real b, Real c,
-					solution_t<Real>& z_small,
-					solution_t<Real>& z_large)
+					Solution<Real>& z_small,
+					Solution<Real>& z_large)
   {
     z_small = {};
     z_large = {};

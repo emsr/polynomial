@@ -45,32 +45,32 @@ namespace emsr
 {
 
   template<typename Real>
-    struct solution_t
+    struct Solution
     : public std::variant<std::monostate, Real, std::complex<Real>>
     {
       using Base = std::variant<std::monostate, Real, std::complex<Real>>;
 
-      solution_t() noexcept
+      Solution() noexcept
       : Base()
       {}
 
-      solution_t(Real x) noexcept
+      Solution(Real x) noexcept
       : Base(x)
       {}
 
-      solution_t(const std::complex<Real>& x) noexcept
+      Solution(const std::complex<Real>& x) noexcept
       : Base(x)
       {}
     };
 
   template<typename Real>
     constexpr bool
-    is_valid(const solution_t<Real>& x)
+    is_valid(const Solution<Real>& x)
     { return x.index() != 0; }
 
   template<typename Real>
     constexpr Real
-    real(const solution_t<Real>& x)
+    real(const Solution<Real>& x)
     {
       if (x.index() == 0)
 	return std::numeric_limits<Real>::quiet_NaN();
@@ -82,7 +82,7 @@ namespace emsr
 
   template<typename Real>
     constexpr Real
-    imag(const solution_t<Real>& x)
+    imag(const Solution<Real>& x)
     {
       if (x.index() == 0)
 	return std::numeric_limits<Real>::quiet_NaN();
@@ -94,7 +94,7 @@ namespace emsr
 
   template<typename Real>
     constexpr Real
-    abs(const solution_t<Real>& x)
+    abs(const Solution<Real>& x)
     {
       if (x.index() == 0)
 	return std::numeric_limits<Real>::quiet_NaN();
@@ -108,13 +108,13 @@ namespace emsr
    * Return the solution as a complex number or NaN.
    */
   template<typename Real>
-    constexpr solution_t<Real>
-    to_complex(const solution_t<Real>& x)
+    constexpr Solution<Real>
+    to_complex(const Solution<Real>& x)
     {
       if (x.index() == 0)
-	return solution_t<Real>();
+	return Solution<Real>();
       else if (x.index() == 1)
-	return solution_t<Real>(std::complex<Real>(std::get<1>(x)));
+	return Solution<Real>(std::complex<Real>(std::get<1>(x)));
       else
 	return x;
     }
@@ -123,28 +123,28 @@ namespace emsr
    * Unary +/-
    */
   template<typename Real>
-    constexpr solution_t<Real>
-    operator+(const solution_t<Real>& x)
+    constexpr Solution<Real>
+    operator+(const Solution<Real>& x)
     { return x; }
 
   template<typename Real>
-    constexpr solution_t<Real>
-    operator-(const solution_t<Real>& x)
+    constexpr Solution<Real>
+    operator-(const Solution<Real>& x)
     {
       if (x.index() == 0)
 	return x;
       else if (x.index() == 1)
-	return solution_t<Real>(-std::get<1>(x));
+	return Solution<Real>(-std::get<1>(x));
       else
-	return solution_t<Real>(-std::get<2>(x));
+	return Solution<Real>(-std::get<2>(x));
     }
 
   /**
    * Addition operators...
    */
   template<typename Real>
-    constexpr solution_t<Real>
-    operator+(const solution_t<Real>& x, const solution_t<Real>& y)
+    constexpr Solution<Real>
+    operator+(const Solution<Real>& x, const Solution<Real>& y)
     {
       if (x.index() == 0)
 	return x;
@@ -153,45 +153,45 @@ namespace emsr
       else if (x.index() == 1)
 	{
 	  if (y.index() == 1)
-	    return solution_t<Real>(std::get<1>(x) + std::get<1>(y));
+	    return Solution<Real>(std::get<1>(x) + std::get<1>(y));
 	  else
-	    return solution_t<Real>(std::get<1>(x) + std::get<2>(y));
+	    return Solution<Real>(std::get<1>(x) + std::get<2>(y));
 	}
       else
 	{
 	  if (y.index() == 1)
-	    return solution_t<Real>(std::get<2>(x) + std::get<1>(y));
+	    return Solution<Real>(std::get<2>(x) + std::get<1>(y));
 	  else
-	    return solution_t<Real>(std::get<2>(x) + std::get<2>(y));
+	    return Solution<Real>(std::get<2>(x) + std::get<2>(y));
 	}
     }
 
   template<typename Real>
-    constexpr solution_t<Real>
-    operator+(const solution_t<Real>& x, Real y)
-    { return operator+(x, solution_t<Real>(y)); }
+    constexpr Solution<Real>
+    operator+(const Solution<Real>& x, Real y)
+    { return operator+(x, Solution<Real>(y)); }
 
   template<typename Real>
-    constexpr solution_t<Real>
-    operator+(Real x, const solution_t<Real>& y)
-    { return operator+(solution_t<Real>(x), y); }
+    constexpr Solution<Real>
+    operator+(Real x, const Solution<Real>& y)
+    { return operator+(Solution<Real>(x), y); }
 
   template<typename Real>
-    constexpr solution_t<Real>
-    operator+(const solution_t<Real>& x, const std::complex<Real>& y)
-    { return operator+(x, solution_t<Real>(y)); }
+    constexpr Solution<Real>
+    operator+(const Solution<Real>& x, const std::complex<Real>& y)
+    { return operator+(x, Solution<Real>(y)); }
 
   template<typename Real>
-    constexpr solution_t<Real>
-    operator+(const std::complex<Real>& x, const solution_t<Real>& y)
-    { return operator+(solution_t<Real>(x), y); }
+    constexpr Solution<Real>
+    operator+(const std::complex<Real>& x, const Solution<Real>& y)
+    { return operator+(Solution<Real>(x), y); }
 
   /**
    * Subtraction operators...
    */
   template<typename Real>
-    constexpr solution_t<Real>
-    operator-(const solution_t<Real>& x, const solution_t<Real>& y)
+    constexpr Solution<Real>
+    operator-(const Solution<Real>& x, const Solution<Real>& y)
     {
       if (x.index() == 0)
 	return x;
@@ -200,45 +200,45 @@ namespace emsr
       else if (x.index() == 1)
 	{
 	  if (y.index() == 1)
-	    return solution_t<Real>(std::get<1>(x) - std::get<1>(y));
+	    return Solution<Real>(std::get<1>(x) - std::get<1>(y));
 	  else
-	    return solution_t<Real>(std::get<1>(x) - std::get<2>(y));
+	    return Solution<Real>(std::get<1>(x) - std::get<2>(y));
 	}
       else
 	{
 	  if (y.index() == 1)
-	    return solution_t<Real>(std::get<2>(x) - std::get<1>(y));
+	    return Solution<Real>(std::get<2>(x) - std::get<1>(y));
 	  else
-	    return solution_t<Real>(std::get<2>(x) - std::get<2>(y));
+	    return Solution<Real>(std::get<2>(x) - std::get<2>(y));
 	}
     }
 
   template<typename Real>
-    constexpr solution_t<Real>
-    operator-(const solution_t<Real>& x, Real y)
-    { return operator-(x, solution_t<Real>(y)); }
+    constexpr Solution<Real>
+    operator-(const Solution<Real>& x, Real y)
+    { return operator-(x, Solution<Real>(y)); }
 
   template<typename Real>
-    constexpr solution_t<Real>
-    operator-(Real x, const solution_t<Real>& y)
-    { return operator-(solution_t<Real>(x), y); }
+    constexpr Solution<Real>
+    operator-(Real x, const Solution<Real>& y)
+    { return operator-(Solution<Real>(x), y); }
 
   template<typename Real>
-    constexpr solution_t<Real>
-    operator-(const solution_t<Real>& x, const std::complex<Real>& y)
-    { return operator-(x, solution_t<Real>(y)); }
+    constexpr Solution<Real>
+    operator-(const Solution<Real>& x, const std::complex<Real>& y)
+    { return operator-(x, Solution<Real>(y)); }
 
   template<typename Real>
-    constexpr solution_t<Real>
-    operator-(const std::complex<Real>& x, const solution_t<Real>& y)
-    { return operator-(solution_t<Real>(x), y); }
+    constexpr Solution<Real>
+    operator-(const std::complex<Real>& x, const Solution<Real>& y)
+    { return operator-(Solution<Real>(x), y); }
 
   /**
    * Multiplication operators...
    */
   template<typename Real>
-    constexpr solution_t<Real>
-    operator*(const solution_t<Real>& x, const solution_t<Real>& y)
+    constexpr Solution<Real>
+    operator*(const Solution<Real>& x, const Solution<Real>& y)
     {
       if (x.index() == 0)
 	return x;
@@ -247,45 +247,45 @@ namespace emsr
       else if (x.index() == 1)
 	{
 	  if (y.index() == 1)
-	    return solution_t<Real>(std::get<1>(x) * std::get<1>(y));
+	    return Solution<Real>(std::get<1>(x) * std::get<1>(y));
 	  else
-	    return solution_t<Real>(std::get<1>(x) * std::get<2>(y));
+	    return Solution<Real>(std::get<1>(x) * std::get<2>(y));
 	}
       else
 	{
 	  if (y.index() == 1)
-	    return solution_t<Real>(std::get<2>(x) * std::get<1>(y));
+	    return Solution<Real>(std::get<2>(x) * std::get<1>(y));
 	  else
-	    return solution_t<Real>(std::get<2>(x) * std::get<2>(y));
+	    return Solution<Real>(std::get<2>(x) * std::get<2>(y));
 	}
     }
 
   template<typename Real>
-    constexpr solution_t<Real>
-    operator*(const solution_t<Real>& x, Real y)
-    { return operator*(x, solution_t<Real>(y)); }
+    constexpr Solution<Real>
+    operator*(const Solution<Real>& x, Real y)
+    { return operator*(x, Solution<Real>(y)); }
 
   template<typename Real>
-    constexpr solution_t<Real>
-    operator*(Real x, const solution_t<Real>& y)
-    { return operator*(solution_t<Real>(x), y); }
+    constexpr Solution<Real>
+    operator*(Real x, const Solution<Real>& y)
+    { return operator*(Solution<Real>(x), y); }
 
   template<typename Real>
-    constexpr solution_t<Real>
-    operator*(const solution_t<Real>& x, const std::complex<Real>& y)
-    { return operator*(x, solution_t<Real>(y)); }
+    constexpr Solution<Real>
+    operator*(const Solution<Real>& x, const std::complex<Real>& y)
+    { return operator*(x, Solution<Real>(y)); }
 
   template<typename Real>
-    constexpr solution_t<Real>
-    operator*(const std::complex<Real>& x, const solution_t<Real>& y)
-    { return operator*(solution_t<Real>(x), y); }
+    constexpr Solution<Real>
+    operator*(const std::complex<Real>& x, const Solution<Real>& y)
+    { return operator*(Solution<Real>(x), y); }
 
   /**
    * division operators...
    */
   template<typename Real>
-    constexpr solution_t<Real>
-    operator/(const solution_t<Real>& x, const solution_t<Real>& y)
+    constexpr Solution<Real>
+    operator/(const Solution<Real>& x, const Solution<Real>& y)
     {
       if (x.index() == 0)
 	return x;
@@ -294,45 +294,45 @@ namespace emsr
       else if (x.index() == 1)
 	{
 	  if (y.index() == 1)
-	    return solution_t<Real>(std::get<1>(x) / std::get<1>(y));
+	    return Solution<Real>(std::get<1>(x) / std::get<1>(y));
 	  else
-	    return solution_t<Real>(std::get<1>(x) / std::get<2>(y));
+	    return Solution<Real>(std::get<1>(x) / std::get<2>(y));
 	}
       else
 	{
 	  if (y.index() == 1)
-	    return solution_t<Real>(std::get<2>(x) / std::get<1>(y));
+	    return Solution<Real>(std::get<2>(x) / std::get<1>(y));
 	  else
-	    return solution_t<Real>(std::get<2>(x) / std::get<2>(y));
+	    return Solution<Real>(std::get<2>(x) / std::get<2>(y));
 	}
     }
 
   template<typename Real>
-    constexpr solution_t<Real>
-    operator/(const solution_t<Real>& x, Real y)
-    { return operator/(x, solution_t<Real>(y)); }
+    constexpr Solution<Real>
+    operator/(const Solution<Real>& x, Real y)
+    { return operator/(x, Solution<Real>(y)); }
 
   template<typename Real>
-    constexpr solution_t<Real>
-    operator/(Real x, const solution_t<Real>& y)
-    { return operator/(solution_t<Real>(x), y); }
+    constexpr Solution<Real>
+    operator/(Real x, const Solution<Real>& y)
+    { return operator/(Solution<Real>(x), y); }
 
   template<typename Real>
-    constexpr solution_t<Real>
-    operator/(const solution_t<Real>& x, const std::complex<Real>& y)
-    { return operator/(x, solution_t<Real>(y)); }
+    constexpr Solution<Real>
+    operator/(const Solution<Real>& x, const std::complex<Real>& y)
+    { return operator/(x, Solution<Real>(y)); }
 
   template<typename Real>
-    constexpr solution_t<Real>
-    operator/(const std::complex<Real>& x, const solution_t<Real>& y)
-    { return operator/(solution_t<Real>(x), y); }
+    constexpr Solution<Real>
+    operator/(const std::complex<Real>& x, const Solution<Real>& y)
+    { return operator/(Solution<Real>(x), y); }
 
   /**
    * Test for equality and inequality.
    */
   template<typename Real>
     constexpr bool
-    operator==(const solution_t<Real>& x, const solution_t<Real>& y)
+    operator==(const Solution<Real>& x, const Solution<Real>& y)
     {
       if (x.index() == 0 || y.index() == 0)
 	return false;
@@ -349,47 +349,47 @@ namespace emsr
 
   template<typename Real>
     bool
-    operator==(const solution_t<Real>& x, Real y)
-    { return x == solution_t<Real>(y); }
+    operator==(const Solution<Real>& x, Real y)
+    { return x == Solution<Real>(y); }
 
   template<typename Real>
     constexpr bool
-    operator==(Real x, const solution_t<Real>& y)
-    { return solution_t<Real>(x) == y; }
+    operator==(Real x, const Solution<Real>& y)
+    { return Solution<Real>(x) == y; }
 
   template<typename Real>
     constexpr bool
-    operator==(const solution_t<Real>& x, const std::complex<Real>& y)
-    { return x == solution_t<Real>(y); }
+    operator==(const Solution<Real>& x, const std::complex<Real>& y)
+    { return x == Solution<Real>(y); }
 
   template<typename Real>
     constexpr bool
-    operator==(const std::complex<Real>& x, const solution_t<Real>& y)
-    { return solution_t<Real>(x) == y; }
+    operator==(const std::complex<Real>& x, const Solution<Real>& y)
+    { return Solution<Real>(x) == y; }
 
   template<typename Real>
     constexpr bool
-    operator!=(const solution_t<Real>& x, const solution_t<Real>& y)
+    operator!=(const Solution<Real>& x, const Solution<Real>& y)
     { return !(x == y); }
 
   template<typename Real>
     bool
-    operator!=(const solution_t<Real>& x, Real y)
+    operator!=(const Solution<Real>& x, Real y)
     { return !(x == y); }
 
   template<typename Real>
     constexpr bool
-    operator!=(Real x, const solution_t<Real>& y)
+    operator!=(Real x, const Solution<Real>& y)
     { return !(x == y); }
 
   template<typename Real>
     constexpr bool
-    operator!=(const solution_t<Real>& x, const std::complex<Real>& y)
+    operator!=(const Solution<Real>& x, const std::complex<Real>& y)
     { return !(x == y); }
 
   template<typename Real>
     constexpr bool
-    operator!=(const std::complex<Real>& x, const solution_t<Real>& y)
+    operator!=(const std::complex<Real>& x, const Solution<Real>& y)
     { return !(x == y); }
 
   /**
@@ -401,7 +401,7 @@ namespace emsr
    */
   template<typename Real>
     constexpr bool
-    operator<(const solution_t<Real>& x, const solution_t<Real>& y)
+    operator<(const Solution<Real>& x, const Solution<Real>& y)
     {
       if (x.index() == 0 && y.index() == 0)
 	return false;
@@ -424,23 +424,23 @@ namespace emsr
 
   template<typename Real>
     constexpr bool
-    operator<(const solution_t<Real>& x, Real y)
-    { return operator<(x, solution_t<Real>(y)); }
+    operator<(const Solution<Real>& x, Real y)
+    { return operator<(x, Solution<Real>(y)); }
 
   template<typename Real>
     constexpr bool
-    operator<(Real x, const solution_t<Real>& y)
-    { return operator<(solution_t<Real>(x), y); }
+    operator<(Real x, const Solution<Real>& y)
+    { return operator<(Solution<Real>(x), y); }
 
   template<typename Real>
     constexpr bool
-    operator<(const solution_t<Real>& x, const std::complex<Real>& y)
-    { return operator<(x, solution_t<Real>(y)); }
+    operator<(const Solution<Real>& x, const std::complex<Real>& y)
+    { return operator<(x, Solution<Real>(y)); }
 
   template<typename Real>
     constexpr bool
-    operator<(const std::complex<Real>& x, const solution_t<Real>& y)
-    { return operator<(solution_t<Real>(x), y); }
+    operator<(const std::complex<Real>& x, const Solution<Real>& y)
+    { return operator<(Solution<Real>(x), y); }
 
   /**
    * Output a solution to a stream.
@@ -448,7 +448,7 @@ namespace emsr
   template<typename Char, typename Real>
     std::basic_ostream<Char>&
     operator<<(std::basic_ostream<Char>& out,
-	       const emsr::solution_t<Real>& sln)
+	       const emsr::Solution<Real>& sln)
     {
       const auto idx = sln.index();
       if (idx == 0)
@@ -460,6 +460,6 @@ namespace emsr
       return out;
     }
 
-}
+} // namespace emsr
 
 #endif // SOLUTION_H

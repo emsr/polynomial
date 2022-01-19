@@ -67,7 +67,7 @@ template<typename Real>
       this->m_zero.reserve(this->m_coeff.size());
     }
 
-    std::vector<solution_t<Real>> solve();
+    std::vector<Solution<Real>> solve();
     std::vector<Real> equations() const;
 
   private:
@@ -77,10 +77,10 @@ template<typename Real>
     template<int Index>
     static void s_refine_quadratic_eqn(Real& dr, Real& r,
 					Real& ds, Real& s,
-					std::array<solution_t<Real>, 2>& w);
+					std::array<Solution<Real>, 2>& w);
 
     void
-    m_add_zero(solution_t<Real> z)
+    m_add_zero(Solution<Real> z)
     {
       this->m_zero.push_back(z);
       --this->m_order;
@@ -98,7 +98,7 @@ template<typename Real>
     std::vector<Real> m_coeff;
     std::vector<Real> m_b;
     std::vector<Real> m_c;
-    std::vector<solution_t<Real>> m_zero;
+    std::vector<Solution<Real>> m_zero;
     Real m_eps = s_eps;
     int m_order;
     bool m_precision_error = false;

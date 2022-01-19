@@ -107,7 +107,7 @@ namespace emsr
 
   template<std::size_t _Dim, typename _Iter, typename Real>
     void
-    refine_solutions(std::array<solution_t<Real>, _Dim - 1>& _ZZ, const _Iter& _CC)
+    refine_solutions(std::array<Solution<Real>, _Dim - 1>& _ZZ, const _Iter& _CC)
     {
       for (std::size_t i = 0; i < _Dim - 1; ++i)
 	{
@@ -139,10 +139,10 @@ namespace emsr
    *                  of the quadratic equation.
    */
   template<typename Real, typename _Iter>
-    std::array<solution_t<Real>, 2>
+    std::array<Solution<Real>, 2>
     quadratic(const _Iter& _CC)
     {
-      std::array<solution_t<Real>, 2> _ZZ;
+      std::array<Solution<Real>, 2> _ZZ;
 
       if (_CC[2] == Real{0})
 	{
@@ -212,10 +212,10 @@ namespace emsr
    *                  of the cubic equation
    */
   template<typename Real, typename Iter>
-    std::array<solution_t<Real>, 3>
+    std::array<Solution<Real>, 3>
     cubic(const Iter& CC)
     {
-      std::array<solution_t<Real>, 3> ZZ;
+      std::array<Solution<Real>, 3> ZZ;
 
       if (CC[3] == Real{0})
 	{
@@ -303,10 +303,10 @@ namespace emsr
    *                  of the quartic equation.
    */
   template<typename Real, typename Iter>
-    std::array<solution_t<Real>, 4>
+    std::array<Solution<Real>, 4>
     quartic(const Iter& CC)
     {
-      std::array<solution_t<Real>, 4> ZZ;
+      std::array<Solution<Real>, 4> ZZ;
 
       if (CC[4] == Real{0})
 	{
@@ -327,7 +327,7 @@ namespace emsr
 	  // Solve the biquadratic equation.
 	  std::array<Real, 3> AA2{{CC[0], CC[2], CC[4]}};
 	  const auto ZZ2 = quadratic<Real>(AA2);
-	  auto sqrt = [](solution_t<Real> z) -> solution_t<Real>
+	  auto sqrt = [](Solution<Real> z) -> Solution<Real>
 			{
 			  const auto idx = z.index();
 			  if (idx == 0)
@@ -336,11 +336,11 @@ namespace emsr
 			    {
 			      auto zz = std::get<1>(z);
 			      return zz < Real{0}
-				   ? solution_t<Real>(std::sqrt(std::complex<Real>(zz)))
-				   : solution_t<Real>(std::sqrt(zz));
+				   ? Solution<Real>(std::sqrt(std::complex<Real>(zz)))
+				   : Solution<Real>(std::sqrt(zz));
 			    }
 			  else
-			    return solution_t<Real>(std::sqrt(std::get<2>(z)));
+			    return Solution<Real>(std::sqrt(std::get<2>(z)));
 			};
 	  ZZ[0] = sqrt(ZZ2[0]);
 	  ZZ[1] = sqrt(ZZ2[1]);
