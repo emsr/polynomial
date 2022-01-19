@@ -1,55 +1,46 @@
-\hypertarget{solver__low__degree_8tcc}{}\section{include/ext/solver\+\_\+low\+\_\+degree.tcc File Reference}
-\label{solver__low__degree_8tcc}\index{include/ext/solver\+\_\+low\+\_\+degree.\+tcc@{include/ext/solver\+\_\+low\+\_\+degree.\+tcc}}
-{\ttfamily \#include $<$ext/math\+\_\+constants.\+h$>$}\newline
-Include dependency graph for solver\+\_\+low\+\_\+degree.\+tcc\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=191pt]{solver__low__degree_8tcc__incl}
-\end{center}
-\end{figure}
+\hypertarget{solver__low__degree_8tcc}{}\doxysection{include/emsr/solver\+\_\+low\+\_\+degree.tcc File Reference}
+\label{solver__low__degree_8tcc}\index{include/emsr/solver\_low\_degree.tcc@{include/emsr/solver\_low\_degree.tcc}}
 This graph shows which files directly or indirectly include this file\+:
 \nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=173pt]{solver__low__degree_8tcc__dep__incl}
+\includegraphics[width=350pt]{solver__low__degree_8tcc__dep__incl}
 \end{center}
 \end{figure}
-\subsection*{Namespaces}
+\doxysubsection*{Namespaces}
 \begin{DoxyCompactItemize}
 \item 
- \hyperlink{namespace____gnu__cxx}{\+\_\+\+\_\+gnu\+\_\+cxx}
+ \mbox{\hyperlink{namespaceemsr}{emsr}}
 \end{DoxyCompactItemize}
-\subsection*{Macros}
+\doxysubsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
-\#define \hyperlink{solver__low__degree_8tcc_a10202d26918e17d656cf14da05e26477}{\+\_\+\+E\+X\+T\+\_\+\+S\+O\+L\+V\+E\+R\+\_\+\+L\+O\+W\+\_\+\+D\+E\+G\+R\+E\+E\+\_\+\+T\+CC}~1
+\#define \mbox{\hyperlink{solver__low__degree_8tcc_a40525733382aa03bc4482c2e934956d1}{SOLVER\+\_\+\+LOW\+\_\+\+DEGREE\+\_\+\+TCC}}~1
 \begin{DoxyCompactList}\small\item\em A guard for the low-\/degree polynomial solver functions header. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\subsection*{Functions}
+\doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-{\footnotesize template$<$typename \+\_\+\+Real , typename \+\_\+\+Iter $>$ }\\std\+::array$<$ solution\+\_\+t$<$ \+\_\+\+Real $>$, 3 $>$ \hyperlink{namespace____gnu__cxx_a422f638b186be2071012321de5f9bb48}{\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+\_\+cubic} (const \+\_\+\+Iter \&\+\_\+\+CC)
-\begin{DoxyCompactList}\small\item\em Finds the roots of a cubic equation of the form\+: \[ a_3 x^3 + a_2 x^2 + a_1 x + a_0 = 0 \] for real coefficients $ a_k $. \end{DoxyCompactList}\item 
-{\footnotesize template$<$typename \+\_\+\+Real , typename \+\_\+\+Iter $>$ }\\std\+::array$<$ solution\+\_\+t$<$ \+\_\+\+Real $>$, 2 $>$ \hyperlink{namespace____gnu__cxx_aa8c3d98e6508a1e20a17c5980ccbbd99}{\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+\_\+quadratic} (const \+\_\+\+Iter \&\+\_\+\+CC)
-\begin{DoxyCompactList}\small\item\em Finds the roots of a quadratic equation of the form\+: \[ a_2 x^2 + a_1 x + a_0 = 0 \] for real coefficients $ a_k $. \end{DoxyCompactList}\item 
-{\footnotesize template$<$typename \+\_\+\+Real , typename \+\_\+\+Iter $>$ }\\std\+::array$<$ solution\+\_\+t$<$ \+\_\+\+Real $>$, 4 $>$ \hyperlink{namespace____gnu__cxx_ac813fbad739bf1d431845d5175f24701}{\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+\_\+quartic} (const \+\_\+\+Iter \&\+\_\+\+CC)
-\begin{DoxyCompactList}\small\item\em Finds the roots a quartic equation of the form\+: \[ a_4 x^4 + a_3 x^3 + a_2 x^2 + a_1 x + a_0 = 0 \] for real coefficients $ a_k $. \end{DoxyCompactList}\item 
-{\footnotesize template$<$std\+::size\+\_\+t \+\_\+\+Dim, typename \+\_\+\+Iter , typename \+\_\+\+Num\+Tp $>$ }\\\+\_\+\+Num\+Tp \hyperlink{namespace____gnu__cxx_a957b92036746a66f3dff0c46cb18120b}{\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+\_\+refine\+\_\+solution\+\_\+halley} (\+\_\+\+Num\+Tp \+\_\+\+\_\+z, const \+\_\+\+Iter \&\+\_\+\+CC)
+{\footnotesize template$<$typename Real , typename Iter $>$ }\\std\+::array$<$ Solution$<$ Real $>$, 3 $>$ \mbox{\hyperlink{namespaceemsr_affe4f64b8e546b29054514e013560ea0}{emsr\+::cubic}} (const Iter \&CC)
+\begin{DoxyCompactList}\small\item\em Finds the roots of a cubic equation of the form\+: \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Real , typename \+\_\+\+Iter $>$ }\\std\+::array$<$ Solution$<$ Real $>$, 2 $>$ \mbox{\hyperlink{namespaceemsr_ab1354c9f828ac3f5761e03435aabf136}{emsr\+::quadratic}} (const \+\_\+\+Iter \&\+\_\+\+CC)
+\begin{DoxyCompactList}\small\item\em Finds the roots of a quadratic equation of the form\+: \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Real , typename Iter $>$ }\\std\+::array$<$ Solution$<$ Real $>$, 4 $>$ \mbox{\hyperlink{namespaceemsr_a822edeea9a631fdca6bd4634d67ee02e}{emsr\+::quartic}} (const Iter \&CC)
+\begin{DoxyCompactList}\small\item\em Finds the roots a quartic equation of the form\+: \end{DoxyCompactList}\item 
+{\footnotesize template$<$std\+::size\+\_\+t \+\_\+\+Dim, typename \+\_\+\+Iter , typename \+\_\+\+Num\+Tp $>$ }\\\+\_\+\+Num\+Tp \mbox{\hyperlink{namespaceemsr_aac71b8e58e2db0192f8d87514170f8c3}{emsr\+::refine\+\_\+solution\+\_\+halley}} (\+\_\+\+Num\+Tp z, const \+\_\+\+Iter \&\+\_\+\+CC)
 \item 
-{\footnotesize template$<$std\+::size\+\_\+t \+\_\+\+Dim, typename \+\_\+\+Iter , typename \+\_\+\+Num\+Tp $>$ }\\\+\_\+\+Num\+Tp \hyperlink{namespace____gnu__cxx_a2b802e73df33cafb7f95800cbca6ff30}{\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+\_\+refine\+\_\+solution\+\_\+newton} (\+\_\+\+Num\+Tp \+\_\+\+\_\+z, const \+\_\+\+Iter \&\+\_\+\+CC)
+{\footnotesize template$<$std\+::size\+\_\+t \+\_\+\+Dim, typename \+\_\+\+Iter , typename \+\_\+\+Num\+Tp $>$ }\\\+\_\+\+Num\+Tp \mbox{\hyperlink{namespaceemsr_a771083ec16ae63a6c0a545c7bef25d9a}{emsr\+::refine\+\_\+solution\+\_\+newton}} (\+\_\+\+Num\+Tp z, const \+\_\+\+Iter \&\+\_\+\+CC)
 \item 
-{\footnotesize template$<$std\+::size\+\_\+t \+\_\+\+Dim, typename \+\_\+\+Iter , typename \+\_\+\+Real $>$ }\\void \hyperlink{namespace____gnu__cxx_aa8dd4c7542667cc5a8e435ca53d6fad7}{\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+\_\+refine\+\_\+solutions} (std\+::array$<$ solution\+\_\+t$<$ \+\_\+\+Real $>$, \+\_\+\+Dim -\/ 1 $>$ \&\+\_\+\+ZZ, const \+\_\+\+Iter \&\+\_\+\+CC)
+{\footnotesize template$<$std\+::size\+\_\+t \+\_\+\+Dim, typename \+\_\+\+Iter , typename Real $>$ }\\void \mbox{\hyperlink{namespaceemsr_abbb77296ece59944a997721abe25c58a}{emsr\+::refine\+\_\+solutions}} (std\+::array$<$ Solution$<$ Real $>$, \+\_\+\+Dim -\/ 1 $>$ \&\+\_\+\+ZZ, const \+\_\+\+Iter \&\+\_\+\+CC)
 \end{DoxyCompactItemize}
 
 
-\subsection{Macro Definition Documentation}
-\mbox{\Hypertarget{solver__low__degree_8tcc_a10202d26918e17d656cf14da05e26477}\label{solver__low__degree_8tcc_a10202d26918e17d656cf14da05e26477}} 
-\index{solver\+\_\+low\+\_\+degree.\+tcc@{solver\+\_\+low\+\_\+degree.\+tcc}!\+\_\+\+E\+X\+T\+\_\+\+S\+O\+L\+V\+E\+R\+\_\+\+L\+O\+W\+\_\+\+D\+E\+G\+R\+E\+E\+\_\+\+T\+CC@{\+\_\+\+E\+X\+T\+\_\+\+S\+O\+L\+V\+E\+R\+\_\+\+L\+O\+W\+\_\+\+D\+E\+G\+R\+E\+E\+\_\+\+T\+CC}}
-\index{\+\_\+\+E\+X\+T\+\_\+\+S\+O\+L\+V\+E\+R\+\_\+\+L\+O\+W\+\_\+\+D\+E\+G\+R\+E\+E\+\_\+\+T\+CC@{\+\_\+\+E\+X\+T\+\_\+\+S\+O\+L\+V\+E\+R\+\_\+\+L\+O\+W\+\_\+\+D\+E\+G\+R\+E\+E\+\_\+\+T\+CC}!solver\+\_\+low\+\_\+degree.\+tcc@{solver\+\_\+low\+\_\+degree.\+tcc}}
-\subsubsection{\texorpdfstring{\+\_\+\+E\+X\+T\+\_\+\+S\+O\+L\+V\+E\+R\+\_\+\+L\+O\+W\+\_\+\+D\+E\+G\+R\+E\+E\+\_\+\+T\+CC}{\_EXT\_SOLVER\_LOW\_DEGREE\_TCC}}
-{\footnotesize\ttfamily \#define \+\_\+\+E\+X\+T\+\_\+\+S\+O\+L\+V\+E\+R\+\_\+\+L\+O\+W\+\_\+\+D\+E\+G\+R\+E\+E\+\_\+\+T\+CC~1}
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{solver__low__degree_8tcc_a40525733382aa03bc4482c2e934956d1}\label{solver__low__degree_8tcc_a40525733382aa03bc4482c2e934956d1}} 
+\index{solver\_low\_degree.tcc@{solver\_low\_degree.tcc}!SOLVER\_LOW\_DEGREE\_TCC@{SOLVER\_LOW\_DEGREE\_TCC}}
+\index{SOLVER\_LOW\_DEGREE\_TCC@{SOLVER\_LOW\_DEGREE\_TCC}!solver\_low\_degree.tcc@{solver\_low\_degree.tcc}}
+\doxysubsubsection{\texorpdfstring{SOLVER\_LOW\_DEGREE\_TCC}{SOLVER\_LOW\_DEGREE\_TCC}}
+{\footnotesize\ttfamily \#define SOLVER\+\_\+\+LOW\+\_\+\+DEGREE\+\_\+\+TCC~1}
 
 
 
@@ -57,5 +48,5 @@ A guard for the low-\/degree polynomial solver functions header.
 
 
 
-Definition at line 40 of file solver\+\_\+low\+\_\+degree.\+tcc.
+Definition at line 39 of file solver\+\_\+low\+\_\+degree.\+tcc.
 

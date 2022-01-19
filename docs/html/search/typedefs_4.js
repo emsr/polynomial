@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['pointer',['pointer',['../class____gnu__cxx_1_1__Polynomial.html#a876dcb9c1b92c4896a3f3b9f26e7e3df',1,'__gnu_cxx::_Polynomial::pointer()'],['../class____gnu__cxx_1_1__StaticPolynomial.html#a7d03f6214af023bf7b7587c36436f4ec',1,'__gnu_cxx::_StaticPolynomial::pointer()']]],
-  ['polynomial_5ftype',['polynomial_type',['../class____gnu__cxx_1_1__RationalPolynomial.html#a96949c9007664fae9fef1e26cf6c2078',1,'__gnu_cxx::_RationalPolynomial']]]
+  ['llquot_5ft_555',['llquot_t',['../namespaceemsr.html#a7c6dbac674a6a512a5cbd904d8e6ba10',1,'emsr']]],
+  ['lquot_5ft_556',['lquot_t',['../namespaceemsr.html#a858cd87acb34606af0ecef15aaae7db9',1,'emsr']]]
 ];

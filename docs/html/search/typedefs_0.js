@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['_5f_5freal_5ftype_5ft',['__real_type_t',['../namespace____gnu__cxx.html#a3f707c0c6f6926cf68b74072733751f7',1,'__gnu_cxx']]]
+  ['base_546',['Base',['../structemsr_1_1Solution.html#ad1f9e9e115f3d7f54816de7ab2a71417',1,'emsr::Solution']]]
 ];

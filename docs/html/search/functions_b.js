@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['rbegin',['rbegin',['../class____gnu__cxx_1_1__Polynomial.html#a10924e0d5e228684c721a4bba73a7af3',1,'__gnu_cxx::_Polynomial::rbegin() noexcept'],['../class____gnu__cxx_1_1__Polynomial.html#ab5cd3c6e861ebf3adac38e3df4e099aa',1,'__gnu_cxx::_Polynomial::rbegin() const noexcept'],['../class____gnu__cxx_1_1__StaticPolynomial.html#ad26b5676e30705aae3ff051f149e52df',1,'__gnu_cxx::_StaticPolynomial::rbegin()'],['../class____gnu__cxx_1_1__StaticPolynomial.html#a53306b159074b3eec382432137a4d297',1,'__gnu_cxx::_StaticPolynomial::rbegin() const']]],
-  ['real',['real',['../namespace____gnu__cxx.html#a2743043701f8e4c87d3f0f06ddb11348',1,'__gnu_cxx']]],
-  ['rend',['rend',['../class____gnu__cxx_1_1__Polynomial.html#a8373c6b9a787a52798e4319906858d33',1,'__gnu_cxx::_Polynomial::rend() noexcept'],['../class____gnu__cxx_1_1__Polynomial.html#abeca4b1cffc4a52db34375b99b6d3d11',1,'__gnu_cxx::_Polynomial::rend() const noexcept'],['../class____gnu__cxx_1_1__StaticPolynomial.html#a5f3ae3de860401093c3bbf768218db70',1,'__gnu_cxx::_StaticPolynomial::rend()'],['../class____gnu__cxx_1_1__StaticPolynomial.html#ad39f8cb28001cdfa18776c50160c5ce7',1,'__gnu_cxx::_StaticPolynomial::rend() const']]]
+  ['max_5fnum_5fiters_438',['max_num_iters',['../classemsr_1_1LaguerreSolver.html#acc67600af6b827595ffcc663899a64c0',1,'emsr::LaguerreSolver::max_num_iters()'],['../classemsr_1_1QuadraticSolver.html#a7aba1a57f1f7fcc2fc68fea23c5e6572',1,'emsr::QuadraticSolver::max_num_iters()']]],
+  ['modf_439',['modf',['../namespaceemsr.html#ad01b1428c15d190dfe08aa38279f0db0',1,'emsr::modf(float value)'],['../namespaceemsr.html#a5b35da26edac14bb58a005527b989a89',1,'emsr::modf(double value)'],['../namespaceemsr.html#a6a464b7b372773df38dea93734e02be8',1,'emsr::modf(long double value)']]],
+  ['modff_440',['modff',['../namespaceemsr.html#a377018ccb1391c355b93a196f0ad8abd',1,'emsr']]],
+  ['modfl_441',['modfl',['../namespaceemsr.html#a5ed6e215d68b190d8d1bb41e74067f27',1,'emsr']]]
 ];

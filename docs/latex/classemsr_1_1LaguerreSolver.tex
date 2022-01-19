@@ -1,0 +1,204 @@
+\hypertarget{classemsr_1_1LaguerreSolver}{}\doxysection{emsr\+::Laguerre\+Solver$<$ Real $>$ Class Template Reference}
+\label{classemsr_1_1LaguerreSolver}\index{emsr::LaguerreSolver$<$ Real $>$@{emsr::LaguerreSolver$<$ Real $>$}}
+
+
+{\ttfamily \#include $<$solver\+\_\+laguerre.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classemsr_1_1LaguerreSolver_ac022765a5cacd4c6c299677e8a77cdfc}{Laguerre\+Solver}} (\mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}}$<$ std\+::complex$<$ Real $>$$>$ \&P)
+\item 
+int \mbox{\hyperlink{classemsr_1_1LaguerreSolver_acc67600af6b827595ffcc663899a64c0}{max\+\_\+num\+\_\+iters}} () const
+\item 
+int \mbox{\hyperlink{classemsr_1_1LaguerreSolver_a138d708caa93c5260009f278186dc54f}{num\+\_\+iters}} () const
+\item 
+int \mbox{\hyperlink{classemsr_1_1LaguerreSolver_a9e9fc4cd487baf0288844cc060eebfe5}{num\+\_\+steps\+\_\+per\+\_\+frac}} () const
+\item 
+\mbox{\hyperlink{classemsr_1_1LaguerreSolver}{Laguerre\+Solver}} \& \mbox{\hyperlink{classemsr_1_1LaguerreSolver_a67a31fe06875ba8fe2a80ffab1994ce6}{num\+\_\+steps\+\_\+per\+\_\+frac}} (int num)
+\item 
+const \mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}}$<$ std\+::complex$<$ Real $>$ $>$ \& \mbox{\hyperlink{classemsr_1_1LaguerreSolver_a98c19546859c0c2fac79152aa99e8111}{polynomial}} () const
+\item 
+std\+::vector$<$ std\+::complex$<$ Real $>$ $>$ \mbox{\hyperlink{classemsr_1_1LaguerreSolver_a6847be772128d5a5a31df46d6da2f833}{solve}} ()
+\item 
+std\+::complex$<$ Real $>$ \mbox{\hyperlink{classemsr_1_1LaguerreSolver_a2657e6f8ef2b1724eb52ad4ae5496522}{step}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename Real$>$\newline
+class emsr\+::\+Laguerre\+Solver$<$ Real $>$}
+
+A solver for complex-\/coefficient polynomials due to Laguerre. 
+
+Definition at line 47 of file solver\+\_\+laguerre.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classemsr_1_1LaguerreSolver_ac022765a5cacd4c6c299677e8a77cdfc}\label{classemsr_1_1LaguerreSolver_ac022765a5cacd4c6c299677e8a77cdfc}} 
+\index{emsr::LaguerreSolver$<$ Real $>$@{emsr::LaguerreSolver$<$ Real $>$}!LaguerreSolver@{LaguerreSolver}}
+\index{LaguerreSolver@{LaguerreSolver}!emsr::LaguerreSolver$<$ Real $>$@{emsr::LaguerreSolver$<$ Real $>$}}
+\doxysubsubsection{\texorpdfstring{LaguerreSolver()}{LaguerreSolver()}}
+{\footnotesize\ttfamily template$<$typename Real $>$ \\
+\mbox{\hyperlink{classemsr_1_1LaguerreSolver}{emsr\+::\+Laguerre\+Solver}}$<$ Real $>$\+::\mbox{\hyperlink{classemsr_1_1LaguerreSolver}{Laguerre\+Solver}} (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}}$<$ std\+::complex$<$ Real $>$$>$ \&}]{P }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 51 of file solver\+\_\+laguerre.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{52       : m\_poly(P), m\_num\_iters\{0\}}
+\DoxyCodeLine{53       \{ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classemsr_1_1LaguerreSolver_acc67600af6b827595ffcc663899a64c0}\label{classemsr_1_1LaguerreSolver_acc67600af6b827595ffcc663899a64c0}} 
+\index{emsr::LaguerreSolver$<$ Real $>$@{emsr::LaguerreSolver$<$ Real $>$}!max\_num\_iters@{max\_num\_iters}}
+\index{max\_num\_iters@{max\_num\_iters}!emsr::LaguerreSolver$<$ Real $>$@{emsr::LaguerreSolver$<$ Real $>$}}
+\doxysubsubsection{\texorpdfstring{max\_num\_iters()}{max\_num\_iters()}}
+{\footnotesize\ttfamily template$<$typename Real $>$ \\
+int \mbox{\hyperlink{classemsr_1_1LaguerreSolver}{emsr\+::\+Laguerre\+Solver}}$<$ Real $>$\+::max\+\_\+num\+\_\+iters (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 75 of file solver\+\_\+laguerre.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{76       \{ \textcolor{keywordflow}{return} this-\/>m\_max\_iter(); \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classemsr_1_1LaguerreSolver_a138d708caa93c5260009f278186dc54f}\label{classemsr_1_1LaguerreSolver_a138d708caa93c5260009f278186dc54f}} 
+\index{emsr::LaguerreSolver$<$ Real $>$@{emsr::LaguerreSolver$<$ Real $>$}!num\_iters@{num\_iters}}
+\index{num\_iters@{num\_iters}!emsr::LaguerreSolver$<$ Real $>$@{emsr::LaguerreSolver$<$ Real $>$}}
+\doxysubsubsection{\texorpdfstring{num\_iters()}{num\_iters()}}
+{\footnotesize\ttfamily template$<$typename Real $>$ \\
+int \mbox{\hyperlink{classemsr_1_1LaguerreSolver}{emsr\+::\+Laguerre\+Solver}}$<$ Real $>$\+::num\+\_\+iters (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 71 of file solver\+\_\+laguerre.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{72       \{ \textcolor{keywordflow}{return} this-\/>m\_num\_iters; \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classemsr_1_1LaguerreSolver_a9e9fc4cd487baf0288844cc060eebfe5}\label{classemsr_1_1LaguerreSolver_a9e9fc4cd487baf0288844cc060eebfe5}} 
+\index{emsr::LaguerreSolver$<$ Real $>$@{emsr::LaguerreSolver$<$ Real $>$}!num\_steps\_per\_frac@{num\_steps\_per\_frac}}
+\index{num\_steps\_per\_frac@{num\_steps\_per\_frac}!emsr::LaguerreSolver$<$ Real $>$@{emsr::LaguerreSolver$<$ Real $>$}}
+\doxysubsubsection{\texorpdfstring{num\_steps\_per\_frac()}{num\_steps\_per\_frac()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Real $>$ \\
+int \mbox{\hyperlink{classemsr_1_1LaguerreSolver}{emsr\+::\+Laguerre\+Solver}}$<$ Real $>$\+::num\+\_\+steps\+\_\+per\+\_\+frac (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 79 of file solver\+\_\+laguerre.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{80       \{ \textcolor{keywordflow}{return} this-\/>m\_steps\_per\_frac; \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classemsr_1_1LaguerreSolver_a67a31fe06875ba8fe2a80ffab1994ce6}\label{classemsr_1_1LaguerreSolver_a67a31fe06875ba8fe2a80ffab1994ce6}} 
+\index{emsr::LaguerreSolver$<$ Real $>$@{emsr::LaguerreSolver$<$ Real $>$}!num\_steps\_per\_frac@{num\_steps\_per\_frac}}
+\index{num\_steps\_per\_frac@{num\_steps\_per\_frac}!emsr::LaguerreSolver$<$ Real $>$@{emsr::LaguerreSolver$<$ Real $>$}}
+\doxysubsubsection{\texorpdfstring{num\_steps\_per\_frac()}{num\_steps\_per\_frac()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Real $>$ \\
+\mbox{\hyperlink{classemsr_1_1LaguerreSolver}{Laguerre\+Solver}}\& \mbox{\hyperlink{classemsr_1_1LaguerreSolver}{emsr\+::\+Laguerre\+Solver}}$<$ Real $>$\+::num\+\_\+steps\+\_\+per\+\_\+frac (\begin{DoxyParamCaption}\item[{int}]{num }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 87 of file solver\+\_\+laguerre.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{88       \{}
+\DoxyCodeLine{89         this-\/>m\_steps\_per\_frac = num;}
+\DoxyCodeLine{90         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{91       \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classemsr_1_1LaguerreSolver_a98c19546859c0c2fac79152aa99e8111}\label{classemsr_1_1LaguerreSolver_a98c19546859c0c2fac79152aa99e8111}} 
+\index{emsr::LaguerreSolver$<$ Real $>$@{emsr::LaguerreSolver$<$ Real $>$}!polynomial@{polynomial}}
+\index{polynomial@{polynomial}!emsr::LaguerreSolver$<$ Real $>$@{emsr::LaguerreSolver$<$ Real $>$}}
+\doxysubsubsection{\texorpdfstring{polynomial()}{polynomial()}}
+{\footnotesize\ttfamily template$<$typename Real $>$ \\
+const \mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}}$<$std\+::complex$<$Real$>$ $>$\& \mbox{\hyperlink{classemsr_1_1LaguerreSolver}{emsr\+::\+Laguerre\+Solver}}$<$ Real $>$\+::polynomial (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 83 of file solver\+\_\+laguerre.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{84       \{ \textcolor{keywordflow}{return} this-\/>m\_poly; \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classemsr_1_1LaguerreSolver_a6847be772128d5a5a31df46d6da2f833}\label{classemsr_1_1LaguerreSolver_a6847be772128d5a5a31df46d6da2f833}} 
+\index{emsr::LaguerreSolver$<$ Real $>$@{emsr::LaguerreSolver$<$ Real $>$}!solve@{solve}}
+\index{solve@{solve}!emsr::LaguerreSolver$<$ Real $>$@{emsr::LaguerreSolver$<$ Real $>$}}
+\doxysubsubsection{\texorpdfstring{solve()}{solve()}}
+{\footnotesize\ttfamily template$<$typename Real $>$ \\
+std\+::vector$<$ std\+::complex$<$ Real $>$ $>$ \mbox{\hyperlink{classemsr_1_1LaguerreSolver}{emsr\+::\+Laguerre\+Solver}}$<$ Real $>$\+::solve}
+
+Find all solutions of the polynomial by stepping and 
+
+Definition at line 114 of file solver\+\_\+laguerre.\+tcc.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{115     \{}
+\DoxyCodeLine{116       \textcolor{keyword}{using} cmplx = std::complex<Real>;}
+\DoxyCodeLine{117 }
+\DoxyCodeLine{118       std::vector<cmplx> roots;}
+\DoxyCodeLine{119       \textcolor{keyword}{const} \textcolor{keyword}{auto} deg = this-\/>m\_poly.\mbox{\hyperlink{classemsr_1_1Polynomial_a2a5c8eefb4185d1c1ce09d08ebe9b73c}{degree}}();}
+\DoxyCodeLine{120       roots.reserve(deg);}
+\DoxyCodeLine{121       \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} i = 0; i < deg; ++i)}
+\DoxyCodeLine{122         \{}
+\DoxyCodeLine{123           \textcolor{keyword}{const} \textcolor{keyword}{auto} z0 = this-\/>m\_root\_laguerre();}
+\DoxyCodeLine{124 }
+\DoxyCodeLine{125           Polynomial<cmplx> zpoly(\{-\/z0, cmplx\{1\}\});}
+\DoxyCodeLine{126           this-\/>m\_poly /= zpoly;}
+\DoxyCodeLine{127 }
+\DoxyCodeLine{128           roots.push\_back(z0);}
+\DoxyCodeLine{129         \}}
+\DoxyCodeLine{130       \textcolor{keywordflow}{return} roots;}
+\DoxyCodeLine{131     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classemsr_1_1LaguerreSolver_a2657e6f8ef2b1724eb52ad4ae5496522}\label{classemsr_1_1LaguerreSolver_a2657e6f8ef2b1724eb52ad4ae5496522}} 
+\index{emsr::LaguerreSolver$<$ Real $>$@{emsr::LaguerreSolver$<$ Real $>$}!step@{step}}
+\index{step@{step}!emsr::LaguerreSolver$<$ Real $>$@{emsr::LaguerreSolver$<$ Real $>$}}
+\doxysubsubsection{\texorpdfstring{step()}{step()}}
+{\footnotesize\ttfamily template$<$typename Real $>$ \\
+std\+::complex$<$Real$>$ \mbox{\hyperlink{classemsr_1_1LaguerreSolver}{emsr\+::\+Laguerre\+Solver}}$<$ Real $>$\+::step (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 58 of file solver\+\_\+laguerre.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{59       \{}
+\DoxyCodeLine{60         \textcolor{keyword}{using} cmplx = std::complex<Real>;}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62         \textcolor{keyword}{const} \textcolor{keyword}{auto} z0 = this-\/>m\_root\_laguerre();}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64         Polynomial<cmplx> zpoly(\{-\/z0, cmplx\{1\}\});}
+\DoxyCodeLine{65         this-\/>m\_poly /= zpoly;}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{67         \textcolor{keywordflow}{return} z0;}
+\DoxyCodeLine{68       \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/emsr/\mbox{\hyperlink{solver__laguerre_8h}{solver\+\_\+laguerre.\+h}}\item 
+include/emsr/\mbox{\hyperlink{solver__laguerre_8tcc}{solver\+\_\+laguerre.\+tcc}}\end{DoxyCompactItemize}

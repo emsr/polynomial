@@ -1,0 +1,312 @@
+\hypertarget{classemsr_1_1JenkinsTraubSolver}{}\doxysection{emsr\+::Jenkins\+Traub\+Solver$<$ Real $>$ Class Template Reference}
+\label{classemsr_1_1JenkinsTraubSolver}\index{emsr::JenkinsTraubSolver$<$ Real $>$@{emsr::JenkinsTraubSolver$<$ Real $>$}}
+
+
+{\ttfamily \#include $<$solver\+\_\+jenkins\+\_\+traub.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classemsr_1_1JenkinsTraubSolver_a9922e9bbffeb491046d4ae34ea164a66}{Jenkins\+Traub\+Solver}} (const std\+::vector$<$ Real $>$ \&op)
+\item 
+\mbox{\hyperlink{classemsr_1_1JenkinsTraubSolver_a2ff2647ebdcb460cc8ae91f2977127d4}{Jenkins\+Traub\+Solver}} (std\+::vector$<$ Real $>$ \&\&op)
+\item 
+std\+::vector$<$ \mbox{\hyperlink{structemsr_1_1Solution}{Solution}}$<$ Real $>$ $>$ \mbox{\hyperlink{classemsr_1_1JenkinsTraubSolver_a72e284844d928a0f408594cf755d6d7e}{solve}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename Real$>$\newline
+class emsr\+::\+Jenkins\+Traub\+Solver$<$ Real $>$}
+
+A solver for real-\/coefficient polynomials due to Jenkins and Traub. 
+
+Definition at line 45 of file solver\+\_\+jenkins\+\_\+traub.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classemsr_1_1JenkinsTraubSolver_a9922e9bbffeb491046d4ae34ea164a66}\label{classemsr_1_1JenkinsTraubSolver_a9922e9bbffeb491046d4ae34ea164a66}} 
+\index{emsr::JenkinsTraubSolver$<$ Real $>$@{emsr::JenkinsTraubSolver$<$ Real $>$}!JenkinsTraubSolver@{JenkinsTraubSolver}}
+\index{JenkinsTraubSolver@{JenkinsTraubSolver}!emsr::JenkinsTraubSolver$<$ Real $>$@{emsr::JenkinsTraubSolver$<$ Real $>$}}
+\doxysubsubsection{\texorpdfstring{JenkinsTraubSolver()}{JenkinsTraubSolver()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Real $>$ \\
+\mbox{\hyperlink{classemsr_1_1JenkinsTraubSolver}{emsr\+::\+Jenkins\+Traub\+Solver}}$<$ Real $>$\+::\mbox{\hyperlink{classemsr_1_1JenkinsTraubSolver}{Jenkins\+Traub\+Solver}} (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ Real $>$ \&}]{op }\end{DoxyParamCaption})}
+
+Constructor from input polynomial. 
+
+Definition at line 46 of file solver\+\_\+jenkins\+\_\+traub.\+tcc.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{48   : m\_P(op)}
+\DoxyCodeLine{49   \{}
+\DoxyCodeLine{50     \textcolor{keywordflow}{if} (this-\/>m\_P.size() == 0)}
+\DoxyCodeLine{51       \textcolor{keywordflow}{throw} std::domain\_error(\textcolor{stringliteral}{"{}Polynomial degree must be at least 1."{}});}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53     \textcolor{comment}{// Algorithm fails if the leading coefficient is zero.}}
+\DoxyCodeLine{54     \textcolor{comment}{// We could erase leading-\/order zero coefficients.}}
+\DoxyCodeLine{55     \textcolor{keywordflow}{if} (this-\/>m\_P[0] == Real\{0\})}
+\DoxyCodeLine{56       \textcolor{keywordflow}{throw} std::domain\_error(\textcolor{stringliteral}{"{}Leading coefficient must be nonzero."{}});}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58     \textcolor{keyword}{const} \textcolor{keyword}{auto} degree = this-\/>m\_P.size() -\/ 1;}
+\DoxyCodeLine{59     this-\/>m\_order = degree;}
+\DoxyCodeLine{60     this-\/>m\_P\_quot.resize(degree + 1);}
+\DoxyCodeLine{61     this-\/>m\_H.resize(degree + 1);}
+\DoxyCodeLine{62     this-\/>m\_H\_quot.resize(degree + 1);}
+\DoxyCodeLine{63     this-\/>m\_H\_save.resize(degree + 1);}
+\DoxyCodeLine{64   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classemsr_1_1JenkinsTraubSolver_a2ff2647ebdcb460cc8ae91f2977127d4}\label{classemsr_1_1JenkinsTraubSolver_a2ff2647ebdcb460cc8ae91f2977127d4}} 
+\index{emsr::JenkinsTraubSolver$<$ Real $>$@{emsr::JenkinsTraubSolver$<$ Real $>$}!JenkinsTraubSolver@{JenkinsTraubSolver}}
+\index{JenkinsTraubSolver@{JenkinsTraubSolver}!emsr::JenkinsTraubSolver$<$ Real $>$@{emsr::JenkinsTraubSolver$<$ Real $>$}}
+\doxysubsubsection{\texorpdfstring{JenkinsTraubSolver()}{JenkinsTraubSolver()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Real $>$ \\
+\mbox{\hyperlink{classemsr_1_1JenkinsTraubSolver}{emsr\+::\+Jenkins\+Traub\+Solver}}$<$ Real $>$\+::\mbox{\hyperlink{classemsr_1_1JenkinsTraubSolver}{Jenkins\+Traub\+Solver}} (\begin{DoxyParamCaption}\item[{std\+::vector$<$ Real $>$ \&\&}]{op }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classemsr_1_1JenkinsTraubSolver_a72e284844d928a0f408594cf755d6d7e}\label{classemsr_1_1JenkinsTraubSolver_a72e284844d928a0f408594cf755d6d7e}} 
+\index{emsr::JenkinsTraubSolver$<$ Real $>$@{emsr::JenkinsTraubSolver$<$ Real $>$}!solve@{solve}}
+\index{solve@{solve}!emsr::JenkinsTraubSolver$<$ Real $>$@{emsr::JenkinsTraubSolver$<$ Real $>$}}
+\doxysubsubsection{\texorpdfstring{solve()}{solve()}}
+{\footnotesize\ttfamily template$<$typename Real $>$ \\
+std\+::vector$<$ \mbox{\hyperlink{structemsr_1_1Solution}{Solution}}$<$ Real $>$ $>$ \mbox{\hyperlink{classemsr_1_1JenkinsTraubSolver}{emsr\+::\+Jenkins\+Traub\+Solver}}$<$ Real $>$\+::solve}
+
+
+
+Definition at line 71 of file solver\+\_\+jenkins\+\_\+traub.\+tcc.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{72   \{}
+\DoxyCodeLine{73     \textcolor{comment}{// Initialization of constants for shift rotation.}}
+\DoxyCodeLine{74     \textcolor{keyword}{auto} xx = 1 / Real\{1.4142'13562'37309'50488'01688'72420'96980'78569e+0L\};}
+\DoxyCodeLine{75     \textcolor{keyword}{auto} yy = -\/xx;}
+\DoxyCodeLine{76     \textcolor{keyword}{const} \textcolor{keyword}{auto} cosr = std::cos(s\_rotation);}
+\DoxyCodeLine{77     \textcolor{keyword}{const} \textcolor{keyword}{auto} sinr = std::sin(s\_rotation);}
+\DoxyCodeLine{78 }
+\DoxyCodeLine{79     std::vector<Solution<Real>> zero;}
+\DoxyCodeLine{80     zero.reserve(this-\/>m\_P.size());}
+\DoxyCodeLine{81 }
+\DoxyCodeLine{82     \textcolor{comment}{// Remove the zeros at the origin, if any.}}
+\DoxyCodeLine{83     \textcolor{keywordflow}{while} (this-\/>m\_P[this-\/>m\_order] == Real\{0\})}
+\DoxyCodeLine{84       \{}
+\DoxyCodeLine{85         zero.push\_back(Real\{0\});}
+\DoxyCodeLine{86         -\/-\/this-\/>m\_order;}
+\DoxyCodeLine{87       \}}
+\DoxyCodeLine{88     \textcolor{keywordflow}{if} (this-\/>m\_order < 1)}
+\DoxyCodeLine{89       \textcolor{keywordflow}{return} zero;}
+\DoxyCodeLine{90 }
+\DoxyCodeLine{91     std::vector<Real> pt(this-\/>m\_order + 1);}
+\DoxyCodeLine{92     std::vector<Real> \_H\_temp(this-\/>m\_order + 1);}
+\DoxyCodeLine{93 }
+\DoxyCodeLine{94     \textcolor{keywordflow}{while} (\textcolor{keyword}{true})}
+\DoxyCodeLine{95       \{}
+\DoxyCodeLine{96         \textcolor{comment}{// Start the algorithm for one zero.}}
+\DoxyCodeLine{97         this-\/>m\_num\_iters = 0;}
+\DoxyCodeLine{98         \textcolor{keywordflow}{if} (this-\/>m\_order == 1)}
+\DoxyCodeLine{99           \{}
+\DoxyCodeLine{100             zero.push\_back(-\/this-\/>m\_P[1] / this-\/>m\_P[0]);}
+\DoxyCodeLine{101             -\/-\/this-\/>m\_order;}
+\DoxyCodeLine{102             \textcolor{keywordflow}{return} zero;}
+\DoxyCodeLine{103           \}}
+\DoxyCodeLine{104         \textcolor{comment}{// Calculate the final zero or pair of zeros.}}
+\DoxyCodeLine{105         \textcolor{keywordflow}{if} (this-\/>m\_order == 2)}
+\DoxyCodeLine{106           \{}
+\DoxyCodeLine{107             Solution<Real> z\_small, z\_large;}
+\DoxyCodeLine{108             this-\/>quadratic(this-\/>m\_P[0], this-\/>m\_P[1], this-\/>m\_P[2],}
+\DoxyCodeLine{109                             z\_small, z\_large);}
+\DoxyCodeLine{110             \textcolor{keywordflow}{if} (z\_small.index() != 0)}
+\DoxyCodeLine{111               \{}
+\DoxyCodeLine{112                 zero.push\_back(z\_small);}
+\DoxyCodeLine{113                 -\/-\/this-\/>m\_order;}
+\DoxyCodeLine{114               \}}
+\DoxyCodeLine{115             \textcolor{keywordflow}{if} (z\_large.index() != 0)}
+\DoxyCodeLine{116               \{}
+\DoxyCodeLine{117                 zero.push\_back(z\_large);}
+\DoxyCodeLine{118                 -\/-\/this-\/>m\_order;}
+\DoxyCodeLine{119               \}}
+\DoxyCodeLine{120             \textcolor{keywordflow}{return} zero;}
+\DoxyCodeLine{121           \}}
+\DoxyCodeLine{122 }
+\DoxyCodeLine{123         \textcolor{comment}{// Find largest and smallest moduli of coefficients.}}
+\DoxyCodeLine{124         \textcolor{keyword}{auto} a\_max = Real\{0\};}
+\DoxyCodeLine{125         \textcolor{keyword}{auto} a\_min = s\_huge;}
+\DoxyCodeLine{126         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i <= this-\/>m\_order; ++i)}
+\DoxyCodeLine{127           \{}
+\DoxyCodeLine{128             \textcolor{keyword}{const} \textcolor{keyword}{auto} x = \mbox{\hyperlink{namespaceemsr_a782d36096e8467b4a45a9dc2f89355b2}{std::abs}}(this-\/>m\_P[i]);}
+\DoxyCodeLine{129             \textcolor{keywordflow}{if} (x > a\_max)}
+\DoxyCodeLine{130               a\_max = x;}
+\DoxyCodeLine{131             \textcolor{keywordflow}{if} (x != Real\{0\} \&\& x < a\_min)}
+\DoxyCodeLine{132               a\_min = x;}
+\DoxyCodeLine{133           \}}
+\DoxyCodeLine{134         \textcolor{comment}{// Scale if there are large or very tiny coefficients.}}
+\DoxyCodeLine{135         \textcolor{comment}{// Computes a scale factor to multiply the coefficients}}
+\DoxyCodeLine{136         \textcolor{comment}{// of the polynomial. The scaling is done to avoid overflow}}
+\DoxyCodeLine{137         \textcolor{comment}{// and to avoid undetected underflow interfering}}
+\DoxyCodeLine{138         \textcolor{comment}{// with the convergence criterion.}}
+\DoxyCodeLine{139         \textcolor{comment}{// The factor is a power of the base.}}
+\DoxyCodeLine{140         \textcolor{keyword}{auto} scale = s\_low / a\_min;}
+\DoxyCodeLine{141         \textcolor{keywordtype}{bool} rescale = \textcolor{keyword}{true};}
+\DoxyCodeLine{142         \textcolor{keywordflow}{if} (scale > Real\{1\} \&\& s\_huge / scale < a\_max)}
+\DoxyCodeLine{143           rescale = \textcolor{keyword}{false};}
+\DoxyCodeLine{144         \textcolor{keywordflow}{if} (scale <= Real\{1\} \&\& a\_max < Real\{10\})}
+\DoxyCodeLine{145           rescale = \textcolor{keyword}{false};}
+\DoxyCodeLine{146 }
+\DoxyCodeLine{147         \textcolor{keywordflow}{if} (rescale)}
+\DoxyCodeLine{148           \{}
+\DoxyCodeLine{149             \textcolor{comment}{// Scale polynomial.}}
+\DoxyCodeLine{150             \textcolor{keywordflow}{if} (scale == Real\{0\})}
+\DoxyCodeLine{151               scale = s\_tiny;}
+\DoxyCodeLine{152             \textcolor{keyword}{const} \textcolor{keyword}{auto} l = std::ilogb(scale);}
+\DoxyCodeLine{153             \textcolor{keyword}{const} \textcolor{keyword}{auto} factor = std::pow(s\_base, l);}
+\DoxyCodeLine{154             \textcolor{keywordflow}{if} (factor != Real\{1\})}
+\DoxyCodeLine{155               \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i <= this-\/>m\_order; ++i)}
+\DoxyCodeLine{156                 this-\/>m\_P[i] *= factor;}
+\DoxyCodeLine{157           \}}
+\DoxyCodeLine{158 }
+\DoxyCodeLine{159         \textcolor{comment}{// Compute lower bound on moduli of roots.}}
+\DoxyCodeLine{160         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i <= this-\/>m\_order; ++i)}
+\DoxyCodeLine{161           pt[i] = \mbox{\hyperlink{namespaceemsr_a782d36096e8467b4a45a9dc2f89355b2}{std::abs}}(this-\/>m\_P[i]);}
+\DoxyCodeLine{162         pt[this-\/>m\_order] = -\/pt[this-\/>m\_order];}
+\DoxyCodeLine{163         \textcolor{comment}{// Compute upper estimate of bound.}}
+\DoxyCodeLine{164         \textcolor{keyword}{auto} x = std::exp((\mbox{\hyperlink{namespaceemsr_ad0ccee3147194cc2f4f937af47adddab}{std::log}}(-\/pt[this-\/>m\_order])}
+\DoxyCodeLine{165                             -\/ \mbox{\hyperlink{namespaceemsr_ad0ccee3147194cc2f4f937af47adddab}{std::log}}(pt[0])) / Real(this-\/>m\_order));}
+\DoxyCodeLine{166         \textcolor{comment}{// If Newton step at the origin is better, use it.      }}
+\DoxyCodeLine{167         \textcolor{keywordflow}{if} (pt[this-\/>m\_order -\/ 1] != Real\{0\})}
+\DoxyCodeLine{168           \{}
+\DoxyCodeLine{169             \textcolor{keyword}{const} \textcolor{keyword}{auto} xm = -\/pt[this-\/>m\_order] / pt[this-\/>m\_order -\/ 1];}
+\DoxyCodeLine{170             \textcolor{keywordflow}{if} (xm < x)}
+\DoxyCodeLine{171               x = xm;}
+\DoxyCodeLine{172           \}}
+\DoxyCodeLine{173         \textcolor{comment}{// Chop the interval (0,x) until ff <= 0.}}
+\DoxyCodeLine{174         \textcolor{keywordflow}{while} (\textcolor{keyword}{true})}
+\DoxyCodeLine{175           \{}
+\DoxyCodeLine{176             \textcolor{keyword}{auto} xm = x * Real\{0.1L\};}
+\DoxyCodeLine{177             \textcolor{keyword}{auto} ff = pt[0];}
+\DoxyCodeLine{178             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 1; i <= this-\/>m\_order; ++i)}
+\DoxyCodeLine{179               ff = ff * xm + pt[i];}
+\DoxyCodeLine{180             \textcolor{keywordflow}{if} (ff <= Real\{0\})}
+\DoxyCodeLine{181               \textcolor{keywordflow}{break};}
+\DoxyCodeLine{182             x = xm;}
+\DoxyCodeLine{183           \}}
+\DoxyCodeLine{184         \textcolor{comment}{// Do Newton interation until x converges to two decimal places.}}
+\DoxyCodeLine{185         \textcolor{keyword}{auto} dx = x;}
+\DoxyCodeLine{186         \textcolor{keywordflow}{while} (\mbox{\hyperlink{namespaceemsr_a782d36096e8467b4a45a9dc2f89355b2}{std::abs}}(dx / x) > this-\/>m\_min\_log\_deriv)}
+\DoxyCodeLine{187           \{}
+\DoxyCodeLine{188             \textcolor{keyword}{auto} ff = pt[0];}
+\DoxyCodeLine{189             \textcolor{keyword}{auto} df = ff;}
+\DoxyCodeLine{190             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 1; i < this-\/>m\_order; ++i)}
+\DoxyCodeLine{191               \{}
+\DoxyCodeLine{192                 ff = ff * x + pt[i];}
+\DoxyCodeLine{193                 df = df * x + ff;}
+\DoxyCodeLine{194               \}}
+\DoxyCodeLine{195             ff = ff * x + pt[this-\/>m\_order];}
+\DoxyCodeLine{196             dx = ff / df;}
+\DoxyCodeLine{197             x -\/= dx;}
+\DoxyCodeLine{198             ++this-\/>m\_num\_iters;}
+\DoxyCodeLine{199           \}}
+\DoxyCodeLine{200         \textcolor{keyword}{const} \textcolor{keyword}{auto} bound = x;}
+\DoxyCodeLine{201         \textcolor{comment}{// Compute the derivative as the initial \_H polynomial}}
+\DoxyCodeLine{202         \textcolor{comment}{// and do 5 steps with no shift.}}
+\DoxyCodeLine{203         \textcolor{keyword}{const} \textcolor{keyword}{auto} nm1 = this-\/>m\_order -\/ 1;}
+\DoxyCodeLine{204         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 1; i < this-\/>m\_order; ++i)}
+\DoxyCodeLine{205           this-\/>m\_H[i] = Real(this-\/>m\_order -\/ i) * this-\/>m\_P[i]}
+\DoxyCodeLine{206                         / Real(this-\/>m\_order);}
+\DoxyCodeLine{207         this-\/>m\_H[0] = this-\/>m\_P[0];}
+\DoxyCodeLine{208         \textcolor{keyword}{const} \textcolor{keyword}{auto} aa = this-\/>m\_P[this-\/>m\_order];}
+\DoxyCodeLine{209         \textcolor{keyword}{const} \textcolor{keyword}{auto} bb = this-\/>m\_P[this-\/>m\_order -\/ 1];}
+\DoxyCodeLine{210         this-\/>m\_zerok = (this-\/>m\_H[this-\/>m\_order -\/ 1] == Real\{0\});}
+\DoxyCodeLine{211         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} jj = 0; jj < 5; ++jj)}
+\DoxyCodeLine{212           \{}
+\DoxyCodeLine{213             ++this-\/>m\_num\_iters;}
+\DoxyCodeLine{214             \textcolor{keyword}{auto} cc = this-\/>m\_H[this-\/>m\_order -\/ 1];}
+\DoxyCodeLine{215             \textcolor{keywordflow}{if} (!this-\/>m\_zerok)}
+\DoxyCodeLine{216               \{}
+\DoxyCodeLine{217                 \textcolor{comment}{// Use a scaled form of recurrence if value of H at 0}}
+\DoxyCodeLine{218                 \textcolor{comment}{// is nonzero.  }}
+\DoxyCodeLine{219                 \textcolor{keyword}{const} \textcolor{keyword}{auto} t = -\/aa / cc;}
+\DoxyCodeLine{220                 \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < nm1; ++i)}
+\DoxyCodeLine{221                   \{}
+\DoxyCodeLine{222                     \textcolor{keyword}{const} \textcolor{keyword}{auto} j = this-\/>m\_order -\/ i -\/ 1;}
+\DoxyCodeLine{223                     this-\/>m\_H[j] = t * this-\/>m\_H[j -\/ 1] + this-\/>m\_P[j];}
+\DoxyCodeLine{224                   \}}
+\DoxyCodeLine{225                 this-\/>m\_H[0] = this-\/>m\_P[0];}
+\DoxyCodeLine{226                 this-\/>m\_zerok = (\mbox{\hyperlink{namespaceemsr_a782d36096e8467b4a45a9dc2f89355b2}{std::abs}}(this-\/>m\_H[this-\/>m\_order -\/ 1])}
+\DoxyCodeLine{227                             <= Real\{10\} * s\_eps * \mbox{\hyperlink{namespaceemsr_a782d36096e8467b4a45a9dc2f89355b2}{std::abs}}(bb));}
+\DoxyCodeLine{228             \}}
+\DoxyCodeLine{229             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{230               \{}
+\DoxyCodeLine{231                 \textcolor{comment}{// Use unscaled form of recurrence.}}
+\DoxyCodeLine{232                 \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < nm1; ++i)}
+\DoxyCodeLine{233                   \{}
+\DoxyCodeLine{234                     \textcolor{keyword}{const} \textcolor{keyword}{auto} j = this-\/>m\_order -\/ i -\/ 1;}
+\DoxyCodeLine{235                     this-\/>m\_H[j] = this-\/>m\_H[j -\/ 1];}
+\DoxyCodeLine{236                   \}}
+\DoxyCodeLine{237                 this-\/>m\_H[0] = Real\{0\};}
+\DoxyCodeLine{238                 this-\/>m\_zerok = (this-\/>m\_H[this-\/>m\_order -\/ 1] == Real\{0\});}
+\DoxyCodeLine{239               \}}
+\DoxyCodeLine{240           \}}
+\DoxyCodeLine{241         \textcolor{comment}{// Save H for restarts with new shifts.}}
+\DoxyCodeLine{242         \_H\_temp = this-\/>m\_H;}
+\DoxyCodeLine{243 }
+\DoxyCodeLine{244         \textcolor{comment}{// Loop to select the quadratic corresponding to each new shift.}}
+\DoxyCodeLine{245         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} count = 0; count < 20; ++count)}
+\DoxyCodeLine{246           \{}
+\DoxyCodeLine{247             \textcolor{comment}{/*  Quadratic corresponds to a Real shift to a      }}
+\DoxyCodeLine{248 \textcolor{comment}{             *  non-\/real point and its complex conjugate. The point}}
+\DoxyCodeLine{249 \textcolor{comment}{             *  has modulus bound and amplitude rotated by 94 degrees}}
+\DoxyCodeLine{250 \textcolor{comment}{             *  from the previous shift.}}
+\DoxyCodeLine{251 \textcolor{comment}{             */}}
+\DoxyCodeLine{252             \textcolor{keyword}{const} \textcolor{keyword}{auto} xxx = cosr * xx -\/ sinr * yy;}
+\DoxyCodeLine{253             yy = sinr * xx + cosr * yy;}
+\DoxyCodeLine{254             \textcolor{keyword}{auto} xx = xxx;}
+\DoxyCodeLine{255             this-\/>m\_sr = bound * xx;}
+\DoxyCodeLine{256             this-\/>m\_si = bound * yy;}
+\DoxyCodeLine{257             this-\/>m\_u = -\/Real\{2\} * this-\/>m\_sr;}
+\DoxyCodeLine{258             this-\/>m\_v = bound;}
+\DoxyCodeLine{259             \textcolor{keyword}{auto} num\_zeros = this-\/>fxshfr(20 * (count + 1));}
+\DoxyCodeLine{260             \textcolor{keywordtype}{bool} cycle = \textcolor{keyword}{false};}
+\DoxyCodeLine{261             \textcolor{keywordflow}{if} (num\_zeros != 0)}
+\DoxyCodeLine{262               \{}
+\DoxyCodeLine{263               \textcolor{comment}{/*  The second stage jumps directly to one of the third}}
+\DoxyCodeLine{264 \textcolor{comment}{               *  stage iterations and returns here if successful.}}
+\DoxyCodeLine{265 \textcolor{comment}{               *  Deflate the polynomial, store the zero or zeros}}
+\DoxyCodeLine{266 \textcolor{comment}{               *  and return to the main algorithm.}}
+\DoxyCodeLine{267 \textcolor{comment}{               */}}
+\DoxyCodeLine{268                 zero.push\_back(this-\/>m\_z\_small);}
+\DoxyCodeLine{269                 this-\/>m\_order -\/= num\_zeros;}
+\DoxyCodeLine{270                 this-\/>m\_P = this-\/>m\_P\_quot;}
+\DoxyCodeLine{271                 \textcolor{keywordflow}{if} (num\_zeros != 1)}
+\DoxyCodeLine{272                   zero.push\_back(this-\/>m\_z\_large);}
+\DoxyCodeLine{273                 cycle = \textcolor{keyword}{true};}
+\DoxyCodeLine{274                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{275               \}}
+\DoxyCodeLine{276             \textcolor{keywordflow}{if} (cycle)}
+\DoxyCodeLine{277               \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{278 }
+\DoxyCodeLine{279             \textcolor{comment}{// If the iteration is unsuccessful another quadratic}}
+\DoxyCodeLine{280             \textcolor{comment}{// is chosen after restoring H.}}
+\DoxyCodeLine{281             this-\/>m\_H = \_H\_temp;}
+\DoxyCodeLine{282          \}}
+\DoxyCodeLine{283       \}}
+\DoxyCodeLine{284   \}}
+
+\end{DoxyCode}
+
+
+References emsr\+::abs(), emsr\+::log(), and emsr\+::quadratic().
+
+
+
+Referenced by emsr\+::\+Jenkins\+Traub\+Solver$<$ std\+::complex$<$ Real $>$ $>$\+::solve().
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/emsr/\mbox{\hyperlink{solver__jenkins__traub_8h}{solver\+\_\+jenkins\+\_\+traub.\+h}}\item 
+include/emsr/\mbox{\hyperlink{solver__jenkins__traub_8tcc}{solver\+\_\+jenkins\+\_\+traub.\+tcc}}\end{DoxyCompactItemize}

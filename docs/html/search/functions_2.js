@@ -1,4 +1,31 @@
 var searchData=
 [
-  ['begin',['begin',['../class____gnu__cxx_1_1__Polynomial.html#a2f9cf484724c2aef472975fc3d8bd99d',1,'__gnu_cxx::_Polynomial::begin() noexcept'],['../class____gnu__cxx_1_1__Polynomial.html#a57902287656245f5ae1ee7406b419c9b',1,'__gnu_cxx::_Polynomial::begin() const noexcept'],['../class____gnu__cxx_1_1__StaticPolynomial.html#a5ecf3a3e578ed364160dec4d980ad877',1,'__gnu_cxx::_StaticPolynomial::begin()'],['../class____gnu__cxx_1_1__StaticPolynomial.html#acb32e93b3c2f320dc51bbb3f918ae8b7',1,'__gnu_cxx::_StaticPolynomial::begin() const']]]
+  ['cbegin_376',['cbegin',['../classemsr_1_1StaticPolynomial.html#ac99addc1ebe2b71abe435130855edfb7',1,'emsr::StaticPolynomial::cbegin()'],['../classemsr_1_1Polynomial.html#a478bde8a26ed76dbd423c40deda09070',1,'emsr::Polynomial::cbegin() const noexcept']]],
+  ['cend_377',['cend',['../classemsr_1_1Polynomial.html#a870fd01f644f524c2e03e8193432ea12',1,'emsr::Polynomial::cend()'],['../classemsr_1_1StaticPolynomial.html#a4cbab566469e55f0dcdc668b70ba8ce9',1,'emsr::StaticPolynomial::cend()']]],
+  ['coefficient_378',['coefficient',['../classemsr_1_1Polynomial.html#afb52ec6b418e45d32264ec57033f8093',1,'emsr::Polynomial::coefficient(size_type i) const'],['../classemsr_1_1Polynomial.html#ace30eb54b86a213707f287af3bc6e8f7',1,'emsr::Polynomial::coefficient(size_type i, value_type val)'],['../classemsr_1_1StaticPolynomial.html#a3a5fbb3d0756856cd5a0fa4e2ac08916',1,'emsr::StaticPolynomial::coefficient(size_type i) const'],['../classemsr_1_1StaticPolynomial.html#aa7f8781952f458c900ed9e3a6367e87c',1,'emsr::StaticPolynomial::coefficient(size_type i, value_type val)']]],
+  ['coefficients_379',['coefficients',['../classemsr_1_1StaticPolynomial.html#a8e8e1a14052c89ec63dc0c5d64e9f63b',1,'emsr::StaticPolynomial::coefficients() const noexcept'],['../classemsr_1_1StaticPolynomial.html#ab6064e805b03aa29652665983be2c9b2',1,'emsr::StaticPolynomial::coefficients() noexcept'],['../classemsr_1_1Polynomial.html#a2834ed498ceafbbea7c91d9bb83e7e39',1,'emsr::Polynomial::coefficients() noexcept'],['../classemsr_1_1Polynomial.html#a9c12827946efb01e99d40285dabe58c4',1,'emsr::Polynomial::coefficients() const noexcept']]],
+  ['cos_5fpi_380',['cos_pi',['../namespaceemsr.html#a205c6b1c20e3118d187f81a2c3bf72d6',1,'emsr::cos_pi(double x)'],['../namespaceemsr.html#aa68f2bdbd5a1fd28330700a8352cda6d',1,'emsr::cos_pi(reperiod_t&lt; double &gt; x)']]],
+  ['cos_5fpif_381',['cos_pif',['../namespaceemsr.html#a8a9cce73dca82577c02e83a87f93a7d1',1,'emsr::cos_pif(float x)'],['../namespaceemsr.html#a10c1ba802891d1e46bb59c0305125b5c',1,'emsr::cos_pif(reperiod_t&lt; float &gt; x)']]],
+  ['cos_5fpil_382',['cos_pil',['../namespaceemsr.html#a9b2b5b55354c9955e312cb5185bf9ec2',1,'emsr::cos_pil(reperiod_t&lt; long double &gt; x)'],['../namespaceemsr.html#ae1ca8262e658fee84cb056ea7864f2f5',1,'emsr::cos_pil(long double x)']]],
+  ['cot_383',['cot',['../namespaceemsr.html#acc233f786a36ce84f28f0dc9222b79d1',1,'emsr']]],
+  ['cot_5fpi_384',['cot_pi',['../namespaceemsr.html#ace297984d6bb26820689a378ef28eaec',1,'emsr::cot_pi(reperiod_t&lt; double &gt; x)'],['../namespaceemsr.html#aa7db1427c3c0a8504d11bcbe26381ca3',1,'emsr::cot_pi(double x)']]],
+  ['cot_5fpif_385',['cot_pif',['../namespaceemsr.html#a49a8f4013137fba8e24afd20cacab734',1,'emsr::cot_pif(float x)'],['../namespaceemsr.html#a0b0e8cd3992d46b2e82e525c7adcf0e3',1,'emsr::cot_pif(reperiod_t&lt; float &gt; x)']]],
+  ['cot_5fpil_386',['cot_pil',['../namespaceemsr.html#aacbcad8122622ac6b0d3c8c454eeed09',1,'emsr::cot_pil(long double x)'],['../namespaceemsr.html#a8e6e43978f394df1721e22027bf5df87',1,'emsr::cot_pil(reperiod_t&lt; long double &gt; x)']]],
+  ['cotf_387',['cotf',['../namespaceemsr.html#af299086694d9d6b8a8cfee0b77a25e31',1,'emsr']]],
+  ['coth_388',['coth',['../namespaceemsr.html#a9a1f91359a9de66cf18966b759b7ccff',1,'emsr']]],
+  ['cothf_389',['cothf',['../namespaceemsr.html#a37649778e7e5b86a6e111c46f072d311',1,'emsr']]],
+  ['cothl_390',['cothl',['../namespaceemsr.html#a0d97a37ff2a4f07e509dd73237eb6d48',1,'emsr']]],
+  ['cotl_391',['cotl',['../namespaceemsr.html#a7d042e06f4d34e7d7b7d3ac7b4baa475',1,'emsr']]],
+  ['crbegin_392',['crbegin',['../classemsr_1_1StaticPolynomial.html#a6cf6050517805e6df1d5d54c05ea71f9',1,'emsr::StaticPolynomial::crbegin()'],['../classemsr_1_1Polynomial.html#a4cf1fa1f094f2e24496b09953af54e5f',1,'emsr::Polynomial::crbegin() const noexcept']]],
+  ['crend_393',['crend',['../classemsr_1_1Polynomial.html#aa9525b689132c72f33a3ac9108dee1d5',1,'emsr::Polynomial::crend()'],['../classemsr_1_1StaticPolynomial.html#a46c3292a3468654300c322ccfac3f319',1,'emsr::StaticPolynomial::crend()']]],
+  ['csc_394',['csc',['../namespaceemsr.html#aee24f3938aa27084bc0d3470d02850ce',1,'emsr']]],
+  ['csc_5fpi_395',['csc_pi',['../namespaceemsr.html#a477589045bdfe0424cf7e55632c32aac',1,'emsr::csc_pi(double x)'],['../namespaceemsr.html#aab85963fc463d3dfc70e2f4301d93fde',1,'emsr::csc_pi(reperiod_t&lt; double &gt; x)']]],
+  ['csc_5fpif_396',['csc_pif',['../namespaceemsr.html#a3ee587d433f230e133f9954ba15307b0',1,'emsr::csc_pif(float x)'],['../namespaceemsr.html#a8b19f4c8e76394771a17d32591a2fb9b',1,'emsr::csc_pif(reperiod_t&lt; float &gt; x)']]],
+  ['csc_5fpil_397',['csc_pil',['../namespaceemsr.html#af74478661963d7175b84f96084d6b552',1,'emsr::csc_pil(long double x)'],['../namespaceemsr.html#a0ea85069c2409e536df0288601f41e16',1,'emsr::csc_pil(reperiod_t&lt; long double &gt; x)']]],
+  ['cscf_398',['cscf',['../namespaceemsr.html#a02a00ca3cc0569b78491c520627984e0',1,'emsr']]],
+  ['csch_399',['csch',['../namespaceemsr.html#ada172e1e27ddc8c54ebfe97e2394d05c',1,'emsr']]],
+  ['cschf_400',['cschf',['../namespaceemsr.html#a0580fda874e950d6d0024158e710963c',1,'emsr']]],
+  ['cschl_401',['cschl',['../namespaceemsr.html#aaff4c4ab413b0f291a0e2cdd05c8c319',1,'emsr']]],
+  ['cscl_402',['cscl',['../namespaceemsr.html#a343ee025782601e0cefec5513639e48a',1,'emsr']]],
+  ['cubic_403',['cubic',['../namespaceemsr.html#affe4f64b8e546b29054514e013560ea0',1,'emsr::cubic(const Iter &amp;CC)'],['../namespaceemsr.html#ad78d9f421df742cad9c10eb3c753f7b8',1,'emsr::cubic(Real c0, Real c1, Real c2, Real c3)']]]
 ];

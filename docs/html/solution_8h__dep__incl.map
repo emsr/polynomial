@@ -1,3 +1,8 @@
-<map id="include/ext/solution.h" name="include/ext/solution.h">
-<area shape="rect" id="node2" href="$solver__low__degree_8h.html" title="include/ext/solver\l_low_degree.h" alt="" coords="16,80,140,121"/>
+<map id="include/emsr/solution.h" name="include/emsr/solution.h">
+<area shape="rect" id="node1" title=" " alt="" coords="5,5,180,32"/>
+<area shape="rect" id="node2" href="$solver__jenkins__traub_8h.html" title=" " alt="" coords="31,259,181,300"/>
+<area shape="rect" id="node3" href="$solver__low__degree_8h.html" title=" " alt="" coords="131,80,281,121"/>
+<area shape="rect" id="node4" href="$solver__bairstow_8h.html" title=" " alt="" coords="231,259,381,300"/>
+<area shape="rect" id="node5" href="$solver__bairstow_8tcc.html" title=" " alt="" coords="301,169,452,211"/>
+<area shape="rect" id="node6" href="$solver__jenkins__traub_8tcc.html" title=" " alt="" coords="75,169,225,211"/>
 </map>

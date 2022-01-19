@@ -1,13 +1,14 @@
-\hypertarget{polynomial_8tcc}{}\section{include/ext/polynomial.tcc File Reference}
-\label{polynomial_8tcc}\index{include/ext/polynomial.\+tcc@{include/ext/polynomial.\+tcc}}
+\hypertarget{polynomial_8tcc}{}\doxysection{include/emsr/polynomial.tcc File Reference}
+\label{polynomial_8tcc}\index{include/emsr/polynomial.tcc@{include/emsr/polynomial.tcc}}
 {\ttfamily \#include $<$ios$>$}\newline
 {\ttfamily \#include $<$complex$>$}\newline
+{\ttfamily \#include $<$utility$>$}\newline
 Include dependency graph for polynomial.\+tcc\+:
 \nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=210pt]{polynomial_8tcc__incl}
+\includegraphics[width=251pt]{polynomial_8tcc__incl}
 \end{center}
 \end{figure}
 This graph shows which files directly or indirectly include this file\+:
@@ -15,51 +16,46 @@ This graph shows which files directly or indirectly include this file\+:
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=210pt]{polynomial_8tcc__dep__incl}
+\includegraphics[width=350pt]{polynomial_8tcc__dep__incl}
 \end{center}
 \end{figure}
-\subsection*{Namespaces}
+\doxysubsection*{Namespaces}
 \begin{DoxyCompactItemize}
 \item 
- \hyperlink{namespace____gnu__cxx}{\+\_\+\+\_\+gnu\+\_\+cxx}
+ \mbox{\hyperlink{namespaceemsr}{emsr}}
 \end{DoxyCompactItemize}
-\subsection*{Macros}
+\doxysubsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
-\#define \hyperlink{polynomial_8tcc_af5a65c717a211a48a4cf31df10b4537a}{\+\_\+\+E\+X\+T\+\_\+\+P\+O\+L\+Y\+N\+O\+M\+I\+A\+L\+\_\+\+T\+CC}~1
+\#define \mbox{\hyperlink{polynomial_8tcc_a21cfc48b0e3feb3f580228c01773d9c8}{POLYNOMIAL\+\_\+\+TCC}}~1
 \begin{DoxyCompactList}\small\item\em A guard for the polynomial class implementation header. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\subsection*{Functions}
+\doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-{\footnotesize template$<$typename \+\_\+\+Tp $>$ }\\void \hyperlink{namespace____gnu__cxx_a84c52dc7c40b8b2731425e93db52903d}{\+\_\+\+\_\+gnu\+\_\+cxx\+::divmod} (const \+\_\+\+Polynomial$<$ \+\_\+\+Tp $>$ \&\+\_\+\+\_\+num, const \+\_\+\+Polynomial$<$ \+\_\+\+Tp $>$ \&\+\_\+\+\_\+den, \+\_\+\+Polynomial$<$ \+\_\+\+Tp $>$ \&\+\_\+\+\_\+quo, \+\_\+\+Polynomial$<$ \+\_\+\+Tp $>$ \&\+\_\+\+\_\+rem)
+{\footnotesize template$<$typename Tp $>$ }\\void \mbox{\hyperlink{namespaceemsr_a5d92c91e21caca3557589683df6650c4}{emsr\+::divmod}} (const Polynomial$<$ Tp $>$ \&num, const Polynomial$<$ Tp $>$ \&den, Polynomial$<$ Tp $>$ \&quo, Polynomial$<$ Tp $>$ \&rem)
 \item 
-{\footnotesize template$<$typename CharT , typename Traits , typename \+\_\+\+Tp $>$ }\\std\+::basic\+\_\+ostream$<$ CharT, Traits $>$ \& \hyperlink{namespace____gnu__cxx_ad713743dbfc30fba653621d1f7e99d3c}{\+\_\+\+\_\+gnu\+\_\+cxx\+::operator$<$$<$} (std\+::basic\+\_\+ostream$<$ CharT, Traits $>$ \&\+\_\+\+\_\+os, const \+\_\+\+Polynomial$<$ \+\_\+\+Tp $>$ \&\+\_\+\+\_\+poly)
+{\footnotesize template$<$typename CharT , typename Traits , typename Tp $>$ }\\std\+::basic\+\_\+ostream$<$ CharT, Traits $>$ \& \mbox{\hyperlink{namespaceemsr_a138fa9753d495e1819e54d43d580720b}{emsr\+::operator$<$$<$}} (std\+::basic\+\_\+ostream$<$ CharT, Traits $>$ \&os, const Polynomial$<$ Tp $>$ \&poly)
 \item 
-{\footnotesize template$<$typename CharT , typename Traits , typename \+\_\+\+Tp $>$ }\\std\+::basic\+\_\+istream$<$ CharT, Traits $>$ \& \hyperlink{namespace____gnu__cxx_acf7d03318756578d08f672212cd91234}{\+\_\+\+\_\+gnu\+\_\+cxx\+::operator$>$$>$} (std\+::basic\+\_\+istream$<$ CharT, Traits $>$ \&\+\_\+\+\_\+is, \+\_\+\+Polynomial$<$ \+\_\+\+Tp $>$ \&\+\_\+\+\_\+poly)
-\end{DoxyCompactItemize}
-\subsection*{Variables}
-\begin{DoxyCompactItemize}
-\item 
-$\ast$ \hyperlink{namespace____gnu__cxx_ab693ea357b6429b331e0bf09f9442385}{\+\_\+\+\_\+gnu\+\_\+cxx\+::\+\_\+\+Up}
+{\footnotesize template$<$typename CharT , typename Traits , typename Tp $>$ }\\std\+::basic\+\_\+istream$<$ CharT, Traits $>$ \& \mbox{\hyperlink{namespaceemsr_a93634c3102d6a9a883994cbd19c9cff1}{emsr\+::operator$>$$>$}} (std\+::basic\+\_\+istream$<$ CharT, Traits $>$ \&is, Polynomial$<$ Tp $>$ \&poly)
 \end{DoxyCompactItemize}
 
 
-\subsection{Detailed Description}
+\doxysubsection{Detailed Description}
 Out-\/of-\/line definitions of members for a dense univariate polynomial.
 
-This file is a G\+NU extension to the Standard C++ Library. This file contains the out-\/of-\/line implementations of the polynomial class.
+This file contains the out-\/of-\/line implementations of the polynomial class.
 
 \begin{DoxySeeAlso}{See also}
-\hyperlink{polynomial_8h}{polynomial.\+h} 
+\mbox{\hyperlink{polynomial_8h}{polynomial.\+h}} 
 \end{DoxySeeAlso}
 
 
-\subsection{Macro Definition Documentation}
-\mbox{\Hypertarget{polynomial_8tcc_af5a65c717a211a48a4cf31df10b4537a}\label{polynomial_8tcc_af5a65c717a211a48a4cf31df10b4537a}} 
-\index{polynomial.\+tcc@{polynomial.\+tcc}!\+\_\+\+E\+X\+T\+\_\+\+P\+O\+L\+Y\+N\+O\+M\+I\+A\+L\+\_\+\+T\+CC@{\+\_\+\+E\+X\+T\+\_\+\+P\+O\+L\+Y\+N\+O\+M\+I\+A\+L\+\_\+\+T\+CC}}
-\index{\+\_\+\+E\+X\+T\+\_\+\+P\+O\+L\+Y\+N\+O\+M\+I\+A\+L\+\_\+\+T\+CC@{\+\_\+\+E\+X\+T\+\_\+\+P\+O\+L\+Y\+N\+O\+M\+I\+A\+L\+\_\+\+T\+CC}!polynomial.\+tcc@{polynomial.\+tcc}}
-\subsubsection{\texorpdfstring{\+\_\+\+E\+X\+T\+\_\+\+P\+O\+L\+Y\+N\+O\+M\+I\+A\+L\+\_\+\+T\+CC}{\_EXT\_POLYNOMIAL\_TCC}}
-{\footnotesize\ttfamily \#define \+\_\+\+E\+X\+T\+\_\+\+P\+O\+L\+Y\+N\+O\+M\+I\+A\+L\+\_\+\+T\+CC~1}
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{polynomial_8tcc_a21cfc48b0e3feb3f580228c01773d9c8}\label{polynomial_8tcc_a21cfc48b0e3feb3f580228c01773d9c8}} 
+\index{polynomial.tcc@{polynomial.tcc}!POLYNOMIAL\_TCC@{POLYNOMIAL\_TCC}}
+\index{POLYNOMIAL\_TCC@{POLYNOMIAL\_TCC}!polynomial.tcc@{polynomial.tcc}}
+\doxysubsubsection{\texorpdfstring{POLYNOMIAL\_TCC}{POLYNOMIAL\_TCC}}
+{\footnotesize\ttfamily \#define POLYNOMIAL\+\_\+\+TCC~1}
 
 
 
@@ -67,5 +63,5 @@ A guard for the polynomial class implementation header.
 
 
 
-Definition at line 41 of file polynomial.\+tcc.
+Definition at line 39 of file polynomial.\+tcc.
 

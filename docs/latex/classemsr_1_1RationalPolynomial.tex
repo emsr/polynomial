@@ -1,0 +1,427 @@
+\hypertarget{classemsr_1_1RationalPolynomial}{}\doxysection{emsr\+::Rational\+Polynomial$<$ Tp $>$ Class Template Reference}
+\label{classemsr_1_1RationalPolynomial}\index{emsr::RationalPolynomial$<$ Tp $>$@{emsr::RationalPolynomial$<$ Tp $>$}}
+
+
+{\ttfamily \#include $<$rational\+\_\+polynomial.\+h$>$}
+
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{classemsr_1_1RationalPolynomial_a0776e487a7689ce79ca90d0b2ffeb2d1}{difference\+\_\+type}} = typename \mbox{\hyperlink{classemsr_1_1Polynomial_addd6c9de5a46d1e4a05ce9c9044d511b}{polynomial\+\_\+type\+::difference\+\_\+type}}
+\item 
+using \mbox{\hyperlink{classemsr_1_1RationalPolynomial_a14ea49240c28ee375deb7f657b2f8b87}{polynomial\+\_\+type}} = \mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}}$<$ Tp $>$
+\item 
+using \mbox{\hyperlink{classemsr_1_1RationalPolynomial_a1b7bcdaa11fafdaba6c743effd985890}{size\+\_\+type}} = typename \mbox{\hyperlink{classemsr_1_1Polynomial_abca22a2a90ad0a2f1e6988843171c15a}{polynomial\+\_\+type\+::size\+\_\+type}}
+\item 
+using \mbox{\hyperlink{classemsr_1_1RationalPolynomial_a429219db57c7ac36685b3057526dce49}{value\+\_\+type}} = typename \mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{polynomial\+\_\+type\+::value\+\_\+type}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classemsr_1_1RationalPolynomial_afcc3aa71aeee86196e69ca8a27ff1ba3}{Rational\+Polynomial}} ()
+\item 
+\mbox{\hyperlink{classemsr_1_1RationalPolynomial_a669d7e7391047a3f910e60743d8635cc}{Rational\+Polynomial}} (const \mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}}$<$ Tp $>$ \&num)
+\item 
+\mbox{\hyperlink{classemsr_1_1RationalPolynomial_aa33c64fb4e00167870618edf10bcf976}{Rational\+Polynomial}} (const \mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}}$<$ Tp $>$ \&num, const \mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}}$<$ Tp $>$ \&den)
+\item 
+\mbox{\hyperlink{classemsr_1_1RationalPolynomial_ae2ed287bca9a95d8ec3fe7358167c5f0}{Rational\+Polynomial}} (const \mbox{\hyperlink{classemsr_1_1RationalPolynomial}{Rational\+Polynomial}} \&)=default
+\item 
+\mbox{\hyperlink{classemsr_1_1RationalPolynomial_ae9cc74b90cf2b6ea7cb029d7f058fab7}{Rational\+Polynomial}} (\mbox{\hyperlink{classemsr_1_1RationalPolynomial}{Rational\+Polynomial}} \&\&)=default
+\item 
+\mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}}$<$ \mbox{\hyperlink{classemsr_1_1RationalPolynomial_a429219db57c7ac36685b3057526dce49}{value\+\_\+type}} $>$ \& \mbox{\hyperlink{classemsr_1_1RationalPolynomial_a87ba8f48363f4c52823af2781519b2ae}{denom}} ()
+\item 
+const \mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}}$<$ \mbox{\hyperlink{classemsr_1_1RationalPolynomial_a429219db57c7ac36685b3057526dce49}{value\+\_\+type}} $>$ \& \mbox{\hyperlink{classemsr_1_1RationalPolynomial_a88eb3179b07cdf8208ee9ed88b1ffb01}{denom}} () const
+\item 
+\mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}}$<$ \mbox{\hyperlink{classemsr_1_1RationalPolynomial_a429219db57c7ac36685b3057526dce49}{value\+\_\+type}} $>$ \& \mbox{\hyperlink{classemsr_1_1RationalPolynomial_ada926210e946ca01c719ec8fd769e140}{numer}} ()
+\item 
+const \mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}}$<$ \mbox{\hyperlink{classemsr_1_1RationalPolynomial_a429219db57c7ac36685b3057526dce49}{value\+\_\+type}} $>$ \& \mbox{\hyperlink{classemsr_1_1RationalPolynomial_a3bf0bed28f027f86af2b498d6c01ad40}{numer}} () const
+\item 
+\mbox{\hyperlink{classemsr_1_1RationalPolynomial_a429219db57c7ac36685b3057526dce49}{value\+\_\+type}} \mbox{\hyperlink{classemsr_1_1RationalPolynomial_a95f148febea8811c575d42a8e464357a}{operator()}} (\mbox{\hyperlink{classemsr_1_1RationalPolynomial_a429219db57c7ac36685b3057526dce49}{value\+\_\+type}} x) const
+\item 
+\mbox{\hyperlink{classemsr_1_1RationalPolynomial}{Rational\+Polynomial}} \& \mbox{\hyperlink{classemsr_1_1RationalPolynomial_a5ab1c867f8b1acb2ed7332df4f68ba6b}{operator$\ast$=}} (const \mbox{\hyperlink{classemsr_1_1RationalPolynomial}{Rational\+Polynomial}} \&x)
+\item 
+\mbox{\hyperlink{classemsr_1_1RationalPolynomial}{Rational\+Polynomial}} \mbox{\hyperlink{classemsr_1_1RationalPolynomial_a6c6a77f0f16137e7eae841e3de22c6ac}{operator+}} () const
+\item 
+\mbox{\hyperlink{classemsr_1_1RationalPolynomial}{Rational\+Polynomial}} \& \mbox{\hyperlink{classemsr_1_1RationalPolynomial_af16c09eab0ff7d867e587a2c3e907934}{operator+=}} (const \mbox{\hyperlink{classemsr_1_1RationalPolynomial}{Rational\+Polynomial}} \&x)
+\item 
+\mbox{\hyperlink{classemsr_1_1RationalPolynomial}{Rational\+Polynomial}} \mbox{\hyperlink{classemsr_1_1RationalPolynomial_a3facac301348b3d8b3a5c615f9dd988c}{operator-\/}} () const
+\item 
+\mbox{\hyperlink{classemsr_1_1RationalPolynomial}{Rational\+Polynomial}} \& \mbox{\hyperlink{classemsr_1_1RationalPolynomial_aab7ff35909b70794d368e4be7210eca8}{operator-\/=}} (const \mbox{\hyperlink{classemsr_1_1RationalPolynomial}{Rational\+Polynomial}} \&x)
+\item 
+\mbox{\hyperlink{classemsr_1_1RationalPolynomial}{Rational\+Polynomial}} \& \mbox{\hyperlink{classemsr_1_1RationalPolynomial_a6e35603564692d5b4c8a3a4a248eca25}{operator/=}} (const \mbox{\hyperlink{classemsr_1_1RationalPolynomial}{Rational\+Polynomial}} \&x)
+\item 
+\mbox{\hyperlink{classemsr_1_1RationalPolynomial}{Rational\+Polynomial}} \& \mbox{\hyperlink{classemsr_1_1RationalPolynomial_afd88efbc61c7c244c061cb9a6b5ed990}{operator=}} (const \mbox{\hyperlink{classemsr_1_1RationalPolynomial}{Rational\+Polynomial}} \&)=default
+\item 
+\mbox{\hyperlink{classemsr_1_1RationalPolynomial}{Rational\+Polynomial}} \& \mbox{\hyperlink{classemsr_1_1RationalPolynomial_ae9bb2475f14e3f48d3425835f5c166a4}{operator=}} (\mbox{\hyperlink{classemsr_1_1RationalPolynomial}{Rational\+Polynomial}} \&\&)=default
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename Tp$>$\newline
+class emsr\+::\+Rational\+Polynomial$<$ Tp $>$}
+
+
+
+Definition at line 50 of file rational\+\_\+polynomial.\+h.
+
+
+
+\doxysubsection{Member Typedef Documentation}
+\mbox{\Hypertarget{classemsr_1_1RationalPolynomial_a0776e487a7689ce79ca90d0b2ffeb2d1}\label{classemsr_1_1RationalPolynomial_a0776e487a7689ce79ca90d0b2ffeb2d1}} 
+\index{emsr::RationalPolynomial$<$ Tp $>$@{emsr::RationalPolynomial$<$ Tp $>$}!difference\_type@{difference\_type}}
+\index{difference\_type@{difference\_type}!emsr::RationalPolynomial$<$ Tp $>$@{emsr::RationalPolynomial$<$ Tp $>$}}
+\doxysubsubsection{\texorpdfstring{difference\_type}{difference\_type}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+using \mbox{\hyperlink{classemsr_1_1RationalPolynomial}{emsr\+::\+Rational\+Polynomial}}$<$ Tp $>$\+::\mbox{\hyperlink{classemsr_1_1RationalPolynomial_a0776e487a7689ce79ca90d0b2ffeb2d1}{difference\+\_\+type}} =  typename \mbox{\hyperlink{classemsr_1_1Polynomial_addd6c9de5a46d1e4a05ce9c9044d511b}{polynomial\+\_\+type\+::difference\+\_\+type}}}
+
+
+
+Definition at line 70 of file rational\+\_\+polynomial.\+h.
+
+\mbox{\Hypertarget{classemsr_1_1RationalPolynomial_a14ea49240c28ee375deb7f657b2f8b87}\label{classemsr_1_1RationalPolynomial_a14ea49240c28ee375deb7f657b2f8b87}} 
+\index{emsr::RationalPolynomial$<$ Tp $>$@{emsr::RationalPolynomial$<$ Tp $>$}!polynomial\_type@{polynomial\_type}}
+\index{polynomial\_type@{polynomial\_type}!emsr::RationalPolynomial$<$ Tp $>$@{emsr::RationalPolynomial$<$ Tp $>$}}
+\doxysubsubsection{\texorpdfstring{polynomial\_type}{polynomial\_type}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+using \mbox{\hyperlink{classemsr_1_1RationalPolynomial}{emsr\+::\+Rational\+Polynomial}}$<$ Tp $>$\+::\mbox{\hyperlink{classemsr_1_1RationalPolynomial_a14ea49240c28ee375deb7f657b2f8b87}{polynomial\+\_\+type}} =  \mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}}$<$Tp$>$}
+
+Typedefs. 
+
+Definition at line 56 of file rational\+\_\+polynomial.\+h.
+
+\mbox{\Hypertarget{classemsr_1_1RationalPolynomial_a1b7bcdaa11fafdaba6c743effd985890}\label{classemsr_1_1RationalPolynomial_a1b7bcdaa11fafdaba6c743effd985890}} 
+\index{emsr::RationalPolynomial$<$ Tp $>$@{emsr::RationalPolynomial$<$ Tp $>$}!size\_type@{size\_type}}
+\index{size\_type@{size\_type}!emsr::RationalPolynomial$<$ Tp $>$@{emsr::RationalPolynomial$<$ Tp $>$}}
+\doxysubsubsection{\texorpdfstring{size\_type}{size\_type}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+using \mbox{\hyperlink{classemsr_1_1RationalPolynomial}{emsr\+::\+Rational\+Polynomial}}$<$ Tp $>$\+::\mbox{\hyperlink{classemsr_1_1RationalPolynomial_a1b7bcdaa11fafdaba6c743effd985890}{size\+\_\+type}} =  typename \mbox{\hyperlink{classemsr_1_1Polynomial_abca22a2a90ad0a2f1e6988843171c15a}{polynomial\+\_\+type\+::size\+\_\+type}}}
+
+
+
+Definition at line 69 of file rational\+\_\+polynomial.\+h.
+
+\mbox{\Hypertarget{classemsr_1_1RationalPolynomial_a429219db57c7ac36685b3057526dce49}\label{classemsr_1_1RationalPolynomial_a429219db57c7ac36685b3057526dce49}} 
+\index{emsr::RationalPolynomial$<$ Tp $>$@{emsr::RationalPolynomial$<$ Tp $>$}!value\_type@{value\_type}}
+\index{value\_type@{value\_type}!emsr::RationalPolynomial$<$ Tp $>$@{emsr::RationalPolynomial$<$ Tp $>$}}
+\doxysubsubsection{\texorpdfstring{value\_type}{value\_type}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+using \mbox{\hyperlink{classemsr_1_1RationalPolynomial}{emsr\+::\+Rational\+Polynomial}}$<$ Tp $>$\+::\mbox{\hyperlink{classemsr_1_1RationalPolynomial_a429219db57c7ac36685b3057526dce49}{value\+\_\+type}} =  typename \mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{polynomial\+\_\+type\+::value\+\_\+type}}}
+
+
+
+Definition at line 57 of file rational\+\_\+polynomial.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classemsr_1_1RationalPolynomial_afcc3aa71aeee86196e69ca8a27ff1ba3}\label{classemsr_1_1RationalPolynomial_afcc3aa71aeee86196e69ca8a27ff1ba3}} 
+\index{emsr::RationalPolynomial$<$ Tp $>$@{emsr::RationalPolynomial$<$ Tp $>$}!RationalPolynomial@{RationalPolynomial}}
+\index{RationalPolynomial@{RationalPolynomial}!emsr::RationalPolynomial$<$ Tp $>$@{emsr::RationalPolynomial$<$ Tp $>$}}
+\doxysubsubsection{\texorpdfstring{RationalPolynomial()}{RationalPolynomial()}\hspace{0.1cm}{\footnotesize\ttfamily [1/5]}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+\mbox{\hyperlink{classemsr_1_1RationalPolynomial}{emsr\+::\+Rational\+Polynomial}}$<$ Tp $>$\+::\mbox{\hyperlink{classemsr_1_1RationalPolynomial}{Rational\+Polynomial}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Create a zero degree polynomial with value zero. 
+
+Definition at line 75 of file rational\+\_\+polynomial.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{76       : m\_num(), m\_den()}
+\DoxyCodeLine{77       \{ \}}
+
+\end{DoxyCode}
+
+
+Referenced by emsr\+::\+Rational\+Polynomial$<$ Tp $>$\+::operator-\/().
+
+\mbox{\Hypertarget{classemsr_1_1RationalPolynomial_ae2ed287bca9a95d8ec3fe7358167c5f0}\label{classemsr_1_1RationalPolynomial_ae2ed287bca9a95d8ec3fe7358167c5f0}} 
+\index{emsr::RationalPolynomial$<$ Tp $>$@{emsr::RationalPolynomial$<$ Tp $>$}!RationalPolynomial@{RationalPolynomial}}
+\index{RationalPolynomial@{RationalPolynomial}!emsr::RationalPolynomial$<$ Tp $>$@{emsr::RationalPolynomial$<$ Tp $>$}}
+\doxysubsubsection{\texorpdfstring{RationalPolynomial()}{RationalPolynomial()}\hspace{0.1cm}{\footnotesize\ttfamily [2/5]}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+\mbox{\hyperlink{classemsr_1_1RationalPolynomial}{emsr\+::\+Rational\+Polynomial}}$<$ Tp $>$\+::\mbox{\hyperlink{classemsr_1_1RationalPolynomial}{Rational\+Polynomial}} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classemsr_1_1RationalPolynomial}{Rational\+Polynomial}}$<$ Tp $>$ \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+Copy ctor. \mbox{\Hypertarget{classemsr_1_1RationalPolynomial_ae9cc74b90cf2b6ea7cb029d7f058fab7}\label{classemsr_1_1RationalPolynomial_ae9cc74b90cf2b6ea7cb029d7f058fab7}} 
+\index{emsr::RationalPolynomial$<$ Tp $>$@{emsr::RationalPolynomial$<$ Tp $>$}!RationalPolynomial@{RationalPolynomial}}
+\index{RationalPolynomial@{RationalPolynomial}!emsr::RationalPolynomial$<$ Tp $>$@{emsr::RationalPolynomial$<$ Tp $>$}}
+\doxysubsubsection{\texorpdfstring{RationalPolynomial()}{RationalPolynomial()}\hspace{0.1cm}{\footnotesize\ttfamily [3/5]}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+\mbox{\hyperlink{classemsr_1_1RationalPolynomial}{emsr\+::\+Rational\+Polynomial}}$<$ Tp $>$\+::\mbox{\hyperlink{classemsr_1_1RationalPolynomial}{Rational\+Polynomial}} (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classemsr_1_1RationalPolynomial}{Rational\+Polynomial}}$<$ Tp $>$ \&\&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+Move ctor. \mbox{\Hypertarget{classemsr_1_1RationalPolynomial_aa33c64fb4e00167870618edf10bcf976}\label{classemsr_1_1RationalPolynomial_aa33c64fb4e00167870618edf10bcf976}} 
+\index{emsr::RationalPolynomial$<$ Tp $>$@{emsr::RationalPolynomial$<$ Tp $>$}!RationalPolynomial@{RationalPolynomial}}
+\index{RationalPolynomial@{RationalPolynomial}!emsr::RationalPolynomial$<$ Tp $>$@{emsr::RationalPolynomial$<$ Tp $>$}}
+\doxysubsubsection{\texorpdfstring{RationalPolynomial()}{RationalPolynomial()}\hspace{0.1cm}{\footnotesize\ttfamily [4/5]}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+\mbox{\hyperlink{classemsr_1_1RationalPolynomial}{emsr\+::\+Rational\+Polynomial}}$<$ Tp $>$\+::\mbox{\hyperlink{classemsr_1_1RationalPolynomial}{Rational\+Polynomial}} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}}$<$ Tp $>$ \&}]{num,  }\item[{const \mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}}$<$ Tp $>$ \&}]{den }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 89 of file rational\+\_\+polynomial.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{91       : m\_num(num), m\_den(den)}
+\DoxyCodeLine{92       \{ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classemsr_1_1RationalPolynomial_a669d7e7391047a3f910e60743d8635cc}\label{classemsr_1_1RationalPolynomial_a669d7e7391047a3f910e60743d8635cc}} 
+\index{emsr::RationalPolynomial$<$ Tp $>$@{emsr::RationalPolynomial$<$ Tp $>$}!RationalPolynomial@{RationalPolynomial}}
+\index{RationalPolynomial@{RationalPolynomial}!emsr::RationalPolynomial$<$ Tp $>$@{emsr::RationalPolynomial$<$ Tp $>$}}
+\doxysubsubsection{\texorpdfstring{RationalPolynomial()}{RationalPolynomial()}\hspace{0.1cm}{\footnotesize\ttfamily [5/5]}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+\mbox{\hyperlink{classemsr_1_1RationalPolynomial}{emsr\+::\+Rational\+Polynomial}}$<$ Tp $>$\+::\mbox{\hyperlink{classemsr_1_1RationalPolynomial}{Rational\+Polynomial}} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}}$<$ Tp $>$ \&}]{num }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+Definition at line 94 of file rational\+\_\+polynomial.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{95       : m\_num(num), m\_den(Polynomial<Tp>(Tp\{1\}))}
+\DoxyCodeLine{96       \{ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classemsr_1_1RationalPolynomial_a87ba8f48363f4c52823af2781519b2ae}\label{classemsr_1_1RationalPolynomial_a87ba8f48363f4c52823af2781519b2ae}} 
+\index{emsr::RationalPolynomial$<$ Tp $>$@{emsr::RationalPolynomial$<$ Tp $>$}!denom@{denom}}
+\index{denom@{denom}!emsr::RationalPolynomial$<$ Tp $>$@{emsr::RationalPolynomial$<$ Tp $>$}}
+\doxysubsubsection{\texorpdfstring{denom()}{denom()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+\mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}}$<$\mbox{\hyperlink{classemsr_1_1RationalPolynomial_a429219db57c7ac36685b3057526dce49}{value\+\_\+type}}$>$\& \mbox{\hyperlink{classemsr_1_1RationalPolynomial}{emsr\+::\+Rational\+Polynomial}}$<$ Tp $>$\+::denom (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 188 of file rational\+\_\+polynomial.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{189       \{ \textcolor{keywordflow}{return} this-\/>m\_den; \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classemsr_1_1RationalPolynomial_a88eb3179b07cdf8208ee9ed88b1ffb01}\label{classemsr_1_1RationalPolynomial_a88eb3179b07cdf8208ee9ed88b1ffb01}} 
+\index{emsr::RationalPolynomial$<$ Tp $>$@{emsr::RationalPolynomial$<$ Tp $>$}!denom@{denom}}
+\index{denom@{denom}!emsr::RationalPolynomial$<$ Tp $>$@{emsr::RationalPolynomial$<$ Tp $>$}}
+\doxysubsubsection{\texorpdfstring{denom()}{denom()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+const \mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}}$<$\mbox{\hyperlink{classemsr_1_1RationalPolynomial_a429219db57c7ac36685b3057526dce49}{value\+\_\+type}}$>$\& \mbox{\hyperlink{classemsr_1_1RationalPolynomial}{emsr\+::\+Rational\+Polynomial}}$<$ Tp $>$\+::denom (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 184 of file rational\+\_\+polynomial.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{185       \{ \textcolor{keywordflow}{return} this-\/>m\_den; \}}
+
+\end{DoxyCode}
+
+
+Referenced by emsr\+::\+Rational\+Polynomial$<$ Tp $>$\+::operator$\ast$=(), emsr\+::\+Rational\+Polynomial$<$ Tp $>$\+::operator+=(), emsr\+::\+Rational\+Polynomial$<$ Tp $>$\+::operator-\/=(), emsr\+::\+Rational\+Polynomial$<$ Tp $>$\+::operator/=(), and emsr\+::operator$>$$>$().
+
+\mbox{\Hypertarget{classemsr_1_1RationalPolynomial_ada926210e946ca01c719ec8fd769e140}\label{classemsr_1_1RationalPolynomial_ada926210e946ca01c719ec8fd769e140}} 
+\index{emsr::RationalPolynomial$<$ Tp $>$@{emsr::RationalPolynomial$<$ Tp $>$}!numer@{numer}}
+\index{numer@{numer}!emsr::RationalPolynomial$<$ Tp $>$@{emsr::RationalPolynomial$<$ Tp $>$}}
+\doxysubsubsection{\texorpdfstring{numer()}{numer()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+\mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}}$<$\mbox{\hyperlink{classemsr_1_1RationalPolynomial_a429219db57c7ac36685b3057526dce49}{value\+\_\+type}}$>$\& \mbox{\hyperlink{classemsr_1_1RationalPolynomial}{emsr\+::\+Rational\+Polynomial}}$<$ Tp $>$\+::numer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 180 of file rational\+\_\+polynomial.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{181       \{ \textcolor{keywordflow}{return} this-\/>m\_num; \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classemsr_1_1RationalPolynomial_a3bf0bed28f027f86af2b498d6c01ad40}\label{classemsr_1_1RationalPolynomial_a3bf0bed28f027f86af2b498d6c01ad40}} 
+\index{emsr::RationalPolynomial$<$ Tp $>$@{emsr::RationalPolynomial$<$ Tp $>$}!numer@{numer}}
+\index{numer@{numer}!emsr::RationalPolynomial$<$ Tp $>$@{emsr::RationalPolynomial$<$ Tp $>$}}
+\doxysubsubsection{\texorpdfstring{numer()}{numer()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+const \mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}}$<$\mbox{\hyperlink{classemsr_1_1RationalPolynomial_a429219db57c7ac36685b3057526dce49}{value\+\_\+type}}$>$\& \mbox{\hyperlink{classemsr_1_1RationalPolynomial}{emsr\+::\+Rational\+Polynomial}}$<$ Tp $>$\+::numer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 176 of file rational\+\_\+polynomial.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{177       \{ \textcolor{keywordflow}{return} this-\/>m\_num; \}}
+
+\end{DoxyCode}
+
+
+Referenced by emsr\+::\+Rational\+Polynomial$<$ Tp $>$\+::operator$\ast$=(), emsr\+::\+Rational\+Polynomial$<$ Tp $>$\+::operator+=(), emsr\+::\+Rational\+Polynomial$<$ Tp $>$\+::operator-\/=(), emsr\+::\+Rational\+Polynomial$<$ Tp $>$\+::operator/=(), and emsr\+::operator$>$$>$().
+
+\mbox{\Hypertarget{classemsr_1_1RationalPolynomial_a95f148febea8811c575d42a8e464357a}\label{classemsr_1_1RationalPolynomial_a95f148febea8811c575d42a8e464357a}} 
+\index{emsr::RationalPolynomial$<$ Tp $>$@{emsr::RationalPolynomial$<$ Tp $>$}!operator()@{operator()}}
+\index{operator()@{operator()}!emsr::RationalPolynomial$<$ Tp $>$@{emsr::RationalPolynomial$<$ Tp $>$}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+\mbox{\hyperlink{classemsr_1_1RationalPolynomial_a429219db57c7ac36685b3057526dce49}{value\+\_\+type}} \mbox{\hyperlink{classemsr_1_1RationalPolynomial}{emsr\+::\+Rational\+Polynomial}}$<$ Tp $>$\+::operator() (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classemsr_1_1RationalPolynomial_a429219db57c7ac36685b3057526dce49}{value\+\_\+type}}}]{x }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Evaluate the polynomial at the input point. 
+
+Definition at line 102 of file rational\+\_\+polynomial.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{103       \{ \textcolor{keywordflow}{return} this-\/>m\_num(x) / this-\/>m\_den(x); \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classemsr_1_1RationalPolynomial_a5ab1c867f8b1acb2ed7332df4f68ba6b}\label{classemsr_1_1RationalPolynomial_a5ab1c867f8b1acb2ed7332df4f68ba6b}} 
+\index{emsr::RationalPolynomial$<$ Tp $>$@{emsr::RationalPolynomial$<$ Tp $>$}!operator$\ast$=@{operator$\ast$=}}
+\index{operator$\ast$=@{operator$\ast$=}!emsr::RationalPolynomial$<$ Tp $>$@{emsr::RationalPolynomial$<$ Tp $>$}}
+\doxysubsubsection{\texorpdfstring{operator$\ast$=()}{operator*=()}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+\mbox{\hyperlink{classemsr_1_1RationalPolynomial}{Rational\+Polynomial}}\& \mbox{\hyperlink{classemsr_1_1RationalPolynomial}{emsr\+::\+Rational\+Polynomial}}$<$ Tp $>$\+::operator$\ast$= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classemsr_1_1RationalPolynomial}{Rational\+Polynomial}}$<$ Tp $>$ \&}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Multiply this rational polynomial by a rational polynomial. 
+
+Definition at line 157 of file rational\+\_\+polynomial.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{158       \{}
+\DoxyCodeLine{159         this-\/>\mbox{\hyperlink{classemsr_1_1RationalPolynomial_a3bf0bed28f027f86af2b498d6c01ad40}{numer}}() *= x.numer();}
+\DoxyCodeLine{160         this-\/>\mbox{\hyperlink{classemsr_1_1RationalPolynomial_a88eb3179b07cdf8208ee9ed88b1ffb01}{denom}}() *= x.denom();}
+\DoxyCodeLine{161         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{162       \}}
+
+\end{DoxyCode}
+
+
+References emsr\+::\+Rational\+Polynomial$<$ Tp $>$\+::denom(), and emsr\+::\+Rational\+Polynomial$<$ Tp $>$\+::numer().
+
+\mbox{\Hypertarget{classemsr_1_1RationalPolynomial_a6c6a77f0f16137e7eae841e3de22c6ac}\label{classemsr_1_1RationalPolynomial_a6c6a77f0f16137e7eae841e3de22c6ac}} 
+\index{emsr::RationalPolynomial$<$ Tp $>$@{emsr::RationalPolynomial$<$ Tp $>$}!operator+@{operator+}}
+\index{operator+@{operator+}!emsr::RationalPolynomial$<$ Tp $>$@{emsr::RationalPolynomial$<$ Tp $>$}}
+\doxysubsubsection{\texorpdfstring{operator+()}{operator+()}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+\mbox{\hyperlink{classemsr_1_1RationalPolynomial}{Rational\+Polynomial}} \mbox{\hyperlink{classemsr_1_1RationalPolynomial}{emsr\+::\+Rational\+Polynomial}}$<$ Tp $>$\+::operator+ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Unary plus. 
+
+Definition at line 109 of file rational\+\_\+polynomial.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{110       \{ \textcolor{keywordflow}{return} *\textcolor{keyword}{this}; \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classemsr_1_1RationalPolynomial_af16c09eab0ff7d867e587a2c3e907934}\label{classemsr_1_1RationalPolynomial_af16c09eab0ff7d867e587a2c3e907934}} 
+\index{emsr::RationalPolynomial$<$ Tp $>$@{emsr::RationalPolynomial$<$ Tp $>$}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!emsr::RationalPolynomial$<$ Tp $>$@{emsr::RationalPolynomial$<$ Tp $>$}}
+\doxysubsubsection{\texorpdfstring{operator+=()}{operator+=()}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+\mbox{\hyperlink{classemsr_1_1RationalPolynomial}{Rational\+Polynomial}}\& \mbox{\hyperlink{classemsr_1_1RationalPolynomial}{emsr\+::\+Rational\+Polynomial}}$<$ Tp $>$\+::operator+= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classemsr_1_1RationalPolynomial}{Rational\+Polynomial}}$<$ Tp $>$ \&}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Add a rational polynomial to this rational polynomial. 
+
+Definition at line 135 of file rational\+\_\+polynomial.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{136       \{}
+\DoxyCodeLine{137         this-\/>\mbox{\hyperlink{classemsr_1_1RationalPolynomial_a3bf0bed28f027f86af2b498d6c01ad40}{numer}}() = this-\/>\mbox{\hyperlink{classemsr_1_1RationalPolynomial_a3bf0bed28f027f86af2b498d6c01ad40}{numer}}() * x.denom() + this-\/>\mbox{\hyperlink{classemsr_1_1RationalPolynomial_a88eb3179b07cdf8208ee9ed88b1ffb01}{denom}}() * x.numer();}
+\DoxyCodeLine{138         this-\/>\mbox{\hyperlink{classemsr_1_1RationalPolynomial_a88eb3179b07cdf8208ee9ed88b1ffb01}{denom}}() *= x.denom();}
+\DoxyCodeLine{139         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{140       \}}
+
+\end{DoxyCode}
+
+
+References emsr\+::\+Rational\+Polynomial$<$ Tp $>$\+::denom(), and emsr\+::\+Rational\+Polynomial$<$ Tp $>$\+::numer().
+
+\mbox{\Hypertarget{classemsr_1_1RationalPolynomial_a3facac301348b3d8b3a5c615f9dd988c}\label{classemsr_1_1RationalPolynomial_a3facac301348b3d8b3a5c615f9dd988c}} 
+\index{emsr::RationalPolynomial$<$ Tp $>$@{emsr::RationalPolynomial$<$ Tp $>$}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!emsr::RationalPolynomial$<$ Tp $>$@{emsr::RationalPolynomial$<$ Tp $>$}}
+\doxysubsubsection{\texorpdfstring{operator-\/()}{operator-()}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+\mbox{\hyperlink{classemsr_1_1RationalPolynomial}{Rational\+Polynomial}} \mbox{\hyperlink{classemsr_1_1RationalPolynomial}{emsr\+::\+Rational\+Polynomial}}$<$ Tp $>$\+::operator-\/ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Unary minus. 
+
+Definition at line 116 of file rational\+\_\+polynomial.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{117       \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classemsr_1_1RationalPolynomial_afcc3aa71aeee86196e69ca8a27ff1ba3}{RationalPolynomial}}(*\textcolor{keyword}{this}) *= \mbox{\hyperlink{classemsr_1_1RationalPolynomial_a429219db57c7ac36685b3057526dce49}{value\_type}}(-\/1); \}}
+
+\end{DoxyCode}
+
+
+References emsr\+::\+Rational\+Polynomial$<$ Tp $>$\+::\+Rational\+Polynomial().
+
+\mbox{\Hypertarget{classemsr_1_1RationalPolynomial_aab7ff35909b70794d368e4be7210eca8}\label{classemsr_1_1RationalPolynomial_aab7ff35909b70794d368e4be7210eca8}} 
+\index{emsr::RationalPolynomial$<$ Tp $>$@{emsr::RationalPolynomial$<$ Tp $>$}!operator-\/=@{operator-\/=}}
+\index{operator-\/=@{operator-\/=}!emsr::RationalPolynomial$<$ Tp $>$@{emsr::RationalPolynomial$<$ Tp $>$}}
+\doxysubsubsection{\texorpdfstring{operator-\/=()}{operator-=()}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+\mbox{\hyperlink{classemsr_1_1RationalPolynomial}{Rational\+Polynomial}}\& \mbox{\hyperlink{classemsr_1_1RationalPolynomial}{emsr\+::\+Rational\+Polynomial}}$<$ Tp $>$\+::operator-\/= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classemsr_1_1RationalPolynomial}{Rational\+Polynomial}}$<$ Tp $>$ \&}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Subtract a rational polynomial from this rational polynomial. 
+
+Definition at line 146 of file rational\+\_\+polynomial.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{147       \{}
+\DoxyCodeLine{148         this-\/>\mbox{\hyperlink{classemsr_1_1RationalPolynomial_a3bf0bed28f027f86af2b498d6c01ad40}{numer}}() = this-\/>\mbox{\hyperlink{classemsr_1_1RationalPolynomial_a3bf0bed28f027f86af2b498d6c01ad40}{numer}}() * x.denom() -\/ this-\/>\mbox{\hyperlink{classemsr_1_1RationalPolynomial_a88eb3179b07cdf8208ee9ed88b1ffb01}{denom}}() * x.numer();}
+\DoxyCodeLine{149         this-\/>\mbox{\hyperlink{classemsr_1_1RationalPolynomial_a88eb3179b07cdf8208ee9ed88b1ffb01}{denom}}() *= x.denom();}
+\DoxyCodeLine{150         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{151       \}}
+
+\end{DoxyCode}
+
+
+References emsr\+::\+Rational\+Polynomial$<$ Tp $>$\+::denom(), and emsr\+::\+Rational\+Polynomial$<$ Tp $>$\+::numer().
+
+\mbox{\Hypertarget{classemsr_1_1RationalPolynomial_a6e35603564692d5b4c8a3a4a248eca25}\label{classemsr_1_1RationalPolynomial_a6e35603564692d5b4c8a3a4a248eca25}} 
+\index{emsr::RationalPolynomial$<$ Tp $>$@{emsr::RationalPolynomial$<$ Tp $>$}!operator/=@{operator/=}}
+\index{operator/=@{operator/=}!emsr::RationalPolynomial$<$ Tp $>$@{emsr::RationalPolynomial$<$ Tp $>$}}
+\doxysubsubsection{\texorpdfstring{operator/=()}{operator/=()}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+\mbox{\hyperlink{classemsr_1_1RationalPolynomial}{Rational\+Polynomial}}\& \mbox{\hyperlink{classemsr_1_1RationalPolynomial}{emsr\+::\+Rational\+Polynomial}}$<$ Tp $>$\+::operator/= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classemsr_1_1RationalPolynomial}{Rational\+Polynomial}}$<$ Tp $>$ \&}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Divide this rational polynomial by a rational polynomial. 
+
+Definition at line 168 of file rational\+\_\+polynomial.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{169       \{}
+\DoxyCodeLine{170         this-\/>\mbox{\hyperlink{classemsr_1_1RationalPolynomial_a3bf0bed28f027f86af2b498d6c01ad40}{numer}}() *= x.denom();}
+\DoxyCodeLine{171         this-\/>\mbox{\hyperlink{classemsr_1_1RationalPolynomial_a88eb3179b07cdf8208ee9ed88b1ffb01}{denom}}() *= x.numer();}
+\DoxyCodeLine{172         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{173       \}}
+
+\end{DoxyCode}
+
+
+References emsr\+::\+Rational\+Polynomial$<$ Tp $>$\+::denom(), and emsr\+::\+Rational\+Polynomial$<$ Tp $>$\+::numer().
+
+\mbox{\Hypertarget{classemsr_1_1RationalPolynomial_afd88efbc61c7c244c061cb9a6b5ed990}\label{classemsr_1_1RationalPolynomial_afd88efbc61c7c244c061cb9a6b5ed990}} 
+\index{emsr::RationalPolynomial$<$ Tp $>$@{emsr::RationalPolynomial$<$ Tp $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!emsr::RationalPolynomial$<$ Tp $>$@{emsr::RationalPolynomial$<$ Tp $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+\mbox{\hyperlink{classemsr_1_1RationalPolynomial}{Rational\+Polynomial}}\& \mbox{\hyperlink{classemsr_1_1RationalPolynomial}{emsr\+::\+Rational\+Polynomial}}$<$ Tp $>$\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classemsr_1_1RationalPolynomial}{Rational\+Polynomial}}$<$ Tp $>$ \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+Copy assignment. \mbox{\Hypertarget{classemsr_1_1RationalPolynomial_ae9bb2475f14e3f48d3425835f5c166a4}\label{classemsr_1_1RationalPolynomial_ae9bb2475f14e3f48d3425835f5c166a4}} 
+\index{emsr::RationalPolynomial$<$ Tp $>$@{emsr::RationalPolynomial$<$ Tp $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!emsr::RationalPolynomial$<$ Tp $>$@{emsr::RationalPolynomial$<$ Tp $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+\mbox{\hyperlink{classemsr_1_1RationalPolynomial}{Rational\+Polynomial}}\& \mbox{\hyperlink{classemsr_1_1RationalPolynomial}{emsr\+::\+Rational\+Polynomial}}$<$ Tp $>$\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classemsr_1_1RationalPolynomial}{Rational\+Polynomial}}$<$ Tp $>$ \&\&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+Move assignment. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/emsr/\mbox{\hyperlink{rational__polynomial_8h}{rational\+\_\+polynomial.\+h}}\end{DoxyCompactItemize}

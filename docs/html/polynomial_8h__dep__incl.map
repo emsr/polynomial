@@ -1,3 +1,6 @@
-<map id="include/ext/polynomial.h" name="include/ext/polynomial.h">
-<area shape="rect" id="node2" href="$rational__polynomial_8h.html" title="include/ext/rational\l_polynomial.h" alt="" coords="21,80,152,121"/>
+<map id="include/emsr/polynomial.h" name="include/emsr/polynomial.h">
+<area shape="rect" id="node1" title=" " alt="" coords="168,5,363,32"/>
+<area shape="rect" id="node2" href="$rational__polynomial_8h.html" title=" " alt="" coords="5,80,165,121"/>
+<area shape="rect" id="node3" href="$solver__laguerre_8h.html" title=" " alt="" coords="190,80,341,121"/>
+<area shape="rect" id="node4" href="$solver__quadratic_8h.html" title=" " alt="" coords="365,80,515,121"/>
 </map>

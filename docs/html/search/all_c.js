@@ -1,10 +1,12 @@
 var searchData=
 [
-  ['rational_5fpolynomial_2eh',['rational_polynomial.h',['../rational__polynomial_8h.html',1,'']]],
-  ['rbegin',['rbegin',['../class____gnu__cxx_1_1__Polynomial.html#a10924e0d5e228684c721a4bba73a7af3',1,'__gnu_cxx::_Polynomial::rbegin() noexcept'],['../class____gnu__cxx_1_1__Polynomial.html#ab5cd3c6e861ebf3adac38e3df4e099aa',1,'__gnu_cxx::_Polynomial::rbegin() const noexcept'],['../class____gnu__cxx_1_1__StaticPolynomial.html#ad26b5676e30705aae3ff051f149e52df',1,'__gnu_cxx::_StaticPolynomial::rbegin()'],['../class____gnu__cxx_1_1__StaticPolynomial.html#a53306b159074b3eec382432137a4d297',1,'__gnu_cxx::_StaticPolynomial::rbegin() const']]],
-  ['real',['real',['../namespace____gnu__cxx.html#a2743043701f8e4c87d3f0f06ddb11348',1,'__gnu_cxx']]],
-  ['real_5ftype',['real_type',['../class____gnu__cxx_1_1__Polynomial.html#a656ceaafcb42abd626c253da3284998b',1,'__gnu_cxx::_Polynomial']]],
-  ['reference',['reference',['../class____gnu__cxx_1_1__Polynomial.html#accb3b4df60e4ad82d466173d54ea731a',1,'__gnu_cxx::_Polynomial::reference()'],['../class____gnu__cxx_1_1__StaticPolynomial.html#a2416b66d254edf3e7118a8fb1204403f',1,'__gnu_cxx::_StaticPolynomial::reference()']]],
-  ['rend',['rend',['../class____gnu__cxx_1_1__Polynomial.html#a8373c6b9a787a52798e4319906858d33',1,'__gnu_cxx::_Polynomial::rend() noexcept'],['../class____gnu__cxx_1_1__Polynomial.html#abeca4b1cffc4a52db34375b99b6d3d11',1,'__gnu_cxx::_Polynomial::rend() const noexcept'],['../class____gnu__cxx_1_1__StaticPolynomial.html#a5f3ae3de860401093c3bbf768218db70',1,'__gnu_cxx::_StaticPolynomial::rend()'],['../class____gnu__cxx_1_1__StaticPolynomial.html#ad39f8cb28001cdfa18776c50160c5ce7',1,'__gnu_cxx::_StaticPolynomial::rend() const']]],
-  ['reverse_5fiterator',['reverse_iterator',['../class____gnu__cxx_1_1__Polynomial.html#aed8f7d97c575d5c34c54170631953415',1,'__gnu_cxx::_Polynomial::reverse_iterator()'],['../class____gnu__cxx_1_1__StaticPolynomial.html#a6313ff2d9e03c7911016595440c6a2ae',1,'__gnu_cxx::_StaticPolynomial::reverse_iterator()']]]
+  ['nan_139',['nan',['../namespaceemsr.html#af260f11b5410b8f8c2bfffd4e66ac74f',1,'emsr']]],
+  ['nanf_140',['nanf',['../namespaceemsr.html#a087f46f5fadc56390bf152e5b32c146b',1,'emsr']]],
+  ['nanl_141',['nanl',['../namespaceemsr.html#ab7b28319a5e2e896cb29b98b60b9383f',1,'emsr']]],
+  ['norm_5fl1_142',['norm_l1',['../solver__madsen__reid_8h.html#a31bcb08c99810f2eeefd4f53d405b849',1,'solver_madsen_reid.h']]],
+  ['norm_5fl2_143',['norm_l2',['../solver__madsen__reid_8h.html#aaef83f75c59236af3925ca2828a4a2a0',1,'solver_madsen_reid.h']]],
+  ['notsospecfun_2eh_144',['notsospecfun.h',['../notsospecfun_8h.html',1,'']]],
+  ['num_5fiters_145',['num_iters',['../classemsr_1_1LaguerreSolver.html#a138d708caa93c5260009f278186dc54f',1,'emsr::LaguerreSolver::num_iters()'],['../classemsr_1_1QuadraticSolver.html#a8d3056a9bc8e4a0f786a32fa2c8ce01c',1,'emsr::QuadraticSolver::num_iters()']]],
+  ['num_5fsteps_5fper_5ffrac_146',['num_steps_per_frac',['../classemsr_1_1LaguerreSolver.html#a9e9fc4cd487baf0288844cc060eebfe5',1,'emsr::LaguerreSolver::num_steps_per_frac() const'],['../classemsr_1_1LaguerreSolver.html#a67a31fe06875ba8fe2a80ffab1994ce6',1,'emsr::LaguerreSolver::num_steps_per_frac(int num)']]],
+  ['numer_147',['numer',['../classemsr_1_1RationalPolynomial.html#a3bf0bed28f027f86af2b498d6c01ad40',1,'emsr::RationalPolynomial::numer() const'],['../classemsr_1_1RationalPolynomial.html#ada926210e946ca01c719ec8fd769e140',1,'emsr::RationalPolynomial::numer()']]]
 ];
