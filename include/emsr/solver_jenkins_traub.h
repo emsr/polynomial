@@ -33,7 +33,7 @@
 #ifndef SOLVER_JENKINS_TRAUB_H
 #define SOLVER_JENKINS_TRAUB_H 1
 
-#include <ext/solution.h> // For solution_t
+#include <emsr/solution.h> // For solution_t
 
 namespace emsr
 {
@@ -116,7 +116,7 @@ template<typename Real>
 
 } // namespace emsr
 
-#include <ext/solver_jenkins_traub.tcc>
-#include <ext/solver_jenkins_traub_complex.tcc>
+#include <emsr/solver_jenkins_traub.tcc>
+#include <emsr/solver_jenkins_traub_complex.tcc>
 
 #endif // SOLVER_JENKINS_TRAUB_H

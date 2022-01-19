@@ -40,7 +40,7 @@
 
 #include <array>
 
-#include <ext/solution.h>
+#include <emsr/solution.h>
 
 namespace emsr
 {
@@ -88,6 +88,6 @@ namespace emsr
 
 } // namespace emsr
 
-#include <ext/solver_low_degree.tcc>
+#include <emsr/solver_low_degree.tcc>
 
 #endif // SOLVER_LOW_DEGREE_H

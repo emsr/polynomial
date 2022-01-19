@@ -33,7 +33,7 @@
 #ifndef SOLVER_BAIRSTOW_H
 #define SOLVER_BAIRSTOW_H 1
 
-#include <ext/solver_low_degree.h>
+#include <emsr/solver_low_degree.h>
 
 namespace emsr
 {
@@ -108,6 +108,6 @@ template<typename Real>
 
 } // namespace emsr
 
-#include <ext/solver_bairstow.tcc>
+#include <emsr/solver_bairstow.tcc>
 
 #endif // SOLVER_BAIRSTOW_H

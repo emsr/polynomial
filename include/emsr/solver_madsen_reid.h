@@ -148,6 +148,6 @@ template<typename Real>
     void solve(std::vector<Cmplx>& a1, int m, std::vector<Cmplx>& root, std::vector<Cmplx>& a);
   };
 
-#include <ext/solver_madsen_reid.tcc>
+#include <emsr/solver_madsen_reid.tcc>
 
 #endif // SOLVER_MADSEN_REID_H

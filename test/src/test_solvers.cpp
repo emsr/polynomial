@@ -4,7 +4,7 @@
 #include <iomanip>
 #include <limits>
 
-#include <ext/solver_low_degree.h>
+#include <emsr/solver_low_degree.h>
 
 template<typename Real>
   struct status

@@ -806,6 +806,6 @@ namespace emsr
 
 } // namespace emsr
 
-#include <ext/static_polynomial.tcc>
+#include <emsr/static_polynomial.tcc>
 
 #endif // STATIC_POLYNOMIAL_H

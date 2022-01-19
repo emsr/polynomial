@@ -6,9 +6,9 @@
 #include <iomanip>
 
 #include <cmath> // FIXME: For isnan for math_util.h
-#include <ext/math_util.h>
-#include <ext/solver_jenkins_traub.h>
-#include <ext/polynomial.h>
+#include <emsr/math_util.h>
+#include <emsr/solver_jenkins_traub.h>
+#include <emsr/polynomial.h>
 
 #include <bits/float128_io.h>
 #include <bits/float128_math.h>

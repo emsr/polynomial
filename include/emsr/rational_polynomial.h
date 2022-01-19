@@ -24,8 +24,6 @@
 /**
  * @file rational_polynomial.h
  *
- * This file is a GNU extension to the Standard C++ Library.
- *
  * This file contains the declaration of a ratio of two polynomials.
  * @see polynomial.h
  */
@@ -40,7 +38,7 @@
 
 #include <iostream>
 
-#include <ext/polynomial.h>
+#include <emsr/polynomial.h>
 
 namespace emsr
 {

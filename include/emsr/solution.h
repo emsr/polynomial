@@ -24,8 +24,6 @@
 /**
  * @file solution.h
  *
- * This file is a GNU extension to the Standard C++ Library.
- *
  * This file contains a type representing a solution of a polynomial.
  * The soution could be null, i.e. on-existent.
  * If it exists it could be real of complex.

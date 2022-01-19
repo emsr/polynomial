@@ -35,7 +35,7 @@
 
 #include <complex>
 
-#include <ext/polynomial.h>
+#include <emsr/polynomial.h>
 
 namespace emsr
 {
@@ -118,6 +118,6 @@ namespace emsr
 
 } // namespace emsr
 
-#include <ext/solver_laguerre.tcc>
+#include <emsr/solver_laguerre.tcc>
 
 #endif // SOLVER_LAGUERRE_H

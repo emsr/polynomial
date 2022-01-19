@@ -3,8 +3,8 @@
 #include <complex>
 #include <iostream>
 
-#include <ext/polynomial.h>
-#include <ext/solver_laguerre.h>
+#include <emsr/polynomial.h>
+#include <emsr/solver_laguerre.h>
 
 template<typename Tp>
   void

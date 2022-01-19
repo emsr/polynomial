@@ -24,8 +24,6 @@
 /**
  * @file polynomial.h Class declaration for a dense univariate polynomial.
  *
- * This file is a GNU extension to the Standard C++ Library.
- *
  * This file contains the declaration of a dense-polynomial class.
  */
 
@@ -46,7 +44,7 @@
 #include <type_traits>
 #include <complex>
 
-#include <ext/notsospecfun.h>
+#include <emsr/notsospecfun.h>
 
 /**
  * This class is a dense univariate polynomial.
@@ -1073,7 +1071,7 @@ namespace emsr
 
 } // namespace emsr
 
-#include <ext/polynomial.tcc>
+#include <emsr/polynomial.tcc>
 
 #endif // POLYNOMIAL_H
 

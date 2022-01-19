@@ -4,7 +4,7 @@
 #include <complex>
 #include <sstream>
 
-#include <ext/polynomial.h>
+#include <emsr/polynomial.h>
 
 
 // Quick factorial impl.

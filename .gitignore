@@ -17,6 +17,7 @@ a.out
 
 obj
 bin
+build
 
 CMakeCache.txt
 CMakeFiles/

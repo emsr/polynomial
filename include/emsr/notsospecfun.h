@@ -29,7 +29,7 @@
 
 // This was from another path of cxx_math and brought here to decouple.
 
-namespace stdxx
+namespace emsr
 {
 
   // Use narrow structs for aggregate return types.
@@ -422,35 +422,6 @@ namespace stdxx
   lgamma_t<double> slgamma(double x);
   lgamma_t<long double> slgammal(long double x);
 
-  // Basic roots
-  // "Value-semantic type erasure.  It's not just for breakfast anymore."
-  // I've got stuff in polynomial that I like better.  Maybe.
-  template<typename Tp>
-    using root_t = std::variant<Tp, std::complex<Tp>>;
-
-  template<typename Tp>
-    struct quadratic_root_t
-    {
-      root_t<Tp> r1;
-      root_t<Tp> r2;
-    };
-
-  template<typename Tp>
-    quadratic_root_t<Tp>
-    quadratic(Tp a, Tp b, Tp c);
-
-  template<typename Tp>
-    struct cubic_root_t
-    {
-      root_t<Tp> r1;
-      root_t<Tp> r2;
-      root_t<Tp> r3;
-    };
-
-  template<typename Tp>
-    cubic_root_t<Tp>
-    cubic(Tp a, Tp b, Tp c);
-
   // Sign functions...
 
   // Sometimes you don't want sign of 0 to be 0.
@@ -514,6 +485,6 @@ namespace stdxx
       return std::exp(z) - Tp{1};
     }
 
-} // namespace stdxx
+} // namespace emsr
 
 #endif // NOTSOSPECFUN_H

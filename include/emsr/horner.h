@@ -22,20 +22,12 @@
 // <http://www.gnu.org/licenses/>.
 
 /**
- * @file horner.h Class declaration for Horner polynomial evaluation.
- *
- * This file is a GNU extension to the Standard C++ Library.
- */
-
-/**
  * @def  HORNER_H
  *
  * @brief  A guard for the horner functions header.
  */
 #ifndef HORNER_H
 #define HORNER_H 1
-
-#pragma GCC system_header
 
 #include <type_traits>
 
@@ -47,7 +39,7 @@ namespace emsr
  */
 template<typename ArgT, typename Coef0>
   constexpr std::conditional_t<std::is_integral<ArgT>::value, double, ArgT>
-  horner(ArgT x, Coef0 c0)
+  horner(ArgT, Coef0 c0)
   {
     using arg_t = std::conditional_t<std::is_integral<ArgT>::value,
 					double, ArgT>;

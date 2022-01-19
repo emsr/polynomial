@@ -5,8 +5,8 @@
 #include <iostream>
 #include <iomanip>
 
-#include <ext/polynomial.h>
-#include <ext/solver_madsen_reid.h>
+#include <emsr/polynomial.h>
+#include <emsr/solver_madsen_reid.h>
 
 template<typename Real>
   int

@@ -33,7 +33,7 @@
 #ifndef SOLVER_BAIRSTOW_TCC
 #define SOLVER_BAIRSTOW_TCC 1
 
-#include <ext/solver_low_degree.h>
+#include <emsr/solver_low_degree.h>
 
 namespace emsr
 {

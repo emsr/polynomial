@@ -35,8 +35,8 @@
 
 #include <complex>
 
-#include <ext/polynomial.h>
-//#include <ext/solution.h> // For solution_t
+#include <emsr/polynomial.h>
+//#include <emsr/solution.h> // For solution_t
 
 namespace emsr
 {
@@ -96,6 +96,6 @@ namespace emsr
 
 } // namespace emsr
 
-#include <ext/solver_quadratic.tcc>
+#include <emsr/solver_quadratic.tcc>
 
 #endif // SOLVER_QUADRATIC_H
