@@ -1,0 +1,122 @@
+\hypertarget{classemsr_1_1BairstowSolver}{}\doxysection{emsr\+::Bairstow\+Solver$<$ Real $>$ Class Template Reference}
+\label{classemsr_1_1BairstowSolver}\index{emsr::BairstowSolver$<$ Real $>$@{emsr::BairstowSolver$<$ Real $>$}}
+
+
+{\ttfamily \#include $<$solver\+\_\+bairstow.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classemsr_1_1BairstowSolver_a364a46bfa1e476823e4f5f1ecef05688}{Bairstow\+Solver}} (const std\+::vector$<$ Real $>$ \&coeff, unsigned int seed=std\+::random\+\_\+device()())
+\item 
+std\+::vector$<$ Real $>$ \mbox{\hyperlink{classemsr_1_1BairstowSolver_a1a7cd03415675e7cb5d36e0ebe43a8e4}{equations}} () const
+\item 
+std\+::vector$<$ \mbox{\hyperlink{structemsr_1_1Solution}{Solution}}$<$ Real $>$ $>$ \mbox{\hyperlink{classemsr_1_1BairstowSolver_ab1efb76f88cb3e6631f45e53524c6a6b}{solve}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename Real$>$\newline
+class emsr\+::\+Bairstow\+Solver$<$ Real $>$}
+
+\begin{DoxyRefDesc}{Todo}
+\item[\mbox{\hyperlink{todo__todo000003}{Todo}}]\+: If you {\itshape don\textquotesingle{}t} reverse the input array you solve for 1/z. 
+
+Take a max\+\_\+error. If this-\/$>$m\+\_\+eps grows larger than max\+\_\+error throw. \end{DoxyRefDesc}
+
+
+Definition at line 46 of file solver\+\_\+bairstow.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classemsr_1_1BairstowSolver_a364a46bfa1e476823e4f5f1ecef05688}\label{classemsr_1_1BairstowSolver_a364a46bfa1e476823e4f5f1ecef05688}} 
+\index{emsr::BairstowSolver$<$ Real $>$@{emsr::BairstowSolver$<$ Real $>$}!BairstowSolver@{BairstowSolver}}
+\index{BairstowSolver@{BairstowSolver}!emsr::BairstowSolver$<$ Real $>$@{emsr::BairstowSolver$<$ Real $>$}}
+\doxysubsubsection{\texorpdfstring{BairstowSolver()}{BairstowSolver()}}
+{\footnotesize\ttfamily template$<$typename Real $>$ \\
+\mbox{\hyperlink{classemsr_1_1BairstowSolver}{emsr\+::\+Bairstow\+Solver}}$<$ Real $>$\+::\mbox{\hyperlink{classemsr_1_1BairstowSolver}{Bairstow\+Solver}} (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ Real $>$ \&}]{coeff,  }\item[{unsigned int}]{seed = {\ttfamily std\+:\+:random\+\_\+device()()} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 50 of file solver\+\_\+bairstow.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{52     : m\_coeff\{coeff.rbegin(), coeff.rend()\},}
+\DoxyCodeLine{53       m\_b(coeff.size()), m\_c(coeff.size()),}
+\DoxyCodeLine{54       m\_order(coeff.size() -\/ 1),}
+\DoxyCodeLine{55       m\_urng(seed), m\_pdf(Real\{0\}, Real\{2\})}
+\DoxyCodeLine{56     \{}
+\DoxyCodeLine{57       \textcolor{keywordflow}{if} (this-\/>m\_coeff.size() == 0)}
+\DoxyCodeLine{58         \textcolor{keywordflow}{throw} std::domain\_error(\textcolor{stringliteral}{"{}BairstowSolver: Coefficient size must be nonzero."{}});}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60       \textcolor{keywordflow}{if} (this-\/>m\_coeff[0] == Real\{0\})}
+\DoxyCodeLine{61         \textcolor{keywordflow}{throw} std::domain\_error(\textcolor{stringliteral}{"{}BairstowSolver: Leading-\/order coefficient must be nonzero."{}});}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63       \textcolor{keyword}{const} \textcolor{keyword}{auto} scale = this-\/>m\_coeff[0];}
+\DoxyCodeLine{64       \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i <= this-\/>m\_order; ++i)}
+\DoxyCodeLine{65         this-\/>m\_coeff[i] /= scale;}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{67       this-\/>m\_zero.reserve(this-\/>m\_coeff.size());}
+\DoxyCodeLine{68     \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classemsr_1_1BairstowSolver_a1a7cd03415675e7cb5d36e0ebe43a8e4}\label{classemsr_1_1BairstowSolver_a1a7cd03415675e7cb5d36e0ebe43a8e4}} 
+\index{emsr::BairstowSolver$<$ Real $>$@{emsr::BairstowSolver$<$ Real $>$}!equations@{equations}}
+\index{equations@{equations}!emsr::BairstowSolver$<$ Real $>$@{emsr::BairstowSolver$<$ Real $>$}}
+\doxysubsubsection{\texorpdfstring{equations()}{equations()}}
+{\footnotesize\ttfamily template$<$typename Real $>$ \\
+std\+::vector$<$ Real $>$ \mbox{\hyperlink{classemsr_1_1BairstowSolver}{emsr\+::\+Bairstow\+Solver}}$<$ Real $>$\+::equations}
+
+Return the equations fouble by Bairstow\textquotesingle{}s method. There will be order/2 quadratic equations of the form a\mbox{[}k\mbox{]} + a\mbox{[}k+1\mbox{]}x + x$^\wedge$2 = 0 and, if there is an odd term, a linear equation a\mbox{[}order\mbox{]} + t = 0. 
+
+Definition at line 150 of file solver\+\_\+bairstow.\+tcc.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{151   \{}
+\DoxyCodeLine{152     std::vector<Real> eqs(this-\/>m\_coeff.rbegin(), this-\/>m\_coeff.rend());}
+\DoxyCodeLine{153     eqs.erase(eqs.begin() + eqs.size() -\/ 1, eqs.end());}
+\DoxyCodeLine{154     eqs[eqs.size() -\/ 1] *= Real\{-\/1\};}
+\DoxyCodeLine{155     \textcolor{keywordflow}{return} eqs;}
+\DoxyCodeLine{156   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classemsr_1_1BairstowSolver_ab1efb76f88cb3e6631f45e53524c6a6b}\label{classemsr_1_1BairstowSolver_ab1efb76f88cb3e6631f45e53524c6a6b}} 
+\index{emsr::BairstowSolver$<$ Real $>$@{emsr::BairstowSolver$<$ Real $>$}!solve@{solve}}
+\index{solve@{solve}!emsr::BairstowSolver$<$ Real $>$@{emsr::BairstowSolver$<$ Real $>$}}
+\doxysubsubsection{\texorpdfstring{solve()}{solve()}}
+{\footnotesize\ttfamily template$<$typename Real $>$ \\
+std\+::vector$<$ \mbox{\hyperlink{structemsr_1_1Solution}{Solution}}$<$ Real $>$ $>$ \mbox{\hyperlink{classemsr_1_1BairstowSolver}{emsr\+::\+Bairstow\+Solver}}$<$ Real $>$\+::solve}
+
+
+
+Definition at line 126 of file solver\+\_\+bairstow.\+tcc.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{127   \{}
+\DoxyCodeLine{128     this-\/>m\_eps = s\_eps;}
+\DoxyCodeLine{129 }
+\DoxyCodeLine{130     this-\/>m\_b[0] = Real\{1\};}
+\DoxyCodeLine{131     this-\/>m\_c[0] = Real\{1\};}
+\DoxyCodeLine{132 }
+\DoxyCodeLine{133     \textcolor{keywordflow}{while} (this-\/>m\_order > 2)}
+\DoxyCodeLine{134       this-\/>m\_iterate();}
+\DoxyCodeLine{135     \textcolor{keywordflow}{if} (this-\/>m\_order == 1)}
+\DoxyCodeLine{136       this-\/>m\_add\_zero(-\/this-\/>m\_coeff[1]);}
+\DoxyCodeLine{137 }
+\DoxyCodeLine{138     \textcolor{keywordflow}{return} this-\/>m\_zero;}
+\DoxyCodeLine{139   \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/emsr/\mbox{\hyperlink{solver__bairstow_8h}{solver\+\_\+bairstow.\+h}}\item 
+include/emsr/\mbox{\hyperlink{solver__bairstow_8tcc}{solver\+\_\+bairstow.\+tcc}}\end{DoxyCompactItemize}

@@ -2,8 +2,8 @@
 #include <iostream>
 #include <iomanip>
 
-#include <ext/polynomial.h>
-#include <ext/solver_jenkins_traub.h>
+#include <emsr/polynomial.h>
+#include <emsr/solver_jenkins_traub.h>
 
 
 template<typename Real>
@@ -12,7 +12,7 @@ template<typename Real>
   {
     int num_errors = 0;
 
-    __gnu_cxx::_Polynomial<Real> poly({5, -4, 3, -2, 1});
+    emsr::Polynomial<Real> poly({5, -4, 3, -2, 1});
     const auto poly_deriv = poly.derivative();
     const auto poly_integ = poly.integral(-6);
 

@@ -1,0 +1,72 @@
+\hypertarget{solver__madsen__reid_8h}{}\doxysection{include/emsr/solver\+\_\+madsen\+\_\+reid.h File Reference}
+\label{solver__madsen__reid_8h}\index{include/emsr/solver\_madsen\_reid.h@{include/emsr/solver\_madsen\_reid.h}}
+{\ttfamily \#include $<$limits$>$}\newline
+{\ttfamily \#include $<$complex$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$emsr/solver\+\_\+madsen\+\_\+reid.\+tcc$>$}\newline
+Include dependency graph for solver\+\_\+madsen\+\_\+reid.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{solver__madsen__reid_8h__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classSolverMadsenReid}{Solver\+Madsen\+Reid$<$ Real $>$}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename Real $>$ }\\Real \mbox{\hyperlink{solver__madsen__reid_8h_a31bcb08c99810f2eeefd4f53d405b849}{norm\+\_\+l1}} (std\+::complex$<$ Real $>$ z)
+\item 
+{\footnotesize template$<$typename Real $>$ }\\Real \mbox{\hyperlink{solver__madsen__reid_8h_aaef83f75c59236af3925ca2828a4a2a0}{norm\+\_\+l2}} (std\+::complex$<$ Real $>$ z)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class declaration for the Madsen-\/\+Reid solver. 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{solver__madsen__reid_8h_a31bcb08c99810f2eeefd4f53d405b849}\label{solver__madsen__reid_8h_a31bcb08c99810f2eeefd4f53d405b849}} 
+\index{solver\_madsen\_reid.h@{solver\_madsen\_reid.h}!norm\_l1@{norm\_l1}}
+\index{norm\_l1@{norm\_l1}!solver\_madsen\_reid.h@{solver\_madsen\_reid.h}}
+\doxysubsubsection{\texorpdfstring{norm\_l1()}{norm\_l1()}}
+{\footnotesize\ttfamily template$<$typename Real $>$ \\
+Real norm\+\_\+l1 (\begin{DoxyParamCaption}\item[{std\+::complex$<$ Real $>$}]{z }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Return the L1 sum of absolute values or Manhattan metric of a complex number. 
+
+Definition at line 23 of file solver\+\_\+madsen\+\_\+reid.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{24   \{}
+\DoxyCodeLine{25     \textcolor{keywordflow}{return} \mbox{\hyperlink{namespaceemsr_a782d36096e8467b4a45a9dc2f89355b2}{std::abs}}(\mbox{\hyperlink{namespaceemsr_a3b69f1c91fb3480e098db4e4bfe949f2}{std::real}}(z)) + \mbox{\hyperlink{namespaceemsr_a782d36096e8467b4a45a9dc2f89355b2}{std::abs}}(\mbox{\hyperlink{namespaceemsr_a79ddc0cda81a11ab065e5caae9e0907a}{std::imag}}(z));}
+\DoxyCodeLine{26   \}}
+
+\end{DoxyCode}
+
+
+References emsr\+::abs(), emsr\+::imag(), and emsr\+::real().
+
+\mbox{\Hypertarget{solver__madsen__reid_8h_aaef83f75c59236af3925ca2828a4a2a0}\label{solver__madsen__reid_8h_aaef83f75c59236af3925ca2828a4a2a0}} 
+\index{solver\_madsen\_reid.h@{solver\_madsen\_reid.h}!norm\_l2@{norm\_l2}}
+\index{norm\_l2@{norm\_l2}!solver\_madsen\_reid.h@{solver\_madsen\_reid.h}}
+\doxysubsubsection{\texorpdfstring{norm\_l2()}{norm\_l2()}}
+{\footnotesize\ttfamily template$<$typename Real $>$ \\
+Real norm\+\_\+l2 (\begin{DoxyParamCaption}\item[{std\+::complex$<$ Real $>$}]{z }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Return the L2 modulus of the complex number (this is std\+::norm). 
+
+Definition at line 33 of file solver\+\_\+madsen\+\_\+reid.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{34   \{}
+\DoxyCodeLine{35     \textcolor{keywordflow}{return} std::norm(z);}
+\DoxyCodeLine{36   \}}
+
+\end{DoxyCode}

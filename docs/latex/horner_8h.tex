@@ -1,35 +1,29 @@
-\hypertarget{horner_8h}{}\section{include/ext/horner.h File Reference}
-\label{horner_8h}\index{include/ext/horner.\+h@{include/ext/horner.\+h}}
+\hypertarget{horner_8h}{}\doxysection{include/emsr/horner.h File Reference}
+\label{horner_8h}\index{include/emsr/horner.h@{include/emsr/horner.h}}
 {\ttfamily \#include $<$type\+\_\+traits$>$}\newline
 Include dependency graph for horner.\+h\+:
 \nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=182pt]{horner_8h__incl}
+\includegraphics[width=203pt]{horner_8h__incl}
 \end{center}
 \end{figure}
-\subsection*{Namespaces}
+\doxysubsection*{Namespaces}
 \begin{DoxyCompactItemize}
 \item 
- \hyperlink{namespace____gnu__cxx}{\+\_\+\+\_\+gnu\+\_\+cxx}
+ \mbox{\hyperlink{namespaceemsr}{emsr}}
 \end{DoxyCompactItemize}
-\subsection*{Functions}
+\doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-{\footnotesize template$<$typename \+\_\+\+ArgT , typename \+\_\+\+Coef0 $>$ }\\constexpr std\+::conditional\+\_\+t$<$ std\+::is\+\_\+integral$<$ \+\_\+\+ArgT $>$\+::value, double, \+\_\+\+ArgT $>$ \hyperlink{namespace____gnu__cxx_a2e77239e9d41f55a99755f285ba3d518}{\+\_\+\+\_\+gnu\+\_\+cxx\+::horner} (\+\_\+\+ArgT \+\_\+\+\_\+x, \+\_\+\+Coef0 \+\_\+\+\_\+c0)
+{\footnotesize template$<$typename ArgT , typename Coef0 , typename... Coef$>$ }\\constexpr std\+::conditional\+\_\+t$<$ std\+::is\+\_\+integral$<$ ArgT $>$\+::value, double, ArgT $>$ \mbox{\hyperlink{namespaceemsr_ad76e856347b8d4dc1991d8aad92199f0}{emsr\+::horner}} (ArgT x, Coef0 c0, Coef... c)
 \item 
-{\footnotesize template$<$typename \+\_\+\+ArgT , typename \+\_\+\+Coef0 , typename... \+\_\+\+Coef$>$ }\\constexpr std\+::conditional\+\_\+t$<$ std\+::is\+\_\+integral$<$ \+\_\+\+ArgT $>$\+::value, double, \+\_\+\+ArgT $>$ \hyperlink{namespace____gnu__cxx_a027e4b11b3b25078522220207c2d7f36}{\+\_\+\+\_\+gnu\+\_\+cxx\+::horner} (\+\_\+\+ArgT \+\_\+\+\_\+x, \+\_\+\+Coef0 \+\_\+\+\_\+c0, \+\_\+\+Coef... \+\_\+\+\_\+c)
+{\footnotesize template$<$typename ArgT , typename Coef0 $>$ }\\constexpr std\+::conditional\+\_\+t$<$ std\+::is\+\_\+integral$<$ ArgT $>$\+::value, double, ArgT $>$ \mbox{\hyperlink{namespaceemsr_a155d146e57554633b51b21e4681ce000}{emsr\+::horner}} (ArgT, Coef0 c0)
 \item 
-{\footnotesize template$<$typename \+\_\+\+ArgT , typename \+\_\+\+Coef0 $>$ }\\constexpr std\+::conditional\+\_\+t$<$ std\+::is\+\_\+integral$<$ \+\_\+\+ArgT $>$\+::value, double, \+\_\+\+ArgT $>$ \hyperlink{namespace____gnu__cxx_af87123557fba351af5069ed8d1b99ec1}{\+\_\+\+\_\+gnu\+\_\+cxx\+::horner\+\_\+big\+\_\+end} (\+\_\+\+ArgT, \+\_\+\+Coef0 \+\_\+\+\_\+c0)
+{\footnotesize template$<$typename ArgT , typename Coef1 , typename Coef0 $>$ }\\constexpr std\+::conditional\+\_\+t$<$ std\+::is\+\_\+integral$<$ ArgT $>$\+::value, double, ArgT $>$ \mbox{\hyperlink{namespaceemsr_a381a03247643fc05de000c9d2ccbbe12}{emsr\+::horner\+\_\+big\+\_\+end}} (ArgT x, Coef1 c1, Coef0 c0)
 \item 
-{\footnotesize template$<$typename \+\_\+\+ArgT , typename \+\_\+\+Coef1 , typename \+\_\+\+Coef0 $>$ }\\constexpr std\+::conditional\+\_\+t$<$ std\+::is\+\_\+integral$<$ \+\_\+\+ArgT $>$\+::value, double, \+\_\+\+ArgT $>$ \hyperlink{namespace____gnu__cxx_a546a72f007105e3ba32df87d7463edf7}{\+\_\+\+\_\+gnu\+\_\+cxx\+::horner\+\_\+big\+\_\+end} (\+\_\+\+ArgT \+\_\+\+\_\+x, \+\_\+\+Coef1 \+\_\+\+\_\+c1, \+\_\+\+Coef0 \+\_\+\+\_\+c0)
+{\footnotesize template$<$typename ArgT , typename CoefN , typename Coef\+Nm1 , typename... Coef$>$ }\\constexpr std\+::conditional\+\_\+t$<$ std\+::is\+\_\+integral$<$ ArgT $>$\+::value, double, ArgT $>$ \mbox{\hyperlink{namespaceemsr_acc246a38d5dc59a528e6fc7ec3d38b5a}{emsr\+::horner\+\_\+big\+\_\+end}} (ArgT x, CoefN cn, Coef\+Nm1 cnm1, Coef... c)
 \item 
-{\footnotesize template$<$typename \+\_\+\+ArgT , typename \+\_\+\+CoefN , typename \+\_\+\+Coef\+Nm1 , typename... \+\_\+\+Coef$>$ }\\constexpr std\+::conditional\+\_\+t$<$ std\+::is\+\_\+integral$<$ \+\_\+\+ArgT $>$\+::value, double, \+\_\+\+ArgT $>$ \hyperlink{namespace____gnu__cxx_afda9e3a1e351db85a89d4e6434576159}{\+\_\+\+\_\+gnu\+\_\+cxx\+::horner\+\_\+big\+\_\+end} (\+\_\+\+ArgT \+\_\+\+\_\+x, \+\_\+\+CoefN \+\_\+\+\_\+cn, \+\_\+\+Coef\+Nm1 \+\_\+\+\_\+cnm1, \+\_\+\+Coef... \+\_\+\+\_\+c)
+{\footnotesize template$<$typename ArgT , typename Coef0 $>$ }\\constexpr std\+::conditional\+\_\+t$<$ std\+::is\+\_\+integral$<$ ArgT $>$\+::value, double, ArgT $>$ \mbox{\hyperlink{namespaceemsr_a55de120e4dc9c5c34075279bdf43d17c}{emsr\+::horner\+\_\+big\+\_\+end}} (ArgT, Coef0 c0)
 \end{DoxyCompactItemize}
-
-
-\subsection{Detailed Description}
-Class declaration for Horner polynomial evaluation.
-
-This file is a G\+NU extension to the Standard C++ Library. 

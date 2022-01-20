@@ -5,8 +5,8 @@
 #include <iostream>
 #include <iomanip>
 
-#include <ext/polynomial.h>
-#include <ext/solver_madsen_reid.h>
+#include <emsr/polynomial.h>
+#include <emsr/solver_madsen_reid.h>
 
 template<typename Real>
   int
@@ -44,7 +44,7 @@ template<typename Real>
 
     std::cout << "\nSolution tests:\n";
     // Remember to reverse the polynomial coefficients!
-    __gnu_cxx::_Polynomial<Cmplx> poly(a1.begin(), a1.end());
+    emsr::Polynomial<Cmplx> poly(a1.begin(), a1.end());
     std::cout << "P(z) = " << poly << '\n';
     for (const auto& z : root)
       {

@@ -1,0 +1,1932 @@
+\hypertarget{classemsr_1_1Polynomial}{}\doxysection{emsr\+::Polynomial$<$ Tp $>$ Class Template Reference}
+\label{classemsr_1_1Polynomial}\index{emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}}
+
+
+A dense polynomial class with a contiguous array of coefficients. The coefficients are lowest-\/order first\+:  
+
+
+
+
+{\ttfamily \#include $<$polynomial.\+h$>$}
+
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{classemsr_1_1Polynomial_a82325b267fca95cac7cbf8a6ad2336a0}{const\+\_\+iterator}} = typename std\+::vector$<$ \mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\+\_\+type}} $>$\+::\mbox{\hyperlink{classemsr_1_1Polynomial_a82325b267fca95cac7cbf8a6ad2336a0}{const\+\_\+iterator}}
+\item 
+using \mbox{\hyperlink{classemsr_1_1Polynomial_a489ac41719a8d3a91cf5dbe6a80dbdf9}{const\+\_\+pointer}} = typename std\+::vector$<$ \mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\+\_\+type}} $>$\+::\mbox{\hyperlink{classemsr_1_1Polynomial_a489ac41719a8d3a91cf5dbe6a80dbdf9}{const\+\_\+pointer}}
+\item 
+using \mbox{\hyperlink{classemsr_1_1Polynomial_a7dda7af42cd2ac61f0e2a91e1a260050}{const\+\_\+reference}} = typename std\+::vector$<$ \mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\+\_\+type}} $>$\+::\mbox{\hyperlink{classemsr_1_1Polynomial_a7dda7af42cd2ac61f0e2a91e1a260050}{const\+\_\+reference}}
+\item 
+using \mbox{\hyperlink{classemsr_1_1Polynomial_ad37e192dfec61b9ec41574e16103d924}{const\+\_\+reverse\+\_\+iterator}} = typename std\+::vector$<$ \mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\+\_\+type}} $>$\+::\mbox{\hyperlink{classemsr_1_1Polynomial_ad37e192dfec61b9ec41574e16103d924}{const\+\_\+reverse\+\_\+iterator}}
+\item 
+using \mbox{\hyperlink{classemsr_1_1Polynomial_addd6c9de5a46d1e4a05ce9c9044d511b}{difference\+\_\+type}} = typename std\+::vector$<$ \mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\+\_\+type}} $>$\+::\mbox{\hyperlink{classemsr_1_1Polynomial_addd6c9de5a46d1e4a05ce9c9044d511b}{difference\+\_\+type}}
+\item 
+using \mbox{\hyperlink{classemsr_1_1Polynomial_a28cf0fe8fe59d5bb02a6999de4350de0}{iterator}} = typename std\+::vector$<$ \mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\+\_\+type}} $>$\+::\mbox{\hyperlink{classemsr_1_1Polynomial_a28cf0fe8fe59d5bb02a6999de4350de0}{iterator}}
+\item 
+using \mbox{\hyperlink{classemsr_1_1Polynomial_a8d279f357dcf632e6f99fa28e4a296d7}{pointer}} = typename std\+::vector$<$ \mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\+\_\+type}} $>$\+::\mbox{\hyperlink{classemsr_1_1Polynomial_a8d279f357dcf632e6f99fa28e4a296d7}{pointer}}
+\item 
+using \mbox{\hyperlink{classemsr_1_1Polynomial_ae3f021715877defbf1f4e02d936f0a91}{real\+\_\+type}} = \mbox{\hyperlink{namespaceemsr_a02ec0ebded7be3a1b57643770c87e413}{real\+\_\+type\+\_\+t}}$<$ Tp $>$
+\item 
+using \mbox{\hyperlink{classemsr_1_1Polynomial_af22858f0d4509705b70a20feab01e414}{reference}} = typename std\+::vector$<$ \mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\+\_\+type}} $>$\+::\mbox{\hyperlink{classemsr_1_1Polynomial_af22858f0d4509705b70a20feab01e414}{reference}}
+\item 
+using \mbox{\hyperlink{classemsr_1_1Polynomial_ad4558698b53fb2205da8bf6f7aea4527}{reverse\+\_\+iterator}} = typename std\+::vector$<$ \mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\+\_\+type}} $>$\+::\mbox{\hyperlink{classemsr_1_1Polynomial_ad4558698b53fb2205da8bf6f7aea4527}{reverse\+\_\+iterator}}
+\item 
+using \mbox{\hyperlink{classemsr_1_1Polynomial_abca22a2a90ad0a2f1e6988843171c15a}{size\+\_\+type}} = typename std\+::vector$<$ \mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\+\_\+type}} $>$\+::\mbox{\hyperlink{classemsr_1_1Polynomial_abca22a2a90ad0a2f1e6988843171c15a}{size\+\_\+type}}
+\item 
+using \mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\+\_\+type}} = typename std\+::vector$<$ Tp $>$\+::\mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\+\_\+type}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classemsr_1_1Polynomial_a5afe1d9fce8aed59ce49f7f08947e21d}{Polynomial}} ()
+\item 
+{\footnotesize template$<$typename In\+Iter , typename  = std\+::\+\_\+\+Require\+Input\+Iter$<$\+In\+Iter$>$$>$ }\\\mbox{\hyperlink{classemsr_1_1Polynomial_a6d0addd507268a6b0b89c89d83744877}{Polynomial}} (const In\+Iter \&abegin, const In\+Iter \&aend)
+\item 
+{\footnotesize template$<$typename In\+Iter , typename  = std\+::\+\_\+\+Require\+Input\+Iter$<$\+In\+Iter$>$$>$ }\\\mbox{\hyperlink{classemsr_1_1Polynomial_a5eb38910ff251447085f8158910f6ada}{Polynomial}} (const In\+Iter \&xbegin, const In\+Iter \&xend, const In\+Iter \&ybegin)
+\item 
+\mbox{\hyperlink{classemsr_1_1Polynomial_ac4e27792a42dae08c45a687c9c044cb7}{Polynomial}} (const \mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}} \&)=default
+\item 
+{\footnotesize template$<$typename Up $>$ }\\\mbox{\hyperlink{classemsr_1_1Polynomial_a4b7155357d7530c43d286c160bbc2d49}{Polynomial}} (const \mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}}$<$ Up $>$ \&poly)
+\item 
+{\footnotesize template$<$typename Gen $>$ }\\\mbox{\hyperlink{classemsr_1_1Polynomial_a687a5c9ce8595610e91bb6e3c0a93007}{Polynomial}} (Gen gen, \mbox{\hyperlink{classemsr_1_1Polynomial_abca22a2a90ad0a2f1e6988843171c15a}{size\+\_\+type}} \mbox{\hyperlink{classemsr_1_1Polynomial_a2a5c8eefb4185d1c1ce09d08ebe9b73c}{degree}})
+\item 
+\mbox{\hyperlink{classemsr_1_1Polynomial_a5ccc2d4a520edd0a26f648848398346c}{Polynomial}} (\mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}} \&\&) noexcept=default
+\item 
+\mbox{\hyperlink{classemsr_1_1Polynomial_afbe5f448a46ffd5bedf2c34346f06955}{Polynomial}} (std\+::initializer\+\_\+list$<$ \mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\+\_\+type}} $>$ ila)
+\item 
+\mbox{\hyperlink{classemsr_1_1Polynomial_a019b17a9c13006b80113a999e3d58889}{Polynomial}} (\mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\+\_\+type}} a, \mbox{\hyperlink{classemsr_1_1Polynomial_abca22a2a90ad0a2f1e6988843171c15a}{size\+\_\+type}} \mbox{\hyperlink{classemsr_1_1Polynomial_a2a5c8eefb4185d1c1ce09d08ebe9b73c}{degree}}=0)
+\item 
+\mbox{\hyperlink{classemsr_1_1Polynomial_a82325b267fca95cac7cbf8a6ad2336a0}{const\+\_\+iterator}} \mbox{\hyperlink{classemsr_1_1Polynomial_a7131dc9fbcb7751a515a336c59b87baf}{begin}} () const noexcept
+\item 
+\mbox{\hyperlink{classemsr_1_1Polynomial_a28cf0fe8fe59d5bb02a6999de4350de0}{iterator}} \mbox{\hyperlink{classemsr_1_1Polynomial_a371b606f7b008f279317237e64930b19}{begin}} () noexcept
+\item 
+\mbox{\hyperlink{classemsr_1_1Polynomial_a82325b267fca95cac7cbf8a6ad2336a0}{const\+\_\+iterator}} \mbox{\hyperlink{classemsr_1_1Polynomial_a478bde8a26ed76dbd423c40deda09070}{cbegin}} () const noexcept
+\item 
+\mbox{\hyperlink{classemsr_1_1Polynomial_a82325b267fca95cac7cbf8a6ad2336a0}{const\+\_\+iterator}} \mbox{\hyperlink{classemsr_1_1Polynomial_a870fd01f644f524c2e03e8193432ea12}{cend}} () const noexcept
+\item 
+\mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\+\_\+type}} \mbox{\hyperlink{classemsr_1_1Polynomial_afb52ec6b418e45d32264ec57033f8093}{coefficient}} (\mbox{\hyperlink{classemsr_1_1Polynomial_abca22a2a90ad0a2f1e6988843171c15a}{size\+\_\+type}} i) const
+\item 
+void \mbox{\hyperlink{classemsr_1_1Polynomial_ace30eb54b86a213707f287af3bc6e8f7}{coefficient}} (\mbox{\hyperlink{classemsr_1_1Polynomial_abca22a2a90ad0a2f1e6988843171c15a}{size\+\_\+type}} i, \mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\+\_\+type}} val)
+\item 
+const std\+::vector$<$ \mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\+\_\+type}} $>$ \mbox{\hyperlink{classemsr_1_1Polynomial_a9c12827946efb01e99d40285dabe58c4}{coefficients}} () const noexcept
+\item 
+std\+::vector$<$ \mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\+\_\+type}} $>$ \mbox{\hyperlink{classemsr_1_1Polynomial_a2834ed498ceafbbea7c91d9bb83e7e39}{coefficients}} () noexcept
+\item 
+\mbox{\hyperlink{classemsr_1_1Polynomial_ad37e192dfec61b9ec41574e16103d924}{const\+\_\+reverse\+\_\+iterator}} \mbox{\hyperlink{classemsr_1_1Polynomial_a4cf1fa1f094f2e24496b09953af54e5f}{crbegin}} () const noexcept
+\item 
+\mbox{\hyperlink{classemsr_1_1Polynomial_ad37e192dfec61b9ec41574e16103d924}{const\+\_\+reverse\+\_\+iterator}} \mbox{\hyperlink{classemsr_1_1Polynomial_aa9525b689132c72f33a3ac9108dee1d5}{crend}} () const noexcept
+\item 
+const \mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\+\_\+type}} $\ast$ \mbox{\hyperlink{classemsr_1_1Polynomial_a7cbae96744b81780b88bf2cac6312315}{data}} () const noexcept
+\item 
+\mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\+\_\+type}} $\ast$ \mbox{\hyperlink{classemsr_1_1Polynomial_af573c95078552b538db596898b2a1fe9}{data}} () noexcept
+\item 
+\mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}} \& \mbox{\hyperlink{classemsr_1_1Polynomial_a5294c513ad5adc0e38a11cb20205189f}{deflate}} (const \mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}}$<$ \mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\+\_\+type}} $>$ \&poly, \mbox{\hyperlink{classemsr_1_1Polynomial_ae3f021715877defbf1f4e02d936f0a91}{real\+\_\+type}} max\+\_\+abs\+\_\+coef)
+\item 
+\mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}} \& \mbox{\hyperlink{classemsr_1_1Polynomial_ae6e03417a970d60e2a9db597c7c26f3c}{deflate}} (\mbox{\hyperlink{classemsr_1_1Polynomial_ae3f021715877defbf1f4e02d936f0a91}{real\+\_\+type}} max\+\_\+abs\+\_\+coef)
+\item 
+\mbox{\hyperlink{classemsr_1_1Polynomial_abca22a2a90ad0a2f1e6988843171c15a}{size\+\_\+type}} \mbox{\hyperlink{classemsr_1_1Polynomial_a2a5c8eefb4185d1c1ce09d08ebe9b73c}{degree}} () const noexcept
+\item 
+void \mbox{\hyperlink{classemsr_1_1Polynomial_ab41fe8401b8df0b63237e8a4a93734ff}{degree}} (\mbox{\hyperlink{classemsr_1_1Polynomial_abca22a2a90ad0a2f1e6988843171c15a}{size\+\_\+type}} degree)
+\item 
+\mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}} \mbox{\hyperlink{classemsr_1_1Polynomial_af527bcb4bf2126772de448cd1637e128}{derivative}} () const
+\item 
+\mbox{\hyperlink{classemsr_1_1Polynomial_a82325b267fca95cac7cbf8a6ad2336a0}{const\+\_\+iterator}} \mbox{\hyperlink{classemsr_1_1Polynomial_ad05e76df0ad1a83dd14e342a4939242b}{end}} () const noexcept
+\item 
+\mbox{\hyperlink{classemsr_1_1Polynomial_a28cf0fe8fe59d5bb02a6999de4350de0}{iterator}} \mbox{\hyperlink{classemsr_1_1Polynomial_a6454c45ce05c2baaa4ad3efe707bf730}{end}} () noexcept
+\item 
+{\footnotesize template$<$typename Out\+Iter $>$ }\\void \mbox{\hyperlink{classemsr_1_1Polynomial_af6cb54c57deecaf2d79ed3f1028ef0b5}{eval}} (typename \mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}}$<$ Tp $>$\+::\mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\+\_\+type}} x, Out\+Iter b, Out\+Iter e)
+\item 
+{\footnotesize template$<$typename Polynomial$<$ Tp $>$\+::size\+\_\+type N$>$ }\\void \mbox{\hyperlink{classemsr_1_1Polynomial_a0053a7be9ed853b5dfb2ce7a6a9c7d27}{eval}} (typename \mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}}$<$ Tp $>$\+::\mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\+\_\+type}} x, std\+::array$<$ \mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}}$<$ Tp $>$\+::\mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\+\_\+type}}, N $>$ \&arr)
+\item 
+{\footnotesize template$<$typename Out\+Iter $>$ }\\void \mbox{\hyperlink{classemsr_1_1Polynomial_adbf4cbe94420c9d77c3bb3048f1256e7}{eval}} (\mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\+\_\+type}} x, Out\+Iter b, Out\+Iter e)
+\item 
+{\footnotesize template$<$size\+\_\+type N$>$ }\\void \mbox{\hyperlink{classemsr_1_1Polynomial_a32f09d9add02c040d7440686660c329b}{eval}} (\mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\+\_\+type}} x, std\+::array$<$ \mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\+\_\+type}}, N $>$ \&arr)
+\item 
+{\footnotesize template$<$typename Up $>$ }\\auto \mbox{\hyperlink{classemsr_1_1Polynomial_afcefb0cee04707ba1ba95ba65d8588e3}{eval\+\_\+even}} (const std\+::complex$<$ Up $>$ \&z) const -\/$>$ std\+::enable\+\_\+if\+\_\+t$<$!\mbox{\hyperlink{namespaceemsr_a5bf2c62dcc64e44b8b65766f71d8aa64}{has\+\_\+imag\+\_\+v}}$<$ Tp $>$, std\+::complex$<$ std\+::decay\+\_\+t$<$ decltype(typename \mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}}$<$ Tp $>$\+::\mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\+\_\+type}}\{\} $\ast$Up\{\})$>$$>$$>$
+\item 
+{\footnotesize template$<$typename Tp $>$ }\\\mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}}$<$ Tp $>$\+::\mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\+\_\+type}} \mbox{\hyperlink{classemsr_1_1Polynomial_ac24b610b05e9497a6460526f00b4fa33}{eval\+\_\+even}} (typename \mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}}$<$ Tp $>$\+::\mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\+\_\+type}} x) const
+\item 
+\mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\+\_\+type}} \mbox{\hyperlink{classemsr_1_1Polynomial_af9cd3e97110e76af7577d7efa7e36a45}{eval\+\_\+even}} (\mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\+\_\+type}} x) const
+\item 
+{\footnotesize template$<$typename Up $>$ }\\auto \mbox{\hyperlink{classemsr_1_1Polynomial_a462704449505870e084b72c602e22fd6}{eval\+\_\+odd}} (const std\+::complex$<$ Up $>$ \&z) const -\/$>$ std\+::enable\+\_\+if\+\_\+t$<$!\mbox{\hyperlink{namespaceemsr_a5bf2c62dcc64e44b8b65766f71d8aa64}{has\+\_\+imag\+\_\+v}}$<$ Tp $>$, std\+::complex$<$ std\+::decay\+\_\+t$<$ decltype(typename \mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}}$<$ Tp $>$\+::\mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\+\_\+type}}\{\} $\ast$Up\{\})$>$$>$$>$
+\item 
+{\footnotesize template$<$typename Tp $>$ }\\\mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}}$<$ Tp $>$\+::\mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\+\_\+type}} \mbox{\hyperlink{classemsr_1_1Polynomial_af5632fc32a856fdb586698dd20ada325}{eval\+\_\+odd}} (typename \mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}}$<$ Tp $>$\+::\mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\+\_\+type}} x) const
+\item 
+\mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\+\_\+type}} \mbox{\hyperlink{classemsr_1_1Polynomial_a63ed8bbcca45aaefbe020a5103c11dca}{eval\+\_\+odd}} (\mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\+\_\+type}} x) const
+\item 
+\mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}} \mbox{\hyperlink{classemsr_1_1Polynomial_ad89d8a939d60db6301dca0b041a21eef}{integral}} (\mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\+\_\+type}} c=\mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\+\_\+type}}\{\}) const
+\item 
+{\footnotesize template$<$typename Up $>$ }\\\mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}} \& \mbox{\hyperlink{classemsr_1_1Polynomial_aae8103fb22d7573cf7fcc9a1ab0826ba}{operator\%=}} (const \mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}}$<$ Up $>$ \&poly)
+\item 
+{\footnotesize template$<$typename Up $>$ }\\\mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}} \& \mbox{\hyperlink{classemsr_1_1Polynomial_a6647f4aeeb2efedfdf7f0fdfd83c8bd3}{operator\%=}} (const Up \&)
+\item 
+{\footnotesize template$<$typename In\+Iter , typename Out\+Iter , typename  = std\+::\+\_\+\+Require\+Input\+Iter$<$\+In\+Iter$>$$>$ }\\Out\+Iter \mbox{\hyperlink{classemsr_1_1Polynomial_a8fd010f795b2c81f79a698c576536710}{operator()}} (const In\+Iter \&xbegin, const In\+Iter \&xend, Out\+Iter \&pbegin) const
+\item 
+{\footnotesize template$<$typename Up $>$ }\\auto \mbox{\hyperlink{classemsr_1_1Polynomial_ab09a086ab94c7bd61fc088448ba3beff}{operator()}} (const std\+::complex$<$ Up $>$ \&z) const -\/$>$ std\+::enable\+\_\+if\+\_\+t$<$!\mbox{\hyperlink{namespaceemsr_a5bf2c62dcc64e44b8b65766f71d8aa64}{has\+\_\+imag\+\_\+v}}$<$ Tp $>$, std\+::complex$<$ std\+::decay\+\_\+t$<$ decltype(typename \mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}}$<$ Tp $>$\+::\mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\+\_\+type}}\{\} $\ast$Up\{\})$>$$>$$>$
+\item 
+{\footnotesize template$<$typename Up $>$ }\\auto \mbox{\hyperlink{classemsr_1_1Polynomial_ace1a108efad37789039664227ec2ac5b}{operator()}} (Up x) const -\/$>$ decltype(\mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\+\_\+type}}\{\} $\ast$Up\{\})
+\item 
+\mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\+\_\+type}} \mbox{\hyperlink{classemsr_1_1Polynomial_a654fffc96d5f159af389a200097821cb}{operator()}} (\mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\+\_\+type}} x) const
+\item 
+{\footnotesize template$<$typename Up $>$ }\\\mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}} \& \mbox{\hyperlink{classemsr_1_1Polynomial_abd3311f28c2acbf9fa7f586659e4b078}{operator$\ast$=}} (const \mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}}$<$ Up $>$ \&poly)
+\item 
+{\footnotesize template$<$typename Up $>$ }\\\mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}}$<$ Tp $>$ \& \mbox{\hyperlink{classemsr_1_1Polynomial_a48ba05d2bb3b39ac6f45321bbc14ab3c}{operator$\ast$=}} (const \mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}}$<$ Up $>$ \&poly)
+\item 
+{\footnotesize template$<$typename Up $>$ }\\\mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}} \& \mbox{\hyperlink{classemsr_1_1Polynomial_a4f93c5eda0d23bc29c48bc756c3dcdd9}{operator$\ast$=}} (const Up \&c)
+\item 
+\mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}} \mbox{\hyperlink{classemsr_1_1Polynomial_aa410ba125c10efcabdf6fbfc286d52cf}{operator+}} () const noexcept
+\item 
+{\footnotesize template$<$typename Up $>$ }\\\mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}} \& \mbox{\hyperlink{classemsr_1_1Polynomial_a843fff2d8523c479bfa845a06a414f27}{operator+=}} (const \mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}}$<$ Up $>$ \&poly)
+\item 
+{\footnotesize template$<$typename Up $>$ }\\\mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}} \& \mbox{\hyperlink{classemsr_1_1Polynomial_ab18ae966d256d2e7bd56664ca28fb675}{operator+=}} (const Up \&x)
+\item 
+\mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}} \mbox{\hyperlink{classemsr_1_1Polynomial_ae34b5ff943e3f85279e786394385a477}{operator-\/}} () const
+\item 
+{\footnotesize template$<$typename Up $>$ }\\\mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}} \& \mbox{\hyperlink{classemsr_1_1Polynomial_a20038e463cf23edb3e8d1a534045c0db}{operator-\/=}} (const \mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}}$<$ Up $>$ \&poly)
+\item 
+{\footnotesize template$<$typename Up $>$ }\\\mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}} \& \mbox{\hyperlink{classemsr_1_1Polynomial_a6cc4c9b6370f3b7bc612d115101d84eb}{operator-\/=}} (const Up \&x)
+\item 
+{\footnotesize template$<$typename Up $>$ }\\\mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}} \& \mbox{\hyperlink{classemsr_1_1Polynomial_a14c6ae44c86030c54f3e0774270be2b2}{operator/=}} (const \mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}}$<$ Up $>$ \&poly)
+\item 
+{\footnotesize template$<$typename Up $>$ }\\\mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}} \& \mbox{\hyperlink{classemsr_1_1Polynomial_aa05c360c4008a81997550bc1ee184ba9}{operator/=}} (const Up \&c)
+\item 
+\mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}} \& \mbox{\hyperlink{classemsr_1_1Polynomial_add50a8155190b76a3fee3e01fd95bbf5}{operator=}} (const \mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}} \&)=default
+\item 
+{\footnotesize template$<$typename Up $>$ }\\\mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}} \& \mbox{\hyperlink{classemsr_1_1Polynomial_af5e29827bf674e230461e3509a14518b}{operator=}} (const \mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}}$<$ Up $>$ \&poly)
+\item 
+\mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}} \& \mbox{\hyperlink{classemsr_1_1Polynomial_aebed319f39a87d459c86163a71f2e6e0}{operator=}} (const \mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\+\_\+type}} \&x)
+\item 
+\mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}} \& \mbox{\hyperlink{classemsr_1_1Polynomial_afd978a2219a5cc55719a1c545fab064c}{operator=}} (std\+::initializer\+\_\+list$<$ \mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\+\_\+type}} $>$ ila)
+\item 
+\mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\+\_\+type}} \mbox{\hyperlink{classemsr_1_1Polynomial_ab5760d7669b5ff001c937cb41264b465}{operator\mbox{[}$\,$\mbox{]}}} (\mbox{\hyperlink{classemsr_1_1Polynomial_abca22a2a90ad0a2f1e6988843171c15a}{size\+\_\+type}} i) const noexcept
+\item 
+\mbox{\hyperlink{classemsr_1_1Polynomial_af22858f0d4509705b70a20feab01e414}{reference}} \mbox{\hyperlink{classemsr_1_1Polynomial_ae5e50698960fbfbb402aee0e6993719a}{operator\mbox{[}$\,$\mbox{]}}} (\mbox{\hyperlink{classemsr_1_1Polynomial_abca22a2a90ad0a2f1e6988843171c15a}{size\+\_\+type}} i) noexcept
+\item 
+\mbox{\hyperlink{classemsr_1_1Polynomial_ad37e192dfec61b9ec41574e16103d924}{const\+\_\+reverse\+\_\+iterator}} \mbox{\hyperlink{classemsr_1_1Polynomial_a109abffde90a6018aab9be2cdf80c1f7}{rbegin}} () const noexcept
+\item 
+\mbox{\hyperlink{classemsr_1_1Polynomial_ad4558698b53fb2205da8bf6f7aea4527}{reverse\+\_\+iterator}} \mbox{\hyperlink{classemsr_1_1Polynomial_af26c8b2fc19aa493fedba8f2699e1169}{rbegin}} () noexcept
+\item 
+\mbox{\hyperlink{classemsr_1_1Polynomial_ad37e192dfec61b9ec41574e16103d924}{const\+\_\+reverse\+\_\+iterator}} \mbox{\hyperlink{classemsr_1_1Polynomial_a15919bee48c4d6f6f19d10482a677674}{rend}} () const noexcept
+\item 
+\mbox{\hyperlink{classemsr_1_1Polynomial_ad4558698b53fb2205da8bf6f7aea4527}{reverse\+\_\+iterator}} \mbox{\hyperlink{classemsr_1_1Polynomial_a48782524ed9cdf1ed6e38e404b99b3b3}{rend}} () noexcept
+\item 
+void \mbox{\hyperlink{classemsr_1_1Polynomial_aba0cec53026157c994ca99b56f6312bb}{shift}} (\mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\+\_\+type}} shift)
+\item 
+\mbox{\hyperlink{classemsr_1_1Polynomial_abca22a2a90ad0a2f1e6988843171c15a}{size\+\_\+type}} \mbox{\hyperlink{classemsr_1_1Polynomial_aabf5c490ca6c70c0c823335a2293948a}{size}} () const noexcept
+\item 
+void \mbox{\hyperlink{classemsr_1_1Polynomial_a1ecd2d2165aa049559c5487d65b2ebdf}{swap}} (\mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}} \&poly) noexcept
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename Up $>$ }\\decltype(Up\{\} $\ast$\mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\+\_\+type}}\{\} \mbox{\hyperlink{classemsr_1_1Polynomial_a551ee4e0e7f4fa425cce39cb758565bb}{derivative}} )(Up c) const
+\item 
+{\footnotesize template$<$typename Up $>$ }\\decltype(Up\{\} $\ast$\mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\+\_\+type}}\{\} \mbox{\hyperlink{classemsr_1_1Polynomial_a5a05faaacfd4b5f6f76e2fa4f985a022}{integral}} )(Up a, Up b) const
+\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename Tp1 $>$ }\\bool \mbox{\hyperlink{classemsr_1_1Polynomial_a0bd4102b110210d721a10d79bf9b31d3}{operator==}} (const \mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}}$<$ Tp1 $>$ \&pa, const \mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}}$<$ Tp1 $>$ \&pb)
+\item 
+{\footnotesize template$<$typename CharT , typename Traits , typename Tp1 $>$ }\\std\+::basic\+\_\+istream$<$ CharT, Traits $>$ \& \mbox{\hyperlink{classemsr_1_1Polynomial_a3d2d48e6908643da64fa1ec74b7563cf}{operator$>$$>$}} (std\+::basic\+\_\+istream$<$ CharT, Traits $>$ \&, \mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}}$<$ Tp1 $>$ \&)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename Tp$>$\newline
+class emsr\+::\+Polynomial$<$ Tp $>$}
+
+A dense polynomial class with a contiguous array of coefficients. The coefficients are lowest-\/order first\+: 
+
+\[ P(x) = a_0 + a_1 x + ... + a_n x^n \] 
+
+Definition at line 136 of file polynomial.\+h.
+
+
+
+\doxysubsection{Member Typedef Documentation}
+\mbox{\Hypertarget{classemsr_1_1Polynomial_a82325b267fca95cac7cbf8a6ad2336a0}\label{classemsr_1_1Polynomial_a82325b267fca95cac7cbf8a6ad2336a0}} 
+\index{emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}!const\_iterator@{const\_iterator}}
+\index{const\_iterator@{const\_iterator}!emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}}
+\doxysubsubsection{\texorpdfstring{const\_iterator}{const\_iterator}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+using \mbox{\hyperlink{classemsr_1_1Polynomial}{emsr\+::\+Polynomial}}$<$ Tp $>$\+::\mbox{\hyperlink{classemsr_1_1Polynomial_a82325b267fca95cac7cbf8a6ad2336a0}{const\+\_\+iterator}} =  typename std\+::vector$<$\mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\+\_\+type}}$>$\+::\mbox{\hyperlink{classemsr_1_1Polynomial_a82325b267fca95cac7cbf8a6ad2336a0}{const\+\_\+iterator}}}
+
+
+
+Definition at line 148 of file polynomial.\+h.
+
+\mbox{\Hypertarget{classemsr_1_1Polynomial_a489ac41719a8d3a91cf5dbe6a80dbdf9}\label{classemsr_1_1Polynomial_a489ac41719a8d3a91cf5dbe6a80dbdf9}} 
+\index{emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}!const\_pointer@{const\_pointer}}
+\index{const\_pointer@{const\_pointer}!emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}}
+\doxysubsubsection{\texorpdfstring{const\_pointer}{const\_pointer}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+using \mbox{\hyperlink{classemsr_1_1Polynomial}{emsr\+::\+Polynomial}}$<$ Tp $>$\+::\mbox{\hyperlink{classemsr_1_1Polynomial_a489ac41719a8d3a91cf5dbe6a80dbdf9}{const\+\_\+pointer}} =  typename std\+::vector$<$\mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\+\_\+type}}$>$\+::\mbox{\hyperlink{classemsr_1_1Polynomial_a489ac41719a8d3a91cf5dbe6a80dbdf9}{const\+\_\+pointer}}}
+
+
+
+Definition at line 146 of file polynomial.\+h.
+
+\mbox{\Hypertarget{classemsr_1_1Polynomial_a7dda7af42cd2ac61f0e2a91e1a260050}\label{classemsr_1_1Polynomial_a7dda7af42cd2ac61f0e2a91e1a260050}} 
+\index{emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}!const\_reference@{const\_reference}}
+\index{const\_reference@{const\_reference}!emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}}
+\doxysubsubsection{\texorpdfstring{const\_reference}{const\_reference}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+using \mbox{\hyperlink{classemsr_1_1Polynomial}{emsr\+::\+Polynomial}}$<$ Tp $>$\+::\mbox{\hyperlink{classemsr_1_1Polynomial_a7dda7af42cd2ac61f0e2a91e1a260050}{const\+\_\+reference}} =  typename std\+::vector$<$\mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\+\_\+type}}$>$\+::\mbox{\hyperlink{classemsr_1_1Polynomial_a7dda7af42cd2ac61f0e2a91e1a260050}{const\+\_\+reference}}}
+
+
+
+Definition at line 144 of file polynomial.\+h.
+
+\mbox{\Hypertarget{classemsr_1_1Polynomial_ad37e192dfec61b9ec41574e16103d924}\label{classemsr_1_1Polynomial_ad37e192dfec61b9ec41574e16103d924}} 
+\index{emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}!const\_reverse\_iterator@{const\_reverse\_iterator}}
+\index{const\_reverse\_iterator@{const\_reverse\_iterator}!emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}}
+\doxysubsubsection{\texorpdfstring{const\_reverse\_iterator}{const\_reverse\_iterator}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+using \mbox{\hyperlink{classemsr_1_1Polynomial}{emsr\+::\+Polynomial}}$<$ Tp $>$\+::\mbox{\hyperlink{classemsr_1_1Polynomial_ad37e192dfec61b9ec41574e16103d924}{const\+\_\+reverse\+\_\+iterator}} =  typename std\+::vector$<$\mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\+\_\+type}}$>$\+::\mbox{\hyperlink{classemsr_1_1Polynomial_ad37e192dfec61b9ec41574e16103d924}{const\+\_\+reverse\+\_\+iterator}}}
+
+
+
+Definition at line 151 of file polynomial.\+h.
+
+\mbox{\Hypertarget{classemsr_1_1Polynomial_addd6c9de5a46d1e4a05ce9c9044d511b}\label{classemsr_1_1Polynomial_addd6c9de5a46d1e4a05ce9c9044d511b}} 
+\index{emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}!difference\_type@{difference\_type}}
+\index{difference\_type@{difference\_type}!emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}}
+\doxysubsubsection{\texorpdfstring{difference\_type}{difference\_type}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+using \mbox{\hyperlink{classemsr_1_1Polynomial}{emsr\+::\+Polynomial}}$<$ Tp $>$\+::\mbox{\hyperlink{classemsr_1_1Polynomial_addd6c9de5a46d1e4a05ce9c9044d511b}{difference\+\_\+type}} =  typename std\+::vector$<$\mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\+\_\+type}}$>$\+::\mbox{\hyperlink{classemsr_1_1Polynomial_addd6c9de5a46d1e4a05ce9c9044d511b}{difference\+\_\+type}}}
+
+
+
+Definition at line 154 of file polynomial.\+h.
+
+\mbox{\Hypertarget{classemsr_1_1Polynomial_a28cf0fe8fe59d5bb02a6999de4350de0}\label{classemsr_1_1Polynomial_a28cf0fe8fe59d5bb02a6999de4350de0}} 
+\index{emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}!iterator@{iterator}}
+\index{iterator@{iterator}!emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}}
+\doxysubsubsection{\texorpdfstring{iterator}{iterator}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+using \mbox{\hyperlink{classemsr_1_1Polynomial}{emsr\+::\+Polynomial}}$<$ Tp $>$\+::\mbox{\hyperlink{classemsr_1_1Polynomial_a28cf0fe8fe59d5bb02a6999de4350de0}{iterator}} =  typename std\+::vector$<$\mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\+\_\+type}}$>$\+::\mbox{\hyperlink{classemsr_1_1Polynomial_a28cf0fe8fe59d5bb02a6999de4350de0}{iterator}}}
+
+
+
+Definition at line 147 of file polynomial.\+h.
+
+\mbox{\Hypertarget{classemsr_1_1Polynomial_a8d279f357dcf632e6f99fa28e4a296d7}\label{classemsr_1_1Polynomial_a8d279f357dcf632e6f99fa28e4a296d7}} 
+\index{emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}!pointer@{pointer}}
+\index{pointer@{pointer}!emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}}
+\doxysubsubsection{\texorpdfstring{pointer}{pointer}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+using \mbox{\hyperlink{classemsr_1_1Polynomial}{emsr\+::\+Polynomial}}$<$ Tp $>$\+::\mbox{\hyperlink{classemsr_1_1Polynomial_a8d279f357dcf632e6f99fa28e4a296d7}{pointer}} =  typename std\+::vector$<$\mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\+\_\+type}}$>$\+::\mbox{\hyperlink{classemsr_1_1Polynomial_a8d279f357dcf632e6f99fa28e4a296d7}{pointer}}}
+
+
+
+Definition at line 145 of file polynomial.\+h.
+
+\mbox{\Hypertarget{classemsr_1_1Polynomial_ae3f021715877defbf1f4e02d936f0a91}\label{classemsr_1_1Polynomial_ae3f021715877defbf1f4e02d936f0a91}} 
+\index{emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}!real\_type@{real\_type}}
+\index{real\_type@{real\_type}!emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}}
+\doxysubsubsection{\texorpdfstring{real\_type}{real\_type}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+using \mbox{\hyperlink{classemsr_1_1Polynomial}{emsr\+::\+Polynomial}}$<$ Tp $>$\+::\mbox{\hyperlink{classemsr_1_1Polynomial_ae3f021715877defbf1f4e02d936f0a91}{real\+\_\+type}} =  \mbox{\hyperlink{namespaceemsr_a02ec0ebded7be3a1b57643770c87e413}{real\+\_\+type\+\_\+t}}$<$Tp$>$}
+
+
+
+Definition at line 155 of file polynomial.\+h.
+
+\mbox{\Hypertarget{classemsr_1_1Polynomial_af22858f0d4509705b70a20feab01e414}\label{classemsr_1_1Polynomial_af22858f0d4509705b70a20feab01e414}} 
+\index{emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}!reference@{reference}}
+\index{reference@{reference}!emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}}
+\doxysubsubsection{\texorpdfstring{reference}{reference}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+using \mbox{\hyperlink{classemsr_1_1Polynomial}{emsr\+::\+Polynomial}}$<$ Tp $>$\+::\mbox{\hyperlink{classemsr_1_1Polynomial_af22858f0d4509705b70a20feab01e414}{reference}} =  typename std\+::vector$<$\mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\+\_\+type}}$>$\+::\mbox{\hyperlink{classemsr_1_1Polynomial_af22858f0d4509705b70a20feab01e414}{reference}}}
+
+
+
+Definition at line 143 of file polynomial.\+h.
+
+\mbox{\Hypertarget{classemsr_1_1Polynomial_ad4558698b53fb2205da8bf6f7aea4527}\label{classemsr_1_1Polynomial_ad4558698b53fb2205da8bf6f7aea4527}} 
+\index{emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}!reverse\_iterator@{reverse\_iterator}}
+\index{reverse\_iterator@{reverse\_iterator}!emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}}
+\doxysubsubsection{\texorpdfstring{reverse\_iterator}{reverse\_iterator}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+using \mbox{\hyperlink{classemsr_1_1Polynomial}{emsr\+::\+Polynomial}}$<$ Tp $>$\+::\mbox{\hyperlink{classemsr_1_1Polynomial_ad4558698b53fb2205da8bf6f7aea4527}{reverse\+\_\+iterator}} =  typename std\+::vector$<$\mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\+\_\+type}}$>$\+::\mbox{\hyperlink{classemsr_1_1Polynomial_ad4558698b53fb2205da8bf6f7aea4527}{reverse\+\_\+iterator}}}
+
+
+
+Definition at line 149 of file polynomial.\+h.
+
+\mbox{\Hypertarget{classemsr_1_1Polynomial_abca22a2a90ad0a2f1e6988843171c15a}\label{classemsr_1_1Polynomial_abca22a2a90ad0a2f1e6988843171c15a}} 
+\index{emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}!size\_type@{size\_type}}
+\index{size\_type@{size\_type}!emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}}
+\doxysubsubsection{\texorpdfstring{size\_type}{size\_type}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+using \mbox{\hyperlink{classemsr_1_1Polynomial}{emsr\+::\+Polynomial}}$<$ Tp $>$\+::\mbox{\hyperlink{classemsr_1_1Polynomial_abca22a2a90ad0a2f1e6988843171c15a}{size\+\_\+type}} =  typename std\+::vector$<$\mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\+\_\+type}}$>$\+::\mbox{\hyperlink{classemsr_1_1Polynomial_abca22a2a90ad0a2f1e6988843171c15a}{size\+\_\+type}}}
+
+
+
+Definition at line 153 of file polynomial.\+h.
+
+\mbox{\Hypertarget{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}\label{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}} 
+\index{emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}!value\_type@{value\_type}}
+\index{value\_type@{value\_type}!emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}}
+\doxysubsubsection{\texorpdfstring{value\_type}{value\_type}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+using \mbox{\hyperlink{classemsr_1_1Polynomial}{emsr\+::\+Polynomial}}$<$ Tp $>$\+::\mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\+\_\+type}} =  typename std\+::vector$<$Tp$>$\+::\mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\+\_\+type}}}
+
+Typedefs. 
+
+Definition at line 142 of file polynomial.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classemsr_1_1Polynomial_a5afe1d9fce8aed59ce49f7f08947e21d}\label{classemsr_1_1Polynomial_a5afe1d9fce8aed59ce49f7f08947e21d}} 
+\index{emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}!Polynomial@{Polynomial}}
+\index{Polynomial@{Polynomial}!emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}}
+\doxysubsubsection{\texorpdfstring{Polynomial()}{Polynomial()}\hspace{0.1cm}{\footnotesize\ttfamily [1/9]}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+\mbox{\hyperlink{classemsr_1_1Polynomial}{emsr\+::\+Polynomial}}$<$ Tp $>$\+::\mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Create a zero degree polynomial with coefficient value zero. 
+
+Definition at line 160 of file polynomial.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{161       : m\_coeff(1)}
+\DoxyCodeLine{162       \{ \}}
+
+\end{DoxyCode}
+
+
+Referenced by emsr\+::\+Polynomial$<$ Tp $>$\+::operator-\/().
+
+\mbox{\Hypertarget{classemsr_1_1Polynomial_ac4e27792a42dae08c45a687c9c044cb7}\label{classemsr_1_1Polynomial_ac4e27792a42dae08c45a687c9c044cb7}} 
+\index{emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}!Polynomial@{Polynomial}}
+\index{Polynomial@{Polynomial}!emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}}
+\doxysubsubsection{\texorpdfstring{Polynomial()}{Polynomial()}\hspace{0.1cm}{\footnotesize\ttfamily [2/9]}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+\mbox{\hyperlink{classemsr_1_1Polynomial}{emsr\+::\+Polynomial}}$<$ Tp $>$\+::\mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}}$<$ Tp $>$ \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+Copy ctor. \mbox{\Hypertarget{classemsr_1_1Polynomial_a5ccc2d4a520edd0a26f648848398346c}\label{classemsr_1_1Polynomial_a5ccc2d4a520edd0a26f648848398346c}} 
+\index{emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}!Polynomial@{Polynomial}}
+\index{Polynomial@{Polynomial}!emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}}
+\doxysubsubsection{\texorpdfstring{Polynomial()}{Polynomial()}\hspace{0.1cm}{\footnotesize\ttfamily [3/9]}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+\mbox{\hyperlink{classemsr_1_1Polynomial}{emsr\+::\+Polynomial}}$<$ Tp $>$\+::\mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}} (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}}$<$ Tp $>$ \&\&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}, {\ttfamily [noexcept]}}
+
+Move ctor. \mbox{\Hypertarget{classemsr_1_1Polynomial_a4b7155357d7530c43d286c160bbc2d49}\label{classemsr_1_1Polynomial_a4b7155357d7530c43d286c160bbc2d49}} 
+\index{emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}!Polynomial@{Polynomial}}
+\index{Polynomial@{Polynomial}!emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}}
+\doxysubsubsection{\texorpdfstring{Polynomial()}{Polynomial()}\hspace{0.1cm}{\footnotesize\ttfamily [4/9]}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+template$<$typename Up $>$ \\
+\mbox{\hyperlink{classemsr_1_1Polynomial}{emsr\+::\+Polynomial}}$<$ Tp $>$\+::\mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}}$<$ Up $>$ \&}]{poly }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 175 of file polynomial.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{176         : m\_coeff\{\}}
+\DoxyCodeLine{177         \{}
+\DoxyCodeLine{178           \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto} c : poly)}
+\DoxyCodeLine{179             this-\/>m\_coeff.push\_back(\textcolor{keyword}{static\_cast<}\mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\_type}}\textcolor{keyword}{>}(c));}
+\DoxyCodeLine{180           this-\/>m\_set\_scale();}
+\DoxyCodeLine{181         \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classemsr_1_1Polynomial_a019b17a9c13006b80113a999e3d58889}\label{classemsr_1_1Polynomial_a019b17a9c13006b80113a999e3d58889}} 
+\index{emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}!Polynomial@{Polynomial}}
+\index{Polynomial@{Polynomial}!emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}}
+\doxysubsubsection{\texorpdfstring{Polynomial()}{Polynomial()}\hspace{0.1cm}{\footnotesize\ttfamily [5/9]}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+\mbox{\hyperlink{classemsr_1_1Polynomial}{emsr\+::\+Polynomial}}$<$ Tp $>$\+::\mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}} (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\+\_\+type}}}]{a,  }\item[{\mbox{\hyperlink{classemsr_1_1Polynomial_abca22a2a90ad0a2f1e6988843171c15a}{size\+\_\+type}}}]{degree = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+Create a monomial. 
+
+Definition at line 187 of file polynomial.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{188       : m\_coeff(\mbox{\hyperlink{classemsr_1_1Polynomial_a2a5c8eefb4185d1c1ce09d08ebe9b73c}{degree}} + 1)}
+\DoxyCodeLine{189       \{ this-\/>m\_coeff[\mbox{\hyperlink{classemsr_1_1Polynomial_a2a5c8eefb4185d1c1ce09d08ebe9b73c}{degree}}] = a; \}}
+
+\end{DoxyCode}
+
+
+References emsr\+::\+Polynomial$<$ Tp $>$\+::degree().
+
+\mbox{\Hypertarget{classemsr_1_1Polynomial_afbe5f448a46ffd5bedf2c34346f06955}\label{classemsr_1_1Polynomial_afbe5f448a46ffd5bedf2c34346f06955}} 
+\index{emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}!Polynomial@{Polynomial}}
+\index{Polynomial@{Polynomial}!emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}}
+\doxysubsubsection{\texorpdfstring{Polynomial()}{Polynomial()}\hspace{0.1cm}{\footnotesize\ttfamily [6/9]}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+\mbox{\hyperlink{classemsr_1_1Polynomial}{emsr\+::\+Polynomial}}$<$ Tp $>$\+::\mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}} (\begin{DoxyParamCaption}\item[{std\+::initializer\+\_\+list$<$ \mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\+\_\+type}} $>$}]{ila }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Create a polynomial from an initializer list of coefficients. 
+
+Definition at line 194 of file polynomial.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{195       : m\_coeff(ila)}
+\DoxyCodeLine{196       \{ this-\/>m\_set\_scale(); \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classemsr_1_1Polynomial_a6d0addd507268a6b0b89c89d83744877}\label{classemsr_1_1Polynomial_a6d0addd507268a6b0b89c89d83744877}} 
+\index{emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}!Polynomial@{Polynomial}}
+\index{Polynomial@{Polynomial}!emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}}
+\doxysubsubsection{\texorpdfstring{Polynomial()}{Polynomial()}\hspace{0.1cm}{\footnotesize\ttfamily [7/9]}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+template$<$typename In\+Iter , typename  = std\+::\+\_\+\+Require\+Input\+Iter$<$\+In\+Iter$>$$>$ \\
+\mbox{\hyperlink{classemsr_1_1Polynomial}{emsr\+::\+Polynomial}}$<$ Tp $>$\+::\mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}} (\begin{DoxyParamCaption}\item[{const In\+Iter \&}]{abegin,  }\item[{const In\+Iter \&}]{aend }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Create a polynomial from an input iterator range of coefficients. 
+
+Definition at line 203 of file polynomial.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{204         : m\_coeff(abegin, aend)}
+\DoxyCodeLine{205         \{ this-\/>m\_set\_scale(); \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classemsr_1_1Polynomial_a5eb38910ff251447085f8158910f6ada}\label{classemsr_1_1Polynomial_a5eb38910ff251447085f8158910f6ada}} 
+\index{emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}!Polynomial@{Polynomial}}
+\index{Polynomial@{Polynomial}!emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}}
+\doxysubsubsection{\texorpdfstring{Polynomial()}{Polynomial()}\hspace{0.1cm}{\footnotesize\ttfamily [8/9]}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+template$<$typename In\+Iter , typename  = std\+::\+\_\+\+Require\+Input\+Iter$<$\+In\+Iter$>$$>$ \\
+\mbox{\hyperlink{classemsr_1_1Polynomial}{emsr\+::\+Polynomial}}$<$ Tp $>$\+::\mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}} (\begin{DoxyParamCaption}\item[{const In\+Iter \&}]{xbegin,  }\item[{const In\+Iter \&}]{xend,  }\item[{const In\+Iter \&}]{ybegin }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Use Lagrange interpolation to construct a polynomial passing through the data points. The degree will be one less than the number of points. 
+
+Definition at line 213 of file polynomial.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{215         : m\_coeff()}
+\DoxyCodeLine{216         \{}
+\DoxyCodeLine{217           std::vector<Polynomial<value\_type>> numer;}
+\DoxyCodeLine{218           std::vector<Polynomial<value\_type>> denom;}
+\DoxyCodeLine{219           \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} xi = xbegin; xi != xend; ++xi)}
+\DoxyCodeLine{220             \{}
+\DoxyCodeLine{221               \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} xj = xi + 1; xj != xend; ++xj)}
+\DoxyCodeLine{222                 denom.push\_back(\mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\_type}}(*xj) -\/ \mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\_type}}(*xi));}
+\DoxyCodeLine{223               numer.push\_back(\{-\/\mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\_type}}(*xi), \mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\_type}}\{1\}\});}
+\DoxyCodeLine{224             \}}
+\DoxyCodeLine{225           this-\/>m\_set\_scale();}
+\DoxyCodeLine{226         \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classemsr_1_1Polynomial_a687a5c9ce8595610e91bb6e3c0a93007}\label{classemsr_1_1Polynomial_a687a5c9ce8595610e91bb6e3c0a93007}} 
+\index{emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}!Polynomial@{Polynomial}}
+\index{Polynomial@{Polynomial}!emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}}
+\doxysubsubsection{\texorpdfstring{Polynomial()}{Polynomial()}\hspace{0.1cm}{\footnotesize\ttfamily [9/9]}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+template$<$typename Gen $>$ \\
+\mbox{\hyperlink{classemsr_1_1Polynomial}{emsr\+::\+Polynomial}}$<$ Tp $>$\+::\mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}} (\begin{DoxyParamCaption}\item[{Gen}]{gen,  }\item[{\mbox{\hyperlink{classemsr_1_1Polynomial_abca22a2a90ad0a2f1e6988843171c15a}{size\+\_\+type}}}]{degree }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Create a polynomial from a generator and a maximum degree. 
+
+Definition at line 232 of file polynomial.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{233         : m\_coeff()}
+\DoxyCodeLine{234         \{}
+\DoxyCodeLine{235           this-\/>m\_coeff.reserve(\mbox{\hyperlink{classemsr_1_1Polynomial_a2a5c8eefb4185d1c1ce09d08ebe9b73c}{degree}} + 1);}
+\DoxyCodeLine{236           \textcolor{keywordflow}{for} (\mbox{\hyperlink{classemsr_1_1Polynomial_abca22a2a90ad0a2f1e6988843171c15a}{size\_type}} k = 0; k <= \mbox{\hyperlink{classemsr_1_1Polynomial_a2a5c8eefb4185d1c1ce09d08ebe9b73c}{degree}}; ++k)}
+\DoxyCodeLine{237             this-\/>m\_coeff.push\_back(gen(k));}
+\DoxyCodeLine{238           this-\/>m\_set\_scale();}
+\DoxyCodeLine{239         \}}
+
+\end{DoxyCode}
+
+
+References emsr\+::\+Polynomial$<$ Tp $>$\+::degree().
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classemsr_1_1Polynomial_a7131dc9fbcb7751a515a336c59b87baf}\label{classemsr_1_1Polynomial_a7131dc9fbcb7751a515a336c59b87baf}} 
+\index{emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}!begin@{begin}}
+\index{begin@{begin}!emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+\mbox{\hyperlink{classemsr_1_1Polynomial_a82325b267fca95cac7cbf8a6ad2336a0}{const\+\_\+iterator}} \mbox{\hyperlink{classemsr_1_1Polynomial}{emsr\+::\+Polynomial}}$<$ Tp $>$\+::begin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Return a {\ttfamily const} iterator the beginning of the coefficient sequence. 
+
+Definition at line 763 of file polynomial.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{764       \{ \textcolor{keywordflow}{return} this-\/>m\_coeff.begin(); \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classemsr_1_1Polynomial_a371b606f7b008f279317237e64930b19}\label{classemsr_1_1Polynomial_a371b606f7b008f279317237e64930b19}} 
+\index{emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}!begin@{begin}}
+\index{begin@{begin}!emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+\mbox{\hyperlink{classemsr_1_1Polynomial_a28cf0fe8fe59d5bb02a6999de4350de0}{iterator}} \mbox{\hyperlink{classemsr_1_1Polynomial}{emsr\+::\+Polynomial}}$<$ Tp $>$\+::begin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Return an iterator to the beginning of the coefficient sequence. 
+
+Definition at line 748 of file polynomial.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{749       \{ \textcolor{keywordflow}{return} this-\/>m\_coeff.begin(); \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classemsr_1_1Polynomial_a478bde8a26ed76dbd423c40deda09070}\label{classemsr_1_1Polynomial_a478bde8a26ed76dbd423c40deda09070}} 
+\index{emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}!cbegin@{cbegin}}
+\index{cbegin@{cbegin}!emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}}
+\doxysubsubsection{\texorpdfstring{cbegin()}{cbegin()}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+\mbox{\hyperlink{classemsr_1_1Polynomial_a82325b267fca95cac7cbf8a6ad2336a0}{const\+\_\+iterator}} \mbox{\hyperlink{classemsr_1_1Polynomial}{emsr\+::\+Polynomial}}$<$ Tp $>$\+::cbegin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Return a {\ttfamily const} iterator the beginning of the coefficient sequence. 
+
+Definition at line 779 of file polynomial.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{780       \{ \textcolor{keywordflow}{return} this-\/>m\_coeff.cbegin(); \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classemsr_1_1Polynomial_a870fd01f644f524c2e03e8193432ea12}\label{classemsr_1_1Polynomial_a870fd01f644f524c2e03e8193432ea12}} 
+\index{emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}!cend@{cend}}
+\index{cend@{cend}!emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}}
+\doxysubsubsection{\texorpdfstring{cend()}{cend()}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+\mbox{\hyperlink{classemsr_1_1Polynomial_a82325b267fca95cac7cbf8a6ad2336a0}{const\+\_\+iterator}} \mbox{\hyperlink{classemsr_1_1Polynomial}{emsr\+::\+Polynomial}}$<$ Tp $>$\+::cend (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Return a {\ttfamily const} iterator to one past the end of the coefficient sequence. 
+
+Definition at line 787 of file polynomial.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{788       \{ \textcolor{keywordflow}{return} this-\/>m\_coeff.cend(); \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classemsr_1_1Polynomial_afb52ec6b418e45d32264ec57033f8093}\label{classemsr_1_1Polynomial_afb52ec6b418e45d32264ec57033f8093}} 
+\index{emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}!coefficient@{coefficient}}
+\index{coefficient@{coefficient}!emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}}
+\doxysubsubsection{\texorpdfstring{coefficient()}{coefficient()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+\mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\+\_\+type}} \mbox{\hyperlink{classemsr_1_1Polynomial}{emsr\+::\+Polynomial}}$<$ Tp $>$\+::coefficient (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classemsr_1_1Polynomial_abca22a2a90ad0a2f1e6988843171c15a}{size\+\_\+type}}}]{i }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Return the {\ttfamily ith} coefficient with range checking. 
+
+Definition at line 692 of file polynomial.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{693       \{ \textcolor{keywordflow}{return} this-\/>m\_coeff.at(i); \}}
+
+\end{DoxyCode}
+
+
+Referenced by emsr\+::divmod(), and emsr\+::\+Polynomial$<$ Tp $>$\+::operator()().
+
+\mbox{\Hypertarget{classemsr_1_1Polynomial_ace30eb54b86a213707f287af3bc6e8f7}\label{classemsr_1_1Polynomial_ace30eb54b86a213707f287af3bc6e8f7}} 
+\index{emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}!coefficient@{coefficient}}
+\index{coefficient@{coefficient}!emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}}
+\doxysubsubsection{\texorpdfstring{coefficient()}{coefficient()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+void \mbox{\hyperlink{classemsr_1_1Polynomial}{emsr\+::\+Polynomial}}$<$ Tp $>$\+::coefficient (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classemsr_1_1Polynomial_abca22a2a90ad0a2f1e6988843171c15a}{size\+\_\+type}}}]{i,  }\item[{\mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\+\_\+type}}}]{val }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Set coefficient {\ttfamily i} to {\ttfamily val} with range checking. 
+
+Definition at line 699 of file polynomial.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{700       \{ this-\/>m\_coeff.at(i) = val; \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classemsr_1_1Polynomial_a9c12827946efb01e99d40285dabe58c4}\label{classemsr_1_1Polynomial_a9c12827946efb01e99d40285dabe58c4}} 
+\index{emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}!coefficients@{coefficients}}
+\index{coefficients@{coefficients}!emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}}
+\doxysubsubsection{\texorpdfstring{coefficients()}{coefficients()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+const std\+::vector$<$\mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\+\_\+type}}$>$ \mbox{\hyperlink{classemsr_1_1Polynomial}{emsr\+::\+Polynomial}}$<$ Tp $>$\+::coefficients (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Return a const vector of coefficients. 
+
+Definition at line 720 of file polynomial.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{721       \{ \textcolor{keywordflow}{return} this-\/>m\_coeff; \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classemsr_1_1Polynomial_a2834ed498ceafbbea7c91d9bb83e7e39}\label{classemsr_1_1Polynomial_a2834ed498ceafbbea7c91d9bb83e7e39}} 
+\index{emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}!coefficients@{coefficients}}
+\index{coefficients@{coefficients}!emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}}
+\doxysubsubsection{\texorpdfstring{coefficients()}{coefficients()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+std\+::vector$<$\mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\+\_\+type}}$>$ \mbox{\hyperlink{classemsr_1_1Polynomial}{emsr\+::\+Polynomial}}$<$ Tp $>$\+::coefficients (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Return a vector of coefficients. 
+
+Definition at line 727 of file polynomial.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{728       \{ \textcolor{keywordflow}{return} this-\/>m\_coeff; \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classemsr_1_1Polynomial_a4cf1fa1f094f2e24496b09953af54e5f}\label{classemsr_1_1Polynomial_a4cf1fa1f094f2e24496b09953af54e5f}} 
+\index{emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}!crbegin@{crbegin}}
+\index{crbegin@{crbegin}!emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}}
+\doxysubsubsection{\texorpdfstring{crbegin()}{crbegin()}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+\mbox{\hyperlink{classemsr_1_1Polynomial_ad37e192dfec61b9ec41574e16103d924}{const\+\_\+reverse\+\_\+iterator}} \mbox{\hyperlink{classemsr_1_1Polynomial}{emsr\+::\+Polynomial}}$<$ Tp $>$\+::crbegin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Definition at line 807 of file polynomial.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{808       \{ \textcolor{keywordflow}{return} this-\/>m\_coeff.crbegin(); \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classemsr_1_1Polynomial_aa9525b689132c72f33a3ac9108dee1d5}\label{classemsr_1_1Polynomial_aa9525b689132c72f33a3ac9108dee1d5}} 
+\index{emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}!crend@{crend}}
+\index{crend@{crend}!emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}}
+\doxysubsubsection{\texorpdfstring{crend()}{crend()}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+\mbox{\hyperlink{classemsr_1_1Polynomial_ad37e192dfec61b9ec41574e16103d924}{const\+\_\+reverse\+\_\+iterator}} \mbox{\hyperlink{classemsr_1_1Polynomial}{emsr\+::\+Polynomial}}$<$ Tp $>$\+::crend (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Definition at line 811 of file polynomial.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{812       \{ \textcolor{keywordflow}{return} this-\/>m\_coeff.crend(); \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classemsr_1_1Polynomial_a7cbae96744b81780b88bf2cac6312315}\label{classemsr_1_1Polynomial_a7cbae96744b81780b88bf2cac6312315}} 
+\index{emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}!data@{data}}
+\index{data@{data}!emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}}
+\doxysubsubsection{\texorpdfstring{data()}{data()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+const \mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\+\_\+type}}$\ast$ \mbox{\hyperlink{classemsr_1_1Polynomial}{emsr\+::\+Polynomial}}$<$ Tp $>$\+::data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Return a {\ttfamily const} pointer to the coefficient sequence. 
+
+Definition at line 734 of file polynomial.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{735       \{ \textcolor{keywordflow}{return} this-\/>m\_coeff.data(); \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classemsr_1_1Polynomial_af573c95078552b538db596898b2a1fe9}\label{classemsr_1_1Polynomial_af573c95078552b538db596898b2a1fe9}} 
+\index{emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}!data@{data}}
+\index{data@{data}!emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}}
+\doxysubsubsection{\texorpdfstring{data()}{data()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+\mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\+\_\+type}}$\ast$ \mbox{\hyperlink{classemsr_1_1Polynomial}{emsr\+::\+Polynomial}}$<$ Tp $>$\+::data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Return a {\ttfamily pointer} to the coefficient sequence. 
+
+Definition at line 741 of file polynomial.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{742       \{ \textcolor{keywordflow}{return} this-\/>m\_coeff.data(); \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classemsr_1_1Polynomial_a5294c513ad5adc0e38a11cb20205189f}\label{classemsr_1_1Polynomial_a5294c513ad5adc0e38a11cb20205189f}} 
+\index{emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}!deflate@{deflate}}
+\index{deflate@{deflate}!emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}}
+\doxysubsubsection{\texorpdfstring{deflate()}{deflate()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+\mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}}\& \mbox{\hyperlink{classemsr_1_1Polynomial}{emsr\+::\+Polynomial}}$<$ Tp $>$\+::deflate (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}}$<$ \mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\+\_\+type}} $>$ \&}]{poly,  }\item[{\mbox{\hyperlink{classemsr_1_1Polynomial_ae3f021715877defbf1f4e02d936f0a91}{real\+\_\+type}}}]{max\+\_\+abs\+\_\+coef }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Divide the polynomial by an input polynomia and remove zero max-\/order coefficients. 
+
+Definition at line 844 of file polynomial.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{846       \{}
+\DoxyCodeLine{847         Polynomial<value\_type> quo, rem;}
+\DoxyCodeLine{848         \mbox{\hyperlink{namespaceemsr_a5d92c91e21caca3557589683df6650c4}{divmod}}(*\textcolor{keyword}{this}, poly, quo, rem);}
+\DoxyCodeLine{849 }
+\DoxyCodeLine{850         \textcolor{comment}{// Remainder should be null.}}
+\DoxyCodeLine{851         \mbox{\hyperlink{classemsr_1_1Polynomial_abca22a2a90ad0a2f1e6988843171c15a}{size\_type}} n = rem.degree();}
+\DoxyCodeLine{852         \textcolor{keywordflow}{for} (\mbox{\hyperlink{classemsr_1_1Polynomial_abca22a2a90ad0a2f1e6988843171c15a}{size\_type}} i = rem.degree(); i > 0; -\/-\/i)}
+\DoxyCodeLine{853           \textcolor{keywordflow}{if} (\mbox{\hyperlink{namespaceemsr_a782d36096e8467b4a45a9dc2f89355b2}{std::abs}}(rem[i]) < max\_abs\_coef)}
+\DoxyCodeLine{854             -\/-\/n;}
+\DoxyCodeLine{855           \textcolor{keywordflow}{else}}
+\DoxyCodeLine{856             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{857 }
+\DoxyCodeLine{858         \textcolor{keywordflow}{if} (n == 0)}
+\DoxyCodeLine{859           *\textcolor{keyword}{this} = quo.deflate(max\_abs\_coef);}
+\DoxyCodeLine{860         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{861           \textcolor{keywordflow}{throw} std::runtime\_error(\textcolor{stringliteral}{"{}deflate: "{}});}
+\DoxyCodeLine{862 }
+\DoxyCodeLine{863         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{864       \}}
+
+\end{DoxyCode}
+
+
+References emsr\+::abs(), emsr\+::\+Polynomial$<$ Tp $>$\+::deflate(), emsr\+::\+Polynomial$<$ Tp $>$\+::degree(), and emsr\+::divmod().
+
+\mbox{\Hypertarget{classemsr_1_1Polynomial_ae6e03417a970d60e2a9db597c7c26f3c}\label{classemsr_1_1Polynomial_ae6e03417a970d60e2a9db597c7c26f3c}} 
+\index{emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}!deflate@{deflate}}
+\index{deflate@{deflate}!emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}}
+\doxysubsubsection{\texorpdfstring{deflate()}{deflate()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+\mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}}\& \mbox{\hyperlink{classemsr_1_1Polynomial}{emsr\+::\+Polynomial}}$<$ Tp $>$\+::deflate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classemsr_1_1Polynomial_ae3f021715877defbf1f4e02d936f0a91}{real\+\_\+type}}}]{max\+\_\+abs\+\_\+coef }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Remove zero max-\/order coefficients. 
+
+Definition at line 827 of file polynomial.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{828       \{}
+\DoxyCodeLine{829         \mbox{\hyperlink{classemsr_1_1Polynomial_abca22a2a90ad0a2f1e6988843171c15a}{size\_type}} n = this-\/>\mbox{\hyperlink{classemsr_1_1Polynomial_a2a5c8eefb4185d1c1ce09d08ebe9b73c}{degree}}();}
+\DoxyCodeLine{830         \textcolor{keywordflow}{for} (\mbox{\hyperlink{classemsr_1_1Polynomial_abca22a2a90ad0a2f1e6988843171c15a}{size\_type}} i = this-\/>\mbox{\hyperlink{classemsr_1_1Polynomial_a2a5c8eefb4185d1c1ce09d08ebe9b73c}{degree}}(); i > 0; -\/-\/i)}
+\DoxyCodeLine{831           \textcolor{keywordflow}{if} (\mbox{\hyperlink{namespaceemsr_a782d36096e8467b4a45a9dc2f89355b2}{std::abs}}(this-\/>m\_coeff[i]) < max\_abs\_coef)}
+\DoxyCodeLine{832             -\/-\/n;}
+\DoxyCodeLine{833           \textcolor{keywordflow}{else}}
+\DoxyCodeLine{834             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{835         this-\/>\mbox{\hyperlink{classemsr_1_1Polynomial_a2a5c8eefb4185d1c1ce09d08ebe9b73c}{degree}}(n);}
+\DoxyCodeLine{836         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{837       \}}
+
+\end{DoxyCode}
+
+
+References emsr\+::abs(), and emsr\+::\+Polynomial$<$ Tp $>$\+::degree().
+
+
+
+Referenced by emsr\+::\+Polynomial$<$ Tp $>$\+::deflate(), and emsr\+::\+Quadratic\+Solver$<$ Real $>$\+::step().
+
+\mbox{\Hypertarget{classemsr_1_1Polynomial_a2a5c8eefb4185d1c1ce09d08ebe9b73c}\label{classemsr_1_1Polynomial_a2a5c8eefb4185d1c1ce09d08ebe9b73c}} 
+\index{emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}!degree@{degree}}
+\index{degree@{degree}!emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}}
+\doxysubsubsection{\texorpdfstring{degree()}{degree()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+\mbox{\hyperlink{classemsr_1_1Polynomial_abca22a2a90ad0a2f1e6988843171c15a}{size\+\_\+type}} \mbox{\hyperlink{classemsr_1_1Polynomial}{emsr\+::\+Polynomial}}$<$ Tp $>$\+::degree (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Return the degree or the power of the largest coefficient. 
+
+Definition at line 671 of file polynomial.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{672       \{ \textcolor{keywordflow}{return} this-\/>m\_coeff.size() -\/ 1; \}}
+
+\end{DoxyCode}
+
+
+Referenced by emsr\+::\+Polynomial$<$ Tp $>$\+::\+Polynomial(), emsr\+::\+Polynomial$<$ Tp $>$\+::deflate(), emsr\+::\+Polynomial$<$ Tp $>$\+::degree(), emsr\+::\+Polynomial$<$ Tp $>$\+::derivative(), emsr\+::divmod(), emsr\+::\+Polynomial$<$ Tp $>$\+::operator\%=(), emsr\+::\+Polynomial$<$ Tp $>$\+::operator()(), emsr\+::\+Polynomial$<$ Tp $>$\+::operator$\ast$=(), emsr\+::\+Polynomial$<$ Tp $>$\+::operator+=(), emsr\+::\+Polynomial$<$ Tp $>$\+::operator-\/=(), and emsr\+::\+Polynomial$<$ Tp $>$\+::shift().
+
+\mbox{\Hypertarget{classemsr_1_1Polynomial_ab41fe8401b8df0b63237e8a4a93734ff}\label{classemsr_1_1Polynomial_ab41fe8401b8df0b63237e8a4a93734ff}} 
+\index{emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}!degree@{degree}}
+\index{degree@{degree}!emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}}
+\doxysubsubsection{\texorpdfstring{degree()}{degree()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+void \mbox{\hyperlink{classemsr_1_1Polynomial}{emsr\+::\+Polynomial}}$<$ Tp $>$\+::degree (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classemsr_1_1Polynomial_abca22a2a90ad0a2f1e6988843171c15a}{size\+\_\+type}}}]{degree }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Set the degree or the power of the largest coefficient. 
+
+Definition at line 678 of file polynomial.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{679       \{ this-\/>m\_coeff.resize(\mbox{\hyperlink{classemsr_1_1Polynomial_a2a5c8eefb4185d1c1ce09d08ebe9b73c}{degree}} + 1UL); \}}
+
+\end{DoxyCode}
+
+
+References emsr\+::\+Polynomial$<$ Tp $>$\+::degree().
+
+\mbox{\Hypertarget{classemsr_1_1Polynomial_af527bcb4bf2126772de448cd1637e128}\label{classemsr_1_1Polynomial_af527bcb4bf2126772de448cd1637e128}} 
+\index{emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}!derivative@{derivative}}
+\index{derivative@{derivative}!emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}}
+\doxysubsubsection{\texorpdfstring{derivative()}{derivative()}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+\mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}} \mbox{\hyperlink{classemsr_1_1Polynomial}{emsr\+::\+Polynomial}}$<$ Tp $>$\+::derivative (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Return the derivative polynomial. 
+
+Definition at line 412 of file polynomial.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{413       \{}
+\DoxyCodeLine{414         \mbox{\hyperlink{classemsr_1_1Polynomial_a5afe1d9fce8aed59ce49f7f08947e21d}{Polynomial}} res(\mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\_type}}\{\},}
+\DoxyCodeLine{415                           this-\/>\mbox{\hyperlink{classemsr_1_1Polynomial_a2a5c8eefb4185d1c1ce09d08ebe9b73c}{degree}}() > 0UL ? this-\/>\mbox{\hyperlink{classemsr_1_1Polynomial_a2a5c8eefb4185d1c1ce09d08ebe9b73c}{degree}}() -\/ 1 : 0UL);}
+\DoxyCodeLine{416         \textcolor{keywordflow}{for} (\mbox{\hyperlink{classemsr_1_1Polynomial_abca22a2a90ad0a2f1e6988843171c15a}{size\_type}} n = this-\/>\mbox{\hyperlink{classemsr_1_1Polynomial_a2a5c8eefb4185d1c1ce09d08ebe9b73c}{degree}}(), i = 1; i <= n; ++i)}
+\DoxyCodeLine{417           res.m\_coeff[i -\/ 1] = i * this-\/>m\_coeff[i];}
+\DoxyCodeLine{418         \textcolor{keywordflow}{return} res;}
+\DoxyCodeLine{419       \}}
+
+\end{DoxyCode}
+
+
+References emsr\+::\+Polynomial$<$ Tp $>$\+::degree().
+
+\mbox{\Hypertarget{classemsr_1_1Polynomial_ad05e76df0ad1a83dd14e342a4939242b}\label{classemsr_1_1Polynomial_ad05e76df0ad1a83dd14e342a4939242b}} 
+\index{emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}!end@{end}}
+\index{end@{end}!emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}}
+\doxysubsubsection{\texorpdfstring{end()}{end()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+\mbox{\hyperlink{classemsr_1_1Polynomial_a82325b267fca95cac7cbf8a6ad2336a0}{const\+\_\+iterator}} \mbox{\hyperlink{classemsr_1_1Polynomial}{emsr\+::\+Polynomial}}$<$ Tp $>$\+::end (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Return a {\ttfamily const} iterator to one past the end of the coefficient sequence. 
+
+Definition at line 771 of file polynomial.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{772       \{ \textcolor{keywordflow}{return} this-\/>m\_coeff.end(); \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classemsr_1_1Polynomial_a6454c45ce05c2baaa4ad3efe707bf730}\label{classemsr_1_1Polynomial_a6454c45ce05c2baaa4ad3efe707bf730}} 
+\index{emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}!end@{end}}
+\index{end@{end}!emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}}
+\doxysubsubsection{\texorpdfstring{end()}{end()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+\mbox{\hyperlink{classemsr_1_1Polynomial_a28cf0fe8fe59d5bb02a6999de4350de0}{iterator}} \mbox{\hyperlink{classemsr_1_1Polynomial}{emsr\+::\+Polynomial}}$<$ Tp $>$\+::end (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Return an iterator to one past the end of the coefficient sequence. 
+
+Definition at line 755 of file polynomial.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{756       \{ \textcolor{keywordflow}{return} this-\/>m\_coeff.end(); \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classemsr_1_1Polynomial_af6cb54c57deecaf2d79ed3f1028ef0b5}\label{classemsr_1_1Polynomial_af6cb54c57deecaf2d79ed3f1028ef0b5}} 
+\index{emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}!eval@{eval}}
+\index{eval@{eval}!emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}}
+\doxysubsubsection{\texorpdfstring{eval()}{eval()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+template$<$typename Out\+Iter $>$ \\
+void \mbox{\hyperlink{classemsr_1_1Polynomial}{emsr\+::\+Polynomial}}$<$ Tp $>$\+::eval (\begin{DoxyParamCaption}\item[{typename \mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}}$<$ Tp $>$\+::\mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\+\_\+type}}}]{x,  }\item[{Out\+Iter}]{b,  }\item[{Out\+Iter}]{e }\end{DoxyParamCaption})}
+
+Evaluate the polynomial and its derivatives at the point x. The values are placed in the output range starting with the polynomial value and continuing through higher derivatives. 
+
+Definition at line 212 of file polynomial.\+tcc.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{214       \{}
+\DoxyCodeLine{215         \textcolor{keywordflow}{if}(b != e)}
+\DoxyCodeLine{216           \{}
+\DoxyCodeLine{217             std::fill(b, e, \mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\_type}}\{\});}
+\DoxyCodeLine{218             \textcolor{keyword}{const} \mbox{\hyperlink{classemsr_1_1Polynomial_abca22a2a90ad0a2f1e6988843171c15a}{size\_type}} sz = m\_coeff.size();}
+\DoxyCodeLine{219             *b = m\_coeff[sz -\/ 1];}
+\DoxyCodeLine{220             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = sz -\/ 2; i >= 0; -\/-\/i)}
+\DoxyCodeLine{221               \{}
+\DoxyCodeLine{222                 \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} it = std::reverse\_iterator<OutIter>(e);}
+\DoxyCodeLine{223                      it != std::reverse\_iterator<OutIter>(b) -\/ 1; ++it)}
+\DoxyCodeLine{224                   *it = \mbox{\hyperlink{namespaceemsr_a733f95a5b7d092ab0423af88d1bb6768}{std::fma}}(*it, x, *(it + 1));}
+\DoxyCodeLine{225                 *b = \mbox{\hyperlink{namespaceemsr_a733f95a5b7d092ab0423af88d1bb6768}{std::fma}}(*b, x, m\_coeff[i]);}
+\DoxyCodeLine{226               \}}
+\DoxyCodeLine{227             \textcolor{comment}{//  Now put in the factorials.}}
+\DoxyCodeLine{228             \textcolor{keywordtype}{int} i = 0;}
+\DoxyCodeLine{229             \mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\_type}} fact = \mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\_type}}(++i);}
+\DoxyCodeLine{230             \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} it = b + 1; it != e; ++it)}
+\DoxyCodeLine{231               \{}
+\DoxyCodeLine{232                 fact *= \mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\_type}}(i);}
+\DoxyCodeLine{233                 *it *= fact;}
+\DoxyCodeLine{234                 ++i;}
+\DoxyCodeLine{235               \}}
+\DoxyCodeLine{236           \}}
+\DoxyCodeLine{237       \}}
+
+\end{DoxyCode}
+
+
+References emsr\+::fma().
+
+\mbox{\Hypertarget{classemsr_1_1Polynomial_a0053a7be9ed853b5dfb2ce7a6a9c7d27}\label{classemsr_1_1Polynomial_a0053a7be9ed853b5dfb2ce7a6a9c7d27}} 
+\index{emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}!eval@{eval}}
+\index{eval@{eval}!emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}}
+\doxysubsubsection{\texorpdfstring{eval()}{eval()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+template$<$typename Polynomial$<$ Tp $>$\+::size\+\_\+type N$>$ \\
+void \mbox{\hyperlink{classemsr_1_1Polynomial}{emsr\+::\+Polynomial}}$<$ Tp $>$\+::eval (\begin{DoxyParamCaption}\item[{typename \mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}}$<$ Tp $>$\+::\mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\+\_\+type}}}]{x,  }\item[{std\+::array$<$ \mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}}$<$ Tp $>$\+::\mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\+\_\+type}}, N $>$ \&}]{arr }\end{DoxyParamCaption})}
+
+
+
+Definition at line 179 of file polynomial.\+tcc.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{181       \{}
+\DoxyCodeLine{182         \textcolor{keywordflow}{if} (arr.size() > 0)}
+\DoxyCodeLine{183           \{}
+\DoxyCodeLine{184             arr.fill(\mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\_type}}\{\});}
+\DoxyCodeLine{185             \textcolor{keyword}{const} \mbox{\hyperlink{classemsr_1_1Polynomial_abca22a2a90ad0a2f1e6988843171c15a}{size\_type}} sz = m\_coeff.size();}
+\DoxyCodeLine{186             arr[0] = this-\/>\mbox{\hyperlink{classemsr_1_1Polynomial_afb52ec6b418e45d32264ec57033f8093}{coefficient}}(sz -\/ 1);}
+\DoxyCodeLine{187             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = sz -\/ 2; i >= 0; -\/-\/i)}
+\DoxyCodeLine{188               \{}
+\DoxyCodeLine{189                 \textcolor{keywordtype}{int} nn = std::min(arr.size() -\/ 1, sz -\/ 1 -\/ i);}
+\DoxyCodeLine{190                 \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = nn; j >= 1; -\/-\/j)}
+\DoxyCodeLine{191                   arr[j] = \mbox{\hyperlink{namespaceemsr_a733f95a5b7d092ab0423af88d1bb6768}{std::fma}}(arr[j], x, arr[j -\/ 1]);}
+\DoxyCodeLine{192                 arr[0] = \mbox{\hyperlink{namespaceemsr_a733f95a5b7d092ab0423af88d1bb6768}{std::fma}}(arr[0], x, this-\/>\mbox{\hyperlink{classemsr_1_1Polynomial_afb52ec6b418e45d32264ec57033f8093}{coefficient}}(i));}
+\DoxyCodeLine{193               \}}
+\DoxyCodeLine{194             \textcolor{comment}{//  Now put in the factorials.}}
+\DoxyCodeLine{195             \mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\_type}} fact = \mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\_type}}(1);}
+\DoxyCodeLine{196             \textcolor{keywordflow}{for} (\mbox{\hyperlink{classemsr_1_1Polynomial_abca22a2a90ad0a2f1e6988843171c15a}{size\_type}} n = arr.size(), i = 2; i < n; ++i)}
+\DoxyCodeLine{197               \{}
+\DoxyCodeLine{198                 fact *= \mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\_type}}(i);}
+\DoxyCodeLine{199                 arr[i] *= fact;}
+\DoxyCodeLine{200               \}}
+\DoxyCodeLine{201           \}}
+\DoxyCodeLine{202       \}}
+
+\end{DoxyCode}
+
+
+References emsr\+::fma().
+
+\mbox{\Hypertarget{classemsr_1_1Polynomial_adbf4cbe94420c9d77c3bb3048f1256e7}\label{classemsr_1_1Polynomial_adbf4cbe94420c9d77c3bb3048f1256e7}} 
+\index{emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}!eval@{eval}}
+\index{eval@{eval}!emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}}
+\doxysubsubsection{\texorpdfstring{eval()}{eval()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+template$<$typename Out\+Iter $>$ \\
+void \mbox{\hyperlink{classemsr_1_1Polynomial}{emsr\+::\+Polynomial}}$<$ Tp $>$\+::eval (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\+\_\+type}}}]{x,  }\item[{Out\+Iter}]{b,  }\item[{Out\+Iter}]{e }\end{DoxyParamCaption})}
+
+Evaluate the polynomial and its derivatives at the point x. The values are placed in the output range starting with the polynomial value and continuing through higher derivatives. \mbox{\Hypertarget{classemsr_1_1Polynomial_a32f09d9add02c040d7440686660c329b}\label{classemsr_1_1Polynomial_a32f09d9add02c040d7440686660c329b}} 
+\index{emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}!eval@{eval}}
+\index{eval@{eval}!emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}}
+\doxysubsubsection{\texorpdfstring{eval()}{eval()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+template$<$size\+\_\+type N$>$ \\
+void \mbox{\hyperlink{classemsr_1_1Polynomial}{emsr\+::\+Polynomial}}$<$ Tp $>$\+::eval (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\+\_\+type}}}]{x,  }\item[{std\+::array$<$ \mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\+\_\+type}}, N $>$ \&}]{arr }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classemsr_1_1Polynomial_afcefb0cee04707ba1ba95ba65d8588e3}\label{classemsr_1_1Polynomial_afcefb0cee04707ba1ba95ba65d8588e3}} 
+\index{emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}!eval\_even@{eval\_even}}
+\index{eval\_even@{eval\_even}!emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}}
+\doxysubsubsection{\texorpdfstring{eval\_even()}{eval\_even()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+template$<$typename Up $>$ \\
+auto \mbox{\hyperlink{classemsr_1_1Polynomial}{emsr\+::\+Polynomial}}$<$ Tp $>$\+::eval\+\_\+even (\begin{DoxyParamCaption}\item[{const std\+::complex$<$ Up $>$ \&}]{z }\end{DoxyParamCaption}) const -\/$>$ std\+::enable\+\_\+if\+\_\+t$<$!\mbox{\hyperlink{namespaceemsr_a5bf2c62dcc64e44b8b65766f71d8aa64}{has\+\_\+imag\+\_\+v}}$<$Tp$>$,        std\+::complex$<$std\+::decay\+\_\+t$<$   decltype(typename \mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}}$<$Tp$>$\+::\mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\+\_\+type}}\{\} $\ast$ Up\{\})$>$$>$$>$}
+
+Evaluate the even part of the polynomial using a modification of Horner\textquotesingle{}s rule which exploits the fact that the polynomial coefficients are all real.
+
+The algorithm is discussed in detail in\+: Knuth, D. E., The Art of Computer Programming\+: Seminumerical Algorithms (Vol. 2) Third Ed., Addison-\/\+Wesley, pp 486-\/488, 1998.
+
+If n is the degree of the polynomial, n -\/ 3 multiplies and 4 $\ast$ n -\/ 6 additions are saved. 
+
+Definition at line 294 of file polynomial.\+tcc.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{297                                                           \{\} * Up\{\})>>>}
+\DoxyCodeLine{298       \{}
+\DoxyCodeLine{299         \textcolor{keyword}{using} real\_t = std::decay\_t<decltype(\mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\_type}}\{\} * Up\{\})>;}
+\DoxyCodeLine{300         \textcolor{keyword}{using} cmplx\_t = std::complex<real\_t>;}
+\DoxyCodeLine{301         \textcolor{keywordflow}{if} (this-\/>\mbox{\hyperlink{classemsr_1_1Polynomial_a2a5c8eefb4185d1c1ce09d08ebe9b73c}{degree}}() > 0)}
+\DoxyCodeLine{302           \{}
+\DoxyCodeLine{303             \textcolor{keyword}{const} \textcolor{keyword}{auto} zz = z * z;}
+\DoxyCodeLine{304             \textcolor{keyword}{const} \textcolor{keyword}{auto} r = Tp\{2\} * \mbox{\hyperlink{namespaceemsr_a3b69f1c91fb3480e098db4e4bfe949f2}{std::real}}(zz);}
+\DoxyCodeLine{305             \textcolor{keyword}{const} \textcolor{keyword}{auto} s = std::norm(zz);}
+\DoxyCodeLine{306             \textcolor{keyword}{auto} odd = this-\/>\mbox{\hyperlink{classemsr_1_1Polynomial_a2a5c8eefb4185d1c1ce09d08ebe9b73c}{degree}}() \% 2;}
+\DoxyCodeLine{307             \mbox{\hyperlink{classemsr_1_1Polynomial_abca22a2a90ad0a2f1e6988843171c15a}{size\_type}} n = this-\/>\mbox{\hyperlink{classemsr_1_1Polynomial_a2a5c8eefb4185d1c1ce09d08ebe9b73c}{degree}}() -\/ odd;}
+\DoxyCodeLine{308             \textcolor{keyword}{auto} aa = this-\/>\mbox{\hyperlink{classemsr_1_1Polynomial_afb52ec6b418e45d32264ec57033f8093}{coefficient}}(n);}
+\DoxyCodeLine{309             \textcolor{keyword}{auto} bb = this-\/>\mbox{\hyperlink{classemsr_1_1Polynomial_afb52ec6b418e45d32264ec57033f8093}{coefficient}}(n -\/ 2);}
+\DoxyCodeLine{310             \textcolor{keywordflow}{for} (\mbox{\hyperlink{classemsr_1_1Polynomial_abca22a2a90ad0a2f1e6988843171c15a}{size\_type}} j = 4; j <= n; j += 2)}
+\DoxyCodeLine{311               bb = \mbox{\hyperlink{namespaceemsr_a733f95a5b7d092ab0423af88d1bb6768}{std::fma}}(-\/s, std::exchange(aa, bb + r * aa),}
+\DoxyCodeLine{312                               this-\/>\mbox{\hyperlink{classemsr_1_1Polynomial_afb52ec6b418e45d32264ec57033f8093}{coefficient}}(n -\/ j));}
+\DoxyCodeLine{313             \textcolor{keywordflow}{return} \mbox{\hyperlink{namespaceemsr_a733f95a5b7d092ab0423af88d1bb6768}{std::fma}}(cmplx\_t(aa), cmplx\_t(zz), cmplx\_t(bb));}
+\DoxyCodeLine{314           \}}
+\DoxyCodeLine{315         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{316           \textcolor{keywordflow}{return} cmplx\_t\{\};}
+\DoxyCodeLine{317       \};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classemsr_1_1Polynomial_ac24b610b05e9497a6460526f00b4fa33}\label{classemsr_1_1Polynomial_ac24b610b05e9497a6460526f00b4fa33}} 
+\index{emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}!eval\_even@{eval\_even}}
+\index{eval\_even@{eval\_even}!emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}}
+\doxysubsubsection{\texorpdfstring{eval\_even()}{eval\_even()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+template$<$typename Tp $>$ \\
+\mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}}$<$Tp$>$\+::\mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\+\_\+type}} \mbox{\hyperlink{classemsr_1_1Polynomial}{emsr\+::\+Polynomial}}$<$ Tp $>$\+::eval\+\_\+even (\begin{DoxyParamCaption}\item[{typename \mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}}$<$ Tp $>$\+::\mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\+\_\+type}}}]{x }\end{DoxyParamCaption}) const}
+
+Evaluate the even part of the polynomial at the input point. 
+
+Definition at line 244 of file polynomial.\+tcc.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{245     \{}
+\DoxyCodeLine{246       \textcolor{keywordflow}{if} (this-\/>\mbox{\hyperlink{classemsr_1_1Polynomial_a2a5c8eefb4185d1c1ce09d08ebe9b73c}{degree}}() > 0)}
+\DoxyCodeLine{247         \{}
+\DoxyCodeLine{248           \textcolor{keyword}{const} \textcolor{keyword}{auto} odd = this-\/>\mbox{\hyperlink{classemsr_1_1Polynomial_a2a5c8eefb4185d1c1ce09d08ebe9b73c}{degree}}() \% 2;}
+\DoxyCodeLine{249           \textcolor{keyword}{const} \textcolor{keyword}{auto} xx = x * x;}
+\DoxyCodeLine{250           \textcolor{keyword}{auto} poly(this-\/>\mbox{\hyperlink{classemsr_1_1Polynomial_afb52ec6b418e45d32264ec57033f8093}{coefficient}}(this-\/>\mbox{\hyperlink{classemsr_1_1Polynomial_a2a5c8eefb4185d1c1ce09d08ebe9b73c}{degree}}() -\/ odd));}
+\DoxyCodeLine{251           \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = this-\/>\mbox{\hyperlink{classemsr_1_1Polynomial_a2a5c8eefb4185d1c1ce09d08ebe9b73c}{degree}}() -\/ odd -\/ 2; i >= 0; i -\/= 2)}
+\DoxyCodeLine{252             poly = \mbox{\hyperlink{namespaceemsr_a733f95a5b7d092ab0423af88d1bb6768}{std::fma}}(xx, poly, this-\/>\mbox{\hyperlink{classemsr_1_1Polynomial_afb52ec6b418e45d32264ec57033f8093}{coefficient}}(i));}
+\DoxyCodeLine{253           \textcolor{keywordflow}{return} poly;}
+\DoxyCodeLine{254         \}}
+\DoxyCodeLine{255       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{256         \textcolor{keywordflow}{return} \mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\_type}}\{\};}
+\DoxyCodeLine{257     \}}
+
+\end{DoxyCode}
+
+
+References emsr\+::fma().
+
+\mbox{\Hypertarget{classemsr_1_1Polynomial_af9cd3e97110e76af7577d7efa7e36a45}\label{classemsr_1_1Polynomial_af9cd3e97110e76af7577d7efa7e36a45}} 
+\index{emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}!eval\_even@{eval\_even}}
+\index{eval\_even@{eval\_even}!emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}}
+\doxysubsubsection{\texorpdfstring{eval\_even()}{eval\_even()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+\mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\+\_\+type}} \mbox{\hyperlink{classemsr_1_1Polynomial}{emsr\+::\+Polynomial}}$<$ Tp $>$\+::eval\+\_\+even (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\+\_\+type}}}]{x }\end{DoxyParamCaption}) const}
+
+Evaluate the even part of the polynomial at the input point. \mbox{\Hypertarget{classemsr_1_1Polynomial_a462704449505870e084b72c602e22fd6}\label{classemsr_1_1Polynomial_a462704449505870e084b72c602e22fd6}} 
+\index{emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}!eval\_odd@{eval\_odd}}
+\index{eval\_odd@{eval\_odd}!emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}}
+\doxysubsubsection{\texorpdfstring{eval\_odd()}{eval\_odd()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+template$<$typename Up $>$ \\
+auto \mbox{\hyperlink{classemsr_1_1Polynomial}{emsr\+::\+Polynomial}}$<$ Tp $>$\+::eval\+\_\+odd (\begin{DoxyParamCaption}\item[{const std\+::complex$<$ Up $>$ \&}]{z }\end{DoxyParamCaption}) const -\/$>$ std\+::enable\+\_\+if\+\_\+t$<$!\mbox{\hyperlink{namespaceemsr_a5bf2c62dcc64e44b8b65766f71d8aa64}{has\+\_\+imag\+\_\+v}}$<$Tp$>$,    std\+::complex$<$std\+::decay\+\_\+t$<$   decltype(typename \mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}}$<$Tp$>$\+::\mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\+\_\+type}}\{\} $\ast$ Up\{\})$>$$>$$>$}
+
+Evaluate the odd part of the polynomial using a modification of Horner\textquotesingle{}s rule which exploits the fact that the polynomial coefficients are all real.
+
+The algorithm is discussed in detail in\+: Knuth, D. E., The Art of Computer Programming\+: Seminumerical Algorithms (Vol. 2) Third Ed., Addison-\/\+Wesley, pp 486-\/488, 1998.
+
+If n is the degree of the polynomial, n -\/ 3 multiplies and 4 $\ast$ n -\/ 6 additions are saved. 
+
+Definition at line 334 of file polynomial.\+tcc.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{337                                                           \{\} * Up\{\})>>>}
+\DoxyCodeLine{338       \{}
+\DoxyCodeLine{339         \textcolor{keyword}{using} real\_t = std::decay\_t<decltype(\mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\_type}}\{\} * Up\{\})>;}
+\DoxyCodeLine{340         \textcolor{keyword}{using} cmplx\_t = std::complex<real\_t>;}
+\DoxyCodeLine{341         \textcolor{keywordflow}{if} (this-\/>\mbox{\hyperlink{classemsr_1_1Polynomial_a2a5c8eefb4185d1c1ce09d08ebe9b73c}{degree}}() > 0)}
+\DoxyCodeLine{342           \{}
+\DoxyCodeLine{343             \textcolor{keyword}{const} \textcolor{keyword}{auto} zz = z * z;}
+\DoxyCodeLine{344             \textcolor{keyword}{const} \textcolor{keyword}{auto} r = Tp\{2\} * \mbox{\hyperlink{namespaceemsr_a3b69f1c91fb3480e098db4e4bfe949f2}{std::real}}(zz);}
+\DoxyCodeLine{345             \textcolor{keyword}{const} \textcolor{keyword}{auto} s = std::norm(zz);}
+\DoxyCodeLine{346             \textcolor{keyword}{auto} even = (this-\/>\mbox{\hyperlink{classemsr_1_1Polynomial_a2a5c8eefb4185d1c1ce09d08ebe9b73c}{degree}}() \% 2 == 0 ? 1 : 0);}
+\DoxyCodeLine{347             \mbox{\hyperlink{classemsr_1_1Polynomial_abca22a2a90ad0a2f1e6988843171c15a}{size\_type}} n = this-\/>\mbox{\hyperlink{classemsr_1_1Polynomial_a2a5c8eefb4185d1c1ce09d08ebe9b73c}{degree}}() -\/ even;}
+\DoxyCodeLine{348             \textcolor{keyword}{auto} aa = this-\/>\mbox{\hyperlink{classemsr_1_1Polynomial_afb52ec6b418e45d32264ec57033f8093}{coefficient}}(n);}
+\DoxyCodeLine{349             \textcolor{keyword}{auto} bb = this-\/>\mbox{\hyperlink{classemsr_1_1Polynomial_afb52ec6b418e45d32264ec57033f8093}{coefficient}}(n -\/ 2);}
+\DoxyCodeLine{350             \textcolor{keywordflow}{for} (\mbox{\hyperlink{classemsr_1_1Polynomial_abca22a2a90ad0a2f1e6988843171c15a}{size\_type}} j = 4; j <= n; j += 2)}
+\DoxyCodeLine{351               bb = \mbox{\hyperlink{namespaceemsr_a733f95a5b7d092ab0423af88d1bb6768}{std::fma}}(-\/s, std::exchange(aa, bb + r * aa),}
+\DoxyCodeLine{352                               this-\/>\mbox{\hyperlink{classemsr_1_1Polynomial_afb52ec6b418e45d32264ec57033f8093}{coefficient}}(n -\/ j));}
+\DoxyCodeLine{353             \textcolor{keywordflow}{return} z}
+\DoxyCodeLine{354                  * \mbox{\hyperlink{namespaceemsr_a733f95a5b7d092ab0423af88d1bb6768}{std::fma}}(cmplx\_t(aa), cmplx\_t(zz), cmplx\_t(bb));}
+\DoxyCodeLine{355           \}}
+\DoxyCodeLine{356         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{357           \textcolor{keywordflow}{return} cmplx\_t\{\};}
+\DoxyCodeLine{358       \};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classemsr_1_1Polynomial_af5632fc32a856fdb586698dd20ada325}\label{classemsr_1_1Polynomial_af5632fc32a856fdb586698dd20ada325}} 
+\index{emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}!eval\_odd@{eval\_odd}}
+\index{eval\_odd@{eval\_odd}!emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}}
+\doxysubsubsection{\texorpdfstring{eval\_odd()}{eval\_odd()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+template$<$typename Tp $>$ \\
+\mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}}$<$Tp$>$\+::\mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\+\_\+type}} \mbox{\hyperlink{classemsr_1_1Polynomial}{emsr\+::\+Polynomial}}$<$ Tp $>$\+::eval\+\_\+odd (\begin{DoxyParamCaption}\item[{typename \mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}}$<$ Tp $>$\+::\mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\+\_\+type}}}]{x }\end{DoxyParamCaption}) const}
+
+Evaluate the odd part of the polynomial at the input point. 
+
+Definition at line 264 of file polynomial.\+tcc.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{265     \{}
+\DoxyCodeLine{266       \textcolor{keywordflow}{if} (this-\/>\mbox{\hyperlink{classemsr_1_1Polynomial_a2a5c8eefb4185d1c1ce09d08ebe9b73c}{degree}}() > 0)}
+\DoxyCodeLine{267         \{}
+\DoxyCodeLine{268           \textcolor{keyword}{const} \textcolor{keyword}{auto} even = (this-\/>\mbox{\hyperlink{classemsr_1_1Polynomial_a2a5c8eefb4185d1c1ce09d08ebe9b73c}{degree}}() \% 2 == 0 ? 1 : 0);}
+\DoxyCodeLine{269           \textcolor{keyword}{const} \textcolor{keyword}{auto} xx = x * x;}
+\DoxyCodeLine{270           \textcolor{keyword}{auto} poly(this-\/>\mbox{\hyperlink{classemsr_1_1Polynomial_afb52ec6b418e45d32264ec57033f8093}{coefficient}}(this-\/>\mbox{\hyperlink{classemsr_1_1Polynomial_a2a5c8eefb4185d1c1ce09d08ebe9b73c}{degree}}() -\/ even));}
+\DoxyCodeLine{271           \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = this-\/>\mbox{\hyperlink{classemsr_1_1Polynomial_a2a5c8eefb4185d1c1ce09d08ebe9b73c}{degree}}() -\/ even -\/ 2; i >= 0; i -\/= 2)}
+\DoxyCodeLine{272             poly = \mbox{\hyperlink{namespaceemsr_a733f95a5b7d092ab0423af88d1bb6768}{std::fma}}(xx, poly, this-\/>\mbox{\hyperlink{classemsr_1_1Polynomial_afb52ec6b418e45d32264ec57033f8093}{coefficient}}(i));}
+\DoxyCodeLine{273           \textcolor{keywordflow}{return} x * poly;}
+\DoxyCodeLine{274         \}}
+\DoxyCodeLine{275       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{276         \textcolor{keywordflow}{return} \mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\_type}}\{\};}
+\DoxyCodeLine{277     \}}
+
+\end{DoxyCode}
+
+
+References emsr\+::fma().
+
+\mbox{\Hypertarget{classemsr_1_1Polynomial_a63ed8bbcca45aaefbe020a5103c11dca}\label{classemsr_1_1Polynomial_a63ed8bbcca45aaefbe020a5103c11dca}} 
+\index{emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}!eval\_odd@{eval\_odd}}
+\index{eval\_odd@{eval\_odd}!emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}}
+\doxysubsubsection{\texorpdfstring{eval\_odd()}{eval\_odd()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+\mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\+\_\+type}} \mbox{\hyperlink{classemsr_1_1Polynomial}{emsr\+::\+Polynomial}}$<$ Tp $>$\+::eval\+\_\+odd (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\+\_\+type}}}]{x }\end{DoxyParamCaption}) const}
+
+Evaluate the odd part of the polynomial at the input point. \mbox{\Hypertarget{classemsr_1_1Polynomial_ad89d8a939d60db6301dca0b041a21eef}\label{classemsr_1_1Polynomial_ad89d8a939d60db6301dca0b041a21eef}} 
+\index{emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}!integral@{integral}}
+\index{integral@{integral}!emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}}
+\doxysubsubsection{\texorpdfstring{integral()}{integral()}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+\mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}} \mbox{\hyperlink{classemsr_1_1Polynomial}{emsr\+::\+Polynomial}}$<$ Tp $>$\+::integral (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\+\_\+type}}}]{c = {\ttfamily \mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\+\_\+type}}\{\}} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Return the integral polynomial with given integration constant. 
+
+Definition at line 440 of file polynomial.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{440                                         \{\}) \textcolor{keyword}{const}}
+\DoxyCodeLine{441       \{}
+\DoxyCodeLine{442         \mbox{\hyperlink{classemsr_1_1Polynomial_a5afe1d9fce8aed59ce49f7f08947e21d}{Polynomial}} res(\mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\_type}}\{\}, this-\/>\mbox{\hyperlink{classemsr_1_1Polynomial_a2a5c8eefb4185d1c1ce09d08ebe9b73c}{degree}}() + 1);}
+\DoxyCodeLine{443         res.m\_coeff[0] = c;}
+\DoxyCodeLine{444         \textcolor{keywordflow}{for} (\mbox{\hyperlink{classemsr_1_1Polynomial_abca22a2a90ad0a2f1e6988843171c15a}{size\_type}} n = this-\/>\mbox{\hyperlink{classemsr_1_1Polynomial_a2a5c8eefb4185d1c1ce09d08ebe9b73c}{degree}}(), i = 0; i <= n; ++i)}
+\DoxyCodeLine{445           res.m\_coeff[i + 1] = this-\/>m\_coeff[i] / \mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\_type}}(i + 1);}
+\DoxyCodeLine{446         \textcolor{keywordflow}{return} res;}
+\DoxyCodeLine{447       \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classemsr_1_1Polynomial_aae8103fb22d7573cf7fcc9a1ab0826ba}\label{classemsr_1_1Polynomial_aae8103fb22d7573cf7fcc9a1ab0826ba}} 
+\index{emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}!operator\%=@{operator\%=}}
+\index{operator\%=@{operator\%=}!emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}}
+\doxysubsubsection{\texorpdfstring{operator\%=()}{operator\%=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+template$<$typename Up $>$ \\
+\mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}}\& \mbox{\hyperlink{classemsr_1_1Polynomial}{emsr\+::\+Polynomial}}$<$ Tp $>$\+::operator\%= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}}$<$ Up $>$ \&}]{poly }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Take the modulus of (modulate?) the polynomial relative to another polynomial. 
+
+Definition at line 637 of file polynomial.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{638         \{}
+\DoxyCodeLine{639           Polynomial<value\_type >quo, rem;}
+\DoxyCodeLine{640           \mbox{\hyperlink{namespaceemsr_a5d92c91e21caca3557589683df6650c4}{divmod}}(*\textcolor{keyword}{this}, poly, quo, rem);}
+\DoxyCodeLine{641           *\textcolor{keyword}{this} = rem;}
+\DoxyCodeLine{642           \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{643         \}}
+
+\end{DoxyCode}
+
+
+References emsr\+::divmod().
+
+\mbox{\Hypertarget{classemsr_1_1Polynomial_a6647f4aeeb2efedfdf7f0fdfd83c8bd3}\label{classemsr_1_1Polynomial_a6647f4aeeb2efedfdf7f0fdfd83c8bd3}} 
+\index{emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}!operator\%=@{operator\%=}}
+\index{operator\%=@{operator\%=}!emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}}
+\doxysubsubsection{\texorpdfstring{operator\%=()}{operator\%=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+template$<$typename Up $>$ \\
+\mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}}\& \mbox{\hyperlink{classemsr_1_1Polynomial}{emsr\+::\+Polynomial}}$<$ Tp $>$\+::operator\%= (\begin{DoxyParamCaption}\item[{const Up \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Take the modulus of the polynomial relative to a scalar. The result is always a zero polunomial. 
+
+Definition at line 578 of file polynomial.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{579         \{}
+\DoxyCodeLine{580           this-\/>\mbox{\hyperlink{classemsr_1_1Polynomial_a2a5c8eefb4185d1c1ce09d08ebe9b73c}{degree}}(0UL); \textcolor{comment}{// Resize.}}
+\DoxyCodeLine{581           this-\/>m\_coeff[0] = \mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\_type}}\{\};}
+\DoxyCodeLine{582           \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{583         \}}
+
+\end{DoxyCode}
+
+
+References emsr\+::\+Polynomial$<$ Tp $>$\+::degree().
+
+\mbox{\Hypertarget{classemsr_1_1Polynomial_a8fd010f795b2c81f79a698c576536710}\label{classemsr_1_1Polynomial_a8fd010f795b2c81f79a698c576536710}} 
+\index{emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}!operator()@{operator()}}
+\index{operator()@{operator()}!emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+template$<$typename In\+Iter , typename Out\+Iter , typename  = std\+::\+\_\+\+Require\+Input\+Iter$<$\+In\+Iter$>$$>$ \\
+Out\+Iter \mbox{\hyperlink{classemsr_1_1Polynomial}{emsr\+::\+Polynomial}}$<$ Tp $>$\+::operator() (\begin{DoxyParamCaption}\item[{const In\+Iter \&}]{xbegin,  }\item[{const In\+Iter \&}]{xend,  }\item[{Out\+Iter \&}]{pbegin }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Evaluate the polynomial at a range of input points. The output is written to the output iterator which must be large enough to contain the results. The next available output iterator is returned. 
+
+Definition at line 337 of file polynomial.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{339         \{}
+\DoxyCodeLine{340           \textcolor{keywordflow}{for} (; xbegin != xend; ++xbegin)}
+\DoxyCodeLine{341             pbegin++ = (*\textcolor{keyword}{this})(xbegin++);}
+\DoxyCodeLine{342           \textcolor{keywordflow}{return} pbegin;}
+\DoxyCodeLine{343         \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classemsr_1_1Polynomial_ab09a086ab94c7bd61fc088448ba3beff}\label{classemsr_1_1Polynomial_ab09a086ab94c7bd61fc088448ba3beff}} 
+\index{emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}!operator()@{operator()}}
+\index{operator()@{operator()}!emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+template$<$typename Up $>$ \\
+auto \mbox{\hyperlink{classemsr_1_1Polynomial}{emsr\+::\+Polynomial}}$<$ Tp $>$\+::operator() (\begin{DoxyParamCaption}\item[{const std\+::complex$<$ Up $>$ \&}]{z }\end{DoxyParamCaption}) const -\/$>$ std\+::enable\+\_\+if\+\_\+t$<$!\mbox{\hyperlink{namespaceemsr_a5bf2c62dcc64e44b8b65766f71d8aa64}{has\+\_\+imag\+\_\+v}}$<$Tp$>$,        std\+::complex$<$std\+::decay\+\_\+t$<$   decltype(typename \mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}}$<$Tp$>$\+::\mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\+\_\+type}}\{\} $\ast$ Up\{\})$>$$>$$>$}
+
+Evaluate the polynomial using a modification of Horner\textquotesingle{}s rule which exploits the fact that the polynomial coefficients are all real.
+
+The algorithm is discussed in detail in\+: Knuth, D. E., The Art of Computer Programming\+: Seminumerical Algorithms (Vol. 2) Third Ed., Addison-\/\+Wesley, pp 486-\/488, 1998.
+
+If n is the degree of the polynomial, n -\/ 3 multiplies and 4 $\ast$ n -\/ 6 additions are saved.
+
+OTOH, What does it mean to get roots of integer polynomials -\/ the roots will often be real or even complex.
+
+What does it even mean to get roots of polynomial polynomials. I think you\textquotesingle{}d want to pick a parameter for the inner coefficient polynomials.
+
+Wait! This has nothing to do with the coefficient type. It\textquotesingle{}s the evaluation type that determines this. It may be sane to make \mbox{\hyperlink{structemsr_1_1real__type}{real\+\_\+type}} be double if it comes in as integral.
+
+OTOOH, scaling down an integer polynomial will either screw up the polynomial or it will make a polynomial of a different type.
+
+This scaling thing can only apply to real or complex polynomials.
+
+template$<$typename Tp$>$ std\+::enable\+\_\+if\+\_\+t$<$std\+::is\+\_\+integral\+\_\+v$<$\+Tp$>$$>$ Polynomial$<$\+Tp$>$\+::m\+\_\+set\+\_\+scale() \{ \}
+
+template$<$typename Tp$>$ std\+::enable\+\_\+if\+\_\+t$<$std\+::is\+\_\+floating\+\_\+point\+\_\+v$<$\+Tp$>$$>$ void Polynomial$<$\+Tp$>$\+::m\+\_\+set\+\_\+scale() \{ constexpr \mbox{\hyperlink{structemsr_1_1real__type}{real\+\_\+type}} s\+\_\+eps = std\+::numeric\+\_\+limits$<$real\+\_\+type$>$\+::epsilon(); constexpr \mbox{\hyperlink{structemsr_1_1real__type}{real\+\_\+type}} s\+\_\+base = \mbox{\hyperlink{structemsr_1_1real__type}{real\+\_\+type}}\{std\+::numeric\+\_\+limits$<$real\+\_\+type$>$\+::radix\}; constexpr \mbox{\hyperlink{structemsr_1_1real__type}{real\+\_\+type}} s\+\_\+tiny = s\+\_\+eps $\ast$ s\+\_\+eps $\ast$ s\+\_\+eps; // $\sim$ 1.\+0e-\/50; constexpr \mbox{\hyperlink{structemsr_1_1real__type}{real\+\_\+type}} s\+\_\+huge = std\+::numeric\+\_\+limits$<$real\+\_\+type$>$\+::max(); constexpr \mbox{\hyperlink{structemsr_1_1real__type}{real\+\_\+type}} s\+\_\+low = s\+\_\+tiny / s\+\_\+eps;
+
+Find largest and smallest moduli of coefficients. auto a\+\_\+max = \mbox{\hyperlink{structemsr_1_1real__type}{real\+\_\+type}}\{0\}; auto a\+\_\+min = s\+\_\+huge; for (int i = 0; i $<$= this-\/$>$\mbox{\hyperlink{classemsr_1_1Polynomial_a2a5c8eefb4185d1c1ce09d08ebe9b73c}{degree()}}; ++i) \{ const auto x = get\+\_\+scale(this-\/$>$m\+\_\+coeff\mbox{[}i\mbox{]}); if (x $>$ a\+\_\+max) a\+\_\+max = x; if (x != \mbox{\hyperlink{structemsr_1_1real__type}{real\+\_\+type}}\{0\} \&\& x $<$ a\+\_\+min) a\+\_\+min = x; \} Scale if there are large or very tiny coefficients. Computes a scale factor to multiply the coefficients of the polynomial. The scaling is done to avoid overflow and to avoid undetected underflow interfering with the convergence criterion. The factor is a power of the base. auto scale = s\+\_\+low / a\+\_\+min; bool rescale = true; if (scale $>$ \mbox{\hyperlink{structemsr_1_1real__type}{real\+\_\+type}}\{1\} \&\& s\+\_\+huge / scale $<$ a\+\_\+max) rescale = false; if (scale $<$= \mbox{\hyperlink{structemsr_1_1real__type}{real\+\_\+type}}\{1\} \&\& a\+\_\+max $<$ \mbox{\hyperlink{structemsr_1_1real__type}{real\+\_\+type}}\{10\}) rescale = false;
+
+this-\/$>$m\+\_\+scale = \mbox{\hyperlink{structemsr_1_1real__type}{real\+\_\+type}}\{1\}; if (rescale) \{ Scale polynomial. if (scale == \mbox{\hyperlink{structemsr_1_1real__type}{real\+\_\+type}}\{0\}) scale = s\+\_\+tiny; const auto lg = std\+::ilogb(scale); this-\/$>$m\+\_\+scale = std\+::pow(s\+\_\+base, lg); if (this-\/$>$m\+\_\+scale != \mbox{\hyperlink{structemsr_1_1real__type}{real\+\_\+type}}\{1\}) for (int i = 0; i $<$= this-\/$>$\mbox{\hyperlink{classemsr_1_1Polynomial_a2a5c8eefb4185d1c1ce09d08ebe9b73c}{degree()}}; ++i) this-\/$>$m\+\_\+coeff\mbox{[}i\mbox{]} $\ast$= this-\/$>$m\+\_\+scale; \} \} Scaling specialization for polynomial coefficient polynomials. template$<$typename Tp$>$ void \mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}}$<$Polynomial$<$\+Tp$>$$>$\+::m\+\_\+set\+\_\+scale() \{ for (int i = 0; i $<$= this-\/$>$\mbox{\hyperlink{classemsr_1_1Polynomial_a2a5c8eefb4185d1c1ce09d08ebe9b73c}{degree()}}; ++i) this-\/$>$m\+\_\+coeff\mbox{[}i\mbox{]}.m\+\_\+set\+\_\+scale(); \} Evaluate the polynomial using a modification of Horner\textquotesingle{}s rule which exploits the fact that the polynomial coefficients are all real.
+
+The algorithm is discussed in detail in\+: Knuth, D. E., The Art of Computer Programming\+: Seminumerical Algorithms (Vol. 2) Third Ed., Addison-\/\+Wesley, pp 486-\/488, 1998.
+
+If n is the degree of the polynomial, n -\/ 3 multiplies and 4 $\ast$ n -\/ 6 additions are saved. 
+
+Definition at line 154 of file polynomial.\+tcc.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{157                                                           \{\} * Up\{\})>>>}
+\DoxyCodeLine{158       \{}
+\DoxyCodeLine{159         \textcolor{keyword}{const} \textcolor{keyword}{auto} r = Tp\{2\} * \mbox{\hyperlink{namespaceemsr_a3b69f1c91fb3480e098db4e4bfe949f2}{std::real}}(z);}
+\DoxyCodeLine{160         \textcolor{keyword}{const} \textcolor{keyword}{auto} s = std::norm(z);}
+\DoxyCodeLine{161         \mbox{\hyperlink{classemsr_1_1Polynomial_abca22a2a90ad0a2f1e6988843171c15a}{size\_type}} n = this-\/>\mbox{\hyperlink{classemsr_1_1Polynomial_a2a5c8eefb4185d1c1ce09d08ebe9b73c}{degree}}();}
+\DoxyCodeLine{162         \textcolor{keyword}{auto} aa = this-\/>\mbox{\hyperlink{classemsr_1_1Polynomial_afb52ec6b418e45d32264ec57033f8093}{coefficient}}(n);}
+\DoxyCodeLine{163         \textcolor{keywordflow}{if} (n > 0)}
+\DoxyCodeLine{164           \{}
+\DoxyCodeLine{165             \textcolor{keyword}{auto} bb = this-\/>\mbox{\hyperlink{classemsr_1_1Polynomial_afb52ec6b418e45d32264ec57033f8093}{coefficient}}(n -\/ 1);}
+\DoxyCodeLine{166             \textcolor{keywordflow}{for} (\mbox{\hyperlink{classemsr_1_1Polynomial_abca22a2a90ad0a2f1e6988843171c15a}{size\_type}} j = 2; j <= n; ++j)}
+\DoxyCodeLine{167               bb = this-\/>\mbox{\hyperlink{classemsr_1_1Polynomial_afb52ec6b418e45d32264ec57033f8093}{coefficient}}(n -\/ j)}
+\DoxyCodeLine{168                    -\/ s * std::exchange(aa, bb + r * aa);}
+\DoxyCodeLine{169             \textcolor{keywordflow}{return} aa * z + bb;}
+\DoxyCodeLine{170           \}}
+\DoxyCodeLine{171         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{172           \textcolor{keywordflow}{return} aa;}
+\DoxyCodeLine{173       \};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classemsr_1_1Polynomial_ace1a108efad37789039664227ec2ac5b}\label{classemsr_1_1Polynomial_ace1a108efad37789039664227ec2ac5b}} 
+\index{emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}!operator()@{operator()}}
+\index{operator()@{operator()}!emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+template$<$typename Up $>$ \\
+auto \mbox{\hyperlink{classemsr_1_1Polynomial}{emsr\+::\+Polynomial}}$<$ Tp $>$\+::operator() (\begin{DoxyParamCaption}\item[{Up}]{x }\end{DoxyParamCaption}) const -\/$>$ decltype(\mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\+\_\+type}}\{\} $\ast$ Up\{\})  \hspace{0.3cm}{\ttfamily [inline]}}
+
+Evaluate the polynomial at the input point. 
+
+Definition at line 283 of file polynomial.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{284                               \{\} * Up\{\})}
+\DoxyCodeLine{285         \{}
+\DoxyCodeLine{286           \textcolor{keywordflow}{if} (this-\/>\mbox{\hyperlink{classemsr_1_1Polynomial_a2a5c8eefb4185d1c1ce09d08ebe9b73c}{degree}}() > 0)}
+\DoxyCodeLine{287             \{}
+\DoxyCodeLine{288               \textcolor{keywordflow}{if} (\mbox{\hyperlink{namespaceemsr_a782d36096e8467b4a45a9dc2f89355b2}{std::abs}}(x) <= \mbox{\hyperlink{classemsr_1_1Polynomial_ae3f021715877defbf1f4e02d936f0a91}{real\_type}}\{1\})}
+\DoxyCodeLine{289                 \{}
+\DoxyCodeLine{290                   \textcolor{keyword}{auto} poly(Up\{1\} * this-\/>\mbox{\hyperlink{classemsr_1_1Polynomial_afb52ec6b418e45d32264ec57033f8093}{coefficient}}(this-\/>\mbox{\hyperlink{classemsr_1_1Polynomial_a2a5c8eefb4185d1c1ce09d08ebe9b73c}{degree}}()));}
+\DoxyCodeLine{291                   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = this-\/>\mbox{\hyperlink{classemsr_1_1Polynomial_a2a5c8eefb4185d1c1ce09d08ebe9b73c}{degree}}() -\/ 1; i >= 0; -\/-\/i)}
+\DoxyCodeLine{292                     poly = poly * x + this-\/>\mbox{\hyperlink{classemsr_1_1Polynomial_afb52ec6b418e45d32264ec57033f8093}{coefficient}}(i);}
+\DoxyCodeLine{293                   \textcolor{keywordflow}{return} poly;}
+\DoxyCodeLine{294                 \}}
+\DoxyCodeLine{295               \textcolor{keywordflow}{else}}
+\DoxyCodeLine{296                 \{}
+\DoxyCodeLine{297                   \textcolor{keyword}{const} \textcolor{keyword}{auto} rx = \mbox{\hyperlink{classemsr_1_1Polynomial_ae3f021715877defbf1f4e02d936f0a91}{real\_type}}\{1\} / x;}
+\DoxyCodeLine{298                   \textcolor{keyword}{auto} poly(Up\{1\} * this-\/>\mbox{\hyperlink{classemsr_1_1Polynomial_afb52ec6b418e45d32264ec57033f8093}{coefficient}}(0));}
+\DoxyCodeLine{299                   \textcolor{keywordflow}{for} (std::size\_t i = 1ull; i <= this-\/>\mbox{\hyperlink{classemsr_1_1Polynomial_a2a5c8eefb4185d1c1ce09d08ebe9b73c}{degree}}(); ++i)}
+\DoxyCodeLine{300                     poly = poly * rx + this-\/>\mbox{\hyperlink{classemsr_1_1Polynomial_afb52ec6b418e45d32264ec57033f8093}{coefficient}}(i);}
+\DoxyCodeLine{301                   \textcolor{keywordflow}{for} (std::size\_t i = 1ull; i <= this-\/>\mbox{\hyperlink{classemsr_1_1Polynomial_a2a5c8eefb4185d1c1ce09d08ebe9b73c}{degree}}(); ++i)}
+\DoxyCodeLine{302                     poly *= x;}
+\DoxyCodeLine{303                   \textcolor{keywordflow}{return} poly;}
+\DoxyCodeLine{304                 \}}
+\DoxyCodeLine{305             \}}
+\DoxyCodeLine{306           \textcolor{keywordflow}{else}}
+\DoxyCodeLine{307             \textcolor{keywordflow}{return} Up\{1\} * this-\/>\mbox{\hyperlink{classemsr_1_1Polynomial_afb52ec6b418e45d32264ec57033f8093}{coefficient}}(0);}
+\DoxyCodeLine{308         \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classemsr_1_1Polynomial_a654fffc96d5f159af389a200097821cb}\label{classemsr_1_1Polynomial_a654fffc96d5f159af389a200097821cb}} 
+\index{emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}!operator()@{operator()}}
+\index{operator()@{operator()}!emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+\mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\+\_\+type}} \mbox{\hyperlink{classemsr_1_1Polynomial}{emsr\+::\+Polynomial}}$<$ Tp $>$\+::operator() (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\+\_\+type}}}]{x }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Evaluate the polynomial at the input point. 
+
+Definition at line 252 of file polynomial.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{253       \{}
+\DoxyCodeLine{254         \textcolor{keywordflow}{if} (this-\/>\mbox{\hyperlink{classemsr_1_1Polynomial_a2a5c8eefb4185d1c1ce09d08ebe9b73c}{degree}}() > 0)}
+\DoxyCodeLine{255           \{}
+\DoxyCodeLine{256             \textcolor{keywordflow}{if} (\mbox{\hyperlink{namespaceemsr_a782d36096e8467b4a45a9dc2f89355b2}{std::abs}}(x) <= \mbox{\hyperlink{classemsr_1_1Polynomial_ae3f021715877defbf1f4e02d936f0a91}{real\_type}}\{1\})}
+\DoxyCodeLine{257               \{}
+\DoxyCodeLine{258                 \mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\_type}} poly(this-\/>\mbox{\hyperlink{classemsr_1_1Polynomial_afb52ec6b418e45d32264ec57033f8093}{coefficient}}(this-\/>\mbox{\hyperlink{classemsr_1_1Polynomial_a2a5c8eefb4185d1c1ce09d08ebe9b73c}{degree}}()));}
+\DoxyCodeLine{259                 \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = this-\/>\mbox{\hyperlink{classemsr_1_1Polynomial_a2a5c8eefb4185d1c1ce09d08ebe9b73c}{degree}}() -\/ 1; i >= 0; -\/-\/i)}
+\DoxyCodeLine{260                   poly = poly * x + this-\/>\mbox{\hyperlink{classemsr_1_1Polynomial_afb52ec6b418e45d32264ec57033f8093}{coefficient}}(i);}
+\DoxyCodeLine{261                 \textcolor{keywordflow}{return} poly;}
+\DoxyCodeLine{262               \}}
+\DoxyCodeLine{263             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{264               \{}
+\DoxyCodeLine{265                 \textcolor{keyword}{const} \textcolor{keyword}{auto} rx = \mbox{\hyperlink{classemsr_1_1Polynomial_ae3f021715877defbf1f4e02d936f0a91}{real\_type}}\{1\} / x;}
+\DoxyCodeLine{266                 \mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\_type}} poly(this-\/>\mbox{\hyperlink{classemsr_1_1Polynomial_afb52ec6b418e45d32264ec57033f8093}{coefficient}}(0));}
+\DoxyCodeLine{267                 \textcolor{keywordflow}{for} (std::size\_t i = 1ull; i <= this-\/>\mbox{\hyperlink{classemsr_1_1Polynomial_a2a5c8eefb4185d1c1ce09d08ebe9b73c}{degree}}(); ++i)}
+\DoxyCodeLine{268                   poly = poly * rx + this-\/>\mbox{\hyperlink{classemsr_1_1Polynomial_afb52ec6b418e45d32264ec57033f8093}{coefficient}}(i);}
+\DoxyCodeLine{269                 \textcolor{keywordflow}{for} (std::size\_t i = 1ull; i <= this-\/>\mbox{\hyperlink{classemsr_1_1Polynomial_a2a5c8eefb4185d1c1ce09d08ebe9b73c}{degree}}(); ++i)}
+\DoxyCodeLine{270                   poly *= x;}
+\DoxyCodeLine{271                 \textcolor{keywordflow}{return} poly;}
+\DoxyCodeLine{272               \}}
+\DoxyCodeLine{273           \}}
+\DoxyCodeLine{274         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{275           \textcolor{keywordflow}{return} this-\/>\mbox{\hyperlink{classemsr_1_1Polynomial_afb52ec6b418e45d32264ec57033f8093}{coefficient}}(0);}
+\DoxyCodeLine{276       \}}
+
+\end{DoxyCode}
+
+
+References emsr\+::abs(), emsr\+::\+Polynomial$<$ Tp $>$\+::coefficient(), and emsr\+::\+Polynomial$<$ Tp $>$\+::degree().
+
+\mbox{\Hypertarget{classemsr_1_1Polynomial_abd3311f28c2acbf9fa7f586659e4b078}\label{classemsr_1_1Polynomial_abd3311f28c2acbf9fa7f586659e4b078}} 
+\index{emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}!operator$\ast$=@{operator$\ast$=}}
+\index{operator$\ast$=@{operator$\ast$=}!emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}}
+\doxysubsubsection{\texorpdfstring{operator$\ast$=()}{operator*=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+template$<$typename Up $>$ \\
+\mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}}\& \mbox{\hyperlink{classemsr_1_1Polynomial}{emsr\+::\+Polynomial}}$<$ Tp $>$\+::operator$\ast$= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}}$<$ Up $>$ \&}]{poly }\end{DoxyParamCaption})}
+
+Multiply the polynomial by another polynomial. \mbox{\Hypertarget{classemsr_1_1Polynomial_a48ba05d2bb3b39ac6f45321bbc14ab3c}\label{classemsr_1_1Polynomial_a48ba05d2bb3b39ac6f45321bbc14ab3c}} 
+\index{emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}!operator$\ast$=@{operator$\ast$=}}
+\index{operator$\ast$=@{operator$\ast$=}!emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}}
+\doxysubsubsection{\texorpdfstring{operator$\ast$=()}{operator*=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+template$<$typename Up $>$ \\
+\mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}}$<$Tp$>$\& \mbox{\hyperlink{classemsr_1_1Polynomial}{emsr\+::\+Polynomial}}$<$ Tp $>$\+::operator$\ast$= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}}$<$ Up $>$ \&}]{poly }\end{DoxyParamCaption})}
+
+Multiply the polynomial by another polynomial. 
+
+Definition at line 366 of file polynomial.\+tcc.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{367       \{}
+\DoxyCodeLine{368         \textcolor{comment}{//  Test for zero size polys and do special processing?}}
+\DoxyCodeLine{369         \textcolor{keyword}{const} \mbox{\hyperlink{classemsr_1_1Polynomial_abca22a2a90ad0a2f1e6988843171c15a}{size\_type}} m = this-\/>\mbox{\hyperlink{classemsr_1_1Polynomial_a2a5c8eefb4185d1c1ce09d08ebe9b73c}{degree}}();}
+\DoxyCodeLine{370         \textcolor{keyword}{const} \mbox{\hyperlink{classemsr_1_1Polynomial_abca22a2a90ad0a2f1e6988843171c15a}{size\_type}} n = poly.degree();}
+\DoxyCodeLine{371         std::vector<value\_type> new\_coeff(m + n + 1);}
+\DoxyCodeLine{372         \textcolor{keywordflow}{for} (\mbox{\hyperlink{classemsr_1_1Polynomial_abca22a2a90ad0a2f1e6988843171c15a}{size\_type}} i = 0; i <= m; ++i)}
+\DoxyCodeLine{373           \textcolor{keywordflow}{for} (\mbox{\hyperlink{classemsr_1_1Polynomial_abca22a2a90ad0a2f1e6988843171c15a}{size\_type}} j = 0; j <= n; ++j)}
+\DoxyCodeLine{374             new\_coeff[i + j] += this-\/>m\_coeff[i]}
+\DoxyCodeLine{375                                 * \textcolor{keyword}{static\_cast<}\mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\_type}}\textcolor{keyword}{>}(poly.m\_coeff[j]);}
+\DoxyCodeLine{376         this-\/>m\_coeff = new\_coeff;}
+\DoxyCodeLine{377         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{378       \}}
+
+\end{DoxyCode}
+
+
+References emsr\+::\+Polynomial$<$ Tp $>$\+::degree().
+
+\mbox{\Hypertarget{classemsr_1_1Polynomial_a4f93c5eda0d23bc29c48bc756c3dcdd9}\label{classemsr_1_1Polynomial_a4f93c5eda0d23bc29c48bc756c3dcdd9}} 
+\index{emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}!operator$\ast$=@{operator$\ast$=}}
+\index{operator$\ast$=@{operator$\ast$=}!emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}}
+\doxysubsubsection{\texorpdfstring{operator$\ast$=()}{operator*=()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+template$<$typename Up $>$ \\
+\mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}}\& \mbox{\hyperlink{classemsr_1_1Polynomial}{emsr\+::\+Polynomial}}$<$ Tp $>$\+::operator$\ast$= (\begin{DoxyParamCaption}\item[{const Up \&}]{c }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Multiply the polynomial by a scalar. 
+
+Definition at line 553 of file polynomial.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{554         \{}
+\DoxyCodeLine{555           \textcolor{keywordflow}{for} (\mbox{\hyperlink{classemsr_1_1Polynomial_abca22a2a90ad0a2f1e6988843171c15a}{size\_type}} i = 0; i < this-\/>m\_coeff.size(); ++i)}
+\DoxyCodeLine{556             this-\/>m\_coeff[i] *= \textcolor{keyword}{static\_cast<}\mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\_type}}\textcolor{keyword}{>}(c);}
+\DoxyCodeLine{557           \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{558         \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classemsr_1_1Polynomial_aa410ba125c10efcabdf6fbfc286d52cf}\label{classemsr_1_1Polynomial_aa410ba125c10efcabdf6fbfc286d52cf}} 
+\index{emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}!operator+@{operator+}}
+\index{operator+@{operator+}!emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}}
+\doxysubsubsection{\texorpdfstring{operator+()}{operator+()}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+\mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}} \mbox{\hyperlink{classemsr_1_1Polynomial}{emsr\+::\+Polynomial}}$<$ Tp $>$\+::operator+ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Unary plus. 
+
+Definition at line 476 of file polynomial.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{477       \{ \textcolor{keywordflow}{return} *\textcolor{keyword}{this}; \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classemsr_1_1Polynomial_a843fff2d8523c479bfa845a06a414f27}\label{classemsr_1_1Polynomial_a843fff2d8523c479bfa845a06a414f27}} 
+\index{emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}}
+\doxysubsubsection{\texorpdfstring{operator+=()}{operator+=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+template$<$typename Up $>$ \\
+\mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}}\& \mbox{\hyperlink{classemsr_1_1Polynomial}{emsr\+::\+Polynomial}}$<$ Tp $>$\+::operator+= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}}$<$ Up $>$ \&}]{poly }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Add another polynomial to the polynomial. 
+
+Definition at line 590 of file polynomial.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{591         \{}
+\DoxyCodeLine{592           this-\/>\mbox{\hyperlink{classemsr_1_1Polynomial_a2a5c8eefb4185d1c1ce09d08ebe9b73c}{degree}}(std::max(this-\/>\mbox{\hyperlink{classemsr_1_1Polynomial_a2a5c8eefb4185d1c1ce09d08ebe9b73c}{degree}}(), poly.degree()));}
+\DoxyCodeLine{593           \textcolor{keywordflow}{for} (\mbox{\hyperlink{classemsr_1_1Polynomial_abca22a2a90ad0a2f1e6988843171c15a}{size\_type}} n = poly.degree(), i = 0; i <= n; ++i)}
+\DoxyCodeLine{594             this-\/>m\_coeff[i] += \textcolor{keyword}{static\_cast<}\mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\_type}}\textcolor{keyword}{>}(poly.m\_coeff[i]);}
+\DoxyCodeLine{595           \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{596         \}}
+
+\end{DoxyCode}
+
+
+References emsr\+::\+Polynomial$<$ Tp $>$\+::degree().
+
+\mbox{\Hypertarget{classemsr_1_1Polynomial_ab18ae966d256d2e7bd56664ca28fb675}\label{classemsr_1_1Polynomial_ab18ae966d256d2e7bd56664ca28fb675}} 
+\index{emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}}
+\doxysubsubsection{\texorpdfstring{operator+=()}{operator+=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+template$<$typename Up $>$ \\
+\mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}}\& \mbox{\hyperlink{classemsr_1_1Polynomial}{emsr\+::\+Polynomial}}$<$ Tp $>$\+::operator+= (\begin{DoxyParamCaption}\item[{const Up \&}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Add a scalar to the polynomial. 
+
+Definition at line 531 of file polynomial.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{532         \{}
+\DoxyCodeLine{533           this-\/>m\_coeff[0] += \textcolor{keyword}{static\_cast<}\mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\_type}}\textcolor{keyword}{>}(x);}
+\DoxyCodeLine{534           \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{535         \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classemsr_1_1Polynomial_ae34b5ff943e3f85279e786394385a477}\label{classemsr_1_1Polynomial_ae34b5ff943e3f85279e786394385a477}} 
+\index{emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}}
+\doxysubsubsection{\texorpdfstring{operator-\/()}{operator-()}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+\mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}} \mbox{\hyperlink{classemsr_1_1Polynomial}{emsr\+::\+Polynomial}}$<$ Tp $>$\+::operator-\/ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Unary minus. 
+
+Definition at line 483 of file polynomial.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{484       \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classemsr_1_1Polynomial_a5afe1d9fce8aed59ce49f7f08947e21d}{Polynomial}}(*\textcolor{keyword}{this}) *= \mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\_type}}(-\/1); \}}
+
+\end{DoxyCode}
+
+
+References emsr\+::\+Polynomial$<$ Tp $>$\+::\+Polynomial().
+
+\mbox{\Hypertarget{classemsr_1_1Polynomial_a20038e463cf23edb3e8d1a534045c0db}\label{classemsr_1_1Polynomial_a20038e463cf23edb3e8d1a534045c0db}} 
+\index{emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}!operator-\/=@{operator-\/=}}
+\index{operator-\/=@{operator-\/=}!emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}}
+\doxysubsubsection{\texorpdfstring{operator-\/=()}{operator-=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+template$<$typename Up $>$ \\
+\mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}}\& \mbox{\hyperlink{classemsr_1_1Polynomial}{emsr\+::\+Polynomial}}$<$ Tp $>$\+::operator-\/= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}}$<$ Up $>$ \&}]{poly }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Subtract another polynomial from the polynomial. 
+
+Definition at line 603 of file polynomial.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{604         \{}
+\DoxyCodeLine{605           \textcolor{comment}{// Resize if necessary.}}
+\DoxyCodeLine{606           this-\/>\mbox{\hyperlink{classemsr_1_1Polynomial_a2a5c8eefb4185d1c1ce09d08ebe9b73c}{degree}}(std::max(this-\/>\mbox{\hyperlink{classemsr_1_1Polynomial_a2a5c8eefb4185d1c1ce09d08ebe9b73c}{degree}}(), poly.degree()));}
+\DoxyCodeLine{607           \textcolor{keywordflow}{for} (\mbox{\hyperlink{classemsr_1_1Polynomial_abca22a2a90ad0a2f1e6988843171c15a}{size\_type}} n = poly.degree(), i = 0; i <= n; ++i)}
+\DoxyCodeLine{608             this-\/>m\_coeff[i] -\/= \textcolor{keyword}{static\_cast<}\mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\_type}}\textcolor{keyword}{>}(poly.m\_coeff[i]);}
+\DoxyCodeLine{609           \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{610         \}}
+
+\end{DoxyCode}
+
+
+References emsr\+::\+Polynomial$<$ Tp $>$\+::degree().
+
+\mbox{\Hypertarget{classemsr_1_1Polynomial_a6cc4c9b6370f3b7bc612d115101d84eb}\label{classemsr_1_1Polynomial_a6cc4c9b6370f3b7bc612d115101d84eb}} 
+\index{emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}!operator-\/=@{operator-\/=}}
+\index{operator-\/=@{operator-\/=}!emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}}
+\doxysubsubsection{\texorpdfstring{operator-\/=()}{operator-=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+template$<$typename Up $>$ \\
+\mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}}\& \mbox{\hyperlink{classemsr_1_1Polynomial}{emsr\+::\+Polynomial}}$<$ Tp $>$\+::operator-\/= (\begin{DoxyParamCaption}\item[{const Up \&}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Subtract a scalar from the polynomial. 
+
+Definition at line 542 of file polynomial.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{543         \{}
+\DoxyCodeLine{544           this-\/>m\_coeff[0] -\/= \textcolor{keyword}{static\_cast<}\mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\_type}}\textcolor{keyword}{>}(x);}
+\DoxyCodeLine{545           \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{546         \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classemsr_1_1Polynomial_a14c6ae44c86030c54f3e0774270be2b2}\label{classemsr_1_1Polynomial_a14c6ae44c86030c54f3e0774270be2b2}} 
+\index{emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}!operator/=@{operator/=}}
+\index{operator/=@{operator/=}!emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}}
+\doxysubsubsection{\texorpdfstring{operator/=()}{operator/=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+template$<$typename Up $>$ \\
+\mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}}\& \mbox{\hyperlink{classemsr_1_1Polynomial}{emsr\+::\+Polynomial}}$<$ Tp $>$\+::operator/= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}}$<$ Up $>$ \&}]{poly }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Divide the polynomial by another polynomial. 
+
+Definition at line 624 of file polynomial.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{625         \{}
+\DoxyCodeLine{626           Polynomial<value\_type >quo, rem;}
+\DoxyCodeLine{627           \mbox{\hyperlink{namespaceemsr_a5d92c91e21caca3557589683df6650c4}{divmod}}(*\textcolor{keyword}{this}, poly, quo, rem);}
+\DoxyCodeLine{628           *\textcolor{keyword}{this} = quo;}
+\DoxyCodeLine{629           \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{630         \}}
+
+\end{DoxyCode}
+
+
+References emsr\+::divmod().
+
+\mbox{\Hypertarget{classemsr_1_1Polynomial_aa05c360c4008a81997550bc1ee184ba9}\label{classemsr_1_1Polynomial_aa05c360c4008a81997550bc1ee184ba9}} 
+\index{emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}!operator/=@{operator/=}}
+\index{operator/=@{operator/=}!emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}}
+\doxysubsubsection{\texorpdfstring{operator/=()}{operator/=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+template$<$typename Up $>$ \\
+\mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}}\& \mbox{\hyperlink{classemsr_1_1Polynomial}{emsr\+::\+Polynomial}}$<$ Tp $>$\+::operator/= (\begin{DoxyParamCaption}\item[{const Up \&}]{c }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Divide the polynomial by a scalar. 
+
+Definition at line 565 of file polynomial.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{566         \{}
+\DoxyCodeLine{567           \textcolor{keywordflow}{for} (\mbox{\hyperlink{classemsr_1_1Polynomial_abca22a2a90ad0a2f1e6988843171c15a}{size\_type}} i = 0; i < this-\/>m\_coeff.size(); ++i)}
+\DoxyCodeLine{568             this-\/>m\_coeff[i] /= \textcolor{keyword}{static\_cast<}\mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\_type}}\textcolor{keyword}{>}(c);}
+\DoxyCodeLine{569           \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{570         \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classemsr_1_1Polynomial_add50a8155190b76a3fee3e01fd95bbf5}\label{classemsr_1_1Polynomial_add50a8155190b76a3fee3e01fd95bbf5}} 
+\index{emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+\mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}}\& \mbox{\hyperlink{classemsr_1_1Polynomial}{emsr\+::\+Polynomial}}$<$ Tp $>$\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}}$<$ Tp $>$ \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+Copy assignment. \mbox{\Hypertarget{classemsr_1_1Polynomial_af5e29827bf674e230461e3509a14518b}\label{classemsr_1_1Polynomial_af5e29827bf674e230461e3509a14518b}} 
+\index{emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+template$<$typename Up $>$ \\
+\mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}}\& \mbox{\hyperlink{classemsr_1_1Polynomial}{emsr\+::\+Polynomial}}$<$ Tp $>$\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}}$<$ Up $>$ \&}]{poly }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 505 of file polynomial.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{506         \{}
+\DoxyCodeLine{507           \textcolor{keywordflow}{if} (\&poly != \textcolor{keyword}{this})}
+\DoxyCodeLine{508             \{}
+\DoxyCodeLine{509               this-\/>m\_coeff.clear();}
+\DoxyCodeLine{510               \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto} c : poly)}
+\DoxyCodeLine{511                 this-\/>m\_coeff.push\_back(\textcolor{keyword}{static\_cast<}\mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\_type}}\textcolor{keyword}{>}(c));}
+\DoxyCodeLine{512               \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{513             \}}
+\DoxyCodeLine{514         \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classemsr_1_1Polynomial_aebed319f39a87d459c86163a71f2e6e0}\label{classemsr_1_1Polynomial_aebed319f39a87d459c86163a71f2e6e0}} 
+\index{emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+\mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}}\& \mbox{\hyperlink{classemsr_1_1Polynomial}{emsr\+::\+Polynomial}}$<$ Tp $>$\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\+\_\+type}} \&}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Assign from a scalar. The result is a zero degree polynomial equal to the scalar. 
+
+Definition at line 491 of file polynomial.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{492       \{}
+\DoxyCodeLine{493         this-\/>m\_coeff = \{x\};}
+\DoxyCodeLine{494         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{495       \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classemsr_1_1Polynomial_afd978a2219a5cc55719a1c545fab064c}\label{classemsr_1_1Polynomial_afd978a2219a5cc55719a1c545fab064c}} 
+\index{emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+\mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}}\& \mbox{\hyperlink{classemsr_1_1Polynomial}{emsr\+::\+Polynomial}}$<$ Tp $>$\+::operator= (\begin{DoxyParamCaption}\item[{std\+::initializer\+\_\+list$<$ \mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\+\_\+type}} $>$}]{ila }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Assign from an initialiser list. 
+
+Definition at line 520 of file polynomial.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{521       \{}
+\DoxyCodeLine{522         this-\/>m\_coeff = ila;}
+\DoxyCodeLine{523         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{524       \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classemsr_1_1Polynomial_ab5760d7669b5ff001c937cb41264b465}\label{classemsr_1_1Polynomial_ab5760d7669b5ff001c937cb41264b465}} 
+\index{emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+\mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\+\_\+type}} \mbox{\hyperlink{classemsr_1_1Polynomial}{emsr\+::\+Polynomial}}$<$ Tp $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classemsr_1_1Polynomial_abca22a2a90ad0a2f1e6988843171c15a}{size\+\_\+type}}}]{i }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Return coefficient {\ttfamily i}. 
+
+Definition at line 706 of file polynomial.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{707       \{ \textcolor{keywordflow}{return} this-\/>m\_coeff[i]; \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classemsr_1_1Polynomial_ae5e50698960fbfbb402aee0e6993719a}\label{classemsr_1_1Polynomial_ae5e50698960fbfbb402aee0e6993719a}} 
+\index{emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+\mbox{\hyperlink{classemsr_1_1Polynomial_af22858f0d4509705b70a20feab01e414}{reference}} \mbox{\hyperlink{classemsr_1_1Polynomial}{emsr\+::\+Polynomial}}$<$ Tp $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classemsr_1_1Polynomial_abca22a2a90ad0a2f1e6988843171c15a}{size\+\_\+type}}}]{i }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Return coefficient {\ttfamily i} as an assignable quantity. 
+
+Definition at line 713 of file polynomial.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{714       \{ \textcolor{keywordflow}{return} this-\/>m\_coeff[i]; \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classemsr_1_1Polynomial_a109abffde90a6018aab9be2cdf80c1f7}\label{classemsr_1_1Polynomial_a109abffde90a6018aab9be2cdf80c1f7}} 
+\index{emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}!rbegin@{rbegin}}
+\index{rbegin@{rbegin}!emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}}
+\doxysubsubsection{\texorpdfstring{rbegin()}{rbegin()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+\mbox{\hyperlink{classemsr_1_1Polynomial_ad37e192dfec61b9ec41574e16103d924}{const\+\_\+reverse\+\_\+iterator}} \mbox{\hyperlink{classemsr_1_1Polynomial}{emsr\+::\+Polynomial}}$<$ Tp $>$\+::rbegin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Definition at line 799 of file polynomial.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{800       \{ \textcolor{keywordflow}{return} this-\/>m\_coeff.rbegin(); \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classemsr_1_1Polynomial_af26c8b2fc19aa493fedba8f2699e1169}\label{classemsr_1_1Polynomial_af26c8b2fc19aa493fedba8f2699e1169}} 
+\index{emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}!rbegin@{rbegin}}
+\index{rbegin@{rbegin}!emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}}
+\doxysubsubsection{\texorpdfstring{rbegin()}{rbegin()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+\mbox{\hyperlink{classemsr_1_1Polynomial_ad4558698b53fb2205da8bf6f7aea4527}{reverse\+\_\+iterator}} \mbox{\hyperlink{classemsr_1_1Polynomial}{emsr\+::\+Polynomial}}$<$ Tp $>$\+::rbegin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Definition at line 791 of file polynomial.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{792       \{ \textcolor{keywordflow}{return} this-\/>m\_coeff.rbegin(); \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classemsr_1_1Polynomial_a15919bee48c4d6f6f19d10482a677674}\label{classemsr_1_1Polynomial_a15919bee48c4d6f6f19d10482a677674}} 
+\index{emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}!rend@{rend}}
+\index{rend@{rend}!emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}}
+\doxysubsubsection{\texorpdfstring{rend()}{rend()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+\mbox{\hyperlink{classemsr_1_1Polynomial_ad37e192dfec61b9ec41574e16103d924}{const\+\_\+reverse\+\_\+iterator}} \mbox{\hyperlink{classemsr_1_1Polynomial}{emsr\+::\+Polynomial}}$<$ Tp $>$\+::rend (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Definition at line 803 of file polynomial.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{804       \{ \textcolor{keywordflow}{return} this-\/>m\_coeff.rend(); \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classemsr_1_1Polynomial_a48782524ed9cdf1ed6e38e404b99b3b3}\label{classemsr_1_1Polynomial_a48782524ed9cdf1ed6e38e404b99b3b3}} 
+\index{emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}!rend@{rend}}
+\index{rend@{rend}!emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}}
+\doxysubsubsection{\texorpdfstring{rend()}{rend()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+\mbox{\hyperlink{classemsr_1_1Polynomial_ad4558698b53fb2205da8bf6f7aea4527}{reverse\+\_\+iterator}} \mbox{\hyperlink{classemsr_1_1Polynomial}{emsr\+::\+Polynomial}}$<$ Tp $>$\+::rend (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Definition at line 795 of file polynomial.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{796       \{ \textcolor{keywordflow}{return} this-\/>m\_coeff.rend(); \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classemsr_1_1Polynomial_aba0cec53026157c994ca99b56f6312bb}\label{classemsr_1_1Polynomial_aba0cec53026157c994ca99b56f6312bb}} 
+\index{emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}!shift@{shift}}
+\index{shift@{shift}!emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}}
+\doxysubsubsection{\texorpdfstring{shift()}{shift()}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+void \mbox{\hyperlink{classemsr_1_1Polynomial}{emsr\+::\+Polynomial}}$<$ Tp $>$\+::shift (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\+\_\+type}}}]{shift }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Shift the polynomial using the Horner scheme. Given our polynomial \[ P(x) = a_0 + a_1 x + a_2 x^2 + ... \] Obtain a new polynomial \[ Q(z) = P(x + s) = a_0 + a_1 (x + s) + a_2 (x + s)^2 + ... = b_0 + b_1 x + b_2 x^2 \] 
+
+Definition at line 657 of file polynomial.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{658       \{}
+\DoxyCodeLine{659         \textcolor{keywordflow}{if} (\mbox{\hyperlink{classemsr_1_1Polynomial_aba0cec53026157c994ca99b56f6312bb}{shift}} == \mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\_type}}\{\})}
+\DoxyCodeLine{660           \textcolor{keywordflow}{return};}
+\DoxyCodeLine{661         \textcolor{keyword}{const} \textcolor{keywordtype}{int} n = this-\/>\mbox{\hyperlink{classemsr_1_1Polynomial_a2a5c8eefb4185d1c1ce09d08ebe9b73c}{degree}}();}
+\DoxyCodeLine{662         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 1; j <= n; ++j)}
+\DoxyCodeLine{663           \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 1; i <= n -\/ j + 1; ++i)}
+\DoxyCodeLine{664             this-\/>m\_coeff[n -\/ i] += \mbox{\hyperlink{classemsr_1_1Polynomial_aba0cec53026157c994ca99b56f6312bb}{shift}} * this-\/>m\_coeff[n -\/ i + 1];}
+\DoxyCodeLine{665       \}}
+
+\end{DoxyCode}
+
+
+References emsr\+::\+Polynomial$<$ Tp $>$\+::degree().
+
+\mbox{\Hypertarget{classemsr_1_1Polynomial_aabf5c490ca6c70c0c823335a2293948a}\label{classemsr_1_1Polynomial_aabf5c490ca6c70c0c823335a2293948a}} 
+\index{emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}!size@{size}}
+\index{size@{size}!emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}}
+\doxysubsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+\mbox{\hyperlink{classemsr_1_1Polynomial_abca22a2a90ad0a2f1e6988843171c15a}{size\+\_\+type}} \mbox{\hyperlink{classemsr_1_1Polynomial}{emsr\+::\+Polynomial}}$<$ Tp $>$\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Return the size of the coefficient sequence. 
+
+Definition at line 685 of file polynomial.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{686       \{ \textcolor{keywordflow}{return} this-\/>m\_coeff.size(); \}}
+
+\end{DoxyCode}
+
+
+Referenced by emsr\+::operator$>$$>$().
+
+\mbox{\Hypertarget{classemsr_1_1Polynomial_a1ecd2d2165aa049559c5487d65b2ebdf}\label{classemsr_1_1Polynomial_a1ecd2d2165aa049559c5487d65b2ebdf}} 
+\index{emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}!swap@{swap}}
+\index{swap@{swap}!emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}}
+\doxysubsubsection{\texorpdfstring{swap()}{swap()}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+void \mbox{\hyperlink{classemsr_1_1Polynomial}{emsr\+::\+Polynomial}}$<$ Tp $>$\+::swap (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}}$<$ Tp $>$ \&}]{poly }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Swap the polynomial with another polynomial. 
+
+Definition at line 245 of file polynomial.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{246       \{ this-\/>m\_coeff.swap(poly.m\_coeff); \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{classemsr_1_1Polynomial_a0bd4102b110210d721a10d79bf9b31d3}\label{classemsr_1_1Polynomial_a0bd4102b110210d721a10d79bf9b31d3}} 
+\index{emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}!operator==@{operator==}}
+\index{operator==@{operator==}!emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}}
+\doxysubsubsection{\texorpdfstring{operator==}{operator==}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+template$<$typename Tp1 $>$ \\
+bool operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}}$<$ Tp1 $>$ \&}]{pa,  }\item[{const \mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}}$<$ Tp1 $>$ \&}]{pb }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+\mbox{\Hypertarget{classemsr_1_1Polynomial_a3d2d48e6908643da64fa1ec74b7563cf}\label{classemsr_1_1Polynomial_a3d2d48e6908643da64fa1ec74b7563cf}} 
+\index{emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}}
+\doxysubsubsection{\texorpdfstring{operator$>$$>$}{operator>>}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+template$<$typename CharT , typename Traits , typename Tp1 $>$ \\
+std\+::basic\+\_\+istream$<$CharT, Traits$>$\& operator$>$$>$ (\begin{DoxyParamCaption}\item[{std\+::basic\+\_\+istream$<$ CharT, Traits $>$ \&}]{,  }\item[{\mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}}$<$ Tp1 $>$ \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classemsr_1_1Polynomial_a551ee4e0e7f4fa425cce39cb758565bb}\label{classemsr_1_1Polynomial_a551ee4e0e7f4fa425cce39cb758565bb}} 
+\index{emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}!derivative@{derivative}}
+\index{derivative@{derivative}!emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}}
+\doxysubsubsection{\texorpdfstring{derivative}{derivative}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+template$<$typename Up $>$ \\
+decltype(Up\{\} $\ast$ \mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\+\_\+type}}\{\} \mbox{\hyperlink{classemsr_1_1Polynomial}{emsr\+::\+Polynomial}}$<$ Tp $>$\+::derivative) (Up c) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Return the derivative of the polynomial at the given point. 
+
+Definition at line 426 of file polynomial.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{427         \{}
+\DoxyCodeLine{428           \textcolor{keyword}{using} res\_t = decltype(Up\{\} * \mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\_type}}\{\});}
+\DoxyCodeLine{429           \textcolor{keyword}{const} \textcolor{keywordtype}{int} n = this-\/>\mbox{\hyperlink{classemsr_1_1Polynomial_a2a5c8eefb4185d1c1ce09d08ebe9b73c}{degree}}();}
+\DoxyCodeLine{430           res\_t res = \mbox{\hyperlink{classemsr_1_1Polynomial_ae3f021715877defbf1f4e02d936f0a91}{real\_type}}(n) * this-\/>m\_coeff[n];}
+\DoxyCodeLine{431           \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = n -\/ 1; i > 0; -\/-\/i)}
+\DoxyCodeLine{432             res = c * res + \mbox{\hyperlink{classemsr_1_1Polynomial_ae3f021715877defbf1f4e02d936f0a91}{real\_type}}(i) * this-\/>m\_coeff[i];}
+\DoxyCodeLine{433           \textcolor{keywordflow}{return} res;}
+\DoxyCodeLine{434         \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classemsr_1_1Polynomial_a5a05faaacfd4b5f6f76e2fa4f985a022}\label{classemsr_1_1Polynomial_a5a05faaacfd4b5f6f76e2fa4f985a022}} 
+\index{emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}!integral@{integral}}
+\index{integral@{integral}!emsr::Polynomial$<$ Tp $>$@{emsr::Polynomial$<$ Tp $>$}}
+\doxysubsubsection{\texorpdfstring{integral}{integral}}
+{\footnotesize\ttfamily template$<$typename Tp $>$ \\
+template$<$typename Up $>$ \\
+decltype(Up\{\} $\ast$ \mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\+\_\+type}}\{\} \mbox{\hyperlink{classemsr_1_1Polynomial}{emsr\+::\+Polynomial}}$<$ Tp $>$\+::integral) (Up a, Up b) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Return the integral of the polynomial with given integration limits. 
+
+Definition at line 454 of file polynomial.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{455         \{}
+\DoxyCodeLine{456           \textcolor{keyword}{using} res\_t = decltype(Up\{\} * \mbox{\hyperlink{classemsr_1_1Polynomial_aceb9c7961964ee41fb520d00d887e59a}{value\_type}}\{\});}
+\DoxyCodeLine{457           \textcolor{keyword}{const} \textcolor{keywordtype}{int} n = this-\/>\mbox{\hyperlink{classemsr_1_1Polynomial_a2a5c8eefb4185d1c1ce09d08ebe9b73c}{degree}}();}
+\DoxyCodeLine{458           \textcolor{keyword}{const} \textcolor{keyword}{auto} coeff = this-\/>m\_coeff[n] / \mbox{\hyperlink{classemsr_1_1Polynomial_ae3f021715877defbf1f4e02d936f0a91}{real\_type}}(n + 1);}
+\DoxyCodeLine{459           res\_t resa = coeff * a;}
+\DoxyCodeLine{460           res\_t resb = coeff * b;}
+\DoxyCodeLine{461           \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = n -\/ 1; i >= 0; -\/-\/i)}
+\DoxyCodeLine{462             \{}
+\DoxyCodeLine{463               \textcolor{keyword}{const} \textcolor{keyword}{auto} coeff = this-\/>m\_coeff[i] / \mbox{\hyperlink{classemsr_1_1Polynomial_ae3f021715877defbf1f4e02d936f0a91}{real\_type}}(i + 1);}
+\DoxyCodeLine{464               resa += coeff;}
+\DoxyCodeLine{465               resa *= a;}
+\DoxyCodeLine{466               resb += coeff;}
+\DoxyCodeLine{467               resb *= b;}
+\DoxyCodeLine{468             \}}
+\DoxyCodeLine{469           \textcolor{keywordflow}{return} resb -\/ resa;}
+\DoxyCodeLine{470         \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/emsr/\mbox{\hyperlink{polynomial_8h}{polynomial.\+h}}\item 
+include/emsr/\mbox{\hyperlink{polynomial_8tcc}{polynomial.\+tcc}}\end{DoxyCompactItemize}

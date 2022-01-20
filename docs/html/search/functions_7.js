@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['horner',['horner',['../namespace____gnu__cxx.html#a2e77239e9d41f55a99755f285ba3d518',1,'__gnu_cxx::horner(_ArgT __x, _Coef0 __c0)'],['../namespace____gnu__cxx.html#a027e4b11b3b25078522220207c2d7f36',1,'__gnu_cxx::horner(_ArgT __x, _Coef0 __c0, _Coef... __c)']]],
-  ['horner_5fbig_5fend',['horner_big_end',['../namespace____gnu__cxx.html#af87123557fba351af5069ed8d1b99ec1',1,'__gnu_cxx::horner_big_end(_ArgT, _Coef0 __c0)'],['../namespace____gnu__cxx.html#a546a72f007105e3ba32df87d7463edf7',1,'__gnu_cxx::horner_big_end(_ArgT __x, _Coef1 __c1, _Coef0 __c0)'],['../namespace____gnu__cxx.html#afda9e3a1e351db85a89d4e6434576159',1,'__gnu_cxx::horner_big_end(_ArgT __x, _CoefN __cn, _CoefNm1 __cnm1, _Coef... __c)']]]
+  ['horner_424',['horner',['../namespaceemsr.html#a155d146e57554633b51b21e4681ce000',1,'emsr::horner(ArgT, Coef0 c0)'],['../namespaceemsr.html#ad76e856347b8d4dc1991d8aad92199f0',1,'emsr::horner(ArgT x, Coef0 c0, Coef... c)']]],
+  ['horner_5fbig_5fend_425',['horner_big_end',['../namespaceemsr.html#a55de120e4dc9c5c34075279bdf43d17c',1,'emsr::horner_big_end(ArgT, Coef0 c0)'],['../namespaceemsr.html#a381a03247643fc05de000c9d2ccbbe12',1,'emsr::horner_big_end(ArgT x, Coef1 c1, Coef0 c0)'],['../namespaceemsr.html#acc246a38d5dc59a528e6fc7ec3d38b5a',1,'emsr::horner_big_end(ArgT x, CoefN cn, CoefNm1 cnm1, Coef... c)']]]
 ];

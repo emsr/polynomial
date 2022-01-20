@@ -4,7 +4,7 @@
 #include <complex>
 #include <sstream>
 
-#include <ext/polynomial.h>
+#include <emsr/polynomial.h>
 
 
 // Quick factorial impl.
@@ -29,9 +29,9 @@ main()
   using namespace std::literals::complex_literals;
 
   using Real = double;
-  using Poly = __gnu_cxx::_Polynomial<Real>;
+  using Poly = emsr::Polynomial<Real>;
   using Cmplx = std::complex<Real>;
-  using CPoly = __gnu_cxx::_Polynomial<Cmplx>;
+  using CPoly = emsr::Polynomial<Cmplx>;
 
   std::cout.setf(std::ios_base::boolalpha);
   std::cout.precision(std::numeric_limits<Real>::digits10);
@@ -134,7 +134,7 @@ main()
   std::cout << "\nCP = " << CP << '\n';
   std::cout << "CP * CP = " << CP * CP << '\n';
 
-  __gnu_cxx::_Polynomial<int> IP({0, 1, 2, 3});
+  emsr::Polynomial<int> IP({0, 1, 2, 3});
   std::cout << "\nIP = " << IP << '\n';
   std::cout << "IP * IP = " << IP * IP << '\n';
 
@@ -169,7 +169,7 @@ main()
   Poly u({Real{1}, Real{3}, Real{3}, Real{1}});
   Poly v({Real{1}, Real{1}});
   Poly q, r;
-  __gnu_cxx::divmod(u, v, q, r);
+  emsr::divmod(u, v, q, r);
   std::cout << "\nu = " << u << '\n';
   std::cout << "v = " << v << '\n';
   std::cout << "q = " << q << '\n';
@@ -178,7 +178,7 @@ main()
   Poly u1({Real{1}, Real{-3}, Real{3}, Real{-1}});
   Poly v1({Real{1}, Real{-2}, Real{1}});
   Poly q1, r1;
-  __gnu_cxx::divmod(u1, v1, q1, r1);
+  emsr::divmod(u1, v1, q1, r1);
   std::cout << "\nu1 = " << u1 << '\n';
   std::cout << "v1 = " << v1 << '\n';
   std::cout << "q1 = " << q1 << '\n';
@@ -187,7 +187,7 @@ main()
   Poly u2({Real{1}, Real{1}});
   Poly v2({Real{1}, Real{3}, Real{3}, Real{1}});
   Poly q2, r2;
-  __gnu_cxx::divmod(u2, v2, q2, r2);
+  emsr::divmod(u2, v2, q2, r2);
   std::cout << "\nu2 = " << u2 << '\n';
   std::cout << "v2 = " << v2 << '\n';
   std::cout << "q2 = " << q2 << '\n';
@@ -196,7 +196,7 @@ main()
   Poly u3({Real{1}, Real{0}, Real{0}, Real{1}});
   Poly v3({Real{1}, Real{3}, Real{3}, Real{1}});
   Poly q3, r3;
-  __gnu_cxx::divmod(u3, v3, q3, r3);
+  emsr::divmod(u3, v3, q3, r3);
   std::cout << "\nu3 = " << u3 << '\n';
   std::cout << "v3 = " << v3 << '\n';
   std::cout << "q3 = " << q3 << '\n';
@@ -206,14 +206,14 @@ main()
   std::cout << "P' = " << P.derivative() << '\n';
   std::cout << "I = " << P.integral(Real{42.0}) << '\n';
 
-  __gnu_cxx::_Polynomial<Poly>
+  emsr::Polynomial<Poly>
   Pp({{Real{9}, Real{8}, Real{7}}, {Real{6}, Real{5}, Real{4}}, {Real{3}, Real{2}, Real{1}}});
   std::cout << "\nPp = " << Pp << '\n';
   std::cout << "Pp(-1) = " << Pp(Real{-1.0}) << '\n';
   std::cout << "Pp(2) = " << Pp(Real{2.0}) << '\n';
 
   //std::array<Real, 5> aaa{{1.1, 2.2, 3.3, 4.4, 5.5}};
-  //std::cout << "aaa = " << __gnu_cxx::_Polynomial_eval(aaa, 3.13149) << '\n';
+  //std::cout << "aaa = " << emsr::Polynomial_eval(aaa, 3.13149) << '\n';
 
   std::cout << "\nP = " << P << '\n';
   std::cout << "P(1) = " << P(Real{1.0}) << '\n';

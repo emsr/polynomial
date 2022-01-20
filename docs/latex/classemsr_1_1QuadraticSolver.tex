@@ -1,0 +1,139 @@
+\hypertarget{classemsr_1_1QuadraticSolver}{}\doxysection{emsr\+::Quadratic\+Solver$<$ Real $>$ Class Template Reference}
+\label{classemsr_1_1QuadraticSolver}\index{emsr::QuadraticSolver$<$ Real $>$@{emsr::QuadraticSolver$<$ Real $>$}}
+
+
+{\ttfamily \#include $<$solver\+\_\+quadratic.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classemsr_1_1QuadraticSolver_ae1603ae5e90669ed5485d546d22b859b}{Quadratic\+Solver}} (\mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}}$<$ std\+::complex$<$ Real $>$$>$ \&P)
+\item 
+int \mbox{\hyperlink{classemsr_1_1QuadraticSolver_a7aba1a57f1f7fcc2fc68fea23c5e6572}{max\+\_\+num\+\_\+iters}} () const
+\item 
+int \mbox{\hyperlink{classemsr_1_1QuadraticSolver_a8d3056a9bc8e4a0f786a32fa2c8ce01c}{num\+\_\+iters}} () const
+\item 
+const \mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}}$<$ std\+::complex$<$ Real $>$ $>$ \& \mbox{\hyperlink{classemsr_1_1QuadraticSolver_afdb1a42cfdd7fb5695887901cdc3f994}{polynomial}} () const
+\item 
+std\+::vector$<$ std\+::complex$<$ Real $>$ $>$ \mbox{\hyperlink{classemsr_1_1QuadraticSolver_ab815e8692aab755d39148249700aed42}{solve}} ()
+\item 
+\mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}}$<$ std\+::complex$<$ Real $>$ $>$ \mbox{\hyperlink{classemsr_1_1QuadraticSolver_af1ae8b62b2f932e6771bd1c924dcc94d}{step}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename Real$>$\newline
+class emsr\+::\+Quadratic\+Solver$<$ Real $>$}
+
+A solver for complex-\/coefficient polynomials due to Laguerre. 
+
+Definition at line 48 of file solver\+\_\+quadratic.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classemsr_1_1QuadraticSolver_ae1603ae5e90669ed5485d546d22b859b}\label{classemsr_1_1QuadraticSolver_ae1603ae5e90669ed5485d546d22b859b}} 
+\index{emsr::QuadraticSolver$<$ Real $>$@{emsr::QuadraticSolver$<$ Real $>$}!QuadraticSolver@{QuadraticSolver}}
+\index{QuadraticSolver@{QuadraticSolver}!emsr::QuadraticSolver$<$ Real $>$@{emsr::QuadraticSolver$<$ Real $>$}}
+\doxysubsubsection{\texorpdfstring{QuadraticSolver()}{QuadraticSolver()}}
+{\footnotesize\ttfamily template$<$typename Real $>$ \\
+\mbox{\hyperlink{classemsr_1_1QuadraticSolver}{emsr\+::\+Quadratic\+Solver}}$<$ Real $>$\+::\mbox{\hyperlink{classemsr_1_1QuadraticSolver}{Quadratic\+Solver}} (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}}$<$ std\+::complex$<$ Real $>$$>$ \&}]{P }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 52 of file solver\+\_\+quadratic.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{53       : m\_poly(P), m\_num\_iters\{0\}}
+\DoxyCodeLine{54       \{ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classemsr_1_1QuadraticSolver_a7aba1a57f1f7fcc2fc68fea23c5e6572}\label{classemsr_1_1QuadraticSolver_a7aba1a57f1f7fcc2fc68fea23c5e6572}} 
+\index{emsr::QuadraticSolver$<$ Real $>$@{emsr::QuadraticSolver$<$ Real $>$}!max\_num\_iters@{max\_num\_iters}}
+\index{max\_num\_iters@{max\_num\_iters}!emsr::QuadraticSolver$<$ Real $>$@{emsr::QuadraticSolver$<$ Real $>$}}
+\doxysubsubsection{\texorpdfstring{max\_num\_iters()}{max\_num\_iters()}}
+{\footnotesize\ttfamily template$<$typename Real $>$ \\
+int \mbox{\hyperlink{classemsr_1_1QuadraticSolver}{emsr\+::\+Quadratic\+Solver}}$<$ Real $>$\+::max\+\_\+num\+\_\+iters (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 72 of file solver\+\_\+quadratic.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{73       \{ \textcolor{keywordflow}{return} this-\/>m\_max\_num\_iters; \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classemsr_1_1QuadraticSolver_a8d3056a9bc8e4a0f786a32fa2c8ce01c}\label{classemsr_1_1QuadraticSolver_a8d3056a9bc8e4a0f786a32fa2c8ce01c}} 
+\index{emsr::QuadraticSolver$<$ Real $>$@{emsr::QuadraticSolver$<$ Real $>$}!num\_iters@{num\_iters}}
+\index{num\_iters@{num\_iters}!emsr::QuadraticSolver$<$ Real $>$@{emsr::QuadraticSolver$<$ Real $>$}}
+\doxysubsubsection{\texorpdfstring{num\_iters()}{num\_iters()}}
+{\footnotesize\ttfamily template$<$typename Real $>$ \\
+int \mbox{\hyperlink{classemsr_1_1QuadraticSolver}{emsr\+::\+Quadratic\+Solver}}$<$ Real $>$\+::num\+\_\+iters (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 68 of file solver\+\_\+quadratic.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{69       \{ \textcolor{keywordflow}{return} this-\/>m\_num\_iters; \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classemsr_1_1QuadraticSolver_afdb1a42cfdd7fb5695887901cdc3f994}\label{classemsr_1_1QuadraticSolver_afdb1a42cfdd7fb5695887901cdc3f994}} 
+\index{emsr::QuadraticSolver$<$ Real $>$@{emsr::QuadraticSolver$<$ Real $>$}!polynomial@{polynomial}}
+\index{polynomial@{polynomial}!emsr::QuadraticSolver$<$ Real $>$@{emsr::QuadraticSolver$<$ Real $>$}}
+\doxysubsubsection{\texorpdfstring{polynomial()}{polynomial()}}
+{\footnotesize\ttfamily template$<$typename Real $>$ \\
+const \mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}}$<$std\+::complex$<$Real$>$ $>$\& \mbox{\hyperlink{classemsr_1_1QuadraticSolver}{emsr\+::\+Quadratic\+Solver}}$<$ Real $>$\+::polynomial (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 76 of file solver\+\_\+quadratic.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{77       \{ \textcolor{keywordflow}{return} this-\/>m\_poly; \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classemsr_1_1QuadraticSolver_ab815e8692aab755d39148249700aed42}\label{classemsr_1_1QuadraticSolver_ab815e8692aab755d39148249700aed42}} 
+\index{emsr::QuadraticSolver$<$ Real $>$@{emsr::QuadraticSolver$<$ Real $>$}!solve@{solve}}
+\index{solve@{solve}!emsr::QuadraticSolver$<$ Real $>$@{emsr::QuadraticSolver$<$ Real $>$}}
+\doxysubsubsection{\texorpdfstring{solve()}{solve()}}
+{\footnotesize\ttfamily template$<$typename Real $>$ \\
+std\+::vector$<$std\+::complex$<$Real$>$ $>$ \mbox{\hyperlink{classemsr_1_1QuadraticSolver}{emsr\+::\+Quadratic\+Solver}}$<$ Real $>$\+::solve (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classemsr_1_1QuadraticSolver_af1ae8b62b2f932e6771bd1c924dcc94d}\label{classemsr_1_1QuadraticSolver_af1ae8b62b2f932e6771bd1c924dcc94d}} 
+\index{emsr::QuadraticSolver$<$ Real $>$@{emsr::QuadraticSolver$<$ Real $>$}!step@{step}}
+\index{step@{step}!emsr::QuadraticSolver$<$ Real $>$@{emsr::QuadraticSolver$<$ Real $>$}}
+\doxysubsubsection{\texorpdfstring{step()}{step()}}
+{\footnotesize\ttfamily template$<$typename Real $>$ \\
+\mbox{\hyperlink{classemsr_1_1Polynomial}{Polynomial}}$<$std\+::complex$<$Real$>$ $>$ \mbox{\hyperlink{classemsr_1_1QuadraticSolver}{emsr\+::\+Quadratic\+Solver}}$<$ Real $>$\+::step (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 60 of file solver\+\_\+quadratic.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{61       \{}
+\DoxyCodeLine{62         \textcolor{keyword}{const} \textcolor{keyword}{auto} q = this-\/>m\_root\_quadratic();}
+\DoxyCodeLine{63         this-\/>m\_poly.\mbox{\hyperlink{classemsr_1_1Polynomial_ae6e03417a970d60e2a9db597c7c26f3c}{deflate}}(q, Real\{10\} * s\_eps);}
+\DoxyCodeLine{64         \textcolor{keywordflow}{return} q;}
+\DoxyCodeLine{65       \}}
+
+\end{DoxyCode}
+
+
+References emsr\+::\+Polynomial$<$ Tp $>$\+::deflate().
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/emsr/\mbox{\hyperlink{solver__quadratic_8h}{solver\+\_\+quadratic.\+h}}\item 
+include/emsr/\mbox{\hyperlink{solver__quadratic_8tcc}{solver\+\_\+quadratic.\+tcc}}\end{DoxyCompactItemize}

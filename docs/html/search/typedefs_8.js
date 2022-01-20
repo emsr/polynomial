@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['value_5ftype',['value_type',['../class____gnu__cxx_1_1__Polynomial.html#a725563351f50e76084a7a016c06f8a53',1,'__gnu_cxx::_Polynomial::value_type()'],['../class____gnu__cxx_1_1__RationalPolynomial.html#adeec7f1bec03111031599f337848ee8b',1,'__gnu_cxx::_RationalPolynomial::value_type()'],['../class____gnu__cxx_1_1__StaticPolynomial.html#aad5f3d6d5876b6926b30724aeac649d6',1,'__gnu_cxx::_StaticPolynomial::value_type()']]]
+  ['size_5ftype_564',['size_type',['../classemsr_1_1Polynomial.html#abca22a2a90ad0a2f1e6988843171c15a',1,'emsr::Polynomial::size_type()'],['../classemsr_1_1RationalPolynomial.html#a1b7bcdaa11fafdaba6c743effd985890',1,'emsr::RationalPolynomial::size_type()'],['../classemsr_1_1StaticPolynomial.html#a8a73ef3496a254d47b08678b361f1037',1,'emsr::StaticPolynomial::size_type()']]],
+  ['squot_5ft_565',['squot_t',['../namespaceemsr.html#a8e7689491743dc22cc5ad3ed13245199',1,'emsr']]]
 ];

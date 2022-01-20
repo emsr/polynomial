@@ -1,0 +1,19 @@
+var searchData=
+[
+  ['solution_2eh_318',['solution.h',['../solution_8h.html',1,'']]],
+  ['solver_5fbairstow_2eh_319',['solver_bairstow.h',['../solver__bairstow_8h.html',1,'']]],
+  ['solver_5fbairstow_2etcc_320',['solver_bairstow.tcc',['../solver__bairstow_8tcc.html',1,'']]],
+  ['solver_5fjenkins_5ftraub_2eh_321',['solver_jenkins_traub.h',['../solver__jenkins__traub_8h.html',1,'']]],
+  ['solver_5fjenkins_5ftraub_2etcc_322',['solver_jenkins_traub.tcc',['../solver__jenkins__traub_8tcc.html',1,'']]],
+  ['solver_5fjenkins_5ftraub_5fcomplex_2etcc_323',['solver_jenkins_traub_complex.tcc',['../solver__jenkins__traub__complex_8tcc.html',1,'']]],
+  ['solver_5flaguerre_2eh_324',['solver_laguerre.h',['../solver__laguerre_8h.html',1,'']]],
+  ['solver_5flaguerre_2etcc_325',['solver_laguerre.tcc',['../solver__laguerre_8tcc.html',1,'']]],
+  ['solver_5flow_5fdegree_2eh_326',['solver_low_degree.h',['../solver__low__degree_8h.html',1,'']]],
+  ['solver_5flow_5fdegree_2etcc_327',['solver_low_degree.tcc',['../solver__low__degree_8tcc.html',1,'']]],
+  ['solver_5fmadsen_5freid_2eh_328',['solver_madsen_reid.h',['../solver__madsen__reid_8h.html',1,'']]],
+  ['solver_5fmadsen_5freid_2etcc_329',['solver_madsen_reid.tcc',['../solver__madsen__reid_8tcc.html',1,'']]],
+  ['solver_5fquadratic_2eh_330',['solver_quadratic.h',['../solver__quadratic_8h.html',1,'']]],
+  ['solver_5fquadratic_2etcc_331',['solver_quadratic.tcc',['../solver__quadratic_8tcc.html',1,'']]],
+  ['static_5fpolynomial_2eh_332',['static_polynomial.h',['../static__polynomial_8h.html',1,'']]],
+  ['static_5fpolynomial_2etcc_333',['static_polynomial.tcc',['../static__polynomial_8tcc.html',1,'']]]
+];

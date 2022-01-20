@@ -1,8 +1,7 @@
 var polynomial_8tcc =
 [
-    [ "_EXT_POLYNOMIAL_TCC", "polynomial_8tcc.html#af5a65c717a211a48a4cf31df10b4537a", null ],
-    [ "divmod", "polynomial_8tcc.html#a84c52dc7c40b8b2731425e93db52903d", null ],
-    [ "operator<<", "polynomial_8tcc.html#ad713743dbfc30fba653621d1f7e99d3c", null ],
-    [ "operator>>", "polynomial_8tcc.html#acf7d03318756578d08f672212cd91234", null ],
-    [ "_Up", "polynomial_8tcc.html#ab693ea357b6429b331e0bf09f9442385", null ]
+    [ "POLYNOMIAL_TCC", "polynomial_8tcc.html#a21cfc48b0e3feb3f580228c01773d9c8", null ],
+    [ "divmod", "polynomial_8tcc.html#a5d92c91e21caca3557589683df6650c4", null ],
+    [ "operator<<", "polynomial_8tcc.html#a138fa9753d495e1819e54d43d580720b", null ],
+    [ "operator>>", "polynomial_8tcc.html#a93634c3102d6a9a883994cbd19c9cff1", null ]
 ];

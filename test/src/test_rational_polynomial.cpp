@@ -3,14 +3,14 @@
 #include <complex>
 #include <sstream>
 
-#include <ext/rational_polynomial.h>
+#include <emsr/rational_polynomial.h>
 
 int
 main()
 {
-  __gnu_cxx::_Polynomial<double> P({0.0, 1.0, 2.0, 3.0});
-  __gnu_cxx::_Polynomial<double> Q({2.0, 1.0});
-  __gnu_cxx::_RationalPolynomial<double> R(P, Q);
+  emsr::Polynomial<double> P({0.0, 1.0, 2.0, 3.0});
+  emsr::Polynomial<double> Q({2.0, 1.0});
+  emsr::RationalPolynomial<double> R(P, Q);
 
   std::cout << "R = " << R << '\n';
 

@@ -1,0 +1,103 @@
+\hypertarget{classSolverMadsenReid}{}\doxysection{Solver\+Madsen\+Reid$<$ Real $>$ Class Template Reference}
+\label{classSolverMadsenReid}\index{SolverMadsenReid$<$ Real $>$@{SolverMadsenReid$<$ Real $>$}}
+
+
+{\ttfamily \#include $<$solver\+\_\+madsen\+\_\+reid.\+h$>$}
+
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{classSolverMadsenReid_a60fbe93eab0fce4b96401b088e6c9d03}{Cmplx}} = std\+::complex$<$ Real $>$
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classSolverMadsenReid_a8fe9b0dff17b8e2bfe5e3f2d02e9018d}{Solver\+Madsen\+Reid}} (const std\+::vector$<$ \mbox{\hyperlink{classSolverMadsenReid_a60fbe93eab0fce4b96401b088e6c9d03}{Cmplx}} $>$ \&a\+\_\+in)
+\item 
+std\+::vector$<$ \mbox{\hyperlink{classSolverMadsenReid_a60fbe93eab0fce4b96401b088e6c9d03}{Cmplx}} $>$ \mbox{\hyperlink{classSolverMadsenReid_a0a1e98447353da92681a986201f8beac}{solve}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename Real$>$\newline
+class Solver\+Madsen\+Reid$<$ Real $>$}
+
+
+
+Definition at line 39 of file solver\+\_\+madsen\+\_\+reid.\+h.
+
+
+
+\doxysubsection{Member Typedef Documentation}
+\mbox{\Hypertarget{classSolverMadsenReid_a60fbe93eab0fce4b96401b088e6c9d03}\label{classSolverMadsenReid_a60fbe93eab0fce4b96401b088e6c9d03}} 
+\index{SolverMadsenReid$<$ Real $>$@{SolverMadsenReid$<$ Real $>$}!Cmplx@{Cmplx}}
+\index{Cmplx@{Cmplx}!SolverMadsenReid$<$ Real $>$@{SolverMadsenReid$<$ Real $>$}}
+\doxysubsubsection{\texorpdfstring{Cmplx}{Cmplx}}
+{\footnotesize\ttfamily template$<$typename Real $>$ \\
+using \mbox{\hyperlink{classSolverMadsenReid}{Solver\+Madsen\+Reid}}$<$ Real $>$\+::\mbox{\hyperlink{classSolverMadsenReid_a60fbe93eab0fce4b96401b088e6c9d03}{Cmplx}} =  std\+::complex$<$Real$>$}
+
+
+
+Definition at line 43 of file solver\+\_\+madsen\+\_\+reid.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classSolverMadsenReid_a8fe9b0dff17b8e2bfe5e3f2d02e9018d}\label{classSolverMadsenReid_a8fe9b0dff17b8e2bfe5e3f2d02e9018d}} 
+\index{SolverMadsenReid$<$ Real $>$@{SolverMadsenReid$<$ Real $>$}!SolverMadsenReid@{SolverMadsenReid}}
+\index{SolverMadsenReid@{SolverMadsenReid}!SolverMadsenReid$<$ Real $>$@{SolverMadsenReid$<$ Real $>$}}
+\doxysubsubsection{\texorpdfstring{SolverMadsenReid()}{SolverMadsenReid()}}
+{\footnotesize\ttfamily template$<$typename Real $>$ \\
+\mbox{\hyperlink{classSolverMadsenReid}{Solver\+Madsen\+Reid}}$<$ Real $>$\+::\mbox{\hyperlink{classSolverMadsenReid}{Solver\+Madsen\+Reid}} (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{classSolverMadsenReid_a60fbe93eab0fce4b96401b088e6c9d03}{Cmplx}} $>$ \&}]{a\+\_\+in }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Constructor.
+
+
+\begin{DoxyParams}{Parameters}
+{\em a\+\_\+in} & Coefficient of the polynomial in \char`\"{}big-\/endian\char`\"{} -\/ largest degree coefficient first -\/ order. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 50 of file solver\+\_\+madsen\+\_\+reid.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{51     : poly(a\_in),}
+\DoxyCodeLine{52       poly\_work(a\_in.size())}
+\DoxyCodeLine{53     \{\}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classSolverMadsenReid_a0a1e98447353da92681a986201f8beac}\label{classSolverMadsenReid_a0a1e98447353da92681a986201f8beac}} 
+\index{SolverMadsenReid$<$ Real $>$@{SolverMadsenReid$<$ Real $>$}!solve@{solve}}
+\index{solve@{solve}!SolverMadsenReid$<$ Real $>$@{SolverMadsenReid$<$ Real $>$}}
+\doxysubsubsection{\texorpdfstring{solve()}{solve()}}
+{\footnotesize\ttfamily template$<$typename Real $>$ \\
+std\+::vector$<$\mbox{\hyperlink{classSolverMadsenReid_a60fbe93eab0fce4b96401b088e6c9d03}{Cmplx}}$>$ \mbox{\hyperlink{classSolverMadsenReid}{Solver\+Madsen\+Reid}}$<$ Real $>$\+::solve (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Solve the polynomial. 
+
+Definition at line 59 of file solver\+\_\+madsen\+\_\+reid.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{60     \{}
+\DoxyCodeLine{61         std::vector<Cmplx> root;}
+\DoxyCodeLine{62         \textcolor{keywordflow}{if} (poly.size() <= 1)}
+\DoxyCodeLine{63             \textcolor{keywordflow}{return} root;}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65         \textcolor{keywordtype}{int} degree = poly.size() -\/ 1;}
+\DoxyCodeLine{66         root.resize(degree);}
+\DoxyCodeLine{67         \mbox{\hyperlink{classSolverMadsenReid_a0a1e98447353da92681a986201f8beac}{solve}}(poly, degree, root, poly\_work);}
+\DoxyCodeLine{68         \textcolor{keywordflow}{return} root;}
+\DoxyCodeLine{69     \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/emsr/\mbox{\hyperlink{solver__madsen__reid_8h}{solver\+\_\+madsen\+\_\+reid.\+h}}\end{DoxyCompactItemize}

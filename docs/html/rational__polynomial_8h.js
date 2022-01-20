@@ -1,6 +1,6 @@
 var rational__polynomial_8h =
 [
-    [ "_RationalPolynomial", "class____gnu__cxx_1_1__RationalPolynomial.html", "class____gnu__cxx_1_1__RationalPolynomial" ],
-    [ "operator<<", "rational__polynomial_8h.html#a424044092ac184bfa1d17beb1b12e071", null ],
-    [ "operator>>", "rational__polynomial_8h.html#a71511bc907f332ce9bb925c953f11714", null ]
+    [ "RationalPolynomial", "classemsr_1_1RationalPolynomial.html", "classemsr_1_1RationalPolynomial" ],
+    [ "operator<<", "rational__polynomial_8h.html#aefffa447e50d21ac578b5c3aafc992e2", null ],
+    [ "operator>>", "rational__polynomial_8h.html#a0fa608fda96ca8649cbdb86338e69846", null ]
 ];

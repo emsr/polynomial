@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['get_5fscale',['get_scale',['../namespace____gnu__cxx.html#a2af747c0e255f3fae4d9f118c2817e1a',1,'__gnu_cxx::get_scale(const _Polynomial&lt; _Tp &gt; &amp;__poly)'],['../namespace____gnu__cxx.html#a1a8bae104a6509f4e458d155acaf0476',1,'__gnu_cxx::get_scale(const _Tp &amp;__x)']]]
+  ['get_5fscale_103',['get_scale',['../namespaceemsr.html#af9fe740b04b1f58f0cafe9042b5a380b',1,'emsr::get_scale(const Polynomial&lt; Tp &gt; &amp;poly)'],['../namespaceemsr.html#af8bdedf1c9d27acc3695f86d226ca149',1,'emsr::get_scale(const Tp &amp;x)']]]
 ];

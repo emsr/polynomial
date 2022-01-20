@@ -1,7 +1,8 @@
 var searchData=
 [
-  ['pointer',['pointer',['../class____gnu__cxx_1_1__Polynomial.html#a876dcb9c1b92c4896a3f3b9f26e7e3df',1,'__gnu_cxx::_Polynomial::pointer()'],['../class____gnu__cxx_1_1__StaticPolynomial.html#a7d03f6214af023bf7b7587c36436f4ec',1,'__gnu_cxx::_StaticPolynomial::pointer()']]],
-  ['polynomial_2eh',['polynomial.h',['../polynomial_8h.html',1,'']]],
-  ['polynomial_2etcc',['polynomial.tcc',['../polynomial_8tcc.html',1,'']]],
-  ['polynomial_5ftype',['polynomial_type',['../class____gnu__cxx_1_1__RationalPolynomial.html#a96949c9007664fae9fef1e26cf6c2078',1,'__gnu_cxx::_RationalPolynomial']]]
+  ['max_5fnum_5fiters_134',['max_num_iters',['../classemsr_1_1LaguerreSolver.html#acc67600af6b827595ffcc663899a64c0',1,'emsr::LaguerreSolver::max_num_iters()'],['../classemsr_1_1QuadraticSolver.html#a7aba1a57f1f7fcc2fc68fea23c5e6572',1,'emsr::QuadraticSolver::max_num_iters()']]],
+  ['modf_135',['modf',['../namespaceemsr.html#ad01b1428c15d190dfe08aa38279f0db0',1,'emsr::modf(float value)'],['../namespaceemsr.html#a5b35da26edac14bb58a005527b989a89',1,'emsr::modf(double value)'],['../namespaceemsr.html#a6a464b7b372773df38dea93734e02be8',1,'emsr::modf(long double value)']]],
+  ['modf_5ft_136',['modf_t',['../structemsr_1_1modf__t.html',1,'emsr']]],
+  ['modff_137',['modff',['../namespaceemsr.html#a377018ccb1391c355b93a196f0ad8abd',1,'emsr']]],
+  ['modfl_138',['modfl',['../namespaceemsr.html#a5ed6e215d68b190d8d1bb41e74067f27',1,'emsr']]]
 ];
