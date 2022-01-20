@@ -24,10 +24,9 @@
 #ifndef NOTSOSPECFUN_H
 #define NOTSOSPECFUN_H 1
 
-#include <variant>
 #include <complex>
 
-// This was from another path of cxx_math and brought here to decouple.
+// This was from another part of cxx_math and brought here to decouple.
 
 namespace emsr
 {
@@ -179,10 +178,6 @@ namespace emsr
       Tp cos_v;
     };
 
-  template<typename Tp>
-    Tp
-    pi_v = static_cast<Tp>(3.1415926536897932384626L);
-
   sincos_t<float> sincosf(float x);
   sincos_t<double> sincos(double x);
   sincos_t<long double> sincosl(long double x);
@@ -306,7 +301,10 @@ namespace emsr
     {
       Tp value;
       constexpr operator Tp()
-      { return pi_v<Tp> * this->value; }
+      {
+        constexpr auto pi = Tp{3.1415'92653'58979'32384'62643'38327'95028'84195e+0L};
+        return pi * this->value;
+      }
     };
 
   // Combined reperiodized sine and cosine.
@@ -447,6 +445,16 @@ namespace emsr
 
 
   /**
+   * Normal fma (in this namespace).
+   */
+  template<typename Tp>
+    inline Tp
+    fma(Tp a, Tp b, Tp c)
+    {
+      return std::fma(a, b, c);
+    }
+
+  /**
    * Give complex an fma.
    */
   template<typename Tp>
@@ -463,6 +471,16 @@ namespace emsr
     }
 
   /**
+   * Normal log1p (in this namespace).
+   */
+  template<typename Tp>
+    inline Tp
+    log1p(Tp x)
+    {
+      return std::log1p(x);
+    }
+
+  /**
    * Give complex log1p.
    */
   template<typename Tp>
@@ -471,6 +489,16 @@ namespace emsr
     {
       /// @todo Do a better complex log1p implementation.
       return std::log(Tp{1} + z);
+    }
+
+  /**
+   * Normal log1p (in this namespace).
+   */
+  template<typename Tp>
+    inline Tp
+    expm1(Tp x)
+    {
+      return std::expm1(x);
     }
 
   /**
