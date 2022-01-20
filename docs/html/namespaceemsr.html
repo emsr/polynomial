@@ -2526,14 +2526,14 @@ template&lt;typename Real , typename Iter &gt; </div>
 
 <p>Finds the roots of a cubic equation of the form: </p>
 <p class="formulaDsp">
-<img class="formulaDsp" alt="\[ a_3 x^3 + a_2 x^2 + a_1 x + a_0 = 0 \]" src="form_10.png"/>
+<img class="formulaDsp" alt="\[ a_3 x^3 + a_2 x^2 + a_1 x + a_0 = 0 \]" src="form_10.png" width="150" height="15"/>
 </p>
-<p> for real coefficients <img class="formulaInl" alt="$ a_k $" src="form_7.png"/>.</p>
+<p> for real coefficients <img class="formulaInl" alt="$ a_k $" src="form_7.png" width="11" height="9"/>.</p>
 <p>In the non-degenerate case there are three roots:</p><ul>
 <li>All three roots are real</li>
 <li>One root is real and the other two are a complex conjugate pair</li>
 </ul>
-<p>If the cubic coefficient <img class="formulaInl" alt="$ a_3 $" src="form_11.png"/> is zero (degenerate case) the problem is referred to the quadratic solver to return, at most, two valid roots.</p>
+<p>If the cubic coefficient <img class="formulaInl" alt="$ a_3 $" src="form_11.png" width="11" height="9"/> is zero (degenerate case) the problem is referred to the quadratic solver to return, at most, two valid roots.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">_CC</td><td>Array that contains the four coefficients of the cubic equation </td></tr>
@@ -7265,11 +7265,11 @@ template&lt;typename Real , typename _Iter &gt; </div>
 
 <p>Finds the roots of a quadratic equation of the form: </p>
 <p class="formulaDsp">
-<img class="formulaDsp" alt="\[ a_2 x^2 + a_1 x + a_0 = 0 \]" src="form_6.png"/>
+<img class="formulaDsp" alt="\[ a_2 x^2 + a_1 x + a_0 = 0 \]" src="form_6.png" width="110" height="15"/>
 </p>
-<p> for real coefficients <img class="formulaInl" alt="$ a_k $" src="form_7.png"/>.</p>
+<p> for real coefficients <img class="formulaInl" alt="$ a_k $" src="form_7.png" width="11" height="9"/>.</p>
 <p>For non-degenerate coefficients two roots are returned: Either the roots are real or the roots are a complex conjugate pair.</p>
-<p>If the quadratic coefficient <img class="formulaInl" alt="$ a_2 $" src="form_8.png"/> is zero (degenerate case) at most one valid root is returned. If the linear coefficient <img class="formulaInl" alt="$ a_1 $" src="form_9.png"/> is also zero no valid root is returned.</p>
+<p>If the quadratic coefficient <img class="formulaInl" alt="$ a_2 $" src="form_8.png" width="11" height="9"/> is zero (degenerate case) at most one valid root is returned. If the linear coefficient <img class="formulaInl" alt="$ a_1 $" src="form_9.png" width="11" height="9"/> is also zero no valid root is returned.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">_CC</td><td>Array that contains the three coefficients of the quadratic equation. </td></tr>
@@ -7424,15 +7424,15 @@ template&lt;typename Real , typename Iter &gt; </div>
 
 <p>Finds the roots a quartic equation of the form: </p>
 <p class="formulaDsp">
-<img class="formulaDsp" alt="\[ a_4 x^4 + a_3 x^3 + a_2 x^2 + a_1 x + a_0 = 0 \]" src="form_12.png"/>
+<img class="formulaDsp" alt="\[ a_4 x^4 + a_3 x^3 + a_2 x^2 + a_1 x + a_0 = 0 \]" src="form_12.png" width="190" height="15"/>
 </p>
-<p> for real coefficients <img class="formulaInl" alt="$ a_k $" src="form_7.png"/>.</p>
+<p> for real coefficients <img class="formulaInl" alt="$ a_k $" src="form_7.png" width="11" height="9"/>.</p>
 <p>In the non-degenerate case there are four roots:</p><ul>
 <li>All four roots are real</li>
 <li>Two roots real and two complex roots are a complex conjugate pair</li>
 <li>Four complex roots in two complex conjugate pairs</li>
 </ul>
-<p>If the qartic coefficient <img class="formulaInl" alt="$ a_4 $" src="form_13.png"/> is zero (degenerate case) the problem is referred to the cubic solver to return, at most, three valid roots.</p>
+<p>If the qartic coefficient <img class="formulaInl" alt="$ a_4 $" src="form_13.png" width="11" height="9"/> is zero (degenerate case) the problem is referred to the cubic solver to return, at most, three valid roots.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">CC</td><td>Array that contains the five(5) coefficients of the quartic equation. </td></tr>
@@ -7882,10 +7882,10 @@ template&lt;std::size_t _Dim, typename _Iter , typename _NumTp &gt; </div>
       </table>
 </div><div class="memdoc">
 <p>Refine a solution using the Halley method: </p><p class="formulaDsp">
-<img class="formulaDsp" alt="\[ x_{n+1} - x_n = -\frac{2 P(x_n) P'(x_n)} {2 [P'(x_n)]^2 - P(x_n) P''(x_n)} \]" src="form_4.png"/>
+<img class="formulaDsp" alt="\[ x_{n+1} - x_n = -\frac{2 P(x_n) P'(x_n)} {2 [P'(x_n)]^2 - P(x_n) P''(x_n)} \]" src="form_4.png" width="228" height="31"/>
 </p>
 <p> This form indicates the close relationship to the Newton method: </p><p class="formulaDsp">
-<img class="formulaDsp" alt="\[ x_{n+1} - x_n = -\frac{P'(x_n)} {P'(x_n) - [P(x_n) P''(x_n)]/[2P'(x_n)]} \]" src="form_5.png"/>
+<img class="formulaDsp" alt="\[ x_{n+1} - x_n = -\frac{P'(x_n)} {P'(x_n) - [P(x_n) P''(x_n)]/[2P'(x_n)]} \]" src="form_5.png" width="273" height="31"/>
 </p>
  
 <p class="definition">Definition at line <a class="el" href="solver__low__degree_8tcc_source.html#l00084">84</a> of file <a class="el" href="solver__low__degree_8tcc_source.html">solver_low_degree.tcc</a>.</p>
@@ -7972,7 +7972,7 @@ template&lt;std::size_t _Dim, typename _Iter , typename _NumTp &gt; </div>
       </table>
 </div><div class="memdoc">
 <p>Refine a solution using the Newton method: </p><p class="formulaDsp">
-<img class="formulaDsp" alt="\[ x_{n+1} - x_n = -\frac{P(x_n)}{P'(x_n)} \]" src="form_3.png"/>
+<img class="formulaDsp" alt="\[ x_{n+1} - x_n = -\frac{P(x_n)}{P'(x_n)} \]" src="form_3.png" width="121" height="31"/>
 </p>
  
 <p class="definition">Definition at line <a class="el" href="solver__low__degree_8tcc_source.html#l00052">52</a> of file <a class="el" href="solver__low__degree_8tcc_source.html">solver_low_degree.tcc</a>.</p>

@@ -1,14 +1,14 @@
-\_form#0:\[ P(x) = a_0 + a_1 x + ... + a_n x^n \]
-\_form#1:\[ P(x) = a_0 + a_1 x + a_2 x^2 + ... \]
-\_form#2:\[ Q(z) = P(x + s) = a_0 + a_1 (x + s) + a_2 (x + s)^2 + ... = b_0 + b_1 x + b_2 x^2 \]
-\_form#3:\[ x_{n+1} - x_n = -\frac{P(x_n)}{P'(x_n)} \]
-\_form#4:\[ x_{n+1} - x_n = -\frac{2 P(x_n) P'(x_n)} {2 [P'(x_n)]^2 - P(x_n) P''(x_n)} \]
-\_form#5:\[ x_{n+1} - x_n = -\frac{P'(x_n)} {P'(x_n) - [P(x_n) P''(x_n)]/[2P'(x_n)]} \]
-\_form#6:\[ a_2 x^2 + a_1 x + a_0 = 0 \]
-\_form#7:$ a_k $
-\_form#8:$ a_2 $
-\_form#9:$ a_1 $
-\_form#10:\[ a_3 x^3 + a_2 x^2 + a_1 x + a_0 = 0 \]
-\_form#11:$ a_3 $
-\_form#12:\[ a_4 x^4 + a_3 x^3 + a_2 x^2 + a_1 x + a_0 = 0 \]
-\_form#13:$ a_4 $
+\_form#0=158x14:\[ P(x) = a_0 + a_1 x + ... + a_n x^n \]
+\_form#1=155x16:\[ P(x) = a_0 + a_1 x + a_2 x^2 + ... \]
+\_form#2=380x16:\[ Q(z) = P(x + s) = a_0 + a_1 (x + s) + a_2 (x + s)^2 + ... = b_0 + b_1 x + b_2 x^2 \]
+\_form#3=121x31:\[ x_{n+1} - x_n = -\frac{P(x_n)}{P'(x_n)} \]
+\_form#4=228x31:\[ x_{n+1} - x_n = -\frac{2 P(x_n) P'(x_n)} {2 [P'(x_n)]^2 - P(x_n) P''(x_n)} \]
+\_form#5=273x31:\[ x_{n+1} - x_n = -\frac{P'(x_n)} {P'(x_n) - [P(x_n) P''(x_n)]/[2P'(x_n)]} \]
+\_form#6=110x15:\[ a_2 x^2 + a_1 x + a_0 = 0 \]
+\_form#7=11x9:$ a_k $
+\_form#8=11x9:$ a_2 $
+\_form#9=11x9:$ a_1 $
+\_form#10=150x15:\[ a_3 x^3 + a_2 x^2 + a_1 x + a_0 = 0 \]
+\_form#11=11x9:$ a_3 $
+\_form#12=190x15:\[ a_4 x^4 + a_3 x^3 + a_2 x^2 + a_1 x + a_0 = 0 \]
+\_form#13=11x9:$ a_4 $
