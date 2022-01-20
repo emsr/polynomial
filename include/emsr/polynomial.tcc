@@ -310,7 +310,7 @@ This scaling thing can only apply to real or complex polynomials.
 	    for (size_type j = 4; j <= n; j += 2)
 	      bb = std::fma(-s, std::exchange(aa, bb + r * aa),
 			      this->coefficient(n - j));
-	    return std::fma(cmplx_t(aa), cmplx_t(zz), cmplx_t(bb));
+	    return emsr::fma(cmplx_t(aa), cmplx_t(zz), cmplx_t(bb));
 	  }
 	else
 	  return cmplx_t{};
@@ -351,7 +351,7 @@ This scaling thing can only apply to real or complex polynomials.
 	      bb = std::fma(-s, std::exchange(aa, bb + r * aa),
 			      this->coefficient(n - j));
 	    return z
-		 * std::fma(cmplx_t(aa), cmplx_t(zz), cmplx_t(bb));
+		 * emsr::fma(cmplx_t(aa), cmplx_t(zz), cmplx_t(bb));
 	  }
 	else
 	  return cmplx_t{};
