@@ -168,6 +168,7 @@ namespace emsr
   double exp10log(double x);
   long double exp10logl(long double x);
 
+/*
   // Trigonometric functions
 
   // Combined sine and cosine.
@@ -222,8 +223,8 @@ namespace emsr
   float acotf(sincos_t<float> m);
   double acot(sincos_t<double> m);
   long double acotl(sincos_t<long double> m);
-
-
+*/
+/*
   // Hyperbolic functions
 
   // Combined sinh and cosh.
@@ -272,7 +273,7 @@ namespace emsr
   float acothf(sinhcosh_t<float> m);
   double acoth(sinhcosh_t<double> m);
   long double acothl(sinhcosh_t<long double> m);
-
+*/
 
   // Reperiodized trigonometric functions...
   //   fun_pi(x) = fun(pi x);
@@ -296,6 +297,7 @@ namespace emsr
   // The new reperiodized trigonometric functions bear the burden
   // of providing overloads for reperiod_t arguments
   // (so we don't get sin(pi^2 x)).
+/*
   template<typename Tp>
     struct reperiod_t
     {
@@ -389,7 +391,7 @@ namespace emsr
   reperiod_t<float> acot_pif(sincos_t<float> m);
   reperiod_t<double> acot_pi(sincos_t<double> m);
   reperiod_t<long double> acot_pil(sincos_t<long double> m);
-
+*/
 
   // Gamma function
 
@@ -405,7 +407,7 @@ namespace emsr
   // Nonstandard:
   // double lgamma_r(double x, int *signp);
   // ...
-
+/*
   // This is essentially a poor man's complex.
   // log(Gamma(x)) = log(|Gamma(x)|) + i pi for Gamma(x) < 0.
   // Conversion?
@@ -419,6 +421,7 @@ namespace emsr
   lgamma_t<float> slgammaf(float x);
   lgamma_t<double> slgamma(double x);
   lgamma_t<long double> slgammal(long double x);
+*/
 
   // Sign functions...
 
