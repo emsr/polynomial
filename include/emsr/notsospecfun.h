@@ -26,7 +26,7 @@
 
 #include <complex>
 
-// This was from another path of cxx_math and brought here to decouple.
+// This was from another part of cxx_math and brought here to decouple.
 
 namespace emsr
 {
