@@ -2041,8 +2041,7 @@ INCLUDE_FILE_PATTERNS  =
 
 PREDEFINED             = __cplusplus=201703L \
                          __cpp_exceptions \
-                         __cpp_rtti \
-
+                         __cpp_rtti
 
 
 # If the MACRO_EXPANSION and EXPAND_ONLY_PREDEF tags are set to YES then this
