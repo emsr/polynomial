@@ -107,87 +107,78 @@ $(document).ready(function(){initNavTree('static__polynomial_8tcc_source.html','
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">// a copy of the GCC Runtime Library Exception along with this program;</span></div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">// see the files COPYING3 and COPYING.RUNTIME respectively.  If not, see</span></div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">// &lt;http://www.gnu.org/licenses/&gt;.</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">/**</span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment"> * @file static_polynomial.tcc Class outline definitions for static polynomial.</span></div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment">/**</span></div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment"> * @def  STATIC_POLYNOMIAL_TCC</span></div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment"> *</span></div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment"> * @brief  A guard for the static_polynomial class header.</span></div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#ifndef STATIC_POLYNOMIAL_TCC</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="static__polynomial_8tcc.html#a22a8e4318d37a9cf666e82c2d8fe3c46">   34</a></span>&#160;<span class="preprocessor">#define STATIC_POLYNOMIAL_TCC 1</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#</span><span class="preprocessor">ifndef</span> <span class="preprocessor">STATIC_POLYNOMIAL_TCC</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="static__polynomial_8tcc.html#a22a8e4318d37a9cf666e82c2d8fe3c46">   34</a></span>&#160;<span class="preprocessor">#</span><span class="preprocessor">define</span> <span class="preprocessor">STATIC_POLYNOMIAL_TCC</span> 1</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#</span><span class="preprocessor">include</span> <span class="preprocessor">&lt;</span><span class="preprocessor">iostream</span><span class="preprocessor">&gt;</span></div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceemsr.html">emsr</a></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">namespace</span> <a class="code" href="namespaceemsr.html">emsr</a></div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;{</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment">  /**</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  <span class="comment">/**</span></div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment">   * Write a polynomial to a stream.</span></div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment">   * The format is a parenthesized comma-delimited list of coefficients.</span></div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment">   */</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> CharT, <span class="keyword">typename</span> Traits, <span class="keyword">typename</span> Tp, std::<span class="keywordtype">size_t</span> Size&gt;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> CharT, <span class="keyword">typename</span> Traits, <span class="keyword">typename</span> Tp, std::size_t Size&gt;</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    std::basic_ostream&lt;CharT, Traits&gt;&amp;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <a class="code" href="namespaceemsr.html#a138fa9753d495e1819e54d43d580720b">operator&lt;&lt;</a>(std::basic_ostream&lt;CharT, Traits&gt;&amp; os,</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    operator&lt;&lt;(std::basic_ostream&lt;CharT, Traits&gt;&amp; os,</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;               <span class="keyword">const</span> StaticPolynomial&lt;Tp, Size&gt;&amp; poly)</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    {</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;      <span class="keywordtype">int</span> old_prec = os.precision(std::numeric_limits&lt;Tp&gt;::max_digits10);</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;      os &lt;&lt; <span class="stringliteral">&quot;(&quot;</span>;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;      <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; poly.degree(); ++i)</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;      <span class="keywordflow">for</span> (size_t i = 0; i &lt; poly.degree(); ++i)</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        os &lt;&lt; poly.coefficient(i) &lt;&lt; <span class="stringliteral">&quot;,&quot;</span>;</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;      os &lt;&lt; poly.coefficient(poly.degree());</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;      os &lt;&lt; <span class="stringliteral">&quot;)&quot;</span>;</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;      os.precision(old_prec);</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;      <span class="keywordflow">return</span> os;</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    }</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="comment">  /**</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  <span class="comment">/**</span></div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="comment">   * Divide two polynomials returning the quotient and remainder.</span></div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="comment">   */</span></div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Tp, std::<span class="keywordtype">size_t</span> SizeN, std::<span class="keywordtype">size_t</span> SizeD&gt;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    constexpr divmod_t&lt;Tp, SizeN, SizeD&gt;</div>
-<div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="namespaceemsr.html#acef21b65838fd0c04b66d44127996289">   65</a></span>&#160;    <a class="code" href="namespaceemsr.html#a5d92c91e21caca3557589683df6650c4">divmod</a>(<a class="code" href="classemsr_1_1StaticPolynomial.html">StaticPolynomial&lt;Tp, SizeN&gt;</a> num,</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;           <a class="code" href="classemsr_1_1StaticPolynomial.html">StaticPolynomial&lt;Tp, SizeD&gt;</a> den)</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Tp, std::size_t SizeN, std::size_t SizeD&gt;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keyword">constexpr</span> divmod_t&lt;Tp, SizeN, SizeD&gt;</div>
+<div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="namespaceemsr.html#acef21b65838fd0c04b66d44127996289">   65</a></span>&#160;    divmod(StaticPolynomial&lt;Tp, SizeN&gt; num,</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;           StaticPolynomial&lt;Tp, SizeD&gt; den)</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    {</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;      constexpr <span class="keyword">auto</span> DegN = num.<a class="code" href="classemsr_1_1StaticPolynomial.html#a36024d1342512e3e3f89e8d059f6d972">degree</a>();</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;      constexpr <span class="keyword">auto</span> DegD = den.<a class="code" href="classemsr_1_1StaticPolynomial.html#a36024d1342512e3e3f89e8d059f6d972">degree</a>();</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;      <span class="keyword">constexpr</span> <span class="keyword">auto</span> DegN = num.degree();</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;      <span class="keyword">constexpr</span> <span class="keyword">auto</span> DegD = den.degree();</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;      <span class="keyword">auto</span> rem = num;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;      <span class="keyword">auto</span> quo = <a class="code" href="classemsr_1_1StaticPolynomial.html">StaticPolynomial&lt;Tp, SizeN&gt;</a>{};</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;      <span class="keyword">auto</span> quo = StaticPolynomial&lt;Tp, SizeN&gt;{};</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;      <span class="keywordflow">if</span> (DegD &lt;= DegN)</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        {</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;          <span class="keywordflow">for</span> (std::ptrdiff_t k = DegN - DegD; k &gt;= 0; --k)</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            {</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;              quo.<a class="code" href="classemsr_1_1StaticPolynomial.html#a3a5fbb3d0756856cd5a0fa4e2ac08916">coefficient</a>(k, rem.coefficient(DegD + k)</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                                   / den.<a class="code" href="classemsr_1_1StaticPolynomial.html#a3a5fbb3d0756856cd5a0fa4e2ac08916">coefficient</a>(DegD));</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;              quo.coefficient(k, rem.coefficient(DegD + k)</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                                   / den.coefficient(DegD));</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;              <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = DegD + k - 1; j &gt;= k; --j)</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                rem.coefficient(j, rem.coefficient(j)</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                                       - quo.coefficient(k)</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                                       * den.<a class="code" href="classemsr_1_1StaticPolynomial.html#a3a5fbb3d0756856cd5a0fa4e2ac08916">coefficient</a>(j - k));</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                                       * den.coefficient(j - k));</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            }</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        }</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;      <a class="code" href="structemsr_1_1divmod__t.html">divmod_t&lt;Tp, SizeN, SizeD&gt;</a> ret;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;      divmod_t&lt;Tp, SizeN, SizeD&gt; ret;</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;      <span class="keywordflow">for</span> (std::size_t i = 0ULL; i &lt; divmod_t&lt;Tp, SizeN, SizeD&gt;::SizeQuo; ++i)</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        ret.<a class="code" href="structemsr_1_1divmod__t.html#a8f59a13342c37cdfaa1b09dfe2362b5c">quo</a>[i] = quo[i];</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;      for (std::size_t i = 0ULL; i &lt; divmod_t&lt;Tp, SizeN, SizeD&gt;::SizeRem; ++i)</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        ret.<a class="code" href="structemsr_1_1divmod__t.html#a33668b1285fc92f90b8311d7dd454e62">rem</a>[i] = rem[i];</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        ret.quo[i] = quo[i];</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;      <span class="keywordflow">for</span> (std::size_t i = 0ULL; i &lt; divmod_t&lt;Tp, SizeN, SizeD&gt;::SizeRem; ++i)</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        ret.rem[i] = rem[i];</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;      <span class="keywordflow">return</span> ret;</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    }</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;} <span class="comment">// namespace emsr</span></div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// STATIC_POLYNOMIAL_TCC</span></div>
-<div class="ttc" id="aclassemsr_1_1StaticPolynomial_html"><div class="ttname"><a href="classemsr_1_1StaticPolynomial.html">emsr::StaticPolynomial</a></div><div class="ttdef"><b>Definition:</b> <a href="static__polynomial_8h_source.html#l00049">static_polynomial.h:50</a></div></div>
-<div class="ttc" id="aclassemsr_1_1StaticPolynomial_html_a36024d1342512e3e3f89e8d059f6d972"><div class="ttname"><a href="classemsr_1_1StaticPolynomial.html#a36024d1342512e3e3f89e8d059f6d972">emsr::StaticPolynomial::degree</a></div><div class="ttdeci">constexpr size_type degree() const</div><div class="ttdef"><b>Definition:</b> <a href="static__polynomial_8h_source.html#l00507">static_polynomial.h:507</a></div></div>
-<div class="ttc" id="aclassemsr_1_1StaticPolynomial_html_a3a5fbb3d0756856cd5a0fa4e2ac08916"><div class="ttname"><a href="classemsr_1_1StaticPolynomial.html#a3a5fbb3d0756856cd5a0fa4e2ac08916">emsr::StaticPolynomial::coefficient</a></div><div class="ttdeci">constexpr value_type coefficient(size_type i) const</div><div class="ttdef"><b>Definition:</b> <a href="static__polynomial_8h_source.html#l00514">static_polynomial.h:514</a></div></div>
-<div class="ttc" id="anamespaceemsr_html"><div class="ttname"><a href="namespaceemsr.html">emsr</a></div><div class="ttdef"><b>Definition:</b> <a href="horner_8h_source.html#l00034">horner.h:35</a></div></div>
-<div class="ttc" id="anamespaceemsr_html_a138fa9753d495e1819e54d43d580720b"><div class="ttname"><a href="namespaceemsr.html#a138fa9753d495e1819e54d43d580720b">emsr::operator&lt;&lt;</a></div><div class="ttdeci">std::basic_ostream&lt; CharT, Traits &gt; &amp; operator&lt;&lt;(std::basic_ostream&lt; CharT, Traits &gt; &amp;os, const Polynomial&lt; Tp &gt; &amp;poly)</div><div class="ttdef"><b>Definition:</b> <a href="polynomial_8tcc_source.html#l00385">polynomial.tcc:416</a></div></div>
-<div class="ttc" id="anamespaceemsr_html_a5d92c91e21caca3557589683df6650c4"><div class="ttname"><a href="namespaceemsr.html#a5d92c91e21caca3557589683df6650c4">emsr::divmod</a></div><div class="ttdeci">void divmod(const Polynomial&lt; Tp &gt; &amp;num, const Polynomial&lt; Tp &gt; &amp;den, Polynomial&lt; Tp &gt; &amp;quo, Polynomial&lt; Tp &gt; &amp;rem)</div><div class="ttdef"><b>Definition:</b> <a href="polynomial_8tcc_source.html#l00385">polynomial.tcc:385</a></div></div>
-<div class="ttc" id="astructemsr_1_1divmod__t_html"><div class="ttname"><a href="structemsr_1_1divmod__t.html">emsr::divmod_t</a></div><div class="ttdef"><b>Definition:</b> <a href="static__polynomial_8h_source.html#l00768">static_polynomial.h:769</a></div></div>
-<div class="ttc" id="astructemsr_1_1divmod__t_html_a33668b1285fc92f90b8311d7dd454e62"><div class="ttname"><a href="structemsr_1_1divmod__t.html#a33668b1285fc92f90b8311d7dd454e62">emsr::divmod_t::rem</a></div><div class="ttdeci">StaticPolynomial&lt; Tp, SizeRem &gt; rem</div><div class="ttdef"><b>Definition:</b> <a href="static__polynomial_8h_source.html#l00776">static_polynomial.h:776</a></div></div>
-<div class="ttc" id="astructemsr_1_1divmod__t_html_a8f59a13342c37cdfaa1b09dfe2362b5c"><div class="ttname"><a href="structemsr_1_1divmod__t.html#a8f59a13342c37cdfaa1b09dfe2362b5c">emsr::divmod_t::quo</a></div><div class="ttdeci">StaticPolynomial&lt; Tp, SizeQuo &gt; quo</div><div class="ttdef"><b>Definition:</b> <a href="static__polynomial_8h_source.html#l00775">static_polynomial.h:775</a></div></div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="preprocessor">#</span><span class="preprocessor">endif</span> <span class="comment">// STATIC_POLYNOMIAL_TCC</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

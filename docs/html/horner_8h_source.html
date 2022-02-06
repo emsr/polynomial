@@ -107,91 +107,88 @@ $(document).ready(function(){initNavTree('horner_8h_source.html',''); initResiza
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">// a copy of the GCC Runtime Library Exception along with this program;</span></div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">// see the files COPYING3 and COPYING.RUNTIME respectively.  If not, see</span></div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">// &lt;http://www.gnu.org/licenses/&gt;.</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">/**</span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment"> * @def  HORNER_H</span></div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment"> *</span></div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment"> * @brief  A guard for the horner functions header.</span></div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#ifndef HORNER_H</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#define HORNER_H 1</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#</span><span class="preprocessor">ifndef</span> <span class="preprocessor">HORNER_H</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#</span><span class="preprocessor">define</span> <span class="preprocessor">HORNER_H</span> 1</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &lt;type_traits&gt;</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#</span><span class="preprocessor">include</span> <span class="preprocessor">&lt;</span><span class="preprocessor">type_traits</span><span class="preprocessor">&gt;</span></div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="namespaceemsr.html">   34</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceemsr.html">emsr</a></div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="namespaceemsr.html">   34</a></span>&#160;<span class="keyword">namespace</span> <a class="code" href="namespaceemsr.html">emsr</a></div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;{</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment">/**</span></div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment"> * Perform compile-time evaluation of a constant zero-order polynomial.</span></div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> ArgT, <span class="keyword">typename</span> Coef0&gt;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  constexpr std::conditional_t&lt;std::is_integral&lt;ArgT&gt;::value, double, ArgT&gt;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  <span class="keyword">constexpr</span> std::conditional_t&lt;std::is_integral&lt;ArgT&gt;::value, <span class="keywordtype">double</span>, ArgT&gt;</div>
 <div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="namespaceemsr.html#a155d146e57554633b51b21e4681ce000">   42</a></span>&#160;  <a class="code" href="namespaceemsr.html#a155d146e57554633b51b21e4681ce000">horner</a>(ArgT, Coef0 c0)</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  {</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keyword">using</span> arg_t = std::conditional_t&lt;std::is_integral&lt;ArgT&gt;::value,</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                                        double, ArgT&gt;;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordflow">return</span> arg_t{c0};</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                                     <span class="keywordtype">double</span>, ArgT&gt;;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordflow">return</span> arg_t(c0);</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  }</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="comment">/**</span></div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="comment"> * Perform compile-time evaluation of a constant polynomial.</span></div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="comment"> * The polynomial coefficients are lowest-order first.</span></div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> ArgT, <span class="keyword">typename</span> Coef0, <span class="keyword">typename</span>... Coef&gt;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  constexpr std::conditional_t&lt;std::is_integral&lt;ArgT&gt;::value, double, ArgT&gt;</div>
-<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="namespaceemsr.html#ad76e856347b8d4dc1991d8aad92199f0">   55</a></span>&#160;  <a class="code" href="namespaceemsr.html#a155d146e57554633b51b21e4681ce000">horner</a>(ArgT x, Coef0 c0, Coef... c)</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  <span class="keyword">constexpr</span> std::conditional_t&lt;std::is_integral&lt;ArgT&gt;::value, <span class="keywordtype">double</span>, ArgT&gt;</div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="namespaceemsr.html#ad76e856347b8d4dc1991d8aad92199f0">   55</a></span>&#160;  <a class="code" href="namespaceemsr.html#ad76e856347b8d4dc1991d8aad92199f0">horner</a>(ArgT x, Coef0 c0, Coef... c)</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  {</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keyword">using</span> arg_t = std::conditional_t&lt;std::is_integral&lt;ArgT&gt;::value,</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                                        double, ArgT&gt;;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordflow">return</span> arg_t{c0} + x * <a class="code" href="namespaceemsr.html#a155d146e57554633b51b21e4681ce000">horner</a>(x, c...);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                                     <span class="keywordtype">double</span>, ArgT&gt;;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordflow">return</span> arg_t(c0) + x * horner(x, c...);</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  }</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="comment">/**</span></div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="comment"> * Perform compile-time evaluation of a constant zero-order polynomial.</span></div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="comment"> * The polynomial coefficients are highest-order first.</span></div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> ArgT, <span class="keyword">typename</span> Coef0&gt;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;  constexpr std::conditional_t&lt;std::is_integral&lt;ArgT&gt;::value, double, ArgT&gt;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;  <span class="keyword">constexpr</span> std::conditional_t&lt;std::is_integral&lt;ArgT&gt;::value, <span class="keywordtype">double</span>, ArgT&gt;</div>
 <div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="namespaceemsr.html#a55de120e4dc9c5c34075279bdf43d17c">   69</a></span>&#160;  <a class="code" href="namespaceemsr.html#a55de120e4dc9c5c34075279bdf43d17c">horner_big_end</a>(ArgT, Coef0 c0)</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;  {</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keyword">using</span> arg_t = std::conditional_t&lt;std::is_integral&lt;ArgT&gt;::value,</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                                        double, ArgT&gt;;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordflow">return</span> arg_t{c0};</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                                     <span class="keywordtype">double</span>, ArgT&gt;;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordflow">return</span> arg_t(c0);</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;  }</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="comment">/**</span></div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="comment"> * Perform compile-time evaluation of a constant first-order polynomial.</span></div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="comment"> * The polynomial coefficients are highest-order first.</span></div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> ArgT, <span class="keyword">typename</span> Coef1, <span class="keyword">typename</span> Coef0&gt;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;  constexpr std::conditional_t&lt;std::is_integral&lt;ArgT&gt;::value, double, ArgT&gt;</div>
-<div class="line"><a name="l00082"></a><span class="lineno"><a class="line" href="namespaceemsr.html#a381a03247643fc05de000c9d2ccbbe12">   82</a></span>&#160;  <a class="code" href="namespaceemsr.html#a55de120e4dc9c5c34075279bdf43d17c">horner_big_end</a>(ArgT x, Coef1 c1, Coef0 c0)</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;  <span class="keyword">constexpr</span> std::conditional_t&lt;std::is_integral&lt;ArgT&gt;::value, <span class="keywordtype">double</span>, ArgT&gt;</div>
+<div class="line"><a name="l00082"></a><span class="lineno"><a class="line" href="namespaceemsr.html#a381a03247643fc05de000c9d2ccbbe12">   82</a></span>&#160;  <a class="code" href="namespaceemsr.html#a381a03247643fc05de000c9d2ccbbe12">horner_big_end</a>(ArgT x, Coef1 c1, Coef0 c0)</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;  {</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keyword">using</span> arg_t = std::conditional_t&lt;std::is_integral&lt;ArgT&gt;::value,</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                                        double, ArgT&gt;;</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="namespaceemsr.html#a55de120e4dc9c5c34075279bdf43d17c">horner_big_end</a>(x, x * arg_t{c1} + arg_t{c0});</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                                     <span class="keywordtype">double</span>, ArgT&gt;;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keywordflow">return</span> horner_big_end(x, x * arg_t(c1) + arg_t(c0));</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;  }</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="comment">/**</span></div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="comment"> * Perform compile-time evaluation of a constant polynomial.</span></div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="comment"> * The polynomial coefficients are highest-order first.</span></div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> ArgT, <span class="keyword">typename</span> CoefN, <span class="keyword">typename</span> CoefNm1, <span class="keyword">typename</span>... Coef&gt;</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;  constexpr std::conditional_t&lt;std::is_integral&lt;ArgT&gt;::value, double, ArgT&gt;</div>
-<div class="line"><a name="l00095"></a><span class="lineno"><a class="line" href="namespaceemsr.html#acc246a38d5dc59a528e6fc7ec3d38b5a">   95</a></span>&#160;  <a class="code" href="namespaceemsr.html#a55de120e4dc9c5c34075279bdf43d17c">horner_big_end</a>(ArgT x, CoefN cn, CoefNm1 cnm1, Coef... c)</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;  <span class="keyword">constexpr</span> std::conditional_t&lt;std::is_integral&lt;ArgT&gt;::value, <span class="keywordtype">double</span>, ArgT&gt;</div>
+<div class="line"><a name="l00095"></a><span class="lineno"><a class="line" href="namespaceemsr.html#acc246a38d5dc59a528e6fc7ec3d38b5a">   95</a></span>&#160;  <a class="code" href="namespaceemsr.html#acc246a38d5dc59a528e6fc7ec3d38b5a">horner_big_end</a>(ArgT x, CoefN cn, CoefNm1 cnm1, Coef... c)</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;  {</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keyword">using</span> arg_t = std::conditional_t&lt;std::is_integral&lt;ArgT&gt;::value,</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                                        double, ArgT&gt;;</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="namespaceemsr.html#a55de120e4dc9c5c34075279bdf43d17c">horner_big_end</a>(x, x * arg_t{cn} + arg_t{cnm1}, c...);</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                                     <span class="keywordtype">double</span>, ArgT&gt;;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="keywordflow">return</span> horner_big_end(x, x * arg_t(cn) + arg_t(cnm1), c...);</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;  }</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;} <span class="comment">// namespace emsr</span></div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// HORNER_H</span></div>
-<div class="ttc" id="anamespaceemsr_html"><div class="ttname"><a href="namespaceemsr.html">emsr</a></div><div class="ttdef"><b>Definition:</b> <a href="horner_8h_source.html#l00034">horner.h:35</a></div></div>
-<div class="ttc" id="anamespaceemsr_html_a155d146e57554633b51b21e4681ce000"><div class="ttname"><a href="namespaceemsr.html#a155d146e57554633b51b21e4681ce000">emsr::horner</a></div><div class="ttdeci">constexpr std::conditional_t&lt; std::is_integral&lt; ArgT &gt;::value, double, ArgT &gt; horner(ArgT, Coef0 c0)</div><div class="ttdef"><b>Definition:</b> <a href="horner_8h_source.html#l00042">horner.h:42</a></div></div>
-<div class="ttc" id="anamespaceemsr_html_a55de120e4dc9c5c34075279bdf43d17c"><div class="ttname"><a href="namespaceemsr.html#a55de120e4dc9c5c34075279bdf43d17c">emsr::horner_big_end</a></div><div class="ttdeci">constexpr std::conditional_t&lt; std::is_integral&lt; ArgT &gt;::value, double, ArgT &gt; horner_big_end(ArgT, Coef0 c0)</div><div class="ttdef"><b>Definition:</b> <a href="horner_8h_source.html#l00069">horner.h:69</a></div></div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="preprocessor">#</span><span class="preprocessor">endif</span> <span class="comment">// HORNER_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

@@ -107,36 +107,36 @@ $(document).ready(function(){initNavTree('solver__jenkins__traub_8h_source.html'
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">// a copy of the GCC Runtime Library Exception along with this program;</span></div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">// see the files COPYING3 and COPYING.RUNTIME respectively.  If not, see</span></div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">// &lt;http://www.gnu.org/licenses/&gt;.</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">/**</span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment"> * @file solver_jenkins_traub.h Class declaration for the Jenkins-Traub solver.</span></div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment">/**</span></div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment"> * @def  SOLVER_JENKINS_TRAUB_H</span></div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment"> *</span></div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment"> * @brief  A guard for the _JenkinsTraubSolver class header.</span></div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#ifndef SOLVER_JENKINS_TRAUB_H</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#define SOLVER_JENKINS_TRAUB_H 1</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#</span><span class="preprocessor">ifndef</span> <span class="preprocessor">SOLVER_JENKINS_TRAUB_H</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#</span><span class="preprocessor">define</span> <span class="preprocessor">SOLVER_JENKINS_TRAUB_H</span> 1</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="solution_8h.html">emsr/solution.h</a>&gt;</span> <span class="comment">// For Solution</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#</span><span class="preprocessor">include</span> <span class="preprocessor">&lt;</span><span class="preprocessor">emsr</span><span class="preprocessor">/</span><span class="preprocessor">solution</span><span class="preprocessor">.</span><span class="preprocessor">h</span><span class="preprocessor">&gt;</span> <span class="comment">// For Solution</span></div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceemsr.html">emsr</a></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">namespace</span> <a class="code" href="namespaceemsr.html">emsr</a></div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;{</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment">/**</span></div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment"> * A solver for real-coefficient polynomials due to Jenkins and Traub.</span></div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> Real&gt;</div>
-<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="classemsr_1_1JenkinsTraubSolver.html">   45</a></span>&#160;  <span class="keyword">class </span><a class="code" href="classemsr_1_1JenkinsTraubSolver.html">JenkinsTraubSolver</a></div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="classemsr_1_1JenkinsTraubSolver.html">   45</a></span>&#160;  <span class="keyword">class</span> <a class="code" href="classemsr_1_1JenkinsTraubSolver.html">JenkinsTraubSolver</a></div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  {</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  <span class="keyword">public</span>:</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <a class="code" href="classemsr_1_1JenkinsTraubSolver.html#a9922e9bbffeb491046d4ae34ea164a66">JenkinsTraubSolver</a>(<span class="keyword">const</span> std::vector&lt;Real&gt;&amp; op);</div>
 <div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="classemsr_1_1JenkinsTraubSolver.html#a2ff2647ebdcb460cc8ae91f2977127d4">   50</a></span>&#160;    <a class="code" href="classemsr_1_1JenkinsTraubSolver.html#a2ff2647ebdcb460cc8ae91f2977127d4">JenkinsTraubSolver</a>(std::vector&lt;Real&gt;&amp;&amp; op);</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    std::vector&lt;Solution&lt;Real&gt;&gt; <a class="code" href="classemsr_1_1JenkinsTraubSolver.html#a72e284844d928a0f408594cf755d6d7e">solve</a>();</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <a class="code" href="classemsr_1_1JenkinsTraubSolver.html#a72e284844d928a0f408594cf755d6d7e">std</a>::<a class="code" href="classemsr_1_1JenkinsTraubSolver.html#a72e284844d928a0f408594cf755d6d7e">vector</a>&lt;<a class="code" href="classemsr_1_1JenkinsTraubSolver.html#a72e284844d928a0f408594cf755d6d7e">Solution</a>&lt;<a class="code" href="classemsr_1_1JenkinsTraubSolver.html#a72e284844d928a0f408594cf755d6d7e">Real</a>&gt;&gt; <a class="code" href="classemsr_1_1JenkinsTraubSolver.html#a72e284844d928a0f408594cf755d6d7e">solve</a>();</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  <span class="keyword">private</span>:</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
@@ -149,7 +149,7 @@ $(document).ready(function(){initNavTree('solver__jenkins__traub_8h_source.html'
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    };</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordtype">void</span> quadratic(Real a, Real b, Real c,</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                   <a class="code" href="structemsr_1_1Solution.html">Solution&lt;Real&gt;</a> &amp;z_small, <a class="code" href="structemsr_1_1Solution.html">Solution&lt;Real&gt;</a> &amp;z_large);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                   Solution&lt;Real&gt; &amp;z_small, Solution&lt;Real&gt; &amp;z_large);</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">int</span> fxshfr(<span class="keywordtype">int</span> l2);</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordtype">int</span> iter_quadratic(Real uu, Real vv);</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordtype">int</span> iter_real(Real sss, <span class="keywordtype">int</span>&amp; iflag);</div>
@@ -157,17 +157,17 @@ $(document).ready(function(){initNavTree('solver__jenkins__traub_8h_source.html'
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordtype">void</span> next_h_poly(NormalizationType type);</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    std::pair&lt;Real, Real&gt; quadratic_coefficients(NormalizationType type);</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordtype">void</span> remquo_quadratic(<span class="keywordtype">int</span> n, Real u, Real v,</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                          std::vector&lt;Real&gt;&amp; poly, std::vector&lt;Real&gt;&amp; <a class="code" href="namespaceemsr.html#ac087677b513a944eb60e5df77309a8df">quot</a>,</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                          std::vector&lt;Real&gt;&amp; poly, std::vector&lt;Real&gt;&amp; quot,</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                          Real&amp; a, Real&amp; b);</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keyword">static</span> constexpr <span class="keyword">auto</span> s_eps = std::numeric_limits&lt;Real&gt;::epsilon();</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keyword">static</span> constexpr <span class="keyword">auto</span> s_base = Real{std::numeric_limits&lt;Real&gt;::radix};</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keyword">static</span> constexpr <span class="keyword">auto</span> s_tiny = s_eps * s_eps * s_eps; <span class="comment">// 1.0e-50; //std::numeric_limits&lt;Real&gt;::min();</span></div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keyword">static</span> constexpr <span class="keyword">auto</span> s_huge = std::numeric_limits&lt;Real&gt;::max();</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> s_eps = <a class="code" href="classemsr_1_1JenkinsTraubSolver.html">std</a>::<a class="code" href="classemsr_1_1JenkinsTraubSolver.html">numeric_limits</a>&lt;<a class="code" href="classemsr_1_1JenkinsTraubSolver.html">Real</a>&gt;::<a class="code" href="classemsr_1_1JenkinsTraubSolver.html">epsilon</a>();</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> s_base = <a class="code" href="classemsr_1_1JenkinsTraubSolver.html">Real</a>{<a class="code" href="classemsr_1_1JenkinsTraubSolver.html">std</a>::<a class="code" href="classemsr_1_1JenkinsTraubSolver.html">numeric_limits</a>&lt;<a class="code" href="classemsr_1_1JenkinsTraubSolver.html">Real</a>&gt;::<a class="code" href="classemsr_1_1JenkinsTraubSolver.html">radix</a>};</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> s_tiny = s_eps * s_eps * s_eps; <span class="comment">// 1.0e-50; //std::numeric_limits&lt;Real&gt;::min();</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> s_huge = <a class="code" href="classemsr_1_1JenkinsTraubSolver.html">std</a>::<a class="code" href="classemsr_1_1JenkinsTraubSolver.html">numeric_limits</a>&lt;<a class="code" href="classemsr_1_1JenkinsTraubSolver.html">Real</a>&gt;::<a class="code" href="classemsr_1_1JenkinsTraubSolver.html">max</a>();</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="comment">//static constexpr auto s_low = s_tiny / s_eps;</span></div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keyword">const</span> Real s_low = s_tiny / s_eps;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keyword">static</span> constexpr <span class="keyword">auto</span> s_pi = Real{3.1415&#39;92653&#39;58979&#39;32384&#39;62643&#39;38327&#39;95028&#39;84195e+0L};</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keyword">static</span> constexpr <span class="keyword">auto</span> s_rotation = Real{94} * s_pi / Real{180};</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keyword">const</span> Real s_low = <a class="code" href="classemsr_1_1JenkinsTraubSolver.html">s_tiny</a> / <a class="code" href="classemsr_1_1JenkinsTraubSolver.html">s_eps</a>;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> s_pi = Real{3.1415&#39;92653&#39;58979&#39;32384&#39;62643&#39;38327&#39;95028&#39;84195e+0L};</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> s_rotation = Real{94} * s_pi / Real{180};</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keywordtype">int</span> m_max_iter_quadratic = 20;</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    Real m_min_log_deriv = Real{0.005L};</div>
@@ -203,20 +203,10 @@ $(document).ready(function(){initNavTree('solver__jenkins__traub_8h_source.html'
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160; </div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;} <span class="comment">// namespace emsr</span></div>
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160; </div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="solver__jenkins__traub_8tcc.html">emsr/solver_jenkins_traub.tcc</a>&gt;</span></div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="solver__jenkins__traub__complex_8tcc.html">emsr/solver_jenkins_traub_complex.tcc</a>&gt;</span></div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="preprocessor">#</span><span class="preprocessor">include</span> <span class="preprocessor">&lt;</span><span class="preprocessor">emsr</span><span class="preprocessor">/</span><span class="preprocessor">solver_jenkins_traub</span><span class="preprocessor">.</span><span class="preprocessor">tcc</span><span class="preprocessor">&gt;</span></div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;<span class="preprocessor">#</span><span class="preprocessor">include</span> <span class="preprocessor">&lt;</span><span class="preprocessor">emsr</span><span class="preprocessor">/</span><span class="preprocessor">solver_jenkins_traub_complex</span><span class="preprocessor">.</span><span class="preprocessor">tcc</span><span class="preprocessor">&gt;</span></div>
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160; </div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// SOLVER_JENKINS_TRAUB_H</span></div>
-<div class="ttc" id="aclassemsr_1_1JenkinsTraubSolver_html"><div class="ttname"><a href="classemsr_1_1JenkinsTraubSolver.html">emsr::JenkinsTraubSolver</a></div><div class="ttdef"><b>Definition:</b> <a href="solver__jenkins__traub_8h_source.html#l00045">solver_jenkins_traub.h:46</a></div></div>
-<div class="ttc" id="aclassemsr_1_1JenkinsTraubSolver_html_a2ff2647ebdcb460cc8ae91f2977127d4"><div class="ttname"><a href="classemsr_1_1JenkinsTraubSolver.html#a2ff2647ebdcb460cc8ae91f2977127d4">emsr::JenkinsTraubSolver::JenkinsTraubSolver</a></div><div class="ttdeci">JenkinsTraubSolver(std::vector&lt; Real &gt; &amp;&amp;op)</div></div>
-<div class="ttc" id="aclassemsr_1_1JenkinsTraubSolver_html_a72e284844d928a0f408594cf755d6d7e"><div class="ttname"><a href="classemsr_1_1JenkinsTraubSolver.html#a72e284844d928a0f408594cf755d6d7e">emsr::JenkinsTraubSolver::solve</a></div><div class="ttdeci">std::vector&lt; Solution&lt; Real &gt; &gt; solve()</div><div class="ttdef"><b>Definition:</b> <a href="solver__jenkins__traub_8tcc_source.html#l00071">solver_jenkins_traub.tcc:71</a></div></div>
-<div class="ttc" id="aclassemsr_1_1JenkinsTraubSolver_html_a9922e9bbffeb491046d4ae34ea164a66"><div class="ttname"><a href="classemsr_1_1JenkinsTraubSolver.html#a9922e9bbffeb491046d4ae34ea164a66">emsr::JenkinsTraubSolver::JenkinsTraubSolver</a></div><div class="ttdeci">JenkinsTraubSolver(const std::vector&lt; Real &gt; &amp;op)</div><div class="ttdef"><b>Definition:</b> <a href="solver__jenkins__traub_8tcc_source.html#l00046">solver_jenkins_traub.tcc:47</a></div></div>
-<div class="ttc" id="anamespaceemsr_html"><div class="ttname"><a href="namespaceemsr.html">emsr</a></div><div class="ttdef"><b>Definition:</b> <a href="horner_8h_source.html#l00034">horner.h:35</a></div></div>
-<div class="ttc" id="anamespaceemsr_html_ac087677b513a944eb60e5df77309a8df"><div class="ttname"><a href="namespaceemsr.html#ac087677b513a944eb60e5df77309a8df">emsr::quot</a></div><div class="ttdeci">constexpr squot_t quot(short int numer, short int denom)</div></div>
-<div class="ttc" id="asolution_8h_html"><div class="ttname"><a href="solution_8h.html">solution.h</a></div></div>
-<div class="ttc" id="asolver__jenkins__traub_8tcc_html"><div class="ttname"><a href="solver__jenkins__traub_8tcc.html">solver_jenkins_traub.tcc</a></div></div>
-<div class="ttc" id="asolver__jenkins__traub__complex_8tcc_html"><div class="ttname"><a href="solver__jenkins__traub__complex_8tcc.html">solver_jenkins_traub_complex.tcc</a></div></div>
-<div class="ttc" id="astructemsr_1_1Solution_html"><div class="ttname"><a href="structemsr_1_1Solution.html">emsr::Solution</a></div><div class="ttdef"><b>Definition:</b> <a href="solution_8h_source.html#l00048">solution.h:50</a></div></div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;<span class="preprocessor">#</span><span class="preprocessor">endif</span> <span class="comment">// SOLVER_JENKINS_TRAUB_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

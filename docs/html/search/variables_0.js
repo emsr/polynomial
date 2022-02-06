@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['cos_5fv_524',['cos_v',['../structemsr_1_1sincos__t.html#aab3624eeb82831927d7dea1da893e1f1',1,'emsr::sincos_t']]],
-  ['cosh_5fvalue_525',['cosh_value',['../structemsr_1_1sinhcosh__t.html#aa52665762f3743084502029bc53df023',1,'emsr::sinhcosh_t']]]
+  ['derivative_335',['derivative',['../classemsr_1_1Polynomial.html#a551ee4e0e7f4fa425cce39cb758565bb',1,'emsr::Polynomial']]]
 ];

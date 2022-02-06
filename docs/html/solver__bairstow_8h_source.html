@@ -107,55 +107,55 @@ $(document).ready(function(){initNavTree('solver__bairstow_8h_source.html',''); 
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">// a copy of the GCC Runtime Library Exception along with this program;</span></div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">// see the files COPYING3 and COPYING.RUNTIME respectively.  If not, see</span></div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">// &lt;http://www.gnu.org/licenses/&gt;.</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">/**</span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment"> * @file solver_bairstow.h Class declaration for the Bairstow solver.</span></div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment">/**</span></div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment"> * @def  SOLVER_BAIRSTOW_H</span></div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment"> *</span></div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment"> * @brief  A guard for the _BairstowSolver class header.</span></div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#ifndef SOLVER_BAIRSTOW_H</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#define SOLVER_BAIRSTOW_H 1</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#</span><span class="preprocessor">ifndef</span> <span class="preprocessor">SOLVER_BAIRSTOW_H</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#</span><span class="preprocessor">define</span> <span class="preprocessor">SOLVER_BAIRSTOW_H</span> 1</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="solver__low__degree_8h.html">emsr/solver_low_degree.h</a>&gt;</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#</span><span class="preprocessor">include</span> <span class="preprocessor">&lt;</span><span class="preprocessor">emsr</span><span class="preprocessor">/</span><span class="preprocessor">solver_low_degree</span><span class="preprocessor">.</span><span class="preprocessor">h</span><span class="preprocessor">&gt;</span></div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceemsr.html">emsr</a></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">namespace</span> <a class="code" href="namespaceemsr.html">emsr</a></div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;{</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment">///</span></div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment">/// @todo: If you *don&#39;t* reverse the input array you solve for 1/z.</span></div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment">/// @todo Take a max_error.  If this-&gt;m_eps grows larger than max_error throw.</span></div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment">///</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment"></span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> Real&gt;</div>
-<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="classemsr_1_1BairstowSolver.html">   46</a></span>&#160;  <span class="keyword">class </span><a class="code" href="classemsr_1_1BairstowSolver.html">BairstowSolver</a></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> Real&gt;</div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="classemsr_1_1BairstowSolver.html">   46</a></span>&#160;  <span class="keyword">class</span> <a class="code" href="classemsr_1_1BairstowSolver.html">BairstowSolver</a></div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  {</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  <span class="keyword">public</span>:</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
 <div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="classemsr_1_1BairstowSolver.html#a364a46bfa1e476823e4f5f1ecef05688">   50</a></span>&#160;    <a class="code" href="classemsr_1_1BairstowSolver.html#a364a46bfa1e476823e4f5f1ecef05688">BairstowSolver</a>(<span class="keyword">const</span> std::vector&lt;Real&gt;&amp; coeff,</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> seed = std::random_device()())</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    : m_coeff{coeff.rbegin(), coeff.rend()},</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;      m_b(coeff.size()), m_c(coeff.size()),</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;      m_order(coeff.size() - 1),</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;      m_urng(seed), m_pdf(Real{0}, Real{2})</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> seed = <a class="code" href="classemsr_1_1BairstowSolver.html#a364a46bfa1e476823e4f5f1ecef05688">std</a>::<a class="code" href="classemsr_1_1BairstowSolver.html#a364a46bfa1e476823e4f5f1ecef05688">random_device</a>()())</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    : <a class="code" href="classemsr_1_1BairstowSolver.html#a364a46bfa1e476823e4f5f1ecef05688">m_coeff</a>{<a class="code" href="classemsr_1_1BairstowSolver.html#a364a46bfa1e476823e4f5f1ecef05688">coeff</a>.<a class="code" href="classemsr_1_1BairstowSolver.html#a364a46bfa1e476823e4f5f1ecef05688">rbegin</a>(), <a class="code" href="classemsr_1_1BairstowSolver.html#a364a46bfa1e476823e4f5f1ecef05688">coeff</a>.<a class="code" href="classemsr_1_1BairstowSolver.html#a364a46bfa1e476823e4f5f1ecef05688">rend</a>()},</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;      <a class="code" href="classemsr_1_1BairstowSolver.html#a364a46bfa1e476823e4f5f1ecef05688">m_b</a>(<a class="code" href="classemsr_1_1BairstowSolver.html#a364a46bfa1e476823e4f5f1ecef05688">coeff</a>.<a class="code" href="classemsr_1_1BairstowSolver.html#a364a46bfa1e476823e4f5f1ecef05688">size</a>()), <a class="code" href="classemsr_1_1BairstowSolver.html#a364a46bfa1e476823e4f5f1ecef05688">m_c</a>(<a class="code" href="classemsr_1_1BairstowSolver.html#a364a46bfa1e476823e4f5f1ecef05688">coeff</a>.<a class="code" href="classemsr_1_1BairstowSolver.html#a364a46bfa1e476823e4f5f1ecef05688">size</a>()),</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;      <a class="code" href="classemsr_1_1BairstowSolver.html#a364a46bfa1e476823e4f5f1ecef05688">m_order</a>(<a class="code" href="classemsr_1_1BairstowSolver.html#a364a46bfa1e476823e4f5f1ecef05688">coeff</a>.<a class="code" href="classemsr_1_1BairstowSolver.html#a364a46bfa1e476823e4f5f1ecef05688">size</a>() - 1),</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;      <a class="code" href="classemsr_1_1BairstowSolver.html#a364a46bfa1e476823e4f5f1ecef05688">m_urng</a>(<a class="code" href="classemsr_1_1BairstowSolver.html#a364a46bfa1e476823e4f5f1ecef05688">seed</a>), <a class="code" href="classemsr_1_1BairstowSolver.html#a364a46bfa1e476823e4f5f1ecef05688">m_pdf</a>(<a class="code" href="classemsr_1_1BairstowSolver.html#a364a46bfa1e476823e4f5f1ecef05688">Real</a>{0}, <a class="code" href="classemsr_1_1BairstowSolver.html#a364a46bfa1e476823e4f5f1ecef05688">Real</a>{2})</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    {</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;      <span class="keywordflow">if</span> (this-&gt;m_coeff.size() == 0)</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;      <span class="keywordflow">if</span> (<span class="keyword">this</span>-&gt;m_coeff.size() == 0)</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keywordflow">throw</span> std::domain_error(<span class="stringliteral">&quot;BairstowSolver: Coefficient size must be nonzero.&quot;</span>);</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;      <span class="keywordflow">if</span> (this-&gt;m_coeff[0] == Real{0})</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;      <span class="keywordflow">if</span> (<span class="keyword">this</span>-&gt;m_coeff[0] == Real{0})</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="keywordflow">throw</span> std::domain_error(<span class="stringliteral">&quot;BairstowSolver: Leading-order coefficient must be nonzero.&quot;</span>);</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;      <span class="keyword">const</span> <span class="keyword">auto</span> scale = this-&gt;m_coeff[0];</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;      <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt;= this-&gt;m_order; ++i)</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        this-&gt;m_coeff[i] /= scale;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;      <span class="keyword">const</span> <span class="keyword">auto</span> scale = <span class="keyword">this</span>-&gt;m_coeff[0];</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;      <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt;= <span class="keyword">this</span>-&gt;m_order; ++i)</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="keyword">this</span>-&gt;m_coeff[i] /= scale;</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;      this-&gt;m_zero.reserve(this-&gt;m_coeff.size());</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;      <span class="keyword">this</span>-&gt;m_zero.reserve(<span class="keyword">this</span>-&gt;m_coeff.size());</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    }</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    std::vector&lt;Solution&lt;Real&gt;&gt; <a class="code" href="classemsr_1_1BairstowSolver.html#ab1efb76f88cb3e6631f45e53524c6a6b">solve</a>();</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    std::vector&lt;Real&gt; <a class="code" href="classemsr_1_1BairstowSolver.html#a1a7cd03415675e7cb5d36e0ebe43a8e4">equations</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <a class="code" href="classemsr_1_1BairstowSolver.html#ab1efb76f88cb3e6631f45e53524c6a6b">std</a>::<a class="code" href="classemsr_1_1BairstowSolver.html#ab1efb76f88cb3e6631f45e53524c6a6b">vector</a>&lt;<a class="code" href="classemsr_1_1BairstowSolver.html#ab1efb76f88cb3e6631f45e53524c6a6b">Solution</a>&lt;<a class="code" href="classemsr_1_1BairstowSolver.html#ab1efb76f88cb3e6631f45e53524c6a6b">Real</a>&gt;&gt; <a class="code" href="classemsr_1_1BairstowSolver.html#ab1efb76f88cb3e6631f45e53524c6a6b">solve</a>();</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <a class="code" href="classemsr_1_1BairstowSolver.html#a1a7cd03415675e7cb5d36e0ebe43a8e4">std</a>::<a class="code" href="classemsr_1_1BairstowSolver.html#a1a7cd03415675e7cb5d36e0ebe43a8e4">vector</a>&lt;<a class="code" href="classemsr_1_1BairstowSolver.html#a1a7cd03415675e7cb5d36e0ebe43a8e4">Real</a>&gt; <a class="code" href="classemsr_1_1BairstowSolver.html#a1a7cd03415675e7cb5d36e0ebe43a8e4">equations</a>() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;  <span class="keyword">private</span>:</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
@@ -164,23 +164,23 @@ $(document).ready(function(){initNavTree('solver__bairstow_8h_source.html',''); 
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keyword">template</span>&lt;<span class="keywordtype">int</span> Index&gt;</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> s_refine_quadratic_eqn(Real&amp; dr, Real&amp; r,</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                                        Real&amp; ds, Real&amp; s,</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                                        std::array&lt;<a class="code" href="structemsr_1_1Solution.html">Solution&lt;Real&gt;</a>, 2&gt;&amp; w);</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                                        std::array&lt;Solution&lt;Real&gt;, 2&gt;&amp; w);</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keywordtype">void</span></div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    m_add_zero(<a class="code" href="structemsr_1_1Solution.html">Solution&lt;Real&gt;</a> z)</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    m_add_zero(Solution&lt;Real&gt; z)</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    {</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;      this-&gt;m_zero.push_back(z);</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;      --this-&gt;m_order;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;      <span class="keyword">this</span>-&gt;m_zero.push_back(z);</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;      --<span class="keyword">this</span>-&gt;m_order;</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    }</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keyword">static</span> constexpr Real s_ratio</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        = Real{std::numeric_limits&lt;Real&gt;::digits}</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        / std::numeric_limits&lt;double&gt;::digits;</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keyword">static</span> constexpr <span class="keywordtype">int</span> s_max_rand_iter = 200 * s_ratio;</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keyword">static</span> constexpr <span class="keywordtype">int</span> s_max_error_iter = 500 * s_ratio;</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keyword">static</span> constexpr <span class="keyword">auto</span> s_eps_factor = Real{10} * s_ratio;</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keyword">static</span> constexpr <span class="keyword">auto</span> s_eps</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;      = s_eps_factor * std::numeric_limits&lt;Real&gt;::epsilon();</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keyword">static</span> <span class="keyword">constexpr</span> Real s_ratio</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        = <a class="code" href="classemsr_1_1BairstowSolver.html">Real</a>{<a class="code" href="classemsr_1_1BairstowSolver.html">std</a>::<a class="code" href="classemsr_1_1BairstowSolver.html">numeric_limits</a>&lt;<a class="code" href="classemsr_1_1BairstowSolver.html">Real</a>&gt;::<a class="code" href="classemsr_1_1BairstowSolver.html">digits</a>}</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        / <a class="code" href="classemsr_1_1BairstowSolver.html">std</a>::<a class="code" href="classemsr_1_1BairstowSolver.html">numeric_limits</a>&lt;<span class="keywordtype">double</span>&gt;::<a class="code" href="classemsr_1_1BairstowSolver.html">digits</a>;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keywordtype">int</span> s_max_rand_iter = 200 * s_ratio;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keywordtype">int</span> s_max_error_iter = 500 * s_ratio;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> s_eps_factor = Real{10} * s_ratio;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> s_eps</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;      = <a class="code" href="classemsr_1_1BairstowSolver.html">s_eps_factor</a> * <a class="code" href="classemsr_1_1BairstowSolver.html">std</a>::<a class="code" href="classemsr_1_1BairstowSolver.html">numeric_limits</a>&lt;<a class="code" href="classemsr_1_1BairstowSolver.html">Real</a>&gt;::<a class="code" href="classemsr_1_1BairstowSolver.html">epsilon</a>();</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    std::vector&lt;Real&gt; m_coeff;</div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    std::vector&lt;Real&gt; m_b;</div>
@@ -195,17 +195,9 @@ $(document).ready(function(){initNavTree('solver__bairstow_8h_source.html',''); 
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;} <span class="comment">// namespace emsr</span></div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="solver__bairstow_8tcc.html">emsr/solver_bairstow.tcc</a>&gt;</span></div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<span class="preprocessor">#</span><span class="preprocessor">include</span> <span class="preprocessor">&lt;</span><span class="preprocessor">emsr</span><span class="preprocessor">/</span><span class="preprocessor">solver_bairstow</span><span class="preprocessor">.</span><span class="preprocessor">tcc</span><span class="preprocessor">&gt;</span></div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160; </div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// SOLVER_BAIRSTOW_H</span></div>
-<div class="ttc" id="aclassemsr_1_1BairstowSolver_html"><div class="ttname"><a href="classemsr_1_1BairstowSolver.html">emsr::BairstowSolver</a></div><div class="ttdef"><b>Definition:</b> <a href="solver__bairstow_8h_source.html#l00046">solver_bairstow.h:47</a></div></div>
-<div class="ttc" id="aclassemsr_1_1BairstowSolver_html_a1a7cd03415675e7cb5d36e0ebe43a8e4"><div class="ttname"><a href="classemsr_1_1BairstowSolver.html#a1a7cd03415675e7cb5d36e0ebe43a8e4">emsr::BairstowSolver::equations</a></div><div class="ttdeci">std::vector&lt; Real &gt; equations() const</div><div class="ttdef"><b>Definition:</b> <a href="solver__bairstow_8tcc_source.html#l00150">solver_bairstow.tcc:150</a></div></div>
-<div class="ttc" id="aclassemsr_1_1BairstowSolver_html_a364a46bfa1e476823e4f5f1ecef05688"><div class="ttname"><a href="classemsr_1_1BairstowSolver.html#a364a46bfa1e476823e4f5f1ecef05688">emsr::BairstowSolver::BairstowSolver</a></div><div class="ttdeci">BairstowSolver(const std::vector&lt; Real &gt; &amp;coeff, unsigned int seed=std::random_device()())</div><div class="ttdef"><b>Definition:</b> <a href="solver__bairstow_8h_source.html#l00050">solver_bairstow.h:50</a></div></div>
-<div class="ttc" id="aclassemsr_1_1BairstowSolver_html_ab1efb76f88cb3e6631f45e53524c6a6b"><div class="ttname"><a href="classemsr_1_1BairstowSolver.html#ab1efb76f88cb3e6631f45e53524c6a6b">emsr::BairstowSolver::solve</a></div><div class="ttdeci">std::vector&lt; Solution&lt; Real &gt; &gt; solve()</div><div class="ttdef"><b>Definition:</b> <a href="solver__bairstow_8tcc_source.html#l00126">solver_bairstow.tcc:126</a></div></div>
-<div class="ttc" id="anamespaceemsr_html"><div class="ttname"><a href="namespaceemsr.html">emsr</a></div><div class="ttdef"><b>Definition:</b> <a href="horner_8h_source.html#l00034">horner.h:35</a></div></div>
-<div class="ttc" id="asolver__bairstow_8tcc_html"><div class="ttname"><a href="solver__bairstow_8tcc.html">solver_bairstow.tcc</a></div></div>
-<div class="ttc" id="asolver__low__degree_8h_html"><div class="ttname"><a href="solver__low__degree_8h.html">solver_low_degree.h</a></div></div>
-<div class="ttc" id="astructemsr_1_1Solution_html"><div class="ttname"><a href="structemsr_1_1Solution.html">emsr::Solution</a></div><div class="ttdef"><b>Definition:</b> <a href="solution_8h_source.html#l00048">solution.h:50</a></div></div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;<span class="preprocessor">#</span><span class="preprocessor">endif</span> <span class="comment">// SOLVER_BAIRSTOW_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

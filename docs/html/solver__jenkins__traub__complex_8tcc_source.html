@@ -90,47 +90,47 @@ $(document).ready(function(){initNavTree('solver__jenkins__traub__complex_8tcc_s
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> * @brief  A guard for the _JenkinsTraubSolver class header.</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#ifndef SOLVER_JENKINS_TRAUB_COMPLEX_TCC</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="solver__jenkins__traub__complex_8tcc.html#a0993b064752b08f2888d83f5782ef316">    7</a></span>&#160;<span class="preprocessor">#define SOLVER_JENKINS_TRAUB_COMPLEX_TCC 1</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#</span><span class="preprocessor">ifndef</span> <span class="preprocessor">SOLVER_JENKINS_TRAUB_COMPLEX_TCC</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="solver__jenkins__traub__complex_8tcc.html#a0993b064752b08f2888d83f5782ef316">    7</a></span>&#160;<span class="preprocessor">#</span><span class="preprocessor">define</span> <span class="preprocessor">SOLVER_JENKINS_TRAUB_COMPLEX_TCC</span> 1</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;complex&gt;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;limits&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#</span><span class="preprocessor">include</span> <span class="preprocessor">&lt;</span><span class="preprocessor">vector</span><span class="preprocessor">&gt;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#</span><span class="preprocessor">include</span> <span class="preprocessor">&lt;</span><span class="preprocessor">complex</span><span class="preprocessor">&gt;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#</span><span class="preprocessor">include</span> <span class="preprocessor">&lt;</span><span class="preprocessor">limits</span><span class="preprocessor">&gt;</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceemsr.html">emsr</a></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">namespace</span> <a class="code" href="namespaceemsr.html">emsr</a></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;{</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> Real&gt;</div>
-<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="classemsr_1_1JenkinsTraubSolver_3_01std_1_1complex_3_01Real_01_4_01_4.html">   17</a></span>&#160;<span class="keyword">class </span><a class="code" href="classemsr_1_1JenkinsTraubSolver.html">JenkinsTraubSolver</a>&lt;std::complex&lt;Real&gt;&gt;</div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="classemsr_1_1JenkinsTraubSolver_3_01std_1_1complex_3_01Real_01_4_01_4.html">   17</a></span>&#160;<span class="keyword">class</span> <a class="code" href="classemsr_1_1JenkinsTraubSolver.html">JenkinsTraubSolver</a>&lt;<a class="code" href="classemsr_1_1JenkinsTraubSolver.html">std</a>::<a class="code" href="classemsr_1_1JenkinsTraubSolver.html">complex</a>&lt;<a class="code" href="classemsr_1_1JenkinsTraubSolver.html">Real</a>&gt;&gt;</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;{</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="classemsr_1_1JenkinsTraubSolver_3_01std_1_1complex_3_01Real_01_4_01_4.html#a95686d5fbc13c25ba5a417c34ef5e71a">   22</a></span>&#160;    <span class="keyword">using</span> <a class="code" href="classemsr_1_1JenkinsTraubSolver_3_01std_1_1complex_3_01Real_01_4_01_4.html#a95686d5fbc13c25ba5a417c34ef5e71a">Cmplx</a> = std::complex&lt;Real&gt;;</div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="classemsr_1_1JenkinsTraubSolver_3_01std_1_1complex_3_01Real_01_4_01_4.html#a95686d5fbc13c25ba5a417c34ef5e71a">   22</a></span>&#160;    <span class="keyword">using</span> Cmplx = std::complex&lt;Real&gt;;</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="classemsr_1_1JenkinsTraubSolver_3_01std_1_1complex_3_01Real_01_4_01_4.html#a9f5638e0e10724f30a94417cf0ba6926">   24</a></span>&#160;    <a class="code" href="classemsr_1_1JenkinsTraubSolver_3_01std_1_1complex_3_01Real_01_4_01_4.html#a9f5638e0e10724f30a94417cf0ba6926">JenkinsTraubSolver</a>(<span class="keyword">const</span> std::vector&lt;Cmplx&gt;&amp; op)</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    : m_p(op)</div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="classemsr_1_1JenkinsTraubSolver_3_01std_1_1complex_3_01Real_01_4_01_4.html#a9f5638e0e10724f30a94417cf0ba6926">   24</a></span>&#160;    <a class="code" href="classemsr_1_1JenkinsTraubSolver.html#a9922e9bbffeb491046d4ae34ea164a66">JenkinsTraubSolver</a>(<span class="keyword">const</span> std::vector&lt;Cmplx&gt;&amp; op)</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    : <a class="code" href="classemsr_1_1JenkinsTraubSolver.html#a9922e9bbffeb491046d4ae34ea164a66">m_p</a>(<a class="code" href="classemsr_1_1JenkinsTraubSolver.html#a9922e9bbffeb491046d4ae34ea164a66">op</a>)</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    {</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="keywordflow">if</span> (this-&gt;m_p.size() == 0)</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="keywordflow">if</span> (<span class="keyword">this</span>-&gt;m_p.size() == 0)</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;            <span class="keywordflow">throw</span> std::domain_error(<span class="stringliteral">&quot;Polynomial degree must be at least 1.&quot;</span>);</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="comment">// Algorithm fails if the leading-order coefficient is zero</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="keywordflow">if</span> (this-&gt;m_p[0] == ZERO)</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="keywordflow">if</span> (<span class="keyword">this</span>-&gt;m_p[0] == ZERO)</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;            <span class="keywordflow">throw</span> std::domain_error(<span class="stringliteral">&quot;Leading-order coefficient must be nonzero.&quot;</span>);;</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        this-&gt;m_degree = this-&gt;m_p.size() - 1;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="keyword">this</span>-&gt;m_degree = <span class="keyword">this</span>-&gt;m_p.size() - 1;</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        this-&gt;m_h.resize(this-&gt;m_degree + 1);</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        this-&gt;m_qp.resize(this-&gt;m_degree + 1);</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        this-&gt;m_qh.resize(this-&gt;m_degree + 1);</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        this-&gt;m_sh.resize(this-&gt;m_degree + 1);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="keyword">this</span>-&gt;m_h.resize(<span class="keyword">this</span>-&gt;m_degree + 1);</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="keyword">this</span>-&gt;m_qp.resize(<span class="keyword">this</span>-&gt;m_degree + 1);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keyword">this</span>-&gt;m_qh.resize(<span class="keyword">this</span>-&gt;m_degree + 1);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keyword">this</span>-&gt;m_sh.resize(<span class="keyword">this</span>-&gt;m_degree + 1);</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    }</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    std::vector&lt;Cmplx&gt;</div>
-<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="classemsr_1_1JenkinsTraubSolver_3_01std_1_1complex_3_01Real_01_4_01_4.html#a012a9846916d334658cd7332b556eb89">   43</a></span>&#160;    <a class="code" href="classemsr_1_1JenkinsTraubSolver_3_01std_1_1complex_3_01Real_01_4_01_4.html#a012a9846916d334658cd7332b556eb89">solve</a>()</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <a class="code" href="classemsr_1_1JenkinsTraubSolver.html#a72e284844d928a0f408594cf755d6d7e">std</a>::<a class="code" href="classemsr_1_1JenkinsTraubSolver.html#a72e284844d928a0f408594cf755d6d7e">vector</a>&lt;<a class="code" href="classemsr_1_1JenkinsTraubSolver.html#a72e284844d928a0f408594cf755d6d7e">Cmplx</a>&gt;</div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="classemsr_1_1JenkinsTraubSolver_3_01std_1_1complex_3_01Real_01_4_01_4.html#a012a9846916d334658cd7332b556eb89">   43</a></span>&#160;    <a class="code" href="classemsr_1_1JenkinsTraubSolver.html#a72e284844d928a0f408594cf755d6d7e">solve</a>()</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    {</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        std::vector&lt;Cmplx&gt; zero;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <a class="code" href="classemsr_1_1JenkinsTraubSolver.html#a72e284844d928a0f408594cf755d6d7e">solve</a>(zero);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        solve(zero);</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keywordflow">return</span> zero;</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    }</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
@@ -150,11 +150,11 @@ $(document).ready(function(){initNavTree('solver__jenkins__traub__complex_8tcc_s
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    std::vector&lt;Cmplx&gt; m_qh;</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    std::vector&lt;Cmplx&gt; m_sh;</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keyword">inline</span> <span class="keyword">static</span> constexpr Cmplx ZERO{0.0, 0.0};</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keyword">inline</span> <span class="keyword">static</span> <span class="keyword">constexpr</span> Cmplx ZERO{0.0, 0.0};</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keyword">static</span> constexpr <span class="keyword">auto</span> s_sqrt2 = Real{1.4142&#39;13562&#39;37309&#39;50488&#39;01688&#39;72420&#39;96980&#39;78569e+0L};</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keyword">static</span> constexpr <span class="keyword">auto</span> s_pi = Real{3.1415&#39;92653&#39;58979&#39;32384&#39;62643&#39;38327&#39;95028&#39;84195e+0L};</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keyword">static</span> constexpr <span class="keyword">auto</span> s_rotation = Real{94} * s_pi / Real{180};</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> s_sqrt2 = Real{1.4142&#39;13562&#39;37309&#39;50488&#39;01688&#39;72420&#39;96980&#39;78569e+0L};</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> s_pi = Real{3.1415&#39;92653&#39;58979&#39;32384&#39;62643&#39;38327&#39;95028&#39;84195e+0L};</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> s_rotation = Real{94} * s_pi / Real{180};</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span></div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    m_mcon(Real&amp; epsilon, Real&amp; infiny, Real&amp; smalno, Real&amp; base)</div>
@@ -166,14 +166,14 @@ $(document).ready(function(){initNavTree('solver__jenkins__traub__complex_8tcc_s
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    }</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keywordtype">int</span></div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <a class="code" href="classemsr_1_1JenkinsTraubSolver.html#a72e284844d928a0f408594cf755d6d7e">solve</a>(std::vector&lt;Cmplx&gt;&amp; zero)</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    solve(std::vector&lt;Cmplx&gt;&amp; zero)</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    {</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <span class="keywordtype">int</span> cnt1, cnt2, i;</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        <span class="keywordtype">bool</span> converged;</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        Cmplx z;</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        Real smalno, base;</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        this-&gt;m_mcon(epsilon, infin, smalno, base);</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        <span class="keyword">this</span>-&gt;m_mcon(epsilon, infin, smalno, base);</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        add_rel_err = epsilon;</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        mul_rel_err = 2 * s_sqrt2 * epsilon;</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        Real xx = 1 / s_sqrt2;</div>
@@ -181,46 +181,46 @@ $(document).ready(function(){initNavTree('solver__jenkins__traub__complex_8tcc_s
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        Real cosr = std::cos(s_rotation);</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        Real sinr = std::sin(s_rotation);</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        zero.reserve(this-&gt;m_degree + 1);</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        zero.reserve(<span class="keyword">this</span>-&gt;m_degree + 1);</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        <span class="comment">// Remove the zeros at the origin if any</span></div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        <span class="keywordflow">while</span> (this-&gt;m_p[this-&gt;m_degree] == ZERO)</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        <span class="keywordflow">while</span> (<span class="keyword">this</span>-&gt;m_p[<span class="keyword">this</span>-&gt;m_degree] == ZERO)</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        {</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;            zero.push_back(ZERO);</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;            --this-&gt;m_degree;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;            --<span class="keyword">this</span>-&gt;m_degree;</div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        }</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        <span class="comment">// Get scales.</span></div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        <span class="keywordflow">for</span> (i = 0; i &lt;= this-&gt;m_degree; ++i)</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        <span class="keywordflow">for</span> (i = 0; i &lt;= <span class="keyword">this</span>-&gt;m_degree; ++i)</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        {</div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;            <span class="comment">//p[i] = op[i];</span></div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;            this-&gt;m_sh[i] = <a class="code" href="namespaceemsr.html#a782d36096e8467b4a45a9dc2f89355b2">std::abs</a>(this-&gt;m_p[i]);</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;            <span class="keyword">this</span>-&gt;m_sh[i] = std::abs(<span class="keyword">this</span>-&gt;m_p[i]);</div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        }</div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160; </div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        <span class="comment">// Scale the polynomial</span></div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        <span class="keyword">auto</span> bound = this-&gt;m_scale(this-&gt;m_degree, this-&gt;m_sh, epsilon, infin, smalno, base);</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        <span class="keyword">auto</span> bound = <span class="keyword">this</span>-&gt;m_scale(<span class="keyword">this</span>-&gt;m_degree, <span class="keyword">this</span>-&gt;m_sh, epsilon, infin, smalno, base);</div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        <span class="keywordflow">if</span> (bound != Real{1})</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;            <span class="keywordflow">for</span> (i = 0; i &lt;= this-&gt;m_degree; ++i)</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;                this-&gt;m_p[i] *= bound;</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;            <span class="keywordflow">for</span> (i = 0; i &lt;= <span class="keyword">this</span>-&gt;m_degree; ++i)</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;                <span class="keyword">this</span>-&gt;m_p[i] *= bound;</div>
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160; </div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    search: </div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;        <span class="keywordflow">if</span> (this-&gt;m_degree &lt;= 1)</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    search:</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;        <span class="keywordflow">if</span> (<span class="keyword">this</span>-&gt;m_degree &lt;= 1)</div>
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        {</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;            zero.push_back(-this-&gt;m_p[1] / this-&gt;m_p[0]);</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;            <span class="keywordflow">return</span> this-&gt;m_degree;</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;            zero.push_back(-<span class="keyword">this</span>-&gt;m_p[1] / <span class="keyword">this</span>-&gt;m_p[0]);</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">this</span>-&gt;m_degree;</div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        }</div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160; </div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;        <span class="comment">// Calculate bound, a lower bound on the modulus of the zeros</span></div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;        <span class="keywordflow">for</span> (i = 0; i &lt;= this-&gt;m_degree; ++i)</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;            this-&gt;m_sh[i] = <a class="code" href="namespaceemsr.html#a782d36096e8467b4a45a9dc2f89355b2">std::abs</a>(this-&gt;m_p[i]);</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;        <span class="keywordflow">for</span> (i = 0; i &lt;= <span class="keyword">this</span>-&gt;m_degree; ++i)</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;            <span class="keyword">this</span>-&gt;m_sh[i] = std::abs(<span class="keyword">this</span>-&gt;m_p[i]);</div>
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160; </div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;        bound = this-&gt;m_cauchy(this-&gt;m_degree, this-&gt;m_sh);</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;        bound = <span class="keyword">this</span>-&gt;m_cauchy(<span class="keyword">this</span>-&gt;m_degree, <span class="keyword">this</span>-&gt;m_sh);</div>
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160; </div>
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;        <span class="comment">// Outer loop to control 2 Major passes with different sequences of shifts</span></div>
 <div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;        <span class="keywordflow">for</span> (cnt1 = 1; cnt1 &lt;= 2; ++cnt1)</div>
 <div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;        {</div>
 <div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;            <span class="comment">// First stage  calculation , no shift</span></div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;            this-&gt;m_no_shift(5);</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;            <span class="keyword">this</span>-&gt;m_no_shift(5);</div>
 <div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160; </div>
 <div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;            <span class="comment">// Inner loop to select a shift</span></div>
 <div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;            <span class="keywordflow">for</span> (cnt2 = 1; cnt2 &lt;= 9; ++cnt2)</div>
@@ -229,19 +229,19 @@ $(document).ready(function(){initNavTree('solver__jenkins__traub__complex_8tcc_s
 <div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;                <span class="keyword">auto</span> xxx = cosr * xx - sinr * yy;</div>
 <div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;                yy = sinr * xx + cosr * yy;</div>
 <div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;                xx = xxx;</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;                this-&gt;m_s = bound * Cmplx(xx, yy);</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;                <span class="keyword">this</span>-&gt;m_s = bound * Cmplx(xx, yy);</div>
 <div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160; </div>
 <div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;                <span class="comment">// Second stage calculation, fixed shift</span></div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;                this-&gt;m_fixed_shift(10 * cnt2, z, converged);</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;                <span class="keyword">this</span>-&gt;m_fixed_shift(10 * cnt2, z, converged);</div>
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;                <span class="keywordflow">if</span> (converged)</div>
 <div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;                {</div>
 <div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;                    <span class="comment">// The second stage jumps directly to the third stage ieration.</span></div>
 <div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;                    <span class="comment">// If successful the zero is stored and the polynomial deflated.</span></div>
 <div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;                    zero.push_back(z);</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;                    --this-&gt;m_degree;</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;                    <span class="keywordflow">for</span> (i = 0; i &lt;= this-&gt;m_degree; ++i)</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;                    --<span class="keyword">this</span>-&gt;m_degree;</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;                    <span class="keywordflow">for</span> (i = 0; i &lt;= <span class="keyword">this</span>-&gt;m_degree; ++i)</div>
 <div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;                    {</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;                        this-&gt;m_p[i] = this-&gt;m_qp[i];</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;                        <span class="keyword">this</span>-&gt;m_p[i] = <span class="keyword">this</span>-&gt;m_qp[i];</div>
 <div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;                    }</div>
 <div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;                    <span class="keywordflow">goto</span> search;</div>
 <div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;                }</div>
@@ -253,50 +253,50 @@ $(document).ready(function(){initNavTree('solver__jenkins__traub__complex_8tcc_s
 <div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;        <span class="comment">// The zerofinder has failed on two major passes</span></div>
 <div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;        <span class="comment">// return empty handed with the number of roots found (less than the original degree)</span></div>
 <div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160; </div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;        <span class="keywordflow">return</span> this-&gt;m_degree;       </div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">this</span>-&gt;m_degree;</div>
 <div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;    }</div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;<span class="comment">    /**</span></div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160; </div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    <span class="comment">/**</span></div>
 <div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;<span class="comment">     * Compute the derivative polynomial as the initial h</span></div>
 <div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;<span class="comment">     * polynomial and computes num_no_shift_iters no-shift h polynomials.</span></div>
 <div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;<span class="comment">     */</span></div>
 <div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;    <span class="keywordtype">void</span></div>
 <div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    m_no_shift(<span class="keywordtype">int</span> num_no_shift_iters)</div>
 <div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    {</div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;        <span class="keyword">auto</span> n = this-&gt;m_degree;</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;        <span class="keyword">auto</span> n = <span class="keyword">this</span>-&gt;m_degree;</div>
 <div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;        <span class="keyword">auto</span> nm1 = n - 1;</div>
 <div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; n; ++i)</div>
 <div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;        {</div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;            Real xni = this-&gt;m_degree - i;</div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;            this-&gt;m_h[i] = xni * this-&gt;m_p[i] / Real(n);</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;            Real xni = <span class="keyword">this</span>-&gt;m_degree - i;</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;            <span class="keyword">this</span>-&gt;m_h[i] = xni * <span class="keyword">this</span>-&gt;m_p[i] / Real(n);</div>
 <div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;        }</div>
 <div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> jj = 1; jj &lt;= num_no_shift_iters; ++jj)</div>
 <div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;        {</div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;            <span class="keywordflow">if</span> (<a class="code" href="namespaceemsr.html#a782d36096e8467b4a45a9dc2f89355b2">std::abs</a>(this-&gt;m_h[n - 1]) &gt; epsilon * 10 * <a class="code" href="namespaceemsr.html#a782d36096e8467b4a45a9dc2f89355b2">std::abs</a>(this-&gt;m_p[n - 1]))</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;            <span class="keywordflow">if</span> (std::abs(<span class="keyword">this</span>-&gt;m_h[n - 1]) &gt; epsilon * 10 * std::abs(<span class="keyword">this</span>-&gt;m_p[n - 1]))</div>
 <div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;            {</div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;                this-&gt;m_t = -this-&gt;m_p[this-&gt;m_degree] / this-&gt;m_h[n - 1];</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;                <span class="keyword">this</span>-&gt;m_t = -<span class="keyword">this</span>-&gt;m_p[<span class="keyword">this</span>-&gt;m_degree] / <span class="keyword">this</span>-&gt;m_h[n - 1];</div>
 <div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;                <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; nm1; ++i)</div>
 <div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;                {</div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;                    <span class="keywordtype">int</span> j = this-&gt;m_degree - i - 1;</div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;                    <span class="keyword">auto</span> tt = this-&gt;m_h[j - 1];</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;                    this-&gt;m_h[j] = this-&gt;m_t * tt + this-&gt;m_p[j];</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;                    <span class="keywordtype">int</span> j = <span class="keyword">this</span>-&gt;m_degree - i - 1;</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;                    <span class="keyword">auto</span> tt = <span class="keyword">this</span>-&gt;m_h[j - 1];</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;                    <span class="keyword">this</span>-&gt;m_h[j] = <span class="keyword">this</span>-&gt;m_t * tt + <span class="keyword">this</span>-&gt;m_p[j];</div>
 <div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;                }</div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;                this-&gt;m_h[0] = this-&gt;m_p[0];</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;                <span class="keyword">this</span>-&gt;m_h[0] = <span class="keyword">this</span>-&gt;m_p[0];</div>
 <div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;            }</div>
 <div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;            <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;            {</div>
 <div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;                <span class="comment">// If the constant term is essentially zero, shift H coefficients</span></div>
 <div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;                <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; nm1; ++i)</div>
 <div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;                {</div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;                    <span class="keywordtype">int</span> j = this-&gt;m_degree - i - 1;</div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;                    this-&gt;m_h[j] = this-&gt;m_h[j - 1];</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;                    <span class="keywordtype">int</span> j = <span class="keyword">this</span>-&gt;m_degree - i - 1;</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;                    <span class="keyword">this</span>-&gt;m_h[j] = <span class="keyword">this</span>-&gt;m_h[j - 1];</div>
 <div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;                }</div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;                this-&gt;m_h[0] = ZERO;</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;                <span class="keyword">this</span>-&gt;m_h[0] = ZERO;</div>
 <div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;            }</div>
 <div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;        }</div>
 <div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;    }</div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;<span class="comment">    /**</span></div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160; </div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;    <span class="comment">/**</span></div>
 <div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;<span class="comment">     * Computes num_fixed_shift_iters fixed-shift h polynomials and tests for convergence.</span></div>
 <div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;<span class="comment">     * Initiates a variable-shift iteration and returns with the approximate zero if successful.</span></div>
 <div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;<span class="comment">     * @param[in] num_fixed_shift_iters  Limit of fixed shift steps</span></div>
@@ -306,30 +306,30 @@ $(document).ready(function(){initNavTree('solver__jenkins__traub__complex_8tcc_s
 <div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;    <span class="keywordtype">void</span></div>
 <div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;    m_fixed_shift(<span class="keywordtype">int</span> num_fixed_shift_iters, Cmplx&amp; z, <span class="keywordtype">bool</span>&amp; converged)</div>
 <div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;    {</div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;        <span class="keyword">auto</span> n = this-&gt;m_degree;</div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;        this-&gt;m_poly_eval(this-&gt;m_degree, this-&gt;m_s, this-&gt;m_p, this-&gt;m_qp, this-&gt;m_pv);</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;        <span class="keyword">auto</span> n = <span class="keyword">this</span>-&gt;m_degree;</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;        <span class="keyword">this</span>-&gt;m_poly_eval(<span class="keyword">this</span>-&gt;m_degree, <span class="keyword">this</span>-&gt;m_s, <span class="keyword">this</span>-&gt;m_p, <span class="keyword">this</span>-&gt;m_qp, <span class="keyword">this</span>-&gt;m_pv);</div>
 <div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;        <span class="keywordtype">bool</span> test = <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;        <span class="keywordtype">bool</span> pasd = <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160; </div>
 <div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;        <span class="comment">// Calculate first T = -P(S)/H(S)</span></div>
 <div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;        <span class="keywordtype">bool</span> h_is_tiny;</div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;        this-&gt;m_calc_t(h_is_tiny);</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;        <span class="keyword">this</span>-&gt;m_calc_t(h_is_tiny);</div>
 <div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160; </div>
 <div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;        <span class="comment">// Main loop for second stage</span></div>
 <div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 1; j &lt;= num_fixed_shift_iters; ++j)</div>
 <div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;        {</div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;            <span class="keyword">auto</span> ot = this-&gt;m_t;</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;            <span class="keyword">auto</span> ot = <span class="keyword">this</span>-&gt;m_t;</div>
 <div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160; </div>
 <div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;            <span class="comment">// Compute the next H Polynomial and new t</span></div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;            this-&gt;m_next_h_poly(h_is_tiny);</div>
-<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;            this-&gt;m_calc_t(h_is_tiny);</div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;            z = this-&gt;m_s + this-&gt;m_t;</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;            <span class="keyword">this</span>-&gt;m_next_h_poly(h_is_tiny);</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;            <span class="keyword">this</span>-&gt;m_calc_t(h_is_tiny);</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;            z = <span class="keyword">this</span>-&gt;m_s + <span class="keyword">this</span>-&gt;m_t;</div>
 <div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160; </div>
 <div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;            <span class="comment">// Test for convergence unless stage 3 has failed once or this</span></div>
 <div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;            <span class="comment">// is the last H Polynomial</span></div>
 <div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;            <span class="keywordflow">if</span> (!(h_is_tiny || !test || j == 12))</div>
 <div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;            {</div>
-<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;                <span class="keywordflow">if</span> (<a class="code" href="namespaceemsr.html#a782d36096e8467b4a45a9dc2f89355b2">std::abs</a>(this-&gt;m_t - ot) &lt; 0.5 * <a class="code" href="namespaceemsr.html#a782d36096e8467b4a45a9dc2f89355b2">std::abs</a>(z))</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;                <span class="keywordflow">if</span> (std::abs(<span class="keyword">this</span>-&gt;m_t - ot) &lt; 0.5 * std::abs(z))</div>
 <div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;                {</div>
 <div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;                    <span class="keywordflow">if</span> (pasd)</div>
 <div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;                    {</div>
@@ -337,10 +337,10 @@ $(document).ready(function(){initNavTree('solver__jenkins__traub__complex_8tcc_s
 <div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;                        <span class="comment">// Iteration, after saving the current H polynomial and shift</span></div>
 <div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;                        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; n; ++i)</div>
 <div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;                        {</div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;                            this-&gt;m_sh[i] = this-&gt;m_h[i];</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;                            <span class="keyword">this</span>-&gt;m_sh[i] = <span class="keyword">this</span>-&gt;m_h[i];</div>
 <div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;                        }</div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;                        <span class="keyword">auto</span> svs = this-&gt;m_s;</div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;                        this-&gt;m_variable_shift(10, z, converged);</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;                        <span class="keyword">auto</span> svs = <span class="keyword">this</span>-&gt;m_s;</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;                        <span class="keyword">this</span>-&gt;m_variable_shift(10, z, converged);</div>
 <div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;                        <span class="keywordflow">if</span> (converged)</div>
 <div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;                            <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160; </div>
@@ -348,11 +348,11 @@ $(document).ready(function(){initNavTree('solver__jenkins__traub__complex_8tcc_s
 <div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;                        test = 0;</div>
 <div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;                        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; n; ++i)</div>
 <div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;                        {</div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;                            this-&gt;m_h[i] = this-&gt;m_sh[i];</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;                            <span class="keyword">this</span>-&gt;m_h[i] = <span class="keyword">this</span>-&gt;m_sh[i];</div>
 <div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;                        }</div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;                        this-&gt;m_s = svs;</div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;                        this-&gt;m_poly_eval(this-&gt;m_degree, this-&gt;m_s, this-&gt;m_p, this-&gt;m_qp, this-&gt;m_pv);</div>
-<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;                        this-&gt;m_calc_t(h_is_tiny);</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;                        <span class="keyword">this</span>-&gt;m_s = svs;</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;                        <span class="keyword">this</span>-&gt;m_poly_eval(<span class="keyword">this</span>-&gt;m_degree, <span class="keyword">this</span>-&gt;m_s, <span class="keyword">this</span>-&gt;m_p, <span class="keyword">this</span>-&gt;m_qp, <span class="keyword">this</span>-&gt;m_pv);</div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;                        <span class="keyword">this</span>-&gt;m_calc_t(h_is_tiny);</div>
 <div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;                        <span class="keywordflow">continue</span>;</div>
 <div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;                    }</div>
 <div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;                    pasd = <span class="keyword">true</span>;</div>
@@ -363,10 +363,10 @@ $(document).ready(function(){initNavTree('solver__jenkins__traub__complex_8tcc_s
 <div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;        }</div>
 <div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160; </div>
 <div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;        <span class="comment">// Attempt an iteration with final H polynomial from second stage</span></div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;        this-&gt;m_variable_shift(10, z, converged);</div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;        <span class="keyword">this</span>-&gt;m_variable_shift(10, z, converged);</div>
 <div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;    }</div>
-<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;<span class="comment">    /**</span></div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160; </div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;    <span class="comment">/**</span></div>
 <div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;<span class="comment">     * Carries out the third stage iteration.</span></div>
 <div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;<span class="comment">     *</span></div>
 <div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;<span class="comment">     * @param[in] num_variable_shift_iters    Limit of steps in stage 3.</span></div>
@@ -382,21 +382,21 @@ $(document).ready(function(){initNavTree('solver__jenkins__traub__complex_8tcc_s
 <div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160; </div>
 <div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;        converged = <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;        <span class="keywordtype">bool</span> b = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;        this-&gt;m_s = z;</div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;        <span class="keyword">this</span>-&gt;m_s = z;</div>
 <div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160; </div>
 <div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;        <span class="comment">// Main loop for stage three</span></div>
 <div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 1; i &lt;= num_variable_shift_iters; ++i)</div>
 <div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;        {</div>
 <div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;            <span class="comment">// Evaluate P at S and test for convergence</span></div>
-<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;            this-&gt;m_poly_eval(this-&gt;m_degree, this-&gt;m_s, this-&gt;m_p, this-&gt;m_qp, this-&gt;m_pv);</div>
-<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;            <span class="keyword">auto</span> mp = <a class="code" href="namespaceemsr.html#a782d36096e8467b4a45a9dc2f89355b2">std::abs</a>(this-&gt;m_pv);</div>
-<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;            <span class="keyword">auto</span> ms = <a class="code" href="namespaceemsr.html#a782d36096e8467b4a45a9dc2f89355b2">std::abs</a>(this-&gt;m_s);</div>
-<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;            <span class="keywordflow">if</span> (mp &lt;= 20 * this-&gt;m_error_eval(this-&gt;m_degree, this-&gt;m_qp, ms, mp, add_rel_err, mul_rel_err))</div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;            <span class="keyword">this</span>-&gt;m_poly_eval(<span class="keyword">this</span>-&gt;m_degree, <span class="keyword">this</span>-&gt;m_s, <span class="keyword">this</span>-&gt;m_p, <span class="keyword">this</span>-&gt;m_qp, <span class="keyword">this</span>-&gt;m_pv);</div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;            <span class="keyword">auto</span> mp = std::abs(<span class="keyword">this</span>-&gt;m_pv);</div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;            <span class="keyword">auto</span> ms = std::abs(<span class="keyword">this</span>-&gt;m_s);</div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;            <span class="keywordflow">if</span> (mp &lt;= 20 * <span class="keyword">this</span>-&gt;m_error_eval(<span class="keyword">this</span>-&gt;m_degree, <span class="keyword">this</span>-&gt;m_qp, ms, mp, add_rel_err, mul_rel_err))</div>
 <div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;            {</div>
 <div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;                <span class="comment">// Polynomial value is smaller in value than a bound onthe error</span></div>
 <div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;                <span class="comment">// in evaluationg P, terminate the ietartion</span></div>
 <div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;                converged = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;                z = this-&gt;m_s;</div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;                z = <span class="keyword">this</span>-&gt;m_s;</div>
 <div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;                <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;            }</div>
 <div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;            <span class="keywordflow">if</span> (i != 1)</div>
@@ -410,14 +410,14 @@ $(document).ready(function(){initNavTree('solver__jenkins__traub__complex_8tcc_s
 <div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;                    <span class="keywordflow">if</span> (relstp &lt; epsilon)</div>
 <div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;                        tp = epsilon;</div>
 <div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;                    Real r1 = std::sqrt(tp);</div>
-<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;                    Real r2 = this-&gt;m_s.real() * (1 + r1) - this-&gt;m_s.imag() * r1;</div>
-<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;                    this-&gt;m_s.imag(this-&gt;m_s.real() * r1 + this-&gt;m_s.imag() * (1 + r1));</div>
-<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;                    this-&gt;m_s.real(r2);</div>
-<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;                    this-&gt;m_poly_eval(this-&gt;m_degree, this-&gt;m_s, this-&gt;m_p, this-&gt;m_qp, this-&gt;m_pv);</div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;                    Real r2 = <span class="keyword">this</span>-&gt;m_s.real() * (1 + r1) - <span class="keyword">this</span>-&gt;m_s.imag() * r1;</div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;                    <span class="keyword">this</span>-&gt;m_s.imag(<span class="keyword">this</span>-&gt;m_s.real() * r1 + <span class="keyword">this</span>-&gt;m_s.imag() * (1 + r1));</div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;                    <span class="keyword">this</span>-&gt;m_s.real(r2);</div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;                    <span class="keyword">this</span>-&gt;m_poly_eval(<span class="keyword">this</span>-&gt;m_degree, <span class="keyword">this</span>-&gt;m_s, <span class="keyword">this</span>-&gt;m_p, <span class="keyword">this</span>-&gt;m_qp, <span class="keyword">this</span>-&gt;m_pv);</div>
 <div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;                    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 1; j &lt;= 5; ++j)</div>
 <div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;                    {</div>
-<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;                        this-&gt;m_calc_t(h_is_tiny);</div>
-<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;                        this-&gt;m_next_h_poly(h_is_tiny);</div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;                        <span class="keyword">this</span>-&gt;m_calc_t(h_is_tiny);</div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;                        <span class="keyword">this</span>-&gt;m_next_h_poly(h_is_tiny);</div>
 <div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;                    }</div>
 <div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;                    omp = infin;</div>
 <div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;                    <span class="keywordflow">goto</span> _20;</div>
@@ -431,40 +431,40 @@ $(document).ready(function(){initNavTree('solver__jenkins__traub__complex_8tcc_s
 <div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;            omp = mp;</div>
 <div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160; </div>
 <div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;            <span class="comment">// Calculate next iterate</span></div>
-<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;      _20:  this-&gt;m_calc_t(h_is_tiny);</div>
-<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;            this-&gt;m_next_h_poly(h_is_tiny);</div>
-<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;            this-&gt;m_calc_t(h_is_tiny);</div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;      _20:  <span class="keyword">this</span>-&gt;m_calc_t(h_is_tiny);</div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;            <span class="keyword">this</span>-&gt;m_next_h_poly(h_is_tiny);</div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;            <span class="keyword">this</span>-&gt;m_calc_t(h_is_tiny);</div>
 <div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;            <span class="keywordflow">if</span> (!h_is_tiny)</div>
 <div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;            {</div>
-<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;                relstp = <a class="code" href="namespaceemsr.html#a782d36096e8467b4a45a9dc2f89355b2">std::abs</a>(this-&gt;m_t) / <a class="code" href="namespaceemsr.html#a782d36096e8467b4a45a9dc2f89355b2">std::abs</a>(this-&gt;m_s);</div>
-<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;                this-&gt;m_s += this-&gt;m_t;</div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;                relstp = std::abs(<span class="keyword">this</span>-&gt;m_t) / std::abs(<span class="keyword">this</span>-&gt;m_s);</div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;                <span class="keyword">this</span>-&gt;m_s += <span class="keyword">this</span>-&gt;m_t;</div>
 <div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;            }</div>
 <div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;        }</div>
 <div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;    }</div>
-<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;<span class="comment">    /**</span></div>
+<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160; </div>
+<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;    <span class="comment">/**</span></div>
 <div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;<span class="comment">     * Compute  t = -p(s)/h(s).</span></div>
 <div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;<span class="comment">     * @param[out]  h_is_tiny  True if h(s) is essentially zero.</span></div>
 <div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;<span class="comment">     */</span></div>
 <div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;    <span class="keywordtype">void</span></div>
 <div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;    m_calc_t(<span class="keywordtype">bool</span>&amp; h_is_tiny)</div>
 <div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;    {</div>
-<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;        <span class="keyword">auto</span> n = this-&gt;m_degree;</div>
+<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;        <span class="keyword">auto</span> n = <span class="keyword">this</span>-&gt;m_degree;</div>
 <div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160; </div>
 <div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;        <span class="comment">// evaluate h(s)</span></div>
 <div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;        Cmplx hv;</div>
-<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;        this-&gt;m_poly_eval(n - 1, this-&gt;m_s, this-&gt;m_h, this-&gt;m_qh, hv);</div>
-<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;        h_is_tiny = <a class="code" href="namespaceemsr.html#a782d36096e8467b4a45a9dc2f89355b2">std::abs</a>(hv) &lt;= add_rel_err * 10 * <a class="code" href="namespaceemsr.html#a782d36096e8467b4a45a9dc2f89355b2">std::abs</a>(this-&gt;m_h[n - 1]) ? true : <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;        <span class="keyword">this</span>-&gt;m_poly_eval(n - 1, <span class="keyword">this</span>-&gt;m_s, <span class="keyword">this</span>-&gt;m_h, <span class="keyword">this</span>-&gt;m_qh, hv);</div>
+<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;        h_is_tiny = std::abs(hv) &lt;= add_rel_err * 10 * std::abs(<span class="keyword">this</span>-&gt;m_h[n - 1]) ? <span class="keyword">true</span> : <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;        <span class="keywordflow">if</span> (!h_is_tiny)</div>
 <div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;        {</div>
-<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;            this-&gt;m_t = -this-&gt;m_pv / hv;</div>
+<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;            <span class="keyword">this</span>-&gt;m_t = -<span class="keyword">this</span>-&gt;m_pv / hv;</div>
 <div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;            <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;        }</div>
 <div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160; </div>
-<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;        this-&gt;m_t = ZERO;</div>
+<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;        <span class="keyword">this</span>-&gt;m_t = ZERO;</div>
 <div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;    }</div>
-<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;<span class="comment">    /**</span></div>
+<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160; </div>
+<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;    <span class="comment">/**</span></div>
 <div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;<span class="comment">     * Calculate the next shifted H polynomial.</span></div>
 <div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;<span class="comment">     *</span></div>
 <div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;<span class="comment">     * @param[in]  h_is_tiny  True if h(s) is essentially zero</span></div>
@@ -472,33 +472,33 @@ $(document).ready(function(){initNavTree('solver__jenkins__traub__complex_8tcc_s
 <div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;    <span class="keywordtype">void</span></div>
 <div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;    m_next_h_poly(<span class="keywordtype">bool</span> h_is_tiny)</div>
 <div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;    {</div>
-<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;        <span class="keyword">auto</span> n = this-&gt;m_degree;</div>
+<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;        <span class="keyword">auto</span> n = <span class="keyword">this</span>-&gt;m_degree;</div>
 <div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;        <span class="keywordflow">if</span> (!h_is_tiny)</div>
 <div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;        {</div>
 <div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;            <span class="keywordflow">for</span>(<span class="keywordtype">int</span> j = 1; j &lt; n; ++j)</div>
 <div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;            {</div>
-<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;                <span class="keyword">auto</span> tt = this-&gt;m_qh[j - 1];</div>
-<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;                this-&gt;m_h[j] = this-&gt;m_t * tt + this-&gt;m_qp[j];</div>
+<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;                <span class="keyword">auto</span> tt = <span class="keyword">this</span>-&gt;m_qh[j - 1];</div>
+<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;                <span class="keyword">this</span>-&gt;m_h[j] = <span class="keyword">this</span>-&gt;m_t * tt + <span class="keyword">this</span>-&gt;m_qp[j];</div>
 <div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;            }</div>
-<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;            this-&gt;m_h[0] = this-&gt;m_qp[0];</div>
+<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;            <span class="keyword">this</span>-&gt;m_h[0] = <span class="keyword">this</span>-&gt;m_qp[0];</div>
 <div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;            <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;        }</div>
 <div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160; </div>
 <div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;        <span class="comment">// If h[s] is zero replace h with qh</span></div>
 <div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 1; j &lt; n; ++j)</div>
 <div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;        {</div>
-<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;            this-&gt;m_h[j] = this-&gt;m_qh[j - 1];</div>
+<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;            <span class="keyword">this</span>-&gt;m_h[j] = <span class="keyword">this</span>-&gt;m_qh[j - 1];</div>
 <div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;        }</div>
-<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;        this-&gt;m_h[0] = ZERO;</div>
+<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;        <span class="keyword">this</span>-&gt;m_h[0] = ZERO;</div>
 <div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;    }</div>
-<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;<span class="comment">    /**</span></div>
+<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160; </div>
+<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;    <span class="comment">/**</span></div>
 <div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;<span class="comment">     * Evaluates a polynomial @c p at @c s by the Horner recurrence</span></div>
 <div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;<span class="comment">     * placing the partial sums in q and the computed value in pv.</span></div>
 <div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;<span class="comment">     */</span></div>
 <div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;    <span class="keywordtype">void</span></div>
 <div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;    m_poly_eval(<span class="keywordtype">int</span> nn, <span class="keyword">const</span> Cmplx&amp; s, <span class="keyword">const</span> std::vector&lt;Cmplx&gt;&amp; p,</div>
-<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;           std::vector&lt;Cmplx&gt;&amp; q, Cmplx &amp;pv)  </div>
+<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;           std::vector&lt;Cmplx&gt;&amp; q, Cmplx &amp;pv)</div>
 <div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;    {</div>
 <div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;        q[0] = p[0];</div>
 <div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;        pv = q[0];</div>
@@ -509,8 +509,8 @@ $(document).ready(function(){initNavTree('solver__jenkins__traub__complex_8tcc_s
 <div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;            q[i] = pv;</div>
 <div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;        }</div>
 <div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;    }</div>
-<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;<span class="comment">    /**</span></div>
+<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160; </div>
+<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;    <span class="comment">/**</span></div>
 <div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;<span class="comment">     * Bounds the error in evaluating the polynomial by the Horner recurrence.</span></div>
 <div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;<span class="comment">     *</span></div>
 <div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;<span class="comment">     * @param[in]  q  The partial sums</span></div>
@@ -523,26 +523,26 @@ $(document).ready(function(){initNavTree('solver__jenkins__traub__complex_8tcc_s
 <div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;    m_error_eval(<span class="keywordtype">int</span> nn, <span class="keyword">const</span> std::vector&lt;Cmplx&gt;&amp; q,</div>
 <div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;          Real ms, Real mp, Real add_rel_err, Real mul_rel_err)</div>
 <div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;    {</div>
-<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;        <span class="keyword">auto</span> e = <a class="code" href="namespaceemsr.html#a782d36096e8467b4a45a9dc2f89355b2">std::abs</a>(q[0]) * mul_rel_err / (add_rel_err + mul_rel_err);</div>
+<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;        <span class="keyword">auto</span> e = std::abs(q[0]) * mul_rel_err / (add_rel_err + mul_rel_err);</div>
 <div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt;= nn; ++i)</div>
-<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;            e = e * ms + <a class="code" href="namespaceemsr.html#a782d36096e8467b4a45a9dc2f89355b2">std::abs</a>(q[i]);</div>
+<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;            e = e * ms + std::abs(q[i]);</div>
 <div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160; </div>
 <div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;        <span class="keywordflow">return</span> e * (add_rel_err + mul_rel_err) - mp * mul_rel_err;</div>
 <div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;    }</div>
-<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;<span class="comment">    /**</span></div>
+<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160; </div>
+<div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;    <span class="comment">/**</span></div>
 <div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;<span class="comment">     * Cauchy computes a lower bound on the moduli of the zeros of a polynomial.</span></div>
 <div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;<span class="comment">     * @param[in]  pt  The modulus of the coefficients.</span></div>
 <div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;<span class="comment">     */</span></div>
 <div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160;    Real</div>
 <div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;    m_cauchy(<span class="keywordtype">int</span> nn, std::vector&lt;Cmplx&gt;&amp; pt)</div>
 <div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;    {</div>
-<div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;        pt[nn].real(-pt[nn].<a class="code" href="namespaceemsr.html#a3b69f1c91fb3480e098db4e4bfe949f2">real</a>());</div>
+<div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;        pt[nn].real(-pt[nn].real());</div>
 <div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160; </div>
 <div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160;        <span class="comment">// Compute upper estimate bound</span></div>
 <div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;        <span class="keyword">auto</span> n = nn;</div>
-<div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160;        <span class="keyword">auto</span> x = std::exp(<a class="code" href="namespaceemsr.html#ad0ccee3147194cc2f4f937af47adddab">std::log</a>(-pt[nn].<a class="code" href="namespaceemsr.html#a3b69f1c91fb3480e098db4e4bfe949f2">real</a>()) - <a class="code" href="namespaceemsr.html#ad0ccee3147194cc2f4f937af47adddab">std::log</a>(pt[0].<a class="code" href="namespaceemsr.html#a3b69f1c91fb3480e098db4e4bfe949f2">real</a>())) / n;</div>
-<div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;        <span class="keywordflow">if</span> (pt[n - 1].<a class="code" href="namespaceemsr.html#a3b69f1c91fb3480e098db4e4bfe949f2">real</a>() != 0)</div>
+<div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160;        <span class="keyword">auto</span> x = std::exp(std::log(-pt[nn].real()) - std::log(pt[0].real())) / n;</div>
+<div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;        <span class="keywordflow">if</span> (pt[n - 1].real() != 0)</div>
 <div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160;        {</div>
 <div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160;            <span class="comment">// Newton step at the origin is better, use it</span></div>
 <div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160;            <span class="keyword">auto</span> xm = -pt[nn].real() / pt[n - 1].real();</div>
@@ -556,7 +556,7 @@ $(document).ready(function(){initNavTree('solver__jenkins__traub__complex_8tcc_s
 <div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160;            <span class="keyword">auto</span> xm = x * 0.1;</div>
 <div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;            <span class="keyword">auto</span> f = pt[0].real();</div>
 <div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 1; i &lt;= nn; ++i)</div>
-<div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160;                f = f * xm + pt[i].<a class="code" href="namespaceemsr.html#a3b69f1c91fb3480e098db4e4bfe949f2">real</a>();</div>
+<div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160;                f = f * xm + pt[i].real();</div>
 <div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;            <span class="keywordflow">if</span> (f &lt;= 0)</div>
 <div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;                <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;            x = xm;</div>
@@ -566,13 +566,13 @@ $(document).ready(function(){initNavTree('solver__jenkins__traub__complex_8tcc_s
 <div class="line"><a name="l00479"></a><span class="lineno">  479</span>&#160;        <span class="comment">// Do Newton iteration until x converges to two decimal places</span></div>
 <div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160;        <span class="keywordflow">while</span> (std::fabs(dx / x) &gt; 0.005)</div>
 <div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160;        {</div>
-<div class="line"><a name="l00482"></a><span class="lineno">  482</span>&#160;            pt[0].imag(pt[0].<a class="code" href="namespaceemsr.html#a3b69f1c91fb3480e098db4e4bfe949f2">real</a>());</div>
+<div class="line"><a name="l00482"></a><span class="lineno">  482</span>&#160;            pt[0].imag(pt[0].real());</div>
 <div class="line"><a name="l00483"></a><span class="lineno">  483</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 1; i &lt;= nn; ++i)</div>
-<div class="line"><a name="l00484"></a><span class="lineno">  484</span>&#160;                pt[i].<a class="code" href="namespaceemsr.html#a79ddc0cda81a11ab065e5caae9e0907a">imag</a>(pt[i - 1].<a class="code" href="namespaceemsr.html#a79ddc0cda81a11ab065e5caae9e0907a">imag</a>() * x + pt[i].<a class="code" href="namespaceemsr.html#a3b69f1c91fb3480e098db4e4bfe949f2">real</a>());</div>
+<div class="line"><a name="l00484"></a><span class="lineno">  484</span>&#160;                pt[i].imag(pt[i - 1].imag() * x + pt[i].real());</div>
 <div class="line"><a name="l00485"></a><span class="lineno">  485</span>&#160;            <span class="keyword">auto</span> f = pt[nn].imag();</div>
 <div class="line"><a name="l00486"></a><span class="lineno">  486</span>&#160;            <span class="keyword">auto</span> df = pt[0].imag();</div>
 <div class="line"><a name="l00487"></a><span class="lineno">  487</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 1; i &lt; n; ++i)</div>
-<div class="line"><a name="l00488"></a><span class="lineno">  488</span>&#160;                df = df * x + pt[i].<a class="code" href="namespaceemsr.html#a79ddc0cda81a11ab065e5caae9e0907a">imag</a>();</div>
+<div class="line"><a name="l00488"></a><span class="lineno">  488</span>&#160;                df = df * x + pt[i].imag();</div>
 <div class="line"><a name="l00489"></a><span class="lineno">  489</span>&#160;            dx = f / df;</div>
 <div class="line"><a name="l00490"></a><span class="lineno">  490</span>&#160;            x -= dx;</div>
 <div class="line"><a name="l00491"></a><span class="lineno">  491</span>&#160;        }</div>
@@ -601,7 +601,7 @@ $(document).ready(function(){initNavTree('solver__jenkins__traub__complex_8tcc_s
 <div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160; </div>
 <div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;        <span class="keywordflow">for</span> (i = 0; i &lt;= nn; ++i)</div>
 <div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160;        {</div>
-<div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160;            x = <a class="code" href="namespaceemsr.html#a3b69f1c91fb3480e098db4e4bfe949f2">std::real</a>(pt[i]);</div>
+<div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160;            x = std::real(pt[i]);</div>
 <div class="line"><a name="l00518"></a><span class="lineno">  518</span>&#160;            <span class="keywordflow">if</span> (x &gt; max)</div>
 <div class="line"><a name="l00519"></a><span class="lineno">  519</span>&#160;                max = x;</div>
 <div class="line"><a name="l00520"></a><span class="lineno">  520</span>&#160;            <span class="keywordflow">if</span> (x != 0 &amp;&amp; x &lt; min)</div>
@@ -621,7 +621,7 @@ $(document).ready(function(){initNavTree('solver__jenkins__traub__complex_8tcc_s
 <div class="line"><a name="l00534"></a><span class="lineno">  534</span>&#160;            <span class="keywordflow">if</span> (infin / sc &gt; max)</div>
 <div class="line"><a name="l00535"></a><span class="lineno">  535</span>&#160;                sc = 1;</div>
 <div class="line"><a name="l00536"></a><span class="lineno">  536</span>&#160;        }</div>
-<div class="line"><a name="l00537"></a><span class="lineno">  537</span>&#160;        l = int(<a class="code" href="namespaceemsr.html#ad0ccee3147194cc2f4f937af47adddab">std::log</a>(sc) / <a class="code" href="namespaceemsr.html#ad0ccee3147194cc2f4f937af47adddab">std::log</a>(base) + 0.5);</div>
+<div class="line"><a name="l00537"></a><span class="lineno">  537</span>&#160;        l = <span class="keywordtype">int</span>(std::log(sc) / std::log(base) + 0.5);</div>
 <div class="line"><a name="l00538"></a><span class="lineno">  538</span>&#160;        fn_val = std::pow(base, l);</div>
 <div class="line"><a name="l00539"></a><span class="lineno">  539</span>&#160;        <span class="keywordflow">return</span> fn_val;</div>
 <div class="line"><a name="l00540"></a><span class="lineno">  540</span>&#160;    }</div>
@@ -629,17 +629,7 @@ $(document).ready(function(){initNavTree('solver__jenkins__traub__complex_8tcc_s
 <div class="line"><a name="l00542"></a><span class="lineno">  542</span>&#160; </div>
 <div class="line"><a name="l00543"></a><span class="lineno">  543</span>&#160;} <span class="comment">// namespace emsr</span></div>
 <div class="line"><a name="l00544"></a><span class="lineno">  544</span>&#160; </div>
-<div class="line"><a name="l00545"></a><span class="lineno">  545</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// SOLVER_JENKINS_TRAUB_COMPLEX_TCC</span></div>
-<div class="ttc" id="aclassemsr_1_1JenkinsTraubSolver_3_01std_1_1complex_3_01Real_01_4_01_4_html_a012a9846916d334658cd7332b556eb89"><div class="ttname"><a href="classemsr_1_1JenkinsTraubSolver_3_01std_1_1complex_3_01Real_01_4_01_4.html#a012a9846916d334658cd7332b556eb89">emsr::JenkinsTraubSolver&lt; std::complex&lt; Real &gt; &gt;::solve</a></div><div class="ttdeci">std::vector&lt; Cmplx &gt; solve()</div><div class="ttdef"><b>Definition:</b> <a href="solver__jenkins__traub__complex_8tcc_source.html#l00043">solver_jenkins_traub_complex.tcc:43</a></div></div>
-<div class="ttc" id="aclassemsr_1_1JenkinsTraubSolver_3_01std_1_1complex_3_01Real_01_4_01_4_html_a95686d5fbc13c25ba5a417c34ef5e71a"><div class="ttname"><a href="classemsr_1_1JenkinsTraubSolver_3_01std_1_1complex_3_01Real_01_4_01_4.html#a95686d5fbc13c25ba5a417c34ef5e71a">emsr::JenkinsTraubSolver&lt; std::complex&lt; Real &gt; &gt;::Cmplx</a></div><div class="ttdeci">std::complex&lt; Real &gt; Cmplx</div><div class="ttdef"><b>Definition:</b> <a href="solver__jenkins__traub__complex_8tcc_source.html#l00022">solver_jenkins_traub_complex.tcc:22</a></div></div>
-<div class="ttc" id="aclassemsr_1_1JenkinsTraubSolver_3_01std_1_1complex_3_01Real_01_4_01_4_html_a9f5638e0e10724f30a94417cf0ba6926"><div class="ttname"><a href="classemsr_1_1JenkinsTraubSolver_3_01std_1_1complex_3_01Real_01_4_01_4.html#a9f5638e0e10724f30a94417cf0ba6926">emsr::JenkinsTraubSolver&lt; std::complex&lt; Real &gt; &gt;::JenkinsTraubSolver</a></div><div class="ttdeci">JenkinsTraubSolver(const std::vector&lt; Cmplx &gt; &amp;op)</div><div class="ttdef"><b>Definition:</b> <a href="solver__jenkins__traub__complex_8tcc_source.html#l00024">solver_jenkins_traub_complex.tcc:24</a></div></div>
-<div class="ttc" id="aclassemsr_1_1JenkinsTraubSolver_html"><div class="ttname"><a href="classemsr_1_1JenkinsTraubSolver.html">emsr::JenkinsTraubSolver</a></div><div class="ttdef"><b>Definition:</b> <a href="solver__jenkins__traub_8h_source.html#l00045">solver_jenkins_traub.h:46</a></div></div>
-<div class="ttc" id="aclassemsr_1_1JenkinsTraubSolver_html_a72e284844d928a0f408594cf755d6d7e"><div class="ttname"><a href="classemsr_1_1JenkinsTraubSolver.html#a72e284844d928a0f408594cf755d6d7e">emsr::JenkinsTraubSolver::solve</a></div><div class="ttdeci">std::vector&lt; Solution&lt; Real &gt; &gt; solve()</div><div class="ttdef"><b>Definition:</b> <a href="solver__jenkins__traub_8tcc_source.html#l00071">solver_jenkins_traub.tcc:71</a></div></div>
-<div class="ttc" id="anamespaceemsr_html"><div class="ttname"><a href="namespaceemsr.html">emsr</a></div><div class="ttdef"><b>Definition:</b> <a href="horner_8h_source.html#l00034">horner.h:35</a></div></div>
-<div class="ttc" id="anamespaceemsr_html_a3b69f1c91fb3480e098db4e4bfe949f2"><div class="ttname"><a href="namespaceemsr.html#a3b69f1c91fb3480e098db4e4bfe949f2">emsr::real</a></div><div class="ttdeci">constexpr Real real(const Solution&lt; Real &gt; &amp;x)</div><div class="ttdef"><b>Definition:</b> <a href="solution_8h_source.html#l00073">solution.h:73</a></div></div>
-<div class="ttc" id="anamespaceemsr_html_a782d36096e8467b4a45a9dc2f89355b2"><div class="ttname"><a href="namespaceemsr.html#a782d36096e8467b4a45a9dc2f89355b2">emsr::abs</a></div><div class="ttdeci">constexpr Real abs(const Solution&lt; Real &gt; &amp;x)</div><div class="ttdef"><b>Definition:</b> <a href="solution_8h_source.html#l00097">solution.h:97</a></div></div>
-<div class="ttc" id="anamespaceemsr_html_a79ddc0cda81a11ab065e5caae9e0907a"><div class="ttname"><a href="namespaceemsr.html#a79ddc0cda81a11ab065e5caae9e0907a">emsr::imag</a></div><div class="ttdeci">constexpr Real imag(const Solution&lt; Real &gt; &amp;x)</div><div class="ttdef"><b>Definition:</b> <a href="solution_8h_source.html#l00085">solution.h:85</a></div></div>
-<div class="ttc" id="anamespaceemsr_html_ad0ccee3147194cc2f4f937af47adddab"><div class="ttname"><a href="namespaceemsr.html#ad0ccee3147194cc2f4f937af47adddab">emsr::log</a></div><div class="ttdeci">double log(double base, double x)</div></div>
+<div class="line"><a name="l00545"></a><span class="lineno">  545</span>&#160;<span class="preprocessor">#</span><span class="preprocessor">endif</span> <span class="comment">// SOLVER_JENKINS_TRAUB_COMPLEX_TCC</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

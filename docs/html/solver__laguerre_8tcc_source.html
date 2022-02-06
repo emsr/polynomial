@@ -107,123 +107,119 @@ $(document).ready(function(){initNavTree('solver__laguerre_8tcc_source.html','')
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">// a copy of the GCC Runtime Library Exception along with this program;</span></div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">// see the files COPYING3 and COPYING.RUNTIME respectively.  If not, see</span></div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">// &lt;http://www.gnu.org/licenses/&gt;.</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">/**</span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment"> * @file solver_laguerre.tcc Class declaration for the Laguerre solver.</span></div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment">/**</span></div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment"> * @def  SOLVER_LAGUERRE_TCC</span></div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment"> *</span></div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment"> * @brief  A guard for the _LaguerreSolver class header.</span></div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#ifndef SOLVER_LAGUERRE_TCC</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="solver__laguerre_8tcc.html#aaad5c81062e54c03d24fdf4231a5406b">   34</a></span>&#160;<span class="preprocessor">#define SOLVER_LAGUERRE_TCC 1</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#</span><span class="preprocessor">ifndef</span> <span class="preprocessor">SOLVER_LAGUERRE_TCC</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="solver__laguerre_8tcc.html#aaad5c81062e54c03d24fdf4231a5406b">   34</a></span>&#160;<span class="preprocessor">#</span><span class="preprocessor">define</span> <span class="preprocessor">SOLVER_LAGUERRE_TCC</span> 1</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceemsr.html">emsr</a></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">namespace</span> <a class="code" href="namespaceemsr.html">emsr</a></div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;{</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment">  /**</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  <span class="comment">/**</span></div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment">   * Find a root of a complex-coefficient polynomial by Laguerre&#39;s method.</span></div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment">   * This routine can be iterated by dividing the original polynomial</span></div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment">   * by the root factor (z - x) where x is the found root and finding</span></div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment">   * the next root.</span></div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment">   */</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Real&gt;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    std::complex&lt;Real&gt;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    LaguerreSolver&lt;Real&gt;::m_root_laguerre()</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> <a class="code" href="namespaceemsr.html">Real</a>&gt;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <a class="code" href="namespaceemsr.html">std</a>::<a class="code" href="namespaceemsr.html">complex</a>&lt;<a class="code" href="namespaceemsr.html">Real</a>&gt;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <a class="code" href="namespaceemsr.html">LaguerreSolver</a>&lt;<a class="code" href="namespaceemsr.html">Real</a>&gt;::<a class="code" href="namespaceemsr.html">m_root_laguerre</a>()</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    {</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;      <span class="keyword">using</span> cmplx = std::complex&lt;Real&gt;;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;      <span class="keyword">using</span> <a class="code" href="namespaceemsr.html">cmplx</a> = <a class="code" href="namespaceemsr.html">std</a>::<a class="code" href="namespaceemsr.html">complex</a>&lt;<a class="code" href="namespaceemsr.html">Real</a>&gt;;</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;      <span class="keyword">const</span> <span class="keyword">auto</span> m = this-&gt;m_poly.degree();</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;      <span class="keyword">const</span> <span class="keywordtype">int</span> max_iter = this-&gt;m_max_iter();</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;      <span class="keyword">const</span> <span class="keyword">auto</span> <a class="code" href="namespaceemsr.html">m</a> = <span class="keyword">this</span>-&gt;<a class="code" href="namespaceemsr.html">m_poly</a>.<a class="code" href="namespaceemsr.html">degree</a>();</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;      <span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="namespaceemsr.html">max_iter</a> = <span class="keyword">this</span>-&gt;<a class="code" href="namespaceemsr.html">m_max_iter</a>();</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;      this-&gt;m_num_iters = 0;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;      <span class="keyword">this</span>-&gt;<a class="code" href="namespaceemsr.html">m_num_iters</a> = 0;</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;      <span class="comment">//if (m == 1)</span></div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="comment">//return -this-&gt;m_poly.cefficient(0) / this-&gt;m_poly.cefficient(1);</span></div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;      cmplx x{};</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;      <span class="keywordflow">for</span> (<span class="keywordtype">int</span> iter = 1; iter &lt;= max_iter; ++iter)</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;      <a class="code" href="namespaceemsr.html">cmplx</a> <a class="code" href="namespaceemsr.html">x</a>{};</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;      <span class="keywordflow">for</span> (<span class="keywordtype">int</span> <a class="code" href="namespaceemsr.html">iter</a> = 1; <a class="code" href="namespaceemsr.html">iter</a> &lt;= <a class="code" href="namespaceemsr.html">max_iter</a>; ++<a class="code" href="namespaceemsr.html">iter</a>)</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        {</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;          ++this-&gt;m_num_iters;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;          ++<span class="keyword">this</span>-&gt;<a class="code" href="namespaceemsr.html">m_num_iters</a>;</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;          <span class="comment">// Efficient computation of the polynomial</span></div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;          <span class="comment">// and its first two derivatives. F stores P&#39;&#39;(x)/2.</span></div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;          <span class="keyword">auto</span> b = this-&gt;m_poly[m];</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;          <span class="keyword">auto</span> err = <a class="code" href="namespaceemsr.html#a782d36096e8467b4a45a9dc2f89355b2">std::abs</a>(b);</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;          <span class="keyword">const</span> <span class="keyword">auto</span> abx = <a class="code" href="namespaceemsr.html#a782d36096e8467b4a45a9dc2f89355b2">std::abs</a>(x);</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;          cmplx d{}, f{};</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;          <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = m - 1; j &gt;= 0; --j)</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;          <span class="keyword">auto</span> <a class="code" href="namespaceemsr.html">b</a> = <span class="keyword">this</span>-&gt;<a class="code" href="namespaceemsr.html">m_poly</a>[<a class="code" href="namespaceemsr.html">m</a>];</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;          <span class="keyword">auto</span> <a class="code" href="namespaceemsr.html">err</a> = <a class="code" href="namespaceemsr.html">std</a>::<a class="code" href="namespaceemsr.html">abs</a>(<a class="code" href="namespaceemsr.html">b</a>);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;          <span class="keyword">const</span> <span class="keyword">auto</span> <a class="code" href="namespaceemsr.html">abx</a> = <a class="code" href="namespaceemsr.html">std</a>::<a class="code" href="namespaceemsr.html">abs</a>(<a class="code" href="namespaceemsr.html">x</a>);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;          <a class="code" href="namespaceemsr.html">cmplx</a> <a class="code" href="namespaceemsr.html">d</a>{}, <a class="code" href="namespaceemsr.html">f</a>{};</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;          <span class="keywordflow">for</span> (<span class="keywordtype">int</span> <a class="code" href="namespaceemsr.html">j</a> = <a class="code" href="namespaceemsr.html">m</a> - 1; <a class="code" href="namespaceemsr.html">j</a> &gt;= 0; --<a class="code" href="namespaceemsr.html">j</a>)</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            {</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;              f = x * f + d;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;              d = x * d + b;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;              b = x * b + this-&gt;m_poly[j];</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;              err = abx * err + <a class="code" href="namespaceemsr.html#a782d36096e8467b4a45a9dc2f89355b2">std::abs</a>(b);</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;              <a class="code" href="namespaceemsr.html">f</a> = <a class="code" href="namespaceemsr.html">x</a> * <a class="code" href="namespaceemsr.html">f</a> + <a class="code" href="namespaceemsr.html">d</a>;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;              <a class="code" href="namespaceemsr.html">d</a> = <a class="code" href="namespaceemsr.html">x</a> * <a class="code" href="namespaceemsr.html">d</a> + <a class="code" href="namespaceemsr.html">b</a>;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;              <a class="code" href="namespaceemsr.html">b</a> = <a class="code" href="namespaceemsr.html">x</a> * <a class="code" href="namespaceemsr.html">b</a> + <span class="keyword">this</span>-&gt;<a class="code" href="namespaceemsr.html">m_poly</a>[<a class="code" href="namespaceemsr.html">j</a>];</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;              <a class="code" href="namespaceemsr.html">err</a> = <a class="code" href="namespaceemsr.html">abx</a> * <a class="code" href="namespaceemsr.html">err</a> + <a class="code" href="namespaceemsr.html">std</a>::<a class="code" href="namespaceemsr.html">abs</a>(<a class="code" href="namespaceemsr.html">b</a>);</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;            }</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;          err *= s_eps;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;          <a class="code" href="namespaceemsr.html">err</a> *= <a class="code" href="namespaceemsr.html">s_eps</a>;</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;          <span class="comment">// Estimate of roundoff error in evaluating polynomial.</span></div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;          <span class="keywordflow">if</span> (<a class="code" href="namespaceemsr.html#a782d36096e8467b4a45a9dc2f89355b2">std::abs</a>(b) &lt;= err) <span class="comment">// We have the root.</span></div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            <span class="keywordflow">return</span> x;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;          <span class="keywordflow">if</span> (<a class="code" href="namespaceemsr.html">std</a>::<a class="code" href="namespaceemsr.html">abs</a>(<a class="code" href="namespaceemsr.html">b</a>) &lt;= <a class="code" href="namespaceemsr.html">err</a>) <span class="comment">// We have the root.</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="namespaceemsr.html">x</a>;</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;          <span class="comment">// Use Laguerre&#39;s formula.</span></div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;          <span class="keyword">const</span> <span class="keyword">auto</span> g = d / b;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;          <span class="keyword">const</span> <span class="keyword">auto</span> g2 = g * g;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;          <span class="keyword">const</span> <span class="keyword">auto</span> h = g2 - Real{2} * f / b;</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;          <span class="keyword">const</span> <span class="keyword">auto</span> sq = std::sqrt(Real(m - 1)</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                                   * (Real(m) * h - g2));</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;          <span class="keyword">auto</span> gp = g + sq;</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;          <span class="keyword">const</span> <span class="keyword">auto</span> gm = g - sq;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;          <span class="keyword">const</span> <span class="keyword">auto</span> abp = <a class="code" href="namespaceemsr.html#a782d36096e8467b4a45a9dc2f89355b2">std::abs</a>(gp);</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;          <span class="keyword">const</span> <span class="keyword">auto</span> abm = <a class="code" href="namespaceemsr.html#a782d36096e8467b4a45a9dc2f89355b2">std::abs</a>(gm);</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;          <span class="keywordflow">if</span> (abp &lt; abm)</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;            gp = gm;</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;          <span class="keyword">const</span> <span class="keyword">auto</span> dx = std::max(abp, abm) &gt; Real{0}</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                          ? Real(m) / gp</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                          : std::polar(Real{1} + abx, Real(iter));</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;          <span class="keyword">const</span> <span class="keyword">auto</span> x1 = x - dx;</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;          <span class="keywordflow">if</span> (x == x1)</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;            <span class="keywordflow">return</span> x;</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;          <span class="keywordflow">if</span> (iter % this-&gt;m_steps_per_frac != 0)</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;            x = x1;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;          <span class="keyword">const</span> <span class="keyword">auto</span> <a class="code" href="namespaceemsr.html">g</a> = <a class="code" href="namespaceemsr.html">d</a> / <a class="code" href="namespaceemsr.html">b</a>;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;          <span class="keyword">const</span> <span class="keyword">auto</span> <a class="code" href="namespaceemsr.html">g2</a> = <a class="code" href="namespaceemsr.html">g</a> * <a class="code" href="namespaceemsr.html">g</a>;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;          <span class="keyword">const</span> <span class="keyword">auto</span> <a class="code" href="namespaceemsr.html">h</a> = <a class="code" href="namespaceemsr.html">g2</a> - <a class="code" href="namespaceemsr.html">Real</a>{2} * <a class="code" href="namespaceemsr.html">f</a> / <a class="code" href="namespaceemsr.html">b</a>;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;          <span class="keyword">const</span> <span class="keyword">auto</span> <a class="code" href="namespaceemsr.html">sq</a> = <a class="code" href="namespaceemsr.html">std</a>::<a class="code" href="namespaceemsr.html">sqrt</a>(<a class="code" href="namespaceemsr.html">Real</a>(<a class="code" href="namespaceemsr.html">m</a> - 1)</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                                   * (<a class="code" href="namespaceemsr.html">Real</a>(<a class="code" href="namespaceemsr.html">m</a>) * <a class="code" href="namespaceemsr.html">h</a> - <a class="code" href="namespaceemsr.html">g2</a>));</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;          <span class="keyword">auto</span> <a class="code" href="namespaceemsr.html">gp</a> = <a class="code" href="namespaceemsr.html">g</a> + <a class="code" href="namespaceemsr.html">sq</a>;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;          <span class="keyword">const</span> <span class="keyword">auto</span> <a class="code" href="namespaceemsr.html">gm</a> = <a class="code" href="namespaceemsr.html">g</a> - <a class="code" href="namespaceemsr.html">sq</a>;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;          <span class="keyword">const</span> <span class="keyword">auto</span> <a class="code" href="namespaceemsr.html">abp</a> = <a class="code" href="namespaceemsr.html">std</a>::<a class="code" href="namespaceemsr.html">abs</a>(<a class="code" href="namespaceemsr.html">gp</a>);</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;          <span class="keyword">const</span> <span class="keyword">auto</span> <a class="code" href="namespaceemsr.html">abm</a> = <a class="code" href="namespaceemsr.html">std</a>::<a class="code" href="namespaceemsr.html">abs</a>(<a class="code" href="namespaceemsr.html">gm</a>);</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;          <span class="keywordflow">if</span> (<a class="code" href="namespaceemsr.html">abp</a> &lt; <a class="code" href="namespaceemsr.html">abm</a>)</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;            <a class="code" href="namespaceemsr.html">gp</a> = <a class="code" href="namespaceemsr.html">gm</a>;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;          <span class="keyword">const</span> <span class="keyword">auto</span> <a class="code" href="namespaceemsr.html">dx</a> = <a class="code" href="namespaceemsr.html">std</a>::<a class="code" href="namespaceemsr.html">max</a>(<a class="code" href="namespaceemsr.html">abp</a>, <a class="code" href="namespaceemsr.html">abm</a>) &gt; <a class="code" href="namespaceemsr.html">Real</a>{0}</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                          ? <a class="code" href="namespaceemsr.html">Real</a>(<a class="code" href="namespaceemsr.html">m</a>) / <a class="code" href="namespaceemsr.html">gp</a></div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                          : <a class="code" href="namespaceemsr.html">std</a>::<a class="code" href="namespaceemsr.html">polar</a>(<a class="code" href="namespaceemsr.html">Real</a>{1} + <a class="code" href="namespaceemsr.html">abx</a>, <a class="code" href="namespaceemsr.html">Real</a>(<a class="code" href="namespaceemsr.html">iter</a>));</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;          <span class="keyword">const</span> <span class="keyword">auto</span> <a class="code" href="namespaceemsr.html">x1</a> = <a class="code" href="namespaceemsr.html">x</a> - <a class="code" href="namespaceemsr.html">dx</a>;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;          <span class="keywordflow">if</span> (<a class="code" href="namespaceemsr.html">x</a> == <a class="code" href="namespaceemsr.html">x1</a>)</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="namespaceemsr.html">x</a>;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;          <span class="keywordflow">if</span> (<a class="code" href="namespaceemsr.html">iter</a> % <span class="keyword">this</span>-&gt;<a class="code" href="namespaceemsr.html">m_steps_per_frac</a> != 0)</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;            <a class="code" href="namespaceemsr.html">x</a> = <a class="code" href="namespaceemsr.html">x1</a>;</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;          <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;            x -= s_frac[iter / this-&gt;m_steps_per_frac] * dx;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;            <a class="code" href="namespaceemsr.html">x</a> -= <a class="code" href="namespaceemsr.html">s_frac</a>[<a class="code" href="namespaceemsr.html">iter</a> / <span class="keyword">this</span>-&gt;<a class="code" href="namespaceemsr.html">m_steps_per_frac</a>] * <a class="code" href="namespaceemsr.html">dx</a>;</div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        }</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;      <span class="keywordflow">throw</span> std::runtime_error(<span class="stringliteral">&quot;m_root_laguerre: Maximum number of iterations exceeded&quot;</span>);</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;      <span class="keywordflow">throw</span> <a class="code" href="namespaceemsr.html">std</a>::<a class="code" href="namespaceemsr.html">runtime_error</a>(<span class="stringliteral">&quot;m_root_laguerre: Maximum number of iterations exceeded&quot;</span>);</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    }</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="comment">  /**</span></div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;  <span class="comment">/**</span></div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="comment">   * Find all solutions of the  polynomial by stepping and </span></div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<span class="comment">   */</span></div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Real&gt;</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    std::vector&lt;std::complex&lt;Real&gt;&gt;</div>
-<div class="line"><a name="l00114"></a><span class="lineno"><a class="line" href="classemsr_1_1LaguerreSolver.html#a6847be772128d5a5a31df46d6da2f833">  114</a></span>&#160;    <a class="code" href="classemsr_1_1LaguerreSolver.html#a6847be772128d5a5a31df46d6da2f833">LaguerreSolver&lt;Real&gt;::solve</a>()</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> <a class="code" href="namespaceemsr.html">Real</a>&gt;</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <a class="code" href="namespaceemsr.html">std</a>::<a class="code" href="namespaceemsr.html">vector</a>&lt;<a class="code" href="namespaceemsr.html">std</a>::<a class="code" href="namespaceemsr.html">complex</a>&lt;<a class="code" href="namespaceemsr.html">Real</a>&gt;&gt;</div>
+<div class="line"><a name="l00114"></a><span class="lineno"><a class="line" href="classemsr_1_1LaguerreSolver.html#a6847be772128d5a5a31df46d6da2f833">  114</a></span>&#160;    <a class="code" href="namespaceemsr.html">LaguerreSolver</a>&lt;<a class="code" href="namespaceemsr.html">Real</a>&gt;::<a class="code" href="namespaceemsr.html">solve</a>()</div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    {</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;      <span class="keyword">using</span> cmplx = std::complex&lt;Real&gt;;</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;      <span class="keyword">using</span> <a class="code" href="namespaceemsr.html">cmplx</a> = <a class="code" href="namespaceemsr.html">std</a>::<a class="code" href="namespaceemsr.html">complex</a>&lt;<a class="code" href="namespaceemsr.html">Real</a>&gt;;</div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; </div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;      std::vector&lt;cmplx&gt; roots;</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;      <span class="keyword">const</span> <span class="keyword">auto</span> deg = this-&gt;m_poly.degree();</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;      roots.reserve(deg);</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;      <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> i = 0; i &lt; deg; ++i)</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;      <a class="code" href="namespaceemsr.html">std</a>::<a class="code" href="namespaceemsr.html">vector</a>&lt;<a class="code" href="namespaceemsr.html">cmplx</a>&gt; <a class="code" href="namespaceemsr.html">roots</a>;</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;      <span class="keyword">const</span> <span class="keyword">auto</span> <a class="code" href="namespaceemsr.html">deg</a> = <span class="keyword">this</span>-&gt;<a class="code" href="namespaceemsr.html">m_poly</a>.<a class="code" href="namespaceemsr.html">degree</a>();</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;      <a class="code" href="namespaceemsr.html">roots</a>.<a class="code" href="namespaceemsr.html">reserve</a>(<a class="code" href="namespaceemsr.html">deg</a>);</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;      <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <a class="code" href="namespaceemsr.html">i</a> = 0; <a class="code" href="namespaceemsr.html">i</a> &lt; <a class="code" href="namespaceemsr.html">deg</a>; ++<a class="code" href="namespaceemsr.html">i</a>)</div>
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;        {</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;          <span class="keyword">const</span> <span class="keyword">auto</span> z0 = this-&gt;m_root_laguerre();</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;          <span class="keyword">const</span> <span class="keyword">auto</span> <a class="code" href="namespaceemsr.html">z0</a> = <span class="keyword">this</span>-&gt;<a class="code" href="namespaceemsr.html">m_root_laguerre</a>();</div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160; </div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;          <a class="code" href="classemsr_1_1Polynomial.html">Polynomial&lt;cmplx&gt;</a> zpoly({-z0, cmplx{1}});</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;          this-&gt;m_poly /= zpoly;</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;          <a class="code" href="namespaceemsr.html">Polynomial</a>&lt;<a class="code" href="namespaceemsr.html">cmplx</a>&gt; <a class="code" href="namespaceemsr.html">zpoly</a>({-<a class="code" href="namespaceemsr.html">z0</a>, <a class="code" href="namespaceemsr.html">cmplx</a>{1}});</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;          <span class="keyword">this</span>-&gt;<a class="code" href="namespaceemsr.html">m_poly</a> /= <a class="code" href="namespaceemsr.html">zpoly</a>;</div>
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160; </div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;          roots.push_back(z0);</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;          <a class="code" href="namespaceemsr.html">roots</a>.<a class="code" href="namespaceemsr.html">push_back</a>(<a class="code" href="namespaceemsr.html">z0</a>);</div>
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;        }</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;      <span class="keywordflow">return</span> roots;</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;      <span class="keywordflow">return</span> <a class="code" href="namespaceemsr.html">roots</a>;</div>
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    }</div>
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160; </div>
 <div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;} <span class="comment">// namespace emsr</span></div>
 <div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160; </div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// SOLVER_LAGUERRE_TCC</span></div>
-<div class="ttc" id="aclassemsr_1_1LaguerreSolver_html_a6847be772128d5a5a31df46d6da2f833"><div class="ttname"><a href="classemsr_1_1LaguerreSolver.html#a6847be772128d5a5a31df46d6da2f833">emsr::LaguerreSolver::solve</a></div><div class="ttdeci">std::vector&lt; std::complex&lt; Real &gt; &gt; solve()</div><div class="ttdef"><b>Definition:</b> <a href="solver__laguerre_8tcc_source.html#l00114">solver_laguerre.tcc:114</a></div></div>
-<div class="ttc" id="aclassemsr_1_1Polynomial_html"><div class="ttname"><a href="classemsr_1_1Polynomial.html">emsr::Polynomial</a></div><div class="ttdoc">A dense polynomial class with a contiguous array of coefficients. The coefficients are lowest-order f...</div><div class="ttdef"><b>Definition:</b> <a href="polynomial_8h_source.html#l00136">polynomial.h:137</a></div></div>
-<div class="ttc" id="anamespaceemsr_html"><div class="ttname"><a href="namespaceemsr.html">emsr</a></div><div class="ttdef"><b>Definition:</b> <a href="horner_8h_source.html#l00034">horner.h:35</a></div></div>
-<div class="ttc" id="anamespaceemsr_html_a782d36096e8467b4a45a9dc2f89355b2"><div class="ttname"><a href="namespaceemsr.html#a782d36096e8467b4a45a9dc2f89355b2">emsr::abs</a></div><div class="ttdeci">constexpr Real abs(const Solution&lt; Real &gt; &amp;x)</div><div class="ttdef"><b>Definition:</b> <a href="solution_8h_source.html#l00097">solution.h:97</a></div></div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;<span class="preprocessor">#</span><span class="preprocessor">endif</span> <span class="comment">// SOLVER_LAGUERRE_TCC</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

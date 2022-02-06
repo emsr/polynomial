@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['has_5fimag_5fv_529',['has_imag_v',['../namespaceemsr.html#a5bf2c62dcc64e44b8b65766f71d8aa64',1,'emsr']]],
-  ['has_5fvalue_5ftype_5fv_530',['has_value_type_v',['../namespaceemsr.html#a59e13ee841ec1f2dbfb09ed021036d3a',1,'emsr']]]
+  ['int_5fpart_340',['int_part',['../structemsr_1_1modf__t.html#a712c05c645be309f315519d0e444beef',1,'emsr::modf_t']]],
+  ['integral_341',['integral',['../classemsr_1_1Polynomial.html#a5a05faaacfd4b5f6f76e2fa4f985a022',1,'emsr::Polynomial']]]
 ];
