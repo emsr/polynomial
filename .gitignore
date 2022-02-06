@@ -19,6 +19,8 @@ obj
 bin
 build
 
+Doxyfile.bak
+
 CMakeCache.txt
 CMakeFiles/
 CMakeLists.txt
