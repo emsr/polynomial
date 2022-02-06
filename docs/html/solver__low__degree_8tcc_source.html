@@ -106,7 +106,7 @@ $(document).ready(function(){initNavTree('solver__low__degree_8tcc_source.html',
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">// You should have received a copy of the GNU General Public License and</span></div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">// a copy of the GCC Runtime Library Exception along with this program;</span></div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">// see the files COPYING3 and COPYING.RUNTIME respectively.  If not, see</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">// &lt;http://www.gnu.org/licenses/&gt;.</span><span class="comment"></span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">// &lt;http://www.gnu.org/licenses/&gt;.</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">/**</span></div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment"> * @file solver_low_degree.h</span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment"> *</span></div>
@@ -116,27 +116,27 @@ $(document).ready(function(){initNavTree('solver__low__degree_8tcc_source.html',
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment"> * quadratic, cubic, and quartic equations with real coefficients.</span></div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment">/**</span></div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment"> * @def  SOLVER_LOW_DEGREE_TCC</span></div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment"> *</span></div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment"> * @brief  A guard for the low-degree polynomial solver functions header.</span></div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#ifndef SOLVER_LOW_DEGREE_TCC</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="solver__low__degree_8tcc.html#a40525733382aa03bc4482c2e934956d1">   39</a></span>&#160;<span class="preprocessor">#define SOLVER_LOW_DEGREE_TCC 1</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#</span><span class="preprocessor">ifndef</span> <span class="preprocessor">SOLVER_LOW_DEGREE_TCC</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="solver__low__degree_8tcc.html#a40525733382aa03bc4482c2e934956d1">   39</a></span>&#160;<span class="preprocessor">#</span><span class="preprocessor">define</span> <span class="preprocessor">SOLVER_LOW_DEGREE_TCC</span> 1</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceemsr.html">emsr</a></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keyword">namespace</span> <a class="code" href="namespaceemsr.html">emsr</a></div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;{</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment">  /**</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  <span class="comment">/**</span></div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment">   * Refine a solution using the Newton method:</span></div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment">   * @f[</span></div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="comment">   *    x_{n+1} - x_n = -\frac{P(x_n)}{P&#39;(x_n)}</span></div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="comment">   * @f]</span></div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="comment">   */</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  <span class="keyword">template</span>&lt;std::<span class="keywordtype">size_t</span> _Dim, <span class="keyword">typename</span> _Iter, <span class="keyword">typename</span> _NumTp&gt;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  <span class="keyword">template</span>&lt;std::size_t _Dim, <span class="keyword">typename</span> _Iter, <span class="keyword">typename</span> _NumTp&gt;</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    _NumTp</div>
-<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="namespaceemsr.html#a771083ec16ae63a6c0a545c7bef25d9a">   52</a></span>&#160;    <a class="code" href="namespaceemsr.html#a0c391643349e3d33d22c04af7e639e59">refine_solution_newton</a>(_NumTp z, <span class="keyword">const</span> _Iter&amp; _CC)</div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="namespaceemsr.html#a771083ec16ae63a6c0a545c7bef25d9a">   52</a></span>&#160;    <a class="code" href="namespaceemsr.html#a771083ec16ae63a6c0a545c7bef25d9a">refine_solution_newton</a>(_NumTp z, <span class="keyword">const</span> _Iter&amp; _CC)</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    {</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;      <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 3; ++i)</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        {</div>
@@ -153,8 +153,8 @@ $(document).ready(function(){initNavTree('solver__low__degree_8tcc_source.html',
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        }</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;      <span class="keywordflow">return</span> z;</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    }</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="comment">  /**</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;  <span class="comment">/**</span></div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="comment">   * Refine a solution using the Halley method:</span></div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="comment">   * @f[</span></div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="comment">   *    x_{n+1} - x_n = -\frac{2 P(x_n) P&#39;(x_n)}</span></div>
@@ -166,9 +166,9 @@ $(document).ready(function(){initNavTree('solver__low__degree_8tcc_source.html',
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="comment">   *                    {P&#39;(x_n) - [P(x_n) P&#39;&#39;(x_n)]/[2P&#39;(x_n)]}</span></div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="comment">   * @f]</span></div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="comment">   */</span></div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  <span class="keyword">template</span>&lt;std::<span class="keywordtype">size_t</span> _Dim, <span class="keyword">typename</span> _Iter, <span class="keyword">typename</span> _NumTp&gt;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  <span class="keyword">template</span>&lt;std::size_t _Dim, <span class="keyword">typename</span> _Iter, <span class="keyword">typename</span> _NumTp&gt;</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    _NumTp</div>
-<div class="line"><a name="l00084"></a><span class="lineno"><a class="line" href="namespaceemsr.html#aac71b8e58e2db0192f8d87514170f8c3">   84</a></span>&#160;    <a class="code" href="namespaceemsr.html#aa39848f35781685f7348bd000d4c8f04">refine_solution_halley</a>(_NumTp z, <span class="keyword">const</span> _Iter&amp; _CC)</div>
+<div class="line"><a name="l00084"></a><span class="lineno"><a class="line" href="namespaceemsr.html#aac71b8e58e2db0192f8d87514170f8c3">   84</a></span>&#160;    <a class="code" href="namespaceemsr.html#aac71b8e58e2db0192f8d87514170f8c3">refine_solution_halley</a>(_NumTp z, <span class="keyword">const</span> _Iter&amp; _CC)</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    {</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;      <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 3; ++i)</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        {</div>
@@ -192,22 +192,22 @@ $(document).ready(function(){initNavTree('solver__low__degree_8tcc_source.html',
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;      <span class="keywordflow">return</span> z;</div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    }</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;  <span class="keyword">template</span>&lt;std::<span class="keywordtype">size_t</span> _Dim, <span class="keyword">typename</span> _Iter, <span class="keyword">typename</span> Real&gt;</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;  <span class="keyword">template</span>&lt;<a class="code" href="namespaceemsr.html#abbb77296ece59944a997721abe25c58a">std</a>::<a class="code" href="namespaceemsr.html#abbb77296ece59944a997721abe25c58a">size_t</a> <a class="code" href="namespaceemsr.html#abbb77296ece59944a997721abe25c58a">_Dim</a>, <span class="keyword">typename</span> <a class="code" href="namespaceemsr.html#abbb77296ece59944a997721abe25c58a">_Iter</a>, <span class="keyword">typename</span> <a class="code" href="namespaceemsr.html#abbb77296ece59944a997721abe25c58a">Real</a>&gt;</div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    <span class="keywordtype">void</span></div>
-<div class="line"><a name="l00110"></a><span class="lineno"><a class="line" href="namespaceemsr.html#abbb77296ece59944a997721abe25c58a">  110</a></span>&#160;    <a class="code" href="namespaceemsr.html#abbb77296ece59944a997721abe25c58a">refine_solutions</a>(std::array&lt;<a class="code" href="structemsr_1_1Solution.html">Solution&lt;Real&gt;</a>, _Dim - 1&gt;&amp; _ZZ, <span class="keyword">const</span> _Iter&amp; _CC)</div>
+<div class="line"><a name="l00110"></a><span class="lineno"><a class="line" href="namespaceemsr.html#abbb77296ece59944a997721abe25c58a">  110</a></span>&#160;    <a class="code" href="namespaceemsr.html#abbb77296ece59944a997721abe25c58a">refine_solutions</a>(<a class="code" href="namespaceemsr.html">std</a>::<a class="code" href="namespaceemsr.html">array</a>&lt;<a class="code" href="namespaceemsr.html">Solution</a>&lt;<a class="code" href="namespaceemsr.html">Real</a>&gt;, <a class="code" href="namespaceemsr.html">_Dim</a> - 1&gt;&amp; <a class="code" href="namespaceemsr.html">_ZZ</a>, <span class="keyword">const</span> <a class="code" href="namespaceemsr.html">_Iter</a>&amp; <a class="code" href="namespaceemsr.html">_CC</a>)</div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    {</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;      <span class="keywordflow">for</span> (std::size_t i = 0; i &lt; _Dim - 1; ++i)</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;      <span class="keywordflow">for</span> (<a class="code" href="namespaceemsr.html">std</a>::<a class="code" href="namespaceemsr.html">size_t</a> <a class="code" href="namespaceemsr.html">i</a> = 0; <a class="code" href="namespaceemsr.html">i</a> &lt; <a class="code" href="namespaceemsr.html">_Dim</a> - 1; ++<a class="code" href="namespaceemsr.html">i</a>)</div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        {</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;          <span class="keywordflow">if</span> (_ZZ[i].index() == 0)</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;          <span class="keywordflow">if</span> (<a class="code" href="namespaceemsr.html">_ZZ</a>[<a class="code" href="namespaceemsr.html">i</a>].<a class="code" href="namespaceemsr.html">index</a>() == 0)</div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;            <span class="keywordflow">continue</span>;</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;          <span class="keywordflow">else</span> <span class="keywordflow">if</span> (_ZZ[i].index() == 1)</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;            _ZZ[i] = refine_solution_newton&lt;_Dim&gt;(std::get&lt;1&gt;(_ZZ[i]), _CC);</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;          <span class="keywordflow">else</span> <span class="keywordflow">if</span> (_ZZ[i].index() == 2)</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;            _ZZ[i] = refine_solution_newton&lt;_Dim&gt;(std::get&lt;2&gt;(_ZZ[i]), _CC);</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;          <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code" href="namespaceemsr.html">_ZZ</a>[<a class="code" href="namespaceemsr.html">i</a>].<a class="code" href="namespaceemsr.html">index</a>() == 1)</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;            <a class="code" href="namespaceemsr.html">_ZZ</a>[<a class="code" href="namespaceemsr.html">i</a>] = <a class="code" href="namespaceemsr.html">refine_solution_newton</a>&lt;<a class="code" href="namespaceemsr.html">_Dim</a>&gt;(<a class="code" href="namespaceemsr.html">std</a>::<a class="code" href="namespaceemsr.html">get</a>&lt;1&gt;(<a class="code" href="namespaceemsr.html">_ZZ</a>[<a class="code" href="namespaceemsr.html">i</a>]), <a class="code" href="namespaceemsr.html">_CC</a>);</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;          <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code" href="namespaceemsr.html">_ZZ</a>[<a class="code" href="namespaceemsr.html">i</a>].<a class="code" href="namespaceemsr.html">index</a>() == 2)</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;            <a class="code" href="namespaceemsr.html">_ZZ</a>[<a class="code" href="namespaceemsr.html">i</a>] = <a class="code" href="namespaceemsr.html">refine_solution_newton</a>&lt;<a class="code" href="namespaceemsr.html">_Dim</a>&gt;(<a class="code" href="namespaceemsr.html">std</a>::<a class="code" href="namespaceemsr.html">get</a>&lt;2&gt;(<a class="code" href="namespaceemsr.html">_ZZ</a>[<a class="code" href="namespaceemsr.html">i</a>]), <a class="code" href="namespaceemsr.html">_CC</a>);</div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;        }</div>
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    }</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;<span class="comment">  /**</span></div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160; </div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;  <span class="comment">/**</span></div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;<span class="comment">   * @brief Finds the roots of a quadratic equation of the form:</span></div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;<span class="comment">   * @f[</span></div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;<span class="comment">   *    a_2 x^2 + a_1 x + a_0 = 0</span></div>
@@ -226,8 +226,8 @@ $(document).ready(function(){initNavTree('solver__low__degree_8tcc_source.html',
 <div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;<span class="comment">   *                  of the quadratic equation.</span></div>
 <div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;<span class="comment">   */</span></div>
 <div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Real, <span class="keyword">typename</span> _Iter&gt;</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    std::array&lt;Solution&lt;Real&gt;, 2&gt;</div>
-<div class="line"><a name="l00143"></a><span class="lineno"><a class="line" href="namespaceemsr.html#ab1354c9f828ac3f5761e03435aabf136">  143</a></span>&#160;    <a class="code" href="namespaceemsr.html#a00b524d40ae2c1c9a280df4408c8fed2">quadratic</a>(<span class="keyword">const</span> _Iter&amp; _CC)</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    <a class="code" href="namespaceemsr.html#a00b524d40ae2c1c9a280df4408c8fed2">std</a>::<a class="code" href="namespaceemsr.html#a00b524d40ae2c1c9a280df4408c8fed2">array</a>&lt;<a class="code" href="namespaceemsr.html#a00b524d40ae2c1c9a280df4408c8fed2">Solution</a>&lt;<a class="code" href="namespaceemsr.html#a00b524d40ae2c1c9a280df4408c8fed2">Real</a>&gt;, 2&gt;</div>
+<div class="line"><a name="l00143"></a><span class="lineno"><a class="line" href="namespaceemsr.html#ab1354c9f828ac3f5761e03435aabf136">  143</a></span>&#160;    <a class="code" href="namespaceemsr.html#a00b524d40ae2c1c9a280df4408c8fed2">quadratic</a>(<span class="keyword">const</span> <a class="code" href="namespaceemsr.html#a00b524d40ae2c1c9a280df4408c8fed2">_Iter</a>&amp; <a class="code" href="namespaceemsr.html#a00b524d40ae2c1c9a280df4408c8fed2">_CC</a>)</div>
 <div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    {</div>
 <div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;      std::array&lt;Solution&lt;Real&gt;, 2&gt; _ZZ;</div>
 <div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160; </div>
@@ -262,7 +262,7 @@ $(document).ready(function(){initNavTree('solver__low__degree_8tcc_source.html',
 <div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;            {</div>
 <div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;              <span class="comment">// The roots are complex conjugates.</span></div>
 <div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;              <span class="keyword">const</span> <span class="keyword">auto</span> _ReZZ = -_CC[1] / (Real{2} * _CC[2]);</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;              <span class="keyword">const</span> <span class="keyword">auto</span> _ImZZ = std::sqrt(<a class="code" href="namespaceemsr.html#a782d36096e8467b4a45a9dc2f89355b2">std::abs</a>(_QQ)) / (Real{2} * _CC[2]);</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;              <span class="keyword">const</span> <span class="keyword">auto</span> _ImZZ = std::sqrt(std::abs(_QQ)) / (Real{2} * _CC[2]);</div>
 <div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;              _ZZ[0] = std::complex&lt;Real&gt;(_ReZZ, -_ImZZ);</div>
 <div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;              _ZZ[1] = std::complex&lt;Real&gt;(_ReZZ, _ImZZ);</div>
 <div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;            }</div>
@@ -279,8 +279,8 @@ $(document).ready(function(){initNavTree('solver__low__degree_8tcc_source.html',
 <div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;      <span class="keywordflow">return</span> _ZZ;</div>
 <div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;    }</div>
 <div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160; </div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;<span class="comment">  /**</span></div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160; </div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;  <span class="comment">/**</span></div>
 <div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;<span class="comment">   * @brief Finds the roots of a cubic equation of the form:</span></div>
 <div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;<span class="comment">   * @f[</span></div>
 <div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;<span class="comment">   *    a_3 x^3 + a_2 x^2 + a_1 x + a_0 = 0</span></div>
@@ -299,8 +299,8 @@ $(document).ready(function(){initNavTree('solver__low__degree_8tcc_source.html',
 <div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;<span class="comment">   *                  of the cubic equation</span></div>
 <div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;<span class="comment">   */</span></div>
 <div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Real, <span class="keyword">typename</span> Iter&gt;</div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;    std::array&lt;Solution&lt;Real&gt;, 3&gt;</div>
-<div class="line"><a name="l00216"></a><span class="lineno"><a class="line" href="namespaceemsr.html#affe4f64b8e546b29054514e013560ea0">  216</a></span>&#160;    <a class="code" href="namespaceemsr.html#affe4f64b8e546b29054514e013560ea0">cubic</a>(<span class="keyword">const</span> Iter&amp; CC)</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;    <a class="code" href="namespaceemsr.html#affe4f64b8e546b29054514e013560ea0">std</a>::<a class="code" href="namespaceemsr.html#affe4f64b8e546b29054514e013560ea0">array</a>&lt;<a class="code" href="namespaceemsr.html#affe4f64b8e546b29054514e013560ea0">Solution</a>&lt;<a class="code" href="namespaceemsr.html#affe4f64b8e546b29054514e013560ea0">Real</a>&gt;, 3&gt;</div>
+<div class="line"><a name="l00216"></a><span class="lineno"><a class="line" href="namespaceemsr.html#affe4f64b8e546b29054514e013560ea0">  216</a></span>&#160;    <a class="code" href="namespaceemsr.html#affe4f64b8e546b29054514e013560ea0">cubic</a>(<span class="keyword">const</span> <a class="code" href="namespaceemsr.html#affe4f64b8e546b29054514e013560ea0">Iter</a>&amp; <a class="code" href="namespaceemsr.html#affe4f64b8e546b29054514e013560ea0">CC</a>)</div>
 <div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;    {</div>
 <div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;      std::array&lt;Solution&lt;Real&gt;, 3&gt; ZZ;</div>
 <div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160; </div>
@@ -350,7 +350,7 @@ $(document).ready(function(){initNavTree('solver__low__degree_8tcc_source.html',
 <div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;          <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;            {</div>
 <div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;              <span class="comment">// Calculate the single real root.</span></div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;              <span class="keyword">const</span> <span class="keyword">auto</span> fact = std::cbrt(<a class="code" href="namespaceemsr.html#a782d36096e8467b4a45a9dc2f89355b2">std::abs</a>(RR)</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;              <span class="keyword">const</span> <span class="keyword">auto</span> fact = std::cbrt(std::abs(RR)</div>
 <div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;                                          + std::sqrt(RRp2 - QQp3));</div>
 <div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;              <span class="keyword">const</span> <span class="keyword">auto</span> BB = -std::copysign(fact + QQ / fact, RR);</div>
 <div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;              ZZ[0] = BB - PP;</div>
@@ -369,8 +369,8 @@ $(document).ready(function(){initNavTree('solver__low__degree_8tcc_source.html',
 <div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;      <span class="keywordflow">return</span> ZZ;</div>
 <div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;    }</div>
 <div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160; </div>
-<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;<span class="comment">  /**</span></div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160; </div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;  <span class="comment">/**</span></div>
 <div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;<span class="comment">   * @brief Finds the roots a quartic equation of the form:</span></div>
 <div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;<span class="comment">   * @f[</span></div>
 <div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;<span class="comment">   *     a_4 x^4 + a_3 x^3 + a_2 x^2 + a_1 x + a_0 = 0</span></div>
@@ -390,8 +390,8 @@ $(document).ready(function(){initNavTree('solver__low__degree_8tcc_source.html',
 <div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;<span class="comment">   *                  of the quartic equation.</span></div>
 <div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;<span class="comment">   */</span></div>
 <div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Real, <span class="keyword">typename</span> Iter&gt;</div>
-<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;    std::array&lt;Solution&lt;Real&gt;, 4&gt;</div>
-<div class="line"><a name="l00307"></a><span class="lineno"><a class="line" href="namespaceemsr.html#a822edeea9a631fdca6bd4634d67ee02e">  307</a></span>&#160;    <a class="code" href="namespaceemsr.html#a822edeea9a631fdca6bd4634d67ee02e">quartic</a>(<span class="keyword">const</span> Iter&amp; CC)</div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;    <a class="code" href="namespaceemsr.html#a822edeea9a631fdca6bd4634d67ee02e">std</a>::<a class="code" href="namespaceemsr.html#a822edeea9a631fdca6bd4634d67ee02e">array</a>&lt;<a class="code" href="namespaceemsr.html#a822edeea9a631fdca6bd4634d67ee02e">Solution</a>&lt;<a class="code" href="namespaceemsr.html#a822edeea9a631fdca6bd4634d67ee02e">Real</a>&gt;, 4&gt;</div>
+<div class="line"><a name="l00307"></a><span class="lineno"><a class="line" href="namespaceemsr.html#a822edeea9a631fdca6bd4634d67ee02e">  307</a></span>&#160;    <a class="code" href="namespaceemsr.html#a822edeea9a631fdca6bd4634d67ee02e">quartic</a>(<span class="keyword">const</span> <a class="code" href="namespaceemsr.html#a822edeea9a631fdca6bd4634d67ee02e">Iter</a>&amp; <a class="code" href="namespaceemsr.html#a822edeea9a631fdca6bd4634d67ee02e">CC</a>)</div>
 <div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;    {</div>
 <div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;      std::array&lt;Solution&lt;Real&gt;, 4&gt; ZZ;</div>
 <div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160; </div>
@@ -414,7 +414,7 @@ $(document).ready(function(){initNavTree('solver__low__degree_8tcc_source.html',
 <div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;          <span class="comment">// Solve the biquadratic equation.</span></div>
 <div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;          std::array&lt;Real, 3&gt; AA2{{CC[0], CC[2], CC[4]}};</div>
 <div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;          <span class="keyword">const</span> <span class="keyword">auto</span> ZZ2 = quadratic&lt;Real&gt;(AA2);</div>
-<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;          <span class="keyword">auto</span> sqrt = [](<a class="code" href="structemsr_1_1Solution.html">Solution&lt;Real&gt;</a> z) -&gt; <a class="code" href="structemsr_1_1Solution.html">Solution&lt;Real&gt;</a></div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;          <span class="keyword">auto</span> sqrt = [](Solution&lt;Real&gt; z) -&gt; Solution&lt;Real&gt;</div>
 <div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;                        {</div>
 <div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;                          <span class="keyword">const</span> <span class="keyword">auto</span> idx = z.index();</div>
 <div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;                          <span class="keywordflow">if</span> (idx == 0)</div>
@@ -423,11 +423,11 @@ $(document).ready(function(){initNavTree('solver__low__degree_8tcc_source.html',
 <div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;                            {</div>
 <div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;                              <span class="keyword">auto</span> zz = std::get&lt;1&gt;(z);</div>
 <div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;                              <span class="keywordflow">return</span> zz &lt; Real{0}</div>
-<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;                                   ? <a class="code" href="structemsr_1_1Solution.html">Solution&lt;Real&gt;</a>(std::sqrt(std::complex&lt;Real&gt;(zz)))</div>
-<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;                                   : <a class="code" href="structemsr_1_1Solution.html">Solution&lt;Real&gt;</a>(std::sqrt(zz));</div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;                                   ? Solution&lt;Real&gt;(std::sqrt(std::complex&lt;Real&gt;(zz)))</div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;                                   : Solution&lt;Real&gt;(std::sqrt(zz));</div>
 <div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;                            }</div>
 <div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;                          <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;                            <span class="keywordflow">return</span> <a class="code" href="structemsr_1_1Solution.html">Solution&lt;Real&gt;</a>(std::sqrt(std::get&lt;2&gt;(z)));</div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;                            <span class="keywordflow">return</span> Solution&lt;Real&gt;(std::sqrt(std::get&lt;2&gt;(z)));</div>
 <div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;                        };</div>
 <div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;          ZZ[0] = sqrt(ZZ2[0]);</div>
 <div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;          ZZ[1] = sqrt(ZZ2[1]);</div>
@@ -495,8 +495,8 @@ $(document).ready(function(){initNavTree('solver__low__degree_8tcc_source.html',
 <div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;          <span class="keyword">auto</span> dm = capb - capd;</div>
 <div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;          <span class="keyword">const</span> <span class="keyword">auto</span> t1 = cp * dm + cm * dp;</div>
 <div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;          <span class="keyword">const</span> <span class="keyword">auto</span> t2 = cp * dp + cm * dm;</div>
-<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;          <span class="keywordflow">if</span> (<a class="code" href="namespaceemsr.html#a782d36096e8467b4a45a9dc2f89355b2">std::abs</a>(t2 - AA4[1]) &lt; <a class="code" href="namespaceemsr.html#a782d36096e8467b4a45a9dc2f89355b2">std::abs</a>(t1 - AA4[1]))</div>
-<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;            <a class="code" href="namespaceemsr.html#a8b4e7f7636909dc8a88bc53d81f43eaf">std::swap</a>(dp, dm);</div>
+<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;          <span class="keywordflow">if</span> (std::abs(t2 - AA4[1]) &lt; std::abs(t1 - AA4[1]))</div>
+<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;            std::swap(dp, dm);</div>
 <div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160; </div>
 <div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;          <span class="comment">// Coefficients for the first quadratic equation and find the roots.</span></div>
 <div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;          std::array&lt;Real, 3&gt; AA2;</div>
@@ -521,17 +521,7 @@ $(document).ready(function(){initNavTree('solver__low__degree_8tcc_source.html',
 <div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160; </div>
 <div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;} <span class="comment">// namespace emsr</span></div>
 <div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160; </div>
-<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// SOLVER_LOW_DEGREE_TCC</span></div>
-<div class="ttc" id="anamespaceemsr_html"><div class="ttname"><a href="namespaceemsr.html">emsr</a></div><div class="ttdef"><b>Definition:</b> <a href="horner_8h_source.html#l00034">horner.h:35</a></div></div>
-<div class="ttc" id="anamespaceemsr_html_a00b524d40ae2c1c9a280df4408c8fed2"><div class="ttname"><a href="namespaceemsr.html#a00b524d40ae2c1c9a280df4408c8fed2">emsr::quadratic</a></div><div class="ttdeci">std::array&lt; Solution&lt; Real &gt;, 2 &gt; quadratic(const Iter &amp;coef)</div></div>
-<div class="ttc" id="anamespaceemsr_html_a0c391643349e3d33d22c04af7e639e59"><div class="ttname"><a href="namespaceemsr.html#a0c391643349e3d33d22c04af7e639e59">emsr::refine_solution_newton</a></div><div class="ttdeci">NumTp refine_solution_newton(NumTp z, const Iter &amp;CC)</div></div>
-<div class="ttc" id="anamespaceemsr_html_a782d36096e8467b4a45a9dc2f89355b2"><div class="ttname"><a href="namespaceemsr.html#a782d36096e8467b4a45a9dc2f89355b2">emsr::abs</a></div><div class="ttdeci">constexpr Real abs(const Solution&lt; Real &gt; &amp;x)</div><div class="ttdef"><b>Definition:</b> <a href="solution_8h_source.html#l00097">solution.h:97</a></div></div>
-<div class="ttc" id="anamespaceemsr_html_a822edeea9a631fdca6bd4634d67ee02e"><div class="ttname"><a href="namespaceemsr.html#a822edeea9a631fdca6bd4634d67ee02e">emsr::quartic</a></div><div class="ttdeci">std::array&lt; Solution&lt; Real &gt;, 4 &gt; quartic(const Iter &amp;coef)</div><div class="ttdoc">Finds the roots a quartic equation of the form:</div><div class="ttdef"><b>Definition:</b> <a href="solver__low__degree_8tcc_source.html#l00307">solver_low_degree.tcc:307</a></div></div>
-<div class="ttc" id="anamespaceemsr_html_a8b4e7f7636909dc8a88bc53d81f43eaf"><div class="ttname"><a href="namespaceemsr.html#a8b4e7f7636909dc8a88bc53d81f43eaf">emsr::swap</a></div><div class="ttdeci">void swap(Polynomial&lt; Tp &gt; &amp;pa, Polynomial&lt; Tp &gt; &amp;pb) noexcept(noexcept(pa.swap(pb)))</div><div class="ttdef"><b>Definition:</b> <a href="polynomial_8h_source.html#l01068">polynomial.h:1068</a></div></div>
-<div class="ttc" id="anamespaceemsr_html_aa39848f35781685f7348bd000d4c8f04"><div class="ttname"><a href="namespaceemsr.html#aa39848f35781685f7348bd000d4c8f04">emsr::refine_solution_halley</a></div><div class="ttdeci">NumTp refine_solution_halley(NumTp z, const Iter &amp;CC)</div></div>
-<div class="ttc" id="anamespaceemsr_html_abbb77296ece59944a997721abe25c58a"><div class="ttname"><a href="namespaceemsr.html#abbb77296ece59944a997721abe25c58a">emsr::refine_solutions</a></div><div class="ttdeci">void refine_solutions(std::array&lt; Solution&lt; Real &gt;, _Dim - 1 &gt; &amp;_ZZ, const _Iter &amp;_CC)</div><div class="ttdef"><b>Definition:</b> <a href="solver__low__degree_8tcc_source.html#l00110">solver_low_degree.tcc:110</a></div></div>
-<div class="ttc" id="anamespaceemsr_html_affe4f64b8e546b29054514e013560ea0"><div class="ttname"><a href="namespaceemsr.html#affe4f64b8e546b29054514e013560ea0">emsr::cubic</a></div><div class="ttdeci">std::array&lt; Solution&lt; Real &gt;, 3 &gt; cubic(const Iter &amp;coef)</div><div class="ttdoc">Finds the roots of a cubic equation of the form:</div><div class="ttdef"><b>Definition:</b> <a href="solver__low__degree_8tcc_source.html#l00216">solver_low_degree.tcc:216</a></div></div>
-<div class="ttc" id="astructemsr_1_1Solution_html"><div class="ttname"><a href="structemsr_1_1Solution.html">emsr::Solution</a></div><div class="ttdef"><b>Definition:</b> <a href="solution_8h_source.html#l00048">solution.h:50</a></div></div>
+<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;<span class="preprocessor">#</span><span class="preprocessor">endif</span> <span class="comment">// SOLVER_LOW_DEGREE_TCC</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

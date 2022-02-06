@@ -12,7 +12,6 @@ var annotated_dup =
       [ "JenkinsTraubSolver", "classemsr_1_1JenkinsTraubSolver.html", "classemsr_1_1JenkinsTraubSolver" ],
       [ "JenkinsTraubSolver< std::complex< Real > >", "classemsr_1_1JenkinsTraubSolver_3_01std_1_1complex_3_01Real_01_4_01_4.html", "classemsr_1_1JenkinsTraubSolver_3_01std_1_1complex_3_01Real_01_4_01_4" ],
       [ "LaguerreSolver", "classemsr_1_1LaguerreSolver.html", "classemsr_1_1LaguerreSolver" ],
-      [ "lgamma_t", "structemsr_1_1lgamma__t.html", "structemsr_1_1lgamma__t" ],
       [ "modf_t", "structemsr_1_1modf__t.html", "structemsr_1_1modf__t" ],
       [ "Polynomial", "classemsr_1_1Polynomial.html", "classemsr_1_1Polynomial" ],
       [ "QuadraticSolver", "classemsr_1_1QuadraticSolver.html", "classemsr_1_1QuadraticSolver" ],
@@ -21,9 +20,6 @@ var annotated_dup =
       [ "real_type< Polynomial< Tp > >", "structemsr_1_1real__type_3_01Polynomial_3_01Tp_01_4_01_4.html", "structemsr_1_1real__type_3_01Polynomial_3_01Tp_01_4_01_4" ],
       [ "real_type< std::complex< Tp > >", "structemsr_1_1real__type_3_01std_1_1complex_3_01Tp_01_4_01_4.html", "structemsr_1_1real__type_3_01std_1_1complex_3_01Tp_01_4_01_4" ],
       [ "remquo_t", "structemsr_1_1remquo__t.html", "structemsr_1_1remquo__t" ],
-      [ "reperiod_t", "structemsr_1_1reperiod__t.html", "structemsr_1_1reperiod__t" ],
-      [ "sincos_t", "structemsr_1_1sincos__t.html", "structemsr_1_1sincos__t" ],
-      [ "sinhcosh_t", "structemsr_1_1sinhcosh__t.html", "structemsr_1_1sinhcosh__t" ],
       [ "Solution", "structemsr_1_1Solution.html", "structemsr_1_1Solution" ],
       [ "StaticPolynomial", "classemsr_1_1StaticPolynomial.html", "classemsr_1_1StaticPolynomial" ]
     ] ],

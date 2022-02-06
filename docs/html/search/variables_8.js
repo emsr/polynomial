@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['quo_535',['quo',['../structemsr_1_1divmod__t.html#a8f59a13342c37cdfaa1b09dfe2362b5c',1,'emsr::divmod_t']]],
-  ['quot_536',['quot',['../structemsr_1_1int__quot__t.html#a5f129302c06318cdd8ea8e1a23bb2c97',1,'emsr::int_quot_t']]],
-  ['quotient_537',['quotient',['../structemsr_1_1remquo__t.html#a81186721b013c7e55498efc1f882d9b1',1,'emsr::remquo_t']]]
+  ['value_349',['value',['../structemsr_1_1frexp__t.html#a722465403414e6d3c3ae2f99ab665e43',1,'emsr::frexp_t']]]
 ];

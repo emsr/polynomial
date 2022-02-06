@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['derivative_526',['derivative',['../classemsr_1_1Polynomial.html#a551ee4e0e7f4fa425cce39cb758565bb',1,'emsr::Polynomial']]]
+  ['exp2_336',['exp2',['../structemsr_1_1frexp__t.html#a67882eedb3392e315c86539b91f98998',1,'emsr::frexp_t']]]
 ];
