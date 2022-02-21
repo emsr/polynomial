@@ -877,6 +877,15 @@ namespace emsr
       std::vector<value_type> m_coeff;
     };
 
+  // Deduction guide for iterator pair ctor.
+  template<class InIter>
+    Polynomial(InIter b, InIter e)
+    -> Polynomial<typename std::iterator_traits<InIter>::value_type>;
+
+  template<class InIter>
+    Polynomial(const InIter& xb, const InIter& xe, const InIter& yb)
+     -> Polynomial<typename std::iterator_traits<InIter>::value_type>;
+
   template<typename Tp>
     struct real_type<Polynomial<Tp>>
     { using type = typename Polynomial<Tp>::real_type; };

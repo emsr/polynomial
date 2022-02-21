@@ -180,6 +180,10 @@ namespace emsr
       numer()
       { return this->m_num; }
 
+      value_type
+      numer(value_type x) const
+      { return this->m_num(x); }
+
       const Polynomial<value_type>&
       denom() const
       { return this->m_den; }
@@ -187,6 +191,10 @@ namespace emsr
       Polynomial<value_type>&
       denom()
       { return this->m_den; }
+
+      value_type
+      denom(value_type x) const
+      { return this->m_den(x); }
 
     private:
 
