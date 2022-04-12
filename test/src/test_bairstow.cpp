@@ -24,7 +24,7 @@ template<typename Real>
 	std::cout << "Polynomial order (2 - " << MAX_TERMS - 1 << "; 0 to quit): ";
 	std::cin >> order;
         if (order <= 0)
-          break;
+          return 0;
       }
     std::vector<Real> a(order + 1);
 

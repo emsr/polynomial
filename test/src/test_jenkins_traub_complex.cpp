@@ -14,8 +14,10 @@ test_complex_jenkins_traub()
     std::cout.precision(std::numeric_limits<Real>::digits10);
 
     int degree = 0;
-    std::cout << "Enter degree of polynomial: ";
+    std::cout << "Enter degree of polynomial (0 to quit): ";
     std::cin >> degree;
+    if (degree <= 0)
+        return 0;
 
     std::vector<std::complex<Real>> p(degree + 1);
     for (int i = 0; i <= degree; ++i)
