@@ -108,15 +108,15 @@ namespace emsr
    * Return the solution as a complex number or NaN.
    */
   template<typename Real>
-    constexpr Solution<Real>
+    constexpr std::complex<Real>
     to_complex(const Solution<Real>& x)
     {
       if (x.index() == 0)
-	return Solution<Real>();
+	return std::numeric_limits<Real>::quiet_NaN();
       else if (x.index() == 1)
-	return Solution<Real>(std::complex<Real>(std::get<1>(x)));
+	return std::get<1>(x);
       else
-	return x;
+	return std::get<2>(x);
     }
 
   /**

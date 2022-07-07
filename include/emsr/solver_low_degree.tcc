@@ -47,19 +47,19 @@ namespace emsr
    *    x_{n+1} - x_n = -\frac{P(x_n)}{P'(x_n)}
    * @f]
    */
-  template<std::size_t _Dim, typename _Iter, typename _NumTp>
-    _NumTp
-    refine_solution_newton(_NumTp z, const _Iter& _CC)
+  template<std::size_t Dim, typename Iter, typename NumTp>
+    NumTp
+    refine_solution_newton(NumTp z, const Iter& CC)
     {
       for (int i = 0; i < 3; ++i)
 	{
-	  auto f = _NumTp(_CC[_Dim - 1]);
-	  for (std::size_t j = _Dim - 1; j > 0; --j)
-	    f = _NumTp(_CC[j - 1]) + z * f;
+	  auto f = NumTp(CC[Dim - 1]);
+	  for (std::size_t j = Dim - 1; j > 0; --j)
+	    f = NumTp(CC[j - 1]) + z * f;
 
-	  auto df = _NumTp((_Dim - 1) * _CC[_Dim - 1]);
-	  for (std::size_t j = _Dim - 1; j > 1; --j)
-	    df = _NumTp((j - 1) * _CC[j - 1]) + z * df;
+	  auto df = NumTp((Dim - 1) * CC[Dim - 1]);
+	  for (std::size_t j = Dim - 1; j > 1; --j)
+	    df = NumTp((j - 1) * CC[j - 1]) + z * df;
 
 	  const auto del = f / df;
 	  z -= del;
@@ -79,44 +79,44 @@ namespace emsr
    *                    {P'(x_n) - [P(x_n) P''(x_n)]/[2P'(x_n)]}
    * @f]
    */
-  template<std::size_t _Dim, typename _Iter, typename _NumTp>
-    _NumTp
-    refine_solution_halley(_NumTp z, const _Iter& _CC)
+  template<std::size_t Dim, typename Iter, typename NumTp>
+    NumTp
+    refine_solution_halley(NumTp z, const Iter& CC)
     {
       for (int i = 0; i < 3; ++i)
 	{
-	  auto f = _NumTp(_CC[_Dim - 1]);
-	  for (std::size_t j = _Dim - 1; j > 0; --j)
-	    f = _NumTp(_CC[j - 1]) + z * f;
+	  auto f = NumTp(CC[Dim - 1]);
+	  for (std::size_t j = Dim - 1; j > 0; --j)
+	    f = NumTp(CC[j - 1]) + z * f;
 
-	  auto df = _NumTp((_Dim - 1) * _CC[_Dim - 1]);
-	  for (std::size_t j = _Dim - 1; j > 1; --j)
-	    df = _NumTp((j - 1) * _CC[j - 1]) + z * df;
+	  auto df = NumTp((Dim - 1) * CC[Dim - 1]);
+	  for (std::size_t j = Dim - 1; j > 1; --j)
+	    df = NumTp((j - 1) * CC[j - 1]) + z * df;
 
-	  auto d2f = _NumTp((_Dim - 2) * (_Dim - 1) * _CC[_Dim - 1]);
-	  for (std::size_t j = _Dim - 1; j > 2; --j)
-	    d2f = _NumTp((j - 2) * (j - 1) * _CC[j - 1]) + z * d2f;
+	  auto d2f = NumTp((Dim - 2) * (Dim - 1) * CC[Dim - 1]);
+	  for (std::size_t j = Dim - 1; j > 2; --j)
+	    d2f = NumTp((j - 2) * (j - 1) * CC[j - 1]) + z * d2f;
 
-	  const auto del = _NumTp{2} * f * df
-			   / (_NumTp{2} * df * df - f * d2f);
+	  const auto del = NumTp{2} * f * df
+			   / (NumTp{2} * df * df - f * d2f);
 
 	  z -= del;
 	}
       return z;
     }
 
-  template<std::size_t _Dim, typename _Iter, typename Real>
+  template<std::size_t Dim, typename Iter, typename Real>
     void
-    refine_solutions(std::array<Solution<Real>, _Dim - 1>& _ZZ, const _Iter& _CC)
+    refine_solutions(std::array<Solution<Real>, Dim - 1>& ZZ, const Iter& CC)
     {
-      for (std::size_t i = 0; i < _Dim - 1; ++i)
+      for (std::size_t i = 0; i < Dim - 1; ++i)
 	{
-	  if (_ZZ[i].index() == 0)
+	  if (ZZ[i].index() == 0)
 	    continue;
-	  else if (_ZZ[i].index() == 1)
-	    _ZZ[i] = refine_solution_newton<_Dim>(std::get<1>(_ZZ[i]), _CC);
-	  else if (_ZZ[i].index() == 2)
-	    _ZZ[i] = refine_solution_newton<_Dim>(std::get<2>(_ZZ[i]), _CC);
+	  else if (ZZ[i].index() == 1)
+	    ZZ[i] = refine_solution_newton<Dim>(std::get<1>(ZZ[i]), CC);
+	  else if (ZZ[i].index() == 2)
+	    ZZ[i] = refine_solution_newton<Dim>(std::get<2>(ZZ[i]), CC);
 	}
     }
 
@@ -135,61 +135,61 @@ namespace emsr
    * If the linear coefficient @f$ a_1 @f$ is also zero
    * no valid root is returned.
    *
-   * @param[in] _CC Array that contains the three coefficients
+   * @param[in] CC Array that contains the three coefficients
    *                  of the quadratic equation.
    */
-  template<typename Real, typename _Iter>
+  template<typename Real, typename Iter>
     std::array<Solution<Real>, 2>
-    quadratic(const _Iter& _CC)
+    quadratic(const Iter& CC)
     {
-      std::array<Solution<Real>, 2> _ZZ;
+      std::array<Solution<Real>, 2> ZZ;
 
-      if (_CC[2] == Real{0})
+      if (CC[2] == Real{0})
 	{
 	  // Equation is linear (or completely degenerate).
-	  if (_CC[1] == Real{0})
-	    return _ZZ;
+	  if (CC[1] == Real{0})
+	    return ZZ;
 	  else
 	    {
-	      _ZZ[0] = -_CC[0] / _CC[1];
-	      return _ZZ;
+	      ZZ[0] = -CC[0] / CC[1];
+	      return ZZ;
 	    }
 	}
-      else if (_CC[0] == Real{0})
+      else if (CC[0] == Real{0})
 	{
-	  _ZZ[0] = Real{0};
-	  if (_CC[2] == Real{0})
-	    return _ZZ;
+	  ZZ[0] = Real{0};
+	  if (CC[2] == Real{0})
+	    return ZZ;
 	  else
 	    {
-	      _ZZ[1] = -_CC[1] / _CC[2];
-	      return _ZZ;
+	      ZZ[1] = -CC[1] / CC[2];
+	      return ZZ;
 	    }
 	}
       else
 	{
 	  // The discriminant of a quadratic equation
-	  const auto _QQ = _CC[1] * _CC[1] - Real{4} * _CC[2] * _CC[0];
+	  const auto QQ = CC[1] * CC[1] - Real{4} * CC[2] * CC[0];
 
-	  if (_QQ < Real{0})
+	  if (QQ < Real{0})
 	    {
 	      // The roots are complex conjugates.
-	      const auto _ReZZ = -_CC[1] / (Real{2} * _CC[2]);
-	      const auto _ImZZ = std::sqrt(std::abs(_QQ)) / (Real{2} * _CC[2]);
-	      _ZZ[0] = std::complex<Real>(_ReZZ, -_ImZZ);
-	      _ZZ[1] = std::complex<Real>(_ReZZ, _ImZZ);
+	      const auto ReZZ = -CC[1] / (Real{2} * CC[2]);
+	      const auto ImZZ = std::sqrt(std::abs(QQ)) / (Real{2} * CC[2]);
+	      ZZ[0] = std::complex<Real>(ReZZ, -ImZZ);
+	      ZZ[1] = std::complex<Real>(ReZZ, ImZZ);
 	    }
 	  else
 	    {
 	      // The roots are real.
-	      Real temp = -(_CC[1]
-			+ std::copysign(std::sqrt(_QQ), _CC[1])) / Real{2};
-	      _ZZ[0] = temp / _CC[2];
-	      _ZZ[1] = _CC[0] / temp;
+	      Real temp = -(CC[1]
+			+ std::copysign(std::sqrt(QQ), CC[1])) / Real{2};
+	      ZZ[0] = temp / CC[2];
+	      ZZ[1] = CC[0] / temp;
 	    }
 	}
 
-      return _ZZ;
+      return ZZ;
     }
 
 
@@ -208,7 +208,7 @@ namespace emsr
    * the problem is referred to the quadratic solver to return, at most,
    * two valid roots.
    *
-   * @param[in] _CC Array that contains the four coefficients
+   * @param[in] CC Array that contains the four coefficients
    *                  of the cubic equation
    */
   template<typename Real, typename Iter>
