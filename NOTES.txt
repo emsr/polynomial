@@ -1,0 +1,14 @@
+
+I was pissed because simple solvers were difficult to use. So I starte hacking solver_low_degree.
+  * [x]  So far, I just un-uglified stuff.  
+  * [ ]  I need to flip Iter and Real and extract Real =  by default  
+  * [ ]  The latest NRiC puts bounds on Newton and Halley to keep them from taking off.  
+  * [ ]  Instead of returning std::array<Solution<>> maybe have an OutIter argument - more algoish?
+This fails:
+  template<typename Iter, typename Real = emsr::value_t<std::decay_t<decltype(std::declval<Iter>()[0])>>>
+    quadratic...
+Maybe go off and inch forwards on a toy.
+  * [ ] The low-degree solvers are real coeffs only!!!! That's why you can't have nice thinga!
+
+I'm also trying to get the Skowron-Gould solver up and running.  
+  * [ ]  S-G uses little endian polynomials! I should be able to use tools like Polynomial!.  
