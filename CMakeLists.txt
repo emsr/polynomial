@@ -94,6 +94,18 @@ add_test(NAME run_test_jenkins_traub_complex_9 COMMAND bash -c "${CMAKE_BINARY_D
 add_test(NAME test_jenkins_traub_complex_complex_1 COMMAND bash -c "${CMAKE_BINARY_DIR}/bin/test_jenkins_traub_complex < ${CMAKE_CURRENT_BINARY_DIR}/complex_solver1.in > output/test_jenkins_traub_complex_complex_1.txt")
 add_test(NAME test_jenkins_traub_complex_complex_2 COMMAND bash -c "${CMAKE_BINARY_DIR}/bin/test_jenkins_traub_complex < ${CMAKE_CURRENT_BINARY_DIR}/complex_solver2.in > output/test_jenkins_traub_complex_complex_2.txt")
 
+add_executable(test_solver_skowron_gould test/src/test_solver_skowron_gould.cpp)
+target_link_libraries(test_solver_skowron_gould cxx_polynomial quadmath)
+add_test(NAME test_skowron_gould_1 "${CMAKE_BINARY_DIR}/test_solver_skowron_gould < ${CMAKE_CURRENT_BINARY_DIR}/test/input/test_skowron_gould_1.in > output/test_skowron_gould_1.txt")
+add_test(NAME test_skowron_gould_2 "${CMAKE_BINARY_DIR}/test_solver_skowron_gould < ${CMAKE_CURRENT_BINARY_DIR}/test/input/test_skowron_gould_2.in > output/test_skowron_gould_2.txt")
+add_test(NAME test_skowron_gould_3 "${CMAKE_BINARY_DIR}/test_solver_skowron_gould < ${CMAKE_CURRENT_BINARY_DIR}/test/input/test_skowron_gould_3.in > output/test_skowron_gould_3.txt")
+add_test(NAME test_skowron_gould_4 "${CMAKE_BINARY_DIR}/test_solver_skowron_gould < ${CMAKE_CURRENT_BINARY_DIR}/test/input/test_skowron_gould_4.in > output/test_skowron_gould_4.txt")
+add_test(NAME test_skowron_gould_5 "${CMAKE_BINARY_DIR}/test_solver_skowron_gould < ${CMAKE_CURRENT_BINARY_DIR}/test/input/test_skowron_gould_5.in > output/test_skowron_gould_5.txt")
+add_test(NAME test_skowron_gould_6 "${CMAKE_BINARY_DIR}/test_solver_skowron_gould < ${CMAKE_CURRENT_BINARY_DIR}/test/input/test_skowron_gould_6.in > output/test_skowron_gould_6.txt")
+add_test(NAME test_skowron_gould_7 "${CMAKE_BINARY_DIR}/test_solver_skowron_gould < ${CMAKE_CURRENT_BINARY_DIR}/test/input/test_skowron_gould_7.in > output/test_skowron_gould_7.txt")
+add_test(NAME test_skowron_gould_8 "${CMAKE_BINARY_DIR}/test_solver_skowron_gould < ${CMAKE_CURRENT_BINARY_DIR}/test/input/test_skowron_gould_8.in > output/test_skowron_gould_8.txt")
+add_test(NAME test_skowron_gould_9 "${CMAKE_BINARY_DIR}/test_solver_skowron_gould < ${CMAKE_CURRENT_BINARY_DIR}/test/input/test_skowron_gould_9.in > output/test_skowron_gould_9.txt")
+
 add_executable(test_polynomial test/src/test_polynomial.cpp)
 target_link_libraries(test_polynomial cxx_polynomial quadmath)
 add_test(NAME run_test_polynomial COMMAND bash -c "${CMAKE_BINARY_DIR}/bin/test_polynomial > output/test_polynomial.txt")

@@ -54,7 +54,7 @@ namespace emsr
 
       Cmplx c, b;
       Poly q, qq, rem;
-      for (int iter = 0; iter < this->m_max_iter; ++iter)
+      for (int iter = 0; iter < this->m_max_num_iters; ++iter)
 	{
 	  ++this->m_num_iters;
 

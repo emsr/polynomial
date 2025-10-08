@@ -1,0 +1,57 @@
+
+double
+======
+Enter degree: Enter coefficient 0: Enter coefficient 1: Enter coefficient 2: Enter coefficient 3: Enter coefficient 4: Enter coefficient 5: Enter coefficient 6: 
+Zero 0: (-1,-0)
+Zero 1: (-1,0)
+Zero 2: (-1,0)
+Zero 3: (-1,0)
+Zero 4: (-1,0)
+Zero 5: (-1,0)
+
+Solution tests:
+P(z) = ((1,0),(6,0),(2e+01,0),(2e+01,0),(2e+01,0),(6,0),(1,0))
+P((-1,-0)) = (0,0)
+P((-1,0)) = (0,0)
+P((-1,0)) = (0,0)
+P((-1,0)) = (0,0)
+P((-1,0)) = (0,0)
+P((-1,0)) = (0,0)
+
+long double
+===========
+Enter degree: Enter coefficient 0: Enter coefficient 1: Enter coefficient 2: Enter coefficient 3: Enter coefficient 4: Enter coefficient 5: Enter coefficient 6: 
+Zero 0: (-1,-0)
+Zero 1: (-1,0)
+Zero 2: (-1,0)
+Zero 3: (-1,0)
+Zero 4: (-1,0)
+Zero 5: (-1,0)
+
+Solution tests:
+P(z) = ((1,0),(6,0),(2e+01,0),(2e+01,0),(2e+01,0),(6,0),(1,0))
+P((-1,-0)) = (0,0)
+P((-1,0)) = (0,0)
+P((-1,0)) = (0,0)
+P((-1,0)) = (0,0)
+P((-1,0)) = (0,0)
+P((-1,0)) = (0,0)
+
+float
+=====
+Enter degree: Enter coefficient 0: Enter coefficient 1: Enter coefficient 2: Enter coefficient 3: Enter coefficient 4: Enter coefficient 5: Enter coefficient 6: 
+Zero 0: (-1,-0)
+Zero 1: (-1,0)
+Zero 2: (-1,0)
+Zero 3: (-1,0)
+Zero 4: (-1,0)
+Zero 5: (-1,0)
+
+Solution tests:
+P(z) = ((1,0),(6,0),(2e+01,0),(2e+01,0),(2e+01,0),(6,0),(1,0))
+P((-1,-0)) = (0,0)
+P((-1,0)) = (0,0)
+P((-1,0)) = (0,0)
+P((-1,0)) = (0,0)
+P((-1,0)) = (0,0)
+P((-1,0)) = (0,0)

@@ -173,6 +173,13 @@ This scaling thing can only apply to real or complex polynomials.
       };
 
   //  Could/should this be done by output iterator range?
+/*
+internal compiler error: canonical types differ for identical types \u2018std::array<typename std::vector<Tp>::value_type, N>\u2019 and \u2018std::array<typename std::vector<Tp>::value_type, N>\u2019
+  180 |                              std::array<Polynomial<Tp>::value_type, N>& arr)
+      |                                                                            ^
+
+Put the body into the header and it works.
+
   template<typename Tp>
     template<typename Polynomial<Tp>::size_type N>
       void
@@ -200,7 +207,7 @@ This scaling thing can only apply to real or complex polynomials.
 	      }
 	  }
       }
-
+*/
   /**
    * Evaluate the polynomial and its derivatives at the point x.
    * The values are placed in the output range starting with the

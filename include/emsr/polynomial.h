@@ -344,7 +344,29 @@ namespace emsr
 
       template<size_type N>
 	void
-	eval(value_type x, std::array<value_type, N>& arr);
+	eval(value_type x, std::array<value_type, N>& arr)
+        {
+	  if (arr.size() > 0)
+	    {
+	      arr.fill(value_type{});
+	      const size_type sz = m_coeff.size();
+	      arr[0] = this->coefficient(sz - 1);
+              for (int i = sz - 2; i >= 0; --i)
+	        {
+		  int nn = std::min(arr.size() - 1, sz - 1 - i);
+		  for (int j = nn; j >= 1; --j)
+		    arr[j] = std::fma(arr[j], x, arr[j - 1]);
+		  arr[0] = std::fma(arr[0], x, this->coefficient(i));
+	        }
+	      //  Now put in the factorials.
+	      value_type fact = value_type(1);
+	      for (size_type n = arr.size(), i = 2; i < n; ++i)
+	        {
+		  fact *= value_type(i);
+		  arr[i] *= fact;
+	        }
+	    }
+        }
 
       /**
        * Evaluate the polynomial and its derivatives at the point x.

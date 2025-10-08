@@ -25,6 +25,7 @@
 #define NOTSOSPECFUN_H 1
 
 #include <complex>
+#include <cstdint>
 
 // This was from another part of cxx_math and brought here to decouple.
 

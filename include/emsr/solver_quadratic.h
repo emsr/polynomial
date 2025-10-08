@@ -85,7 +85,7 @@ namespace emsr
       // Fractional roundoff error.
       Real m_eps = Real{100} * s_eps;
 
-      int m_max_iter = 50;
+      int m_max_num_iters = 50;
 
       Polynomial<std::complex<Real>> m_root_quadratic();
 
